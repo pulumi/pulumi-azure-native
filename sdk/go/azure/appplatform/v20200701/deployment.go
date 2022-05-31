@@ -63,6 +63,12 @@ func NewDeployment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:appplatform/v20220301preview:Deployment"),
 		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20220401:Deployment"),
+		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20220501preview:Deployment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Deployment

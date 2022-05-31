@@ -11,6 +11,8 @@ import (
 )
 
 // Description of a namespace resource.
+//
+// Deprecated: Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.
 func LookupNamespace(ctx *pulumi.Context, args *LookupNamespaceArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceResult, error) {
 	var rv LookupNamespaceResult
 	err := ctx.Invoke("azure-native:relay/v20170401:getNamespace", args, &rv, opts...)

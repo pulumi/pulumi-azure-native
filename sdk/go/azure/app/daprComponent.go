@@ -92,6 +92,8 @@ func (DaprComponentState) ElementType() reflect.Type {
 }
 
 type daprComponentArgs struct {
+	// Name of the Dapr Component.
+	ComponentName *string `pulumi:"componentName"`
 	// Component type
 	ComponentType *string `pulumi:"componentType"`
 	// Name of the Managed Environment.
@@ -102,8 +104,6 @@ type daprComponentArgs struct {
 	InitTimeout *string `pulumi:"initTimeout"`
 	// Component metadata
 	Metadata []DaprMetadata `pulumi:"metadata"`
-	// Name of the Dapr Component.
-	Name *string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Names of container apps that can use this Dapr component
@@ -116,6 +116,8 @@ type daprComponentArgs struct {
 
 // The set of arguments for constructing a DaprComponent resource.
 type DaprComponentArgs struct {
+	// Name of the Dapr Component.
+	ComponentName pulumi.StringPtrInput
 	// Component type
 	ComponentType pulumi.StringPtrInput
 	// Name of the Managed Environment.
@@ -126,8 +128,6 @@ type DaprComponentArgs struct {
 	InitTimeout pulumi.StringPtrInput
 	// Component metadata
 	Metadata DaprMetadataArrayInput
-	// Name of the Dapr Component.
-	Name pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Names of container apps that can use this Dapr component

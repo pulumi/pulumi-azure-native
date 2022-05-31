@@ -12,7 +12,7 @@ import (
 )
 
 // Guest configuration assignment is an association between a machine and guest configuration.
-// API Version: 2020-06-25.
+// API Version: 2022-01-25.
 type GuestConfigurationHCRPAssignment struct {
 	pulumi.CustomResourceState
 
@@ -22,6 +22,8 @@ type GuestConfigurationHCRPAssignment struct {
 	Name pulumi.StringPtrOutput `pulumi:"name"`
 	// Properties of the Guest configuration assignment.
 	Properties GuestConfigurationAssignmentPropertiesResponseOutput `pulumi:"properties"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The type of the resource.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -39,11 +41,6 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
-	if args.Properties != nil {
-		args.Properties = args.Properties.ToGuestConfigurationAssignmentPropertiesPtrOutput().ApplyT(func(v *GuestConfigurationAssignmentProperties) *GuestConfigurationAssignmentProperties {
-			return v.Defaults()
-		}).(GuestConfigurationAssignmentPropertiesPtrOutput)
-	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"),
@@ -53,6 +50,9 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -170,6 +170,11 @@ func (o GuestConfigurationHCRPAssignmentOutput) Properties() GuestConfigurationA
 	return o.ApplyT(func(v *GuestConfigurationHCRPAssignment) GuestConfigurationAssignmentPropertiesResponseOutput {
 		return v.Properties
 	}).(GuestConfigurationAssignmentPropertiesResponseOutput)
+}
+
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o GuestConfigurationHCRPAssignmentOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *GuestConfigurationHCRPAssignment) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource.

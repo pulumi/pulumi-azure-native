@@ -11,6 +11,8 @@ import (
 )
 
 // Device Update account details.
+//
+// Deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.
 func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.InvokeOption) (*LookupAccountResult, error) {
 	var rv LookupAccountResult
 	err := ctx.Invoke("azure-native:deviceupdate/v20200301preview:getAccount", args, &rv, opts...)

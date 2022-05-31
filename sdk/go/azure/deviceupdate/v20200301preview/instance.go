@@ -12,6 +12,8 @@ import (
 )
 
 // Device Update instance details.
+//
+// Deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.
 type Instance struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewInstance(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:deviceupdate:Instance"),
+		},
+		{
+			Type: pulumi.String("azure-native:deviceupdate/v20220401preview:Instance"),
 		},
 	})
 	opts = append(opts, aliases)

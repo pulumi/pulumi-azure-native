@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AlertRule{}
 	case "azure-native:securityinsights:Anomalies":
 		r = &Anomalies{}
+	case "azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings":
+		r = &AnomalySecurityMLAnalyticsSettings{}
 	case "azure-native:securityinsights:AutomationRule":
 		r = &AutomationRule{}
 	case "azure-native:securityinsights:AwsCloudTrailDataConnector":
@@ -73,6 +75,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ProductSetting{}
 	case "azure-native:securityinsights:ScheduledAlertRule":
 		r = &ScheduledAlertRule{}
+	case "azure-native:securityinsights:SecurityMLAnalyticsSetting":
+		r = &SecurityMLAnalyticsSetting{}
 	case "azure-native:securityinsights:SentinelOnboardingState":
 		r = &SentinelOnboardingState{}
 	case "azure-native:securityinsights:SourceControl":

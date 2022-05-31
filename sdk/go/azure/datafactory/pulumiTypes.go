@@ -7279,6 +7279,8 @@ type DataFlowSink struct {
 	LinkedService *LinkedServiceReference `pulumi:"linkedService"`
 	// Transformation name.
 	Name string `pulumi:"name"`
+	// Rejected data linked service reference.
+	RejectedDataLinkedService *LinkedServiceReference `pulumi:"rejectedDataLinkedService"`
 	// Schema linked service reference.
 	SchemaLinkedService *LinkedServiceReference `pulumi:"schemaLinkedService"`
 }
@@ -7295,6 +7297,8 @@ type DataFlowSinkResponse struct {
 	LinkedService *LinkedServiceReferenceResponse `pulumi:"linkedService"`
 	// Transformation name.
 	Name string `pulumi:"name"`
+	// Rejected data linked service reference.
+	RejectedDataLinkedService *LinkedServiceReferenceResponse `pulumi:"rejectedDataLinkedService"`
 	// Schema linked service reference.
 	SchemaLinkedService *LinkedServiceReferenceResponse `pulumi:"schemaLinkedService"`
 }
@@ -9579,6 +9583,8 @@ type ExecuteDataFlowActivity struct {
 	Policy *ActivityPolicy `pulumi:"policy"`
 	// Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
 	RunConcurrently interface{} `pulumi:"runConcurrently"`
+	// Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
+	SourceStagingConcurrency interface{} `pulumi:"sourceStagingConcurrency"`
 	// Staging info for execute data flow activity.
 	Staging *DataFlowStagingInfo `pulumi:"staging"`
 	// Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
@@ -9612,6 +9618,8 @@ type ExecuteDataFlowActivityResponse struct {
 	Policy *ActivityPolicyResponse `pulumi:"policy"`
 	// Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
 	RunConcurrently interface{} `pulumi:"runConcurrently"`
+	// Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
+	SourceStagingConcurrency interface{} `pulumi:"sourceStagingConcurrency"`
 	// Staging info for execute data flow activity.
 	Staging *DataFlowStagingInfoResponse `pulumi:"staging"`
 	// Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
@@ -9807,6 +9815,8 @@ type ExecuteWranglingDataflowActivity struct {
 	RunConcurrently interface{} `pulumi:"runConcurrently"`
 	// (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
 	Sinks map[string]PowerQuerySink `pulumi:"sinks"`
+	// Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
+	SourceStagingConcurrency interface{} `pulumi:"sourceStagingConcurrency"`
 	// Staging info for execute data flow activity.
 	Staging *DataFlowStagingInfo `pulumi:"staging"`
 	// Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
@@ -9842,6 +9852,8 @@ type ExecuteWranglingDataflowActivityResponse struct {
 	RunConcurrently interface{} `pulumi:"runConcurrently"`
 	// (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
 	Sinks map[string]PowerQuerySinkResponse `pulumi:"sinks"`
+	// Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
+	SourceStagingConcurrency interface{} `pulumi:"sourceStagingConcurrency"`
 	// Staging info for execute data flow activity.
 	Staging *DataFlowStagingInfoResponse `pulumi:"staging"`
 	// Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
@@ -18937,6 +18949,8 @@ type PowerQuerySink struct {
 	LinkedService *LinkedServiceReference `pulumi:"linkedService"`
 	// Transformation name.
 	Name string `pulumi:"name"`
+	// Rejected data linked service reference.
+	RejectedDataLinkedService *LinkedServiceReference `pulumi:"rejectedDataLinkedService"`
 	// Schema linked service reference.
 	SchemaLinkedService *LinkedServiceReference `pulumi:"schemaLinkedService"`
 	// sink script.
@@ -18971,6 +18985,8 @@ type PowerQuerySinkResponse struct {
 	LinkedService *LinkedServiceReferenceResponse `pulumi:"linkedService"`
 	// Transformation name.
 	Name string `pulumi:"name"`
+	// Rejected data linked service reference.
+	RejectedDataLinkedService *LinkedServiceReferenceResponse `pulumi:"rejectedDataLinkedService"`
 	// Schema linked service reference.
 	SchemaLinkedService *LinkedServiceReferenceResponse `pulumi:"schemaLinkedService"`
 	// sink script.
@@ -19761,6 +19777,206 @@ func (o PrivateLinkConnectionStateResponsePtrOutput) Status() pulumi.StringPtrOu
 			return nil
 		}
 		return v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// Purview configuration.
+type PurviewConfiguration struct {
+	// Purview resource id.
+	PurviewResourceId *string `pulumi:"purviewResourceId"`
+}
+
+// PurviewConfigurationInput is an input type that accepts PurviewConfigurationArgs and PurviewConfigurationOutput values.
+// You can construct a concrete instance of `PurviewConfigurationInput` via:
+//
+//          PurviewConfigurationArgs{...}
+type PurviewConfigurationInput interface {
+	pulumi.Input
+
+	ToPurviewConfigurationOutput() PurviewConfigurationOutput
+	ToPurviewConfigurationOutputWithContext(context.Context) PurviewConfigurationOutput
+}
+
+// Purview configuration.
+type PurviewConfigurationArgs struct {
+	// Purview resource id.
+	PurviewResourceId pulumi.StringPtrInput `pulumi:"purviewResourceId"`
+}
+
+func (PurviewConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurviewConfiguration)(nil)).Elem()
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationOutput() PurviewConfigurationOutput {
+	return i.ToPurviewConfigurationOutputWithContext(context.Background())
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationOutputWithContext(ctx context.Context) PurviewConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationOutput)
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return i.ToPurviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i PurviewConfigurationArgs) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationOutput).ToPurviewConfigurationPtrOutputWithContext(ctx)
+}
+
+// PurviewConfigurationPtrInput is an input type that accepts PurviewConfigurationArgs, PurviewConfigurationPtr and PurviewConfigurationPtrOutput values.
+// You can construct a concrete instance of `PurviewConfigurationPtrInput` via:
+//
+//          PurviewConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type PurviewConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput
+	ToPurviewConfigurationPtrOutputWithContext(context.Context) PurviewConfigurationPtrOutput
+}
+
+type purviewConfigurationPtrType PurviewConfigurationArgs
+
+func PurviewConfigurationPtr(v *PurviewConfigurationArgs) PurviewConfigurationPtrInput {
+	return (*purviewConfigurationPtrType)(v)
+}
+
+func (*purviewConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurviewConfiguration)(nil)).Elem()
+}
+
+func (i *purviewConfigurationPtrType) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return i.ToPurviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *purviewConfigurationPtrType) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PurviewConfigurationPtrOutput)
+}
+
+// Purview configuration.
+type PurviewConfigurationOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurviewConfiguration)(nil)).Elem()
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationOutput() PurviewConfigurationOutput {
+	return o
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationOutputWithContext(ctx context.Context) PurviewConfigurationOutput {
+	return o
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return o.ToPurviewConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o PurviewConfigurationOutput) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PurviewConfiguration) *PurviewConfiguration {
+		return &v
+	}).(PurviewConfigurationPtrOutput)
+}
+
+// Purview resource id.
+func (o PurviewConfigurationOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurviewConfiguration) *string { return v.PurviewResourceId }).(pulumi.StringPtrOutput)
+}
+
+type PurviewConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurviewConfiguration)(nil)).Elem()
+}
+
+func (o PurviewConfigurationPtrOutput) ToPurviewConfigurationPtrOutput() PurviewConfigurationPtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationPtrOutput) ToPurviewConfigurationPtrOutputWithContext(ctx context.Context) PurviewConfigurationPtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationPtrOutput) Elem() PurviewConfigurationOutput {
+	return o.ApplyT(func(v *PurviewConfiguration) PurviewConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret PurviewConfiguration
+		return ret
+	}).(PurviewConfigurationOutput)
+}
+
+// Purview resource id.
+func (o PurviewConfigurationPtrOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurviewConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PurviewResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Purview configuration.
+type PurviewConfigurationResponse struct {
+	// Purview resource id.
+	PurviewResourceId *string `pulumi:"purviewResourceId"`
+}
+
+// Purview configuration.
+type PurviewConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PurviewConfigurationResponse)(nil)).Elem()
+}
+
+func (o PurviewConfigurationResponseOutput) ToPurviewConfigurationResponseOutput() PurviewConfigurationResponseOutput {
+	return o
+}
+
+func (o PurviewConfigurationResponseOutput) ToPurviewConfigurationResponseOutputWithContext(ctx context.Context) PurviewConfigurationResponseOutput {
+	return o
+}
+
+// Purview resource id.
+func (o PurviewConfigurationResponseOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PurviewConfigurationResponse) *string { return v.PurviewResourceId }).(pulumi.StringPtrOutput)
+}
+
+type PurviewConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PurviewConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PurviewConfigurationResponse)(nil)).Elem()
+}
+
+func (o PurviewConfigurationResponsePtrOutput) ToPurviewConfigurationResponsePtrOutput() PurviewConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationResponsePtrOutput) ToPurviewConfigurationResponsePtrOutputWithContext(ctx context.Context) PurviewConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o PurviewConfigurationResponsePtrOutput) Elem() PurviewConfigurationResponseOutput {
+	return o.ApplyT(func(v *PurviewConfigurationResponse) PurviewConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PurviewConfigurationResponse
+		return ret
+	}).(PurviewConfigurationResponseOutput)
+}
+
+// Purview resource id.
+func (o PurviewConfigurationResponsePtrOutput) PurviewResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PurviewConfigurationResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PurviewResourceId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -27190,6 +27406,10 @@ func init() {
 	pulumi.RegisterOutputType(PrivateLinkConnectionStatePtrOutput{})
 	pulumi.RegisterOutputType(PrivateLinkConnectionStateResponseOutput{})
 	pulumi.RegisterOutputType(PrivateLinkConnectionStateResponsePtrOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(PurviewConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(RemotePrivateEndpointConnectionResponseOutput{})
 	pulumi.RegisterOutputType(UserAccessPolicyResponseOutput{})
 	pulumi.RegisterOutputType(UserAccessPolicyResponsePtrOutput{})

@@ -11,7 +11,7 @@ import (
 )
 
 // LoadTest details
-// API Version: 2021-12-01-preview.
+// API Version: 2022-04-15-preview.
 func LookupLoadTest(ctx *pulumi.Context, args *LookupLoadTestArgs, opts ...pulumi.InvokeOption) (*LookupLoadTestResult, error) {
 	var rv LookupLoadTestResult
 	err := ctx.Invoke("azure-native:loadtestservice:getLoadTest", args, &rv, opts...)
@@ -22,7 +22,7 @@ func LookupLoadTest(ctx *pulumi.Context, args *LookupLoadTestArgs, opts ...pulum
 }
 
 type LookupLoadTestArgs struct {
-	// Load Test name.
+	// Load Test resource name.
 	LoadTestName string `pulumi:"loadTestName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -34,10 +34,12 @@ type LookupLoadTestResult struct {
 	DataPlaneURI string `pulumi:"dataPlaneURI"`
 	// Description of the resource.
 	Description *string `pulumi:"description"`
+	// CMK Encryption property.
+	Encryption *EncryptionPropertiesResponse `pulumi:"encryption"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// The type of identity used for the resource.
-	Identity *SystemAssignedServiceIdentityResponse `pulumi:"identity"`
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// The name of the resource
@@ -66,7 +68,7 @@ func LookupLoadTestOutput(ctx *pulumi.Context, args LookupLoadTestOutputArgs, op
 }
 
 type LookupLoadTestOutputArgs struct {
-	// Load Test name.
+	// Load Test resource name.
 	LoadTestName pulumi.StringInput `pulumi:"loadTestName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
@@ -101,14 +103,19 @@ func (o LookupLoadTestResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupLoadTestResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+// CMK Encryption property.
+func (o LookupLoadTestResultOutput) Encryption() EncryptionPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v LookupLoadTestResult) *EncryptionPropertiesResponse { return v.Encryption }).(EncryptionPropertiesResponsePtrOutput)
+}
+
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupLoadTestResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupLoadTestResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // The type of identity used for the resource.
-func (o LookupLoadTestResultOutput) Identity() SystemAssignedServiceIdentityResponsePtrOutput {
-	return o.ApplyT(func(v LookupLoadTestResult) *SystemAssignedServiceIdentityResponse { return v.Identity }).(SystemAssignedServiceIdentityResponsePtrOutput)
+func (o LookupLoadTestResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupLoadTestResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // The geo-location where the resource lives

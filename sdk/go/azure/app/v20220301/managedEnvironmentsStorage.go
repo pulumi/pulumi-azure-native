@@ -32,8 +32,8 @@ func NewManagedEnvironmentsStorage(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.EnvName == nil {
-		return nil, errors.New("invalid value for required argument 'EnvName'")
+	if args.EnvironmentName == nil {
+		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -80,25 +80,25 @@ func (ManagedEnvironmentsStorageState) ElementType() reflect.Type {
 
 type managedEnvironmentsStorageArgs struct {
 	// Name of the Environment.
-	EnvName string `pulumi:"envName"`
-	// Name of the storage.
-	Name *string `pulumi:"name"`
+	EnvironmentName string `pulumi:"environmentName"`
 	// Storage properties
 	Properties *ManagedEnvironmentStorageProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the storage.
+	StorageName *string `pulumi:"storageName"`
 }
 
 // The set of arguments for constructing a ManagedEnvironmentsStorage resource.
 type ManagedEnvironmentsStorageArgs struct {
 	// Name of the Environment.
-	EnvName pulumi.StringInput
-	// Name of the storage.
-	Name pulumi.StringPtrInput
+	EnvironmentName pulumi.StringInput
 	// Storage properties
 	Properties ManagedEnvironmentStoragePropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Name of the storage.
+	StorageName pulumi.StringPtrInput
 }
 
 func (ManagedEnvironmentsStorageArgs) ElementType() reflect.Type {

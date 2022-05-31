@@ -12,6 +12,8 @@ import (
 )
 
 // The Private Endpoint Connection resource.
+//
+// Deprecated: Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -60,6 +62,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20211101:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20220515:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

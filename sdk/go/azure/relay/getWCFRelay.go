@@ -11,7 +11,7 @@ import (
 )
 
 // Description of the WCF relay resource.
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 func LookupWCFRelay(ctx *pulumi.Context, args *LookupWCFRelayArgs, opts ...pulumi.InvokeOption) (*LookupWCFRelayResult, error) {
 	var rv LookupWCFRelayResult
 	err := ctx.Invoke("azure-native:relay:getWCFRelay", args, &rv, opts...)
@@ -34,13 +34,15 @@ type LookupWCFRelayArgs struct {
 type LookupWCFRelayResult struct {
 	// The time the WCF relay was created.
 	CreatedAt string `pulumi:"createdAt"`
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
 	// Returns true if the relay is dynamic; otherwise, false.
 	IsDynamic bool `pulumi:"isDynamic"`
 	// The number of listeners for this relay. Note that min :1 and max:25 are supported.
 	ListenerCount int `pulumi:"listenerCount"`
-	// Resource name.
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// WCF relay type.
 	RelayType *string `pulumi:"relayType"`
@@ -48,7 +50,9 @@ type LookupWCFRelayResult struct {
 	RequiresClientAuthorization *bool `pulumi:"requiresClientAuthorization"`
 	// Returns true if transport security is needed for this relay; otherwise, false.
 	RequiresTransportSecurity *bool `pulumi:"requiresTransportSecurity"`
-	// Resource type.
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type string `pulumi:"type"`
 	// The time the namespace was updated.
 	UpdatedAt string `pulumi:"updatedAt"`
@@ -102,7 +106,7 @@ func (o LookupWCFRelayResultOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWCFRelayResult) string { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupWCFRelayResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWCFRelayResult) string { return v.Id }).(pulumi.StringOutput)
 }
@@ -117,7 +121,12 @@ func (o LookupWCFRelayResultOutput) ListenerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v LookupWCFRelayResult) int { return v.ListenerCount }).(pulumi.IntOutput)
 }
 
-// Resource name.
+// The geo-location where the resource lives
+func (o LookupWCFRelayResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
 func (o LookupWCFRelayResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWCFRelayResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -137,7 +146,12 @@ func (o LookupWCFRelayResultOutput) RequiresTransportSecurity() pulumi.BoolPtrOu
 	return o.ApplyT(func(v LookupWCFRelayResult) *bool { return v.RequiresTransportSecurity }).(pulumi.BoolPtrOutput)
 }
 
-// Resource type.
+// The system meta data relating to this resource.
+func (o LookupWCFRelayResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupWCFRelayResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o LookupWCFRelayResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWCFRelayResult) string { return v.Type }).(pulumi.StringOutput)
 }

@@ -12,7 +12,7 @@ import (
 )
 
 // The endpoint for the target resource.
-// API Version: 2021-10-06-preview.
+// API Version: 2022-05-01-preview.
 type Endpoint struct {
 	pulumi.CustomResourceState
 
@@ -29,7 +29,8 @@ type Endpoint struct {
 	// The type of identity that last modified the resource.
 	LastModifiedByType pulumi.StringPtrOutput `pulumi:"lastModifiedByType"`
 	// The name of the resource
-	Name              pulumi.StringOutput `pulumi:"name"`
+	Name pulumi.StringOutput `pulumi:"name"`
+	// The resource provisioning state.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// The resource Id of the connectivity endpoint (optional).
 	ResourceId pulumi.StringPtrOutput `pulumi:"resourceId"`
@@ -209,6 +210,7 @@ func (o EndpointOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// The resource provisioning state.
 func (o EndpointOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *Endpoint) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }

@@ -3170,6 +3170,8 @@ type SlackChannelProperties struct {
 	IsEnabled bool `pulumi:"isEnabled"`
 	// The Slack landing page Url
 	LandingPageUrl *string `pulumi:"landingPageUrl"`
+	// Whether to register the settings before OAuth validation is performed. Recommended to True.
+	RegisterBeforeOAuthFlow *bool `pulumi:"registerBeforeOAuthFlow"`
 	// The Slack permission scopes.
 	Scopes *string `pulumi:"scopes"`
 	// The Slack signing secret.
@@ -3195,7 +3197,7 @@ type SlackChannelPropertiesResponse struct {
 	// The Slack redirect action
 	RedirectAction string `pulumi:"redirectAction"`
 	// Whether to register the settings before OAuth validation is performed. Recommended to True.
-	RegisterBeforeOAuthFlow bool `pulumi:"registerBeforeOAuthFlow"`
+	RegisterBeforeOAuthFlow *bool `pulumi:"registerBeforeOAuthFlow"`
 	// The Slack permission scopes.
 	Scopes *string `pulumi:"scopes"`
 	// The Slack signing secret.

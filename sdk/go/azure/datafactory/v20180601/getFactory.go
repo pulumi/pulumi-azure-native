@@ -49,6 +49,8 @@ type LookupFactoryResult struct {
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Whether or not public network access is allowed for the data factory.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Purview information of the factory.
+	PurviewConfiguration *PurviewConfigurationResponse `pulumi:"purviewConfiguration"`
 	// Git repo information of the factory.
 	RepoConfiguration interface{} `pulumi:"repoConfiguration"`
 	// The resource tags.
@@ -146,6 +148,11 @@ func (o LookupFactoryResultOutput) ProvisioningState() pulumi.StringOutput {
 // Whether or not public network access is allowed for the data factory.
 func (o LookupFactoryResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupFactoryResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Purview information of the factory.
+func (o LookupFactoryResultOutput) PurviewConfiguration() PurviewConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupFactoryResult) *PurviewConfigurationResponse { return v.PurviewConfiguration }).(PurviewConfigurationResponsePtrOutput)
 }
 
 // Git repo information of the factory.

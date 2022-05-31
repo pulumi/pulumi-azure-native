@@ -11,11 +11,11 @@ import (
 )
 
 // A value indicating configuration profile.
-type ConfigurationProfile string
+type ConfigurationProfileEnum string
 
 const (
-	ConfigurationProfile_Azure_virtual_machine_best_practices_Dev_Test   = ConfigurationProfile("Azure virtual machine best practices – Dev/Test")
-	ConfigurationProfile_Azure_virtual_machine_best_practices_Production = ConfigurationProfile("Azure virtual machine best practices – Production")
+	ConfigurationProfileEnum_Azure_virtual_machine_best_practices_Dev_Test   = ConfigurationProfileEnum("Azure virtual machine best practices – Dev/Test")
+	ConfigurationProfileEnum_Azure_virtual_machine_best_practices_Production = ConfigurationProfileEnum("Azure virtual machine best practices – Production")
 )
 
 // Enables or disables Real Time Protection

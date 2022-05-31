@@ -37,5 +37,13 @@ const (
 	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
 )
 
+// Device Update Sku
+type SKU string
+
+const (
+	SKUFree     = SKU("Free")
+	SKUStandard = SKU("Standard")
+)
+
 func init() {
 }

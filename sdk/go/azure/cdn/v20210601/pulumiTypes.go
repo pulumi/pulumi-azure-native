@@ -1151,7 +1151,7 @@ type CookiesMatchConditionParametersResponse struct {
 type CustomDomainResponse struct {
 	// Certificate parameters for securing custom HTTPS
 	CustomHttpsParameters interface{} `pulumi:"customHttpsParameters"`
-	// Provisioning status of Custom Https of the custom domain.
+	// Provisioning status of the custom domain.
 	CustomHttpsProvisioningState string `pulumi:"customHttpsProvisioningState"`
 	// Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
 	CustomHttpsProvisioningSubstate string `pulumi:"customHttpsProvisioningSubstate"`
@@ -1161,7 +1161,7 @@ type CustomDomainResponse struct {
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
-	// Provisioning status of the custom domain.
+	// Provisioning status of Custom Https of the custom domain.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Resource status of the custom domain.
 	ResourceState string `pulumi:"resourceState"`
@@ -1193,7 +1193,7 @@ func (o CustomDomainResponseOutput) CustomHttpsParameters() pulumi.AnyOutput {
 	return o.ApplyT(func(v CustomDomainResponse) interface{} { return v.CustomHttpsParameters }).(pulumi.AnyOutput)
 }
 
-// Provisioning status of Custom Https of the custom domain.
+// Provisioning status of the custom domain.
 func (o CustomDomainResponseOutput) CustomHttpsProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainResponse) string { return v.CustomHttpsProvisioningState }).(pulumi.StringOutput)
 }
@@ -1218,7 +1218,7 @@ func (o CustomDomainResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Provisioning status of the custom domain.
+// Provisioning status of Custom Https of the custom domain.
 func (o CustomDomainResponseOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v CustomDomainResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
@@ -4572,7 +4572,7 @@ type ManagedCertificateParametersResponse struct {
 type ManagedRuleGroupOverride struct {
 	// Describes the managed rule group within the rule set to override
 	RuleGroupName string `pulumi:"ruleGroupName"`
-	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+	// List of rules that will be enabled. If none specified, all rules in the group will be disabled.
 	Rules []ManagedRuleOverride `pulumi:"rules"`
 }
 
@@ -4591,7 +4591,7 @@ type ManagedRuleGroupOverrideInput interface {
 type ManagedRuleGroupOverrideArgs struct {
 	// Describes the managed rule group within the rule set to override
 	RuleGroupName pulumi.StringInput `pulumi:"ruleGroupName"`
-	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+	// List of rules that will be enabled. If none specified, all rules in the group will be disabled.
 	Rules ManagedRuleOverrideArrayInput `pulumi:"rules"`
 }
 
@@ -4652,7 +4652,7 @@ func (o ManagedRuleGroupOverrideOutput) RuleGroupName() pulumi.StringOutput {
 	return o.ApplyT(func(v ManagedRuleGroupOverride) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
 
-// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+// List of rules that will be enabled. If none specified, all rules in the group will be disabled.
 func (o ManagedRuleGroupOverrideOutput) Rules() ManagedRuleOverrideArrayOutput {
 	return o.ApplyT(func(v ManagedRuleGroupOverride) []ManagedRuleOverride { return v.Rules }).(ManagedRuleOverrideArrayOutput)
 }
@@ -4681,7 +4681,7 @@ func (o ManagedRuleGroupOverrideArrayOutput) Index(i pulumi.IntInput) ManagedRul
 type ManagedRuleGroupOverrideResponse struct {
 	// Describes the managed rule group within the rule set to override
 	RuleGroupName string `pulumi:"ruleGroupName"`
-	// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+	// List of rules that will be enabled. If none specified, all rules in the group will be disabled.
 	Rules []ManagedRuleOverrideResponse `pulumi:"rules"`
 }
 
@@ -4705,7 +4705,7 @@ func (o ManagedRuleGroupOverrideResponseOutput) RuleGroupName() pulumi.StringOut
 	return o.ApplyT(func(v ManagedRuleGroupOverrideResponse) string { return v.RuleGroupName }).(pulumi.StringOutput)
 }
 
-// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+// List of rules that will be enabled. If none specified, all rules in the group will be disabled.
 func (o ManagedRuleGroupOverrideResponseOutput) Rules() ManagedRuleOverrideResponseArrayOutput {
 	return o.ApplyT(func(v ManagedRuleGroupOverrideResponse) []ManagedRuleOverrideResponse { return v.Rules }).(ManagedRuleOverrideResponseArrayOutput)
 }

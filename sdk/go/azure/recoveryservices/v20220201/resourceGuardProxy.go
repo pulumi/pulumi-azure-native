@@ -63,6 +63,9 @@ func NewResourceGuardProxy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20220101:ResourceGuardProxy"),
 		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20220301:ResourceGuardProxy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ResourceGuardProxy
@@ -97,18 +100,34 @@ func (ResourceGuardProxyState) ElementType() reflect.Type {
 }
 
 type resourceGuardProxyArgs struct {
+	// Optional ETag.
+	ETag *string `pulumi:"eTag"`
+	// Resource location.
+	Location *string `pulumi:"location"`
+	// ResourceGuardProxyBaseResource properties
+	Properties *ResourceGuardProxyBase `pulumi:"properties"`
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName      string  `pulumi:"resourceGroupName"`
 	ResourceGuardProxyName *string `pulumi:"resourceGuardProxyName"`
+	// Resource tags.
+	Tags map[string]string `pulumi:"tags"`
 	// The name of the recovery services vault.
 	VaultName string `pulumi:"vaultName"`
 }
 
 // The set of arguments for constructing a ResourceGuardProxy resource.
 type ResourceGuardProxyArgs struct {
+	// Optional ETag.
+	ETag pulumi.StringPtrInput
+	// Resource location.
+	Location pulumi.StringPtrInput
+	// ResourceGuardProxyBaseResource properties
+	Properties ResourceGuardProxyBasePtrInput
 	// The name of the resource group where the recovery services vault is present.
 	ResourceGroupName      pulumi.StringInput
 	ResourceGuardProxyName pulumi.StringPtrInput
+	// Resource tags.
+	Tags pulumi.StringMapInput
 	// The name of the recovery services vault.
 	VaultName pulumi.StringInput
 }

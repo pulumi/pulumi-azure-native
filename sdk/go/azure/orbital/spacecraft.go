@@ -12,14 +12,10 @@ import (
 )
 
 // Customer creates a spacecraft resource to schedule a contact.
-// API Version: 2021-04-04-preview.
+// API Version: 2022-03-01.
 type Spacecraft struct {
 	pulumi.CustomResourceState
 
-	// Authorization status of spacecraft.
-	AuthorizationStatus pulumi.StringOutput `pulumi:"authorizationStatus"`
-	// Details of the authorization status.
-	AuthorizationStatusExtended pulumi.StringOutput `pulumi:"authorizationStatusExtended"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Links of the Spacecraft
@@ -60,6 +56,9 @@ func NewSpacecraft(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:orbital/v20210404preview:Spacecraft"),
+		},
+		{
+			Type: pulumi.String("azure-native:orbital/v20220301:Spacecraft"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -172,16 +171,6 @@ func (o SpacecraftOutput) ToSpacecraftOutput() SpacecraftOutput {
 
 func (o SpacecraftOutput) ToSpacecraftOutputWithContext(ctx context.Context) SpacecraftOutput {
 	return o
-}
-
-// Authorization status of spacecraft.
-func (o SpacecraftOutput) AuthorizationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.AuthorizationStatus }).(pulumi.StringOutput)
-}
-
-// Details of the authorization status.
-func (o SpacecraftOutput) AuthorizationStatusExtended() pulumi.StringOutput {
-	return o.ApplyT(func(v *Spacecraft) pulumi.StringOutput { return v.AuthorizationStatusExtended }).(pulumi.StringOutput)
 }
 
 // A unique read-only string that changes whenever the resource is updated.

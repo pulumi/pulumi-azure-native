@@ -35,6 +35,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &PrivateEndpointConnection{}
 	case "azure-native:containerservice:Snapshot":
 		r = &Snapshot{}
+	case "azure-native:containerservice:TrustedAccessRoleBinding":
+		r = &TrustedAccessRoleBinding{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

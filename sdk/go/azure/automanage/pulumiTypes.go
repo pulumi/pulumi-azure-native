@@ -250,70 +250,12 @@ type ConfigurationProfileAssignmentComplianceResponse struct {
 	UpdateStatus string `pulumi:"updateStatus"`
 }
 
-// The compliance status for the configuration profile assignment.
-type ConfigurationProfileAssignmentComplianceResponseOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationProfileAssignmentComplianceResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ConfigurationProfileAssignmentComplianceResponse)(nil)).Elem()
-}
-
-func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationProfileAssignmentComplianceResponseOutput() ConfigurationProfileAssignmentComplianceResponseOutput {
-	return o
-}
-
-func (o ConfigurationProfileAssignmentComplianceResponseOutput) ToConfigurationProfileAssignmentComplianceResponseOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponseOutput {
-	return o
-}
-
-// The state of compliance, which only appears in the response.
-func (o ConfigurationProfileAssignmentComplianceResponseOutput) UpdateStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentComplianceResponse) string { return v.UpdateStatus }).(pulumi.StringOutput)
-}
-
-type ConfigurationProfileAssignmentComplianceResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (ConfigurationProfileAssignmentComplianceResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ConfigurationProfileAssignmentComplianceResponse)(nil)).Elem()
-}
-
-func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) ToConfigurationProfileAssignmentComplianceResponsePtrOutput() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) ToConfigurationProfileAssignmentComplianceResponsePtrOutputWithContext(ctx context.Context) ConfigurationProfileAssignmentComplianceResponsePtrOutput {
-	return o
-}
-
-func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) Elem() ConfigurationProfileAssignmentComplianceResponseOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentComplianceResponse) ConfigurationProfileAssignmentComplianceResponse {
-		if v != nil {
-			return *v
-		}
-		var ret ConfigurationProfileAssignmentComplianceResponse
-		return ret
-	}).(ConfigurationProfileAssignmentComplianceResponseOutput)
-}
-
-// The state of compliance, which only appears in the response.
-func (o ConfigurationProfileAssignmentComplianceResponsePtrOutput) UpdateStatus() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentComplianceResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UpdateStatus
-	}).(pulumi.StringPtrOutput)
-}
-
 // Automanage configuration profile assignment properties.
 type ConfigurationProfileAssignmentProperties struct {
-	// The Automanage account ARM Resource URI
-	AccountId *string `pulumi:"accountId"`
-	// A value indicating configuration profile.
+	// The Automanage configurationProfile ARM Resource URI.
 	ConfigurationProfile *string `pulumi:"configurationProfile"`
-	// The configuration profile custom preferences ARM resource URI
-	ConfigurationProfilePreferenceId *string `pulumi:"configurationProfilePreferenceId"`
-	// The target VM resource URI
-	TargetId *string `pulumi:"targetId"`
+	// The profileOverrides setting for the configuration profile assignment.
+	ProfileOverrides map[string]interface{} `pulumi:"profileOverrides"`
 }
 
 // ConfigurationProfileAssignmentPropertiesInput is an input type that accepts ConfigurationProfileAssignmentPropertiesArgs and ConfigurationProfileAssignmentPropertiesOutput values.
@@ -329,14 +271,10 @@ type ConfigurationProfileAssignmentPropertiesInput interface {
 
 // Automanage configuration profile assignment properties.
 type ConfigurationProfileAssignmentPropertiesArgs struct {
-	// The Automanage account ARM Resource URI
-	AccountId pulumi.StringPtrInput `pulumi:"accountId"`
-	// A value indicating configuration profile.
+	// The Automanage configurationProfile ARM Resource URI.
 	ConfigurationProfile pulumi.StringPtrInput `pulumi:"configurationProfile"`
-	// The configuration profile custom preferences ARM resource URI
-	ConfigurationProfilePreferenceId pulumi.StringPtrInput `pulumi:"configurationProfilePreferenceId"`
-	// The target VM resource URI
-	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
+	// The profileOverrides setting for the configuration profile assignment.
+	ProfileOverrides pulumi.MapInput `pulumi:"profileOverrides"`
 }
 
 func (ConfigurationProfileAssignmentPropertiesArgs) ElementType() reflect.Type {
@@ -417,24 +355,14 @@ func (o ConfigurationProfileAssignmentPropertiesOutput) ToConfigurationProfileAs
 	}).(ConfigurationProfileAssignmentPropertiesPtrOutput)
 }
 
-// The Automanage account ARM Resource URI
-func (o ConfigurationProfileAssignmentPropertiesOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.AccountId }).(pulumi.StringPtrOutput)
-}
-
-// A value indicating configuration profile.
+// The Automanage configurationProfile ARM Resource URI.
 func (o ConfigurationProfileAssignmentPropertiesOutput) ConfigurationProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.ConfigurationProfile }).(pulumi.StringPtrOutput)
 }
 
-// The configuration profile custom preferences ARM resource URI
-func (o ConfigurationProfileAssignmentPropertiesOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.ConfigurationProfilePreferenceId }).(pulumi.StringPtrOutput)
-}
-
-// The target VM resource URI
-func (o ConfigurationProfileAssignmentPropertiesOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.TargetId }).(pulumi.StringPtrOutput)
+// The profileOverrides setting for the configuration profile assignment.
+func (o ConfigurationProfileAssignmentPropertiesOutput) ProfileOverrides() pulumi.MapOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) map[string]interface{} { return v.ProfileOverrides }).(pulumi.MapOutput)
 }
 
 type ConfigurationProfileAssignmentPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -461,17 +389,7 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) Elem() ConfigurationP
 	}).(ConfigurationProfileAssignmentPropertiesOutput)
 }
 
-// The Automanage account ARM Resource URI
-func (o ConfigurationProfileAssignmentPropertiesPtrOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AccountId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A value indicating configuration profile.
+// The Automanage configurationProfile ARM Resource URI.
 func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ConfigurationProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
 		if v == nil {
@@ -481,40 +399,26 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ConfigurationProfile(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The configuration profile custom preferences ARM resource URI
-func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
+// The profileOverrides setting for the configuration profile assignment.
+func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ProfileOverrides() pulumi.MapOutput {
+	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) map[string]interface{} {
 		if v == nil {
 			return nil
 		}
-		return v.ConfigurationProfilePreferenceId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The target VM resource URI
-func (o ConfigurationProfileAssignmentPropertiesPtrOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetId
-	}).(pulumi.StringPtrOutput)
+		return v.ProfileOverrides
+	}).(pulumi.MapOutput)
 }
 
 // Automanage configuration profile assignment properties.
 type ConfigurationProfileAssignmentPropertiesResponse struct {
-	// The Automanage account ARM Resource URI
-	AccountId *string `pulumi:"accountId"`
-	// The configuration setting for the configuration profile.
-	Compliance *ConfigurationProfileAssignmentComplianceResponse `pulumi:"compliance"`
-	// A value indicating configuration profile.
+	// The Automanage configurationProfile ARM Resource URI.
 	ConfigurationProfile *string `pulumi:"configurationProfile"`
-	// The configuration profile custom preferences ARM resource URI
-	ConfigurationProfilePreferenceId *string `pulumi:"configurationProfilePreferenceId"`
-	// The state of onboarding, which only appears in the response.
-	ProvisioningState string `pulumi:"provisioningState"`
+	// The profileOverrides setting for the configuration profile assignment.
+	ProfileOverrides map[string]interface{} `pulumi:"profileOverrides"`
+	// The status of onboarding, which only appears in the response.
+	Status string `pulumi:"status"`
 	// The target VM resource URI
-	TargetId *string `pulumi:"targetId"`
+	TargetId string `pulumi:"targetId"`
 }
 
 // Automanage configuration profile assignment properties.
@@ -532,38 +436,26 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ToConfigurationP
 	return o
 }
 
-// The Automanage account ARM Resource URI
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) AccountId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.AccountId }).(pulumi.StringPtrOutput)
-}
-
-// The configuration setting for the configuration profile.
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) Compliance() ConfigurationProfileAssignmentComplianceResponsePtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *ConfigurationProfileAssignmentComplianceResponse {
-		return v.Compliance
-	}).(ConfigurationProfileAssignmentComplianceResponsePtrOutput)
-}
-
-// A value indicating configuration profile.
+// The Automanage configurationProfile ARM Resource URI.
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ConfigurationProfile() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.ConfigurationProfile }).(pulumi.StringPtrOutput)
 }
 
-// The configuration profile custom preferences ARM resource URI
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ConfigurationProfilePreferenceId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string {
-		return v.ConfigurationProfilePreferenceId
-	}).(pulumi.StringPtrOutput)
+// The profileOverrides setting for the configuration profile assignment.
+func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ProfileOverrides() pulumi.MapOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) map[string]interface{} {
+		return v.ProfileOverrides
+	}).(pulumi.MapOutput)
 }
 
-// The state of onboarding, which only appears in the response.
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+// The status of onboarding, which only appears in the response.
+func (o ConfigurationProfileAssignmentPropertiesResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // The target VM resource URI
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.TargetId }).(pulumi.StringPtrOutput)
+func (o ConfigurationProfileAssignmentPropertiesResponseOutput) TargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) string { return v.TargetId }).(pulumi.StringOutput)
 }
 
 // Automanage configuration profile Antimalware preferences.
@@ -1454,13 +1346,264 @@ func (o ConfigurationProfilePreferenceVmBackupResponsePtrOutput) TimeZone() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
+// Automanage configuration profile properties.
+type ConfigurationProfileProperties struct {
+	// configuration dictionary of the configuration profile.
+	Configuration interface{} `pulumi:"configuration"`
+	// overrides of the configuration profile.
+	Overrides []interface{} `pulumi:"overrides"`
+}
+
+// ConfigurationProfilePropertiesInput is an input type that accepts ConfigurationProfilePropertiesArgs and ConfigurationProfilePropertiesOutput values.
+// You can construct a concrete instance of `ConfigurationProfilePropertiesInput` via:
+//
+//          ConfigurationProfilePropertiesArgs{...}
+type ConfigurationProfilePropertiesInput interface {
+	pulumi.Input
+
+	ToConfigurationProfilePropertiesOutput() ConfigurationProfilePropertiesOutput
+	ToConfigurationProfilePropertiesOutputWithContext(context.Context) ConfigurationProfilePropertiesOutput
+}
+
+// Automanage configuration profile properties.
+type ConfigurationProfilePropertiesArgs struct {
+	// configuration dictionary of the configuration profile.
+	Configuration pulumi.Input `pulumi:"configuration"`
+	// overrides of the configuration profile.
+	Overrides pulumi.ArrayInput `pulumi:"overrides"`
+}
+
+func (ConfigurationProfilePropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileProperties)(nil)).Elem()
+}
+
+func (i ConfigurationProfilePropertiesArgs) ToConfigurationProfilePropertiesOutput() ConfigurationProfilePropertiesOutput {
+	return i.ToConfigurationProfilePropertiesOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfilePropertiesArgs) ToConfigurationProfilePropertiesOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePropertiesOutput)
+}
+
+func (i ConfigurationProfilePropertiesArgs) ToConfigurationProfilePropertiesPtrOutput() ConfigurationProfilePropertiesPtrOutput {
+	return i.ToConfigurationProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationProfilePropertiesArgs) ToConfigurationProfilePropertiesPtrOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePropertiesOutput).ToConfigurationProfilePropertiesPtrOutputWithContext(ctx)
+}
+
+// ConfigurationProfilePropertiesPtrInput is an input type that accepts ConfigurationProfilePropertiesArgs, ConfigurationProfilePropertiesPtr and ConfigurationProfilePropertiesPtrOutput values.
+// You can construct a concrete instance of `ConfigurationProfilePropertiesPtrInput` via:
+//
+//          ConfigurationProfilePropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type ConfigurationProfilePropertiesPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationProfilePropertiesPtrOutput() ConfigurationProfilePropertiesPtrOutput
+	ToConfigurationProfilePropertiesPtrOutputWithContext(context.Context) ConfigurationProfilePropertiesPtrOutput
+}
+
+type configurationProfilePropertiesPtrType ConfigurationProfilePropertiesArgs
+
+func ConfigurationProfilePropertiesPtr(v *ConfigurationProfilePropertiesArgs) ConfigurationProfilePropertiesPtrInput {
+	return (*configurationProfilePropertiesPtrType)(v)
+}
+
+func (*configurationProfilePropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfileProperties)(nil)).Elem()
+}
+
+func (i *configurationProfilePropertiesPtrType) ToConfigurationProfilePropertiesPtrOutput() ConfigurationProfilePropertiesPtrOutput {
+	return i.ToConfigurationProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationProfilePropertiesPtrType) ToConfigurationProfilePropertiesPtrOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationProfilePropertiesPtrOutput)
+}
+
+// Automanage configuration profile properties.
+type ConfigurationProfilePropertiesOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfilePropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfileProperties)(nil)).Elem()
+}
+
+func (o ConfigurationProfilePropertiesOutput) ToConfigurationProfilePropertiesOutput() ConfigurationProfilePropertiesOutput {
+	return o
+}
+
+func (o ConfigurationProfilePropertiesOutput) ToConfigurationProfilePropertiesOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesOutput {
+	return o
+}
+
+func (o ConfigurationProfilePropertiesOutput) ToConfigurationProfilePropertiesPtrOutput() ConfigurationProfilePropertiesPtrOutput {
+	return o.ToConfigurationProfilePropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationProfilePropertiesOutput) ToConfigurationProfilePropertiesPtrOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationProfileProperties) *ConfigurationProfileProperties {
+		return &v
+	}).(ConfigurationProfilePropertiesPtrOutput)
+}
+
+// configuration dictionary of the configuration profile.
+func (o ConfigurationProfilePropertiesOutput) Configuration() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConfigurationProfileProperties) interface{} { return v.Configuration }).(pulumi.AnyOutput)
+}
+
+// overrides of the configuration profile.
+func (o ConfigurationProfilePropertiesOutput) Overrides() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ConfigurationProfileProperties) []interface{} { return v.Overrides }).(pulumi.ArrayOutput)
+}
+
+type ConfigurationProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfilePropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationProfileProperties)(nil)).Elem()
+}
+
+func (o ConfigurationProfilePropertiesPtrOutput) ToConfigurationProfilePropertiesPtrOutput() ConfigurationProfilePropertiesPtrOutput {
+	return o
+}
+
+func (o ConfigurationProfilePropertiesPtrOutput) ToConfigurationProfilePropertiesPtrOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesPtrOutput {
+	return o
+}
+
+func (o ConfigurationProfilePropertiesPtrOutput) Elem() ConfigurationProfilePropertiesOutput {
+	return o.ApplyT(func(v *ConfigurationProfileProperties) ConfigurationProfileProperties {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationProfileProperties
+		return ret
+	}).(ConfigurationProfilePropertiesOutput)
+}
+
+// configuration dictionary of the configuration profile.
+func (o ConfigurationProfilePropertiesPtrOutput) Configuration() pulumi.AnyOutput {
+	return o.ApplyT(func(v *ConfigurationProfileProperties) interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Configuration
+	}).(pulumi.AnyOutput)
+}
+
+// overrides of the configuration profile.
+func (o ConfigurationProfilePropertiesPtrOutput) Overrides() pulumi.ArrayOutput {
+	return o.ApplyT(func(v *ConfigurationProfileProperties) []interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.Overrides
+	}).(pulumi.ArrayOutput)
+}
+
+// Automanage configuration profile properties.
+type ConfigurationProfilePropertiesResponse struct {
+	// configuration dictionary of the configuration profile.
+	Configuration interface{} `pulumi:"configuration"`
+	// overrides of the configuration profile.
+	Overrides []interface{} `pulumi:"overrides"`
+}
+
+// Automanage configuration profile properties.
+type ConfigurationProfilePropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationProfilePropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationProfilePropertiesResponse)(nil)).Elem()
+}
+
+func (o ConfigurationProfilePropertiesResponseOutput) ToConfigurationProfilePropertiesResponseOutput() ConfigurationProfilePropertiesResponseOutput {
+	return o
+}
+
+func (o ConfigurationProfilePropertiesResponseOutput) ToConfigurationProfilePropertiesResponseOutputWithContext(ctx context.Context) ConfigurationProfilePropertiesResponseOutput {
+	return o
+}
+
+// configuration dictionary of the configuration profile.
+func (o ConfigurationProfilePropertiesResponseOutput) Configuration() pulumi.AnyOutput {
+	return o.ApplyT(func(v ConfigurationProfilePropertiesResponse) interface{} { return v.Configuration }).(pulumi.AnyOutput)
+}
+
+// overrides of the configuration profile.
+func (o ConfigurationProfilePropertiesResponseOutput) Overrides() pulumi.ArrayOutput {
+	return o.ApplyT(func(v ConfigurationProfilePropertiesResponse) []interface{} { return v.Overrides }).(pulumi.ArrayOutput)
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(AccountIdentityOutput{})
 	pulumi.RegisterOutputType(AccountIdentityPtrOutput{})
 	pulumi.RegisterOutputType(AccountIdentityResponseOutput{})
 	pulumi.RegisterOutputType(AccountIdentityResponsePtrOutput{})
-	pulumi.RegisterOutputType(ConfigurationProfileAssignmentComplianceResponseOutput{})
-	pulumi.RegisterOutputType(ConfigurationProfileAssignmentComplianceResponsePtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfileAssignmentPropertiesResponseOutput{})
@@ -1475,4 +1618,8 @@ func init() {
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupPtrOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupResponseOutput{})
 	pulumi.RegisterOutputType(ConfigurationProfilePreferenceVmBackupResponsePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfilePropertiesOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfilePropertiesPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationProfilePropertiesResponseOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 }

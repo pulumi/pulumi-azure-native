@@ -11,6 +11,8 @@ import (
 )
 
 // Description of the WCF relay resource.
+//
+// Deprecated: Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.
 func LookupWCFRelay(ctx *pulumi.Context, args *LookupWCFRelayArgs, opts ...pulumi.InvokeOption) (*LookupWCFRelayResult, error) {
 	var rv LookupWCFRelayResult
 	err := ctx.Invoke("azure-native:relay/v20170401:getWCFRelay", args, &rv, opts...)

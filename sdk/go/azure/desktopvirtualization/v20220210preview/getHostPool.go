@@ -29,7 +29,7 @@ type LookupHostPoolArgs struct {
 
 // Represents a HostPool definition.
 type LookupHostPoolResult struct {
-	// The session host configuration for updating agent, monitoring agent, and stack component.
+	// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
 	AgentUpdate *AgentUpdatePropertiesResponse `pulumi:"agentUpdate"`
 	// List of applicationGroup links.
 	ApplicationGroupReferences []string `pulumi:"applicationGroupReferences"`
@@ -139,7 +139,7 @@ func (o LookupHostPoolResultOutput) ToLookupHostPoolResultOutputWithContext(ctx 
 	return o
 }
 
-// The session host configuration for updating agent, monitoring agent, and stack component.
+// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
 func (o LookupHostPoolResultOutput) AgentUpdate() AgentUpdatePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v LookupHostPoolResult) *AgentUpdatePropertiesResponse { return v.AgentUpdate }).(AgentUpdatePropertiesResponsePtrOutput)
 }

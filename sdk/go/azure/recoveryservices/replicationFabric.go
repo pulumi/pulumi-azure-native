@@ -82,6 +82,9 @@ func NewReplicationFabric(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20220201:ReplicationFabric"),
 		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20220301:ReplicationFabric"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationFabric

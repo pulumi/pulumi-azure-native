@@ -12847,13 +12847,13 @@ func (o SysctlConfigResponsePtrOutput) VmVfsCachePressure() pulumi.IntPtrOutput 
 
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
-	// The UTC timestamp of resource creation.
+	// The timestamp of resource creation (UTC).
 	CreatedAt *string `pulumi:"createdAt"`
 	// The identity that created the resource.
 	CreatedBy *string `pulumi:"createdBy"`
 	// The type of identity that created the resource.
 	CreatedByType *string `pulumi:"createdByType"`
-	// The type of identity that last modified the resource.
+	// The timestamp of resource last modification (UTC)
 	LastModifiedAt *string `pulumi:"lastModifiedAt"`
 	// The identity that last modified the resource.
 	LastModifiedBy *string `pulumi:"lastModifiedBy"`
@@ -12876,7 +12876,7 @@ func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx cont
 	return o
 }
 
-// The UTC timestamp of resource creation.
+// The timestamp of resource creation (UTC).
 func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
 }
@@ -12891,7 +12891,7 @@ func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
 }
 
-// The type of identity that last modified the resource.
+// The timestamp of resource last modification (UTC)
 func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
 }

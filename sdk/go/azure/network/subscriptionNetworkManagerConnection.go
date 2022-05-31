@@ -11,7 +11,7 @@ import (
 )
 
 // The Network Manager Connection resource
-// API Version: 2022-02-01-preview.
+// API Version: 2022-04-01-preview.
 type SubscriptionNetworkManagerConnection struct {
 	pulumi.CustomResourceState
 
@@ -42,6 +42,9 @@ func NewSubscriptionNetworkManagerConnection(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -23,10 +23,18 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:automanage:Account":
 		r = &Account{}
+	case "azure-native:automanage:ConfigurationProfile":
+		r = &ConfigurationProfileEnum{}
 	case "azure-native:automanage:ConfigurationProfileAssignment":
 		r = &ConfigurationProfileAssignment{}
+	case "azure-native:automanage:ConfigurationProfileHCIAssignment":
+		r = &ConfigurationProfileHCIAssignment{}
+	case "azure-native:automanage:ConfigurationProfileHCRPAssignment":
+		r = &ConfigurationProfileHCRPAssignment{}
 	case "azure-native:automanage:ConfigurationProfilePreference":
 		r = &ConfigurationProfilePreference{}
+	case "azure-native:automanage:ConfigurationProfilesVersion":
+		r = &ConfigurationProfilesVersion{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

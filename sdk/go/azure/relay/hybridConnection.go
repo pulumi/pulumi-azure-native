@@ -12,7 +12,7 @@ import (
 )
 
 // Description of hybrid connection resource.
-// API Version: 2017-04-01.
+// API Version: 2021-11-01.
 type HybridConnection struct {
 	pulumi.CustomResourceState
 
@@ -20,11 +20,15 @@ type HybridConnection struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// The number of listeners for this hybrid connection. Note that min : 1 and max:25 are supported.
 	ListenerCount pulumi.IntOutput `pulumi:"listenerCount"`
-	// Resource name.
+	// The geo-location where the resource lives
+	Location pulumi.StringOutput `pulumi:"location"`
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Returns true if client authorization is needed for this hybrid connection; otherwise, false.
 	RequiresClientAuthorization pulumi.BoolPtrOutput `pulumi:"requiresClientAuthorization"`
-	// Resource type.
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// The time the namespace was updated.
 	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
@@ -162,7 +166,12 @@ func (o HybridConnectionOutput) ListenerCount() pulumi.IntOutput {
 	return o.ApplyT(func(v *HybridConnection) pulumi.IntOutput { return v.ListenerCount }).(pulumi.IntOutput)
 }
 
-// Resource name.
+// The geo-location where the resource lives
+func (o HybridConnectionOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v *HybridConnection) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
 func (o HybridConnectionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *HybridConnection) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -172,7 +181,12 @@ func (o HybridConnectionOutput) RequiresClientAuthorization() pulumi.BoolPtrOutp
 	return o.ApplyT(func(v *HybridConnection) pulumi.BoolPtrOutput { return v.RequiresClientAuthorization }).(pulumi.BoolPtrOutput)
 }
 
-// Resource type.
+// The system meta data relating to this resource.
+func (o HybridConnectionOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v *HybridConnection) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o HybridConnectionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *HybridConnection) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -37,11 +37,11 @@ type LookupPoolResult struct {
 	EncryptionType *string `pulumi:"encryptionType"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
-	// Resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource location
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
-	// Resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// UUID v4 used to identify the Pool
 	PoolId string `pulumi:"poolId"`
@@ -53,11 +53,13 @@ type LookupPoolResult struct {
 	ServiceLevel string `pulumi:"serviceLevel"`
 	// Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
 	Size float64 `pulumi:"size"`
-	// Resource tags
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Total throughput of pool in Mibps
 	TotalThroughputMibps float64 `pulumi:"totalThroughputMibps"`
-	// Resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// Utilized throughput of pool in Mibps
 	UtilizedThroughputMibps float64 `pulumi:"utilizedThroughputMibps"`
@@ -140,17 +142,17 @@ func (o LookupPoolResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupPoolResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource location
+// The geo-location where the resource lives
 func (o LookupPoolResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.Location }).(pulumi.StringOutput)
 }
 
-// Resource name
+// The name of the resource
 func (o LookupPoolResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -180,7 +182,12 @@ func (o LookupPoolResultOutput) Size() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupPoolResult) float64 { return v.Size }).(pulumi.Float64Output)
 }
 
-// Resource tags
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupPoolResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupPoolResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
 func (o LookupPoolResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupPoolResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -190,7 +197,7 @@ func (o LookupPoolResultOutput) TotalThroughputMibps() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupPoolResult) float64 { return v.TotalThroughputMibps }).(pulumi.Float64Output)
 }
 
-// Resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupPoolResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupPoolResult) string { return v.Type }).(pulumi.StringOutput)
 }

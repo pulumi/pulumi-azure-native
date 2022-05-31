@@ -5929,6 +5929,168 @@ type SecurityAlertTimelineItemResponse struct {
 	TimeGenerated string `pulumi:"timeGenerated"`
 }
 
+// security ml analytics settings data sources
+type SecurityMLAnalyticsSettingsDataSource struct {
+	// The connector id that provides the following data types
+	ConnectorId *string `pulumi:"connectorId"`
+	// The data types used by the security ml analytics settings
+	DataTypes []string `pulumi:"dataTypes"`
+}
+
+// SecurityMLAnalyticsSettingsDataSourceInput is an input type that accepts SecurityMLAnalyticsSettingsDataSourceArgs and SecurityMLAnalyticsSettingsDataSourceOutput values.
+// You can construct a concrete instance of `SecurityMLAnalyticsSettingsDataSourceInput` via:
+//
+//          SecurityMLAnalyticsSettingsDataSourceArgs{...}
+type SecurityMLAnalyticsSettingsDataSourceInput interface {
+	pulumi.Input
+
+	ToSecurityMLAnalyticsSettingsDataSourceOutput() SecurityMLAnalyticsSettingsDataSourceOutput
+	ToSecurityMLAnalyticsSettingsDataSourceOutputWithContext(context.Context) SecurityMLAnalyticsSettingsDataSourceOutput
+}
+
+// security ml analytics settings data sources
+type SecurityMLAnalyticsSettingsDataSourceArgs struct {
+	// The connector id that provides the following data types
+	ConnectorId pulumi.StringPtrInput `pulumi:"connectorId"`
+	// The data types used by the security ml analytics settings
+	DataTypes pulumi.StringArrayInput `pulumi:"dataTypes"`
+}
+
+func (SecurityMLAnalyticsSettingsDataSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMLAnalyticsSettingsDataSource)(nil)).Elem()
+}
+
+func (i SecurityMLAnalyticsSettingsDataSourceArgs) ToSecurityMLAnalyticsSettingsDataSourceOutput() SecurityMLAnalyticsSettingsDataSourceOutput {
+	return i.ToSecurityMLAnalyticsSettingsDataSourceOutputWithContext(context.Background())
+}
+
+func (i SecurityMLAnalyticsSettingsDataSourceArgs) ToSecurityMLAnalyticsSettingsDataSourceOutputWithContext(ctx context.Context) SecurityMLAnalyticsSettingsDataSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMLAnalyticsSettingsDataSourceOutput)
+}
+
+// SecurityMLAnalyticsSettingsDataSourceArrayInput is an input type that accepts SecurityMLAnalyticsSettingsDataSourceArray and SecurityMLAnalyticsSettingsDataSourceArrayOutput values.
+// You can construct a concrete instance of `SecurityMLAnalyticsSettingsDataSourceArrayInput` via:
+//
+//          SecurityMLAnalyticsSettingsDataSourceArray{ SecurityMLAnalyticsSettingsDataSourceArgs{...} }
+type SecurityMLAnalyticsSettingsDataSourceArrayInput interface {
+	pulumi.Input
+
+	ToSecurityMLAnalyticsSettingsDataSourceArrayOutput() SecurityMLAnalyticsSettingsDataSourceArrayOutput
+	ToSecurityMLAnalyticsSettingsDataSourceArrayOutputWithContext(context.Context) SecurityMLAnalyticsSettingsDataSourceArrayOutput
+}
+
+type SecurityMLAnalyticsSettingsDataSourceArray []SecurityMLAnalyticsSettingsDataSourceInput
+
+func (SecurityMLAnalyticsSettingsDataSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMLAnalyticsSettingsDataSource)(nil)).Elem()
+}
+
+func (i SecurityMLAnalyticsSettingsDataSourceArray) ToSecurityMLAnalyticsSettingsDataSourceArrayOutput() SecurityMLAnalyticsSettingsDataSourceArrayOutput {
+	return i.ToSecurityMLAnalyticsSettingsDataSourceArrayOutputWithContext(context.Background())
+}
+
+func (i SecurityMLAnalyticsSettingsDataSourceArray) ToSecurityMLAnalyticsSettingsDataSourceArrayOutputWithContext(ctx context.Context) SecurityMLAnalyticsSettingsDataSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SecurityMLAnalyticsSettingsDataSourceArrayOutput)
+}
+
+// security ml analytics settings data sources
+type SecurityMLAnalyticsSettingsDataSourceOutput struct{ *pulumi.OutputState }
+
+func (SecurityMLAnalyticsSettingsDataSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMLAnalyticsSettingsDataSource)(nil)).Elem()
+}
+
+func (o SecurityMLAnalyticsSettingsDataSourceOutput) ToSecurityMLAnalyticsSettingsDataSourceOutput() SecurityMLAnalyticsSettingsDataSourceOutput {
+	return o
+}
+
+func (o SecurityMLAnalyticsSettingsDataSourceOutput) ToSecurityMLAnalyticsSettingsDataSourceOutputWithContext(ctx context.Context) SecurityMLAnalyticsSettingsDataSourceOutput {
+	return o
+}
+
+// The connector id that provides the following data types
+func (o SecurityMLAnalyticsSettingsDataSourceOutput) ConnectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMLAnalyticsSettingsDataSource) *string { return v.ConnectorId }).(pulumi.StringPtrOutput)
+}
+
+// The data types used by the security ml analytics settings
+func (o SecurityMLAnalyticsSettingsDataSourceOutput) DataTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMLAnalyticsSettingsDataSource) []string { return v.DataTypes }).(pulumi.StringArrayOutput)
+}
+
+type SecurityMLAnalyticsSettingsDataSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMLAnalyticsSettingsDataSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMLAnalyticsSettingsDataSource)(nil)).Elem()
+}
+
+func (o SecurityMLAnalyticsSettingsDataSourceArrayOutput) ToSecurityMLAnalyticsSettingsDataSourceArrayOutput() SecurityMLAnalyticsSettingsDataSourceArrayOutput {
+	return o
+}
+
+func (o SecurityMLAnalyticsSettingsDataSourceArrayOutput) ToSecurityMLAnalyticsSettingsDataSourceArrayOutputWithContext(ctx context.Context) SecurityMLAnalyticsSettingsDataSourceArrayOutput {
+	return o
+}
+
+func (o SecurityMLAnalyticsSettingsDataSourceArrayOutput) Index(i pulumi.IntInput) SecurityMLAnalyticsSettingsDataSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMLAnalyticsSettingsDataSource {
+		return vs[0].([]SecurityMLAnalyticsSettingsDataSource)[vs[1].(int)]
+	}).(SecurityMLAnalyticsSettingsDataSourceOutput)
+}
+
+// security ml analytics settings data sources
+type SecurityMLAnalyticsSettingsDataSourceResponse struct {
+	// The connector id that provides the following data types
+	ConnectorId *string `pulumi:"connectorId"`
+	// The data types used by the security ml analytics settings
+	DataTypes []string `pulumi:"dataTypes"`
+}
+
+// security ml analytics settings data sources
+type SecurityMLAnalyticsSettingsDataSourceResponseOutput struct{ *pulumi.OutputState }
+
+func (SecurityMLAnalyticsSettingsDataSourceResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SecurityMLAnalyticsSettingsDataSourceResponse)(nil)).Elem()
+}
+
+func (o SecurityMLAnalyticsSettingsDataSourceResponseOutput) ToSecurityMLAnalyticsSettingsDataSourceResponseOutput() SecurityMLAnalyticsSettingsDataSourceResponseOutput {
+	return o
+}
+
+func (o SecurityMLAnalyticsSettingsDataSourceResponseOutput) ToSecurityMLAnalyticsSettingsDataSourceResponseOutputWithContext(ctx context.Context) SecurityMLAnalyticsSettingsDataSourceResponseOutput {
+	return o
+}
+
+// The connector id that provides the following data types
+func (o SecurityMLAnalyticsSettingsDataSourceResponseOutput) ConnectorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SecurityMLAnalyticsSettingsDataSourceResponse) *string { return v.ConnectorId }).(pulumi.StringPtrOutput)
+}
+
+// The data types used by the security ml analytics settings
+func (o SecurityMLAnalyticsSettingsDataSourceResponseOutput) DataTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v SecurityMLAnalyticsSettingsDataSourceResponse) []string { return v.DataTypes }).(pulumi.StringArrayOutput)
+}
+
+type SecurityMLAnalyticsSettingsDataSourceResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (SecurityMLAnalyticsSettingsDataSourceResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]SecurityMLAnalyticsSettingsDataSourceResponse)(nil)).Elem()
+}
+
+func (o SecurityMLAnalyticsSettingsDataSourceResponseArrayOutput) ToSecurityMLAnalyticsSettingsDataSourceResponseArrayOutput() SecurityMLAnalyticsSettingsDataSourceResponseArrayOutput {
+	return o
+}
+
+func (o SecurityMLAnalyticsSettingsDataSourceResponseArrayOutput) ToSecurityMLAnalyticsSettingsDataSourceResponseArrayOutputWithContext(ctx context.Context) SecurityMLAnalyticsSettingsDataSourceResponseArrayOutput {
+	return o
+}
+
+func (o SecurityMLAnalyticsSettingsDataSourceResponseArrayOutput) Index(i pulumi.IntInput) SecurityMLAnalyticsSettingsDataSourceResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) SecurityMLAnalyticsSettingsDataSourceResponse {
+		return vs[0].([]SecurityMLAnalyticsSettingsDataSourceResponse)[vs[1].(int)]
+	}).(SecurityMLAnalyticsSettingsDataSourceResponseOutput)
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -7756,6 +7918,10 @@ func init() {
 	pulumi.RegisterOutputType(RepoResponseArrayOutput{})
 	pulumi.RegisterOutputType(RepositoryOutput{})
 	pulumi.RegisterOutputType(RepositoryResponseOutput{})
+	pulumi.RegisterOutputType(SecurityMLAnalyticsSettingsDataSourceOutput{})
+	pulumi.RegisterOutputType(SecurityMLAnalyticsSettingsDataSourceArrayOutput{})
+	pulumi.RegisterOutputType(SecurityMLAnalyticsSettingsDataSourceResponseOutput{})
+	pulumi.RegisterOutputType(SecurityMLAnalyticsSettingsDataSourceResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(TIDataConnectorDataTypesOutput{})
 	pulumi.RegisterOutputType(TIDataConnectorDataTypesPtrOutput{})

@@ -190,7 +190,6 @@ type Polarization string
 const (
 	PolarizationRHCP             = Polarization("RHCP")
 	PolarizationLHCP             = Polarization("LHCP")
-	PolarizationDualRhcpLhcp     = Polarization("dualRhcpLhcp")
 	PolarizationLinearVertical   = Polarization("linearVertical")
 	PolarizationLinearHorizontal = Polarization("linearHorizontal")
 )

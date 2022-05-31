@@ -49,6 +49,12 @@ func NewModelVersion(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:machinelearningservices/v20210301preview:ModelVersion"),
 		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20220201preview:ModelVersion"),
+		},
+		{
+			Type: pulumi.String("azure-native:machinelearningservices/v20220501:ModelVersion"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ModelVersion

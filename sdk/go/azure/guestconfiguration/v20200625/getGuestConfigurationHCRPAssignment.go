@@ -11,6 +11,8 @@ import (
 )
 
 // Guest configuration assignment is an association between a machine and guest configuration.
+//
+// Deprecated: Version v20200625 will be removed in the next major version of the provider. Upgrade to version v20220125 or later.
 func LookupGuestConfigurationHCRPAssignment(ctx *pulumi.Context, args *LookupGuestConfigurationHCRPAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupGuestConfigurationHCRPAssignmentResult, error) {
 	var rv LookupGuestConfigurationHCRPAssignmentResult
 	err := ctx.Invoke("azure-native:guestconfiguration/v20200625:getGuestConfigurationHCRPAssignment", args, &rv, opts...)

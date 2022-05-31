@@ -1449,7 +1449,7 @@ func (o ContainerGroupResponseInstanceViewOutput) State() pulumi.StringOutput {
 // The container Http Get settings, for liveness or readiness probe
 type ContainerHttpGet struct {
 	// The HTTP headers.
-	HttpHeaders *HttpHeaders `pulumi:"httpHeaders"`
+	HttpHeaders []HttpHeader `pulumi:"httpHeaders"`
 	// The path to probe.
 	Path *string `pulumi:"path"`
 	// The port number to probe.
@@ -1472,7 +1472,7 @@ type ContainerHttpGetInput interface {
 // The container Http Get settings, for liveness or readiness probe
 type ContainerHttpGetArgs struct {
 	// The HTTP headers.
-	HttpHeaders HttpHeadersPtrInput `pulumi:"httpHeaders"`
+	HttpHeaders HttpHeaderArrayInput `pulumi:"httpHeaders"`
 	// The path to probe.
 	Path pulumi.StringPtrInput `pulumi:"path"`
 	// The port number to probe.
@@ -1560,8 +1560,8 @@ func (o ContainerHttpGetOutput) ToContainerHttpGetPtrOutputWithContext(ctx conte
 }
 
 // The HTTP headers.
-func (o ContainerHttpGetOutput) HttpHeaders() HttpHeadersPtrOutput {
-	return o.ApplyT(func(v ContainerHttpGet) *HttpHeaders { return v.HttpHeaders }).(HttpHeadersPtrOutput)
+func (o ContainerHttpGetOutput) HttpHeaders() HttpHeaderArrayOutput {
+	return o.ApplyT(func(v ContainerHttpGet) []HttpHeader { return v.HttpHeaders }).(HttpHeaderArrayOutput)
 }
 
 // The path to probe.
@@ -1604,13 +1604,13 @@ func (o ContainerHttpGetPtrOutput) Elem() ContainerHttpGetOutput {
 }
 
 // The HTTP headers.
-func (o ContainerHttpGetPtrOutput) HttpHeaders() HttpHeadersPtrOutput {
-	return o.ApplyT(func(v *ContainerHttpGet) *HttpHeaders {
+func (o ContainerHttpGetPtrOutput) HttpHeaders() HttpHeaderArrayOutput {
+	return o.ApplyT(func(v *ContainerHttpGet) []HttpHeader {
 		if v == nil {
 			return nil
 		}
 		return v.HttpHeaders
-	}).(HttpHeadersPtrOutput)
+	}).(HttpHeaderArrayOutput)
 }
 
 // The path to probe.
@@ -1646,7 +1646,7 @@ func (o ContainerHttpGetPtrOutput) Scheme() pulumi.StringPtrOutput {
 // The container Http Get settings, for liveness or readiness probe
 type ContainerHttpGetResponse struct {
 	// The HTTP headers.
-	HttpHeaders *HttpHeadersResponse `pulumi:"httpHeaders"`
+	HttpHeaders []HttpHeaderResponse `pulumi:"httpHeaders"`
 	// The path to probe.
 	Path *string `pulumi:"path"`
 	// The port number to probe.
@@ -1671,8 +1671,8 @@ func (o ContainerHttpGetResponseOutput) ToContainerHttpGetResponseOutputWithCont
 }
 
 // The HTTP headers.
-func (o ContainerHttpGetResponseOutput) HttpHeaders() HttpHeadersResponsePtrOutput {
-	return o.ApplyT(func(v ContainerHttpGetResponse) *HttpHeadersResponse { return v.HttpHeaders }).(HttpHeadersResponsePtrOutput)
+func (o ContainerHttpGetResponseOutput) HttpHeaders() HttpHeaderResponseArrayOutput {
+	return o.ApplyT(func(v ContainerHttpGetResponse) []HttpHeaderResponse { return v.HttpHeaders }).(HttpHeaderResponseArrayOutput)
 }
 
 // The path to probe.
@@ -1715,13 +1715,13 @@ func (o ContainerHttpGetResponsePtrOutput) Elem() ContainerHttpGetResponseOutput
 }
 
 // The HTTP headers.
-func (o ContainerHttpGetResponsePtrOutput) HttpHeaders() HttpHeadersResponsePtrOutput {
-	return o.ApplyT(func(v *ContainerHttpGetResponse) *HttpHeadersResponse {
+func (o ContainerHttpGetResponsePtrOutput) HttpHeaders() HttpHeaderResponseArrayOutput {
+	return o.ApplyT(func(v *ContainerHttpGetResponse) []HttpHeaderResponse {
 		if v == nil {
 			return nil
 		}
 		return v.HttpHeaders
-	}).(HttpHeadersResponsePtrOutput)
+	}).(HttpHeaderResponseArrayOutput)
 }
 
 // The path to probe.
@@ -3853,240 +3853,166 @@ func (o GpuResourceResponsePtrOutput) Sku() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The HTTP headers.
-type HttpHeaders struct {
+// The HTTP header.
+type HttpHeader struct {
 	// The header name.
 	Name *string `pulumi:"name"`
 	// The header value.
 	Value *string `pulumi:"value"`
 }
 
-// HttpHeadersInput is an input type that accepts HttpHeadersArgs and HttpHeadersOutput values.
-// You can construct a concrete instance of `HttpHeadersInput` via:
+// HttpHeaderInput is an input type that accepts HttpHeaderArgs and HttpHeaderOutput values.
+// You can construct a concrete instance of `HttpHeaderInput` via:
 //
-//          HttpHeadersArgs{...}
-type HttpHeadersInput interface {
+//          HttpHeaderArgs{...}
+type HttpHeaderInput interface {
 	pulumi.Input
 
-	ToHttpHeadersOutput() HttpHeadersOutput
-	ToHttpHeadersOutputWithContext(context.Context) HttpHeadersOutput
+	ToHttpHeaderOutput() HttpHeaderOutput
+	ToHttpHeaderOutputWithContext(context.Context) HttpHeaderOutput
 }
 
-// The HTTP headers.
-type HttpHeadersArgs struct {
+// The HTTP header.
+type HttpHeaderArgs struct {
 	// The header name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 	// The header value.
 	Value pulumi.StringPtrInput `pulumi:"value"`
 }
 
-func (HttpHeadersArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpHeaders)(nil)).Elem()
+func (HttpHeaderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpHeader)(nil)).Elem()
 }
 
-func (i HttpHeadersArgs) ToHttpHeadersOutput() HttpHeadersOutput {
-	return i.ToHttpHeadersOutputWithContext(context.Background())
+func (i HttpHeaderArgs) ToHttpHeaderOutput() HttpHeaderOutput {
+	return i.ToHttpHeaderOutputWithContext(context.Background())
 }
 
-func (i HttpHeadersArgs) ToHttpHeadersOutputWithContext(ctx context.Context) HttpHeadersOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpHeadersOutput)
+func (i HttpHeaderArgs) ToHttpHeaderOutputWithContext(ctx context.Context) HttpHeaderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpHeaderOutput)
 }
 
-func (i HttpHeadersArgs) ToHttpHeadersPtrOutput() HttpHeadersPtrOutput {
-	return i.ToHttpHeadersPtrOutputWithContext(context.Background())
-}
-
-func (i HttpHeadersArgs) ToHttpHeadersPtrOutputWithContext(ctx context.Context) HttpHeadersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpHeadersOutput).ToHttpHeadersPtrOutputWithContext(ctx)
-}
-
-// HttpHeadersPtrInput is an input type that accepts HttpHeadersArgs, HttpHeadersPtr and HttpHeadersPtrOutput values.
-// You can construct a concrete instance of `HttpHeadersPtrInput` via:
+// HttpHeaderArrayInput is an input type that accepts HttpHeaderArray and HttpHeaderArrayOutput values.
+// You can construct a concrete instance of `HttpHeaderArrayInput` via:
 //
-//          HttpHeadersArgs{...}
-//
-//  or:
-//
-//          nil
-type HttpHeadersPtrInput interface {
+//          HttpHeaderArray{ HttpHeaderArgs{...} }
+type HttpHeaderArrayInput interface {
 	pulumi.Input
 
-	ToHttpHeadersPtrOutput() HttpHeadersPtrOutput
-	ToHttpHeadersPtrOutputWithContext(context.Context) HttpHeadersPtrOutput
+	ToHttpHeaderArrayOutput() HttpHeaderArrayOutput
+	ToHttpHeaderArrayOutputWithContext(context.Context) HttpHeaderArrayOutput
 }
 
-type httpHeadersPtrType HttpHeadersArgs
+type HttpHeaderArray []HttpHeaderInput
 
-func HttpHeadersPtr(v *HttpHeadersArgs) HttpHeadersPtrInput {
-	return (*httpHeadersPtrType)(v)
+func (HttpHeaderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HttpHeader)(nil)).Elem()
 }
 
-func (*httpHeadersPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**HttpHeaders)(nil)).Elem()
+func (i HttpHeaderArray) ToHttpHeaderArrayOutput() HttpHeaderArrayOutput {
+	return i.ToHttpHeaderArrayOutputWithContext(context.Background())
 }
 
-func (i *httpHeadersPtrType) ToHttpHeadersPtrOutput() HttpHeadersPtrOutput {
-	return i.ToHttpHeadersPtrOutputWithContext(context.Background())
+func (i HttpHeaderArray) ToHttpHeaderArrayOutputWithContext(ctx context.Context) HttpHeaderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(HttpHeaderArrayOutput)
 }
 
-func (i *httpHeadersPtrType) ToHttpHeadersPtrOutputWithContext(ctx context.Context) HttpHeadersPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(HttpHeadersPtrOutput)
+// The HTTP header.
+type HttpHeaderOutput struct{ *pulumi.OutputState }
+
+func (HttpHeaderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpHeader)(nil)).Elem()
 }
 
-// The HTTP headers.
-type HttpHeadersOutput struct{ *pulumi.OutputState }
-
-func (HttpHeadersOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpHeaders)(nil)).Elem()
-}
-
-func (o HttpHeadersOutput) ToHttpHeadersOutput() HttpHeadersOutput {
+func (o HttpHeaderOutput) ToHttpHeaderOutput() HttpHeaderOutput {
 	return o
 }
 
-func (o HttpHeadersOutput) ToHttpHeadersOutputWithContext(ctx context.Context) HttpHeadersOutput {
+func (o HttpHeaderOutput) ToHttpHeaderOutputWithContext(ctx context.Context) HttpHeaderOutput {
 	return o
-}
-
-func (o HttpHeadersOutput) ToHttpHeadersPtrOutput() HttpHeadersPtrOutput {
-	return o.ToHttpHeadersPtrOutputWithContext(context.Background())
-}
-
-func (o HttpHeadersOutput) ToHttpHeadersPtrOutputWithContext(ctx context.Context) HttpHeadersPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v HttpHeaders) *HttpHeaders {
-		return &v
-	}).(HttpHeadersPtrOutput)
 }
 
 // The header name.
-func (o HttpHeadersOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HttpHeaders) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o HttpHeaderOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HttpHeader) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The header value.
-func (o HttpHeadersOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HttpHeaders) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o HttpHeaderOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HttpHeader) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type HttpHeadersPtrOutput struct{ *pulumi.OutputState }
+type HttpHeaderArrayOutput struct{ *pulumi.OutputState }
 
-func (HttpHeadersPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HttpHeaders)(nil)).Elem()
+func (HttpHeaderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HttpHeader)(nil)).Elem()
 }
 
-func (o HttpHeadersPtrOutput) ToHttpHeadersPtrOutput() HttpHeadersPtrOutput {
+func (o HttpHeaderArrayOutput) ToHttpHeaderArrayOutput() HttpHeaderArrayOutput {
 	return o
 }
 
-func (o HttpHeadersPtrOutput) ToHttpHeadersPtrOutputWithContext(ctx context.Context) HttpHeadersPtrOutput {
+func (o HttpHeaderArrayOutput) ToHttpHeaderArrayOutputWithContext(ctx context.Context) HttpHeaderArrayOutput {
 	return o
 }
 
-func (o HttpHeadersPtrOutput) Elem() HttpHeadersOutput {
-	return o.ApplyT(func(v *HttpHeaders) HttpHeaders {
-		if v != nil {
-			return *v
-		}
-		var ret HttpHeaders
-		return ret
-	}).(HttpHeadersOutput)
+func (o HttpHeaderArrayOutput) Index(i pulumi.IntInput) HttpHeaderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HttpHeader {
+		return vs[0].([]HttpHeader)[vs[1].(int)]
+	}).(HttpHeaderOutput)
 }
 
-// The header name.
-func (o HttpHeadersPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HttpHeaders) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The header value.
-func (o HttpHeadersPtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HttpHeaders) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Value
-	}).(pulumi.StringPtrOutput)
-}
-
-// The HTTP headers.
-type HttpHeadersResponse struct {
+// The HTTP header.
+type HttpHeaderResponse struct {
 	// The header name.
 	Name *string `pulumi:"name"`
 	// The header value.
 	Value *string `pulumi:"value"`
 }
 
-// The HTTP headers.
-type HttpHeadersResponseOutput struct{ *pulumi.OutputState }
+// The HTTP header.
+type HttpHeaderResponseOutput struct{ *pulumi.OutputState }
 
-func (HttpHeadersResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*HttpHeadersResponse)(nil)).Elem()
+func (HttpHeaderResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HttpHeaderResponse)(nil)).Elem()
 }
 
-func (o HttpHeadersResponseOutput) ToHttpHeadersResponseOutput() HttpHeadersResponseOutput {
+func (o HttpHeaderResponseOutput) ToHttpHeaderResponseOutput() HttpHeaderResponseOutput {
 	return o
 }
 
-func (o HttpHeadersResponseOutput) ToHttpHeadersResponseOutputWithContext(ctx context.Context) HttpHeadersResponseOutput {
+func (o HttpHeaderResponseOutput) ToHttpHeaderResponseOutputWithContext(ctx context.Context) HttpHeaderResponseOutput {
 	return o
 }
 
 // The header name.
-func (o HttpHeadersResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HttpHeadersResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+func (o HttpHeaderResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HttpHeaderResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // The header value.
-func (o HttpHeadersResponseOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v HttpHeadersResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
+func (o HttpHeaderResponseOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HttpHeaderResponse) *string { return v.Value }).(pulumi.StringPtrOutput)
 }
 
-type HttpHeadersResponsePtrOutput struct{ *pulumi.OutputState }
+type HttpHeaderResponseArrayOutput struct{ *pulumi.OutputState }
 
-func (HttpHeadersResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**HttpHeadersResponse)(nil)).Elem()
+func (HttpHeaderResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HttpHeaderResponse)(nil)).Elem()
 }
 
-func (o HttpHeadersResponsePtrOutput) ToHttpHeadersResponsePtrOutput() HttpHeadersResponsePtrOutput {
+func (o HttpHeaderResponseArrayOutput) ToHttpHeaderResponseArrayOutput() HttpHeaderResponseArrayOutput {
 	return o
 }
 
-func (o HttpHeadersResponsePtrOutput) ToHttpHeadersResponsePtrOutputWithContext(ctx context.Context) HttpHeadersResponsePtrOutput {
+func (o HttpHeaderResponseArrayOutput) ToHttpHeaderResponseArrayOutputWithContext(ctx context.Context) HttpHeaderResponseArrayOutput {
 	return o
 }
 
-func (o HttpHeadersResponsePtrOutput) Elem() HttpHeadersResponseOutput {
-	return o.ApplyT(func(v *HttpHeadersResponse) HttpHeadersResponse {
-		if v != nil {
-			return *v
-		}
-		var ret HttpHeadersResponse
-		return ret
-	}).(HttpHeadersResponseOutput)
-}
-
-// The header name.
-func (o HttpHeadersResponsePtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HttpHeadersResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The header value.
-func (o HttpHeadersResponsePtrOutput) Value() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *HttpHeadersResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Value
-	}).(pulumi.StringPtrOutput)
+func (o HttpHeaderResponseArrayOutput) Index(i pulumi.IntInput) HttpHeaderResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HttpHeaderResponse {
+		return vs[0].([]HttpHeaderResponse)[vs[1].(int)]
+	}).(HttpHeaderResponseOutput)
 }
 
 // Image registry credential.
@@ -6302,10 +6228,10 @@ func init() {
 	pulumi.RegisterOutputType(GpuResourcePtrOutput{})
 	pulumi.RegisterOutputType(GpuResourceResponseOutput{})
 	pulumi.RegisterOutputType(GpuResourceResponsePtrOutput{})
-	pulumi.RegisterOutputType(HttpHeadersOutput{})
-	pulumi.RegisterOutputType(HttpHeadersPtrOutput{})
-	pulumi.RegisterOutputType(HttpHeadersResponseOutput{})
-	pulumi.RegisterOutputType(HttpHeadersResponsePtrOutput{})
+	pulumi.RegisterOutputType(HttpHeaderOutput{})
+	pulumi.RegisterOutputType(HttpHeaderArrayOutput{})
+	pulumi.RegisterOutputType(HttpHeaderResponseOutput{})
+	pulumi.RegisterOutputType(HttpHeaderResponseArrayOutput{})
 	pulumi.RegisterOutputType(ImageRegistryCredentialOutput{})
 	pulumi.RegisterOutputType(ImageRegistryCredentialArrayOutput{})
 	pulumi.RegisterOutputType(ImageRegistryCredentialResponseOutput{})

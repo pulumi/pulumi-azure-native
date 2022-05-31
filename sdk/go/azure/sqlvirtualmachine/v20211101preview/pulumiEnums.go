@@ -10,6 +10,188 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// Day of the week to run assessment.
+type AssessmentDayOfWeek string
+
+const (
+	AssessmentDayOfWeekMonday    = AssessmentDayOfWeek("Monday")
+	AssessmentDayOfWeekTuesday   = AssessmentDayOfWeek("Tuesday")
+	AssessmentDayOfWeekWednesday = AssessmentDayOfWeek("Wednesday")
+	AssessmentDayOfWeekThursday  = AssessmentDayOfWeek("Thursday")
+	AssessmentDayOfWeekFriday    = AssessmentDayOfWeek("Friday")
+	AssessmentDayOfWeekSaturday  = AssessmentDayOfWeek("Saturday")
+	AssessmentDayOfWeekSunday    = AssessmentDayOfWeek("Sunday")
+)
+
+func (AssessmentDayOfWeek) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentDayOfWeek)(nil)).Elem()
+}
+
+func (e AssessmentDayOfWeek) ToAssessmentDayOfWeekOutput() AssessmentDayOfWeekOutput {
+	return pulumi.ToOutput(e).(AssessmentDayOfWeekOutput)
+}
+
+func (e AssessmentDayOfWeek) ToAssessmentDayOfWeekOutputWithContext(ctx context.Context) AssessmentDayOfWeekOutput {
+	return pulumi.ToOutputWithContext(ctx, e).(AssessmentDayOfWeekOutput)
+}
+
+func (e AssessmentDayOfWeek) ToAssessmentDayOfWeekPtrOutput() AssessmentDayOfWeekPtrOutput {
+	return e.ToAssessmentDayOfWeekPtrOutputWithContext(context.Background())
+}
+
+func (e AssessmentDayOfWeek) ToAssessmentDayOfWeekPtrOutputWithContext(ctx context.Context) AssessmentDayOfWeekPtrOutput {
+	return AssessmentDayOfWeek(e).ToAssessmentDayOfWeekOutputWithContext(ctx).ToAssessmentDayOfWeekPtrOutputWithContext(ctx)
+}
+
+func (e AssessmentDayOfWeek) ToStringOutput() pulumi.StringOutput {
+	return pulumi.ToOutput(pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssessmentDayOfWeek) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return pulumi.ToOutputWithContext(ctx, pulumi.String(e)).(pulumi.StringOutput)
+}
+
+func (e AssessmentDayOfWeek) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringPtrOutputWithContext(context.Background())
+}
+
+func (e AssessmentDayOfWeek) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return pulumi.String(e).ToStringOutputWithContext(ctx).ToStringPtrOutputWithContext(ctx)
+}
+
+type AssessmentDayOfWeekOutput struct{ *pulumi.OutputState }
+
+func (AssessmentDayOfWeekOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AssessmentDayOfWeek)(nil)).Elem()
+}
+
+func (o AssessmentDayOfWeekOutput) ToAssessmentDayOfWeekOutput() AssessmentDayOfWeekOutput {
+	return o
+}
+
+func (o AssessmentDayOfWeekOutput) ToAssessmentDayOfWeekOutputWithContext(ctx context.Context) AssessmentDayOfWeekOutput {
+	return o
+}
+
+func (o AssessmentDayOfWeekOutput) ToAssessmentDayOfWeekPtrOutput() AssessmentDayOfWeekPtrOutput {
+	return o.ToAssessmentDayOfWeekPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentDayOfWeekOutput) ToAssessmentDayOfWeekPtrOutputWithContext(ctx context.Context) AssessmentDayOfWeekPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AssessmentDayOfWeek) *AssessmentDayOfWeek {
+		return &v
+	}).(AssessmentDayOfWeekPtrOutput)
+}
+
+func (o AssessmentDayOfWeekOutput) ToStringOutput() pulumi.StringOutput {
+	return o.ToStringOutputWithContext(context.Background())
+}
+
+func (o AssessmentDayOfWeekOutput) ToStringOutputWithContext(ctx context.Context) pulumi.StringOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssessmentDayOfWeek) string {
+		return string(e)
+	}).(pulumi.StringOutput)
+}
+
+func (o AssessmentDayOfWeekOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentDayOfWeekOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e AssessmentDayOfWeek) *string {
+		v := string(e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+type AssessmentDayOfWeekPtrOutput struct{ *pulumi.OutputState }
+
+func (AssessmentDayOfWeekPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AssessmentDayOfWeek)(nil)).Elem()
+}
+
+func (o AssessmentDayOfWeekPtrOutput) ToAssessmentDayOfWeekPtrOutput() AssessmentDayOfWeekPtrOutput {
+	return o
+}
+
+func (o AssessmentDayOfWeekPtrOutput) ToAssessmentDayOfWeekPtrOutputWithContext(ctx context.Context) AssessmentDayOfWeekPtrOutput {
+	return o
+}
+
+func (o AssessmentDayOfWeekPtrOutput) Elem() AssessmentDayOfWeekOutput {
+	return o.ApplyT(func(v *AssessmentDayOfWeek) AssessmentDayOfWeek {
+		if v != nil {
+			return *v
+		}
+		var ret AssessmentDayOfWeek
+		return ret
+	}).(AssessmentDayOfWeekOutput)
+}
+
+func (o AssessmentDayOfWeekPtrOutput) ToStringPtrOutput() pulumi.StringPtrOutput {
+	return o.ToStringPtrOutputWithContext(context.Background())
+}
+
+func (o AssessmentDayOfWeekPtrOutput) ToStringPtrOutputWithContext(ctx context.Context) pulumi.StringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, e *AssessmentDayOfWeek) *string {
+		if e == nil {
+			return nil
+		}
+		v := string(*e)
+		return &v
+	}).(pulumi.StringPtrOutput)
+}
+
+// AssessmentDayOfWeekInput is an input type that accepts AssessmentDayOfWeekArgs and AssessmentDayOfWeekOutput values.
+// You can construct a concrete instance of `AssessmentDayOfWeekInput` via:
+//
+//          AssessmentDayOfWeekArgs{...}
+type AssessmentDayOfWeekInput interface {
+	pulumi.Input
+
+	ToAssessmentDayOfWeekOutput() AssessmentDayOfWeekOutput
+	ToAssessmentDayOfWeekOutputWithContext(context.Context) AssessmentDayOfWeekOutput
+}
+
+var assessmentDayOfWeekPtrType = reflect.TypeOf((**AssessmentDayOfWeek)(nil)).Elem()
+
+type AssessmentDayOfWeekPtrInput interface {
+	pulumi.Input
+
+	ToAssessmentDayOfWeekPtrOutput() AssessmentDayOfWeekPtrOutput
+	ToAssessmentDayOfWeekPtrOutputWithContext(context.Context) AssessmentDayOfWeekPtrOutput
+}
+
+type assessmentDayOfWeekPtr string
+
+func AssessmentDayOfWeekPtr(v string) AssessmentDayOfWeekPtrInput {
+	return (*assessmentDayOfWeekPtr)(&v)
+}
+
+func (*assessmentDayOfWeekPtr) ElementType() reflect.Type {
+	return assessmentDayOfWeekPtrType
+}
+
+func (in *assessmentDayOfWeekPtr) ToAssessmentDayOfWeekPtrOutput() AssessmentDayOfWeekPtrOutput {
+	return pulumi.ToOutput(in).(AssessmentDayOfWeekPtrOutput)
+}
+
+func (in *assessmentDayOfWeekPtr) ToAssessmentDayOfWeekPtrOutputWithContext(ctx context.Context) AssessmentDayOfWeekPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, in).(AssessmentDayOfWeekPtrOutput)
+}
+
+type AutoBackupDaysOfWeek string
+
+const (
+	AutoBackupDaysOfWeekMonday    = AutoBackupDaysOfWeek("Monday")
+	AutoBackupDaysOfWeekTuesday   = AutoBackupDaysOfWeek("Tuesday")
+	AutoBackupDaysOfWeekWednesday = AutoBackupDaysOfWeek("Wednesday")
+	AutoBackupDaysOfWeekThursday  = AutoBackupDaysOfWeek("Thursday")
+	AutoBackupDaysOfWeekFriday    = AutoBackupDaysOfWeek("Friday")
+	AutoBackupDaysOfWeekSaturday  = AutoBackupDaysOfWeek("Saturday")
+	AutoBackupDaysOfWeekSunday    = AutoBackupDaysOfWeek("Sunday")
+)
+
 // Backup schedule type.
 type BackupScheduleType string
 
@@ -31,6 +213,7 @@ const (
 type DayOfWeek string
 
 const (
+	DayOfWeekEveryday  = DayOfWeek("Everyday")
 	DayOfWeekMonday    = DayOfWeek("Monday")
 	DayOfWeekTuesday   = DayOfWeek("Tuesday")
 	DayOfWeekWednesday = DayOfWeek("Wednesday")
@@ -197,18 +380,6 @@ func (in *dayOfWeekPtr) ToDayOfWeekPtrOutputWithContext(ctx context.Context) Day
 	return pulumi.ToOutputWithContext(ctx, in).(DayOfWeekPtrOutput)
 }
 
-type DaysOfWeek string
-
-const (
-	DaysOfWeekMonday    = DaysOfWeek("Monday")
-	DaysOfWeekTuesday   = DaysOfWeek("Tuesday")
-	DaysOfWeekWednesday = DaysOfWeek("Wednesday")
-	DaysOfWeekThursday  = DaysOfWeek("Thursday")
-	DaysOfWeekFriday    = DaysOfWeek("Friday")
-	DaysOfWeekSaturday  = DaysOfWeek("Saturday")
-	DaysOfWeekSunday    = DaysOfWeek("Sunday")
-)
-
 // Disk configuration to apply to SQL Server.
 type DiskConfigurationType string
 
@@ -290,6 +461,8 @@ const (
 )
 
 func init() {
+	pulumi.RegisterOutputType(AssessmentDayOfWeekOutput{})
+	pulumi.RegisterOutputType(AssessmentDayOfWeekPtrOutput{})
 	pulumi.RegisterOutputType(DayOfWeekOutput{})
 	pulumi.RegisterOutputType(DayOfWeekPtrOutput{})
 }

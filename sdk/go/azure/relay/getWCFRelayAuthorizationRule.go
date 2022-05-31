@@ -10,8 +10,8 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Description of a namespace authorization rule.
-// API Version: 2017-04-01.
+// Single item in a List or Get AuthorizationRule operation
+// API Version: 2021-11-01.
 func LookupWCFRelayAuthorizationRule(ctx *pulumi.Context, args *LookupWCFRelayAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupWCFRelayAuthorizationRuleResult, error) {
 	var rv LookupWCFRelayAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:relay:getWCFRelayAuthorizationRule", args, &rv, opts...)
@@ -32,15 +32,19 @@ type LookupWCFRelayAuthorizationRuleArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
 
-// Description of a namespace authorization rule.
+// Single item in a List or Get AuthorizationRule operation
 type LookupWCFRelayAuthorizationRuleResult struct {
-	// Resource ID.
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource name.
+	// The geo-location where the resource lives
+	Location string `pulumi:"location"`
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// The rights associated with the rule.
 	Rights []string `pulumi:"rights"`
-	// Resource type.
+	// The system meta data relating to this resource.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 	Type string `pulumi:"type"`
 }
 
@@ -72,7 +76,7 @@ func (LookupWCFRelayAuthorizationRuleOutputArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*LookupWCFRelayAuthorizationRuleArgs)(nil)).Elem()
 }
 
-// Description of a namespace authorization rule.
+// Single item in a List or Get AuthorizationRule operation
 type LookupWCFRelayAuthorizationRuleResultOutput struct{ *pulumi.OutputState }
 
 func (LookupWCFRelayAuthorizationRuleResultOutput) ElementType() reflect.Type {
@@ -87,12 +91,17 @@ func (o LookupWCFRelayAuthorizationRuleResultOutput) ToLookupWCFRelayAuthorizati
 	return o
 }
 
-// Resource ID.
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupWCFRelayAuthorizationRuleResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWCFRelayAuthorizationRuleResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource name.
+// The geo-location where the resource lives
+func (o LookupWCFRelayAuthorizationRuleResultOutput) Location() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupWCFRelayAuthorizationRuleResult) string { return v.Location }).(pulumi.StringOutput)
+}
+
+// The name of the resource
 func (o LookupWCFRelayAuthorizationRuleResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWCFRelayAuthorizationRuleResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -102,7 +111,12 @@ func (o LookupWCFRelayAuthorizationRuleResultOutput) Rights() pulumi.StringArray
 	return o.ApplyT(func(v LookupWCFRelayAuthorizationRuleResult) []string { return v.Rights }).(pulumi.StringArrayOutput)
 }
 
-// Resource type.
+// The system meta data relating to this resource.
+func (o LookupWCFRelayAuthorizationRuleResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupWCFRelayAuthorizationRuleResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
 func (o LookupWCFRelayAuthorizationRuleResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupWCFRelayAuthorizationRuleResult) string { return v.Type }).(pulumi.StringOutput)
 }

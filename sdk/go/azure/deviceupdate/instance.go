@@ -12,7 +12,7 @@ import (
 )
 
 // Device Update instance details.
-// API Version: 2020-03-01-preview.
+// API Version: 2022-04-01-preview.
 type Instance struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +54,9 @@ func NewInstance(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:deviceupdate/v20200301preview:Instance"),
+		},
+		{
+			Type: pulumi.String("azure-native:deviceupdate/v20220401preview:Instance"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -12,7 +12,7 @@ import (
 
 // Description of a Namespace AuthorizationRules.
 //
-// Deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
+// Deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.
 func LookupHybridConnectionAuthorizationRule(ctx *pulumi.Context, args *LookupHybridConnectionAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupHybridConnectionAuthorizationRuleResult, error) {
 	var rv LookupHybridConnectionAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:relay/v20160701:getHybridConnectionAuthorizationRule", args, &rv, opts...)

@@ -3558,7 +3558,7 @@ func (o SQLTempDbSettingsResponsePtrOutput) Luns() pulumi.IntArrayOutput {
 
 type Schedule struct {
 	// Day of the week to run assessment.
-	DayOfWeek *DayOfWeek `pulumi:"dayOfWeek"`
+	DayOfWeek *AssessmentDayOfWeek `pulumi:"dayOfWeek"`
 	// Enable or disable assessment schedule on SQL virtual machine.
 	Enable *bool `pulumi:"enable"`
 	// Occurrence of the DayOfWeek day within a month to schedule assessment. Takes values: 1,2,3,4 and -1. Use -1 for last DayOfWeek day of the month
@@ -3582,7 +3582,7 @@ type ScheduleInput interface {
 
 type ScheduleArgs struct {
 	// Day of the week to run assessment.
-	DayOfWeek DayOfWeekPtrInput `pulumi:"dayOfWeek"`
+	DayOfWeek AssessmentDayOfWeekPtrInput `pulumi:"dayOfWeek"`
 	// Enable or disable assessment schedule on SQL virtual machine.
 	Enable pulumi.BoolPtrInput `pulumi:"enable"`
 	// Occurrence of the DayOfWeek day within a month to schedule assessment. Takes values: 1,2,3,4 and -1. Use -1 for last DayOfWeek day of the month
@@ -3671,8 +3671,8 @@ func (o ScheduleOutput) ToSchedulePtrOutputWithContext(ctx context.Context) Sche
 }
 
 // Day of the week to run assessment.
-func (o ScheduleOutput) DayOfWeek() DayOfWeekPtrOutput {
-	return o.ApplyT(func(v Schedule) *DayOfWeek { return v.DayOfWeek }).(DayOfWeekPtrOutput)
+func (o ScheduleOutput) DayOfWeek() AssessmentDayOfWeekPtrOutput {
+	return o.ApplyT(func(v Schedule) *AssessmentDayOfWeek { return v.DayOfWeek }).(AssessmentDayOfWeekPtrOutput)
 }
 
 // Enable or disable assessment schedule on SQL virtual machine.
@@ -3720,13 +3720,13 @@ func (o SchedulePtrOutput) Elem() ScheduleOutput {
 }
 
 // Day of the week to run assessment.
-func (o SchedulePtrOutput) DayOfWeek() DayOfWeekPtrOutput {
-	return o.ApplyT(func(v *Schedule) *DayOfWeek {
+func (o SchedulePtrOutput) DayOfWeek() AssessmentDayOfWeekPtrOutput {
+	return o.ApplyT(func(v *Schedule) *AssessmentDayOfWeek {
 		if v == nil {
 			return nil
 		}
 		return v.DayOfWeek
-	}).(DayOfWeekPtrOutput)
+	}).(AssessmentDayOfWeekPtrOutput)
 }
 
 // Enable or disable assessment schedule on SQL virtual machine.

@@ -66,6 +66,12 @@ func NewBackupPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:dataprotection/v20220201preview:BackupPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:dataprotection/v20220331preview:BackupPolicy"),
+		},
+		{
+			Type: pulumi.String("azure-native:dataprotection/v20220401:BackupPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BackupPolicy

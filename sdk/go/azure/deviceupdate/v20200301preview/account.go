@@ -12,6 +12,8 @@ import (
 )
 
 // Device Update account details.
+//
+// Deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.
 type Account struct {
 	pulumi.CustomResourceState
 
@@ -53,6 +55,9 @@ func NewAccount(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:deviceupdate:Account"),
+		},
+		{
+			Type: pulumi.String("azure-native:deviceupdate/v20220401preview:Account"),
 		},
 	})
 	opts = append(opts, aliases)

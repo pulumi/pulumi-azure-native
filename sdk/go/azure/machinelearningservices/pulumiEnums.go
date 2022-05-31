@@ -85,9 +85,14 @@ const (
 type DataBindingMode string
 
 const (
-	DataBindingModeMount    = DataBindingMode("Mount")
-	DataBindingModeDownload = DataBindingMode("Download")
-	DataBindingModeUpload   = DataBindingMode("Upload")
+	DataBindingModeMount          = DataBindingMode("Mount")
+	DataBindingModeDownload       = DataBindingMode("Download")
+	DataBindingModeUpload         = DataBindingMode("Upload")
+	DataBindingModeReadOnlyMount  = DataBindingMode("ReadOnlyMount")
+	DataBindingModeReadWriteMount = DataBindingMode("ReadWriteMount")
+	DataBindingModeDirect         = DataBindingMode("Direct")
+	DataBindingModeEvalMount      = DataBindingMode("EvalMount")
+	DataBindingModeEvalDownload   = DataBindingMode("EvalDownload")
 )
 
 // Specifies dataset type.

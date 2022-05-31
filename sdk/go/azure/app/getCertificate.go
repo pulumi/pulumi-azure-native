@@ -22,10 +22,10 @@ func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ..
 }
 
 type LookupCertificateArgs struct {
-	// Name of the Managed Environment.
-	ManagedEnvironmentName string `pulumi:"managedEnvironmentName"`
 	// Name of the Certificate.
-	Name string `pulumi:"name"`
+	CertificateName string `pulumi:"certificateName"`
+	// Name of the Managed Environment.
+	EnvironmentName string `pulumi:"environmentName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -62,10 +62,10 @@ func LookupCertificateOutput(ctx *pulumi.Context, args LookupCertificateOutputAr
 }
 
 type LookupCertificateOutputArgs struct {
-	// Name of the Managed Environment.
-	ManagedEnvironmentName pulumi.StringInput `pulumi:"managedEnvironmentName"`
 	// Name of the Certificate.
-	Name pulumi.StringInput `pulumi:"name"`
+	CertificateName pulumi.StringInput `pulumi:"certificateName"`
+	// Name of the Managed Environment.
+	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

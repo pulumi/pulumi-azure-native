@@ -27,7 +27,7 @@ const (
 	CommandLineSettingRequire    = CommandLineSetting("Require")
 )
 
-// Day of the week.
+// The day of the week (Monday-Sunday).
 type DayOfWeek string
 
 const (
@@ -477,13 +477,13 @@ const (
 	ScalingHostPoolTypePooled = ScalingHostPoolType("Pooled")
 )
 
-// The type of maintenance for session host components.
+// The preferred mechanism for updating the agent components. This is either Scheduled or Default.
 type SessionHostComponentUpdateType string
 
 const (
-	// Agent and other agent side components are delivery schedule is controlled by WVD Infra.
+	// The agent components are updated according to the AVD infrastructure flighting. For more information, see https://aka.ms/avdagent.
 	SessionHostComponentUpdateTypeDefault = SessionHostComponentUpdateType("Default")
-	// TenantAdmin have opted in for Scheduled Component Update feature.
+	// This enables the Scheduled Agent Updates feature which allows the agent components to get updated according to the schedule that the admin define. For more information, see https://aka.ms/avdsau.
 	SessionHostComponentUpdateTypeScheduled = SessionHostComponentUpdateType("Scheduled")
 )
 

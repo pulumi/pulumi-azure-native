@@ -80,6 +80,9 @@ func NewDynamics365DataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20220101preview:Dynamics365DataConnector"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20220501preview:Dynamics365DataConnector"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Dynamics365DataConnector

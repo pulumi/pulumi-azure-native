@@ -12,6 +12,8 @@ import (
 )
 
 // The description of Fhir Service
+//
+// Deprecated: Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.
 type FhirService struct {
 	pulumi.CustomResourceState
 
@@ -77,6 +79,9 @@ func NewFhirService(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20211101:FhirService"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20220515:FhirService"),
 		},
 	})
 	opts = append(opts, aliases)

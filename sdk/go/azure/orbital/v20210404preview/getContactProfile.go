@@ -11,6 +11,8 @@ import (
 )
 
 // Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
+//
+// Deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 func LookupContactProfile(ctx *pulumi.Context, args *LookupContactProfileArgs, opts ...pulumi.InvokeOption) (*LookupContactProfileResult, error) {
 	var rv LookupContactProfileResult
 	err := ctx.Invoke("azure-native:orbital/v20210404preview:getContactProfile", args, &rv, opts...)

@@ -12,6 +12,8 @@ import (
 )
 
 // Guest configuration assignment is an association between a machine and guest configuration.
+//
+// Deprecated: Version v20210125 will be removed in the next major version of the provider. Upgrade to version v20220125 or later.
 type GuestConfigurationHCRPAssignment struct {
 	pulumi.CustomResourceState
 
@@ -54,6 +56,9 @@ func NewGuestConfigurationHCRPAssignment(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"),
+		},
+		{
+			Type: pulumi.String("azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Dataset{}
 	case "azure-native:datafactory/v20180601:Factory":
 		r = &Factory{}
+	case "azure-native:datafactory/v20180601:GlobalParameter":
+		r = &GlobalParameter{}
 	case "azure-native:datafactory/v20180601:IntegrationRuntime":
 		r = &IntegrationRuntime{}
 	case "azure-native:datafactory/v20180601:LinkedService":

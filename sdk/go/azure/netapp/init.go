@@ -39,6 +39,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &Volume{}
 	case "azure-native:netapp:VolumeGroup":
 		r = &VolumeGroup{}
+	case "azure-native:netapp:VolumeQuotaRule":
+		r = &VolumeQuotaRule{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

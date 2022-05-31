@@ -11,6 +11,8 @@ import (
 )
 
 // LoadTest details
+//
+// Deprecated: Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later.
 func LookupLoadTest(ctx *pulumi.Context, args *LookupLoadTestArgs, opts ...pulumi.InvokeOption) (*LookupLoadTestResult, error) {
 	var rv LookupLoadTestResult
 	err := ctx.Invoke("azure-native:loadtestservice/v20211201preview:getLoadTest", args, &rv, opts...)
@@ -21,7 +23,7 @@ func LookupLoadTest(ctx *pulumi.Context, args *LookupLoadTestArgs, opts ...pulum
 }
 
 type LookupLoadTestArgs struct {
-	// Load Test name.
+	// Load Test resource name.
 	LoadTestName string `pulumi:"loadTestName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -65,7 +67,7 @@ func LookupLoadTestOutput(ctx *pulumi.Context, args LookupLoadTestOutputArgs, op
 }
 
 type LookupLoadTestOutputArgs struct {
-	// Load Test name.
+	// Load Test resource name.
 	LoadTestName pulumi.StringInput `pulumi:"loadTestName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`

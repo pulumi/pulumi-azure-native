@@ -12,12 +12,14 @@ import (
 )
 
 // Customer creates a contact resource for a spacecraft resource.
-// API Version: 2021-04-04-preview.
+// API Version: 2022-03-01.
 type Contact struct {
 	pulumi.CustomResourceState
 
+	// The configuration associated with the allocated antenna.
+	AntennaConfiguration ContactsPropertiesResponseAntennaConfigurationOutput `pulumi:"antennaConfiguration"`
 	// The reference to the contact profile resource.
-	ContactProfile ResourceReferenceResponseOutput `pulumi:"contactProfile"`
+	ContactProfile ContactsPropertiesResponseContactProfileOutput `pulumi:"contactProfile"`
 	// Azimuth of the antenna at the end of the contact in decimal degrees.
 	EndAzimuthDegrees pulumi.Float64Output `pulumi:"endAzimuthDegrees"`
 	// Spacecraft elevation above the horizon at contact end.
@@ -85,6 +87,9 @@ func NewContact(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:orbital/v20210404preview:Contact"),
 		},
+		{
+			Type: pulumi.String("azure-native:orbital/v20220301:Contact"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Contact
@@ -122,7 +127,7 @@ type contactArgs struct {
 	// Contact Name
 	ContactName *string `pulumi:"contactName"`
 	// The reference to the contact profile resource.
-	ContactProfile ResourceReference `pulumi:"contactProfile"`
+	ContactProfile ContactsPropertiesContactProfile `pulumi:"contactProfile"`
 	// Azure Ground Station name.
 	GroundStationName string `pulumi:"groundStationName"`
 	// Reservation end time of a contact.
@@ -140,7 +145,7 @@ type ContactArgs struct {
 	// Contact Name
 	ContactName pulumi.StringPtrInput
 	// The reference to the contact profile resource.
-	ContactProfile ResourceReferenceInput
+	ContactProfile ContactsPropertiesContactProfileInput
 	// Azure Ground Station name.
 	GroundStationName pulumi.StringInput
 	// Reservation end time of a contact.
@@ -190,9 +195,14 @@ func (o ContactOutput) ToContactOutputWithContext(ctx context.Context) ContactOu
 	return o
 }
 
+// The configuration associated with the allocated antenna.
+func (o ContactOutput) AntennaConfiguration() ContactsPropertiesResponseAntennaConfigurationOutput {
+	return o.ApplyT(func(v *Contact) ContactsPropertiesResponseAntennaConfigurationOutput { return v.AntennaConfiguration }).(ContactsPropertiesResponseAntennaConfigurationOutput)
+}
+
 // The reference to the contact profile resource.
-func (o ContactOutput) ContactProfile() ResourceReferenceResponseOutput {
-	return o.ApplyT(func(v *Contact) ResourceReferenceResponseOutput { return v.ContactProfile }).(ResourceReferenceResponseOutput)
+func (o ContactOutput) ContactProfile() ContactsPropertiesResponseContactProfileOutput {
+	return o.ApplyT(func(v *Contact) ContactsPropertiesResponseContactProfileOutput { return v.ContactProfile }).(ContactsPropertiesResponseContactProfileOutput)
 }
 
 // Azimuth of the antenna at the end of the contact in decimal degrees.

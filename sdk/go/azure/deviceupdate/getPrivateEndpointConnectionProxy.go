@@ -11,7 +11,7 @@ import (
 )
 
 // Private endpoint connection proxy details.
-// API Version: 2020-03-01-preview.
+// API Version: 2022-04-01-preview.
 func LookupPrivateEndpointConnectionProxy(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionProxyArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionProxyResult, error) {
 	var rv LookupPrivateEndpointConnectionProxyResult
 	err := ctx.Invoke("azure-native:deviceupdate:getPrivateEndpointConnectionProxy", args, &rv, opts...)

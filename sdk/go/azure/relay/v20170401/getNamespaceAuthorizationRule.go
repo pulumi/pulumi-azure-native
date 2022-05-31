@@ -11,6 +11,8 @@ import (
 )
 
 // Description of a namespace authorization rule.
+//
+// Deprecated: Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.
 func LookupNamespaceAuthorizationRule(ctx *pulumi.Context, args *LookupNamespaceAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupNamespaceAuthorizationRuleResult, error) {
 	var rv LookupNamespaceAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:relay/v20170401:getNamespaceAuthorizationRule", args, &rv, opts...)

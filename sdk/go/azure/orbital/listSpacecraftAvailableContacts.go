@@ -11,7 +11,7 @@ import (
 )
 
 // Response for the ListAvailableContacts API service call.
-// API Version: 2021-04-04-preview.
+// API Version: 2022-03-01.
 func ListSpacecraftAvailableContacts(ctx *pulumi.Context, args *ListSpacecraftAvailableContactsArgs, opts ...pulumi.InvokeOption) (*ListSpacecraftAvailableContactsResult, error) {
 	var rv ListSpacecraftAvailableContactsResult
 	err := ctx.Invoke("azure-native:orbital:listSpacecraftAvailableContacts", args, &rv, opts...)
@@ -23,7 +23,7 @@ func ListSpacecraftAvailableContacts(ctx *pulumi.Context, args *ListSpacecraftAv
 
 type ListSpacecraftAvailableContactsArgs struct {
 	// The reference to the contact profile resource.
-	ContactProfile ResourceReference `pulumi:"contactProfile"`
+	ContactProfile ContactParametersContactProfile `pulumi:"contactProfile"`
 	// End time of a contact.
 	EndTime string `pulumi:"endTime"`
 	// Name of Azure Ground Station.
@@ -59,7 +59,7 @@ func ListSpacecraftAvailableContactsOutput(ctx *pulumi.Context, args ListSpacecr
 
 type ListSpacecraftAvailableContactsOutputArgs struct {
 	// The reference to the contact profile resource.
-	ContactProfile ResourceReferenceInput `pulumi:"contactProfile"`
+	ContactProfile ContactParametersContactProfileInput `pulumi:"contactProfile"`
 	// End time of a contact.
 	EndTime pulumi.StringInput `pulumi:"endTime"`
 	// Name of Azure Ground Station.

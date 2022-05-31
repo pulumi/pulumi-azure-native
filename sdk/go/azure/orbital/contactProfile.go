@@ -12,7 +12,7 @@ import (
 )
 
 // Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-// API Version: 2021-04-04-preview.
+// API Version: 2022-03-01.
 type ContactProfile struct {
 	pulumi.CustomResourceState
 
@@ -32,6 +32,8 @@ type ContactProfile struct {
 	MinimumViableContactDuration pulumi.StringPtrOutput `pulumi:"minimumViableContactDuration"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
+	// Network configuration of customer virtual network.
+	NetworkConfiguration ContactProfilesPropertiesResponseNetworkConfigurationOutput `pulumi:"networkConfiguration"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// Resource tags.
@@ -50,12 +52,18 @@ func NewContactProfile(ctx *pulumi.Context,
 	if args.Links == nil {
 		return nil, errors.New("invalid value for required argument 'Links'")
 	}
+	if args.NetworkConfiguration == nil {
+		return nil, errors.New("invalid value for required argument 'NetworkConfiguration'")
+	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:orbital/v20210404preview:ContactProfile"),
+		},
+		{
+			Type: pulumi.String("azure-native:orbital/v20220301:ContactProfile"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -105,6 +113,8 @@ type contactProfileArgs struct {
 	MinimumElevationDegrees *float64 `pulumi:"minimumElevationDegrees"`
 	// Minimum viable contact duration in ISO 8601 format.
 	MinimumViableContactDuration *string `pulumi:"minimumViableContactDuration"`
+	// Network configuration of customer virtual network.
+	NetworkConfiguration ContactProfilesPropertiesNetworkConfiguration `pulumi:"networkConfiguration"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -127,6 +137,8 @@ type ContactProfileArgs struct {
 	MinimumElevationDegrees pulumi.Float64PtrInput
 	// Minimum viable contact duration in ISO 8601 format.
 	MinimumViableContactDuration pulumi.StringPtrInput
+	// Network configuration of customer virtual network.
+	NetworkConfiguration ContactProfilesPropertiesNetworkConfigurationInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.
@@ -208,6 +220,13 @@ func (o ContactProfileOutput) MinimumViableContactDuration() pulumi.StringPtrOut
 // The name of the resource
 func (o ContactProfileOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ContactProfile) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network configuration of customer virtual network.
+func (o ContactProfileOutput) NetworkConfiguration() ContactProfilesPropertiesResponseNetworkConfigurationOutput {
+	return o.ApplyT(func(v *ContactProfile) ContactProfilesPropertiesResponseNetworkConfigurationOutput {
+		return v.NetworkConfiguration
+	}).(ContactProfilesPropertiesResponseNetworkConfigurationOutput)
 }
 
 // Azure Resource Manager metadata containing createdBy and modifiedBy information.

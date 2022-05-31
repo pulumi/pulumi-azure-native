@@ -11,7 +11,7 @@ import (
 )
 
 // Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-// API Version: 2021-04-04-preview.
+// API Version: 2022-03-01.
 func LookupContactProfile(ctx *pulumi.Context, args *LookupContactProfileArgs, opts ...pulumi.InvokeOption) (*LookupContactProfileResult, error) {
 	var rv LookupContactProfileResult
 	err := ctx.Invoke("azure-native:orbital:getContactProfile", args, &rv, opts...)
@@ -48,6 +48,8 @@ type LookupContactProfileResult struct {
 	MinimumViableContactDuration *string `pulumi:"minimumViableContactDuration"`
 	// The name of the resource
 	Name string `pulumi:"name"`
+	// Network configuration of customer virtual network.
+	NetworkConfiguration ContactProfilesPropertiesResponseNetworkConfiguration `pulumi:"networkConfiguration"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
@@ -138,6 +140,13 @@ func (o LookupContactProfileResultOutput) MinimumViableContactDuration() pulumi.
 // The name of the resource
 func (o LookupContactProfileResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupContactProfileResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Network configuration of customer virtual network.
+func (o LookupContactProfileResultOutput) NetworkConfiguration() ContactProfilesPropertiesResponseNetworkConfigurationOutput {
+	return o.ApplyT(func(v LookupContactProfileResult) ContactProfilesPropertiesResponseNetworkConfiguration {
+		return v.NetworkConfiguration
+	}).(ContactProfilesPropertiesResponseNetworkConfigurationOutput)
 }
 
 // Azure Resource Manager metadata containing createdBy and modifiedBy information.

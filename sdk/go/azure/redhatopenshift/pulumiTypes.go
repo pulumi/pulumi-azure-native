@@ -12,11 +12,11 @@ import (
 
 // APIServerProfile represents an API server profile.
 type APIServerProfile struct {
-	// The IP of the cluster API server (immutable).
+	// The IP of the cluster API server.
 	Ip *string `pulumi:"ip"`
-	// The URL to access the cluster API server (immutable).
+	// The URL to access the cluster API server.
 	Url *string `pulumi:"url"`
-	// API server visibility (immutable).
+	// API server visibility.
 	Visibility *string `pulumi:"visibility"`
 }
 
@@ -33,11 +33,11 @@ type APIServerProfileInput interface {
 
 // APIServerProfile represents an API server profile.
 type APIServerProfileArgs struct {
-	// The IP of the cluster API server (immutable).
+	// The IP of the cluster API server.
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
-	// The URL to access the cluster API server (immutable).
+	// The URL to access the cluster API server.
 	Url pulumi.StringPtrInput `pulumi:"url"`
-	// API server visibility (immutable).
+	// API server visibility.
 	Visibility pulumi.StringPtrInput `pulumi:"visibility"`
 }
 
@@ -119,17 +119,17 @@ func (o APIServerProfileOutput) ToAPIServerProfilePtrOutputWithContext(ctx conte
 	}).(APIServerProfilePtrOutput)
 }
 
-// The IP of the cluster API server (immutable).
+// The IP of the cluster API server.
 func (o APIServerProfileOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v APIServerProfile) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
-// The URL to access the cluster API server (immutable).
+// The URL to access the cluster API server.
 func (o APIServerProfileOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v APIServerProfile) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-// API server visibility (immutable).
+// API server visibility.
 func (o APIServerProfileOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v APIServerProfile) *string { return v.Visibility }).(pulumi.StringPtrOutput)
 }
@@ -158,7 +158,7 @@ func (o APIServerProfilePtrOutput) Elem() APIServerProfileOutput {
 	}).(APIServerProfileOutput)
 }
 
-// The IP of the cluster API server (immutable).
+// The IP of the cluster API server.
 func (o APIServerProfilePtrOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *APIServerProfile) *string {
 		if v == nil {
@@ -168,7 +168,7 @@ func (o APIServerProfilePtrOutput) Ip() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL to access the cluster API server (immutable).
+// The URL to access the cluster API server.
 func (o APIServerProfilePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *APIServerProfile) *string {
 		if v == nil {
@@ -178,7 +178,7 @@ func (o APIServerProfilePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// API server visibility (immutable).
+// API server visibility.
 func (o APIServerProfilePtrOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *APIServerProfile) *string {
 		if v == nil {
@@ -190,11 +190,11 @@ func (o APIServerProfilePtrOutput) Visibility() pulumi.StringPtrOutput {
 
 // APIServerProfile represents an API server profile.
 type APIServerProfileResponse struct {
-	// The IP of the cluster API server (immutable).
+	// The IP of the cluster API server.
 	Ip *string `pulumi:"ip"`
-	// The URL to access the cluster API server (immutable).
+	// The URL to access the cluster API server.
 	Url *string `pulumi:"url"`
-	// API server visibility (immutable).
+	// API server visibility.
 	Visibility *string `pulumi:"visibility"`
 }
 
@@ -213,17 +213,17 @@ func (o APIServerProfileResponseOutput) ToAPIServerProfileResponseOutputWithCont
 	return o
 }
 
-// The IP of the cluster API server (immutable).
+// The IP of the cluster API server.
 func (o APIServerProfileResponseOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v APIServerProfileResponse) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
-// The URL to access the cluster API server (immutable).
+// The URL to access the cluster API server.
 func (o APIServerProfileResponseOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v APIServerProfileResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
 
-// API server visibility (immutable).
+// API server visibility.
 func (o APIServerProfileResponseOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v APIServerProfileResponse) *string { return v.Visibility }).(pulumi.StringPtrOutput)
 }
@@ -252,7 +252,7 @@ func (o APIServerProfileResponsePtrOutput) Elem() APIServerProfileResponseOutput
 	}).(APIServerProfileResponseOutput)
 }
 
-// The IP of the cluster API server (immutable).
+// The IP of the cluster API server.
 func (o APIServerProfileResponsePtrOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *APIServerProfileResponse) *string {
 		if v == nil {
@@ -262,7 +262,7 @@ func (o APIServerProfileResponsePtrOutput) Ip() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The URL to access the cluster API server (immutable).
+// The URL to access the cluster API server.
 func (o APIServerProfileResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *APIServerProfileResponse) *string {
 		if v == nil {
@@ -272,7 +272,7 @@ func (o APIServerProfileResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// API server visibility (immutable).
+// API server visibility.
 func (o APIServerProfileResponsePtrOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *APIServerProfileResponse) *string {
 		if v == nil {
@@ -284,13 +284,15 @@ func (o APIServerProfileResponsePtrOutput) Visibility() pulumi.StringPtrOutput {
 
 // ClusterProfile represents a cluster profile.
 type ClusterProfile struct {
-	// The domain for the cluster (immutable).
+	// The domain for the cluster.
 	Domain *string `pulumi:"domain"`
-	// The pull secret for the cluster (immutable).
+	// If FIPS validated crypto modules are used
+	FipsValidatedModules *string `pulumi:"fipsValidatedModules"`
+	// The pull secret for the cluster.
 	PullSecret *string `pulumi:"pullSecret"`
-	// The ID of the cluster resource group (immutable).
+	// The ID of the cluster resource group.
 	ResourceGroupId *string `pulumi:"resourceGroupId"`
-	// The version of the cluster (immutable).
+	// The version of the cluster.
 	Version *string `pulumi:"version"`
 }
 
@@ -307,13 +309,15 @@ type ClusterProfileInput interface {
 
 // ClusterProfile represents a cluster profile.
 type ClusterProfileArgs struct {
-	// The domain for the cluster (immutable).
+	// The domain for the cluster.
 	Domain pulumi.StringPtrInput `pulumi:"domain"`
-	// The pull secret for the cluster (immutable).
+	// If FIPS validated crypto modules are used
+	FipsValidatedModules pulumi.StringPtrInput `pulumi:"fipsValidatedModules"`
+	// The pull secret for the cluster.
 	PullSecret pulumi.StringPtrInput `pulumi:"pullSecret"`
-	// The ID of the cluster resource group (immutable).
+	// The ID of the cluster resource group.
 	ResourceGroupId pulumi.StringPtrInput `pulumi:"resourceGroupId"`
-	// The version of the cluster (immutable).
+	// The version of the cluster.
 	Version pulumi.StringPtrInput `pulumi:"version"`
 }
 
@@ -395,22 +399,27 @@ func (o ClusterProfileOutput) ToClusterProfilePtrOutputWithContext(ctx context.C
 	}).(ClusterProfilePtrOutput)
 }
 
-// The domain for the cluster (immutable).
+// The domain for the cluster.
 func (o ClusterProfileOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterProfile) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// The pull secret for the cluster (immutable).
+// If FIPS validated crypto modules are used
+func (o ClusterProfileOutput) FipsValidatedModules() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterProfile) *string { return v.FipsValidatedModules }).(pulumi.StringPtrOutput)
+}
+
+// The pull secret for the cluster.
 func (o ClusterProfileOutput) PullSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterProfile) *string { return v.PullSecret }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the cluster resource group (immutable).
+// The ID of the cluster resource group.
 func (o ClusterProfileOutput) ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterProfile) *string { return v.ResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The version of the cluster (immutable).
+// The version of the cluster.
 func (o ClusterProfileOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterProfile) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -439,7 +448,7 @@ func (o ClusterProfilePtrOutput) Elem() ClusterProfileOutput {
 	}).(ClusterProfileOutput)
 }
 
-// The domain for the cluster (immutable).
+// The domain for the cluster.
 func (o ClusterProfilePtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterProfile) *string {
 		if v == nil {
@@ -449,7 +458,17 @@ func (o ClusterProfilePtrOutput) Domain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The pull secret for the cluster (immutable).
+// If FIPS validated crypto modules are used
+func (o ClusterProfilePtrOutput) FipsValidatedModules() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FipsValidatedModules
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pull secret for the cluster.
 func (o ClusterProfilePtrOutput) PullSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterProfile) *string {
 		if v == nil {
@@ -459,7 +478,7 @@ func (o ClusterProfilePtrOutput) PullSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the cluster resource group (immutable).
+// The ID of the cluster resource group.
 func (o ClusterProfilePtrOutput) ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterProfile) *string {
 		if v == nil {
@@ -469,7 +488,7 @@ func (o ClusterProfilePtrOutput) ResourceGroupId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the cluster (immutable).
+// The version of the cluster.
 func (o ClusterProfilePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterProfile) *string {
 		if v == nil {
@@ -481,13 +500,15 @@ func (o ClusterProfilePtrOutput) Version() pulumi.StringPtrOutput {
 
 // ClusterProfile represents a cluster profile.
 type ClusterProfileResponse struct {
-	// The domain for the cluster (immutable).
+	// The domain for the cluster.
 	Domain *string `pulumi:"domain"`
-	// The pull secret for the cluster (immutable).
+	// If FIPS validated crypto modules are used
+	FipsValidatedModules *string `pulumi:"fipsValidatedModules"`
+	// The pull secret for the cluster.
 	PullSecret *string `pulumi:"pullSecret"`
-	// The ID of the cluster resource group (immutable).
+	// The ID of the cluster resource group.
 	ResourceGroupId *string `pulumi:"resourceGroupId"`
-	// The version of the cluster (immutable).
+	// The version of the cluster.
 	Version *string `pulumi:"version"`
 }
 
@@ -506,22 +527,27 @@ func (o ClusterProfileResponseOutput) ToClusterProfileResponseOutputWithContext(
 	return o
 }
 
-// The domain for the cluster (immutable).
+// The domain for the cluster.
 func (o ClusterProfileResponseOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterProfileResponse) *string { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
-// The pull secret for the cluster (immutable).
+// If FIPS validated crypto modules are used
+func (o ClusterProfileResponseOutput) FipsValidatedModules() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ClusterProfileResponse) *string { return v.FipsValidatedModules }).(pulumi.StringPtrOutput)
+}
+
+// The pull secret for the cluster.
 func (o ClusterProfileResponseOutput) PullSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterProfileResponse) *string { return v.PullSecret }).(pulumi.StringPtrOutput)
 }
 
-// The ID of the cluster resource group (immutable).
+// The ID of the cluster resource group.
 func (o ClusterProfileResponseOutput) ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterProfileResponse) *string { return v.ResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The version of the cluster (immutable).
+// The version of the cluster.
 func (o ClusterProfileResponseOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterProfileResponse) *string { return v.Version }).(pulumi.StringPtrOutput)
 }
@@ -550,7 +576,7 @@ func (o ClusterProfileResponsePtrOutput) Elem() ClusterProfileResponseOutput {
 	}).(ClusterProfileResponseOutput)
 }
 
-// The domain for the cluster (immutable).
+// The domain for the cluster.
 func (o ClusterProfileResponsePtrOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterProfileResponse) *string {
 		if v == nil {
@@ -560,7 +586,17 @@ func (o ClusterProfileResponsePtrOutput) Domain() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The pull secret for the cluster (immutable).
+// If FIPS validated crypto modules are used
+func (o ClusterProfileResponsePtrOutput) FipsValidatedModules() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ClusterProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FipsValidatedModules
+	}).(pulumi.StringPtrOutput)
+}
+
+// The pull secret for the cluster.
 func (o ClusterProfileResponsePtrOutput) PullSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterProfileResponse) *string {
 		if v == nil {
@@ -570,7 +606,7 @@ func (o ClusterProfileResponsePtrOutput) PullSecret() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the cluster resource group (immutable).
+// The ID of the cluster resource group.
 func (o ClusterProfileResponsePtrOutput) ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterProfileResponse) *string {
 		if v == nil {
@@ -580,7 +616,7 @@ func (o ClusterProfileResponsePtrOutput) ResourceGroupId() pulumi.StringPtrOutpu
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the cluster (immutable).
+// The version of the cluster.
 func (o ClusterProfileResponsePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterProfileResponse) *string {
 		if v == nil {
@@ -592,7 +628,7 @@ func (o ClusterProfileResponsePtrOutput) Version() pulumi.StringPtrOutput {
 
 // ConsoleProfile represents a console profile.
 type ConsoleProfile struct {
-	// The URL to access the cluster console (immutable).
+	// The URL to access the cluster console.
 	Url *string `pulumi:"url"`
 }
 
@@ -609,7 +645,7 @@ type ConsoleProfileInput interface {
 
 // ConsoleProfile represents a console profile.
 type ConsoleProfileArgs struct {
-	// The URL to access the cluster console (immutable).
+	// The URL to access the cluster console.
 	Url pulumi.StringPtrInput `pulumi:"url"`
 }
 
@@ -691,7 +727,7 @@ func (o ConsoleProfileOutput) ToConsoleProfilePtrOutputWithContext(ctx context.C
 	}).(ConsoleProfilePtrOutput)
 }
 
-// The URL to access the cluster console (immutable).
+// The URL to access the cluster console.
 func (o ConsoleProfileOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsoleProfile) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -720,7 +756,7 @@ func (o ConsoleProfilePtrOutput) Elem() ConsoleProfileOutput {
 	}).(ConsoleProfileOutput)
 }
 
-// The URL to access the cluster console (immutable).
+// The URL to access the cluster console.
 func (o ConsoleProfilePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConsoleProfile) *string {
 		if v == nil {
@@ -732,7 +768,7 @@ func (o ConsoleProfilePtrOutput) Url() pulumi.StringPtrOutput {
 
 // ConsoleProfile represents a console profile.
 type ConsoleProfileResponse struct {
-	// The URL to access the cluster console (immutable).
+	// The URL to access the cluster console.
 	Url *string `pulumi:"url"`
 }
 
@@ -751,7 +787,7 @@ func (o ConsoleProfileResponseOutput) ToConsoleProfileResponseOutputWithContext(
 	return o
 }
 
-// The URL to access the cluster console (immutable).
+// The URL to access the cluster console.
 func (o ConsoleProfileResponseOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ConsoleProfileResponse) *string { return v.Url }).(pulumi.StringPtrOutput)
 }
@@ -780,7 +816,7 @@ func (o ConsoleProfileResponsePtrOutput) Elem() ConsoleProfileResponseOutput {
 	}).(ConsoleProfileResponseOutput)
 }
 
-// The URL to access the cluster console (immutable).
+// The URL to access the cluster console.
 func (o ConsoleProfileResponsePtrOutput) Url() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ConsoleProfileResponse) *string {
 		if v == nil {
@@ -792,11 +828,11 @@ func (o ConsoleProfileResponsePtrOutput) Url() pulumi.StringPtrOutput {
 
 // IngressProfile represents an ingress profile.
 type IngressProfile struct {
-	// The IP of the ingress (immutable).
+	// The IP of the ingress.
 	Ip *string `pulumi:"ip"`
-	// The ingress profile name.  Must be "default" (immutable).
+	// The ingress profile name.
 	Name *string `pulumi:"name"`
-	// Ingress visibility (immutable).
+	// Ingress visibility.
 	Visibility *string `pulumi:"visibility"`
 }
 
@@ -813,11 +849,11 @@ type IngressProfileInput interface {
 
 // IngressProfile represents an ingress profile.
 type IngressProfileArgs struct {
-	// The IP of the ingress (immutable).
+	// The IP of the ingress.
 	Ip pulumi.StringPtrInput `pulumi:"ip"`
-	// The ingress profile name.  Must be "default" (immutable).
+	// The ingress profile name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// Ingress visibility (immutable).
+	// Ingress visibility.
 	Visibility pulumi.StringPtrInput `pulumi:"visibility"`
 }
 
@@ -873,17 +909,17 @@ func (o IngressProfileOutput) ToIngressProfileOutputWithContext(ctx context.Cont
 	return o
 }
 
-// The IP of the ingress (immutable).
+// The IP of the ingress.
 func (o IngressProfileOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IngressProfile) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
-// The ingress profile name.  Must be "default" (immutable).
+// The ingress profile name.
 func (o IngressProfileOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IngressProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Ingress visibility (immutable).
+// Ingress visibility.
 func (o IngressProfileOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IngressProfile) *string { return v.Visibility }).(pulumi.StringPtrOutput)
 }
@@ -910,11 +946,11 @@ func (o IngressProfileArrayOutput) Index(i pulumi.IntInput) IngressProfileOutput
 
 // IngressProfile represents an ingress profile.
 type IngressProfileResponse struct {
-	// The IP of the ingress (immutable).
+	// The IP of the ingress.
 	Ip *string `pulumi:"ip"`
-	// The ingress profile name.  Must be "default" (immutable).
+	// The ingress profile name.
 	Name *string `pulumi:"name"`
-	// Ingress visibility (immutable).
+	// Ingress visibility.
 	Visibility *string `pulumi:"visibility"`
 }
 
@@ -933,17 +969,17 @@ func (o IngressProfileResponseOutput) ToIngressProfileResponseOutputWithContext(
 	return o
 }
 
-// The IP of the ingress (immutable).
+// The IP of the ingress.
 func (o IngressProfileResponseOutput) Ip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IngressProfileResponse) *string { return v.Ip }).(pulumi.StringPtrOutput)
 }
 
-// The ingress profile name.  Must be "default" (immutable).
+// The ingress profile name.
 func (o IngressProfileResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IngressProfileResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// Ingress visibility (immutable).
+// Ingress visibility.
 func (o IngressProfileResponseOutput) Visibility() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IngressProfileResponse) *string { return v.Visibility }).(pulumi.StringPtrOutput)
 }
@@ -970,9 +1006,13 @@ func (o IngressProfileResponseArrayOutput) Index(i pulumi.IntInput) IngressProfi
 
 // MasterProfile represents a master profile.
 type MasterProfile struct {
-	// The Azure resource ID of the master subnet (immutable).
+	// The resource ID of an associated DiskEncryptionSet, if applicable.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// Whether master virtual machines are encrypted at host.
+	EncryptionAtHost *string `pulumi:"encryptionAtHost"`
+	// The Azure resource ID of the master subnet.
 	SubnetId *string `pulumi:"subnetId"`
-	// The size of the master VMs (immutable).
+	// The size of the master VMs.
 	VmSize *string `pulumi:"vmSize"`
 }
 
@@ -989,9 +1029,13 @@ type MasterProfileInput interface {
 
 // MasterProfile represents a master profile.
 type MasterProfileArgs struct {
-	// The Azure resource ID of the master subnet (immutable).
+	// The resource ID of an associated DiskEncryptionSet, if applicable.
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// Whether master virtual machines are encrypted at host.
+	EncryptionAtHost pulumi.StringPtrInput `pulumi:"encryptionAtHost"`
+	// The Azure resource ID of the master subnet.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// The size of the master VMs (immutable).
+	// The size of the master VMs.
 	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
 }
 
@@ -1073,12 +1117,22 @@ func (o MasterProfileOutput) ToMasterProfilePtrOutputWithContext(ctx context.Con
 	}).(MasterProfilePtrOutput)
 }
 
-// The Azure resource ID of the master subnet (immutable).
+// The resource ID of an associated DiskEncryptionSet, if applicable.
+func (o MasterProfileOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MasterProfile) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Whether master virtual machines are encrypted at host.
+func (o MasterProfileOutput) EncryptionAtHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MasterProfile) *string { return v.EncryptionAtHost }).(pulumi.StringPtrOutput)
+}
+
+// The Azure resource ID of the master subnet.
 func (o MasterProfileOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterProfile) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The size of the master VMs (immutable).
+// The size of the master VMs.
 func (o MasterProfileOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterProfile) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -1107,7 +1161,27 @@ func (o MasterProfilePtrOutput) Elem() MasterProfileOutput {
 	}).(MasterProfileOutput)
 }
 
-// The Azure resource ID of the master subnet (immutable).
+// The resource ID of an associated DiskEncryptionSet, if applicable.
+func (o MasterProfilePtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MasterProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskEncryptionSetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether master virtual machines are encrypted at host.
+func (o MasterProfilePtrOutput) EncryptionAtHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MasterProfile) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionAtHost
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure resource ID of the master subnet.
 func (o MasterProfilePtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MasterProfile) *string {
 		if v == nil {
@@ -1117,7 +1191,7 @@ func (o MasterProfilePtrOutput) SubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size of the master VMs (immutable).
+// The size of the master VMs.
 func (o MasterProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MasterProfile) *string {
 		if v == nil {
@@ -1129,9 +1203,13 @@ func (o MasterProfilePtrOutput) VmSize() pulumi.StringPtrOutput {
 
 // MasterProfile represents a master profile.
 type MasterProfileResponse struct {
-	// The Azure resource ID of the master subnet (immutable).
+	// The resource ID of an associated DiskEncryptionSet, if applicable.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// Whether master virtual machines are encrypted at host.
+	EncryptionAtHost *string `pulumi:"encryptionAtHost"`
+	// The Azure resource ID of the master subnet.
 	SubnetId *string `pulumi:"subnetId"`
-	// The size of the master VMs (immutable).
+	// The size of the master VMs.
 	VmSize *string `pulumi:"vmSize"`
 }
 
@@ -1150,12 +1228,22 @@ func (o MasterProfileResponseOutput) ToMasterProfileResponseOutputWithContext(ct
 	return o
 }
 
-// The Azure resource ID of the master subnet (immutable).
+// The resource ID of an associated DiskEncryptionSet, if applicable.
+func (o MasterProfileResponseOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MasterProfileResponse) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// Whether master virtual machines are encrypted at host.
+func (o MasterProfileResponseOutput) EncryptionAtHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MasterProfileResponse) *string { return v.EncryptionAtHost }).(pulumi.StringPtrOutput)
+}
+
+// The Azure resource ID of the master subnet.
 func (o MasterProfileResponseOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterProfileResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The size of the master VMs (immutable).
+// The size of the master VMs.
 func (o MasterProfileResponseOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MasterProfileResponse) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -1184,7 +1272,27 @@ func (o MasterProfileResponsePtrOutput) Elem() MasterProfileResponseOutput {
 	}).(MasterProfileResponseOutput)
 }
 
-// The Azure resource ID of the master subnet (immutable).
+// The resource ID of an associated DiskEncryptionSet, if applicable.
+func (o MasterProfileResponsePtrOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MasterProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DiskEncryptionSetId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether master virtual machines are encrypted at host.
+func (o MasterProfileResponsePtrOutput) EncryptionAtHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MasterProfileResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.EncryptionAtHost
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Azure resource ID of the master subnet.
 func (o MasterProfileResponsePtrOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MasterProfileResponse) *string {
 		if v == nil {
@@ -1194,7 +1302,7 @@ func (o MasterProfileResponsePtrOutput) SubnetId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The size of the master VMs (immutable).
+// The size of the master VMs.
 func (o MasterProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MasterProfileResponse) *string {
 		if v == nil {
@@ -1206,9 +1314,9 @@ func (o MasterProfileResponsePtrOutput) VmSize() pulumi.StringPtrOutput {
 
 // NetworkProfile represents a network profile.
 type NetworkProfile struct {
-	// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+	// The CIDR used for OpenShift/Kubernetes Pods.
 	PodCidr *string `pulumi:"podCidr"`
-	// The CIDR used for OpenShift/Kubernetes Services (immutable).
+	// The CIDR used for OpenShift/Kubernetes Services.
 	ServiceCidr *string `pulumi:"serviceCidr"`
 }
 
@@ -1225,9 +1333,9 @@ type NetworkProfileInput interface {
 
 // NetworkProfile represents a network profile.
 type NetworkProfileArgs struct {
-	// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+	// The CIDR used for OpenShift/Kubernetes Pods.
 	PodCidr pulumi.StringPtrInput `pulumi:"podCidr"`
-	// The CIDR used for OpenShift/Kubernetes Services (immutable).
+	// The CIDR used for OpenShift/Kubernetes Services.
 	ServiceCidr pulumi.StringPtrInput `pulumi:"serviceCidr"`
 }
 
@@ -1309,12 +1417,12 @@ func (o NetworkProfileOutput) ToNetworkProfilePtrOutputWithContext(ctx context.C
 	}).(NetworkProfilePtrOutput)
 }
 
-// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+// The CIDR used for OpenShift/Kubernetes Pods.
 func (o NetworkProfileOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
-// The CIDR used for OpenShift/Kubernetes Services (immutable).
+// The CIDR used for OpenShift/Kubernetes Services.
 func (o NetworkProfileOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfile) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
@@ -1343,7 +1451,7 @@ func (o NetworkProfilePtrOutput) Elem() NetworkProfileOutput {
 	}).(NetworkProfileOutput)
 }
 
-// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+// The CIDR used for OpenShift/Kubernetes Pods.
 func (o NetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -1353,7 +1461,7 @@ func (o NetworkProfilePtrOutput) PodCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CIDR used for OpenShift/Kubernetes Services (immutable).
+// The CIDR used for OpenShift/Kubernetes Services.
 func (o NetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfile) *string {
 		if v == nil {
@@ -1365,9 +1473,9 @@ func (o NetworkProfilePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 
 // NetworkProfile represents a network profile.
 type NetworkProfileResponse struct {
-	// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+	// The CIDR used for OpenShift/Kubernetes Pods.
 	PodCidr *string `pulumi:"podCidr"`
-	// The CIDR used for OpenShift/Kubernetes Services (immutable).
+	// The CIDR used for OpenShift/Kubernetes Services.
 	ServiceCidr *string `pulumi:"serviceCidr"`
 }
 
@@ -1386,12 +1494,12 @@ func (o NetworkProfileResponseOutput) ToNetworkProfileResponseOutputWithContext(
 	return o
 }
 
-// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+// The CIDR used for OpenShift/Kubernetes Pods.
 func (o NetworkProfileResponseOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.PodCidr }).(pulumi.StringPtrOutput)
 }
 
-// The CIDR used for OpenShift/Kubernetes Services (immutable).
+// The CIDR used for OpenShift/Kubernetes Services.
 func (o NetworkProfileResponseOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v NetworkProfileResponse) *string { return v.ServiceCidr }).(pulumi.StringPtrOutput)
 }
@@ -1420,7 +1528,7 @@ func (o NetworkProfileResponsePtrOutput) Elem() NetworkProfileResponseOutput {
 	}).(NetworkProfileResponseOutput)
 }
 
-// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+// The CIDR used for OpenShift/Kubernetes Pods.
 func (o NetworkProfileResponsePtrOutput) PodCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -1430,7 +1538,7 @@ func (o NetworkProfileResponsePtrOutput) PodCidr() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The CIDR used for OpenShift/Kubernetes Services (immutable).
+// The CIDR used for OpenShift/Kubernetes Services.
 func (o NetworkProfileResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *NetworkProfileResponse) *string {
 		if v == nil {
@@ -1442,9 +1550,9 @@ func (o NetworkProfileResponsePtrOutput) ServiceCidr() pulumi.StringPtrOutput {
 
 // ServicePrincipalProfile represents a service principal profile.
 type ServicePrincipalProfile struct {
-	// The client ID used for the cluster (immutable).
+	// The client ID used for the cluster.
 	ClientId *string `pulumi:"clientId"`
-	// The client secret used for the cluster (immutable).
+	// The client secret used for the cluster.
 	ClientSecret *string `pulumi:"clientSecret"`
 }
 
@@ -1461,9 +1569,9 @@ type ServicePrincipalProfileInput interface {
 
 // ServicePrincipalProfile represents a service principal profile.
 type ServicePrincipalProfileArgs struct {
-	// The client ID used for the cluster (immutable).
+	// The client ID used for the cluster.
 	ClientId pulumi.StringPtrInput `pulumi:"clientId"`
-	// The client secret used for the cluster (immutable).
+	// The client secret used for the cluster.
 	ClientSecret pulumi.StringPtrInput `pulumi:"clientSecret"`
 }
 
@@ -1545,12 +1653,12 @@ func (o ServicePrincipalProfileOutput) ToServicePrincipalProfilePtrOutputWithCon
 	}).(ServicePrincipalProfilePtrOutput)
 }
 
-// The client ID used for the cluster (immutable).
+// The client ID used for the cluster.
 func (o ServicePrincipalProfileOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePrincipalProfile) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The client secret used for the cluster (immutable).
+// The client secret used for the cluster.
 func (o ServicePrincipalProfileOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePrincipalProfile) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
@@ -1579,7 +1687,7 @@ func (o ServicePrincipalProfilePtrOutput) Elem() ServicePrincipalProfileOutput {
 	}).(ServicePrincipalProfileOutput)
 }
 
-// The client ID used for the cluster (immutable).
+// The client ID used for the cluster.
 func (o ServicePrincipalProfilePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalProfile) *string {
 		if v == nil {
@@ -1589,7 +1697,7 @@ func (o ServicePrincipalProfilePtrOutput) ClientId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client secret used for the cluster (immutable).
+// The client secret used for the cluster.
 func (o ServicePrincipalProfilePtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalProfile) *string {
 		if v == nil {
@@ -1601,9 +1709,9 @@ func (o ServicePrincipalProfilePtrOutput) ClientSecret() pulumi.StringPtrOutput 
 
 // ServicePrincipalProfile represents a service principal profile.
 type ServicePrincipalProfileResponse struct {
-	// The client ID used for the cluster (immutable).
+	// The client ID used for the cluster.
 	ClientId *string `pulumi:"clientId"`
-	// The client secret used for the cluster (immutable).
+	// The client secret used for the cluster.
 	ClientSecret *string `pulumi:"clientSecret"`
 }
 
@@ -1622,12 +1730,12 @@ func (o ServicePrincipalProfileResponseOutput) ToServicePrincipalProfileResponse
 	return o
 }
 
-// The client ID used for the cluster (immutable).
+// The client ID used for the cluster.
 func (o ServicePrincipalProfileResponseOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePrincipalProfileResponse) *string { return v.ClientId }).(pulumi.StringPtrOutput)
 }
 
-// The client secret used for the cluster (immutable).
+// The client secret used for the cluster.
 func (o ServicePrincipalProfileResponseOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ServicePrincipalProfileResponse) *string { return v.ClientSecret }).(pulumi.StringPtrOutput)
 }
@@ -1656,7 +1764,7 @@ func (o ServicePrincipalProfileResponsePtrOutput) Elem() ServicePrincipalProfile
 	}).(ServicePrincipalProfileResponseOutput)
 }
 
-// The client ID used for the cluster (immutable).
+// The client ID used for the cluster.
 func (o ServicePrincipalProfileResponsePtrOutput) ClientId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalProfileResponse) *string {
 		if v == nil {
@@ -1666,7 +1774,7 @@ func (o ServicePrincipalProfileResponsePtrOutput) ClientId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// The client secret used for the cluster (immutable).
+// The client secret used for the cluster.
 func (o ServicePrincipalProfileResponsePtrOutput) ClientSecret() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ServicePrincipalProfileResponse) *string {
 		if v == nil {
@@ -1676,17 +1784,82 @@ func (o ServicePrincipalProfileResponsePtrOutput) ClientSecret() pulumi.StringPt
 	}).(pulumi.StringPtrOutput)
 }
 
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponse struct {
+	// The timestamp of resource creation (UTC).
+	CreatedAt *string `pulumi:"createdAt"`
+	// The identity that created the resource.
+	CreatedBy *string `pulumi:"createdBy"`
+	// The type of identity that created the resource.
+	CreatedByType *string `pulumi:"createdByType"`
+	// The timestamp of resource last modification (UTC)
+	LastModifiedAt *string `pulumi:"lastModifiedAt"`
+	// The identity that last modified the resource.
+	LastModifiedBy *string `pulumi:"lastModifiedBy"`
+	// The type of identity that last modified the resource.
+	LastModifiedByType *string `pulumi:"lastModifiedByType"`
+}
+
+// Metadata pertaining to creation and last modification of the resource.
+type SystemDataResponseOutput struct{ *pulumi.OutputState }
+
+func (SystemDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SystemDataResponse)(nil)).Elem()
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutput() SystemDataResponseOutput {
+	return o
+}
+
+func (o SystemDataResponseOutput) ToSystemDataResponseOutputWithContext(ctx context.Context) SystemDataResponseOutput {
+	return o
+}
+
+// The timestamp of resource creation (UTC).
+func (o SystemDataResponseOutput) CreatedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that created the resource.
+func (o SystemDataResponseOutput) CreatedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that created the resource.
+func (o SystemDataResponseOutput) CreatedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.CreatedByType }).(pulumi.StringPtrOutput)
+}
+
+// The timestamp of resource last modification (UTC)
+func (o SystemDataResponseOutput) LastModifiedAt() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedAt }).(pulumi.StringPtrOutput)
+}
+
+// The identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedBy }).(pulumi.StringPtrOutput)
+}
+
+// The type of identity that last modified the resource.
+func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
+}
+
 // WorkerProfile represents a worker profile.
 type WorkerProfile struct {
-	// The number of worker VMs.  Must be between 3 and 20 (immutable).
+	// The number of worker VMs.
 	Count *int `pulumi:"count"`
-	// The disk size of the worker VMs.  Must be 128 or greater (immutable).
+	// The resource ID of an associated DiskEncryptionSet, if applicable.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The disk size of the worker VMs.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// The worker profile name.  Must be "worker" (immutable).
+	// Whether master virtual machines are encrypted at host.
+	EncryptionAtHost *string `pulumi:"encryptionAtHost"`
+	// The worker profile name.
 	Name *string `pulumi:"name"`
-	// The Azure resource ID of the worker subnet (immutable).
+	// The Azure resource ID of the worker subnet.
 	SubnetId *string `pulumi:"subnetId"`
-	// The size of the worker VMs (immutable).
+	// The size of the worker VMs.
 	VmSize *string `pulumi:"vmSize"`
 }
 
@@ -1703,15 +1876,19 @@ type WorkerProfileInput interface {
 
 // WorkerProfile represents a worker profile.
 type WorkerProfileArgs struct {
-	// The number of worker VMs.  Must be between 3 and 20 (immutable).
+	// The number of worker VMs.
 	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The disk size of the worker VMs.  Must be 128 or greater (immutable).
+	// The resource ID of an associated DiskEncryptionSet, if applicable.
+	DiskEncryptionSetId pulumi.StringPtrInput `pulumi:"diskEncryptionSetId"`
+	// The disk size of the worker VMs.
 	DiskSizeGB pulumi.IntPtrInput `pulumi:"diskSizeGB"`
-	// The worker profile name.  Must be "worker" (immutable).
+	// Whether master virtual machines are encrypted at host.
+	EncryptionAtHost pulumi.StringPtrInput `pulumi:"encryptionAtHost"`
+	// The worker profile name.
 	Name pulumi.StringPtrInput `pulumi:"name"`
-	// The Azure resource ID of the worker subnet (immutable).
+	// The Azure resource ID of the worker subnet.
 	SubnetId pulumi.StringPtrInput `pulumi:"subnetId"`
-	// The size of the worker VMs (immutable).
+	// The size of the worker VMs.
 	VmSize pulumi.StringPtrInput `pulumi:"vmSize"`
 }
 
@@ -1767,27 +1944,37 @@ func (o WorkerProfileOutput) ToWorkerProfileOutputWithContext(ctx context.Contex
 	return o
 }
 
-// The number of worker VMs.  Must be between 3 and 20 (immutable).
+// The number of worker VMs.
 func (o WorkerProfileOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerProfile) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The disk size of the worker VMs.  Must be 128 or greater (immutable).
+// The resource ID of an associated DiskEncryptionSet, if applicable.
+func (o WorkerProfileOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerProfile) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// The disk size of the worker VMs.
 func (o WorkerProfileOutput) DiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerProfile) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// The worker profile name.  Must be "worker" (immutable).
+// Whether master virtual machines are encrypted at host.
+func (o WorkerProfileOutput) EncryptionAtHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerProfile) *string { return v.EncryptionAtHost }).(pulumi.StringPtrOutput)
+}
+
+// The worker profile name.
 func (o WorkerProfileOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerProfile) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The Azure resource ID of the worker subnet (immutable).
+// The Azure resource ID of the worker subnet.
 func (o WorkerProfileOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerProfile) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The size of the worker VMs (immutable).
+// The size of the worker VMs.
 func (o WorkerProfileOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerProfile) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -1814,15 +2001,19 @@ func (o WorkerProfileArrayOutput) Index(i pulumi.IntInput) WorkerProfileOutput {
 
 // WorkerProfile represents a worker profile.
 type WorkerProfileResponse struct {
-	// The number of worker VMs.  Must be between 3 and 20 (immutable).
+	// The number of worker VMs.
 	Count *int `pulumi:"count"`
-	// The disk size of the worker VMs.  Must be 128 or greater (immutable).
+	// The resource ID of an associated DiskEncryptionSet, if applicable.
+	DiskEncryptionSetId *string `pulumi:"diskEncryptionSetId"`
+	// The disk size of the worker VMs.
 	DiskSizeGB *int `pulumi:"diskSizeGB"`
-	// The worker profile name.  Must be "worker" (immutable).
+	// Whether master virtual machines are encrypted at host.
+	EncryptionAtHost *string `pulumi:"encryptionAtHost"`
+	// The worker profile name.
 	Name *string `pulumi:"name"`
-	// The Azure resource ID of the worker subnet (immutable).
+	// The Azure resource ID of the worker subnet.
 	SubnetId *string `pulumi:"subnetId"`
-	// The size of the worker VMs (immutable).
+	// The size of the worker VMs.
 	VmSize *string `pulumi:"vmSize"`
 }
 
@@ -1841,27 +2032,37 @@ func (o WorkerProfileResponseOutput) ToWorkerProfileResponseOutputWithContext(ct
 	return o
 }
 
-// The number of worker VMs.  Must be between 3 and 20 (immutable).
+// The number of worker VMs.
 func (o WorkerProfileResponseOutput) Count() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerProfileResponse) *int { return v.Count }).(pulumi.IntPtrOutput)
 }
 
-// The disk size of the worker VMs.  Must be 128 or greater (immutable).
+// The resource ID of an associated DiskEncryptionSet, if applicable.
+func (o WorkerProfileResponseOutput) DiskEncryptionSetId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerProfileResponse) *string { return v.DiskEncryptionSetId }).(pulumi.StringPtrOutput)
+}
+
+// The disk size of the worker VMs.
 func (o WorkerProfileResponseOutput) DiskSizeGB() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v WorkerProfileResponse) *int { return v.DiskSizeGB }).(pulumi.IntPtrOutput)
 }
 
-// The worker profile name.  Must be "worker" (immutable).
+// Whether master virtual machines are encrypted at host.
+func (o WorkerProfileResponseOutput) EncryptionAtHost() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkerProfileResponse) *string { return v.EncryptionAtHost }).(pulumi.StringPtrOutput)
+}
+
+// The worker profile name.
 func (o WorkerProfileResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerProfileResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
-// The Azure resource ID of the worker subnet (immutable).
+// The Azure resource ID of the worker subnet.
 func (o WorkerProfileResponseOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerProfileResponse) *string { return v.SubnetId }).(pulumi.StringPtrOutput)
 }
 
-// The size of the worker VMs (immutable).
+// The size of the worker VMs.
 func (o WorkerProfileResponseOutput) VmSize() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v WorkerProfileResponse) *string { return v.VmSize }).(pulumi.StringPtrOutput)
 }
@@ -1915,6 +2116,7 @@ func init() {
 	pulumi.RegisterOutputType(ServicePrincipalProfilePtrOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalProfileResponseOutput{})
 	pulumi.RegisterOutputType(ServicePrincipalProfileResponsePtrOutput{})
+	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(WorkerProfileOutput{})
 	pulumi.RegisterOutputType(WorkerProfileArrayOutput{})
 	pulumi.RegisterOutputType(WorkerProfileResponseOutput{})

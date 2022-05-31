@@ -11,6 +11,8 @@ import (
 )
 
 // Device Update instance details.
+//
+// Deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
 	var rv LookupInstanceResult
 	err := ctx.Invoke("azure-native:deviceupdate/v20200301preview:getInstance", args, &rv, opts...)

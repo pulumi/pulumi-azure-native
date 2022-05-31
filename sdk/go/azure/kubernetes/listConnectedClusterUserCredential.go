@@ -11,7 +11,7 @@ import (
 )
 
 // The list of credential result response.
-// API Version: 2021-10-01.
+// API Version: 2022-05-01-preview.
 func ListConnectedClusterUserCredential(ctx *pulumi.Context, args *ListConnectedClusterUserCredentialArgs, opts ...pulumi.InvokeOption) (*ListConnectedClusterUserCredentialResult, error) {
 	var rv ListConnectedClusterUserCredentialResult
 	err := ctx.Invoke("azure-native:kubernetes:listConnectedClusterUserCredential", args, &rv, opts...)

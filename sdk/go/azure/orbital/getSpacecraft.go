@@ -11,7 +11,7 @@ import (
 )
 
 // Customer creates a spacecraft resource to schedule a contact.
-// API Version: 2021-04-04-preview.
+// API Version: 2022-03-01.
 func LookupSpacecraft(ctx *pulumi.Context, args *LookupSpacecraftArgs, opts ...pulumi.InvokeOption) (*LookupSpacecraftResult, error) {
 	var rv LookupSpacecraftResult
 	err := ctx.Invoke("azure-native:orbital:getSpacecraft", args, &rv, opts...)
@@ -30,10 +30,6 @@ type LookupSpacecraftArgs struct {
 
 // Customer creates a spacecraft resource to schedule a contact.
 type LookupSpacecraftResult struct {
-	// Authorization status of spacecraft.
-	AuthorizationStatus string `pulumi:"authorizationStatus"`
-	// Details of the authorization status.
-	AuthorizationStatusExtended string `pulumi:"authorizationStatusExtended"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -97,16 +93,6 @@ func (o LookupSpacecraftResultOutput) ToLookupSpacecraftResultOutput() LookupSpa
 
 func (o LookupSpacecraftResultOutput) ToLookupSpacecraftResultOutputWithContext(ctx context.Context) LookupSpacecraftResultOutput {
 	return o
-}
-
-// Authorization status of spacecraft.
-func (o LookupSpacecraftResultOutput) AuthorizationStatus() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSpacecraftResult) string { return v.AuthorizationStatus }).(pulumi.StringOutput)
-}
-
-// Details of the authorization status.
-func (o LookupSpacecraftResultOutput) AuthorizationStatusExtended() pulumi.StringOutput {
-	return o.ApplyT(func(v LookupSpacecraftResult) string { return v.AuthorizationStatusExtended }).(pulumi.StringOutput)
 }
 
 // A unique read-only string that changes whenever the resource is updated.

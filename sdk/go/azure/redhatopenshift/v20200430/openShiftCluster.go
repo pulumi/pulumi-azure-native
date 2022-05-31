@@ -12,6 +12,8 @@ import (
 )
 
 // OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+//
+// Deprecated: Version v20200430 will be removed in the next major version of the provider. Upgrade to version v20220401 or later.
 type OpenShiftCluster struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewOpenShiftCluster(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:redhatopenshift/v20210901preview:OpenShiftCluster"),
+		},
+		{
+			Type: pulumi.String("azure-native:redhatopenshift/v20220401:OpenShiftCluster"),
 		},
 	})
 	opts = append(opts, aliases)

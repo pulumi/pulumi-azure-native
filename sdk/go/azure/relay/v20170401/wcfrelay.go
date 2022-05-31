@@ -12,6 +12,8 @@ import (
 )
 
 // Description of the WCF relay resource.
+//
+// Deprecated: Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.
 type WCFRelay struct {
 	pulumi.CustomResourceState
 

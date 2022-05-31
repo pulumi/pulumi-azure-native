@@ -12,7 +12,7 @@ import (
 )
 
 // The description of Fhir Service
-// API Version: 2021-11-01.
+// API Version: 2022-05-15.
 type FhirService struct {
 	pulumi.CustomResourceState
 
@@ -76,6 +76,9 @@ func NewFhirService(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20220131preview:FhirService"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20220515:FhirService"),
 		},
 	})
 	opts = append(opts, aliases)

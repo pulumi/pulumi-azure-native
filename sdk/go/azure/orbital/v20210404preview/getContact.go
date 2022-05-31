@@ -11,6 +11,8 @@ import (
 )
 
 // Customer creates a contact resource for a spacecraft resource.
+//
+// Deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.InvokeOption) (*LookupContactResult, error) {
 	var rv LookupContactResult
 	err := ctx.Invoke("azure-native:orbital/v20210404preview:getContact", args, &rv, opts...)

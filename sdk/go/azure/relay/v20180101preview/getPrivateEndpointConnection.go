@@ -11,6 +11,8 @@ import (
 )
 
 // Private endpoint connection resource.
+//
+// Deprecated: Version v20180101preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:relay/v20180101preview:getPrivateEndpointConnection", args, &rv, opts...)

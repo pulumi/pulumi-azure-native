@@ -12,6 +12,8 @@ import (
 )
 
 // Customer creates a spacecraft resource to schedule a contact.
+//
+// Deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 type Spacecraft struct {
 	pulumi.CustomResourceState
 
@@ -59,6 +61,9 @@ func NewSpacecraft(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:orbital:Spacecraft"),
+		},
+		{
+			Type: pulumi.String("azure-native:orbital/v20220301:Spacecraft"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -21,10 +21,10 @@ func LookupContainerAppsAuthConfig(ctx *pulumi.Context, args *LookupContainerApp
 }
 
 type LookupContainerAppsAuthConfigArgs struct {
+	// Name of the Container App AuthConfig.
+	AuthConfigName string `pulumi:"authConfigName"`
 	// Name of the Container App.
 	ContainerAppName string `pulumi:"containerAppName"`
-	// Name of the Container App AuthConfig.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -65,10 +65,10 @@ func LookupContainerAppsAuthConfigOutput(ctx *pulumi.Context, args LookupContain
 }
 
 type LookupContainerAppsAuthConfigOutputArgs struct {
+	// Name of the Container App AuthConfig.
+	AuthConfigName pulumi.StringInput `pulumi:"authConfigName"`
 	// Name of the Container App.
 	ContainerAppName pulumi.StringInput `pulumi:"containerAppName"`
-	// Name of the Container App AuthConfig.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

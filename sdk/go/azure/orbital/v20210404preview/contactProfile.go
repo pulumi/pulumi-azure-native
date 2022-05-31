@@ -12,6 +12,8 @@ import (
 )
 
 // Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
+//
+// Deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 type ContactProfile struct {
 	pulumi.CustomResourceState
 
@@ -55,6 +57,9 @@ func NewContactProfile(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:orbital:ContactProfile"),
+		},
+		{
+			Type: pulumi.String("azure-native:orbital/v20220301:ContactProfile"),
 		},
 	})
 	opts = append(opts, aliases)

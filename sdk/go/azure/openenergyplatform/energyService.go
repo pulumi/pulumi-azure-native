@@ -42,6 +42,9 @@ func NewEnergyService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:openenergyplatform/v20210601preview:EnergyService"),
 		},
+		{
+			Type: pulumi.String("azure-native:openenergyplatform/v20220404preview:EnergyService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource EnergyService

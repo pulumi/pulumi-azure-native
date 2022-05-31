@@ -70,6 +70,9 @@ func NewMigrationConfig(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:servicebus/v20210601preview:MigrationConfig"),
 		},
+		{
+			Type: pulumi.String("azure-native:servicebus/v20220101preview:MigrationConfig"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MigrationConfig

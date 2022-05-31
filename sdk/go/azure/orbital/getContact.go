@@ -11,7 +11,7 @@ import (
 )
 
 // Customer creates a contact resource for a spacecraft resource.
-// API Version: 2021-04-04-preview.
+// API Version: 2022-03-01.
 func LookupContact(ctx *pulumi.Context, args *LookupContactArgs, opts ...pulumi.InvokeOption) (*LookupContactResult, error) {
 	var rv LookupContactResult
 	err := ctx.Invoke("azure-native:orbital:getContact", args, &rv, opts...)
@@ -32,8 +32,10 @@ type LookupContactArgs struct {
 
 // Customer creates a contact resource for a spacecraft resource.
 type LookupContactResult struct {
+	// The configuration associated with the allocated antenna.
+	AntennaConfiguration ContactsPropertiesResponseAntennaConfiguration `pulumi:"antennaConfiguration"`
 	// The reference to the contact profile resource.
-	ContactProfile ResourceReferenceResponse `pulumi:"contactProfile"`
+	ContactProfile ContactsPropertiesResponseContactProfile `pulumi:"contactProfile"`
 	// Azimuth of the antenna at the end of the contact in decimal degrees.
 	EndAzimuthDegrees float64 `pulumi:"endAzimuthDegrees"`
 	// Spacecraft elevation above the horizon at contact end.
@@ -115,9 +117,16 @@ func (o LookupContactResultOutput) ToLookupContactResultOutputWithContext(ctx co
 	return o
 }
 
+// The configuration associated with the allocated antenna.
+func (o LookupContactResultOutput) AntennaConfiguration() ContactsPropertiesResponseAntennaConfigurationOutput {
+	return o.ApplyT(func(v LookupContactResult) ContactsPropertiesResponseAntennaConfiguration {
+		return v.AntennaConfiguration
+	}).(ContactsPropertiesResponseAntennaConfigurationOutput)
+}
+
 // The reference to the contact profile resource.
-func (o LookupContactResultOutput) ContactProfile() ResourceReferenceResponseOutput {
-	return o.ApplyT(func(v LookupContactResult) ResourceReferenceResponse { return v.ContactProfile }).(ResourceReferenceResponseOutput)
+func (o LookupContactResultOutput) ContactProfile() ContactsPropertiesResponseContactProfileOutput {
+	return o.ApplyT(func(v LookupContactResult) ContactsPropertiesResponseContactProfile { return v.ContactProfile }).(ContactsPropertiesResponseContactProfileOutput)
 }
 
 // Azimuth of the antenna at the end of the contact in decimal degrees.

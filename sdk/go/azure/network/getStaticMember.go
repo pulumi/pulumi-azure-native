@@ -11,7 +11,7 @@ import (
 )
 
 // StaticMember Item.
-// API Version: 2022-02-01-preview.
+// API Version: 2022-04-01-preview.
 func LookupStaticMember(ctx *pulumi.Context, args *LookupStaticMemberArgs, opts ...pulumi.InvokeOption) (*LookupStaticMemberResult, error) {
 	var rv LookupStaticMemberResult
 	err := ctx.Invoke("azure-native:network:getStaticMember", args, &rv, opts...)
@@ -40,6 +40,10 @@ type LookupStaticMemberResult struct {
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// The provisioning state of the scope assignment resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// Resource region.
+	Region string `pulumi:"region"`
 	// Resource Id.
 	ResourceId *string `pulumi:"resourceId"`
 	// The system metadata related to this resource.
@@ -104,6 +108,16 @@ func (o LookupStaticMemberResultOutput) Id() pulumi.StringOutput {
 // Resource name.
 func (o LookupStaticMemberResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStaticMemberResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The provisioning state of the scope assignment resource.
+func (o LookupStaticMemberResultOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStaticMemberResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// Resource region.
+func (o LookupStaticMemberResultOutput) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStaticMemberResult) string { return v.Region }).(pulumi.StringOutput)
 }
 
 // Resource Id.

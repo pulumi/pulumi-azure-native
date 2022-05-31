@@ -11,6 +11,8 @@ import (
 )
 
 // Customer creates a spacecraft resource to schedule a contact.
+//
+// Deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 func LookupSpacecraft(ctx *pulumi.Context, args *LookupSpacecraftArgs, opts ...pulumi.InvokeOption) (*LookupSpacecraftResult, error) {
 	var rv LookupSpacecraftResult
 	err := ctx.Invoke("azure-native:orbital/v20210404preview:getSpacecraft", args, &rv, opts...)

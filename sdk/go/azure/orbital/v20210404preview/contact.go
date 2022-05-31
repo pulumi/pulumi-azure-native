@@ -12,6 +12,8 @@ import (
 )
 
 // Customer creates a contact resource for a spacecraft resource.
+//
+// Deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 type Contact struct {
 	pulumi.CustomResourceState
 
@@ -83,6 +85,9 @@ func NewContact(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:orbital:Contact"),
+		},
+		{
+			Type: pulumi.String("azure-native:orbital/v20220301:Contact"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -11,7 +11,7 @@ import (
 )
 
 // Device Update instance details.
-// API Version: 2020-03-01-preview.
+// API Version: 2022-04-01-preview.
 func LookupInstance(ctx *pulumi.Context, args *LookupInstanceArgs, opts ...pulumi.InvokeOption) (*LookupInstanceResult, error) {
 	var rv LookupInstanceResult
 	err := ctx.Invoke("azure-native:deviceupdate:getInstance", args, &rv, opts...)

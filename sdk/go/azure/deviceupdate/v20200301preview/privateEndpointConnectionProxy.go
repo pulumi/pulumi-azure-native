@@ -12,6 +12,8 @@ import (
 )
 
 // Private endpoint connection proxy details.
+//
+// Deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.
 type PrivateEndpointConnectionProxy struct {
 	pulumi.CustomResourceState
 
@@ -47,6 +49,9 @@ func NewPrivateEndpointConnectionProxy(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:deviceupdate:PrivateEndpointConnectionProxy"),
+		},
+		{
+			Type: pulumi.String("azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy"),
 		},
 	})
 	opts = append(opts, aliases)

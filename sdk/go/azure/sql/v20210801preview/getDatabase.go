@@ -87,8 +87,6 @@ type LookupDatabaseResult struct {
 	Name string `pulumi:"name"`
 	// The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
 	PausedDate string `pulumi:"pausedDate"`
-	// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-	PrimaryDelegatedIdentityClientId *string `pulumi:"primaryDelegatedIdentityClientId"`
 	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 	ReadScale *string `pulumi:"readScale"`
 	// The storage account type to be used to store backups for this database.
@@ -292,11 +290,6 @@ func (o LookupDatabaseResultOutput) Name() pulumi.StringOutput {
 // The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
 func (o LookupDatabaseResultOutput) PausedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDatabaseResult) string { return v.PausedDate }).(pulumi.StringOutput)
-}
-
-// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-func (o LookupDatabaseResultOutput) PrimaryDelegatedIdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupDatabaseResult) *string { return v.PrimaryDelegatedIdentityClientId }).(pulumi.StringPtrOutput)
 }
 
 // The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.

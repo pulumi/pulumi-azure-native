@@ -25,6 +25,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ConfigurationProfile{}
 	case "azure-native:automanage/v20210430preview:ConfigurationProfileAssignment":
 		r = &ConfigurationProfileAssignment{}
+	case "azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment":
+		r = &ConfigurationProfileHCIAssignment{}
+	case "azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment":
+		r = &ConfigurationProfileHCRPAssignment{}
 	case "azure-native:automanage/v20210430preview:ConfigurationProfilesVersion":
 		r = &ConfigurationProfilesVersion{}
 	default:

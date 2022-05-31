@@ -71,6 +71,9 @@ func NewImportPipeline(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20210801preview:ImportPipeline"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20220201preview:ImportPipeline"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ImportPipeline

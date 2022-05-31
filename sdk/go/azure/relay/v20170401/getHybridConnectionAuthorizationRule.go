@@ -11,6 +11,8 @@ import (
 )
 
 // Description of a namespace authorization rule.
+//
+// Deprecated: Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.
 func LookupHybridConnectionAuthorizationRule(ctx *pulumi.Context, args *LookupHybridConnectionAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupHybridConnectionAuthorizationRuleResult, error) {
 	var rv LookupHybridConnectionAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:relay/v20170401:getHybridConnectionAuthorizationRule", args, &rv, opts...)
