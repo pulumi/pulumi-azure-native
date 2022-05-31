@@ -3413,14 +3413,14 @@ class SlackChannelPropertiesResponse(dict):
             suggest = "last_submission_id"
         elif key == "redirectAction":
             suggest = "redirect_action"
-        elif key == "registerBeforeOAuthFlow":
-            suggest = "register_before_o_auth_flow"
         elif key == "clientId":
             suggest = "client_id"
         elif key == "clientSecret":
             suggest = "client_secret"
         elif key == "landingPageUrl":
             suggest = "landing_page_url"
+        elif key == "registerBeforeOAuthFlow":
+            suggest = "register_before_o_auth_flow"
         elif key == "signingSecret":
             suggest = "signing_secret"
         elif key == "verificationToken":
@@ -3442,10 +3442,10 @@ class SlackChannelPropertiesResponse(dict):
                  is_validated: bool,
                  last_submission_id: str,
                  redirect_action: str,
-                 register_before_o_auth_flow: bool,
                  client_id: Optional[str] = None,
                  client_secret: Optional[str] = None,
                  landing_page_url: Optional[str] = None,
+                 register_before_o_auth_flow: Optional[bool] = None,
                  scopes: Optional[str] = None,
                  signing_secret: Optional[str] = None,
                  verification_token: Optional[str] = None):
@@ -3455,10 +3455,10 @@ class SlackChannelPropertiesResponse(dict):
         :param bool is_validated: Whether this channel is validated for the bot
         :param str last_submission_id: The Sms auth token
         :param str redirect_action: The Slack redirect action
-        :param bool register_before_o_auth_flow: Whether to register the settings before OAuth validation is performed. Recommended to True.
         :param str client_id: The Slack client id
         :param str client_secret: The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
         :param str landing_page_url: The Slack landing page Url
+        :param bool register_before_o_auth_flow: Whether to register the settings before OAuth validation is performed. Recommended to True.
         :param str scopes: The Slack permission scopes.
         :param str signing_secret: The Slack signing secret.
         :param str verification_token: The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -3467,13 +3467,14 @@ class SlackChannelPropertiesResponse(dict):
         pulumi.set(__self__, "is_validated", is_validated)
         pulumi.set(__self__, "last_submission_id", last_submission_id)
         pulumi.set(__self__, "redirect_action", redirect_action)
-        pulumi.set(__self__, "register_before_o_auth_flow", register_before_o_auth_flow)
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
         if client_secret is not None:
             pulumi.set(__self__, "client_secret", client_secret)
         if landing_page_url is not None:
             pulumi.set(__self__, "landing_page_url", landing_page_url)
+        if register_before_o_auth_flow is not None:
+            pulumi.set(__self__, "register_before_o_auth_flow", register_before_o_auth_flow)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
         if signing_secret is not None:
@@ -3514,14 +3515,6 @@ class SlackChannelPropertiesResponse(dict):
         return pulumi.get(self, "redirect_action")
 
     @property
-    @pulumi.getter(name="registerBeforeOAuthFlow")
-    def register_before_o_auth_flow(self) -> bool:
-        """
-        Whether to register the settings before OAuth validation is performed. Recommended to True.
-        """
-        return pulumi.get(self, "register_before_o_auth_flow")
-
-    @property
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
         """
@@ -3544,6 +3537,14 @@ class SlackChannelPropertiesResponse(dict):
         The Slack landing page Url
         """
         return pulumi.get(self, "landing_page_url")
+
+    @property
+    @pulumi.getter(name="registerBeforeOAuthFlow")
+    def register_before_o_auth_flow(self) -> Optional[bool]:
+        """
+        Whether to register the settings before OAuth validation is performed. Recommended to True.
+        """
+        return pulumi.get(self, "register_before_o_auth_flow")
 
     @property
     @pulumi.getter

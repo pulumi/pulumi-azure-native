@@ -995,12 +995,12 @@ class CustomDomainResponse(dict):
                  validation_data: Optional[str] = None):
         """
         Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
-        :param str custom_https_provisioning_state: Provisioning status of Custom Https of the custom domain.
+        :param str custom_https_provisioning_state: Provisioning status of the custom domain.
         :param str custom_https_provisioning_substate: Provisioning substate shows the progress of custom HTTPS enabling/disabling process step by step.
         :param str host_name: The host name of the custom domain. Must be a domain name.
         :param str id: Resource ID.
         :param str name: Resource name.
-        :param str provisioning_state: Provisioning status of the custom domain.
+        :param str provisioning_state: Provisioning status of Custom Https of the custom domain.
         :param str resource_state: Resource status of the custom domain.
         :param 'SystemDataResponse' system_data: Read only system data
         :param str type: Resource type.
@@ -1025,7 +1025,7 @@ class CustomDomainResponse(dict):
     @pulumi.getter(name="customHttpsProvisioningState")
     def custom_https_provisioning_state(self) -> str:
         """
-        Provisioning status of Custom Https of the custom domain.
+        Provisioning status of the custom domain.
         """
         return pulumi.get(self, "custom_https_provisioning_state")
 
@@ -1065,7 +1065,7 @@ class CustomDomainResponse(dict):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
-        Provisioning status of the custom domain.
+        Provisioning status of Custom Https of the custom domain.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -3551,7 +3551,7 @@ class ManagedRuleGroupOverrideResponse(dict):
         """
         Defines a managed rule group override setting.
         :param str rule_group_name: Describes the managed rule group within the rule set to override
-        :param Sequence['ManagedRuleOverrideResponse'] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        :param Sequence['ManagedRuleOverrideResponse'] rules: List of rules that will be enabled. If none specified, all rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if rules is not None:
@@ -3569,7 +3569,7 @@ class ManagedRuleGroupOverrideResponse(dict):
     @pulumi.getter
     def rules(self) -> Optional[Sequence['outputs.ManagedRuleOverrideResponse']]:
         """
-        List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        List of rules that will be enabled. If none specified, all rules in the group will be disabled.
         """
         return pulumi.get(self, "rules")
 

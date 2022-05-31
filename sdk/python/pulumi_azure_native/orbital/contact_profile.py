@@ -17,6 +17,7 @@ __all__ = ['ContactProfileArgs', 'ContactProfile']
 class ContactProfileArgs:
     def __init__(__self__, *,
                  links: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]],
+                 network_configuration: pulumi.Input['ContactProfilesPropertiesNetworkConfigurationArgs'],
                  resource_group_name: pulumi.Input[str],
                  auto_tracking_configuration: Optional[pulumi.Input['AutoTrackingConfiguration']] = None,
                  contact_profile_name: Optional[pulumi.Input[str]] = None,
@@ -28,6 +29,7 @@ class ContactProfileArgs:
         """
         The set of arguments for constructing a ContactProfile resource.
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: Links of the Contact Profile
+        :param pulumi.Input['ContactProfilesPropertiesNetworkConfigurationArgs'] network_configuration: Network configuration of customer virtual network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto track configuration.
         :param pulumi.Input[str] contact_profile_name: Contact Profile Name
@@ -38,6 +40,7 @@ class ContactProfileArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "links", links)
+        pulumi.set(__self__, "network_configuration", network_configuration)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if auto_tracking_configuration is not None:
             pulumi.set(__self__, "auto_tracking_configuration", auto_tracking_configuration)
@@ -65,6 +68,18 @@ class ContactProfileArgs:
     @links.setter
     def links(self, value: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]]):
         pulumi.set(self, "links", value)
+
+    @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> pulumi.Input['ContactProfilesPropertiesNetworkConfigurationArgs']:
+        """
+        Network configuration of customer virtual network.
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @network_configuration.setter
+    def network_configuration(self, value: pulumi.Input['ContactProfilesPropertiesNetworkConfigurationArgs']):
+        pulumi.set(self, "network_configuration", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -175,12 +190,13 @@ class ContactProfile(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
                  minimum_viable_contact_duration: Optional[pulumi.Input[str]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ContactProfilesPropertiesNetworkConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
         Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-        API Version: 2021-04-04-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -191,6 +207,7 @@ class ContactProfile(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[float] minimum_elevation_degrees: Minimum viable elevation for the contact in decimal degrees.
         :param pulumi.Input[str] minimum_viable_contact_duration: Minimum viable contact duration in ISO 8601 format.
+        :param pulumi.Input[pulumi.InputType['ContactProfilesPropertiesNetworkConfigurationArgs']] network_configuration: Network configuration of customer virtual network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -202,7 +219,7 @@ class ContactProfile(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-        API Version: 2021-04-04-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ContactProfileArgs args: The arguments to use to populate this resource's properties.
@@ -226,6 +243,7 @@ class ContactProfile(pulumi.CustomResource):
                  location: Optional[pulumi.Input[str]] = None,
                  minimum_elevation_degrees: Optional[pulumi.Input[float]] = None,
                  minimum_viable_contact_duration: Optional[pulumi.Input[str]] = None,
+                 network_configuration: Optional[pulumi.Input[pulumi.InputType['ContactProfilesPropertiesNetworkConfigurationArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -249,6 +267,9 @@ class ContactProfile(pulumi.CustomResource):
             __props__.__dict__["location"] = location
             __props__.__dict__["minimum_elevation_degrees"] = minimum_elevation_degrees
             __props__.__dict__["minimum_viable_contact_duration"] = minimum_viable_contact_duration
+            if network_configuration is None and not opts.urn:
+                raise TypeError("Missing required property 'network_configuration'")
+            __props__.__dict__["network_configuration"] = network_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -257,7 +278,7 @@ class ContactProfile(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20210404preview:ContactProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20210404preview:ContactProfile"), pulumi.Alias(type_="azure-native:orbital/v20220301:ContactProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContactProfile, __self__).__init__(
             'azure-native:orbital:ContactProfile',
@@ -289,6 +310,7 @@ class ContactProfile(pulumi.CustomResource):
         __props__.__dict__["minimum_elevation_degrees"] = None
         __props__.__dict__["minimum_viable_contact_duration"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["network_configuration"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -357,6 +379,14 @@ class ContactProfile(pulumi.CustomResource):
         The name of the resource
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> pulumi.Output['outputs.ContactProfilesPropertiesResponseNetworkConfiguration']:
+        """
+        Network configuration of customer virtual network.
+        """
+        return pulumi.get(self, "network_configuration")
 
     @property
     @pulumi.getter(name="systemData")

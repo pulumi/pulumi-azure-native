@@ -16,6 +16,8 @@ __all__ = [
     'get_contact_output',
 ]
 
+warnings.warn("""Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetContactResult:
     """
@@ -284,6 +286,7 @@ def get_contact(contact_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str spacecraft_name: Spacecraft ID
     """
+    pulumi.log.warn("""get_contact is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     __args__ = dict()
     __args__['contactName'] = contact_name
     __args__['resourceGroupName'] = resource_group_name
@@ -330,4 +333,5 @@ def get_contact_output(contact_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str spacecraft_name: Spacecraft ID
     """
+    pulumi.log.warn("""get_contact is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     ...

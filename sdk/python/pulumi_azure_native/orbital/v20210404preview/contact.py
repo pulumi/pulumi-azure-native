@@ -126,7 +126,12 @@ class ContactArgs:
         pulumi.set(self, "contact_name", value)
 
 
+warnings.warn("""Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
+
 class Contact(pulumi.CustomResource):
+    warnings.warn("""Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -184,6 +189,7 @@ class Contact(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  spacecraft_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Contact is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -229,7 +235,7 @@ class Contact(pulumi.CustomResource):
             __props__.__dict__["tx_end_time"] = None
             __props__.__dict__["tx_start_time"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital:Contact")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital:Contact"), pulumi.Alias(type_="azure-native:orbital/v20220301:Contact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Contact, __self__).__init__(
             'azure-native:orbital/v20210404preview:Contact',

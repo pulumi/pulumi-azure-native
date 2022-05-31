@@ -1060,14 +1060,14 @@ class ContainerAppProbeHttpGetArgs:
                  host: Optional[pulumi.Input[str]] = None,
                  http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerAppProbeHttpHeadersArgs']]]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 scheme: Optional[pulumi.Input[str]] = None):
+                 scheme: Optional[pulumi.Input[Union[str, 'Scheme']]] = None):
         """
         HTTPGet specifies the http request to perform.
         :param pulumi.Input[int] port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
         :param pulumi.Input[str] host: Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerAppProbeHttpHeadersArgs']]] http_headers: Custom headers to set in the request. HTTP allows repeated headers.
         :param pulumi.Input[str] path: Path to access on the HTTP server.
-        :param pulumi.Input[str] scheme: Scheme to use for connecting to the host. Defaults to HTTP.
+        :param pulumi.Input[Union[str, 'Scheme']] scheme: Scheme to use for connecting to the host. Defaults to HTTP.
         """
         pulumi.set(__self__, "port", port)
         if host is not None:
@@ -1129,14 +1129,14 @@ class ContainerAppProbeHttpGetArgs:
 
     @property
     @pulumi.getter
-    def scheme(self) -> Optional[pulumi.Input[str]]:
+    def scheme(self) -> Optional[pulumi.Input[Union[str, 'Scheme']]]:
         """
         Scheme to use for connecting to the host. Defaults to HTTP.
         """
         return pulumi.get(self, "scheme")
 
     @scheme.setter
-    def scheme(self, value: Optional[pulumi.Input[str]]):
+    def scheme(self, value: Optional[pulumi.Input[Union[str, 'Scheme']]]):
         pulumi.set(self, "scheme", value)
 
 

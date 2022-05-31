@@ -16,6 +16,8 @@ __all__ = [
     'get_instance_output',
 ]
 
+warnings.warn("""Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetInstanceResult:
     """
@@ -176,6 +178,7 @@ def get_instance(account_name: Optional[str] = None,
     :param str instance_name: Instance name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_instance is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['instanceName'] = instance_name
@@ -213,4 +216,5 @@ def get_instance_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str instance_name: Instance name.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_instance is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""")
     ...

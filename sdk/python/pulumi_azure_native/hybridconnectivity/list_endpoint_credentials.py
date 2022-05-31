@@ -97,7 +97,7 @@ def list_endpoint_credentials(endpoint_name: Optional[str] = None,
                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListEndpointCredentialsResult:
     """
     The endpoint access for the target resource.
-    API Version: 2021-10-06-preview.
+    API Version: 2022-05-01-preview.
 
 
     :param str endpoint_name: The endpoint name.
@@ -129,7 +129,7 @@ def list_endpoint_credentials_output(endpoint_name: Optional[pulumi.Input[str]] 
                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListEndpointCredentialsResult]:
     """
     The endpoint access for the target resource.
-    API Version: 2021-10-06-preview.
+    API Version: 2022-05-01-preview.
 
 
     :param str endpoint_name: The endpoint name.

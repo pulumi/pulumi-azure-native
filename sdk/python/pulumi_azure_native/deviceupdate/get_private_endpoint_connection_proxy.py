@@ -134,7 +134,7 @@ def get_private_endpoint_connection_proxy(account_name: Optional[str] = None,
                                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateEndpointConnectionProxyResult:
     """
     Private endpoint connection proxy details.
-    API Version: 2020-03-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str account_name: Account name.
@@ -169,7 +169,7 @@ def get_private_endpoint_connection_proxy_output(account_name: Optional[pulumi.I
                                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateEndpointConnectionProxyResult]:
     """
     Private endpoint connection proxy details.
-    API Version: 2020-03-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str account_name: Account name.

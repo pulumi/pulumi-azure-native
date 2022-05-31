@@ -122,7 +122,7 @@ def get_workspace_private_endpoint_connection(private_endpoint_connection_name: 
                                               opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetWorkspacePrivateEndpointConnectionResult:
     """
     The Private Endpoint Connection resource.
-    API Version: 2021-11-01.
+    API Version: 2022-05-15.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
@@ -156,7 +156,7 @@ def get_workspace_private_endpoint_connection_output(private_endpoint_connection
                                                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetWorkspacePrivateEndpointConnectionResult]:
     """
     The Private Endpoint Connection resource.
-    API Version: 2021-11-01.
+    API Version: 2022-05-15.
 
 
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource

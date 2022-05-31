@@ -16,6 +16,8 @@ __all__ = [
     'get_private_endpoint_connection_proxy_output',
 ]
 
+warnings.warn("""Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPrivateEndpointConnectionProxyResult:
     """
@@ -140,6 +142,7 @@ def get_private_endpoint_connection_proxy(account_name: Optional[str] = None,
     :param str private_endpoint_connection_proxy_id: The ID of the private endpoint connection proxy object.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_private_endpoint_connection_proxy is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['privateEndpointConnectionProxyId'] = private_endpoint_connection_proxy_id
@@ -174,4 +177,5 @@ def get_private_endpoint_connection_proxy_output(account_name: Optional[pulumi.I
     :param str private_endpoint_connection_proxy_id: The ID of the private endpoint connection proxy object.
     :param str resource_group_name: The resource group name.
     """
+    pulumi.log.warn("""get_private_endpoint_connection_proxy is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""")
     ...

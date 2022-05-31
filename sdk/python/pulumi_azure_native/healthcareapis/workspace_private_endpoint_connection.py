@@ -94,7 +94,7 @@ class WorkspacePrivateEndpointConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-11-01.
+        API Version: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -111,7 +111,7 @@ class WorkspacePrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Private Endpoint Connection resource.
-        API Version: 2021-11-01.
+        API Version: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param WorkspacePrivateEndpointConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -159,7 +159,7 @@ class WorkspacePrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WorkspacePrivateEndpointConnection, __self__).__init__(
             'azure-native:healthcareapis:WorkspacePrivateEndpointConnection',

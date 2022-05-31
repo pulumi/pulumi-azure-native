@@ -919,9 +919,9 @@ class OperationsDefinitionArgs:
     def __init__(__self__, *,
                  display: pulumi.Input['OperationsDefinitionDisplayArgs'],
                  name: pulumi.Input[str],
-                 action_type: Optional[pulumi.Input[str]] = None,
+                 action_type: Optional[pulumi.Input[Union[str, 'OperationActionType']]] = None,
                  is_data_action: Optional[pulumi.Input[bool]] = None,
-                 origin: Optional[pulumi.Input[str]] = None,
+                 origin: Optional[pulumi.Input[Union[str, 'OperationOrigins']]] = None,
                  properties: Optional[Any] = None):
         """
         Properties of an Operation.
@@ -966,11 +966,11 @@ class OperationsDefinitionArgs:
 
     @property
     @pulumi.getter(name="actionType")
-    def action_type(self) -> Optional[pulumi.Input[str]]:
+    def action_type(self) -> Optional[pulumi.Input[Union[str, 'OperationActionType']]]:
         return pulumi.get(self, "action_type")
 
     @action_type.setter
-    def action_type(self, value: Optional[pulumi.Input[str]]):
+    def action_type(self, value: Optional[pulumi.Input[Union[str, 'OperationActionType']]]):
         pulumi.set(self, "action_type", value)
 
     @property
@@ -987,11 +987,11 @@ class OperationsDefinitionArgs:
 
     @property
     @pulumi.getter
-    def origin(self) -> Optional[pulumi.Input[str]]:
+    def origin(self) -> Optional[pulumi.Input[Union[str, 'OperationOrigins']]]:
         return pulumi.get(self, "origin")
 
     @origin.setter
-    def origin(self, value: Optional[pulumi.Input[str]]):
+    def origin(self, value: Optional[pulumi.Input[Union[str, 'OperationOrigins']]]):
         pulumi.set(self, "origin", value)
 
     @property
@@ -1407,7 +1407,7 @@ class ResourceProviderManifestPropertiesManagementArgs:
                  incident_routing_service: Optional[pulumi.Input[str]] = None,
                  incident_routing_team: Optional[pulumi.Input[str]] = None,
                  manifest_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 resource_access_policy: Optional[pulumi.Input[str]] = None,
+                 resource_access_policy: Optional[pulumi.Input[Union[str, 'ResourceAccessPolicy']]] = None,
                  resource_access_roles: Optional[pulumi.Input[Sequence[Any]]] = None,
                  schema_owners: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  service_tree_infos: Optional[pulumi.Input[Sequence[pulumi.Input['ServiceTreeInfoArgs']]]] = None):
@@ -1466,11 +1466,11 @@ class ResourceProviderManifestPropertiesManagementArgs:
 
     @property
     @pulumi.getter(name="resourceAccessPolicy")
-    def resource_access_policy(self) -> Optional[pulumi.Input[str]]:
+    def resource_access_policy(self) -> Optional[pulumi.Input[Union[str, 'ResourceAccessPolicy']]]:
         return pulumi.get(self, "resource_access_policy")
 
     @resource_access_policy.setter
-    def resource_access_policy(self, value: Optional[pulumi.Input[str]]):
+    def resource_access_policy(self, value: Optional[pulumi.Input[Union[str, 'ResourceAccessPolicy']]]):
         pulumi.set(self, "resource_access_policy", value)
 
     @property
@@ -1963,7 +1963,7 @@ class ResourceTypeRegistrationPropertiesArgs:
                  is_pure_proxy: Optional[pulumi.Input[bool]] = None,
                  linked_access_checks: Optional[pulumi.Input[Sequence[pulumi.Input['LinkedAccessCheckArgs']]]] = None,
                  logging_rules: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingRuleArgs']]]] = None,
-                 marketplace_type: Optional[pulumi.Input[str]] = None,
+                 marketplace_type: Optional[pulumi.Input[Union[str, 'MarketplaceType']]] = None,
                  provisioning_state: Optional[pulumi.Input[Union[str, 'ProvisioningState']]] = None,
                  regionality: Optional[pulumi.Input[Union[str, 'Regionality']]] = None,
                  request_header_options: Optional[pulumi.Input['ResourceTypeRegistrationPropertiesRequestHeaderOptionsArgs']] = None,
@@ -2173,11 +2173,11 @@ class ResourceTypeRegistrationPropertiesArgs:
 
     @property
     @pulumi.getter(name="marketplaceType")
-    def marketplace_type(self) -> Optional[pulumi.Input[str]]:
+    def marketplace_type(self) -> Optional[pulumi.Input[Union[str, 'MarketplaceType']]]:
         return pulumi.get(self, "marketplace_type")
 
     @marketplace_type.setter
-    def marketplace_type(self, value: Optional[pulumi.Input[str]]):
+    def marketplace_type(self, value: Optional[pulumi.Input[Union[str, 'MarketplaceType']]]):
         pulumi.set(self, "marketplace_type", value)
 
     @property
@@ -2416,7 +2416,7 @@ class SkuLocationInfoArgs:
     def __init__(__self__, *,
                  location: pulumi.Input[str],
                  extended_locations: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 type: Optional[pulumi.Input[str]] = None,
+                 type: Optional[pulumi.Input[Union[str, 'ExtendedLocationType']]] = None,
                  zone_details: Optional[pulumi.Input[Sequence[pulumi.Input['SkuZoneDetailArgs']]]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         pulumi.set(__self__, "location", location)
@@ -2449,11 +2449,11 @@ class SkuLocationInfoArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> Optional[pulumi.Input[str]]:
+    def type(self) -> Optional[pulumi.Input[Union[str, 'ExtendedLocationType']]]:
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: Optional[pulumi.Input[str]]):
+    def type(self, value: Optional[pulumi.Input[Union[str, 'ExtendedLocationType']]]):
         pulumi.set(self, "type", value)
 
     @property

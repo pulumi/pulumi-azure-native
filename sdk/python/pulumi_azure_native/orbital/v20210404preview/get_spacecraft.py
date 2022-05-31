@@ -16,6 +16,8 @@ __all__ = [
     'get_spacecraft_output',
 ]
 
+warnings.warn("""Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetSpacecraftResult:
     """
@@ -210,6 +212,7 @@ def get_spacecraft(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str spacecraft_name: Spacecraft ID
     """
+    pulumi.log.warn("""get_spacecraft is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['spacecraftName'] = spacecraft_name
@@ -247,4 +250,5 @@ def get_spacecraft_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str spacecraft_name: Spacecraft ID
     """
+    pulumi.log.warn("""get_spacecraft is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     ...

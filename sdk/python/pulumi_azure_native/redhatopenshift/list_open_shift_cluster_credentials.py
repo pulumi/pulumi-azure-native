@@ -18,7 +18,7 @@ __all__ = [
 @pulumi.output_type
 class ListOpenShiftClusterCredentialsResult:
     """
-    OpenShiftClusterCredentials represents an OpenShift cluster's credentials
+    OpenShiftClusterCredentials represents an OpenShift cluster's credentials.
     """
     def __init__(__self__, kubeadmin_password=None, kubeadmin_username=None):
         if kubeadmin_password and not isinstance(kubeadmin_password, str):
@@ -32,7 +32,7 @@ class ListOpenShiftClusterCredentialsResult:
     @pulumi.getter(name="kubeadminPassword")
     def kubeadmin_password(self) -> Optional[str]:
         """
-        The password for the kubeadmin user
+        The password for the kubeadmin user.
         """
         return pulumi.get(self, "kubeadmin_password")
 
@@ -40,7 +40,7 @@ class ListOpenShiftClusterCredentialsResult:
     @pulumi.getter(name="kubeadminUsername")
     def kubeadmin_username(self) -> Optional[str]:
         """
-        The username for the kubeadmin user
+        The username for the kubeadmin user.
         """
         return pulumi.get(self, "kubeadmin_username")
 
@@ -59,8 +59,8 @@ def list_open_shift_cluster_credentials(resource_group_name: Optional[str] = Non
                                         resource_name: Optional[str] = None,
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListOpenShiftClusterCredentialsResult:
     """
-    OpenShiftClusterCredentials represents an OpenShift cluster's credentials
-    API Version: 2020-04-30.
+    OpenShiftClusterCredentials represents an OpenShift cluster's credentials.
+    API Version: 2022-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -85,8 +85,8 @@ def list_open_shift_cluster_credentials_output(resource_group_name: Optional[pul
                                                resource_name: Optional[pulumi.Input[str]] = None,
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListOpenShiftClusterCredentialsResult]:
     """
-    OpenShiftClusterCredentials represents an OpenShift cluster's credentials
-    API Version: 2020-04-30.
+    OpenShiftClusterCredentials represents an OpenShift cluster's credentials.
+    API Version: 2022-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

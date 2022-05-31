@@ -4681,6 +4681,7 @@ class ApplicationGatewayRoutingRuleResponse(dict):
 
     def __init__(__self__, *,
                  etag: str,
+                 priority: int,
                  provisioning_state: str,
                  type: str,
                  backend_address_pool: Optional['outputs.SubResourceResponse'] = None,
@@ -4692,6 +4693,7 @@ class ApplicationGatewayRoutingRuleResponse(dict):
         """
         Routing rule of an application gateway.
         :param str etag: A unique read-only string that changes whenever the resource is updated.
+        :param int priority: Priority of the routing rule.
         :param str provisioning_state: The provisioning state of the request routing rule resource.
         :param str type: Type of the resource.
         :param 'SubResourceResponse' backend_address_pool: Backend address pool resource of the application gateway.
@@ -4702,6 +4704,7 @@ class ApplicationGatewayRoutingRuleResponse(dict):
         :param str rule_type: Rule type.
         """
         pulumi.set(__self__, "etag", etag)
+        pulumi.set(__self__, "priority", priority)
         pulumi.set(__self__, "provisioning_state", provisioning_state)
         pulumi.set(__self__, "type", type)
         if backend_address_pool is not None:
@@ -4724,6 +4727,14 @@ class ApplicationGatewayRoutingRuleResponse(dict):
         A unique read-only string that changes whenever the resource is updated.
         """
         return pulumi.get(self, "etag")
+
+    @property
+    @pulumi.getter
+    def priority(self) -> int:
+        """
+        Priority of the routing rule.
+        """
+        return pulumi.get(self, "priority")
 
     @property
     @pulumi.getter(name="provisioningState")

@@ -18,25 +18,27 @@ class ContainerAppsAuthConfigArgs:
     def __init__(__self__, *,
                  container_app_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 auth_config_name: Optional[pulumi.Input[str]] = None,
                  global_validation: Optional[pulumi.Input['GlobalValidationArgs']] = None,
                  http_settings: Optional[pulumi.Input['HttpSettingsArgs']] = None,
                  identity_providers: Optional[pulumi.Input['IdentityProvidersArgs']] = None,
                  login: Optional[pulumi.Input['LoginArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input['AuthPlatformArgs']] = None):
         """
         The set of arguments for constructing a ContainerAppsAuthConfig resource.
         :param pulumi.Input[str] container_app_name: Name of the Container App.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] auth_config_name: Name of the Container App AuthConfig.
         :param pulumi.Input['GlobalValidationArgs'] global_validation: The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         :param pulumi.Input['HttpSettingsArgs'] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         :param pulumi.Input['IdentityProvidersArgs'] identity_providers: The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
         :param pulumi.Input['LoginArgs'] login: The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
-        :param pulumi.Input[str] name: Name of the Container App AuthConfig.
         :param pulumi.Input['AuthPlatformArgs'] platform: The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         """
         pulumi.set(__self__, "container_app_name", container_app_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if auth_config_name is not None:
+            pulumi.set(__self__, "auth_config_name", auth_config_name)
         if global_validation is not None:
             pulumi.set(__self__, "global_validation", global_validation)
         if http_settings is not None:
@@ -45,8 +47,6 @@ class ContainerAppsAuthConfigArgs:
             pulumi.set(__self__, "identity_providers", identity_providers)
         if login is not None:
             pulumi.set(__self__, "login", login)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if platform is not None:
             pulumi.set(__self__, "platform", platform)
 
@@ -73,6 +73,18 @@ class ContainerAppsAuthConfigArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="authConfigName")
+    def auth_config_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Container App AuthConfig.
+        """
+        return pulumi.get(self, "auth_config_name")
+
+    @auth_config_name.setter
+    def auth_config_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "auth_config_name", value)
 
     @property
     @pulumi.getter(name="globalValidation")
@@ -124,18 +136,6 @@ class ContainerAppsAuthConfigArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the Container App AuthConfig.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def platform(self) -> Optional[pulumi.Input['AuthPlatformArgs']]:
         """
         The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
@@ -152,12 +152,12 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_config_name: Optional[pulumi.Input[str]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
                  global_validation: Optional[pulumi.Input[pulumi.InputType['GlobalValidationArgs']]] = None,
                  http_settings: Optional[pulumi.Input[pulumi.InputType['HttpSettingsArgs']]] = None,
                  identity_providers: Optional[pulumi.Input[pulumi.InputType['IdentityProvidersArgs']]] = None,
                  login: Optional[pulumi.Input[pulumi.InputType['LoginArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -167,12 +167,12 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] auth_config_name: Name of the Container App AuthConfig.
         :param pulumi.Input[str] container_app_name: Name of the Container App.
         :param pulumi.Input[pulumi.InputType['GlobalValidationArgs']] global_validation: The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
         :param pulumi.Input[pulumi.InputType['HttpSettingsArgs']] http_settings: The configuration settings of the HTTP requests for authentication and authorization requests made against ContainerApp Service Authentication/Authorization.
         :param pulumi.Input[pulumi.InputType['IdentityProvidersArgs']] identity_providers: The configuration settings of each of the identity providers used to configure ContainerApp Service Authentication/Authorization.
         :param pulumi.Input[pulumi.InputType['LoginArgs']] login: The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
-        :param pulumi.Input[str] name: Name of the Container App AuthConfig.
         :param pulumi.Input[pulumi.InputType['AuthPlatformArgs']] platform: The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         """
@@ -201,12 +201,12 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auth_config_name: Optional[pulumi.Input[str]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
                  global_validation: Optional[pulumi.Input[pulumi.InputType['GlobalValidationArgs']]] = None,
                  http_settings: Optional[pulumi.Input[pulumi.InputType['HttpSettingsArgs']]] = None,
                  identity_providers: Optional[pulumi.Input[pulumi.InputType['IdentityProvidersArgs']]] = None,
                  login: Optional[pulumi.Input[pulumi.InputType['LoginArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  platform: Optional[pulumi.Input[pulumi.InputType['AuthPlatformArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -221,6 +221,7 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = ContainerAppsAuthConfigArgs.__new__(ContainerAppsAuthConfigArgs)
 
+            __props__.__dict__["auth_config_name"] = auth_config_name
             if container_app_name is None and not opts.urn:
                 raise TypeError("Missing required property 'container_app_name'")
             __props__.__dict__["container_app_name"] = container_app_name
@@ -228,11 +229,11 @@ class ContainerAppsAuthConfig(pulumi.CustomResource):
             __props__.__dict__["http_settings"] = http_settings
             __props__.__dict__["identity_providers"] = identity_providers
             __props__.__dict__["login"] = login
-            __props__.__dict__["name"] = name
             __props__.__dict__["platform"] = platform
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:ContainerAppsAuthConfig"), pulumi.Alias(type_="azure-native:app/v20220301:ContainerAppsAuthConfig")])

@@ -163,7 +163,12 @@ class SpacecraftArgs:
         pulumi.set(self, "tle_line2", value)
 
 
+warnings.warn("""Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
+
 class Spacecraft(pulumi.CustomResource):
+    warnings.warn("""Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,6 +232,7 @@ class Spacecraft(pulumi.CustomResource):
                  tle_line1: Optional[pulumi.Input[str]] = None,
                  tle_line2: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Spacecraft is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -257,7 +263,7 @@ class Spacecraft(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital:Spacecraft")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital:Spacecraft"), pulumi.Alias(type_="azure-native:orbital/v20220301:Spacecraft")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Spacecraft, __self__).__init__(
             'azure-native:orbital/v20210404preview:Spacecraft',

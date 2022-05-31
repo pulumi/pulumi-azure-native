@@ -18,6 +18,7 @@ class DicomServiceArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  workspace_name: pulumi.Input[str],
+                 cors_configuration: Optional[pulumi.Input['CorsConfigurationArgs']] = None,
                  dicom_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ServiceManagedIdentityIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -26,6 +27,7 @@ class DicomServiceArgs:
         The set of arguments for constructing a DicomService resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the service instance.
         :param pulumi.Input[str] workspace_name: The name of workspace resource.
+        :param pulumi.Input['CorsConfigurationArgs'] cors_configuration: Dicom Service Cors configuration.
         :param pulumi.Input[str] dicom_service_name: The name of DICOM Service resource.
         :param pulumi.Input['ServiceManagedIdentityIdentityArgs'] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[str] location: The resource location.
@@ -33,6 +35,8 @@ class DicomServiceArgs:
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         pulumi.set(__self__, "workspace_name", workspace_name)
+        if cors_configuration is not None:
+            pulumi.set(__self__, "cors_configuration", cors_configuration)
         if dicom_service_name is not None:
             pulumi.set(__self__, "dicom_service_name", dicom_service_name)
         if identity is not None:
@@ -65,6 +69,18 @@ class DicomServiceArgs:
     @workspace_name.setter
     def workspace_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "workspace_name", value)
+
+    @property
+    @pulumi.getter(name="corsConfiguration")
+    def cors_configuration(self) -> Optional[pulumi.Input['CorsConfigurationArgs']]:
+        """
+        Dicom Service Cors configuration.
+        """
+        return pulumi.get(self, "cors_configuration")
+
+    @cors_configuration.setter
+    def cors_configuration(self, value: Optional[pulumi.Input['CorsConfigurationArgs']]):
+        pulumi.set(self, "cors_configuration", value)
 
     @property
     @pulumi.getter(name="dicomServiceName")
@@ -120,6 +136,7 @@ class DicomService(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['CorsConfigurationArgs']]] = None,
                  dicom_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -129,10 +146,11 @@ class DicomService(pulumi.CustomResource):
                  __props__=None):
         """
         The description of Dicom Service
-        API Version: 2021-11-01.
+        API Version: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[pulumi.InputType['CorsConfigurationArgs']] cors_configuration: Dicom Service Cors configuration.
         :param pulumi.Input[str] dicom_service_name: The name of DICOM Service resource.
         :param pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']] identity: Setting indicating whether the service has a managed identity associated with it.
         :param pulumi.Input[str] location: The resource location.
@@ -148,7 +166,7 @@ class DicomService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of Dicom Service
-        API Version: 2021-11-01.
+        API Version: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param DicomServiceArgs args: The arguments to use to populate this resource's properties.
@@ -165,6 +183,7 @@ class DicomService(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 cors_configuration: Optional[pulumi.Input[pulumi.InputType['CorsConfigurationArgs']]] = None,
                  dicom_service_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ServiceManagedIdentityIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -183,6 +202,7 @@ class DicomService(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DicomServiceArgs.__new__(DicomServiceArgs)
 
+            __props__.__dict__["cors_configuration"] = cors_configuration
             __props__.__dict__["dicom_service_name"] = dicom_service_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
@@ -202,7 +222,7 @@ class DicomService(pulumi.CustomResource):
             __props__.__dict__["service_url"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:DicomService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:DicomService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DicomService, __self__).__init__(
             'azure-native:healthcareapis:DicomService',
@@ -227,6 +247,7 @@ class DicomService(pulumi.CustomResource):
         __props__ = DicomServiceArgs.__new__(DicomServiceArgs)
 
         __props__.__dict__["authentication_configuration"] = None
+        __props__.__dict__["cors_configuration"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
@@ -247,6 +268,14 @@ class DicomService(pulumi.CustomResource):
         Dicom Service authentication configuration.
         """
         return pulumi.get(self, "authentication_configuration")
+
+    @property
+    @pulumi.getter(name="corsConfiguration")
+    def cors_configuration(self) -> pulumi.Output[Optional['outputs.CorsConfigurationResponse']]:
+        """
+        Dicom Service Cors configuration.
+        """
+        return pulumi.get(self, "cors_configuration")
 
     @property
     @pulumi.getter

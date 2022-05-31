@@ -15,7 +15,7 @@ __all__ = [
     'get_wcf_relay_output',
 ]
 
-warnings.warn("""Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+warnings.warn("""Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWCFRelayResult:
@@ -177,7 +177,7 @@ def get_wcf_relay(namespace_name: Optional[str] = None,
     :param str relay_name: The relay name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_wcf_relay is deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+    pulumi.log.warn("""get_wcf_relay is deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""")
     __args__ = dict()
     __args__['namespaceName'] = namespace_name
     __args__['relayName'] = relay_name
@@ -215,5 +215,5 @@ def get_wcf_relay_output(namespace_name: Optional[pulumi.Input[str]] = None,
     :param str relay_name: The relay name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_wcf_relay is deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+    pulumi.log.warn("""get_wcf_relay is deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""")
     ...

@@ -44,21 +44,21 @@ class AwaitableListDaprComponentSecretsResult(ListDaprComponentSecretsResult):
             value=self.value)
 
 
-def list_dapr_component_secrets(environment_name: Optional[str] = None,
-                                name: Optional[str] = None,
+def list_dapr_component_secrets(component_name: Optional[str] = None,
+                                environment_name: Optional[str] = None,
                                 resource_group_name: Optional[str] = None,
                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListDaprComponentSecretsResult:
     """
     Dapr component Secrets Collection ARM resource.
 
 
+    :param str component_name: Name of the Dapr Component.
     :param str environment_name: Name of the Managed Environment.
-    :param str name: Name of the Dapr Component.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
+    __args__['componentName'] = component_name
     __args__['environmentName'] = environment_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -71,16 +71,16 @@ def list_dapr_component_secrets(environment_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(list_dapr_component_secrets)
-def list_dapr_component_secrets_output(environment_name: Optional[pulumi.Input[str]] = None,
-                                       name: Optional[pulumi.Input[str]] = None,
+def list_dapr_component_secrets_output(component_name: Optional[pulumi.Input[str]] = None,
+                                       environment_name: Optional[pulumi.Input[str]] = None,
                                        resource_group_name: Optional[pulumi.Input[str]] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListDaprComponentSecretsResult]:
     """
     Dapr component Secrets Collection ARM resource.
 
 
+    :param str component_name: Name of the Dapr Component.
     :param str environment_name: Name of the Managed Environment.
-    :param str name: Name of the Dapr Component.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

@@ -11,6 +11,7 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'CorsConfigurationResponse',
     'DicomServiceAuthenticationConfigurationResponse',
     'FhirServiceAccessPolicyEntryResponse',
     'FhirServiceAcrConfigurationResponse',
@@ -37,6 +38,96 @@ __all__ = [
     'UserAssignedIdentityResponse',
     'WorkspaceResponseProperties',
 ]
+
+@pulumi.output_type
+class CorsConfigurationResponse(dict):
+    """
+    The settings for the CORS configuration of the service instance.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "allowCredentials":
+            suggest = "allow_credentials"
+        elif key == "maxAge":
+            suggest = "max_age"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in CorsConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        CorsConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        CorsConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 allow_credentials: Optional[bool] = None,
+                 headers: Optional[Sequence[str]] = None,
+                 max_age: Optional[int] = None,
+                 methods: Optional[Sequence[str]] = None,
+                 origins: Optional[Sequence[str]] = None):
+        """
+        The settings for the CORS configuration of the service instance.
+        :param bool allow_credentials: If credentials are allowed via CORS.
+        :param Sequence[str] headers: The headers to be allowed via CORS.
+        :param int max_age: The max age to be allowed via CORS.
+        :param Sequence[str] methods: The methods to be allowed via CORS.
+        :param Sequence[str] origins: The origins to be allowed via CORS.
+        """
+        if allow_credentials is not None:
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if max_age is not None:
+            pulumi.set(__self__, "max_age", max_age)
+        if methods is not None:
+            pulumi.set(__self__, "methods", methods)
+        if origins is not None:
+            pulumi.set(__self__, "origins", origins)
+
+    @property
+    @pulumi.getter(name="allowCredentials")
+    def allow_credentials(self) -> Optional[bool]:
+        """
+        If credentials are allowed via CORS.
+        """
+        return pulumi.get(self, "allow_credentials")
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[Sequence[str]]:
+        """
+        The headers to be allowed via CORS.
+        """
+        return pulumi.get(self, "headers")
+
+    @property
+    @pulumi.getter(name="maxAge")
+    def max_age(self) -> Optional[int]:
+        """
+        The max age to be allowed via CORS.
+        """
+        return pulumi.get(self, "max_age")
+
+    @property
+    @pulumi.getter
+    def methods(self) -> Optional[Sequence[str]]:
+        """
+        The methods to be allowed via CORS.
+        """
+        return pulumi.get(self, "methods")
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Optional[Sequence[str]]:
+        """
+        The origins to be allowed via CORS.
+        """
+        return pulumi.get(self, "origins")
+
 
 @pulumi.output_type
 class DicomServiceAuthenticationConfigurationResponse(dict):

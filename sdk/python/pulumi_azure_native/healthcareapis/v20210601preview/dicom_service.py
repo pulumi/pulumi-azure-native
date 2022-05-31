@@ -97,11 +97,11 @@ class DicomServiceArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""", DeprecationWarning)
+warnings.warn("""Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
 
 
 class DicomService(pulumi.CustomResource):
-    warnings.warn("""Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""", DeprecationWarning)
+    warnings.warn("""Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -154,7 +154,7 @@ class DicomService(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DicomService is deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""")
+        pulumi.log.warn("""DicomService is deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -182,7 +182,7 @@ class DicomService(pulumi.CustomResource):
             __props__.__dict__["service_url"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:DicomService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:DicomService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:DicomService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DicomService, __self__).__init__(
             'azure-native:healthcareapis/v20210601preview:DicomService',

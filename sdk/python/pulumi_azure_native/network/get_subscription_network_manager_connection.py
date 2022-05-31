@@ -120,7 +120,7 @@ def get_subscription_network_manager_connection(network_manager_connection_name:
                                                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSubscriptionNetworkManagerConnectionResult:
     """
     The Network Manager Connection resource
-    API Version: 2022-02-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str network_manager_connection_name: Name for the network manager connection.
@@ -148,7 +148,7 @@ def get_subscription_network_manager_connection_output(network_manager_connectio
                                                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSubscriptionNetworkManagerConnectionResult]:
     """
     The Network Manager Connection resource
-    API Version: 2022-02-01-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str network_manager_connection_name: Name for the network manager connection.

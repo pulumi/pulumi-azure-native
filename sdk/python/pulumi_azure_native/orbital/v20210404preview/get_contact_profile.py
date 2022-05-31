@@ -16,6 +16,8 @@ __all__ = [
     'get_contact_profile_output',
 ]
 
+warnings.warn("""Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetContactProfileResult:
     """
@@ -186,6 +188,7 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
     :param str contact_profile_name: Contact Profile Name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_contact_profile is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     __args__ = dict()
     __args__['contactProfileName'] = contact_profile_name
     __args__['resourceGroupName'] = resource_group_name
@@ -221,4 +224,5 @@ def get_contact_profile_output(contact_profile_name: Optional[pulumi.Input[str]]
     :param str contact_profile_name: Contact Profile Name
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
+    pulumi.log.warn("""get_contact_profile is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     ...

@@ -21,7 +21,7 @@ class GetOpenShiftClusterResult:
     """
     OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     """
-    def __init__(__self__, apiserver_profile=None, cluster_profile=None, console_profile=None, id=None, ingress_profiles=None, location=None, master_profile=None, name=None, network_profile=None, provisioning_state=None, service_principal_profile=None, tags=None, type=None, worker_profiles=None):
+    def __init__(__self__, apiserver_profile=None, cluster_profile=None, console_profile=None, id=None, ingress_profiles=None, location=None, master_profile=None, name=None, network_profile=None, provisioning_state=None, service_principal_profile=None, system_data=None, tags=None, type=None, worker_profiles=None):
         if apiserver_profile and not isinstance(apiserver_profile, dict):
             raise TypeError("Expected argument 'apiserver_profile' to be a dict")
         pulumi.set(__self__, "apiserver_profile", apiserver_profile)
@@ -55,6 +55,9 @@ class GetOpenShiftClusterResult:
         if service_principal_profile and not isinstance(service_principal_profile, dict):
             raise TypeError("Expected argument 'service_principal_profile' to be a dict")
         pulumi.set(__self__, "service_principal_profile", service_principal_profile)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -141,7 +144,7 @@ class GetOpenShiftClusterResult:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[str]:
         """
-        The cluster provisioning state (immutable).
+        The cluster provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -152,6 +155,14 @@ class GetOpenShiftClusterResult:
         The cluster service principal profile.
         """
         return pulumi.get(self, "service_principal_profile")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -195,6 +206,7 @@ class AwaitableGetOpenShiftClusterResult(GetOpenShiftClusterResult):
             network_profile=self.network_profile,
             provisioning_state=self.provisioning_state,
             service_principal_profile=self.service_principal_profile,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             worker_profiles=self.worker_profiles)
@@ -205,7 +217,7 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
                            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetOpenShiftClusterResult:
     """
     OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-    API Version: 2020-04-30.
+    API Version: 2022-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -232,6 +244,7 @@ def get_open_shift_cluster(resource_group_name: Optional[str] = None,
         network_profile=__ret__.network_profile,
         provisioning_state=__ret__.provisioning_state,
         service_principal_profile=__ret__.service_principal_profile,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         worker_profiles=__ret__.worker_profiles)
@@ -243,7 +256,7 @@ def get_open_shift_cluster_output(resource_group_name: Optional[pulumi.Input[str
                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetOpenShiftClusterResult]:
     """
     OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-    API Version: 2020-04-30.
+    API Version: 2022-04-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

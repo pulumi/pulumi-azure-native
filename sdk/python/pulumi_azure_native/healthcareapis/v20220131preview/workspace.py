@@ -82,7 +82,12 @@ class WorkspaceArgs:
         pulumi.set(self, "workspace_name", value)
 
 
+warnings.warn("""Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
+
+
 class Workspace(pulumi.CustomResource):
+    warnings.warn("""Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,6 +136,7 @@ class Workspace(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Workspace is deprecated: Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -153,7 +159,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["properties"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:Workspace")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:Workspace"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:Workspace")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Workspace, __self__).__init__(
             'azure-native:healthcareapis/v20220131preview:Workspace',

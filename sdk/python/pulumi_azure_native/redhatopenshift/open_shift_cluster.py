@@ -8,6 +8,7 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
+from ._enums import *
 from ._inputs import *
 
 __all__ = ['OpenShiftClusterArgs', 'OpenShiftCluster']
@@ -38,7 +39,7 @@ class OpenShiftClusterArgs:
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MasterProfileArgs'] master_profile: The cluster master profile.
         :param pulumi.Input['NetworkProfileArgs'] network_profile: The cluster network profile.
-        :param pulumi.Input[str] provisioning_state: The cluster provisioning state (immutable).
+        :param pulumi.Input[str] provisioning_state: The cluster provisioning state.
         :param pulumi.Input[str] resource_name: The name of the OpenShift cluster resource.
         :param pulumi.Input['ServicePrincipalProfileArgs'] service_principal_profile: The cluster service principal profile.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -170,7 +171,7 @@ class OpenShiftClusterArgs:
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> Optional[pulumi.Input[str]]:
         """
-        The cluster provisioning state (immutable).
+        The cluster provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -248,7 +249,7 @@ class OpenShiftCluster(pulumi.CustomResource):
                  __props__=None):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-        API Version: 2020-04-30.
+        API Version: 2022-04-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -259,7 +260,7 @@ class OpenShiftCluster(pulumi.CustomResource):
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MasterProfileArgs']] master_profile: The cluster master profile.
         :param pulumi.Input[pulumi.InputType['NetworkProfileArgs']] network_profile: The cluster network profile.
-        :param pulumi.Input[str] provisioning_state: The cluster provisioning state (immutable).
+        :param pulumi.Input[str] provisioning_state: The cluster provisioning state.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] resource_name_: The name of the OpenShift cluster resource.
         :param pulumi.Input[pulumi.InputType['ServicePrincipalProfileArgs']] service_principal_profile: The cluster service principal profile.
@@ -274,7 +275,7 @@ class OpenShiftCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-        API Version: 2020-04-30.
+        API Version: 2022-04-01.
 
         :param str resource_name: The name of the resource.
         :param OpenShiftClusterArgs args: The arguments to use to populate this resource's properties.
@@ -332,8 +333,9 @@ class OpenShiftCluster(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["worker_profiles"] = worker_profiles
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20200430:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20210901preview:OpenShiftCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift/v20200430:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20210901preview:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20220401:OpenShiftCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenShiftCluster, __self__).__init__(
             'azure-native:redhatopenshift:OpenShiftCluster',
@@ -367,6 +369,7 @@ class OpenShiftCluster(pulumi.CustomResource):
         __props__.__dict__["network_profile"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["service_principal_profile"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["worker_profiles"] = None
@@ -440,7 +443,7 @@ class OpenShiftCluster(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[Optional[str]]:
         """
-        The cluster provisioning state (immutable).
+        The cluster provisioning state.
         """
         return pulumi.get(self, "provisioning_state")
 
@@ -451,6 +454,14 @@ class OpenShiftCluster(pulumi.CustomResource):
         The cluster service principal profile.
         """
         return pulumi.get(self, "service_principal_profile")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

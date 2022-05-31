@@ -180,7 +180,7 @@ class Spacecraft(pulumi.CustomResource):
                  __props__=None):
         """
         Customer creates a spacecraft resource to schedule a contact.
-        API Version: 2021-04-04-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -202,7 +202,7 @@ class Spacecraft(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Customer creates a spacecraft resource to schedule a contact.
-        API Version: 2021-04-04-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param SpacecraftArgs args: The arguments to use to populate this resource's properties.
@@ -253,13 +253,11 @@ class Spacecraft(pulumi.CustomResource):
             __props__.__dict__["title_line"] = title_line
             __props__.__dict__["tle_line1"] = tle_line1
             __props__.__dict__["tle_line2"] = tle_line2
-            __props__.__dict__["authorization_status"] = None
-            __props__.__dict__["authorization_status_extended"] = None
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20210404preview:Spacecraft")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20210404preview:Spacecraft"), pulumi.Alias(type_="azure-native:orbital/v20220301:Spacecraft")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Spacecraft, __self__).__init__(
             'azure-native:orbital:Spacecraft',
@@ -283,8 +281,6 @@ class Spacecraft(pulumi.CustomResource):
 
         __props__ = SpacecraftArgs.__new__(SpacecraftArgs)
 
-        __props__.__dict__["authorization_status"] = None
-        __props__.__dict__["authorization_status_extended"] = None
         __props__.__dict__["etag"] = None
         __props__.__dict__["links"] = None
         __props__.__dict__["location"] = None
@@ -297,22 +293,6 @@ class Spacecraft(pulumi.CustomResource):
         __props__.__dict__["tle_line2"] = None
         __props__.__dict__["type"] = None
         return Spacecraft(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="authorizationStatus")
-    def authorization_status(self) -> pulumi.Output[str]:
-        """
-        Authorization status of spacecraft.
-        """
-        return pulumi.get(self, "authorization_status")
-
-    @property
-    @pulumi.getter(name="authorizationStatusExtended")
-    def authorization_status_extended(self) -> pulumi.Output[str]:
-        """
-        Details of the authorization status.
-        """
-        return pulumi.get(self, "authorization_status_extended")
 
     @property
     @pulumi.getter

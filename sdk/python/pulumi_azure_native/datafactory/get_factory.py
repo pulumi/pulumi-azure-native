@@ -21,7 +21,7 @@ class GetFactoryResult:
     """
     Factory resource type.
     """
-    def __init__(__self__, create_time=None, e_tag=None, encryption=None, global_parameters=None, id=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, repo_configuration=None, tags=None, type=None, version=None):
+    def __init__(__self__, create_time=None, e_tag=None, encryption=None, global_parameters=None, id=None, identity=None, location=None, name=None, provisioning_state=None, public_network_access=None, purview_configuration=None, repo_configuration=None, tags=None, type=None, version=None):
         if create_time and not isinstance(create_time, str):
             raise TypeError("Expected argument 'create_time' to be a str")
         pulumi.set(__self__, "create_time", create_time)
@@ -52,6 +52,9 @@ class GetFactoryResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
+        if purview_configuration and not isinstance(purview_configuration, dict):
+            raise TypeError("Expected argument 'purview_configuration' to be a dict")
+        pulumi.set(__self__, "purview_configuration", purview_configuration)
         if repo_configuration and not isinstance(repo_configuration, dict):
             raise TypeError("Expected argument 'repo_configuration' to be a dict")
         pulumi.set(__self__, "repo_configuration", repo_configuration)
@@ -146,6 +149,14 @@ class GetFactoryResult:
         return pulumi.get(self, "public_network_access")
 
     @property
+    @pulumi.getter(name="purviewConfiguration")
+    def purview_configuration(self) -> Optional['outputs.PurviewConfigurationResponse']:
+        """
+        Purview information of the factory.
+        """
+        return pulumi.get(self, "purview_configuration")
+
+    @property
     @pulumi.getter(name="repoConfiguration")
     def repo_configuration(self) -> Optional[Any]:
         """
@@ -194,6 +205,7 @@ class AwaitableGetFactoryResult(GetFactoryResult):
             name=self.name,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
+            purview_configuration=self.purview_configuration,
             repo_configuration=self.repo_configuration,
             tags=self.tags,
             type=self.type,
@@ -231,6 +243,7 @@ def get_factory(factory_name: Optional[str] = None,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
+        purview_configuration=__ret__.purview_configuration,
         repo_configuration=__ret__.repo_configuration,
         tags=__ret__.tags,
         type=__ret__.type,

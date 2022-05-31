@@ -195,7 +195,7 @@ class FluidRelayServer(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:fluidrelay:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20210312preview:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20210615preview:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20210830preview:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20210910preview:FluidRelayServer")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:fluidrelay:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20210312preview:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20210615preview:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20210830preview:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20210910preview:FluidRelayServer"), pulumi.Alias(type_="azure-native:fluidrelay/v20220421:FluidRelayServer")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FluidRelayServer, __self__).__init__(
             'azure-native:fluidrelay/v20220215:FluidRelayServer',

@@ -10,13 +10,38 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'ContactParametersContactProfile',
     'ContactProfileLinkChannelArgs',
     'ContactProfileLinkArgs',
+    'ContactProfilesPropertiesNetworkConfigurationArgs',
+    'ContactsPropertiesContactProfileArgs',
     'EndPointArgs',
-    'ResourceReference',
-    'ResourceReferenceArgs',
     'SpacecraftLinkArgs',
 ]
+
+@pulumi.input_type
+class ContactParametersContactProfile:
+    def __init__(__self__, *,
+                 id: Optional[str] = None):
+        """
+        The reference to the contact profile resource.
+        :param str id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[str]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[str]):
+        pulumi.set(self, "id", value)
+
 
 @pulumi.input_type
 class ContactProfileLinkChannelArgs:
@@ -24,6 +49,7 @@ class ContactProfileLinkChannelArgs:
                  bandwidth_m_hz: pulumi.Input[float],
                  center_frequency_m_hz: pulumi.Input[float],
                  end_point: pulumi.Input['EndPointArgs'],
+                 name: pulumi.Input[str],
                  decoding_configuration: Optional[pulumi.Input[str]] = None,
                  demodulation_configuration: Optional[pulumi.Input[str]] = None,
                  encoding_configuration: Optional[pulumi.Input[str]] = None,
@@ -33,6 +59,7 @@ class ContactProfileLinkChannelArgs:
         :param pulumi.Input[float] bandwidth_m_hz: Bandwidth in MHz
         :param pulumi.Input[float] center_frequency_m_hz: Center Frequency in MHz
         :param pulumi.Input['EndPointArgs'] end_point: Customer End point to store/retrieve data during a contact.
+        :param pulumi.Input[str] name: Channel name
         :param pulumi.Input[str] decoding_configuration: Configuration for decoding
         :param pulumi.Input[str] demodulation_configuration: Configuration for demodulation
         :param pulumi.Input[str] encoding_configuration: Configuration for encoding
@@ -41,6 +68,7 @@ class ContactProfileLinkChannelArgs:
         pulumi.set(__self__, "bandwidth_m_hz", bandwidth_m_hz)
         pulumi.set(__self__, "center_frequency_m_hz", center_frequency_m_hz)
         pulumi.set(__self__, "end_point", end_point)
+        pulumi.set(__self__, "name", name)
         if decoding_configuration is not None:
             pulumi.set(__self__, "decoding_configuration", decoding_configuration)
         if demodulation_configuration is not None:
@@ -85,6 +113,18 @@ class ContactProfileLinkChannelArgs:
     @end_point.setter
     def end_point(self, value: pulumi.Input['EndPointArgs']):
         pulumi.set(self, "end_point", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Channel name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter(name="decodingConfiguration")
@@ -140,19 +180,22 @@ class ContactProfileLinkArgs:
     def __init__(__self__, *,
                  channels: pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]],
                  direction: pulumi.Input[Union[str, 'Direction']],
+                 name: pulumi.Input[str],
                  polarization: pulumi.Input[Union[str, 'Polarization']],
                  eirpd_bw: Optional[pulumi.Input[float]] = None,
                  gain_over_temperature: Optional[pulumi.Input[float]] = None):
         """
-        Contact Profile link
+        Contact Profile Link
         :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]] channels: Contact Profile Link Channel
         :param pulumi.Input[Union[str, 'Direction']] direction: Direction (uplink or downlink)
+        :param pulumi.Input[str] name: Link name
         :param pulumi.Input[Union[str, 'Polarization']] polarization: polarization. eg (RHCP, LHCP)
         :param pulumi.Input[float] eirpd_bw: Effective Isotropic Radiated Power (EIRP) in dBW.
         :param pulumi.Input[float] gain_over_temperature: Gain To Noise Temperature in db/K.
         """
         pulumi.set(__self__, "channels", channels)
         pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "polarization", polarization)
         if eirpd_bw is not None:
             pulumi.set(__self__, "eirpd_bw", eirpd_bw)
@@ -182,6 +225,18 @@ class ContactProfileLinkArgs:
     @direction.setter
     def direction(self, value: pulumi.Input[Union[str, 'Direction']]):
         pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Link name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -218,6 +273,53 @@ class ContactProfileLinkArgs:
     @gain_over_temperature.setter
     def gain_over_temperature(self, value: Optional[pulumi.Input[float]]):
         pulumi.set(self, "gain_over_temperature", value)
+
+
+@pulumi.input_type
+class ContactProfilesPropertiesNetworkConfigurationArgs:
+    def __init__(__self__, *,
+                 subnet_id: pulumi.Input[str]):
+        """
+        Network configuration of customer virtual network.
+        :param pulumi.Input[str] subnet_id: Customer subnet ARM resource identifier.
+        """
+        pulumi.set(__self__, "subnet_id", subnet_id)
+
+    @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Input[str]:
+        """
+        Customer subnet ARM resource identifier.
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "subnet_id", value)
+
+
+@pulumi.input_type
+class ContactsPropertiesContactProfileArgs:
+    def __init__(__self__, *,
+                 id: Optional[pulumi.Input[str]] = None):
+        """
+        The reference to the contact profile resource.
+        :param pulumi.Input[str] id: Resource ID.
+        """
+        if id is not None:
+            pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Resource ID.
+        """
+        return pulumi.get(self, "id")
+
+    @id.setter
+    def id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "id", value)
 
 
 @pulumi.input_type
@@ -289,70 +391,25 @@ class EndPointArgs:
 
 
 @pulumi.input_type
-class ResourceReference:
-    def __init__(__self__, *,
-                 id: Optional[str] = None):
-        """
-        Resource Reference
-        :param str id: Resource ID.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[str]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[str]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
-class ResourceReferenceArgs:
-    def __init__(__self__, *,
-                 id: Optional[pulumi.Input[str]] = None):
-        """
-        Resource Reference
-        :param pulumi.Input[str] id: Resource ID.
-        """
-        if id is not None:
-            pulumi.set(__self__, "id", id)
-
-    @property
-    @pulumi.getter
-    def id(self) -> Optional[pulumi.Input[str]]:
-        """
-        Resource ID.
-        """
-        return pulumi.get(self, "id")
-
-    @id.setter
-    def id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "id", value)
-
-
-@pulumi.input_type
 class SpacecraftLinkArgs:
     def __init__(__self__, *,
                  bandwidth_m_hz: pulumi.Input[float],
                  center_frequency_m_hz: pulumi.Input[float],
                  direction: pulumi.Input[Union[str, 'Direction']],
+                 name: pulumi.Input[str],
                  polarization: pulumi.Input[Union[str, 'Polarization']]):
         """
-        Spacecraft Link
+        Authorized Ground Stations for the link
         :param pulumi.Input[float] bandwidth_m_hz: Bandwidth in MHz
         :param pulumi.Input[float] center_frequency_m_hz: Center Frequency in MHz
         :param pulumi.Input[Union[str, 'Direction']] direction: Direction (uplink or downlink)
+        :param pulumi.Input[str] name: Link name
         :param pulumi.Input[Union[str, 'Polarization']] polarization: polarization. eg (RHCP, LHCP)
         """
         pulumi.set(__self__, "bandwidth_m_hz", bandwidth_m_hz)
         pulumi.set(__self__, "center_frequency_m_hz", center_frequency_m_hz)
         pulumi.set(__self__, "direction", direction)
+        pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "polarization", polarization)
 
     @property
@@ -390,6 +447,18 @@ class SpacecraftLinkArgs:
     @direction.setter
     def direction(self, value: pulumi.Input[Union[str, 'Direction']]):
         pulumi.set(self, "direction", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        Link name
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter

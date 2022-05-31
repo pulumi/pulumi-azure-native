@@ -21,7 +21,10 @@ class GetContactResult:
     """
     Customer creates a contact resource for a spacecraft resource.
     """
-    def __init__(__self__, contact_profile=None, end_azimuth_degrees=None, end_elevation_degrees=None, error_message=None, etag=None, ground_station_name=None, id=None, maximum_elevation_degrees=None, name=None, reservation_end_time=None, reservation_start_time=None, rx_end_time=None, rx_start_time=None, start_azimuth_degrees=None, start_elevation_degrees=None, status=None, system_data=None, tx_end_time=None, tx_start_time=None, type=None):
+    def __init__(__self__, antenna_configuration=None, contact_profile=None, end_azimuth_degrees=None, end_elevation_degrees=None, error_message=None, etag=None, ground_station_name=None, id=None, maximum_elevation_degrees=None, name=None, reservation_end_time=None, reservation_start_time=None, rx_end_time=None, rx_start_time=None, start_azimuth_degrees=None, start_elevation_degrees=None, status=None, system_data=None, tx_end_time=None, tx_start_time=None, type=None):
+        if antenna_configuration and not isinstance(antenna_configuration, dict):
+            raise TypeError("Expected argument 'antenna_configuration' to be a dict")
+        pulumi.set(__self__, "antenna_configuration", antenna_configuration)
         if contact_profile and not isinstance(contact_profile, dict):
             raise TypeError("Expected argument 'contact_profile' to be a dict")
         pulumi.set(__self__, "contact_profile", contact_profile)
@@ -84,8 +87,16 @@ class GetContactResult:
         pulumi.set(__self__, "type", type)
 
     @property
+    @pulumi.getter(name="antennaConfiguration")
+    def antenna_configuration(self) -> 'outputs.ContactsPropertiesResponseAntennaConfiguration':
+        """
+        The configuration associated with the allocated antenna.
+        """
+        return pulumi.get(self, "antenna_configuration")
+
+    @property
     @pulumi.getter(name="contactProfile")
-    def contact_profile(self) -> 'outputs.ResourceReferenceResponse':
+    def contact_profile(self) -> 'outputs.ContactsPropertiesResponseContactProfile':
         """
         The reference to the contact profile resource.
         """
@@ -250,6 +261,7 @@ class AwaitableGetContactResult(GetContactResult):
         if False:
             yield self
         return GetContactResult(
+            antenna_configuration=self.antenna_configuration,
             contact_profile=self.contact_profile,
             end_azimuth_degrees=self.end_azimuth_degrees,
             end_elevation_degrees=self.end_elevation_degrees,
@@ -278,7 +290,7 @@ def get_contact(contact_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactResult:
     """
     Customer creates a contact resource for a spacecraft resource.
-    API Version: 2021-04-04-preview.
+    API Version: 2022-03-01.
 
 
     :param str contact_name: Contact Name
@@ -296,6 +308,7 @@ def get_contact(contact_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:orbital:getContact', __args__, opts=opts, typ=GetContactResult).value
 
     return AwaitableGetContactResult(
+        antenna_configuration=__ret__.antenna_configuration,
         contact_profile=__ret__.contact_profile,
         end_azimuth_degrees=__ret__.end_azimuth_degrees,
         end_elevation_degrees=__ret__.end_elevation_degrees,
@@ -325,7 +338,7 @@ def get_contact_output(contact_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactResult]:
     """
     Customer creates a contact resource for a spacecraft resource.
-    API Version: 2021-04-04-preview.
+    API Version: 2022-03-01.
 
 
     :param str contact_name: Contact Name

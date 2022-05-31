@@ -406,6 +406,7 @@ __all__ = [
     'PrestoObjectDatasetResponse',
     'PrestoSourceResponse',
     'PrivateLinkConnectionStateResponse',
+    'PurviewConfigurationResponse',
     'QuickBooksLinkedServiceResponse',
     'QuickBooksObjectDatasetResponse',
     'QuickBooksSourceResponse',
@@ -22398,6 +22399,8 @@ class DataFlowSinkResponse(dict):
         suggest = None
         if key == "linkedService":
             suggest = "linked_service"
+        elif key == "rejectedDataLinkedService":
+            suggest = "rejected_data_linked_service"
         elif key == "schemaLinkedService":
             suggest = "schema_linked_service"
 
@@ -22418,6 +22421,7 @@ class DataFlowSinkResponse(dict):
                  description: Optional[str] = None,
                  flowlet: Optional['outputs.DataFlowReferenceResponse'] = None,
                  linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 rejected_data_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  schema_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None):
         """
         Transformation for data flow sink.
@@ -22426,6 +22430,7 @@ class DataFlowSinkResponse(dict):
         :param str description: Transformation description.
         :param 'DataFlowReferenceResponse' flowlet: Flowlet Reference
         :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' rejected_data_linked_service: Rejected data linked service reference.
         :param 'LinkedServiceReferenceResponse' schema_linked_service: Schema linked service reference.
         """
         pulumi.set(__self__, "name", name)
@@ -22437,6 +22442,8 @@ class DataFlowSinkResponse(dict):
             pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
+        if rejected_data_linked_service is not None:
+            pulumi.set(__self__, "rejected_data_linked_service", rejected_data_linked_service)
         if schema_linked_service is not None:
             pulumi.set(__self__, "schema_linked_service", schema_linked_service)
 
@@ -22479,6 +22486,14 @@ class DataFlowSinkResponse(dict):
         Linked service reference.
         """
         return pulumi.get(self, "linked_service")
+
+    @property
+    @pulumi.getter(name="rejectedDataLinkedService")
+    def rejected_data_linked_service(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Rejected data linked service reference.
+        """
+        return pulumi.get(self, "rejected_data_linked_service")
 
     @property
     @pulumi.getter(name="schemaLinkedService")
@@ -28671,6 +28686,8 @@ class ExecuteDataFlowActivityResponse(dict):
             suggest = "linked_service_name"
         elif key == "runConcurrently":
             suggest = "run_concurrently"
+        elif key == "sourceStagingConcurrency":
+            suggest = "source_staging_concurrency"
         elif key == "traceLevel":
             suggest = "trace_level"
         elif key == "userProperties":
@@ -28699,6 +28716,7 @@ class ExecuteDataFlowActivityResponse(dict):
                  linked_service_name: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  policy: Optional['outputs.ActivityPolicyResponse'] = None,
                  run_concurrently: Optional[Any] = None,
+                 source_staging_concurrency: Optional[Any] = None,
                  staging: Optional['outputs.DataFlowStagingInfoResponse'] = None,
                  trace_level: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
@@ -28716,6 +28734,7 @@ class ExecuteDataFlowActivityResponse(dict):
         :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
         :param 'ActivityPolicyResponse' policy: Activity policy.
         :param Any run_concurrently: Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
+        :param Any source_staging_concurrency: Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
         :param 'DataFlowStagingInfoResponse' staging: Staging info for execute data flow activity.
         :param Any trace_level: Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
@@ -28739,6 +28758,8 @@ class ExecuteDataFlowActivityResponse(dict):
             pulumi.set(__self__, "policy", policy)
         if run_concurrently is not None:
             pulumi.set(__self__, "run_concurrently", run_concurrently)
+        if source_staging_concurrency is not None:
+            pulumi.set(__self__, "source_staging_concurrency", source_staging_concurrency)
         if staging is not None:
             pulumi.set(__self__, "staging", staging)
         if trace_level is not None:
@@ -28834,6 +28855,14 @@ class ExecuteDataFlowActivityResponse(dict):
         Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
         """
         return pulumi.get(self, "run_concurrently")
+
+    @property
+    @pulumi.getter(name="sourceStagingConcurrency")
+    def source_staging_concurrency(self) -> Optional[Any]:
+        """
+        Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
+        """
+        return pulumi.get(self, "source_staging_concurrency")
 
     @property
     @pulumi.getter
@@ -29391,6 +29420,8 @@ class ExecuteWranglingDataflowActivityResponse(dict):
             suggest = "integration_runtime"
         elif key == "runConcurrently":
             suggest = "run_concurrently"
+        elif key == "sourceStagingConcurrency":
+            suggest = "source_staging_concurrency"
         elif key == "traceLevel":
             suggest = "trace_level"
         elif key == "userProperties":
@@ -29420,6 +29451,7 @@ class ExecuteWranglingDataflowActivityResponse(dict):
                  queries: Optional[Sequence['outputs.PowerQuerySinkMappingResponse']] = None,
                  run_concurrently: Optional[Any] = None,
                  sinks: Optional[Mapping[str, 'outputs.PowerQuerySinkResponse']] = None,
+                 source_staging_concurrency: Optional[Any] = None,
                  staging: Optional['outputs.DataFlowStagingInfoResponse'] = None,
                  trace_level: Optional[Any] = None,
                  user_properties: Optional[Sequence['outputs.UserPropertyResponse']] = None):
@@ -29438,6 +29470,7 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         :param Sequence['PowerQuerySinkMappingResponse'] queries: List of mapping for Power Query mashup query to sink dataset(s).
         :param Any run_concurrently: Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
         :param Mapping[str, 'PowerQuerySinkResponse'] sinks: (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
+        :param Any source_staging_concurrency: Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
         :param 'DataFlowStagingInfoResponse' staging: Staging info for execute data flow activity.
         :param Any trace_level: Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
         :param Sequence['UserPropertyResponse'] user_properties: Activity user properties.
@@ -29463,6 +29496,8 @@ class ExecuteWranglingDataflowActivityResponse(dict):
             pulumi.set(__self__, "run_concurrently", run_concurrently)
         if sinks is not None:
             pulumi.set(__self__, "sinks", sinks)
+        if source_staging_concurrency is not None:
+            pulumi.set(__self__, "source_staging_concurrency", source_staging_concurrency)
         if staging is not None:
             pulumi.set(__self__, "staging", staging)
         if trace_level is not None:
@@ -29566,6 +29601,14 @@ class ExecuteWranglingDataflowActivityResponse(dict):
         (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
         """
         return pulumi.get(self, "sinks")
+
+    @property
+    @pulumi.getter(name="sourceStagingConcurrency")
+    def source_staging_concurrency(self) -> Optional[Any]:
+        """
+        Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
+        """
+        return pulumi.get(self, "source_staging_concurrency")
 
     @property
     @pulumi.getter
@@ -53911,6 +53954,8 @@ class PowerQuerySinkResponse(dict):
         suggest = None
         if key == "linkedService":
             suggest = "linked_service"
+        elif key == "rejectedDataLinkedService":
+            suggest = "rejected_data_linked_service"
         elif key == "schemaLinkedService":
             suggest = "schema_linked_service"
 
@@ -53931,6 +53976,7 @@ class PowerQuerySinkResponse(dict):
                  description: Optional[str] = None,
                  flowlet: Optional['outputs.DataFlowReferenceResponse'] = None,
                  linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
+                 rejected_data_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  schema_linked_service: Optional['outputs.LinkedServiceReferenceResponse'] = None,
                  script: Optional[str] = None):
         """
@@ -53940,6 +53986,7 @@ class PowerQuerySinkResponse(dict):
         :param str description: Transformation description.
         :param 'DataFlowReferenceResponse' flowlet: Flowlet Reference
         :param 'LinkedServiceReferenceResponse' linked_service: Linked service reference.
+        :param 'LinkedServiceReferenceResponse' rejected_data_linked_service: Rejected data linked service reference.
         :param 'LinkedServiceReferenceResponse' schema_linked_service: Schema linked service reference.
         :param str script: sink script.
         """
@@ -53952,6 +53999,8 @@ class PowerQuerySinkResponse(dict):
             pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
+        if rejected_data_linked_service is not None:
+            pulumi.set(__self__, "rejected_data_linked_service", rejected_data_linked_service)
         if schema_linked_service is not None:
             pulumi.set(__self__, "schema_linked_service", schema_linked_service)
         if script is not None:
@@ -53996,6 +54045,14 @@ class PowerQuerySinkResponse(dict):
         Linked service reference.
         """
         return pulumi.get(self, "linked_service")
+
+    @property
+    @pulumi.getter(name="rejectedDataLinkedService")
+    def rejected_data_linked_service(self) -> Optional['outputs.LinkedServiceReferenceResponse']:
+        """
+        Rejected data linked service reference.
+        """
+        return pulumi.get(self, "rejected_data_linked_service")
 
     @property
     @pulumi.getter(name="schemaLinkedService")
@@ -54745,6 +54802,46 @@ class PrivateLinkConnectionStateResponse(dict):
         Status of a private link connection
         """
         return pulumi.get(self, "status")
+
+
+@pulumi.output_type
+class PurviewConfigurationResponse(dict):
+    """
+    Purview configuration.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "purviewResourceId":
+            suggest = "purview_resource_id"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in PurviewConfigurationResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        PurviewConfigurationResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        PurviewConfigurationResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 purview_resource_id: Optional[str] = None):
+        """
+        Purview configuration.
+        :param str purview_resource_id: Purview resource id.
+        """
+        if purview_resource_id is not None:
+            pulumi.set(__self__, "purview_resource_id", purview_resource_id)
+
+    @property
+    @pulumi.getter(name="purviewResourceId")
+    def purview_resource_id(self) -> Optional[str]:
+        """
+        Purview resource id.
+        """
+        return pulumi.get(self, "purview_resource_id")
 
 
 @pulumi.output_type

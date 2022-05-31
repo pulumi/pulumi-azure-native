@@ -6,9 +6,10 @@ from enum import Enum
 
 __all__ = [
     'AuthType',
+    'AzureResourceType',
     'ClientType',
     'SecretType',
-    'Type',
+    'TargetServiceType',
     'VNetSolutionType',
 ]
 
@@ -22,6 +23,13 @@ class AuthType(str, Enum):
     SERVICE_PRINCIPAL_SECRET = "servicePrincipalSecret"
     SERVICE_PRINCIPAL_CERTIFICATE = "servicePrincipalCertificate"
     SECRET = "secret"
+
+
+class AzureResourceType(str, Enum):
+    """
+    The azure resource type.
+    """
+    KEY_VAULT = "KeyVault"
 
 
 class ClientType(str, Enum):
@@ -49,7 +57,7 @@ class SecretType(str, Enum):
     KEY_VAULT_SECRET_REFERENCE = "keyVaultSecretReference"
 
 
-class Type(str, Enum):
+class TargetServiceType(str, Enum):
     """
     The target service type.
     """

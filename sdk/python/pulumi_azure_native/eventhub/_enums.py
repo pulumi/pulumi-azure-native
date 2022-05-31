@@ -6,12 +6,14 @@ from enum import Enum
 
 __all__ = [
     'AccessRights',
+    'ApplicationGroupPolicyType',
     'ClusterSkuName',
     'DefaultAction',
     'EncodingCaptureDescription',
     'EndPointProvisioningState',
     'EntityStatus',
     'IPAction',
+    'MetricId',
     'NetworkRuleIPAction',
     'PrivateLinkConnectionStatus',
     'SchemaCompatibility',
@@ -25,6 +27,13 @@ class AccessRights(str, Enum):
     MANAGE = "Manage"
     SEND = "Send"
     LISTEN = "Listen"
+
+
+class ApplicationGroupPolicyType(str, Enum):
+    """
+    Application Group Policy types
+    """
+    THROTTLING_POLICY = "ThrottlingPolicy"
 
 
 class ClusterSkuName(str, Enum):
@@ -83,6 +92,16 @@ class IPAction(str, Enum):
     """
     ACCEPT = "Accept"
     REJECT = "Reject"
+
+
+class MetricId(str, Enum):
+    """
+    Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+    """
+    INCOMING_BYTES = "IncomingBytes"
+    OUTGOING_BYTES = "OutgoingBytes"
+    INCOMING_MESSAGES = "IncomingMessages"
+    OUTGOING_MESSAGES = "OutgoingMessages"
 
 
 class NetworkRuleIPAction(str, Enum):

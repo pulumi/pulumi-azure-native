@@ -9,6 +9,7 @@ from ._enums import *
 from .fluid_relay_server import *
 from .get_fluid_relay_server import *
 from .get_fluid_relay_server_keys import *
+from .list_fluid_relay_server_keys import *
 from . import outputs
 
 # Make subpackages available:
@@ -23,10 +24,13 @@ if typing.TYPE_CHECKING:
     v20210910preview = __v20210910preview
     import pulumi_azure_native.fluidrelay.v20220215 as __v20220215
     v20220215 = __v20220215
+    import pulumi_azure_native.fluidrelay.v20220421 as __v20220421
+    v20220421 = __v20220421
 else:
     v20210312preview = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20210312preview')
     v20210615preview = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20210615preview')
     v20210830preview = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20210830preview')
     v20210910preview = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20210910preview')
     v20220215 = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20220215')
+    v20220421 = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20220421')
 

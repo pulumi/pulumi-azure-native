@@ -21,13 +21,7 @@ class GetSpacecraftResult:
     """
     Customer creates a spacecraft resource to schedule a contact.
     """
-    def __init__(__self__, authorization_status=None, authorization_status_extended=None, etag=None, id=None, links=None, location=None, name=None, norad_id=None, system_data=None, tags=None, title_line=None, tle_line1=None, tle_line2=None, type=None):
-        if authorization_status and not isinstance(authorization_status, str):
-            raise TypeError("Expected argument 'authorization_status' to be a str")
-        pulumi.set(__self__, "authorization_status", authorization_status)
-        if authorization_status_extended and not isinstance(authorization_status_extended, str):
-            raise TypeError("Expected argument 'authorization_status_extended' to be a str")
-        pulumi.set(__self__, "authorization_status_extended", authorization_status_extended)
+    def __init__(__self__, etag=None, id=None, links=None, location=None, name=None, norad_id=None, system_data=None, tags=None, title_line=None, tle_line1=None, tle_line2=None, type=None):
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -64,22 +58,6 @@ class GetSpacecraftResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="authorizationStatus")
-    def authorization_status(self) -> str:
-        """
-        Authorization status of spacecraft.
-        """
-        return pulumi.get(self, "authorization_status")
-
-    @property
-    @pulumi.getter(name="authorizationStatusExtended")
-    def authorization_status_extended(self) -> str:
-        """
-        Details of the authorization status.
-        """
-        return pulumi.get(self, "authorization_status_extended")
 
     @property
     @pulumi.getter
@@ -184,8 +162,6 @@ class AwaitableGetSpacecraftResult(GetSpacecraftResult):
         if False:
             yield self
         return GetSpacecraftResult(
-            authorization_status=self.authorization_status,
-            authorization_status_extended=self.authorization_status_extended,
             etag=self.etag,
             id=self.id,
             links=self.links,
@@ -205,7 +181,7 @@ def get_spacecraft(resource_group_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSpacecraftResult:
     """
     Customer creates a spacecraft resource to schedule a contact.
-    API Version: 2021-04-04-preview.
+    API Version: 2022-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -221,8 +197,6 @@ def get_spacecraft(resource_group_name: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:orbital:getSpacecraft', __args__, opts=opts, typ=GetSpacecraftResult).value
 
     return AwaitableGetSpacecraftResult(
-        authorization_status=__ret__.authorization_status,
-        authorization_status_extended=__ret__.authorization_status_extended,
         etag=__ret__.etag,
         id=__ret__.id,
         links=__ret__.links,
@@ -243,7 +217,7 @@ def get_spacecraft_output(resource_group_name: Optional[pulumi.Input[str]] = Non
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSpacecraftResult]:
     """
     Customer creates a spacecraft resource to schedule a contact.
-    API Version: 2021-04-04-preview.
+    API Version: 2022-03-01.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

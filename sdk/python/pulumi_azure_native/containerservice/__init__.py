@@ -14,6 +14,7 @@ from .get_managed_cluster_snapshot import *
 from .get_open_shift_managed_cluster import *
 from .get_private_endpoint_connection import *
 from .get_snapshot import *
+from .get_trusted_access_role_binding import *
 from .list_managed_cluster_access_profile import *
 from .list_managed_cluster_admin_credentials import *
 from .list_managed_cluster_monitoring_user_credentials import *
@@ -24,6 +25,7 @@ from .managed_cluster_snapshot import *
 from .open_shift_managed_cluster import *
 from .private_endpoint_connection import *
 from .snapshot import *
+from .trusted_access_role_binding import *
 from ._inputs import *
 from . import outputs
 
@@ -109,6 +111,10 @@ if typing.TYPE_CHECKING:
     v20220301 = __v20220301
     import pulumi_azure_native.containerservice.v20220302preview as __v20220302preview
     v20220302preview = __v20220302preview
+    import pulumi_azure_native.containerservice.v20220401 as __v20220401
+    v20220401 = __v20220401
+    import pulumi_azure_native.containerservice.v20220402preview as __v20220402preview
+    v20220402preview = __v20220402preview
 else:
     v20151101preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20151101preview')
     v20160330 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20160330')
@@ -150,4 +156,6 @@ else:
     v20220202preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20220202preview')
     v20220301 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20220301')
     v20220302preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20220302preview')
+    v20220401 = _utilities.lazy_import('pulumi_azure_native.containerservice.v20220401')
+    v20220402preview = _utilities.lazy_import('pulumi_azure_native.containerservice.v20220402preview')
 

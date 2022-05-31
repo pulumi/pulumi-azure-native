@@ -16,7 +16,7 @@ __all__ = [
     'get_workspace_output',
 ]
 
-warnings.warn("""Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""", DeprecationWarning)
+warnings.warn("""Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWorkspaceResult:
@@ -140,7 +140,7 @@ def get_workspace(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
-    pulumi.log.warn("""get_workspace is deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""")
+    pulumi.log.warn("""get_workspace is deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
@@ -172,5 +172,5 @@ def get_workspace_output(resource_group_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
-    pulumi.log.warn("""get_workspace is deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""")
+    pulumi.log.warn("""get_workspace is deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""")
     ...

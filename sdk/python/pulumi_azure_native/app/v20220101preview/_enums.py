@@ -14,6 +14,7 @@ __all__ = [
     'ForwardProxyConvention',
     'IngressTransportMethod',
     'ManagedServiceIdentityType',
+    'Scheme',
     'StorageType',
     'Type',
     'UnauthenticatedClientActionV2',
@@ -33,8 +34,8 @@ class ActiveRevisionsMode(str, Enum):
     ActiveRevisionsMode controls how active revisions are handled for the Container app:
     <list><item>Multiple: multiple revisions can be active. If no value if provided, this is the default</item><item>Single: Only one revision can be active at a time. Revision weights can not be used in this mode</item></list>
     """
-    MULTIPLE = "multiple"
-    SINGLE = "single"
+    MULTIPLE = "Multiple"
+    SINGLE = "Single"
 
 
 class AppProtocol(str, Enum):
@@ -96,6 +97,14 @@ class ManagedServiceIdentityType(str, Enum):
     SYSTEM_ASSIGNED_USER_ASSIGNED = "SystemAssigned,UserAssigned"
 
 
+class Scheme(str, Enum):
+    """
+    Scheme to use for connecting to the host. Defaults to HTTP.
+    """
+    HTTP = "HTTP"
+    HTTPS = "HTTPS"
+
+
 class StorageType(str, Enum):
     """
     Storage type for the volume. If not provided, use EmptyDir.
@@ -108,9 +117,9 @@ class Type(str, Enum):
     """
     The type of probe.
     """
-    LIVENESS = "liveness"
-    READINESS = "readiness"
-    STARTUP = "startup"
+    LIVENESS = "Liveness"
+    READINESS = "Readiness"
+    STARTUP = "Startup"
 
 
 class UnauthenticatedClientActionV2(str, Enum):

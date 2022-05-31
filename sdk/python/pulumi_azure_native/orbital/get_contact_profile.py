@@ -21,7 +21,7 @@ class GetContactProfileResult:
     """
     Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
     """
-    def __init__(__self__, auto_tracking_configuration=None, etag=None, event_hub_uri=None, id=None, links=None, location=None, minimum_elevation_degrees=None, minimum_viable_contact_duration=None, name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, auto_tracking_configuration=None, etag=None, event_hub_uri=None, id=None, links=None, location=None, minimum_elevation_degrees=None, minimum_viable_contact_duration=None, name=None, network_configuration=None, system_data=None, tags=None, type=None):
         if auto_tracking_configuration and not isinstance(auto_tracking_configuration, str):
             raise TypeError("Expected argument 'auto_tracking_configuration' to be a str")
         pulumi.set(__self__, "auto_tracking_configuration", auto_tracking_configuration)
@@ -49,6 +49,9 @@ class GetContactProfileResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if network_configuration and not isinstance(network_configuration, dict):
+            raise TypeError("Expected argument 'network_configuration' to be a dict")
+        pulumi.set(__self__, "network_configuration", network_configuration)
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
@@ -132,6 +135,14 @@ class GetContactProfileResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="networkConfiguration")
+    def network_configuration(self) -> 'outputs.ContactProfilesPropertiesResponseNetworkConfiguration':
+        """
+        Network configuration of customer virtual network.
+        """
+        return pulumi.get(self, "network_configuration")
+
+    @property
     @pulumi.getter(name="systemData")
     def system_data(self) -> 'outputs.SystemDataResponse':
         """
@@ -171,6 +182,7 @@ class AwaitableGetContactProfileResult(GetContactProfileResult):
             minimum_elevation_degrees=self.minimum_elevation_degrees,
             minimum_viable_contact_duration=self.minimum_viable_contact_duration,
             name=self.name,
+            network_configuration=self.network_configuration,
             system_data=self.system_data,
             tags=self.tags,
             type=self.type)
@@ -181,7 +193,7 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactProfileResult:
     """
     Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-    API Version: 2021-04-04-preview.
+    API Version: 2022-03-01.
 
 
     :param str contact_profile_name: Contact Profile Name
@@ -206,6 +218,7 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
         minimum_elevation_degrees=__ret__.minimum_elevation_degrees,
         minimum_viable_contact_duration=__ret__.minimum_viable_contact_duration,
         name=__ret__.name,
+        network_configuration=__ret__.network_configuration,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
@@ -217,7 +230,7 @@ def get_contact_profile_output(contact_profile_name: Optional[pulumi.Input[str]]
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactProfileResult]:
     """
     Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-    API Version: 2021-04-04-preview.
+    API Version: 2022-03-01.
 
 
     :param str contact_profile_name: Contact Profile Name

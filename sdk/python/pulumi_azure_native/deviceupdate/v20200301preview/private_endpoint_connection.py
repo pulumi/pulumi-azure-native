@@ -98,7 +98,12 @@ class PrivateEndpointConnectionInitArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+warnings.warn("""Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""", DeprecationWarning)
+
+
 class PrivateEndpointConnection(pulumi.CustomResource):
+    warnings.warn("""Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -150,6 +155,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""PrivateEndpointConnection is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -177,7 +183,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate:PrivateEndpointConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:deviceupdate/v20220401preview:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnection, __self__).__init__(
             'azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection',

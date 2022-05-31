@@ -44,18 +44,18 @@ class AwaitableListContainerAppSecretsResult(ListContainerAppSecretsResult):
             value=self.value)
 
 
-def list_container_app_secrets(name: Optional[str] = None,
+def list_container_app_secrets(container_app_name: Optional[str] = None,
                                resource_group_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListContainerAppSecretsResult:
     """
     Container App Secrets Collection ARM resource.
 
 
-    :param str name: Name of the Container App.
+    :param str container_app_name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['containerAppName'] = container_app_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -68,14 +68,14 @@ def list_container_app_secrets(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(list_container_app_secrets)
-def list_container_app_secrets_output(name: Optional[pulumi.Input[str]] = None,
+def list_container_app_secrets_output(container_app_name: Optional[pulumi.Input[str]] = None,
                                       resource_group_name: Optional[pulumi.Input[str]] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListContainerAppSecretsResult]:
     """
     Container App Secrets Collection ARM resource.
 
 
-    :param str name: Name of the Container App.
+    :param str container_app_name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

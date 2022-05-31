@@ -78,7 +78,7 @@ class SubscriptionNetworkManagerConnection(pulumi.CustomResource):
                  __props__=None):
         """
         The Network Manager Connection resource
-        API Version: 2022-02-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -94,7 +94,7 @@ class SubscriptionNetworkManagerConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Network Manager Connection resource
-        API Version: 2022-02-01-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param SubscriptionNetworkManagerConnectionArgs args: The arguments to use to populate this resource's properties.
@@ -133,7 +133,7 @@ class SubscriptionNetworkManagerConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection"), pulumi.Alias(type_="azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection"), pulumi.Alias(type_="azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection"), pulumi.Alias(type_="azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SubscriptionNetworkManagerConnection, __self__).__init__(
             'azure-native:network:SubscriptionNetworkManagerConnection',

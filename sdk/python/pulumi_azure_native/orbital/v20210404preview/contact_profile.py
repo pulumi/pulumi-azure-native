@@ -163,7 +163,12 @@ class ContactProfileArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
+
 class ContactProfile(pulumi.CustomResource):
+    warnings.warn("""Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -227,6 +232,7 @@ class ContactProfile(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""ContactProfile is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -255,7 +261,7 @@ class ContactProfile(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital:ContactProfile")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital:ContactProfile"), pulumi.Alias(type_="azure-native:orbital/v20220301:ContactProfile")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ContactProfile, __self__).__init__(
             'azure-native:orbital/v20210404preview:ContactProfile',

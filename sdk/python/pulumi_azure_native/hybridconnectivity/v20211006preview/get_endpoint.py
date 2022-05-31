@@ -15,6 +15,8 @@ __all__ = [
     'get_endpoint_output',
 ]
 
+warnings.warn("""Version v20211006preview will be removed in the next major version of the provider. Upgrade to version v20220501preview or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetEndpointResult:
     """
@@ -170,6 +172,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     :param str endpoint_name: The endpoint name.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
+    pulumi.log.warn("""get_endpoint is deprecated: Version v20211006preview will be removed in the next major version of the provider. Upgrade to version v20220501preview or later.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['resourceUri'] = resource_uri
@@ -204,4 +207,5 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str endpoint_name: The endpoint name.
     :param str resource_uri: The fully qualified Azure Resource manager identifier of the resource to be connected.
     """
+    pulumi.log.warn("""get_endpoint is deprecated: Version v20211006preview will be removed in the next major version of the provider. Upgrade to version v20220501preview or later.""")
     ...

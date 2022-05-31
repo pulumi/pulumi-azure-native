@@ -228,7 +228,12 @@ class OpenShiftClusterArgs:
         pulumi.set(self, "worker_profiles", value)
 
 
+warnings.warn("""Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220401 or later.""", DeprecationWarning)
+
+
 class OpenShiftCluster(pulumi.CustomResource):
+    warnings.warn("""Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220401 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -304,6 +309,7 @@ class OpenShiftCluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  worker_profiles: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerProfileArgs']]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""OpenShiftCluster is deprecated: Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220401 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -333,7 +339,7 @@ class OpenShiftCluster(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20200430:OpenShiftCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:redhatopenshift:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20200430:OpenShiftCluster"), pulumi.Alias(type_="azure-native:redhatopenshift/v20220401:OpenShiftCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(OpenShiftCluster, __self__).__init__(
             'azure-native:redhatopenshift/v20210901preview:OpenShiftCluster',

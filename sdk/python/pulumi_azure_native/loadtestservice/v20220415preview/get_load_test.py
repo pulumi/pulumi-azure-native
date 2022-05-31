@@ -171,7 +171,7 @@ def get_load_test(load_test_name: Optional[str] = None,
     LoadTest details
 
 
-    :param str load_test_name: Load Test name.
+    :param str load_test_name: Load Test resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -205,7 +205,7 @@ def get_load_test_output(load_test_name: Optional[pulumi.Input[str]] = None,
     LoadTest details
 
 
-    :param str load_test_name: Load Test name.
+    :param str load_test_name: Load Test resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

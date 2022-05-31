@@ -21,13 +21,16 @@ class GetLoadTestResult:
     """
     LoadTest details
     """
-    def __init__(__self__, data_plane_uri=None, description=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, data_plane_uri=None, description=None, encryption=None, id=None, identity=None, location=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if data_plane_uri and not isinstance(data_plane_uri, str):
             raise TypeError("Expected argument 'data_plane_uri' to be a str")
         pulumi.set(__self__, "data_plane_uri", data_plane_uri)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if encryption and not isinstance(encryption, dict):
+            raise TypeError("Expected argument 'encryption' to be a dict")
+        pulumi.set(__self__, "encryption", encryption)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -71,6 +74,14 @@ class GetLoadTestResult:
 
     @property
     @pulumi.getter
+    def encryption(self) -> Optional['outputs.EncryptionPropertiesResponse']:
+        """
+        CMK Encryption property.
+        """
+        return pulumi.get(self, "encryption")
+
+    @property
+    @pulumi.getter
     def id(self) -> str:
         """
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
@@ -79,7 +90,7 @@ class GetLoadTestResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.SystemAssignedServiceIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         The type of identity used for the resource.
         """
@@ -142,6 +153,7 @@ class AwaitableGetLoadTestResult(GetLoadTestResult):
         return GetLoadTestResult(
             data_plane_uri=self.data_plane_uri,
             description=self.description,
+            encryption=self.encryption,
             id=self.id,
             identity=self.identity,
             location=self.location,
@@ -157,10 +169,10 @@ def get_load_test(load_test_name: Optional[str] = None,
                   opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLoadTestResult:
     """
     LoadTest details
-    API Version: 2021-12-01-preview.
+    API Version: 2022-04-15-preview.
 
 
-    :param str load_test_name: Load Test name.
+    :param str load_test_name: Load Test resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -175,6 +187,7 @@ def get_load_test(load_test_name: Optional[str] = None,
     return AwaitableGetLoadTestResult(
         data_plane_uri=__ret__.data_plane_uri,
         description=__ret__.description,
+        encryption=__ret__.encryption,
         id=__ret__.id,
         identity=__ret__.identity,
         location=__ret__.location,
@@ -191,10 +204,10 @@ def get_load_test_output(load_test_name: Optional[pulumi.Input[str]] = None,
                          opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLoadTestResult]:
     """
     LoadTest details
-    API Version: 2021-12-01-preview.
+    API Version: 2022-04-15-preview.
 
 
-    :param str load_test_name: Load Test name.
+    :param str load_test_name: Load Test resource name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

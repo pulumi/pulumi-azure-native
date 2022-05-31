@@ -20,7 +20,7 @@ class GetManagedServerDnsAliasResult:
     """
     A managed server DNS alias.
     """
-    def __init__(__self__, azure_dns_record=None, id=None, name=None, type=None):
+    def __init__(__self__, azure_dns_record=None, id=None, name=None, public_azure_dns_record=None, type=None):
         if azure_dns_record and not isinstance(azure_dns_record, str):
             raise TypeError("Expected argument 'azure_dns_record' to be a str")
         pulumi.set(__self__, "azure_dns_record", azure_dns_record)
@@ -30,6 +30,9 @@ class GetManagedServerDnsAliasResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if public_azure_dns_record and not isinstance(public_azure_dns_record, str):
+            raise TypeError("Expected argument 'public_azure_dns_record' to be a str")
+        pulumi.set(__self__, "public_azure_dns_record", public_azure_dns_record)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -59,6 +62,14 @@ class GetManagedServerDnsAliasResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="publicAzureDnsRecord")
+    def public_azure_dns_record(self) -> str:
+        """
+        The fully qualified public DNS record for managed server alias
+        """
+        return pulumi.get(self, "public_azure_dns_record")
+
+    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -76,6 +87,7 @@ class AwaitableGetManagedServerDnsAliasResult(GetManagedServerDnsAliasResult):
             azure_dns_record=self.azure_dns_record,
             id=self.id,
             name=self.name,
+            public_azure_dns_record=self.public_azure_dns_record,
             type=self.type)
 
 
@@ -105,6 +117,7 @@ def get_managed_server_dns_alias(dns_alias_name: Optional[str] = None,
         azure_dns_record=__ret__.azure_dns_record,
         id=__ret__.id,
         name=__ret__.name,
+        public_azure_dns_record=__ret__.public_azure_dns_record,
         type=__ret__.type)
 
 

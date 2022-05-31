@@ -16,6 +16,8 @@ __all__ = [
     'get_fhir_service_output',
 ]
 
+warnings.warn("""Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFhirServiceResult:
     """
@@ -272,6 +274,7 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
+    pulumi.log.warn("""get_fhir_service is deprecated: Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""")
     __args__ = dict()
     __args__['fhirServiceName'] = fhir_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -317,4 +320,5 @@ def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str workspace_name: The name of workspace resource.
     """
+    pulumi.log.warn("""get_fhir_service is deprecated: Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""")
     ...

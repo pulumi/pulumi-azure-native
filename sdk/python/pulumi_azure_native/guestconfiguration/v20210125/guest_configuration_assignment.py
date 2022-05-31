@@ -115,7 +115,12 @@ class GuestConfigurationAssignmentArgs:
         pulumi.set(self, "properties", value)
 
 
+warnings.warn("""Version v20210125 will be removed in the next major version of the provider. Upgrade to version v20220125 or later.""", DeprecationWarning)
+
+
 class GuestConfigurationAssignment(pulumi.CustomResource):
+    warnings.warn("""Version v20210125 will be removed in the next major version of the provider. Upgrade to version v20220125 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,6 +175,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""GuestConfigurationAssignment is deprecated: Version v20210125 will be removed in the next major version of the provider. Upgrade to version v20220125 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -193,7 +199,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
             __props__.__dict__["vm_name"] = vm_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:guestconfiguration:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:guestconfiguration:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestConfigurationAssignment, __self__).__init__(
             'azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment',

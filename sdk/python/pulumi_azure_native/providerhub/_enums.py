@@ -5,18 +5,23 @@
 from enum import Enum
 
 __all__ = [
+    'ExtendedLocationType',
     'ExtensionCategory',
     'ExtensionOptionType',
     'FeaturesPolicy',
     'IdentityManagementTypes',
     'LoggingDetails',
     'LoggingDirections',
+    'MarketplaceType',
     'MessageScope',
     'NotificationMode',
+    'OperationActionType',
+    'OperationOrigins',
     'OptInHeaderType',
     'PreflightOption',
     'ProvisioningState',
     'Regionality',
+    'ResourceAccessPolicy',
     'ResourceDeletionPolicy',
     'ResourceProviderCapabilitiesEffect',
     'ResourceProviderType',
@@ -29,6 +34,12 @@ __all__ = [
     'ThrottlingMetricType',
     'TrafficRegionCategory',
 ]
+
+
+class ExtendedLocationType(str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    EDGE_ZONE = "EdgeZone"
+    ARC_ZONE = "ArcZone"
 
 
 class ExtensionCategory(str, Enum):
@@ -80,6 +91,13 @@ class LoggingDirections(str, Enum):
     RESPONSE = "Response"
 
 
+class MarketplaceType(str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    ADD_ON = "AddOn"
+    BYPASS = "Bypass"
+    STORE = "Store"
+
+
 class MessageScope(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     REGISTERED_SUBSCRIPTIONS = "RegisteredSubscriptions"
@@ -89,6 +107,17 @@ class NotificationMode(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     EVENT_HUB = "EventHub"
     WEB_HOOK = "WebHook"
+
+
+class OperationActionType(str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    INTERNAL = "Internal"
+
+
+class OperationOrigins(str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    USER = "User"
+    SYSTEM = "System"
 
 
 class OptInHeaderType(str, Enum):
@@ -125,6 +154,12 @@ class Regionality(str, Enum):
     NOT_SPECIFIED = "NotSpecified"
     GLOBAL_ = "Global"
     REGIONAL = "Regional"
+
+
+class ResourceAccessPolicy(str, Enum):
+    NOT_SPECIFIED = "NotSpecified"
+    ACIS_READ_ALLOWED = "AcisReadAllowed"
+    ACIS_ACTION_ALLOWED = "AcisActionAllowed"
 
 
 class ResourceDeletionPolicy(str, Enum):

@@ -131,21 +131,21 @@ class AwaitableGetContainerAppsSourceControlResult(GetContainerAppsSourceControl
 
 
 def get_container_apps_source_control(container_app_name: Optional[str] = None,
-                                      name: Optional[str] = None,
                                       resource_group_name: Optional[str] = None,
+                                      source_control_name: Optional[str] = None,
                                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerAppsSourceControlResult:
     """
     Container App SourceControl.
 
 
     :param str container_app_name: Name of the Container App.
-    :param str name: Name of the Container App SourceControl.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str source_control_name: Name of the Container App SourceControl.
     """
     __args__ = dict()
     __args__['containerAppName'] = container_app_name
-    __args__['name'] = name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['sourceControlName'] = source_control_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -165,15 +165,15 @@ def get_container_apps_source_control(container_app_name: Optional[str] = None,
 
 @_utilities.lift_output_func(get_container_apps_source_control)
 def get_container_apps_source_control_output(container_app_name: Optional[pulumi.Input[str]] = None,
-                                             name: Optional[pulumi.Input[str]] = None,
                                              resource_group_name: Optional[pulumi.Input[str]] = None,
+                                             source_control_name: Optional[pulumi.Input[str]] = None,
                                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppsSourceControlResult]:
     """
     Container App SourceControl.
 
 
     :param str container_app_name: Name of the Container App.
-    :param str name: Name of the Container App SourceControl.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str source_control_name: Name of the Container App SourceControl.
     """
     ...

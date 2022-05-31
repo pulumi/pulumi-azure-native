@@ -11,7 +11,6 @@ from ._enums import *
 
 __all__ = [
     'ConfigurationParameterArgs',
-    'ConfigurationSettingArgs',
     'GuestConfigurationAssignmentPropertiesArgs',
     'GuestConfigurationNavigationArgs',
 ]
@@ -54,114 +53,6 @@ class ConfigurationParameterArgs:
     @value.setter
     def value(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "value", value)
-
-
-@pulumi.input_type
-class ConfigurationSettingArgs:
-    def __init__(__self__, *,
-                 action_after_reboot: Optional[pulumi.Input[Union[str, 'ActionAfterReboot']]] = None,
-                 allow_module_overwrite: Optional[pulumi.Input[bool]] = None,
-                 configuration_mode: Optional[pulumi.Input[Union[str, 'ConfigurationMode']]] = None,
-                 configuration_mode_frequency_mins: Optional[pulumi.Input[float]] = None,
-                 reboot_if_needed: Optional[pulumi.Input[bool]] = None,
-                 refresh_frequency_mins: Optional[pulumi.Input[float]] = None):
-        """
-        Configuration setting of LCM (Local Configuration Manager).
-        :param pulumi.Input[Union[str, 'ActionAfterReboot']] action_after_reboot: Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-        :param pulumi.Input[bool] allow_module_overwrite: If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-        :param pulumi.Input[Union[str, 'ConfigurationMode']] configuration_mode: Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-        :param pulumi.Input[float] configuration_mode_frequency_mins: How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-        :param pulumi.Input[bool] reboot_if_needed: Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-        :param pulumi.Input[float] refresh_frequency_mins: The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-        """
-        if action_after_reboot is not None:
-            pulumi.set(__self__, "action_after_reboot", action_after_reboot)
-        if allow_module_overwrite is not None:
-            pulumi.set(__self__, "allow_module_overwrite", allow_module_overwrite)
-        if configuration_mode is not None:
-            pulumi.set(__self__, "configuration_mode", configuration_mode)
-        if configuration_mode_frequency_mins is None:
-            configuration_mode_frequency_mins = 15
-        if configuration_mode_frequency_mins is not None:
-            pulumi.set(__self__, "configuration_mode_frequency_mins", configuration_mode_frequency_mins)
-        if reboot_if_needed is not None:
-            pulumi.set(__self__, "reboot_if_needed", reboot_if_needed)
-        if refresh_frequency_mins is None:
-            refresh_frequency_mins = 30
-        if refresh_frequency_mins is not None:
-            pulumi.set(__self__, "refresh_frequency_mins", refresh_frequency_mins)
-
-    @property
-    @pulumi.getter(name="actionAfterReboot")
-    def action_after_reboot(self) -> Optional[pulumi.Input[Union[str, 'ActionAfterReboot']]]:
-        """
-        Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
-        """
-        return pulumi.get(self, "action_after_reboot")
-
-    @action_after_reboot.setter
-    def action_after_reboot(self, value: Optional[pulumi.Input[Union[str, 'ActionAfterReboot']]]):
-        pulumi.set(self, "action_after_reboot", value)
-
-    @property
-    @pulumi.getter(name="allowModuleOverwrite")
-    def allow_module_overwrite(self) -> Optional[pulumi.Input[bool]]:
-        """
-        If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
-        """
-        return pulumi.get(self, "allow_module_overwrite")
-
-    @allow_module_overwrite.setter
-    def allow_module_overwrite(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "allow_module_overwrite", value)
-
-    @property
-    @pulumi.getter(name="configurationMode")
-    def configuration_mode(self) -> Optional[pulumi.Input[Union[str, 'ConfigurationMode']]]:
-        """
-        Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
-        """
-        return pulumi.get(self, "configuration_mode")
-
-    @configuration_mode.setter
-    def configuration_mode(self, value: Optional[pulumi.Input[Union[str, 'ConfigurationMode']]]):
-        pulumi.set(self, "configuration_mode", value)
-
-    @property
-    @pulumi.getter(name="configurationModeFrequencyMins")
-    def configuration_mode_frequency_mins(self) -> Optional[pulumi.Input[float]]:
-        """
-        How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
-        """
-        return pulumi.get(self, "configuration_mode_frequency_mins")
-
-    @configuration_mode_frequency_mins.setter
-    def configuration_mode_frequency_mins(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "configuration_mode_frequency_mins", value)
-
-    @property
-    @pulumi.getter(name="rebootIfNeeded")
-    def reboot_if_needed(self) -> Optional[pulumi.Input[bool]]:
-        """
-        Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
-        """
-        return pulumi.get(self, "reboot_if_needed")
-
-    @reboot_if_needed.setter
-    def reboot_if_needed(self, value: Optional[pulumi.Input[bool]]):
-        pulumi.set(self, "reboot_if_needed", value)
-
-    @property
-    @pulumi.getter(name="refreshFrequencyMins")
-    def refresh_frequency_mins(self) -> Optional[pulumi.Input[float]]:
-        """
-        The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
-        """
-        return pulumi.get(self, "refresh_frequency_mins")
-
-    @refresh_frequency_mins.setter
-    def refresh_frequency_mins(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "refresh_frequency_mins", value)
 
 
 @pulumi.input_type
@@ -210,7 +101,6 @@ class GuestConfigurationNavigationArgs:
                  assignment_type: Optional[pulumi.Input[Union[str, 'AssignmentType']]] = None,
                  configuration_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
                  configuration_protected_parameter: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]] = None,
-                 configuration_setting: Optional[pulumi.Input['ConfigurationSettingArgs']] = None,
                  content_hash: Optional[pulumi.Input[str]] = None,
                  content_uri: Optional[pulumi.Input[str]] = None,
                  kind: Optional[pulumi.Input[Union[str, 'Kind']]] = None,
@@ -221,7 +111,6 @@ class GuestConfigurationNavigationArgs:
         :param pulumi.Input[Union[str, 'AssignmentType']] assignment_type: Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]] configuration_parameter: The configuration parameters for the guest configuration.
         :param pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]] configuration_protected_parameter: The protected configuration parameters for the guest configuration.
-        :param pulumi.Input['ConfigurationSettingArgs'] configuration_setting: The configuration setting for the guest configuration.
         :param pulumi.Input[str] content_hash: Combined hash of the guest configuration package and configuration parameters.
         :param pulumi.Input[str] content_uri: Uri of the storage where guest configuration package is uploaded.
         :param pulumi.Input[Union[str, 'Kind']] kind: Kind of the guest configuration. For example:DSC
@@ -234,8 +123,6 @@ class GuestConfigurationNavigationArgs:
             pulumi.set(__self__, "configuration_parameter", configuration_parameter)
         if configuration_protected_parameter is not None:
             pulumi.set(__self__, "configuration_protected_parameter", configuration_protected_parameter)
-        if configuration_setting is not None:
-            pulumi.set(__self__, "configuration_setting", configuration_setting)
         if content_hash is not None:
             pulumi.set(__self__, "content_hash", content_hash)
         if content_uri is not None:
@@ -282,18 +169,6 @@ class GuestConfigurationNavigationArgs:
     @configuration_protected_parameter.setter
     def configuration_protected_parameter(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationParameterArgs']]]]):
         pulumi.set(self, "configuration_protected_parameter", value)
-
-    @property
-    @pulumi.getter(name="configurationSetting")
-    def configuration_setting(self) -> Optional[pulumi.Input['ConfigurationSettingArgs']]:
-        """
-        The configuration setting for the guest configuration.
-        """
-        return pulumi.get(self, "configuration_setting")
-
-    @configuration_setting.setter
-    def configuration_setting(self, value: Optional[pulumi.Input['ConfigurationSettingArgs']]):
-        pulumi.set(self, "configuration_setting", value)
 
     @property
     @pulumi.getter(name="contentHash")

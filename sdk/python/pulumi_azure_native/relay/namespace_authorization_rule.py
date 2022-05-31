@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['NamespaceAuthorizationRuleArgs', 'NamespaceAuthorizationRule']
@@ -16,13 +17,13 @@ class NamespaceAuthorizationRuleArgs:
     def __init__(__self__, *,
                  namespace_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 rights: pulumi.Input[Sequence[pulumi.Input['AccessRights']]],
+                 rights: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]],
                  authorization_rule_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a NamespaceAuthorizationRule resource.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         """
         pulumi.set(__self__, "namespace_name", namespace_name)
@@ -57,14 +58,14 @@ class NamespaceAuthorizationRuleArgs:
 
     @property
     @pulumi.getter
-    def rights(self) -> pulumi.Input[Sequence[pulumi.Input['AccessRights']]]:
+    def rights(self) -> pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]:
         """
         The rights associated with the rule.
         """
         return pulumi.get(self, "rights")
 
     @rights.setter
-    def rights(self, value: pulumi.Input[Sequence[pulumi.Input['AccessRights']]]):
+    def rights(self, value: pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]):
         pulumi.set(self, "rights", value)
 
     @property
@@ -88,18 +89,18 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
                  __props__=None):
         """
-        Description of a namespace authorization rule.
-        API Version: 2017-04-01.
+        Single item in a List or Get AuthorizationRule operation
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] authorization_rule_name: The authorization rule name.
         :param pulumi.Input[str] namespace_name: The namespace name
         :param pulumi.Input[str] resource_group_name: Name of the Resource group within the Azure subscription.
-        :param pulumi.Input[Sequence[pulumi.Input['AccessRights']]] rights: The rights associated with the rule.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]] rights: The rights associated with the rule.
         """
         ...
     @overload
@@ -108,8 +109,8 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  args: NamespaceAuthorizationRuleArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Description of a namespace authorization rule.
-        API Version: 2017-04-01.
+        Single item in a List or Get AuthorizationRule operation
+        API Version: 2021-11-01.
 
         :param str resource_name: The name of the resource.
         :param NamespaceAuthorizationRuleArgs args: The arguments to use to populate this resource's properties.
@@ -129,7 +130,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
                  authorization_rule_name: Optional[pulumi.Input[str]] = None,
                  namespace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
-                 rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
+                 rights: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AccessRights']]]]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -152,7 +153,9 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
             if rights is None and not opts.urn:
                 raise TypeError("Missing required property 'rights'")
             __props__.__dict__["rights"] = rights
+            __props__.__dict__["location"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:relay/v20160701:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20170401:NamespaceAuthorizationRule"), pulumi.Alias(type_="azure-native:relay/v20211101:NamespaceAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -178,16 +181,26 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
 
         __props__ = NamespaceAuthorizationRuleArgs.__new__(NamespaceAuthorizationRuleArgs)
 
+        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["rights"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return NamespaceAuthorizationRule(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter
+    def location(self) -> pulumi.Output[str]:
+        """
+        The geo-location where the resource lives
+        """
+        return pulumi.get(self, "location")
+
+    @property
+    @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name.
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -200,10 +213,18 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         return pulumi.get(self, "rights")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        The system meta data relating to this resource.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type.
+        The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         """
         return pulumi.get(self, "type")
 

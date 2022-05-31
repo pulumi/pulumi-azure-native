@@ -30,7 +30,7 @@ __all__ = [
     'EventResponse',
     'GitRepoVolumeResponse',
     'GpuResourceResponse',
-    'HttpHeadersResponse',
+    'HttpHeaderResponse',
     'ImageRegistryCredentialResponse',
     'InitContainerDefinitionResponse',
     'InitContainerPropertiesDefinitionResponseInstanceView',
@@ -392,13 +392,13 @@ class ContainerHttpGetResponse(dict):
 
     def __init__(__self__, *,
                  port: int,
-                 http_headers: Optional['outputs.HttpHeadersResponse'] = None,
+                 http_headers: Optional[Sequence['outputs.HttpHeaderResponse']] = None,
                  path: Optional[str] = None,
                  scheme: Optional[str] = None):
         """
         The container Http Get settings, for liveness or readiness probe
         :param int port: The port number to probe.
-        :param 'HttpHeadersResponse' http_headers: The HTTP headers.
+        :param Sequence['HttpHeaderResponse'] http_headers: The HTTP headers.
         :param str path: The path to probe.
         :param str scheme: The scheme.
         """
@@ -420,7 +420,7 @@ class ContainerHttpGetResponse(dict):
 
     @property
     @pulumi.getter(name="httpHeaders")
-    def http_headers(self) -> Optional['outputs.HttpHeadersResponse']:
+    def http_headers(self) -> Optional[Sequence['outputs.HttpHeaderResponse']]:
         """
         The HTTP headers.
         """
@@ -1287,15 +1287,15 @@ class GpuResourceResponse(dict):
 
 
 @pulumi.output_type
-class HttpHeadersResponse(dict):
+class HttpHeaderResponse(dict):
     """
-    The HTTP headers.
+    The HTTP header
     """
     def __init__(__self__, *,
                  name: Optional[str] = None,
                  value: Optional[str] = None):
         """
-        The HTTP headers.
+        The HTTP header
         :param str name: The header name.
         :param str value: The header value.
         """

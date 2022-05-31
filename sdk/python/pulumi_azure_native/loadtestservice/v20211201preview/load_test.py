@@ -27,7 +27,7 @@ class LoadTestArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] description: Description of the resource.
         :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The type of identity used for the resource.
-        :param pulumi.Input[str] load_test_name: Load Test name.
+        :param pulumi.Input[str] load_test_name: Load Test resource name.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
@@ -83,7 +83,7 @@ class LoadTestArgs:
     @pulumi.getter(name="loadTestName")
     def load_test_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Load Test name.
+        Load Test resource name.
         """
         return pulumi.get(self, "load_test_name")
 
@@ -116,7 +116,12 @@ class LoadTestArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later.""", DeprecationWarning)
+
+
 class LoadTest(pulumi.CustomResource):
+    warnings.warn("""Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -135,7 +140,7 @@ class LoadTest(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] description: Description of the resource.
         :param pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']] identity: The type of identity used for the resource.
-        :param pulumi.Input[str] load_test_name: Load Test name.
+        :param pulumi.Input[str] load_test_name: Load Test resource name.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -171,6 +176,7 @@ class LoadTest(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""LoadTest is deprecated: Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

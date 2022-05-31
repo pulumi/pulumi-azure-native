@@ -175,7 +175,7 @@ class DataVersion(pulumi.CustomResource):
             __props__.__dict__["workspace_name"] = workspace_name
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:DataVersion")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:machinelearningservices:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220201preview:DataVersion"), pulumi.Alias(type_="azure-native:machinelearningservices/v20220501:DataVersion")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(DataVersion, __self__).__init__(
             'azure-native:machinelearningservices/v20210301preview:DataVersion',

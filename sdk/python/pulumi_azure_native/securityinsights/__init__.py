@@ -12,6 +12,7 @@ from .action import *
 from .activity_custom_entity_query import *
 from .alert_rule import *
 from .anomalies import *
+from .anomaly_security_ml_analytics_settings import *
 from .asc_data_connector import *
 from .automation_rule import *
 from .aws_cloud_trail_data_connector import *
@@ -28,6 +29,7 @@ from .get_action import *
 from .get_activity_custom_entity_query import *
 from .get_alert_rule import *
 from .get_anomalies import *
+from .get_anomaly_security_ml_analytics_settings import *
 from .get_asc_data_connector import *
 from .get_automation_rule import *
 from .get_aws_cloud_trail_data_connector import *
@@ -50,6 +52,7 @@ from .get_microsoft_security_incident_creation_alert_rule import *
 from .get_office_data_connector import *
 from .get_product_setting import *
 from .get_scheduled_alert_rule import *
+from .get_security_ml_analytics_setting import *
 from .get_sentinel_onboarding_state import *
 from .get_source_control import *
 from .get_threat_intelligence_indicator import *
@@ -68,6 +71,7 @@ from .microsoft_security_incident_creation_alert_rule import *
 from .office_data_connector import *
 from .product_setting import *
 from .scheduled_alert_rule import *
+from .security_ml_analytics_setting import *
 from .sentinel_onboarding_state import *
 from .source_control import *
 from .threat_intelligence_indicator import *
@@ -98,6 +102,8 @@ if typing.TYPE_CHECKING:
     v20220101preview = __v20220101preview
     import pulumi_azure_native.securityinsights.v20220401preview as __v20220401preview
     v20220401preview = __v20220401preview
+    import pulumi_azure_native.securityinsights.v20220501preview as __v20220501preview
+    v20220501preview = __v20220501preview
 else:
     v20190101preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20190101preview')
     v20200101 = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20200101')
@@ -108,4 +114,5 @@ else:
     v20211001preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20211001preview')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20220101preview')
     v20220401preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20220401preview')
+    v20220501preview = _utilities.lazy_import('pulumi_azure_native.securityinsights.v20220501preview')
 

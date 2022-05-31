@@ -15,6 +15,8 @@ __all__ = [
     'get_hybrid_connection_authorization_rule_output',
 ]
 
+warnings.warn("""Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetHybridConnectionAuthorizationRuleResult:
     """
@@ -93,6 +95,7 @@ def get_hybrid_connection_authorization_rule(authorization_rule_name: Optional[s
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_hybrid_connection_authorization_rule is deprecated: Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""")
     __args__ = dict()
     __args__['authorizationRuleName'] = authorization_rule_name
     __args__['hybridConnectionName'] = hybrid_connection_name
@@ -126,4 +129,5 @@ def get_hybrid_connection_authorization_rule_output(authorization_rule_name: Opt
     :param str namespace_name: The namespace name
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
+    pulumi.log.warn("""get_hybrid_connection_authorization_rule is deprecated: Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""")
     ...

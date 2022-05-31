@@ -12,6 +12,8 @@ from .batch_deployment import *
 from .batch_endpoint import *
 from .code_container import *
 from .code_version import *
+from .component_container import *
+from .component_version import *
 from .data_container import *
 from .data_version import *
 from .endpoint_variant import *
@@ -23,6 +25,8 @@ from .get_batch_deployment import *
 from .get_batch_endpoint import *
 from .get_code_container import *
 from .get_code_version import *
+from .get_component_container import *
+from .get_component_version import *
 from .get_data_container import *
 from .get_data_version import *
 from .get_endpoint_variant import *
@@ -112,6 +116,10 @@ if typing.TYPE_CHECKING:
     v20210701 = __v20210701
     import pulumi_azure_native.machinelearningservices.v20220101preview as __v20220101preview
     v20220101preview = __v20220101preview
+    import pulumi_azure_native.machinelearningservices.v20220201preview as __v20220201preview
+    v20220201preview = __v20220201preview
+    import pulumi_azure_native.machinelearningservices.v20220501 as __v20220501
+    v20220501 = __v20220501
 else:
     v20180301preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20180301preview')
     v20181119 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20181119')
@@ -132,4 +140,6 @@ else:
     v20210401 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20210401')
     v20210701 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20210701')
     v20220101preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20220101preview')
+    v20220201preview = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20220201preview')
+    v20220501 = _utilities.lazy_import('pulumi_azure_native.machinelearningservices.v20220501')
 

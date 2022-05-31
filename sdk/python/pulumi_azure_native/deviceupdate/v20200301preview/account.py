@@ -134,7 +134,12 @@ class AccountArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""", DeprecationWarning)
+
+
 class Account(pulumi.CustomResource):
+    warnings.warn("""Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -192,6 +197,7 @@ class Account(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
+        pulumi.log.warn("""Account is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -219,7 +225,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate:Account")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate:Account"), pulumi.Alias(type_="azure-native:deviceupdate/v20220401preview:Account")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Account, __self__).__init__(
             'azure-native:deviceupdate/v20200301preview:Account',

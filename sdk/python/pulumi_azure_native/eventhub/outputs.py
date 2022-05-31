@@ -21,6 +21,7 @@ __all__ = [
     'SkuResponse',
     'SubnetResponse',
     'SystemDataResponse',
+    'ThrottlingPolicyResponse',
 ]
 
 @pulumi.output_type
@@ -581,5 +582,81 @@ class SystemDataResponse(dict):
         The type of identity that last modified the resource.
         """
         return pulumi.get(self, "last_modified_by_type")
+
+
+@pulumi.output_type
+class ThrottlingPolicyResponse(dict):
+    """
+    Properties of the throttling policy
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "metricId":
+            suggest = "metric_id"
+        elif key == "rateLimitThreshold":
+            suggest = "rate_limit_threshold"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in ThrottlingPolicyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        ThrottlingPolicyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        ThrottlingPolicyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 metric_id: str,
+                 name: str,
+                 rate_limit_threshold: float,
+                 type: str):
+        """
+        Properties of the throttling policy
+        :param str metric_id: Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+        :param str name: The Name of this policy
+        :param float rate_limit_threshold: The Threshold limit above which the application group will be throttled.Rate limit is always per second.
+        :param str type: Application Group Policy types
+               Expected value is 'ThrottlingPolicy'.
+        """
+        pulumi.set(__self__, "metric_id", metric_id)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "rate_limit_threshold", rate_limit_threshold)
+        pulumi.set(__self__, "type", 'ThrottlingPolicy')
+
+    @property
+    @pulumi.getter(name="metricId")
+    def metric_id(self) -> str:
+        """
+        Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+        """
+        return pulumi.get(self, "metric_id")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The Name of this policy
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="rateLimitThreshold")
+    def rate_limit_threshold(self) -> float:
+        """
+        The Threshold limit above which the application group will be throttled.Rate limit is always per second.
+        """
+        return pulumi.get(self, "rate_limit_threshold")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Application Group Policy types
+        Expected value is 'ThrottlingPolicy'.
+        """
+        return pulumi.get(self, "type")
 
 

@@ -21,7 +21,7 @@ class GetBackupPolicyResult:
     """
     Backup policy information
     """
-    def __init__(__self__, backup_policy_id=None, daily_backups_to_keep=None, enabled=None, etag=None, id=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None):
+    def __init__(__self__, backup_policy_id=None, daily_backups_to_keep=None, enabled=None, etag=None, id=None, location=None, monthly_backups_to_keep=None, name=None, provisioning_state=None, system_data=None, tags=None, type=None, volume_backups=None, volumes_assigned=None, weekly_backups_to_keep=None):
         if backup_policy_id and not isinstance(backup_policy_id, str):
             raise TypeError("Expected argument 'backup_policy_id' to be a str")
         pulumi.set(__self__, "backup_policy_id", backup_policy_id)
@@ -49,6 +49,9 @@ class GetBackupPolicyResult:
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -101,7 +104,7 @@ class GetBackupPolicyResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -109,7 +112,7 @@ class GetBackupPolicyResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -125,7 +128,7 @@ class GetBackupPolicyResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -138,10 +141,18 @@ class GetBackupPolicyResult:
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -149,7 +160,7 @@ class GetBackupPolicyResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -193,6 +204,7 @@ class AwaitableGetBackupPolicyResult(GetBackupPolicyResult):
             monthly_backups_to_keep=self.monthly_backups_to_keep,
             name=self.name,
             provisioning_state=self.provisioning_state,
+            system_data=self.system_data,
             tags=self.tags,
             type=self.type,
             volume_backups=self.volume_backups,
@@ -232,6 +244,7 @@ def get_backup_policy(account_name: Optional[str] = None,
         monthly_backups_to_keep=__ret__.monthly_backups_to_keep,
         name=__ret__.name,
         provisioning_state=__ret__.provisioning_state,
+        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type,
         volume_backups=__ret__.volume_backups,

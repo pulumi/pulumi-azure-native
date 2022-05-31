@@ -99,7 +99,12 @@ class PrivateEndpointConnectionProxyArgs:
         pulumi.set(self, "status", value)
 
 
+warnings.warn("""Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""", DeprecationWarning)
+
+
 class PrivateEndpointConnectionProxy(pulumi.CustomResource):
+    warnings.warn("""Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -151,6 +156,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""PrivateEndpointConnectionProxy is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -176,7 +182,7 @@ class PrivateEndpointConnectionProxy(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate:PrivateEndpointConnectionProxy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:deviceupdate:PrivateEndpointConnectionProxy"), pulumi.Alias(type_="azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(PrivateEndpointConnectionProxy, __self__).__init__(
             'azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy',

@@ -122,6 +122,9 @@ class GetEndpointResult:
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
+        """
+        The resource provisioning state.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property
@@ -165,7 +168,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetEndpointResult:
     """
     The endpoint for the target resource.
-    API Version: 2021-10-06-preview.
+    API Version: 2022-05-01-preview.
 
 
     :param str endpoint_name: The endpoint name.
@@ -200,7 +203,7 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetEndpointResult]:
     """
     The endpoint for the target resource.
-    API Version: 2021-10-06-preview.
+    API Version: 2022-05-01-preview.
 
 
     :param str endpoint_name: The endpoint name.

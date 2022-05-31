@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
+from ._enums import *
 
 __all__ = [
     'APIServerProfileResponse',
@@ -16,6 +17,7 @@ __all__ = [
     'MasterProfileResponse',
     'NetworkProfileResponse',
     'ServicePrincipalProfileResponse',
+    'SystemDataResponse',
     'WorkerProfileResponse',
 ]
 
@@ -30,9 +32,9 @@ class APIServerProfileResponse(dict):
                  visibility: Optional[str] = None):
         """
         APIServerProfile represents an API server profile.
-        :param str ip: The IP of the cluster API server (immutable).
-        :param str url: The URL to access the cluster API server (immutable).
-        :param str visibility: API server visibility (immutable).
+        :param str ip: The IP of the cluster API server.
+        :param str url: The URL to access the cluster API server.
+        :param str visibility: API server visibility.
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -45,7 +47,7 @@ class APIServerProfileResponse(dict):
     @pulumi.getter
     def ip(self) -> Optional[str]:
         """
-        The IP of the cluster API server (immutable).
+        The IP of the cluster API server.
         """
         return pulumi.get(self, "ip")
 
@@ -53,7 +55,7 @@ class APIServerProfileResponse(dict):
     @pulumi.getter
     def url(self) -> Optional[str]:
         """
-        The URL to access the cluster API server (immutable).
+        The URL to access the cluster API server.
         """
         return pulumi.get(self, "url")
 
@@ -61,7 +63,7 @@ class APIServerProfileResponse(dict):
     @pulumi.getter
     def visibility(self) -> Optional[str]:
         """
-        API server visibility (immutable).
+        API server visibility.
         """
         return pulumi.get(self, "visibility")
 
@@ -74,7 +76,9 @@ class ClusterProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "pullSecret":
+        if key == "fipsValidatedModules":
+            suggest = "fips_validated_modules"
+        elif key == "pullSecret":
             suggest = "pull_secret"
         elif key == "resourceGroupId":
             suggest = "resource_group_id"
@@ -92,18 +96,22 @@ class ClusterProfileResponse(dict):
 
     def __init__(__self__, *,
                  domain: Optional[str] = None,
+                 fips_validated_modules: Optional[str] = None,
                  pull_secret: Optional[str] = None,
                  resource_group_id: Optional[str] = None,
                  version: Optional[str] = None):
         """
         ClusterProfile represents a cluster profile.
-        :param str domain: The domain for the cluster (immutable).
-        :param str pull_secret: The pull secret for the cluster (immutable).
-        :param str resource_group_id: The ID of the cluster resource group (immutable).
-        :param str version: The version of the cluster (immutable).
+        :param str domain: The domain for the cluster.
+        :param str fips_validated_modules: If FIPS validated crypto modules are used
+        :param str pull_secret: The pull secret for the cluster.
+        :param str resource_group_id: The ID of the cluster resource group.
+        :param str version: The version of the cluster.
         """
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if fips_validated_modules is not None:
+            pulumi.set(__self__, "fips_validated_modules", fips_validated_modules)
         if pull_secret is not None:
             pulumi.set(__self__, "pull_secret", pull_secret)
         if resource_group_id is not None:
@@ -115,15 +123,23 @@ class ClusterProfileResponse(dict):
     @pulumi.getter
     def domain(self) -> Optional[str]:
         """
-        The domain for the cluster (immutable).
+        The domain for the cluster.
         """
         return pulumi.get(self, "domain")
+
+    @property
+    @pulumi.getter(name="fipsValidatedModules")
+    def fips_validated_modules(self) -> Optional[str]:
+        """
+        If FIPS validated crypto modules are used
+        """
+        return pulumi.get(self, "fips_validated_modules")
 
     @property
     @pulumi.getter(name="pullSecret")
     def pull_secret(self) -> Optional[str]:
         """
-        The pull secret for the cluster (immutable).
+        The pull secret for the cluster.
         """
         return pulumi.get(self, "pull_secret")
 
@@ -131,7 +147,7 @@ class ClusterProfileResponse(dict):
     @pulumi.getter(name="resourceGroupId")
     def resource_group_id(self) -> Optional[str]:
         """
-        The ID of the cluster resource group (immutable).
+        The ID of the cluster resource group.
         """
         return pulumi.get(self, "resource_group_id")
 
@@ -139,7 +155,7 @@ class ClusterProfileResponse(dict):
     @pulumi.getter
     def version(self) -> Optional[str]:
         """
-        The version of the cluster (immutable).
+        The version of the cluster.
         """
         return pulumi.get(self, "version")
 
@@ -153,7 +169,7 @@ class ConsoleProfileResponse(dict):
                  url: Optional[str] = None):
         """
         ConsoleProfile represents a console profile.
-        :param str url: The URL to access the cluster console (immutable).
+        :param str url: The URL to access the cluster console.
         """
         if url is not None:
             pulumi.set(__self__, "url", url)
@@ -162,7 +178,7 @@ class ConsoleProfileResponse(dict):
     @pulumi.getter
     def url(self) -> Optional[str]:
         """
-        The URL to access the cluster console (immutable).
+        The URL to access the cluster console.
         """
         return pulumi.get(self, "url")
 
@@ -178,9 +194,9 @@ class IngressProfileResponse(dict):
                  visibility: Optional[str] = None):
         """
         IngressProfile represents an ingress profile.
-        :param str ip: The IP of the ingress (immutable).
-        :param str name: The ingress profile name.  Must be "default" (immutable).
-        :param str visibility: Ingress visibility (immutable).
+        :param str ip: The IP of the ingress.
+        :param str name: The ingress profile name.
+        :param str visibility: Ingress visibility.
         """
         if ip is not None:
             pulumi.set(__self__, "ip", ip)
@@ -193,7 +209,7 @@ class IngressProfileResponse(dict):
     @pulumi.getter
     def ip(self) -> Optional[str]:
         """
-        The IP of the ingress (immutable).
+        The IP of the ingress.
         """
         return pulumi.get(self, "ip")
 
@@ -201,7 +217,7 @@ class IngressProfileResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The ingress profile name.  Must be "default" (immutable).
+        The ingress profile name.
         """
         return pulumi.get(self, "name")
 
@@ -209,7 +225,7 @@ class IngressProfileResponse(dict):
     @pulumi.getter
     def visibility(self) -> Optional[str]:
         """
-        Ingress visibility (immutable).
+        Ingress visibility.
         """
         return pulumi.get(self, "visibility")
 
@@ -222,7 +238,11 @@ class MasterProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "subnetId":
+        if key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "encryptionAtHost":
+            suggest = "encryption_at_host"
+        elif key == "subnetId":
             suggest = "subnet_id"
         elif key == "vmSize":
             suggest = "vm_size"
@@ -239,23 +259,47 @@ class MasterProfileResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 disk_encryption_set_id: Optional[str] = None,
+                 encryption_at_host: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  vm_size: Optional[str] = None):
         """
         MasterProfile represents a master profile.
-        :param str subnet_id: The Azure resource ID of the master subnet (immutable).
-        :param str vm_size: The size of the master VMs (immutable).
+        :param str disk_encryption_set_id: The resource ID of an associated DiskEncryptionSet, if applicable.
+        :param str encryption_at_host: Whether master virtual machines are encrypted at host.
+        :param str subnet_id: The Azure resource ID of the master subnet.
+        :param str vm_size: The size of the master VMs.
         """
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
+        if encryption_at_host is not None:
+            pulumi.set(__self__, "encryption_at_host", encryption_at_host)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
         if vm_size is not None:
             pulumi.set(__self__, "vm_size", vm_size)
 
     @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[str]:
+        """
+        The resource ID of an associated DiskEncryptionSet, if applicable.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
+
+    @property
+    @pulumi.getter(name="encryptionAtHost")
+    def encryption_at_host(self) -> Optional[str]:
+        """
+        Whether master virtual machines are encrypted at host.
+        """
+        return pulumi.get(self, "encryption_at_host")
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         """
-        The Azure resource ID of the master subnet (immutable).
+        The Azure resource ID of the master subnet.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -263,7 +307,7 @@ class MasterProfileResponse(dict):
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[str]:
         """
-        The size of the master VMs (immutable).
+        The size of the master VMs.
         """
         return pulumi.get(self, "vm_size")
 
@@ -297,8 +341,8 @@ class NetworkProfileResponse(dict):
                  service_cidr: Optional[str] = None):
         """
         NetworkProfile represents a network profile.
-        :param str pod_cidr: The CIDR used for OpenShift/Kubernetes Pods (immutable).
-        :param str service_cidr: The CIDR used for OpenShift/Kubernetes Services (immutable).
+        :param str pod_cidr: The CIDR used for OpenShift/Kubernetes Pods.
+        :param str service_cidr: The CIDR used for OpenShift/Kubernetes Services.
         """
         if pod_cidr is not None:
             pulumi.set(__self__, "pod_cidr", pod_cidr)
@@ -309,7 +353,7 @@ class NetworkProfileResponse(dict):
     @pulumi.getter(name="podCidr")
     def pod_cidr(self) -> Optional[str]:
         """
-        The CIDR used for OpenShift/Kubernetes Pods (immutable).
+        The CIDR used for OpenShift/Kubernetes Pods.
         """
         return pulumi.get(self, "pod_cidr")
 
@@ -317,7 +361,7 @@ class NetworkProfileResponse(dict):
     @pulumi.getter(name="serviceCidr")
     def service_cidr(self) -> Optional[str]:
         """
-        The CIDR used for OpenShift/Kubernetes Services (immutable).
+        The CIDR used for OpenShift/Kubernetes Services.
         """
         return pulumi.get(self, "service_cidr")
 
@@ -351,8 +395,8 @@ class ServicePrincipalProfileResponse(dict):
                  client_secret: Optional[str] = None):
         """
         ServicePrincipalProfile represents a service principal profile.
-        :param str client_id: The client ID used for the cluster (immutable).
-        :param str client_secret: The client secret used for the cluster (immutable).
+        :param str client_id: The client ID used for the cluster.
+        :param str client_secret: The client secret used for the cluster.
         """
         if client_id is not None:
             pulumi.set(__self__, "client_id", client_id)
@@ -363,7 +407,7 @@ class ServicePrincipalProfileResponse(dict):
     @pulumi.getter(name="clientId")
     def client_id(self) -> Optional[str]:
         """
-        The client ID used for the cluster (immutable).
+        The client ID used for the cluster.
         """
         return pulumi.get(self, "client_id")
 
@@ -371,9 +415,119 @@ class ServicePrincipalProfileResponse(dict):
     @pulumi.getter(name="clientSecret")
     def client_secret(self) -> Optional[str]:
         """
-        The client secret used for the cluster (immutable).
+        The client secret used for the cluster.
         """
         return pulumi.get(self, "client_secret")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type
@@ -384,8 +538,12 @@ class WorkerProfileResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "diskSizeGB":
+        if key == "diskEncryptionSetId":
+            suggest = "disk_encryption_set_id"
+        elif key == "diskSizeGB":
             suggest = "disk_size_gb"
+        elif key == "encryptionAtHost":
+            suggest = "encryption_at_host"
         elif key == "subnetId":
             suggest = "subnet_id"
         elif key == "vmSize":
@@ -404,22 +562,30 @@ class WorkerProfileResponse(dict):
 
     def __init__(__self__, *,
                  count: Optional[int] = None,
+                 disk_encryption_set_id: Optional[str] = None,
                  disk_size_gb: Optional[int] = None,
+                 encryption_at_host: Optional[str] = None,
                  name: Optional[str] = None,
                  subnet_id: Optional[str] = None,
                  vm_size: Optional[str] = None):
         """
         WorkerProfile represents a worker profile.
-        :param int count: The number of worker VMs.  Must be between 3 and 20 (immutable).
-        :param int disk_size_gb: The disk size of the worker VMs.  Must be 128 or greater (immutable).
-        :param str name: The worker profile name.  Must be "worker" (immutable).
-        :param str subnet_id: The Azure resource ID of the worker subnet (immutable).
-        :param str vm_size: The size of the worker VMs (immutable).
+        :param int count: The number of worker VMs.
+        :param str disk_encryption_set_id: The resource ID of an associated DiskEncryptionSet, if applicable.
+        :param int disk_size_gb: The disk size of the worker VMs.
+        :param str encryption_at_host: Whether master virtual machines are encrypted at host.
+        :param str name: The worker profile name.
+        :param str subnet_id: The Azure resource ID of the worker subnet.
+        :param str vm_size: The size of the worker VMs.
         """
         if count is not None:
             pulumi.set(__self__, "count", count)
+        if disk_encryption_set_id is not None:
+            pulumi.set(__self__, "disk_encryption_set_id", disk_encryption_set_id)
         if disk_size_gb is not None:
             pulumi.set(__self__, "disk_size_gb", disk_size_gb)
+        if encryption_at_host is not None:
+            pulumi.set(__self__, "encryption_at_host", encryption_at_host)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if subnet_id is not None:
@@ -431,23 +597,39 @@ class WorkerProfileResponse(dict):
     @pulumi.getter
     def count(self) -> Optional[int]:
         """
-        The number of worker VMs.  Must be between 3 and 20 (immutable).
+        The number of worker VMs.
         """
         return pulumi.get(self, "count")
+
+    @property
+    @pulumi.getter(name="diskEncryptionSetId")
+    def disk_encryption_set_id(self) -> Optional[str]:
+        """
+        The resource ID of an associated DiskEncryptionSet, if applicable.
+        """
+        return pulumi.get(self, "disk_encryption_set_id")
 
     @property
     @pulumi.getter(name="diskSizeGB")
     def disk_size_gb(self) -> Optional[int]:
         """
-        The disk size of the worker VMs.  Must be 128 or greater (immutable).
+        The disk size of the worker VMs.
         """
         return pulumi.get(self, "disk_size_gb")
+
+    @property
+    @pulumi.getter(name="encryptionAtHost")
+    def encryption_at_host(self) -> Optional[str]:
+        """
+        Whether master virtual machines are encrypted at host.
+        """
+        return pulumi.get(self, "encryption_at_host")
 
     @property
     @pulumi.getter
     def name(self) -> Optional[str]:
         """
-        The worker profile name.  Must be "worker" (immutable).
+        The worker profile name.
         """
         return pulumi.get(self, "name")
 
@@ -455,7 +637,7 @@ class WorkerProfileResponse(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[str]:
         """
-        The Azure resource ID of the worker subnet (immutable).
+        The Azure resource ID of the worker subnet.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -463,7 +645,7 @@ class WorkerProfileResponse(dict):
     @pulumi.getter(name="vmSize")
     def vm_size(self) -> Optional[str]:
         """
-        The size of the worker VMs (immutable).
+        The size of the worker VMs.
         """
         return pulumi.get(self, "vm_size")
 

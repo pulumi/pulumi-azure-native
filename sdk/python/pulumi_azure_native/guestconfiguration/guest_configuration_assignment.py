@@ -129,7 +129,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                  __props__=None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
-        API Version: 2020-06-25.
+        API Version: 2022-01-25.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +148,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Guest configuration assignment is an association between a machine and guest configuration.
-        API Version: 2020-06-25.
+        API Version: 2022-01-25.
 
         :param str resource_name: The name of the resource.
         :param GuestConfigurationAssignmentArgs args: The arguments to use to populate this resource's properties.
@@ -193,8 +193,9 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
             if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
             __props__.__dict__["vm_name"] = vm_name
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment"), pulumi.Alias(type_="azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(GuestConfigurationAssignment, __self__).__init__(
             'azure-native:guestconfiguration:GuestConfigurationAssignment',
@@ -221,6 +222,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return GuestConfigurationAssignment(resource_name, opts=opts, __props__=__props__)
 
@@ -247,6 +249,14 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
         Properties of the Guest configuration assignment.
         """
         return pulumi.get(self, "properties")
+
+    @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

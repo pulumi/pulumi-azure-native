@@ -191,7 +191,7 @@ class Service(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:Service"), pulumi.Alias(type_="azure-native:appplatform/v20200701:Service"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:Service"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:Service"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Service"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:Service")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:appplatform:Service"), pulumi.Alias(type_="azure-native:appplatform/v20200701:Service"), pulumi.Alias(type_="azure-native:appplatform/v20201101preview:Service"), pulumi.Alias(type_="azure-native:appplatform/v20210901preview:Service"), pulumi.Alias(type_="azure-native:appplatform/v20220101preview:Service"), pulumi.Alias(type_="azure-native:appplatform/v20220301preview:Service"), pulumi.Alias(type_="azure-native:appplatform/v20220401:Service"), pulumi.Alias(type_="azure-native:appplatform/v20220501preview:Service")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Service, __self__).__init__(
             'azure-native:appplatform/v20210601preview:Service',

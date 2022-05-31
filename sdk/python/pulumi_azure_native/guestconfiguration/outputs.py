@@ -20,6 +20,7 @@ __all__ = [
     'ConfigurationSettingResponse',
     'GuestConfigurationAssignmentPropertiesResponse',
     'GuestConfigurationNavigationResponse',
+    'SystemDataResponse',
     'VMInfoResponse',
     'VMSSVMInfoResponse',
 ]
@@ -401,12 +402,12 @@ class ConfigurationSettingResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 action_after_reboot: Optional[str] = None,
-                 allow_module_overwrite: Optional[bool] = None,
-                 configuration_mode: Optional[str] = None,
-                 configuration_mode_frequency_mins: Optional[float] = None,
-                 reboot_if_needed: Optional[bool] = None,
-                 refresh_frequency_mins: Optional[float] = None):
+                 action_after_reboot: str,
+                 allow_module_overwrite: bool,
+                 configuration_mode: str,
+                 configuration_mode_frequency_mins: float,
+                 reboot_if_needed: bool,
+                 refresh_frequency_mins: float):
         """
         Configuration setting of LCM (Local Configuration Manager).
         :param str action_after_reboot: Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
@@ -416,26 +417,20 @@ class ConfigurationSettingResponse(dict):
         :param bool reboot_if_needed: Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
         :param float refresh_frequency_mins: The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
         """
-        if action_after_reboot is not None:
-            pulumi.set(__self__, "action_after_reboot", action_after_reboot)
-        if allow_module_overwrite is not None:
-            pulumi.set(__self__, "allow_module_overwrite", allow_module_overwrite)
-        if configuration_mode is not None:
-            pulumi.set(__self__, "configuration_mode", configuration_mode)
+        pulumi.set(__self__, "action_after_reboot", action_after_reboot)
+        pulumi.set(__self__, "allow_module_overwrite", allow_module_overwrite)
+        pulumi.set(__self__, "configuration_mode", configuration_mode)
         if configuration_mode_frequency_mins is None:
             configuration_mode_frequency_mins = 15
-        if configuration_mode_frequency_mins is not None:
-            pulumi.set(__self__, "configuration_mode_frequency_mins", configuration_mode_frequency_mins)
-        if reboot_if_needed is not None:
-            pulumi.set(__self__, "reboot_if_needed", reboot_if_needed)
+        pulumi.set(__self__, "configuration_mode_frequency_mins", configuration_mode_frequency_mins)
+        pulumi.set(__self__, "reboot_if_needed", reboot_if_needed)
         if refresh_frequency_mins is None:
             refresh_frequency_mins = 30
-        if refresh_frequency_mins is not None:
-            pulumi.set(__self__, "refresh_frequency_mins", refresh_frequency_mins)
+        pulumi.set(__self__, "refresh_frequency_mins", refresh_frequency_mins)
 
     @property
     @pulumi.getter(name="actionAfterReboot")
-    def action_after_reboot(self) -> Optional[str]:
+    def action_after_reboot(self) -> str:
         """
         Specifies what happens after a reboot during the application of a configuration. The possible values are ContinueConfiguration and StopConfiguration
         """
@@ -443,7 +438,7 @@ class ConfigurationSettingResponse(dict):
 
     @property
     @pulumi.getter(name="allowModuleOverwrite")
-    def allow_module_overwrite(self) -> Optional[bool]:
+    def allow_module_overwrite(self) -> bool:
         """
         If true - new configurations downloaded from the pull service are allowed to overwrite the old ones on the target node. Otherwise, false
         """
@@ -451,7 +446,7 @@ class ConfigurationSettingResponse(dict):
 
     @property
     @pulumi.getter(name="configurationMode")
-    def configuration_mode(self) -> Optional[str]:
+    def configuration_mode(self) -> str:
         """
         Specifies how the LCM(Local Configuration Manager) actually applies the configuration to the target nodes. Possible values are ApplyOnly, ApplyAndMonitor, and ApplyAndAutoCorrect.
         """
@@ -459,7 +454,7 @@ class ConfigurationSettingResponse(dict):
 
     @property
     @pulumi.getter(name="configurationModeFrequencyMins")
-    def configuration_mode_frequency_mins(self) -> Optional[float]:
+    def configuration_mode_frequency_mins(self) -> float:
         """
         How often, in minutes, the current configuration is checked and applied. This property is ignored if the ConfigurationMode property is set to ApplyOnly. The default value is 15.
         """
@@ -467,7 +462,7 @@ class ConfigurationSettingResponse(dict):
 
     @property
     @pulumi.getter(name="rebootIfNeeded")
-    def reboot_if_needed(self) -> Optional[bool]:
+    def reboot_if_needed(self) -> bool:
         """
         Set this to true to automatically reboot the node after a configuration that requires reboot is applied. Otherwise, you will have to manually reboot the node for any configuration that requires it. The default value is false. To use this setting when a reboot condition is enacted by something other than DSC (such as Windows Installer), combine this setting with the xPendingReboot module.
         """
@@ -475,7 +470,7 @@ class ConfigurationSettingResponse(dict):
 
     @property
     @pulumi.getter(name="refreshFrequencyMins")
-    def refresh_frequency_mins(self) -> Optional[float]:
+    def refresh_frequency_mins(self) -> float:
         """
         The time interval, in minutes, at which the LCM checks a pull service to get updated configurations. This value is ignored if the LCM is not configured in pull mode. The default value is 30.
         """
@@ -674,7 +669,11 @@ class GuestConfigurationNavigationResponse(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "contentType":
+        if key == "assignmentSource":
+            suggest = "assignment_source"
+        elif key == "configurationSetting":
+            suggest = "configuration_setting"
+        elif key == "contentType":
             suggest = "content_type"
         elif key == "assignmentType":
             suggest = "assignment_type"
@@ -682,8 +681,6 @@ class GuestConfigurationNavigationResponse(dict):
             suggest = "configuration_parameter"
         elif key == "configurationProtectedParameter":
             suggest = "configuration_protected_parameter"
-        elif key == "configurationSetting":
-            suggest = "configuration_setting"
         elif key == "contentHash":
             suggest = "content_hash"
         elif key == "contentUri":
@@ -701,11 +698,12 @@ class GuestConfigurationNavigationResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 assignment_source: str,
+                 configuration_setting: 'outputs.ConfigurationSettingResponse',
                  content_type: str,
                  assignment_type: Optional[str] = None,
                  configuration_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
                  configuration_protected_parameter: Optional[Sequence['outputs.ConfigurationParameterResponse']] = None,
-                 configuration_setting: Optional['outputs.ConfigurationSettingResponse'] = None,
                  content_hash: Optional[str] = None,
                  content_uri: Optional[str] = None,
                  kind: Optional[str] = None,
@@ -713,17 +711,20 @@ class GuestConfigurationNavigationResponse(dict):
                  version: Optional[str] = None):
         """
         Guest configuration is an artifact that encapsulates DSC configuration and its dependencies. The artifact is a zip file containing DSC configuration (as MOF) and dependent resources and other dependencies like modules.
+        :param str assignment_source: Specifies the origin of the configuration.
+        :param 'ConfigurationSettingResponse' configuration_setting: The configuration setting for the guest configuration.
         :param str content_type: Specifies the content type of the configuration. Possible values could be Builtin or Custom.
         :param str assignment_type: Specifies the assignment type and execution of the configuration. Possible values are Audit, DeployAndAutoCorrect, ApplyAndAutoCorrect and ApplyAndMonitor.
         :param Sequence['ConfigurationParameterResponse'] configuration_parameter: The configuration parameters for the guest configuration.
         :param Sequence['ConfigurationParameterResponse'] configuration_protected_parameter: The protected configuration parameters for the guest configuration.
-        :param 'ConfigurationSettingResponse' configuration_setting: The configuration setting for the guest configuration.
         :param str content_hash: Combined hash of the guest configuration package and configuration parameters.
         :param str content_uri: Uri of the storage where guest configuration package is uploaded.
         :param str kind: Kind of the guest configuration. For example:DSC
         :param str name: Name of the guest configuration.
         :param str version: Version of the guest configuration.
         """
+        pulumi.set(__self__, "assignment_source", assignment_source)
+        pulumi.set(__self__, "configuration_setting", configuration_setting)
         pulumi.set(__self__, "content_type", content_type)
         if assignment_type is not None:
             pulumi.set(__self__, "assignment_type", assignment_type)
@@ -731,8 +732,6 @@ class GuestConfigurationNavigationResponse(dict):
             pulumi.set(__self__, "configuration_parameter", configuration_parameter)
         if configuration_protected_parameter is not None:
             pulumi.set(__self__, "configuration_protected_parameter", configuration_protected_parameter)
-        if configuration_setting is not None:
-            pulumi.set(__self__, "configuration_setting", configuration_setting)
         if content_hash is not None:
             pulumi.set(__self__, "content_hash", content_hash)
         if content_uri is not None:
@@ -743,6 +742,22 @@ class GuestConfigurationNavigationResponse(dict):
             pulumi.set(__self__, "name", name)
         if version is not None:
             pulumi.set(__self__, "version", version)
+
+    @property
+    @pulumi.getter(name="assignmentSource")
+    def assignment_source(self) -> str:
+        """
+        Specifies the origin of the configuration.
+        """
+        return pulumi.get(self, "assignment_source")
+
+    @property
+    @pulumi.getter(name="configurationSetting")
+    def configuration_setting(self) -> 'outputs.ConfigurationSettingResponse':
+        """
+        The configuration setting for the guest configuration.
+        """
+        return pulumi.get(self, "configuration_setting")
 
     @property
     @pulumi.getter(name="contentType")
@@ -775,14 +790,6 @@ class GuestConfigurationNavigationResponse(dict):
         The protected configuration parameters for the guest configuration.
         """
         return pulumi.get(self, "configuration_protected_parameter")
-
-    @property
-    @pulumi.getter(name="configurationSetting")
-    def configuration_setting(self) -> Optional['outputs.ConfigurationSettingResponse']:
-        """
-        The configuration setting for the guest configuration.
-        """
-        return pulumi.get(self, "configuration_setting")
 
     @property
     @pulumi.getter(name="contentHash")
@@ -823,6 +830,116 @@ class GuestConfigurationNavigationResponse(dict):
         Version of the guest configuration.
         """
         return pulumi.get(self, "version")
+
+
+@pulumi.output_type
+class SystemDataResponse(dict):
+    """
+    Metadata pertaining to creation and last modification of the resource.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "createdAt":
+            suggest = "created_at"
+        elif key == "createdBy":
+            suggest = "created_by"
+        elif key == "createdByType":
+            suggest = "created_by_type"
+        elif key == "lastModifiedAt":
+            suggest = "last_modified_at"
+        elif key == "lastModifiedBy":
+            suggest = "last_modified_by"
+        elif key == "lastModifiedByType":
+            suggest = "last_modified_by_type"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SystemDataResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SystemDataResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 created_at: Optional[str] = None,
+                 created_by: Optional[str] = None,
+                 created_by_type: Optional[str] = None,
+                 last_modified_at: Optional[str] = None,
+                 last_modified_by: Optional[str] = None,
+                 last_modified_by_type: Optional[str] = None):
+        """
+        Metadata pertaining to creation and last modification of the resource.
+        :param str created_at: The timestamp of resource creation (UTC).
+        :param str created_by: The identity that created the resource.
+        :param str created_by_type: The type of identity that created the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
+        :param str last_modified_by: The identity that last modified the resource.
+        :param str last_modified_by_type: The type of identity that last modified the resource.
+        """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if created_by is not None:
+            pulumi.set(__self__, "created_by", created_by)
+        if created_by_type is not None:
+            pulumi.set(__self__, "created_by_type", created_by_type)
+        if last_modified_at is not None:
+            pulumi.set(__self__, "last_modified_at", last_modified_at)
+        if last_modified_by is not None:
+            pulumi.set(__self__, "last_modified_by", last_modified_by)
+        if last_modified_by_type is not None:
+            pulumi.set(__self__, "last_modified_by_type", last_modified_by_type)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[str]:
+        """
+        The timestamp of resource creation (UTC).
+        """
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="createdBy")
+    def created_by(self) -> Optional[str]:
+        """
+        The identity that created the resource.
+        """
+        return pulumi.get(self, "created_by")
+
+    @property
+    @pulumi.getter(name="createdByType")
+    def created_by_type(self) -> Optional[str]:
+        """
+        The type of identity that created the resource.
+        """
+        return pulumi.get(self, "created_by_type")
+
+    @property
+    @pulumi.getter(name="lastModifiedAt")
+    def last_modified_at(self) -> Optional[str]:
+        """
+        The timestamp of resource last modification (UTC)
+        """
+        return pulumi.get(self, "last_modified_at")
+
+    @property
+    @pulumi.getter(name="lastModifiedBy")
+    def last_modified_by(self) -> Optional[str]:
+        """
+        The identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by")
+
+    @property
+    @pulumi.getter(name="lastModifiedByType")
+    def last_modified_by_type(self) -> Optional[str]:
+        """
+        The type of identity that last modified the resource.
+        """
+        return pulumi.get(self, "last_modified_by_type")
 
 
 @pulumi.output_type

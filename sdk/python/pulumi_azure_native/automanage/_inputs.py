@@ -15,6 +15,7 @@ __all__ = [
     'ConfigurationProfilePreferenceAntiMalwareArgs',
     'ConfigurationProfilePreferencePropertiesArgs',
     'ConfigurationProfilePreferenceVmBackupArgs',
+    'ConfigurationProfilePropertiesArgs',
 ]
 
 @pulumi.input_type
@@ -44,73 +45,41 @@ class AccountIdentityArgs:
 @pulumi.input_type
 class ConfigurationProfileAssignmentPropertiesArgs:
     def __init__(__self__, *,
-                 account_id: Optional[pulumi.Input[str]] = None,
-                 configuration_profile: Optional[pulumi.Input[Union[str, 'ConfigurationProfile']]] = None,
-                 configuration_profile_preference_id: Optional[pulumi.Input[str]] = None,
-                 target_id: Optional[pulumi.Input[str]] = None):
+                 configuration_profile: Optional[pulumi.Input[str]] = None,
+                 profile_overrides: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Automanage configuration profile assignment properties.
-        :param pulumi.Input[str] account_id: The Automanage account ARM Resource URI
-        :param pulumi.Input[Union[str, 'ConfigurationProfile']] configuration_profile: A value indicating configuration profile.
-        :param pulumi.Input[str] configuration_profile_preference_id: The configuration profile custom preferences ARM resource URI
-        :param pulumi.Input[str] target_id: The target VM resource URI
+        :param pulumi.Input[str] configuration_profile: The Automanage configurationProfile ARM Resource URI.
+        :param pulumi.Input[Mapping[str, Any]] profile_overrides: The profileOverrides setting for the configuration profile assignment.
         """
-        if account_id is not None:
-            pulumi.set(__self__, "account_id", account_id)
         if configuration_profile is not None:
             pulumi.set(__self__, "configuration_profile", configuration_profile)
-        if configuration_profile_preference_id is not None:
-            pulumi.set(__self__, "configuration_profile_preference_id", configuration_profile_preference_id)
-        if target_id is not None:
-            pulumi.set(__self__, "target_id", target_id)
-
-    @property
-    @pulumi.getter(name="accountId")
-    def account_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Automanage account ARM Resource URI
-        """
-        return pulumi.get(self, "account_id")
-
-    @account_id.setter
-    def account_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "account_id", value)
+        if profile_overrides is not None:
+            pulumi.set(__self__, "profile_overrides", profile_overrides)
 
     @property
     @pulumi.getter(name="configurationProfile")
-    def configuration_profile(self) -> Optional[pulumi.Input[Union[str, 'ConfigurationProfile']]]:
+    def configuration_profile(self) -> Optional[pulumi.Input[str]]:
         """
-        A value indicating configuration profile.
+        The Automanage configurationProfile ARM Resource URI.
         """
         return pulumi.get(self, "configuration_profile")
 
     @configuration_profile.setter
-    def configuration_profile(self, value: Optional[pulumi.Input[Union[str, 'ConfigurationProfile']]]):
+    def configuration_profile(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "configuration_profile", value)
 
     @property
-    @pulumi.getter(name="configurationProfilePreferenceId")
-    def configuration_profile_preference_id(self) -> Optional[pulumi.Input[str]]:
+    @pulumi.getter(name="profileOverrides")
+    def profile_overrides(self) -> Optional[pulumi.Input[Mapping[str, Any]]]:
         """
-        The configuration profile custom preferences ARM resource URI
+        The profileOverrides setting for the configuration profile assignment.
         """
-        return pulumi.get(self, "configuration_profile_preference_id")
+        return pulumi.get(self, "profile_overrides")
 
-    @configuration_profile_preference_id.setter
-    def configuration_profile_preference_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "configuration_profile_preference_id", value)
-
-    @property
-    @pulumi.getter(name="targetId")
-    def target_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The target VM resource URI
-        """
-        return pulumi.get(self, "target_id")
-
-    @target_id.setter
-    def target_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "target_id", value)
+    @profile_overrides.setter
+    def profile_overrides(self, value: Optional[pulumi.Input[Mapping[str, Any]]]):
+        pulumi.set(self, "profile_overrides", value)
 
 
 @pulumi.input_type
@@ -327,5 +296,45 @@ class ConfigurationProfilePreferenceVmBackupArgs:
     @time_zone.setter
     def time_zone(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "time_zone", value)
+
+
+@pulumi.input_type
+class ConfigurationProfilePropertiesArgs:
+    def __init__(__self__, *,
+                 configuration: Optional[Any] = None,
+                 overrides: Optional[pulumi.Input[Sequence[Any]]] = None):
+        """
+        Automanage configuration profile properties.
+        :param Any configuration: configuration dictionary of the configuration profile.
+        :param pulumi.Input[Sequence[Any]] overrides: overrides of the configuration profile.
+        """
+        if configuration is not None:
+            pulumi.set(__self__, "configuration", configuration)
+        if overrides is not None:
+            pulumi.set(__self__, "overrides", overrides)
+
+    @property
+    @pulumi.getter
+    def configuration(self) -> Optional[Any]:
+        """
+        configuration dictionary of the configuration profile.
+        """
+        return pulumi.get(self, "configuration")
+
+    @configuration.setter
+    def configuration(self, value: Optional[Any]):
+        pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter
+    def overrides(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        overrides of the configuration profile.
+        """
+        return pulumi.get(self, "overrides")
+
+    @overrides.setter
+    def overrides(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "overrides", value)
 
 

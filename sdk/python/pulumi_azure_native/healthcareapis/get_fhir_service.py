@@ -266,7 +266,7 @@ def get_fhir_service(fhir_service_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetFhirServiceResult:
     """
     The description of Fhir Service
-    API Version: 2021-11-01.
+    API Version: 2022-05-15.
 
 
     :param str fhir_service_name: The name of FHIR Service resource.
@@ -312,7 +312,7 @@ def get_fhir_service_output(fhir_service_name: Optional[pulumi.Input[str]] = Non
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetFhirServiceResult]:
     """
     The description of Fhir Service
-    API Version: 2021-11-01.
+    API Version: 2022-05-15.
 
 
     :param str fhir_service_name: The name of FHIR Service resource.

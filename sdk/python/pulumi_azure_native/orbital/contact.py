@@ -15,7 +15,7 @@ __all__ = ['ContactArgs', 'Contact']
 @pulumi.input_type
 class ContactArgs:
     def __init__(__self__, *,
-                 contact_profile: pulumi.Input['ResourceReferenceArgs'],
+                 contact_profile: pulumi.Input['ContactsPropertiesContactProfileArgs'],
                  ground_station_name: pulumi.Input[str],
                  reservation_end_time: pulumi.Input[str],
                  reservation_start_time: pulumi.Input[str],
@@ -24,7 +24,7 @@ class ContactArgs:
                  contact_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Contact resource.
-        :param pulumi.Input['ResourceReferenceArgs'] contact_profile: The reference to the contact profile resource.
+        :param pulumi.Input['ContactsPropertiesContactProfileArgs'] contact_profile: The reference to the contact profile resource.
         :param pulumi.Input[str] ground_station_name: Azure Ground Station name.
         :param pulumi.Input[str] reservation_end_time: Reservation end time of a contact.
         :param pulumi.Input[str] reservation_start_time: Reservation start time of a contact.
@@ -43,14 +43,14 @@ class ContactArgs:
 
     @property
     @pulumi.getter(name="contactProfile")
-    def contact_profile(self) -> pulumi.Input['ResourceReferenceArgs']:
+    def contact_profile(self) -> pulumi.Input['ContactsPropertiesContactProfileArgs']:
         """
         The reference to the contact profile resource.
         """
         return pulumi.get(self, "contact_profile")
 
     @contact_profile.setter
-    def contact_profile(self, value: pulumi.Input['ResourceReferenceArgs']):
+    def contact_profile(self, value: pulumi.Input['ContactsPropertiesContactProfileArgs']):
         pulumi.set(self, "contact_profile", value)
 
     @property
@@ -132,7 +132,7 @@ class Contact(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_name: Optional[pulumi.Input[str]] = None,
-                 contact_profile: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 contact_profile: Optional[pulumi.Input[pulumi.InputType['ContactsPropertiesContactProfileArgs']]] = None,
                  ground_station_name: Optional[pulumi.Input[str]] = None,
                  reservation_end_time: Optional[pulumi.Input[str]] = None,
                  reservation_start_time: Optional[pulumi.Input[str]] = None,
@@ -141,12 +141,12 @@ class Contact(pulumi.CustomResource):
                  __props__=None):
         """
         Customer creates a contact resource for a spacecraft resource.
-        API Version: 2021-04-04-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] contact_name: Contact Name
-        :param pulumi.Input[pulumi.InputType['ResourceReferenceArgs']] contact_profile: The reference to the contact profile resource.
+        :param pulumi.Input[pulumi.InputType['ContactsPropertiesContactProfileArgs']] contact_profile: The reference to the contact profile resource.
         :param pulumi.Input[str] ground_station_name: Azure Ground Station name.
         :param pulumi.Input[str] reservation_end_time: Reservation end time of a contact.
         :param pulumi.Input[str] reservation_start_time: Reservation start time of a contact.
@@ -161,7 +161,7 @@ class Contact(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Customer creates a contact resource for a spacecraft resource.
-        API Version: 2021-04-04-preview.
+        API Version: 2022-03-01.
 
         :param str resource_name: The name of the resource.
         :param ContactArgs args: The arguments to use to populate this resource's properties.
@@ -179,7 +179,7 @@ class Contact(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  contact_name: Optional[pulumi.Input[str]] = None,
-                 contact_profile: Optional[pulumi.Input[pulumi.InputType['ResourceReferenceArgs']]] = None,
+                 contact_profile: Optional[pulumi.Input[pulumi.InputType['ContactsPropertiesContactProfileArgs']]] = None,
                  ground_station_name: Optional[pulumi.Input[str]] = None,
                  reservation_end_time: Optional[pulumi.Input[str]] = None,
                  reservation_start_time: Optional[pulumi.Input[str]] = None,
@@ -216,6 +216,7 @@ class Contact(pulumi.CustomResource):
             if spacecraft_name is None and not opts.urn:
                 raise TypeError("Missing required property 'spacecraft_name'")
             __props__.__dict__["spacecraft_name"] = spacecraft_name
+            __props__.__dict__["antenna_configuration"] = None
             __props__.__dict__["end_azimuth_degrees"] = None
             __props__.__dict__["end_elevation_degrees"] = None
             __props__.__dict__["error_message"] = None
@@ -231,7 +232,7 @@ class Contact(pulumi.CustomResource):
             __props__.__dict__["tx_end_time"] = None
             __props__.__dict__["tx_start_time"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20210404preview:Contact")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:orbital/v20210404preview:Contact"), pulumi.Alias(type_="azure-native:orbital/v20220301:Contact")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Contact, __self__).__init__(
             'azure-native:orbital:Contact',
@@ -255,6 +256,7 @@ class Contact(pulumi.CustomResource):
 
         __props__ = ContactArgs.__new__(ContactArgs)
 
+        __props__.__dict__["antenna_configuration"] = None
         __props__.__dict__["contact_profile"] = None
         __props__.__dict__["end_azimuth_degrees"] = None
         __props__.__dict__["end_elevation_degrees"] = None
@@ -277,8 +279,16 @@ class Contact(pulumi.CustomResource):
         return Contact(resource_name, opts=opts, __props__=__props__)
 
     @property
+    @pulumi.getter(name="antennaConfiguration")
+    def antenna_configuration(self) -> pulumi.Output['outputs.ContactsPropertiesResponseAntennaConfiguration']:
+        """
+        The configuration associated with the allocated antenna.
+        """
+        return pulumi.get(self, "antenna_configuration")
+
+    @property
     @pulumi.getter(name="contactProfile")
-    def contact_profile(self) -> pulumi.Output['outputs.ResourceReferenceResponse']:
+    def contact_profile(self) -> pulumi.Output['outputs.ContactsPropertiesResponseContactProfile']:
         """
         The reference to the contact profile resource.
         """
