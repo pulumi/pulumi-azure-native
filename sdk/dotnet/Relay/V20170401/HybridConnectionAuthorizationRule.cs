@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Relay.V20170401
     /// <summary>
     /// Description of a namespace authorization rule.
     /// </summary>
+    [Obsolete(@"Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")]
     [AzureNativeResourceType("azure-native:relay/v20170401:HybridConnectionAuthorizationRule")]
     public partial class HybridConnectionAuthorizationRule : Pulumi.CustomResource
     {

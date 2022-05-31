@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.GuestConfiguration
 {
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
-    /// API Version: 2020-06-25.
+    /// API Version: 2022-01-25.
     /// </summary>
     [AzureNativeResourceType("azure-native:guestconfiguration:GuestConfigurationHCRPAssignment")]
     public partial class GuestConfigurationHCRPAssignment : Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.GuestConfiguration
         /// </summary>
         [Output("properties")]
         public Output<Outputs.GuestConfigurationAssignmentPropertiesResponse> Properties { get; private set; } = null!;
+
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// The type of the resource.
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNative.GuestConfiguration
                     new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment"},
                     new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment"},
                     new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationHCRPAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

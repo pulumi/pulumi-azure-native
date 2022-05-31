@@ -126,6 +126,12 @@ namespace Pulumi.AzureNative.App.V20220301
     public sealed class DaprComponentArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the Dapr Component.
+        /// </summary>
+        [Input("componentName")]
+        public Input<string>? ComponentName { get; set; }
+
+        /// <summary>
         /// Component type
         /// </summary>
         [Input("componentType")]
@@ -160,12 +166,6 @@ namespace Pulumi.AzureNative.App.V20220301
             get => _metadata ?? (_metadata = new InputList<Inputs.DaprMetadataArgs>());
             set => _metadata = value;
         }
-
-        /// <summary>
-        /// Name of the Dapr Component.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Orbital
     {
         /// <summary>
         /// Customer creates a spacecraft resource to schedule a contact.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetSpacecraftResult> InvokeAsync(GetSpacecraftArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSpacecraftResult>("azure-native:orbital:getSpacecraft", args ?? new GetSpacecraftArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer creates a spacecraft resource to schedule a contact.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetSpacecraftResult> Invoke(GetSpacecraftInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSpacecraftResult>("azure-native:orbital:getSpacecraft", args ?? new GetSpacecraftInvokeArgs(), options.WithDefaults());
@@ -69,14 +69,6 @@ namespace Pulumi.AzureNative.Orbital
     [OutputType]
     public sealed class GetSpacecraftResult
     {
-        /// <summary>
-        /// Authorization status of spacecraft.
-        /// </summary>
-        public readonly string AuthorizationStatus;
-        /// <summary>
-        /// Details of the authorization status.
-        /// </summary>
-        public readonly string AuthorizationStatusExtended;
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -128,10 +120,6 @@ namespace Pulumi.AzureNative.Orbital
 
         [OutputConstructor]
         private GetSpacecraftResult(
-            string authorizationStatus,
-
-            string authorizationStatusExtended,
-
             string etag,
 
             string id,
@@ -156,8 +144,6 @@ namespace Pulumi.AzureNative.Orbital
 
             string type)
         {
-            AuthorizationStatus = authorizationStatus;
-            AuthorizationStatusExtended = authorizationStatusExtended;
             Etag = etag;
             Id = id;
             Links = links;

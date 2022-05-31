@@ -93,6 +93,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20210601Preview
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20180101preview:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceNetworkRuleSet"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:NamespaceNetworkRuleSet"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

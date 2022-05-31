@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Orbital.Outputs
 {
 
     /// <summary>
-    /// Contact Profile link
+    /// Contact Profile Link
     /// </summary>
     [OutputType]
     public sealed class ContactProfileLinkResponse
@@ -33,6 +33,10 @@ namespace Pulumi.AzureNative.Orbital.Outputs
         /// </summary>
         public readonly double? GainOverTemperature;
         /// <summary>
+        /// Link name
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
         /// polarization. eg (RHCP, LHCP)
         /// </summary>
         public readonly string Polarization;
@@ -47,12 +51,15 @@ namespace Pulumi.AzureNative.Orbital.Outputs
 
             double? gainOverTemperature,
 
+            string name,
+
             string polarization)
         {
             Channels = channels;
             Direction = direction;
             EirpdBW = eirpdBW;
             GainOverTemperature = gainOverTemperature;
+            Name = name;
             Polarization = polarization;
         }
     }

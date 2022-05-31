@@ -16,28 +16,22 @@ namespace Pulumi.AzureNative.Automanage.Inputs
     public sealed class ConfigurationProfileAssignmentPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The Automanage account ARM Resource URI
-        /// </summary>
-        [Input("accountId")]
-        public Input<string>? AccountId { get; set; }
-
-        /// <summary>
-        /// A value indicating configuration profile.
+        /// The Automanage configurationProfile ARM Resource URI.
         /// </summary>
         [Input("configurationProfile")]
-        public InputUnion<string, Pulumi.AzureNative.Automanage.ConfigurationProfile>? ConfigurationProfile { get; set; }
+        public Input<string>? ConfigurationProfile { get; set; }
+
+        [Input("profileOverrides")]
+        private InputMap<object>? _profileOverrides;
 
         /// <summary>
-        /// The configuration profile custom preferences ARM resource URI
+        /// The profileOverrides setting for the configuration profile assignment.
         /// </summary>
-        [Input("configurationProfilePreferenceId")]
-        public Input<string>? ConfigurationProfilePreferenceId { get; set; }
-
-        /// <summary>
-        /// The target VM resource URI
-        /// </summary>
-        [Input("targetId")]
-        public Input<string>? TargetId { get; set; }
+        public InputMap<object> ProfileOverrides
+        {
+            get => _profileOverrides ?? (_profileOverrides = new InputMap<object>());
+            set => _profileOverrides = value;
+        }
 
         public ConfigurationProfileAssignmentPropertiesArgs()
         {

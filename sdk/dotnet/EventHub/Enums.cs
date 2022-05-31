@@ -37,6 +37,36 @@ namespace Pulumi.AzureNative.EventHub
     }
 
     /// <summary>
+    /// Application Group Policy types
+    /// </summary>
+    [EnumType]
+    public readonly struct ApplicationGroupPolicyType : IEquatable<ApplicationGroupPolicyType>
+    {
+        private readonly string _value;
+
+        private ApplicationGroupPolicyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static ApplicationGroupPolicyType ThrottlingPolicy { get; } = new ApplicationGroupPolicyType("ThrottlingPolicy");
+
+        public static bool operator ==(ApplicationGroupPolicyType left, ApplicationGroupPolicyType right) => left.Equals(right);
+        public static bool operator !=(ApplicationGroupPolicyType left, ApplicationGroupPolicyType right) => !left.Equals(right);
+
+        public static explicit operator string(ApplicationGroupPolicyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is ApplicationGroupPolicyType other && Equals(other);
+        public bool Equals(ApplicationGroupPolicyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Name of this SKU.
     /// </summary>
     [EnumType]
@@ -225,6 +255,39 @@ namespace Pulumi.AzureNative.EventHub
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is IPAction other && Equals(other);
         public bool Equals(IPAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+    /// </summary>
+    [EnumType]
+    public readonly struct MetricId : IEquatable<MetricId>
+    {
+        private readonly string _value;
+
+        private MetricId(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static MetricId IncomingBytes { get; } = new MetricId("IncomingBytes");
+        public static MetricId OutgoingBytes { get; } = new MetricId("OutgoingBytes");
+        public static MetricId IncomingMessages { get; } = new MetricId("IncomingMessages");
+        public static MetricId OutgoingMessages { get; } = new MetricId("OutgoingMessages");
+
+        public static bool operator ==(MetricId left, MetricId right) => left.Equals(right);
+        public static bool operator !=(MetricId left, MetricId right) => !left.Equals(right);
+
+        public static explicit operator string(MetricId value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is MetricId other && Equals(other);
+        public bool Equals(MetricId other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

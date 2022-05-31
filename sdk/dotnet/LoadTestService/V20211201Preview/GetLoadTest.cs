@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.LoadTestService.V20211201Preview
 {
+    [Obsolete(@"Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later.")]
     public static class GetLoadTest
     {
         /// <summary>
@@ -28,7 +29,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20211201Preview
     public sealed class GetLoadTestArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Load Test name.
+        /// Load Test resource name.
         /// </summary>
         [Input("loadTestName", required: true)]
         public string LoadTestName { get; set; } = null!;
@@ -47,7 +48,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20211201Preview
     public sealed class GetLoadTestInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Load Test name.
+        /// Load Test resource name.
         /// </summary>
         [Input("loadTestName", required: true)]
         public Input<string> LoadTestName { get; set; } = null!;

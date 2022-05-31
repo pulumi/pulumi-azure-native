@@ -92,15 +92,15 @@ namespace Pulumi.AzureNative.NetApp.V20210801
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -124,7 +124,11 @@ namespace Pulumi.AzureNative.NetApp.V20210801
         /// </summary>
         public readonly double Size;
         /// <summary>
-        /// Resource tags
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
@@ -132,7 +136,7 @@ namespace Pulumi.AzureNative.NetApp.V20210801
         /// </summary>
         public readonly double TotalThroughputMibps;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -164,6 +168,8 @@ namespace Pulumi.AzureNative.NetApp.V20210801
 
             double size,
 
+            Outputs.SystemDataResponse systemData,
+
             ImmutableDictionary<string, string>? tags,
 
             double totalThroughputMibps,
@@ -183,6 +189,7 @@ namespace Pulumi.AzureNative.NetApp.V20210801
             QosType = qosType;
             ServiceLevel = serviceLevel;
             Size = size;
+            SystemData = systemData;
             Tags = tags;
             TotalThroughputMibps = totalThroughputMibps;
             Type = type;

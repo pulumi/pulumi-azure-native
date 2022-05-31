@@ -110,6 +110,10 @@ namespace Pulumi.AzureNative.DataFactory
         /// </summary>
         public readonly string? PublicNetworkAccess;
         /// <summary>
+        /// Purview information of the factory.
+        /// </summary>
+        public readonly Outputs.PurviewConfigurationResponse? PurviewConfiguration;
+        /// <summary>
         /// Git repo information of the factory.
         /// </summary>
         public readonly Union<Outputs.FactoryGitHubConfigurationResponse, Outputs.FactoryVSTSConfigurationResponse>? RepoConfiguration;
@@ -148,6 +152,8 @@ namespace Pulumi.AzureNative.DataFactory
 
             string? publicNetworkAccess,
 
+            Outputs.PurviewConfigurationResponse? purviewConfiguration,
+
             Union<Outputs.FactoryGitHubConfigurationResponse, Outputs.FactoryVSTSConfigurationResponse>? repoConfiguration,
 
             ImmutableDictionary<string, string>? tags,
@@ -166,6 +172,7 @@ namespace Pulumi.AzureNative.DataFactory
             Name = name;
             ProvisioningState = provisioningState;
             PublicNetworkAccess = publicNetworkAccess;
+            PurviewConfiguration = purviewConfiguration;
             RepoConfiguration = repoConfiguration;
             Tags = tags;
             Type = type;

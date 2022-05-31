@@ -135,6 +135,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
                     new Pulumi.Alias { Type = "azure-native:network:DefaultUserRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:DefaultUserRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501preview:DefaultUserRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:DefaultUserRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

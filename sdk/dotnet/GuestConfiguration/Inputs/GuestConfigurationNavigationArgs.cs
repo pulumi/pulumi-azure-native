@@ -46,12 +46,6 @@ namespace Pulumi.AzureNative.GuestConfiguration.Inputs
         }
 
         /// <summary>
-        /// The configuration setting for the guest configuration.
-        /// </summary>
-        [Input("configurationSetting")]
-        public Input<Inputs.ConfigurationSettingArgs>? ConfigurationSetting { get; set; }
-
-        /// <summary>
         /// Combined hash of the guest configuration package and configuration parameters.
         /// </summary>
         [Input("contentHash")]

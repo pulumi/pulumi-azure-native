@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
     /// <summary>
     /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
     /// </summary>
+    [Obsolete(@"Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")]
     [AzureNativeResourceType("azure-native:orbital/v20210404preview:ContactProfile")]
     public partial class ContactProfile : Pulumi.CustomResource
     {
@@ -107,6 +108,7 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:orbital:ContactProfile"},
+                    new Pulumi.Alias { Type = "azure-native:orbital/v20220301:ContactProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

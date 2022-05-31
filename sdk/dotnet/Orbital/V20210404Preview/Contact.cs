@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
     /// <summary>
     /// Customer creates a contact resource for a spacecraft resource.
     /// </summary>
+    [Obsolete(@"Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")]
     [AzureNativeResourceType("azure-native:orbital/v20210404preview:Contact")]
     public partial class Contact : Pulumi.CustomResource
     {
@@ -155,6 +156,7 @@ namespace Pulumi.AzureNative.Orbital.V20210404Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:orbital:Contact"},
+                    new Pulumi.Alias { Type = "azure-native:orbital/v20220301:Contact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

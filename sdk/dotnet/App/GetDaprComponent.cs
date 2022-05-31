@@ -30,16 +30,16 @@ namespace Pulumi.AzureNative.App
     public sealed class GetDaprComponentArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Name of the Dapr Component.
+        /// </summary>
+        [Input("componentName", required: true)]
+        public string ComponentName { get; set; } = null!;
+
+        /// <summary>
         /// Name of the Managed Environment.
         /// </summary>
         [Input("environmentName", required: true)]
         public string EnvironmentName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the Dapr Component.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -55,16 +55,16 @@ namespace Pulumi.AzureNative.App
     public sealed class GetDaprComponentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Name of the Dapr Component.
+        /// </summary>
+        [Input("componentName", required: true)]
+        public Input<string> ComponentName { get; set; } = null!;
+
+        /// <summary>
         /// Name of the Managed Environment.
         /// </summary>
         [Input("environmentName", required: true)]
         public Input<string> EnvironmentName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the Dapr Component.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

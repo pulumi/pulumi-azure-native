@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.LoadTestService
 {
     /// <summary>
     /// LoadTest details
-    /// API Version: 2021-12-01-preview.
+    /// API Version: 2022-04-15-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:loadtestservice:LoadTest")]
     public partial class LoadTest : Pulumi.CustomResource
@@ -29,10 +29,16 @@ namespace Pulumi.AzureNative.LoadTestService
         public Output<string?> Description { get; private set; } = null!;
 
         /// <summary>
+        /// CMK Encryption property.
+        /// </summary>
+        [Output("encryption")]
+        public Output<Outputs.EncryptionPropertiesResponse?> Encryption { get; private set; } = null!;
+
+        /// <summary>
         /// The type of identity used for the resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the resource lives
@@ -127,13 +133,19 @@ namespace Pulumi.AzureNative.LoadTestService
         public Input<string>? Description { get; set; }
 
         /// <summary>
+        /// CMK Encryption property.
+        /// </summary>
+        [Input("encryption")]
+        public Input<Inputs.EncryptionPropertiesArgs>? Encryption { get; set; }
+
+        /// <summary>
         /// The type of identity used for the resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Load Test name.
+        /// Load Test resource name.
         /// </summary>
         [Input("loadTestName")]
         public Input<string>? LoadTestName { get; set; }

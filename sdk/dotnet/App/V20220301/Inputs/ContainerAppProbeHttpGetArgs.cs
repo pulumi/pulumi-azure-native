@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.App.V20220301.Inputs
         /// Scheme to use for connecting to the host. Defaults to HTTP.
         /// </summary>
         [Input("scheme")]
-        public Input<string>? Scheme { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.App.V20220301.Scheme>? Scheme { get; set; }
 
         public ContainerAppProbeHttpGetArgs()
         {

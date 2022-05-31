@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The Scope Connections resource
-    /// API Version: 2022-02-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ScopeConnection")]
     public partial class ScopeConnection : Pulumi.CustomResource
@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.Network
                 {
                     new Pulumi.Alias { Type = "azure-native:network/v20210501preview:ScopeConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220201preview:ScopeConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:ScopeConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

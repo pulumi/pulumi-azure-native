@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
 {
+    [Obsolete(@"Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.")]
     public static class GetAccount
     {
         /// <summary>

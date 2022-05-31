@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// The Network Manager Connection resource
-        /// API Version: 2022-02-01-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetSubscriptionNetworkManagerConnectionResult> InvokeAsync(GetSubscriptionNetworkManagerConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Network Manager Connection resource
-        /// API Version: 2022-02-01-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetSubscriptionNetworkManagerConnectionResult> Invoke(GetSubscriptionNetworkManagerConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetSubscriptionNetworkManagerConnectionResult>("azure-native:network:getSubscriptionNetworkManagerConnection", args ?? new GetSubscriptionNetworkManagerConnectionInvokeArgs(), options.WithDefaults());

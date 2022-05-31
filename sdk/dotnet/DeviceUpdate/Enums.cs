@@ -132,4 +132,35 @@ namespace Pulumi.AzureNative.DeviceUpdate
 
         public override string ToString() => _value;
     }
+
+    /// <summary>
+    /// Device Update Sku
+    /// </summary>
+    [EnumType]
+    public readonly struct SKU : IEquatable<SKU>
+    {
+        private readonly string _value;
+
+        private SKU(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SKU Free { get; } = new SKU("Free");
+        public static SKU Standard { get; } = new SKU("Standard");
+
+        public static bool operator ==(SKU left, SKU right) => left.Equals(right);
+        public static bool operator !=(SKU left, SKU right) => !left.Equals(right);
+
+        public static explicit operator string(SKU value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SKU other && Equals(other);
+        public bool Equals(SKU other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
 }

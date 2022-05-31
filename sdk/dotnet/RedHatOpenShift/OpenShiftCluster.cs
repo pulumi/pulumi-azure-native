@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
 {
     /// <summary>
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
-    /// API Version: 2020-04-30.
+    /// API Version: 2022-04-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:redhatopenshift:OpenShiftCluster")]
     public partial class OpenShiftCluster : Pulumi.CustomResource
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         public Output<Outputs.NetworkProfileResponse?> NetworkProfile { get; private set; } = null!;
 
         /// <summary>
-        /// The cluster provisioning state (immutable).
+        /// The cluster provisioning state.
         /// </summary>
         [Output("provisioningState")]
         public Output<string?> ProvisioningState { get; private set; } = null!;
@@ -75,6 +75,12 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         /// </summary>
         [Output("servicePrincipalProfile")]
         public Output<Outputs.ServicePrincipalProfileResponse?> ServicePrincipalProfile { get; private set; } = null!;
+
+        /// <summary>
+        /// The system meta data relating to this resource.
+        /// </summary>
+        [Output("systemData")]
+        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
         /// Resource tags.
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
                 {
                     new Pulumi.Alias { Type = "azure-native:redhatopenshift/v20200430:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-native:redhatopenshift/v20210901preview:OpenShiftCluster"},
+                    new Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220401:OpenShiftCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -193,7 +200,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift
         public Input<Inputs.NetworkProfileArgs>? NetworkProfile { get; set; }
 
         /// <summary>
-        /// The cluster provisioning state (immutable).
+        /// The cluster provisioning state.
         /// </summary>
         [Input("provisioningState")]
         public Input<string>? ProvisioningState { get; set; }

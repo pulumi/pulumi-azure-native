@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.DeviceUpdate
     {
         /// <summary>
         /// Device Update instance details.
-        /// API Version: 2020-03-01-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetInstanceResult> InvokeAsync(GetInstanceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetInstanceResult>("azure-native:deviceupdate:getInstance", args ?? new GetInstanceArgs(), options.WithDefaults());
 
         /// <summary>
         /// Device Update instance details.
-        /// API Version: 2020-03-01-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetInstanceResult> Invoke(GetInstanceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetInstanceResult>("azure-native:deviceupdate:getInstance", args ?? new GetInstanceInvokeArgs(), options.WithDefaults());

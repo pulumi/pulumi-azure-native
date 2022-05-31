@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
     public sealed class OperationsDefinitionArgs : Pulumi.ResourceArgs
     {
         [Input("actionType")]
-        public Input<string>? ActionType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.OperationActionType>? ActionType { get; set; }
 
         /// <summary>
         /// Display information of the operation.
@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public Input<string> Name { get; set; } = null!;
 
         [Input("origin")]
-        public Input<string>? Origin { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.OperationOrigins>? Origin { get; set; }
 
         [Input("properties")]
         public Input<object>? Properties { get; set; }

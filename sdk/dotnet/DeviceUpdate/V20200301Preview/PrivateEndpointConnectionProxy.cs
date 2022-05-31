@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
     /// <summary>
     /// Private endpoint connection proxy details.
     /// </summary>
+    [Obsolete(@"Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.")]
     [AzureNativeResourceType("azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy")]
     public partial class PrivateEndpointConnectionProxy : Pulumi.CustomResource
     {
@@ -83,6 +84,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:deviceupdate:PrivateEndpointConnectionProxy"},
+                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

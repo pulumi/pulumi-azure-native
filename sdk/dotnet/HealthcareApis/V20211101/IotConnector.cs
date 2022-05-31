@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101
     /// <summary>
     /// IoT Connector definition.
     /// </summary>
+    [Obsolete(@"Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20211101:IotConnector")]
     public partial class IotConnector : Pulumi.CustomResource
     {
@@ -103,6 +104,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20211101
                     new Pulumi.Alias { Type = "azure-native:healthcareapis:IotConnector"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:IotConnector"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:IotConnector"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

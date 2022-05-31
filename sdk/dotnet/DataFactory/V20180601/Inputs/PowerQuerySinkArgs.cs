@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// Rejected data linked service reference.
+        /// </summary>
+        [Input("rejectedDataLinkedService")]
+        public Input<Inputs.LinkedServiceReferenceArgs>? RejectedDataLinkedService { get; set; }
+
+        /// <summary>
         /// Schema linked service reference.
         /// </summary>
         [Input("schemaLinkedService")]

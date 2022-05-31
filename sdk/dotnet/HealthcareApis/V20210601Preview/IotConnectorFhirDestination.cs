@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
     /// <summary>
     /// IoT Connector FHIR destination definition.
     /// </summary>
-    [Obsolete(@"Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")]
+    [Obsolete(@"Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination")]
     public partial class IotConnectorFhirDestination : Pulumi.CustomResource
     {
@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
                     new Pulumi.Alias { Type = "azure-native:healthcareapis:IotConnectorFhirDestination"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:IotConnectorFhirDestination"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:IotConnectorFhirDestination"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

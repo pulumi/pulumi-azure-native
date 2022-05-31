@@ -85,6 +85,8 @@ namespace Pulumi.AzureNative.ContainerService.V20210501
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220301:MaintenanceConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220401:MaintenanceConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:MaintenanceConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

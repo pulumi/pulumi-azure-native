@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.ConfidentialLedger.V20201201Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:confidentialledger:Ledger"},
                     new Pulumi.Alias { Type = "azure-native:confidentialledger/v20210513preview:Ledger"},
+                    new Pulumi.Alias { Type = "azure-native:confidentialledger/v20220513:Ledger"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

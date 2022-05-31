@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
 {
     /// <summary>
     /// Device Update account details.
-    /// API Version: 2020-03-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:Account")]
     public partial class Account : Pulumi.CustomResource
@@ -33,6 +33,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
+
+        /// <summary>
+        /// Device Update account primary and failover location details
+        /// </summary>
+        [Output("locations")]
+        public Output<ImmutableArray<Outputs.LocationResponse>> Locations { get; private set; } = null!;
 
         /// <summary>
         /// The name of the resource
@@ -57,6 +63,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         /// </summary>
         [Output("publicNetworkAccess")]
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
+
+        /// <summary>
+        /// Device Update Sku
+        /// </summary>
+        [Output("sku")]
+        public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
@@ -102,6 +114,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:Account"},
+                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -167,6 +180,12 @@ namespace Pulumi.AzureNative.DeviceUpdate
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
 
+        /// <summary>
+        /// Device Update Sku
+        /// </summary>
+        [Input("sku")]
+        public InputUnion<string, Pulumi.AzureNative.DeviceUpdate.SKU>? Sku { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -182,6 +201,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
         public AccountArgs()
         {
             PublicNetworkAccess = "Enabled";
+            Sku = "Standard";
         }
     }
 }

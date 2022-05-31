@@ -28,6 +28,12 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The fully qualified public DNS record for managed server alias
+        /// </summary>
+        [Output("publicAzureDnsRecord")]
+        public Output<string> PublicAzureDnsRecord { get; private set; } = null!;
+
+        /// <summary>
         /// Resource type.
         /// </summary>
         [Output("type")]

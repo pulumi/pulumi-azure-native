@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Relay.V20170401
 {
+    [Obsolete(@"Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")]
     public static class GetHybridConnection
     {
         /// <summary>

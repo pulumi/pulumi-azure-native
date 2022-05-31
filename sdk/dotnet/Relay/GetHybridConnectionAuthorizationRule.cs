@@ -12,15 +12,15 @@ namespace Pulumi.AzureNative.Relay
     public static class GetHybridConnectionAuthorizationRule
     {
         /// <summary>
-        /// Description of a namespace authorization rule.
-        /// API Version: 2017-04-01.
+        /// Single item in a List or Get AuthorizationRule operation
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetHybridConnectionAuthorizationRuleResult> InvokeAsync(GetHybridConnectionAuthorizationRuleArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Description of a namespace authorization rule.
-        /// API Version: 2017-04-01.
+        /// Single item in a List or Get AuthorizationRule operation
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetHybridConnectionAuthorizationRuleResult> Invoke(GetHybridConnectionAuthorizationRuleInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetHybridConnectionAuthorizationRuleResult>("azure-native:relay:getHybridConnectionAuthorizationRule", args ?? new GetHybridConnectionAuthorizationRuleInvokeArgs(), options.WithDefaults());
@@ -94,11 +94,15 @@ namespace Pulumi.AzureNative.Relay
     public sealed class GetHybridConnectionAuthorizationRuleResult
     {
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Resource name.
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -106,7 +110,11 @@ namespace Pulumi.AzureNative.Relay
         /// </summary>
         public readonly ImmutableArray<string> Rights;
         /// <summary>
-        /// Resource type.
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
 
@@ -114,15 +122,21 @@ namespace Pulumi.AzureNative.Relay
         private GetHybridConnectionAuthorizationRuleResult(
             string id,
 
+            string location,
+
             string name,
 
             ImmutableArray<string> rights,
 
+            Outputs.SystemDataResponse systemData,
+
             string type)
         {
             Id = id;
+            Location = location;
             Name = name;
             Rights = rights;
+            SystemData = systemData;
             Type = type;
         }
     }

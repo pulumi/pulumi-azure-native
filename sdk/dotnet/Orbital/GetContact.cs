@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Orbital
     {
         /// <summary>
         /// Customer creates a contact resource for a spacecraft resource.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetContactResult> InvokeAsync(GetContactArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContactResult>("azure-native:orbital:getContact", args ?? new GetContactArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer creates a contact resource for a spacecraft resource.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetContactResult> Invoke(GetContactInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContactResult>("azure-native:orbital:getContact", args ?? new GetContactInvokeArgs(), options.WithDefaults());
@@ -82,9 +82,13 @@ namespace Pulumi.AzureNative.Orbital
     public sealed class GetContactResult
     {
         /// <summary>
+        /// The configuration associated with the allocated antenna.
+        /// </summary>
+        public readonly Outputs.ContactsPropertiesResponseAntennaConfiguration AntennaConfiguration;
+        /// <summary>
         /// The reference to the contact profile resource.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponse ContactProfile;
+        public readonly Outputs.ContactsPropertiesResponseContactProfile ContactProfile;
         /// <summary>
         /// Azimuth of the antenna at the end of the contact in decimal degrees.
         /// </summary>
@@ -164,7 +168,9 @@ namespace Pulumi.AzureNative.Orbital
 
         [OutputConstructor]
         private GetContactResult(
-            Outputs.ResourceReferenceResponse contactProfile,
+            Outputs.ContactsPropertiesResponseAntennaConfiguration antennaConfiguration,
+
+            Outputs.ContactsPropertiesResponseContactProfile contactProfile,
 
             double endAzimuthDegrees,
 
@@ -204,6 +210,7 @@ namespace Pulumi.AzureNative.Orbital
 
             string type)
         {
+            AntennaConfiguration = antennaConfiguration;
             ContactProfile = contactProfile;
             EndAzimuthDegrees = endAzimuthDegrees;
             EndElevationDegrees = endElevationDegrees;

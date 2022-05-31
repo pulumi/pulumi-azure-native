@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2020-03-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

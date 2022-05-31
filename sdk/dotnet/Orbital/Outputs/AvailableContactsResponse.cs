@@ -43,7 +43,7 @@ namespace Pulumi.AzureNative.Orbital.Outputs
         /// <summary>
         /// The reference to the spacecraft resource.
         /// </summary>
-        public readonly Outputs.ResourceReferenceResponse? Spacecraft;
+        public readonly Outputs.AvailableContactsResponseSpacecraft? Spacecraft;
         /// <summary>
         /// Azimuth of the antenna at the start of the contact in decimal degrees.
         /// </summary>
@@ -75,7 +75,7 @@ namespace Pulumi.AzureNative.Orbital.Outputs
 
             string rxStartTime,
 
-            Outputs.ResourceReferenceResponse? spacecraft,
+            Outputs.AvailableContactsResponseSpacecraft? spacecraft,
 
             double startAzimuthDegrees,
 

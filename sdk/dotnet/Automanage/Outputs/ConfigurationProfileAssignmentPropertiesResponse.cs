@@ -17,49 +17,35 @@ namespace Pulumi.AzureNative.Automanage.Outputs
     public sealed class ConfigurationProfileAssignmentPropertiesResponse
     {
         /// <summary>
-        /// The Automanage account ARM Resource URI
-        /// </summary>
-        public readonly string? AccountId;
-        /// <summary>
-        /// The configuration setting for the configuration profile.
-        /// </summary>
-        public readonly Outputs.ConfigurationProfileAssignmentComplianceResponse? Compliance;
-        /// <summary>
-        /// A value indicating configuration profile.
+        /// The Automanage configurationProfile ARM Resource URI.
         /// </summary>
         public readonly string? ConfigurationProfile;
         /// <summary>
-        /// The configuration profile custom preferences ARM resource URI
+        /// The profileOverrides setting for the configuration profile assignment.
         /// </summary>
-        public readonly string? ConfigurationProfilePreferenceId;
+        public readonly ImmutableDictionary<string, object>? ProfileOverrides;
         /// <summary>
-        /// The state of onboarding, which only appears in the response.
+        /// The status of onboarding, which only appears in the response.
         /// </summary>
-        public readonly string ProvisioningState;
+        public readonly string Status;
         /// <summary>
         /// The target VM resource URI
         /// </summary>
-        public readonly string? TargetId;
+        public readonly string TargetId;
 
         [OutputConstructor]
         private ConfigurationProfileAssignmentPropertiesResponse(
-            string? accountId,
-
-            Outputs.ConfigurationProfileAssignmentComplianceResponse? compliance,
-
             string? configurationProfile,
 
-            string? configurationProfilePreferenceId,
+            ImmutableDictionary<string, object>? profileOverrides,
 
-            string provisioningState,
+            string status,
 
-            string? targetId)
+            string targetId)
         {
-            AccountId = accountId;
-            Compliance = compliance;
             ConfigurationProfile = configurationProfile;
-            ConfigurationProfilePreferenceId = configurationProfilePreferenceId;
-            ProvisioningState = provisioningState;
+            ProfileOverrides = profileOverrides;
+            Status = status;
             TargetId = targetId;
         }
     }

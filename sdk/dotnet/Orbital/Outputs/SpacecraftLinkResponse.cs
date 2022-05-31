@@ -11,11 +11,15 @@ namespace Pulumi.AzureNative.Orbital.Outputs
 {
 
     /// <summary>
-    /// Spacecraft Link
+    /// Authorized Ground Stations for the link
     /// </summary>
     [OutputType]
     public sealed class SpacecraftLinkResponse
     {
+        /// <summary>
+        /// Authorized Ground Stations
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AuthorizedGroundstationResponse> Authorizations;
         /// <summary>
         /// Bandwidth in MHz
         /// </summary>
@@ -29,23 +33,33 @@ namespace Pulumi.AzureNative.Orbital.Outputs
         /// </summary>
         public readonly string Direction;
         /// <summary>
+        /// Link name
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
         /// polarization. eg (RHCP, LHCP)
         /// </summary>
         public readonly string Polarization;
 
         [OutputConstructor]
         private SpacecraftLinkResponse(
+            ImmutableArray<Outputs.AuthorizedGroundstationResponse> authorizations,
+
             double bandwidthMHz,
 
             double centerFrequencyMHz,
 
             string direction,
 
+            string name,
+
             string polarization)
         {
+            Authorizations = authorizations;
             BandwidthMHz = bandwidthMHz;
             CenterFrequencyMHz = centerFrequencyMHz;
             Direction = direction;
+            Name = name;
             Polarization = polarization;
         }
     }

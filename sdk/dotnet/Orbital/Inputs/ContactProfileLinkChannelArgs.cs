@@ -57,6 +57,12 @@ namespace Pulumi.AzureNative.Orbital.Inputs
         [Input("modulationConfiguration")]
         public Input<string>? ModulationConfiguration { get; set; }
 
+        /// <summary>
+        /// Channel name
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
+
         public ContactProfileLinkChannelArgs()
         {
         }

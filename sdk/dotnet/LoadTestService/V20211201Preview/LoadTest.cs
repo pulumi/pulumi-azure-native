@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20211201Preview
     /// <summary>
     /// LoadTest details
     /// </summary>
+    [Obsolete(@"Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later.")]
     [AzureNativeResourceType("azure-native:loadtestservice/v20211201preview:LoadTest")]
     public partial class LoadTest : Pulumi.CustomResource
     {
@@ -132,7 +133,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20211201Preview
         public Input<Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Load Test name.
+        /// Load Test resource name.
         /// </summary>
         [Input("loadTestName")]
         public Input<string>? LoadTestName { get; set; }

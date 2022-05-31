@@ -146,6 +146,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001:FusionAlertRule"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:FusionAlertRule"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:FusionAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:FusionAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

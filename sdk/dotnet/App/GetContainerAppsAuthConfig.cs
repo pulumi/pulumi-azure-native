@@ -30,16 +30,16 @@ namespace Pulumi.AzureNative.App
     public sealed class GetContainerAppsAuthConfigArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Name of the Container App AuthConfig.
+        /// </summary>
+        [Input("authConfigName", required: true)]
+        public string AuthConfigName { get; set; } = null!;
+
+        /// <summary>
         /// Name of the Container App.
         /// </summary>
         [Input("containerAppName", required: true)]
         public string ContainerAppName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the Container App AuthConfig.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -55,16 +55,16 @@ namespace Pulumi.AzureNative.App
     public sealed class GetContainerAppsAuthConfigInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
+        /// Name of the Container App AuthConfig.
+        /// </summary>
+        [Input("authConfigName", required: true)]
+        public Input<string> AuthConfigName { get; set; } = null!;
+
+        /// <summary>
         /// Name of the Container App.
         /// </summary>
         [Input("containerAppName", required: true)]
         public Input<string> ContainerAppName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the Container App AuthConfig.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

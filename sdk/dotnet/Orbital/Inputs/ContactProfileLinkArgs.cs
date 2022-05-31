@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Orbital.Inputs
 {
 
     /// <summary>
-    /// Contact Profile link
+    /// Contact Profile Link
     /// </summary>
     public sealed class ContactProfileLinkArgs : Pulumi.ResourceArgs
     {
@@ -44,6 +44,12 @@ namespace Pulumi.AzureNative.Orbital.Inputs
         /// </summary>
         [Input("gainOverTemperature")]
         public Input<double>? GainOverTemperature { get; set; }
+
+        /// <summary>
+        /// Link name
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// polarization. eg (RHCP, LHCP)

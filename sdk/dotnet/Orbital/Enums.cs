@@ -85,7 +85,6 @@ namespace Pulumi.AzureNative.Orbital
 
         public static Polarization RHCP { get; } = new Polarization("RHCP");
         public static Polarization LHCP { get; } = new Polarization("LHCP");
-        public static Polarization DualRhcpLhcp { get; } = new Polarization("dualRhcpLhcp");
         public static Polarization LinearVertical { get; } = new Polarization("linearVertical");
         public static Polarization LinearHorizontal { get; } = new Polarization("linearHorizontal");
 

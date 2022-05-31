@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Orbital
     {
         /// <summary>
         /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<GetContactProfileResult> InvokeAsync(GetContactProfileArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetContactProfileResult>("azure-native:orbital:getContactProfile", args ?? new GetContactProfileArgs(), options.WithDefaults());
 
         /// <summary>
         /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<GetContactProfileResult> Invoke(GetContactProfileInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetContactProfileResult>("azure-native:orbital:getContactProfile", args ?? new GetContactProfileInvokeArgs(), options.WithDefaults());
@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Network configuration of customer virtual network.
+        /// </summary>
+        public readonly Outputs.ContactProfilesPropertiesResponseNetworkConfiguration NetworkConfiguration;
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.Orbital
 
             string name,
 
+            Outputs.ContactProfilesPropertiesResponseNetworkConfiguration networkConfiguration,
+
             Outputs.SystemDataResponse systemData,
 
             ImmutableDictionary<string, string>? tags,
@@ -153,6 +159,7 @@ namespace Pulumi.AzureNative.Orbital
             MinimumElevationDegrees = minimumElevationDegrees;
             MinimumViableContactDuration = minimumViableContactDuration;
             Name = name;
+            NetworkConfiguration = networkConfiguration;
             SystemData = systemData;
             Tags = tags;
             Type = type;

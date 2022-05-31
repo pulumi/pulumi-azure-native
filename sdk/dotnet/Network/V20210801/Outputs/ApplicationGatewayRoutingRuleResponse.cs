@@ -41,6 +41,10 @@ namespace Pulumi.AzureNative.Network.V20210801.Outputs
         /// </summary>
         public readonly string? Name;
         /// <summary>
+        /// Priority of the routing rule.
+        /// </summary>
+        public readonly int Priority;
+        /// <summary>
         /// The provisioning state of the request routing rule resource.
         /// </summary>
         public readonly string ProvisioningState;
@@ -67,6 +71,8 @@ namespace Pulumi.AzureNative.Network.V20210801.Outputs
 
             string? name,
 
+            int priority,
+
             string provisioningState,
 
             string? ruleType,
@@ -79,6 +85,7 @@ namespace Pulumi.AzureNative.Network.V20210801.Outputs
             Id = id;
             Listener = listener;
             Name = name;
+            Priority = priority;
             ProvisioningState = provisioningState;
             RuleType = ruleType;
             Type = type;

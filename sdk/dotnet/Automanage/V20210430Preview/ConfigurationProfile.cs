@@ -74,6 +74,11 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                Aliases =
+                {
+                    new Pulumi.Alias { Type = "azure-native:automanage:ConfigurationProfile"},
+                    new Pulumi.Alias { Type = "azure-native:automanage/v20220504:ConfigurationProfile"},
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.

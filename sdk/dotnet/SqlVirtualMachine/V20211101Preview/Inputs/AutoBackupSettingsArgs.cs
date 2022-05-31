@@ -28,14 +28,14 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
         public Input<bool>? BackupSystemDbs { get; set; }
 
         [Input("daysOfWeek")]
-        private InputList<Union<string, Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.DaysOfWeek>>? _daysOfWeek;
+        private InputList<Union<string, Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.AutoBackupDaysOfWeek>>? _daysOfWeek;
 
         /// <summary>
         /// Days of the week for the backups when FullBackupFrequency is set to Weekly.
         /// </summary>
-        public InputList<Union<string, Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.DaysOfWeek>> DaysOfWeek
+        public InputList<Union<string, Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.AutoBackupDaysOfWeek>> DaysOfWeek
         {
-            get => _daysOfWeek ?? (_daysOfWeek = new InputList<Union<string, Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.DaysOfWeek>>());
+            get => _daysOfWeek ?? (_daysOfWeek = new InputList<Union<string, Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.AutoBackupDaysOfWeek>>());
             set => _daysOfWeek = value;
         }
 

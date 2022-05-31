@@ -11,16 +11,22 @@ namespace Pulumi.AzureNative.Orbital
 {
     /// <summary>
     /// Customer creates a contact resource for a spacecraft resource.
-    /// API Version: 2021-04-04-preview.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:Contact")]
     public partial class Contact : Pulumi.CustomResource
     {
         /// <summary>
+        /// The configuration associated with the allocated antenna.
+        /// </summary>
+        [Output("antennaConfiguration")]
+        public Output<Outputs.ContactsPropertiesResponseAntennaConfiguration> AntennaConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// The reference to the contact profile resource.
         /// </summary>
         [Output("contactProfile")]
-        public Output<Outputs.ResourceReferenceResponse> ContactProfile { get; private set; } = null!;
+        public Output<Outputs.ContactsPropertiesResponseContactProfile> ContactProfile { get; private set; } = null!;
 
         /// <summary>
         /// Azimuth of the antenna at the end of the contact in decimal degrees.
@@ -156,6 +162,7 @@ namespace Pulumi.AzureNative.Orbital
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Contact"},
+                    new Pulumi.Alias { Type = "azure-native:orbital/v20220301:Contact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -189,7 +196,7 @@ namespace Pulumi.AzureNative.Orbital
         /// The reference to the contact profile resource.
         /// </summary>
         [Input("contactProfile", required: true)]
-        public Input<Inputs.ResourceReferenceArgs> ContactProfile { get; set; } = null!;
+        public Input<Inputs.ContactsPropertiesContactProfileArgs> ContactProfile { get; set; } = null!;
 
         /// <summary>
         /// Azure Ground Station name.

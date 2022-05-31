@@ -37,6 +37,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// Rejected data linked service reference.
+        /// </summary>
+        public readonly Outputs.LinkedServiceReferenceResponse? RejectedDataLinkedService;
+        /// <summary>
         /// Schema linked service reference.
         /// </summary>
         public readonly Outputs.LinkedServiceReferenceResponse? SchemaLinkedService;
@@ -57,6 +61,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             string name,
 
+            Outputs.LinkedServiceReferenceResponse? rejectedDataLinkedService,
+
             Outputs.LinkedServiceReferenceResponse? schemaLinkedService,
 
             string? script)
@@ -66,6 +72,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Flowlet = flowlet;
             LinkedService = linkedService;
             Name = name;
+            RejectedDataLinkedService = rejectedDataLinkedService;
             SchemaLinkedService = schemaLinkedService;
             Script = script;
         }

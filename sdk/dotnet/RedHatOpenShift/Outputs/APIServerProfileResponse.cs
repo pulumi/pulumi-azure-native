@@ -17,15 +17,15 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
     public sealed class APIServerProfileResponse
     {
         /// <summary>
-        /// The IP of the cluster API server (immutable).
+        /// The IP of the cluster API server.
         /// </summary>
         public readonly string? Ip;
         /// <summary>
-        /// The URL to access the cluster API server (immutable).
+        /// The URL to access the cluster API server.
         /// </summary>
         public readonly string? Url;
         /// <summary>
-        /// API server visibility (immutable).
+        /// API server visibility.
         /// </summary>
         public readonly string? Visibility;
 

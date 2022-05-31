@@ -19,7 +19,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Outputs
         /// <summary>
         /// The HTTP headers.
         /// </summary>
-        public readonly Outputs.HttpHeadersResponse? HttpHeaders;
+        public readonly ImmutableArray<Outputs.HttpHeaderResponse> HttpHeaders;
         /// <summary>
         /// The path to probe.
         /// </summary>
@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20210301.Outputs
 
         [OutputConstructor]
         private ContainerHttpGetResponse(
-            Outputs.HttpHeadersResponse? httpHeaders,
+            ImmutableArray<Outputs.HttpHeaderResponse> httpHeaders,
 
             string? path,
 

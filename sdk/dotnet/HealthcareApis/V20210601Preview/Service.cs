@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
     /// <summary>
     /// The description of the service.
     /// </summary>
-    [Obsolete(@"Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")]
+    [Obsolete(@"Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20210601preview:Service")]
     public partial class Service : Pulumi.CustomResource
     {
@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210111:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:Service"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:Service"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:Service"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

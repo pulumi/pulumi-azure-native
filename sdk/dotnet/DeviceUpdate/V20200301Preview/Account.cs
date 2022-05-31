@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
     /// <summary>
     /// Device Update account details.
     /// </summary>
+    [Obsolete(@"Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.")]
     [AzureNativeResourceType("azure-native:deviceupdate/v20200301preview:Account")]
     public partial class Account : Pulumi.CustomResource
     {
@@ -101,6 +102,7 @@ namespace Pulumi.AzureNative.DeviceUpdate.V20200301Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:deviceupdate:Account"},
+                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Account"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

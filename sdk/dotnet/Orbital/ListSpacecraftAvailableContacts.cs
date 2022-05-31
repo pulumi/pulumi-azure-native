@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Orbital
     {
         /// <summary>
         /// Response for the ListAvailableContacts API service call.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Task<ListSpacecraftAvailableContactsResult> InvokeAsync(ListSpacecraftAvailableContactsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListSpacecraftAvailableContactsResult>("azure-native:orbital:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsArgs(), options.WithDefaults());
 
         /// <summary>
         /// Response for the ListAvailableContacts API service call.
-        /// API Version: 2021-04-04-preview.
+        /// API Version: 2022-03-01.
         /// </summary>
         public static Output<ListSpacecraftAvailableContactsResult> Invoke(ListSpacecraftAvailableContactsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListSpacecraftAvailableContactsResult>("azure-native:orbital:listSpacecraftAvailableContacts", args ?? new ListSpacecraftAvailableContactsInvokeArgs(), options.WithDefaults());
@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.Orbital
         /// The reference to the contact profile resource.
         /// </summary>
         [Input("contactProfile", required: true)]
-        public Inputs.ResourceReference ContactProfile { get; set; } = null!;
+        public Inputs.ContactParametersContactProfile ContactProfile { get; set; } = null!;
 
         /// <summary>
         /// End time of a contact.
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Orbital
         /// The reference to the contact profile resource.
         /// </summary>
         [Input("contactProfile", required: true)]
-        public Input<Inputs.ResourceReferenceArgs> ContactProfile { get; set; } = null!;
+        public Input<Inputs.ContactParametersContactProfileArgs> ContactProfile { get; set; } = null!;
 
         /// <summary>
         /// End time of a contact.

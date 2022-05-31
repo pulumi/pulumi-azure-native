@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.Relay.V20170401
     /// <summary>
     /// Description of hybrid connection resource.
     /// </summary>
+    [Obsolete(@"Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")]
     [AzureNativeResourceType("azure-native:relay/v20170401:HybridConnection")]
     public partial class HybridConnection : Pulumi.CustomResource
     {

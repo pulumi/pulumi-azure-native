@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.GuestConfiguration.V20210125
 {
+    [Obsolete(@"Version v20210125 will be removed in the next major version of the provider. Upgrade to version v20220125 or later.")]
     public static class GetGuestConfigurationHCRPAssignment
     {
         /// <summary>

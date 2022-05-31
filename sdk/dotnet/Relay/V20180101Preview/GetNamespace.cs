@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Relay.V20180101Preview
 {
+    [Obsolete(@"Version v20180101preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")]
     public static class GetNamespace
     {
         /// <summary>

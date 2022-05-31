@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Relay
     {
         /// <summary>
         /// Description of hybrid connection resource.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Task<GetHybridConnectionResult> InvokeAsync(GetHybridConnectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Description of hybrid connection resource.
-        /// API Version: 2017-04-01.
+        /// API Version: 2021-11-01.
         /// </summary>
         public static Output<GetHybridConnectionResult> Invoke(GetHybridConnectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetHybridConnectionResult>("azure-native:relay:getHybridConnection", args ?? new GetHybridConnectionInvokeArgs(), options.WithDefaults());
@@ -86,7 +86,7 @@ namespace Pulumi.AzureNative.Relay
         /// </summary>
         public readonly string CreatedAt;
         /// <summary>
-        /// Resource ID.
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -94,7 +94,11 @@ namespace Pulumi.AzureNative.Relay
         /// </summary>
         public readonly int ListenerCount;
         /// <summary>
-        /// Resource name.
+        /// The geo-location where the resource lives
+        /// </summary>
+        public readonly string Location;
+        /// <summary>
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -102,7 +106,11 @@ namespace Pulumi.AzureNative.Relay
         /// </summary>
         public readonly bool? RequiresClientAuthorization;
         /// <summary>
-        /// Resource type.
+        /// The system meta data relating to this resource.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.EventHub/Namespaces" or "Microsoft.EventHub/Namespaces/EventHubs"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -122,9 +130,13 @@ namespace Pulumi.AzureNative.Relay
 
             int listenerCount,
 
+            string location,
+
             string name,
 
             bool? requiresClientAuthorization,
+
+            Outputs.SystemDataResponse systemData,
 
             string type,
 
@@ -135,8 +147,10 @@ namespace Pulumi.AzureNative.Relay
             CreatedAt = createdAt;
             Id = id;
             ListenerCount = listenerCount;
+            Location = location;
             Name = name;
             RequiresClientAuthorization = requiresClientAuthorization;
+            SystemData = systemData;
             Type = type;
             UpdatedAt = updatedAt;
             UserMetadata = userMetadata;

@@ -242,7 +242,6 @@ namespace Pulumi.AzureNative.NetApp.V20210801.Inputs
             SmbContinuouslyAvailable = false;
             SmbEncryption = false;
             SnapshotDirectoryVisible = true;
-            ThroughputMibps = 0;
             UnixPermissions = "0770";
             UsageThreshold = 107374182400;
         }

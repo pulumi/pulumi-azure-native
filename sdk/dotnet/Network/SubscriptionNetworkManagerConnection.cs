@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// The Network Manager Connection resource
-    /// API Version: 2022-02-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:SubscriptionNetworkManagerConnection")]
     public partial class SubscriptionNetworkManagerConnection : Pulumi.CustomResource
@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.Network
                 {
                     new Pulumi.Alias { Type = "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

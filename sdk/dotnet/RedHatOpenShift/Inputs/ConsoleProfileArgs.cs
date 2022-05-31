@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
     public sealed class ConsoleProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The URL to access the cluster console (immutable).
+        /// The URL to access the cluster console.
         /// </summary>
         [Input("url")]
         public Input<string>? Url { get; set; }

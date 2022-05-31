@@ -70,6 +70,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public Output<string?> PublicNetworkAccess { get; private set; } = null!;
 
         /// <summary>
+        /// Purview information of the factory.
+        /// </summary>
+        [Output("purviewConfiguration")]
+        public Output<Outputs.PurviewConfigurationResponse?> PurviewConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Git repo information of the factory.
         /// </summary>
         [Output("repoConfiguration")]
@@ -184,6 +190,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         /// </summary>
         [Input("publicNetworkAccess")]
         public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.PublicNetworkAccess>? PublicNetworkAccess { get; set; }
+
+        /// <summary>
+        /// Purview information of the factory.
+        /// </summary>
+        [Input("purviewConfiguration")]
+        public Input<Inputs.PurviewConfigurationArgs>? PurviewConfiguration { get; set; }
 
         /// <summary>
         /// Git repo information of the factory.

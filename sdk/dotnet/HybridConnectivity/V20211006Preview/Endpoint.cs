@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.HybridConnectivity.V20211006Preview
     /// <summary>
     /// The endpoint for the target resource.
     /// </summary>
+    [Obsolete(@"Version v20211006preview will be removed in the next major version of the provider. Upgrade to version v20220501preview or later.")]
     [AzureNativeResourceType("azure-native:hybridconnectivity/v20211006preview:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
     {

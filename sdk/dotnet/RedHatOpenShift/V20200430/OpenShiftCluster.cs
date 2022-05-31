@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
     /// <summary>
     /// OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
     /// </summary>
+    [Obsolete(@"Version v20200430 will be removed in the next major version of the provider. Upgrade to version v20220401 or later.")]
     [AzureNativeResourceType("azure-native:redhatopenshift/v20200430:OpenShiftCluster")]
     public partial class OpenShiftCluster : Pulumi.CustomResource
     {
@@ -120,6 +121,7 @@ namespace Pulumi.AzureNative.RedHatOpenShift.V20200430
                 {
                     new Pulumi.Alias { Type = "azure-native:redhatopenshift:OpenShiftCluster"},
                     new Pulumi.Alias { Type = "azure-native:redhatopenshift/v20210901preview:OpenShiftCluster"},
+                    new Pulumi.Alias { Type = "azure-native:redhatopenshift/v20220401:OpenShiftCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

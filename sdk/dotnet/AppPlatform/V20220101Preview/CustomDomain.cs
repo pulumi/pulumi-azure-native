@@ -70,6 +70,8 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210601preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20210901preview:CustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220401:CustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:CustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

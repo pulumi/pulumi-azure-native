@@ -16,31 +16,43 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
     public sealed class WorkerProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The number of worker VMs.  Must be between 3 and 20 (immutable).
+        /// The number of worker VMs.
         /// </summary>
         [Input("count")]
         public Input<int>? Count { get; set; }
 
         /// <summary>
-        /// The disk size of the worker VMs.  Must be 128 or greater (immutable).
+        /// The resource ID of an associated DiskEncryptionSet, if applicable.
+        /// </summary>
+        [Input("diskEncryptionSetId")]
+        public Input<string>? DiskEncryptionSetId { get; set; }
+
+        /// <summary>
+        /// The disk size of the worker VMs.
         /// </summary>
         [Input("diskSizeGB")]
         public Input<int>? DiskSizeGB { get; set; }
 
         /// <summary>
-        /// The worker profile name.  Must be "worker" (immutable).
+        /// Whether master virtual machines are encrypted at host.
+        /// </summary>
+        [Input("encryptionAtHost")]
+        public InputUnion<string, Pulumi.AzureNative.RedHatOpenShift.EncryptionAtHost>? EncryptionAtHost { get; set; }
+
+        /// <summary>
+        /// The worker profile name.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// The Azure resource ID of the worker subnet (immutable).
+        /// The Azure resource ID of the worker subnet.
         /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
         /// <summary>
-        /// The size of the worker VMs (immutable).
+        /// The size of the worker VMs.
         /// </summary>
         [Input("vmSize")]
         public Input<string>? VmSize { get; set; }

@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220101Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:appplatform:Gateway"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20220301preview:Gateway"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:Gateway"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

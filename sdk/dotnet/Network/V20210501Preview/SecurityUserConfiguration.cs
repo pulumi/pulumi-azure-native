@@ -103,6 +103,7 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
                     new Pulumi.Alias { Type = "azure-native:network:SecurityUserConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:SecurityUserConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220201preview:SecurityUserConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:SecurityUserConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

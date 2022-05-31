@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Inputs
     public sealed class NetworkProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The CIDR used for OpenShift/Kubernetes Pods (immutable).
+        /// The CIDR used for OpenShift/Kubernetes Pods.
         /// </summary>
         [Input("podCidr")]
         public Input<string>? PodCidr { get; set; }
 
         /// <summary>
-        /// The CIDR used for OpenShift/Kubernetes Services (immutable).
+        /// The CIDR used for OpenShift/Kubernetes Services.
         /// </summary>
         [Input("serviceCidr")]
         public Input<string>? ServiceCidr { get; set; }

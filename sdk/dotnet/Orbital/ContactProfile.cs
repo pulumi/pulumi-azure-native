@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Orbital
 {
     /// <summary>
     /// Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
-    /// API Version: 2021-04-04-preview.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:ContactProfile")]
     public partial class ContactProfile : Pulumi.CustomResource
@@ -65,6 +65,12 @@ namespace Pulumi.AzureNative.Orbital
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// Network configuration of customer virtual network.
+        /// </summary>
+        [Output("networkConfiguration")]
+        public Output<Outputs.ContactProfilesPropertiesResponseNetworkConfiguration> NetworkConfiguration { get; private set; } = null!;
+
+        /// <summary>
         /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
@@ -108,6 +114,7 @@ namespace Pulumi.AzureNative.Orbital
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:ContactProfile"},
+                    new Pulumi.Alias { Type = "azure-native:orbital/v20220301:ContactProfile"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -178,6 +185,12 @@ namespace Pulumi.AzureNative.Orbital
         /// </summary>
         [Input("minimumViableContactDuration")]
         public Input<string>? MinimumViableContactDuration { get; set; }
+
+        /// <summary>
+        /// Network configuration of customer virtual network.
+        /// </summary>
+        [Input("networkConfiguration", required: true)]
+        public Input<Inputs.ContactProfilesPropertiesNetworkConfigurationArgs> NetworkConfiguration { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

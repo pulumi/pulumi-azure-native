@@ -37,31 +37,98 @@ namespace Pulumi.AzureNative.Relay
     }
 
     /// <summary>
-    /// Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
+    /// Provisioning state of the Private Endpoint Connection.
     /// </summary>
     [EnumType]
-    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
+    public readonly struct EndPointProvisioningState : IEquatable<EndPointProvisioningState>
     {
         private readonly string _value;
 
-        private PrivateEndpointServiceConnectionStatus(string value)
+        private EndPointProvisioningState(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
-        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
-        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
-        public static PrivateEndpointServiceConnectionStatus Disconnected { get; } = new PrivateEndpointServiceConnectionStatus("Disconnected");
+        public static EndPointProvisioningState Creating { get; } = new EndPointProvisioningState("Creating");
+        public static EndPointProvisioningState Updating { get; } = new EndPointProvisioningState("Updating");
+        public static EndPointProvisioningState Deleting { get; } = new EndPointProvisioningState("Deleting");
+        public static EndPointProvisioningState Succeeded { get; } = new EndPointProvisioningState("Succeeded");
+        public static EndPointProvisioningState Canceled { get; } = new EndPointProvisioningState("Canceled");
+        public static EndPointProvisioningState Failed { get; } = new EndPointProvisioningState("Failed");
 
-        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
-        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
+        public static bool operator ==(EndPointProvisioningState left, EndPointProvisioningState right) => left.Equals(right);
+        public static bool operator !=(EndPointProvisioningState left, EndPointProvisioningState right) => !left.Equals(right);
 
-        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
+        public static explicit operator string(EndPointProvisioningState value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
-        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is EndPointProvisioningState other && Equals(other);
+        public bool Equals(EndPointProvisioningState other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Status of the connection.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateLinkConnectionStatus : IEquatable<PrivateLinkConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateLinkConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateLinkConnectionStatus Pending { get; } = new PrivateLinkConnectionStatus("Pending");
+        public static PrivateLinkConnectionStatus Approved { get; } = new PrivateLinkConnectionStatus("Approved");
+        public static PrivateLinkConnectionStatus Rejected { get; } = new PrivateLinkConnectionStatus("Rejected");
+        public static PrivateLinkConnectionStatus Disconnected { get; } = new PrivateLinkConnectionStatus("Disconnected");
+
+        public static bool operator ==(PrivateLinkConnectionStatus left, PrivateLinkConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateLinkConnectionStatus left, PrivateLinkConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateLinkConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateLinkConnectionStatus other && Equals(other);
+        public bool Equals(PrivateLinkConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// This determines if traffic is allowed over public network. By default it is enabled.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+        public static PublicNetworkAccess SecuredByPerimeter { get; } = new PublicNetworkAccess("SecuredByPerimeter");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

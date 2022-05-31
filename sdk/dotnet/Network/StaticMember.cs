@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// StaticMember Item.
-    /// API Version: 2022-02-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:StaticMember")]
     public partial class StaticMember : Pulumi.CustomResource
@@ -27,6 +27,18 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The provisioning state of the scope assignment resource.
+        /// </summary>
+        [Output("provisioningState")]
+        public Output<string> ProvisioningState { get; private set; } = null!;
+
+        /// <summary>
+        /// Resource region.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
 
         /// <summary>
         /// Resource Id.
@@ -73,6 +85,7 @@ namespace Pulumi.AzureNative.Network
                 {
                     new Pulumi.Alias { Type = "azure-native:network/v20210501preview:StaticMember"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220201preview:StaticMember"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:StaticMember"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

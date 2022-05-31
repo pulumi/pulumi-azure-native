@@ -294,6 +294,8 @@ namespace Pulumi.AzureNative.ContainerService.V20210901
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220202preview:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220301:ManagedCluster"},
                     new Pulumi.Alias { Type = "azure-native:containerservice/v20220302preview:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220401:ManagedCluster"},
+                    new Pulumi.Alias { Type = "azure-native:containerservice/v20220402preview:ManagedCluster"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

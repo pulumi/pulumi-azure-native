@@ -17,20 +17,34 @@ namespace Pulumi.AzureNative.RedHatOpenShift.Outputs
     public sealed class MasterProfileResponse
     {
         /// <summary>
-        /// The Azure resource ID of the master subnet (immutable).
+        /// The resource ID of an associated DiskEncryptionSet, if applicable.
+        /// </summary>
+        public readonly string? DiskEncryptionSetId;
+        /// <summary>
+        /// Whether master virtual machines are encrypted at host.
+        /// </summary>
+        public readonly string? EncryptionAtHost;
+        /// <summary>
+        /// The Azure resource ID of the master subnet.
         /// </summary>
         public readonly string? SubnetId;
         /// <summary>
-        /// The size of the master VMs (immutable).
+        /// The size of the master VMs.
         /// </summary>
         public readonly string? VmSize;
 
         [OutputConstructor]
         private MasterProfileResponse(
+            string? diskEncryptionSetId,
+
+            string? encryptionAtHost,
+
             string? subnetId,
 
             string? vmSize)
         {
+            DiskEncryptionSetId = diskEncryptionSetId;
+            EncryptionAtHost = encryptionAtHost;
             SubnetId = subnetId;
             VmSize = vmSize;
         }

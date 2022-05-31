@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
     /// </summary>
-    [Obsolete(@"Version v20181120 will be removed in the next major version of the provider. Upgrade to version v20200625 or later.")]
+    [Obsolete(@"Version v20181120 will be removed in the next major version of the provider. Upgrade to version v20220125 or later.")]
     [AzureNativeResourceType("azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment")]
     public partial class GuestConfigurationAssignment : Pulumi.CustomResource
     {
@@ -69,6 +69,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120
                     new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20180630preview:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20200625:GuestConfigurationAssignment"},
                     new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20210125:GuestConfigurationAssignment"},
+                    new Pulumi.Alias { Type = "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

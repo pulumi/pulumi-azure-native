@@ -11,23 +11,11 @@ namespace Pulumi.AzureNative.Orbital
 {
     /// <summary>
     /// Customer creates a spacecraft resource to schedule a contact.
-    /// API Version: 2021-04-04-preview.
+    /// API Version: 2022-03-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:orbital:Spacecraft")]
     public partial class Spacecraft : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Authorization status of spacecraft.
-        /// </summary>
-        [Output("authorizationStatus")]
-        public Output<string> AuthorizationStatus { get; private set; } = null!;
-
-        /// <summary>
-        /// Details of the authorization status.
-        /// </summary>
-        [Output("authorizationStatusExtended")]
-        public Output<string> AuthorizationStatusExtended { get; private set; } = null!;
-
         /// <summary>
         /// A unique read-only string that changes whenever the resource is updated.
         /// </summary>
@@ -120,6 +108,7 @@ namespace Pulumi.AzureNative.Orbital
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Spacecraft"},
+                    new Pulumi.Alias { Type = "azure-native:orbital/v20220301:Spacecraft"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

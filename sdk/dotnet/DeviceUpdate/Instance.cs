@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
 {
     /// <summary>
     /// Device Update instance details.
-    /// API Version: 2020-03-01-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:deviceupdate:Instance")]
     public partial class Instance : Pulumi.CustomResource
@@ -102,6 +102,7 @@ namespace Pulumi.AzureNative.DeviceUpdate
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:deviceupdate/v20200301preview:Instance"},
+                    new Pulumi.Alias { Type = "azure-native:deviceupdate/v20220401preview:Instance"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

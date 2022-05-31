@@ -100,6 +100,12 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         }
 
         /// <summary>
+        /// Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
+        /// </summary>
+        [Input("sourceStagingConcurrency")]
+        public Input<object>? SourceStagingConcurrency { get; set; }
+
+        /// <summary>
         /// Staging info for execute data flow activity.
         /// </summary>
         [Input("staging")]

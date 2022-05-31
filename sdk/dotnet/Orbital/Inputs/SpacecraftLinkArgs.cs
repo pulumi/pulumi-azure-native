@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Orbital.Inputs
 {
 
     /// <summary>
-    /// Spacecraft Link
+    /// Authorized Ground Stations for the link
     /// </summary>
     public sealed class SpacecraftLinkArgs : Pulumi.ResourceArgs
     {
@@ -32,6 +32,12 @@ namespace Pulumi.AzureNative.Orbital.Inputs
         /// </summary>
         [Input("direction", required: true)]
         public InputUnion<string, Pulumi.AzureNative.Orbital.Direction> Direction { get; set; } = null!;
+
+        /// <summary>
+        /// Link name
+        /// </summary>
+        [Input("name", required: true)]
+        public Input<string> Name { get; set; } = null!;
 
         /// <summary>
         /// polarization. eg (RHCP, LHCP)

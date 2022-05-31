@@ -44,6 +44,10 @@ namespace Pulumi.AzureNative.Orbital.Outputs
         /// Configuration for modulation
         /// </summary>
         public readonly string? ModulationConfiguration;
+        /// <summary>
+        /// Channel name
+        /// </summary>
+        public readonly string Name;
 
         [OutputConstructor]
         private ContactProfileLinkChannelResponse(
@@ -59,7 +63,9 @@ namespace Pulumi.AzureNative.Orbital.Outputs
 
             Outputs.EndPointResponse endPoint,
 
-            string? modulationConfiguration)
+            string? modulationConfiguration,
+
+            string name)
         {
             BandwidthMHz = bandwidthMHz;
             CenterFrequencyMHz = centerFrequencyMHz;
@@ -68,6 +74,7 @@ namespace Pulumi.AzureNative.Orbital.Outputs
             EncodingConfiguration = encodingConfiguration;
             EndPoint = endPoint;
             ModulationConfiguration = modulationConfiguration;
+            Name = name;
         }
     }
 }
