@@ -1517,7 +1517,9 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 					tok == "azure-native:netapp:ReplicationObject" && len(v.Properties) == 5 ||
 					tok == "azure-native:netapp:ExportPolicyRule" && len(v.Properties) == 14 ||
 					tok == "azure-native:securityinsights/v20211001:IncidentOwnerInfoResponse" && len(v.Properties) == 5 ||
-					tok == "azure-native:securityinsights/v20211001:IncidentOwnerInfo" && len(v.Properties) == 5 {
+					tok == "azure-native:securityinsights/v20211001:IncidentOwnerInfo" && len(v.Properties) == 5 ||
+					tok == "azure-native:automanage:ConfigurationProfileAssignmentProperties" && len(v.Properties) == 4 ||
+					tok == "azure-native:automanage:ConfigurationProfileAssignmentPropertiesResponse" && len(v.Properties) == 6 {
 					// TODO: this was needed to unblock nightly generation: generalize this case.
 					v = spec
 				}
