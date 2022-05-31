@@ -163,7 +163,7 @@ export class Namespace extends pulumi.CustomResource {
             resourceInputs["zoneRedundant"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Namespace" }, { type: "azure-native:servicebus/v20140901:Namespace" }, { type: "azure-native:servicebus/v20150801:Namespace" }, { type: "azure-native:servicebus/v20170401:Namespace" }, { type: "azure-native:servicebus/v20180101preview:Namespace" }, { type: "azure-native:servicebus/v20210101preview:Namespace" }, { type: "azure-native:servicebus/v20210601preview:Namespace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Namespace" }, { type: "azure-native:servicebus/v20140901:Namespace" }, { type: "azure-native:servicebus/v20150801:Namespace" }, { type: "azure-native:servicebus/v20170401:Namespace" }, { type: "azure-native:servicebus/v20180101preview:Namespace" }, { type: "azure-native:servicebus/v20210101preview:Namespace" }, { type: "azure-native:servicebus/v20210601preview:Namespace" }, { type: "azure-native:servicebus/v20220101preview:Namespace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Namespace.__pulumiType, name, resourceInputs, opts);
     }

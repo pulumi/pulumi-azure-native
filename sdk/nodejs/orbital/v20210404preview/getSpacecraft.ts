@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Customer creates a spacecraft resource to schedule a contact.
  */
+/** @deprecated Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later. */
 export function getSpacecraft(args: GetSpacecraftArgs, opts?: pulumi.InvokeOptions): Promise<GetSpacecraftResult> {
+    pulumi.log.warn("getSpacecraft is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")
     if (!opts) {
         opts = {}
     }

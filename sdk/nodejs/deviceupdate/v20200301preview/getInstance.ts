@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Device Update instance details.
  */
+/** @deprecated Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later. */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
+    pulumi.log.warn("getInstance is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.")
     if (!opts) {
         opts = {}
     }

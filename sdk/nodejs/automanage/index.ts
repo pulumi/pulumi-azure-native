@@ -6,11 +6,19 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./account";
+export * from "./configurationProfile";
 export * from "./configurationProfileAssignment";
+export * from "./configurationProfileHCIAssignment";
+export * from "./configurationProfileHCRPAssignment";
 export * from "./configurationProfilePreference";
+export * from "./configurationProfilesVersion";
 export * from "./getAccount";
+export * from "./getConfigurationProfile";
 export * from "./getConfigurationProfileAssignment";
+export * from "./getConfigurationProfileHCIAssignment";
+export * from "./getConfigurationProfileHCRPAssignment";
 export * from "./getConfigurationProfilePreference";
+export * from "./getConfigurationProfilesVersion";
 
 // Export enums:
 export * from "../types/enums/automanage";
@@ -18,16 +26,22 @@ export * from "../types/enums/automanage";
 // Export sub-modules:
 import * as v20200630preview from "./v20200630preview";
 import * as v20210430preview from "./v20210430preview";
+import * as v20220504 from "./v20220504";
 
 export {
     v20200630preview,
     v20210430preview,
+    v20220504,
 };
 
 // Import resources to register:
 import { Account } from "./account";
+import { ConfigurationProfile } from "./configurationProfile";
 import { ConfigurationProfileAssignment } from "./configurationProfileAssignment";
+import { ConfigurationProfileHCIAssignment } from "./configurationProfileHCIAssignment";
+import { ConfigurationProfileHCRPAssignment } from "./configurationProfileHCRPAssignment";
 import { ConfigurationProfilePreference } from "./configurationProfilePreference";
+import { ConfigurationProfilesVersion } from "./configurationProfilesVersion";
 
 const _module = {
     version: utilities.getVersion(),
@@ -35,10 +49,18 @@ const _module = {
         switch (type) {
             case "azure-native:automanage:Account":
                 return new Account(name, <any>undefined, { urn })
+            case "azure-native:automanage:ConfigurationProfile":
+                return new ConfigurationProfile(name, <any>undefined, { urn })
             case "azure-native:automanage:ConfigurationProfileAssignment":
                 return new ConfigurationProfileAssignment(name, <any>undefined, { urn })
+            case "azure-native:automanage:ConfigurationProfileHCIAssignment":
+                return new ConfigurationProfileHCIAssignment(name, <any>undefined, { urn })
+            case "azure-native:automanage:ConfigurationProfileHCRPAssignment":
+                return new ConfigurationProfileHCRPAssignment(name, <any>undefined, { urn })
             case "azure-native:automanage:ConfigurationProfilePreference":
                 return new ConfigurationProfilePreference(name, <any>undefined, { urn })
+            case "azure-native:automanage:ConfigurationProfilesVersion":
+                return new ConfigurationProfilesVersion(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

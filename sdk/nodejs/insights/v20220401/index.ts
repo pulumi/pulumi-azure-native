@@ -7,9 +7,15 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./actionGroup";
 export * from "./getActionGroup";
+export * from "./getWorkbook";
+export * from "./workbook";
+
+// Export enums:
+export * from "../../types/enums/insights/v20220401";
 
 // Import resources to register:
 import { ActionGroup } from "./actionGroup";
+import { Workbook } from "./workbook";
 
 const _module = {
     version: utilities.getVersion(),
@@ -17,6 +23,8 @@ const _module = {
         switch (type) {
             case "azure-native:insights/v20220401:ActionGroup":
                 return new ActionGroup(name, <any>undefined, { urn })
+            case "azure-native:insights/v20220401:Workbook":
+                return new Workbook(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

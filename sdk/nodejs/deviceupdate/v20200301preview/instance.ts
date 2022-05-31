@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Device Update instance details.
+ *
+ * @deprecated Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Instance extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Instance {
+        pulumi.log.warn("Instance is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.")
         return new Instance(name, undefined as any, { ...opts, id: id });
     }
 
@@ -83,7 +86,9 @@ export class Instance extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later. */
     constructor(name: string, args: InstanceArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Instance is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -118,7 +123,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate:Instance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate:Instance" }, { type: "azure-native:deviceupdate/v20220401preview:Instance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }

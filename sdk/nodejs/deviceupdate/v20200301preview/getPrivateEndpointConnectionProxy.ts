@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Private endpoint connection proxy details.
  */
+/** @deprecated Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later. */
 export function getPrivateEndpointConnectionProxy(args: GetPrivateEndpointConnectionProxyArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionProxyResult> {
+    pulumi.log.warn("getPrivateEndpointConnectionProxy is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.")
     if (!opts) {
         opts = {}
     }

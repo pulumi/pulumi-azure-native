@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The list of credential result response.
- * API Version: 2021-10-01.
+ * API Version: 2022-05-01-preview.
  */
 export function listConnectedClusterUserCredential(args: ListConnectedClusterUserCredentialArgs, opts?: pulumi.InvokeOptions): Promise<ListConnectedClusterUserCredentialResult> {
     if (!opts) {

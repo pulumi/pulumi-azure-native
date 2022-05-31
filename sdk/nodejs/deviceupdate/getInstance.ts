@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Device Update instance details.
- * API Version: 2020-03-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getInstance(args: GetInstanceArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceResult> {
     if (!opts) {

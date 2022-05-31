@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Device Update account details.
+ *
+ * @deprecated Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.
  */
 export class Account extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Account extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Account {
+        pulumi.log.warn("Account is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.")
         return new Account(name, undefined as any, { ...opts, id: id });
     }
 
@@ -83,7 +86,9 @@ export class Account extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later. */
     constructor(name: string, args: AccountArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Account is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -115,7 +120,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate:Account" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate:Account" }, { type: "azure-native:deviceupdate/v20220401preview:Account" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Account.__pulumiType, name, resourceInputs, opts);
     }

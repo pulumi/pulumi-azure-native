@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * StaticMember Item.
- * API Version: 2022-02-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getStaticMember(args: GetStaticMemberArgs, opts?: pulumi.InvokeOptions): Promise<GetStaticMemberResult> {
     if (!opts) {
@@ -58,6 +58,14 @@ export interface GetStaticMemberResult {
      * Resource name.
      */
     readonly name: string;
+    /**
+     * The provisioning state of the scope assignment resource.
+     */
+    readonly provisioningState: string;
+    /**
+     * Resource region.
+     */
+    readonly region: string;
     /**
      * Resource Id.
      */

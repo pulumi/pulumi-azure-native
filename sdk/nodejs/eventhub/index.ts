@@ -5,11 +5,13 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./applicationGroup";
 export * from "./cluster";
 export * from "./consumerGroup";
 export * from "./disasterRecoveryConfig";
 export * from "./eventHub";
 export * from "./eventHubAuthorizationRule";
+export * from "./getApplicationGroup";
 export * from "./getCluster";
 export * from "./getConsumerGroup";
 export * from "./getDisasterRecoveryConfig";
@@ -44,6 +46,7 @@ import * as v20180101preview from "./v20180101preview";
 import * as v20210101preview from "./v20210101preview";
 import * as v20210601preview from "./v20210601preview";
 import * as v20211101 from "./v20211101";
+import * as v20220101preview from "./v20220101preview";
 
 export {
     v20140901,
@@ -53,9 +56,11 @@ export {
     v20210101preview,
     v20210601preview,
     v20211101,
+    v20220101preview,
 };
 
 // Import resources to register:
+import { ApplicationGroup } from "./applicationGroup";
 import { Cluster } from "./cluster";
 import { ConsumerGroup } from "./consumerGroup";
 import { DisasterRecoveryConfig } from "./disasterRecoveryConfig";
@@ -73,6 +78,8 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:eventhub:ApplicationGroup":
+                return new ApplicationGroup(name, <any>undefined, { urn })
             case "azure-native:eventhub:Cluster":
                 return new Cluster(name, <any>undefined, { urn })
             case "azure-native:eventhub:ConsumerGroup":

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Customer creates a spacecraft resource to schedule a contact.
- * API Version: 2021-04-04-preview.
+ * API Version: 2022-03-01.
  */
 export function getSpacecraft(args: GetSpacecraftArgs, opts?: pulumi.InvokeOptions): Promise<GetSpacecraftResult> {
     if (!opts) {
@@ -36,14 +36,6 @@ export interface GetSpacecraftArgs {
  * Customer creates a spacecraft resource to schedule a contact.
  */
 export interface GetSpacecraftResult {
-    /**
-     * Authorization status of spacecraft.
-     */
-    readonly authorizationStatus: string;
-    /**
-     * Details of the authorization status.
-     */
-    readonly authorizationStatusExtended: string;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */

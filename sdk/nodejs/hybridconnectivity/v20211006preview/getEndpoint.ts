@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The endpoint for the target resource.
  */
+/** @deprecated Version v20211006preview will be removed in the next major version of the provider. Upgrade to version v20220501preview or later. */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
+    pulumi.log.warn("getEndpoint is deprecated: Version v20211006preview will be removed in the next major version of the provider. Upgrade to version v20220501preview or later.")
     if (!opts) {
         opts = {}
     }

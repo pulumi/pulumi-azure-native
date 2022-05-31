@@ -43,6 +43,10 @@ export class ManagedServerDnsAlias extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * The fully qualified public DNS record for managed server alias
+     */
+    public /*out*/ readonly publicAzureDnsRecord!: pulumi.Output<string>;
+    /**
      * Resource type.
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
@@ -70,10 +74,12 @@ export class ManagedServerDnsAlias extends pulumi.CustomResource {
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["azureDnsRecord"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publicAzureDnsRecord"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["azureDnsRecord"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["publicAzureDnsRecord"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);

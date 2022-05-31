@@ -22,7 +22,21 @@ export const AccessRights = {
 
 export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
 
-export const PrivateEndpointServiceConnectionStatus = {
+export const EndPointProvisioningState = {
+    Creating: "Creating",
+    Updating: "Updating",
+    Deleting: "Deleting",
+    Succeeded: "Succeeded",
+    Canceled: "Canceled",
+    Failed: "Failed",
+} as const;
+
+/**
+ * Provisioning state of the Private Endpoint Connection.
+ */
+export type EndPointProvisioningState = (typeof EndPointProvisioningState)[keyof typeof EndPointProvisioningState];
+
+export const PrivateLinkConnectionStatus = {
     Pending: "Pending",
     Approved: "Approved",
     Rejected: "Rejected",
@@ -30,9 +44,20 @@ export const PrivateEndpointServiceConnectionStatus = {
 } as const;
 
 /**
- * Indicates whether the connection has been approved, rejected or removed by the Relay Namespace owner.
+ * Status of the connection.
  */
-export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+export type PrivateLinkConnectionStatus = (typeof PrivateLinkConnectionStatus)[keyof typeof PrivateLinkConnectionStatus];
+
+export const PublicNetworkAccess = {
+    Enabled: "Enabled",
+    Disabled: "Disabled",
+    SecuredByPerimeter: "SecuredByPerimeter",
+} as const;
+
+/**
+ * This determines if traffic is allowed over public network. By default it is enabled.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
 
 export const Relaytype = {
     NetTcp: "NetTcp",

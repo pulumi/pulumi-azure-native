@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Private Endpoint Connection resource.
- * API Version: 2021-11-01.
+ * API Version: 2022-05-15.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -99,7 +99,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20200330:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20210111:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20211101:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220131preview:PrivateEndpointConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20200330:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20210111:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20210601preview:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20211101:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220131preview:PrivateEndpointConnection" }, { type: "azure-native:healthcareapis/v20220515:PrivateEndpointConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnection.__pulumiType, name, resourceInputs, opts);
     }

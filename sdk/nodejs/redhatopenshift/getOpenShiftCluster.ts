@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
- * API Version: 2020-04-30.
+ * API Version: 2022-04-01.
  */
 export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftClusterResult> {
     if (!opts) {
@@ -73,13 +73,17 @@ export interface GetOpenShiftClusterResult {
      */
     readonly networkProfile?: outputs.redhatopenshift.NetworkProfileResponse;
     /**
-     * The cluster provisioning state (immutable).
+     * The cluster provisioning state.
      */
     readonly provisioningState?: string;
     /**
      * The cluster service principal profile.
      */
     readonly servicePrincipalProfile?: outputs.redhatopenshift.ServicePrincipalProfileResponse;
+    /**
+     * The system meta data relating to this resource.
+     */
+    readonly systemData: outputs.redhatopenshift.SystemDataResponse;
     /**
      * Resource tags.
      */

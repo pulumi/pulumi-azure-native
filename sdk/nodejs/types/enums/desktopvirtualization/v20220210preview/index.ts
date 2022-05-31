@@ -34,7 +34,7 @@ export const DayOfWeek = {
 } as const;
 
 /**
- * Day of the week.
+ * The day of the week (Monday-Sunday).
  */
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
 
@@ -207,17 +207,17 @@ export type ScalingHostPoolType = (typeof ScalingHostPoolType)[keyof typeof Scal
 
 export const SessionHostComponentUpdateType = {
     /**
-     * Agent and other agent side components are delivery schedule is controlled by WVD Infra.
+     * The agent components are updated according to the AVD infrastructure flighting. For more information, see https://aka.ms/avdagent.
      */
     Default: "Default",
     /**
-     * TenantAdmin have opted in for Scheduled Component Update feature.
+     * This enables the Scheduled Agent Updates feature which allows the agent components to get updated according to the schedule that the admin define. For more information, see https://aka.ms/avdsau.
      */
     Scheduled: "Scheduled",
 } as const;
 
 /**
- * The type of maintenance for session host components.
+ * The preferred mechanism for updating the agent components. This is either Scheduled or Default.
  */
 export type SessionHostComponentUpdateType = (typeof SessionHostComponentUpdateType)[keyof typeof SessionHostComponentUpdateType];
 

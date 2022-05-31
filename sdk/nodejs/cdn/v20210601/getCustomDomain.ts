@@ -50,7 +50,7 @@ export interface GetCustomDomainResult {
      */
     readonly customHttpsParameters?: outputs.cdn.v20210601.CdnManagedHttpsParametersResponse | outputs.cdn.v20210601.UserManagedHttpsParametersResponse;
     /**
-     * Provisioning status of Custom Https of the custom domain.
+     * Provisioning status of the custom domain.
      */
     readonly customHttpsProvisioningState: string;
     /**
@@ -70,7 +70,7 @@ export interface GetCustomDomainResult {
      */
     readonly name: string;
     /**
-     * Provisioning status of the custom domain.
+     * Provisioning status of Custom Https of the custom domain.
      */
     readonly provisioningState: string;
     /**

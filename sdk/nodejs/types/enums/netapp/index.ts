@@ -24,6 +24,7 @@ import * as v20210401preview from "./v20210401preview";
 import * as v20210601 from "./v20210601";
 import * as v20210801 from "./v20210801";
 import * as v20211001 from "./v20211001";
+import * as v20220101 from "./v20220101";
 
 export {
     v20170815,
@@ -48,6 +49,7 @@ export {
     v20210601,
     v20210801,
     v20211001,
+    v20220101,
 };
 
 export const ApplicationType = {
@@ -187,3 +189,27 @@ export const ServiceLevel = {
  * The service level of the file system
  */
 export type ServiceLevel = (typeof ServiceLevel)[keyof typeof ServiceLevel];
+
+export const Type = {
+    /**
+     * Default user quota
+     */
+    DefaultUserQuota: "DefaultUserQuota",
+    /**
+     * Default group quota
+     */
+    DefaultGroupQuota: "DefaultGroupQuota",
+    /**
+     * Individual user quota
+     */
+    IndividualUserQuota: "IndividualUserQuota",
+    /**
+     * Individual group quota
+     */
+    IndividualGroupQuota: "IndividualGroupQuota",
+} as const;
+
+/**
+ * Type of quota
+ */
+export type Type = (typeof Type)[keyof typeof Type];

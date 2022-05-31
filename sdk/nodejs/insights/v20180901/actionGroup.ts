@@ -157,7 +157,7 @@ export class ActionGroup extends pulumi.CustomResource {
             resourceInputs["webhookReceivers"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:insights:ActionGroup" }, { type: "azure-native:insights/v20170401:ActionGroup" }, { type: "azure-native:insights/v20180301:ActionGroup" }, { type: "azure-native:insights/v20190301:ActionGroup" }, { type: "azure-native:insights/v20190601:ActionGroup" }, { type: "azure-native:insights/v20210901:ActionGroup" }, { type: "azure-native:insights/v20220401:ActionGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:insights:ActionGroup" }, { type: "azure-native:insights/v20170401:ActionGroup" }, { type: "azure-native:insights/v20180301:ActionGroup" }, { type: "azure-native:insights/v20190301:ActionGroup" }, { type: "azure-native:insights/v20190601:ActionGroup" }, { type: "azure-native:insights/v20210901:ActionGroup" }, { type: "azure-native:insights/v20220401:ActionGroup" }, { type: "azure-native:insights/v20220601:ActionGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ActionGroup.__pulumiType, name, resourceInputs, opts);
     }

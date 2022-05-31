@@ -15,21 +15,21 @@ export function listDaprComponentSecrets(args: ListDaprComponentSecretsArgs, opt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app/v20220301:listDaprComponentSecrets", {
+        "componentName": args.componentName,
         "environmentName": args.environmentName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface ListDaprComponentSecretsArgs {
     /**
+     * Name of the Dapr Component.
+     */
+    componentName: string;
+    /**
      * Name of the Managed Environment.
      */
     environmentName: string;
-    /**
-     * Name of the Dapr Component.
-     */
-    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -52,13 +52,13 @@ export function listDaprComponentSecretsOutput(args: ListDaprComponentSecretsOut
 
 export interface ListDaprComponentSecretsOutputArgs {
     /**
+     * Name of the Dapr Component.
+     */
+    componentName: pulumi.Input<string>;
+    /**
      * Name of the Managed Environment.
      */
     environmentName: pulumi.Input<string>;
-    /**
-     * Name of the Dapr Component.
-     */
-    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -99,7 +99,7 @@ export class ConsumerGroup extends pulumi.CustomResource {
             resourceInputs["userMetadata"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:ConsumerGroup" }, { type: "azure-native:eventhub/v20140901:ConsumerGroup" }, { type: "azure-native:eventhub/v20150801:ConsumerGroup" }, { type: "azure-native:eventhub/v20170401:ConsumerGroup" }, { type: "azure-native:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20210101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20211101:ConsumerGroup" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:ConsumerGroup" }, { type: "azure-native:eventhub/v20140901:ConsumerGroup" }, { type: "azure-native:eventhub/v20150801:ConsumerGroup" }, { type: "azure-native:eventhub/v20170401:ConsumerGroup" }, { type: "azure-native:eventhub/v20180101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20210101preview:ConsumerGroup" }, { type: "azure-native:eventhub/v20211101:ConsumerGroup" }, { type: "azure-native:eventhub/v20220101preview:ConsumerGroup" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ConsumerGroup.__pulumiType, name, resourceInputs, opts);
     }

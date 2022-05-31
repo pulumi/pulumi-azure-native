@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Scope Connections resource
- * API Version: 2022-02-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class ScopeConnection extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class ScopeConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:ScopeConnection" }, { type: "azure-native:network/v20220201preview:ScopeConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:ScopeConnection" }, { type: "azure-native:network/v20220201preview:ScopeConnection" }, { type: "azure-native:network/v20220401preview:ScopeConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ScopeConnection.__pulumiType, name, resourceInputs, opts);
     }

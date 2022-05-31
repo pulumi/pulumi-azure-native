@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT Connector definition.
- * API Version: 2021-11-01.
+ * API Version: 2022-05-15.
  */
 export class IotConnector extends pulumi.CustomResource {
     /**
@@ -120,7 +120,7 @@ export class IotConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:IotConnector" }, { type: "azure-native:healthcareapis/v20211101:IotConnector" }, { type: "azure-native:healthcareapis/v20220131preview:IotConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:IotConnector" }, { type: "azure-native:healthcareapis/v20211101:IotConnector" }, { type: "azure-native:healthcareapis/v20220131preview:IotConnector" }, { type: "azure-native:healthcareapis/v20220515:IotConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotConnector.__pulumiType, name, resourceInputs, opts);
     }

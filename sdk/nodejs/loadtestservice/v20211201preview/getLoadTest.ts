@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * LoadTest details
  */
+/** @deprecated Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later. */
 export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadTestResult> {
+    pulumi.log.warn("getLoadTest is deprecated: Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later.")
     if (!opts) {
         opts = {}
     }
@@ -22,7 +24,7 @@ export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetLoadTestArgs {
     /**
-     * Load Test name.
+     * Load Test resource name.
      */
     loadTestName: string;
     /**
@@ -83,7 +85,7 @@ export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.Inv
 
 export interface GetLoadTestOutputArgs {
     /**
-     * Load Test name.
+     * Load Test resource name.
      */
     loadTestName: pulumi.Input<string>;
     /**

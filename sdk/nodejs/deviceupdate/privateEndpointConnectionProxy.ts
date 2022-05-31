@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Private endpoint connection proxy details.
- * API Version: 2020-03-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
     /**
@@ -102,7 +102,7 @@ export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate/v20200301preview:PrivateEndpointConnectionProxy" }, { type: "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionProxy.__pulumiType, name, resourceInputs, opts);
     }

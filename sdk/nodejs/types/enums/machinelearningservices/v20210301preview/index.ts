@@ -124,6 +124,11 @@ export const DataBindingMode = {
     Mount: "Mount",
     Download: "Download",
     Upload: "Upload",
+    ReadOnlyMount: "ReadOnlyMount",
+    ReadWriteMount: "ReadWriteMount",
+    Direct: "Direct",
+    EvalMount: "EvalMount",
+    EvalDownload: "EvalDownload",
 } as const;
 
 /**

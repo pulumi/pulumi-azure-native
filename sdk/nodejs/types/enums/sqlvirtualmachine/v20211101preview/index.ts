@@ -2,6 +2,33 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
+export const AssessmentDayOfWeek = {
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+    Sunday: "Sunday",
+} as const;
+
+/**
+ * Day of the week to run assessment.
+ */
+export type AssessmentDayOfWeek = (typeof AssessmentDayOfWeek)[keyof typeof AssessmentDayOfWeek];
+
+export const AutoBackupDaysOfWeek = {
+    Monday: "Monday",
+    Tuesday: "Tuesday",
+    Wednesday: "Wednesday",
+    Thursday: "Thursday",
+    Friday: "Friday",
+    Saturday: "Saturday",
+    Sunday: "Sunday",
+} as const;
+
+export type AutoBackupDaysOfWeek = (typeof AutoBackupDaysOfWeek)[keyof typeof AutoBackupDaysOfWeek];
+
 export const BackupScheduleType = {
     Manual: "Manual",
     Automated: "Automated",
@@ -24,6 +51,7 @@ export const ConnectivityType = {
 export type ConnectivityType = (typeof ConnectivityType)[keyof typeof ConnectivityType];
 
 export const DayOfWeek = {
+    Everyday: "Everyday",
     Monday: "Monday",
     Tuesday: "Tuesday",
     Wednesday: "Wednesday",
@@ -37,18 +65,6 @@ export const DayOfWeek = {
  * Day of week to apply the patch on.
  */
 export type DayOfWeek = (typeof DayOfWeek)[keyof typeof DayOfWeek];
-
-export const DaysOfWeek = {
-    Monday: "Monday",
-    Tuesday: "Tuesday",
-    Wednesday: "Wednesday",
-    Thursday: "Thursday",
-    Friday: "Friday",
-    Saturday: "Saturday",
-    Sunday: "Sunday",
-} as const;
-
-export type DaysOfWeek = (typeof DaysOfWeek)[keyof typeof DaysOfWeek];
 
 export const DiskConfigurationType = {
     NEW: "NEW",

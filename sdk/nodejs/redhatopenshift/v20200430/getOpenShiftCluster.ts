@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
  */
+/** @deprecated Version v20200430 will be removed in the next major version of the provider. Upgrade to version v20220401 or later. */
 export function getOpenShiftCluster(args: GetOpenShiftClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftClusterResult> {
+    pulumi.log.warn("getOpenShiftCluster is deprecated: Version v20200430 will be removed in the next major version of the provider. Upgrade to version v20220401 or later.")
     if (!opts) {
         opts = {}
     }

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Customer creates a spacecraft resource to schedule a contact.
- * API Version: 2021-04-04-preview.
+ * API Version: 2022-03-01.
  */
 export class Spacecraft extends pulumi.CustomResource {
     /**
@@ -36,14 +36,6 @@ export class Spacecraft extends pulumi.CustomResource {
         return obj['__pulumiType'] === Spacecraft.__pulumiType;
     }
 
-    /**
-     * Authorization status of spacecraft.
-     */
-    public /*out*/ readonly authorizationStatus!: pulumi.Output<string>;
-    /**
-     * Details of the authorization status.
-     */
-    public /*out*/ readonly authorizationStatusExtended!: pulumi.Output<string>;
     /**
      * A unique read-only string that changes whenever the resource is updated.
      */
@@ -115,15 +107,11 @@ export class Spacecraft extends pulumi.CustomResource {
             resourceInputs["titleLine"] = args ? args.titleLine : undefined;
             resourceInputs["tleLine1"] = args ? args.tleLine1 : undefined;
             resourceInputs["tleLine2"] = args ? args.tleLine2 : undefined;
-            resourceInputs["authorizationStatus"] = undefined /*out*/;
-            resourceInputs["authorizationStatusExtended"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["authorizationStatus"] = undefined /*out*/;
-            resourceInputs["authorizationStatusExtended"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["links"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -137,7 +125,7 @@ export class Spacecraft extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20210404preview:Spacecraft" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20210404preview:Spacecraft" }, { type: "azure-native:orbital/v20220301:Spacecraft" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Spacecraft.__pulumiType, name, resourceInputs, opts);
     }

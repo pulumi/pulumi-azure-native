@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * Namespace/Relay Connection String
- * API Version: 2017-04-01.
+ * API Version: 2021-11-01.
  */
 export function listWCFRelayKeys(args: ListWCFRelayKeysArgs, opts?: pulumi.InvokeOptions): Promise<ListWCFRelayKeysResult> {
     if (!opts) {

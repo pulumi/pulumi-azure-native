@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
- * API Version: 2021-04-04-preview.
+ * API Version: 2022-03-01.
  */
 export function getContactProfile(args: GetContactProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetContactProfileResult> {
     if (!opts) {
@@ -72,6 +72,10 @@ export interface GetContactProfileResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * Network configuration of customer virtual network.
+     */
+    readonly networkConfiguration: outputs.orbital.ContactProfilesPropertiesResponseNetworkConfiguration;
     /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */

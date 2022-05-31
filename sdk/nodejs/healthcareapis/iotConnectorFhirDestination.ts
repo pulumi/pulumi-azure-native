@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT Connector FHIR destination definition.
- * API Version: 2021-11-01.
+ * API Version: 2022-05-15.
  */
 export class IotConnectorFhirDestination extends pulumi.CustomResource {
     /**
@@ -121,7 +121,7 @@ export class IotConnectorFhirDestination extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20211101:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20211101:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination" }, { type: "azure-native:healthcareapis/v20220515:IotConnectorFhirDestination" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotConnectorFhirDestination.__pulumiType, name, resourceInputs, opts);
     }

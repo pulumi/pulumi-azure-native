@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * OpenShiftCluster represents an Azure Red Hat OpenShift cluster.
+ *
+ * @deprecated Version v20200430 will be removed in the next major version of the provider. Upgrade to version v20220401 or later.
  */
 export class OpenShiftCluster extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OpenShiftCluster {
+        pulumi.log.warn("OpenShiftCluster is deprecated: Version v20200430 will be removed in the next major version of the provider. Upgrade to version v20220401 or later.")
         return new OpenShiftCluster(name, undefined as any, { ...opts, id: id });
     }
 
@@ -95,7 +98,9 @@ export class OpenShiftCluster extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200430 will be removed in the next major version of the provider. Upgrade to version v20220401 or later. */
     constructor(name: string, args: OpenShiftClusterArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("OpenShiftCluster is deprecated: Version v20200430 will be removed in the next major version of the provider. Upgrade to version v20220401 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -133,7 +138,7 @@ export class OpenShiftCluster extends pulumi.CustomResource {
             resourceInputs["workerProfiles"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20210901preview:OpenShiftCluster" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:redhatopenshift:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20210901preview:OpenShiftCluster" }, { type: "azure-native:redhatopenshift/v20220401:OpenShiftCluster" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(OpenShiftCluster.__pulumiType, name, resourceInputs, opts);
     }

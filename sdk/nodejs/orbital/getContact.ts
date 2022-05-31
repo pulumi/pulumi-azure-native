@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Customer creates a contact resource for a spacecraft resource.
- * API Version: 2021-04-04-preview.
+ * API Version: 2022-03-01.
  */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
     if (!opts) {
@@ -42,9 +42,13 @@ export interface GetContactArgs {
  */
 export interface GetContactResult {
     /**
+     * The configuration associated with the allocated antenna.
+     */
+    readonly antennaConfiguration: outputs.orbital.ContactsPropertiesResponseAntennaConfiguration;
+    /**
      * The reference to the contact profile resource.
      */
-    readonly contactProfile: outputs.orbital.ResourceReferenceResponse;
+    readonly contactProfile: outputs.orbital.ContactsPropertiesResponseContactProfile;
     /**
      * Azimuth of the antenna at the end of the contact in decimal degrees.
      */

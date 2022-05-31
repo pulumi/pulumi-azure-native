@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Device Update instance details.
- * API Version: 2020-03-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class Instance extends pulumi.CustomResource {
     /**
@@ -119,7 +119,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate/v20200301preview:Instance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate/v20200301preview:Instance" }, { type: "azure-native:deviceupdate/v20220401preview:Instance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Description of a namespace authorization rule.
  */
+/** @deprecated Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later. */
 export function getWCFRelayAuthorizationRule(args: GetWCFRelayAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayAuthorizationRuleResult> {
+    pulumi.log.warn("getWCFRelayAuthorizationRule is deprecated: Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")
     if (!opts) {
         opts = {}
     }

@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20210404preview from "./v20210404preview";
+import * as v20220301 from "./v20220301";
 
 export {
     v20210404preview,
+    v20220301,
 };
 
 export const AutoTrackingConfiguration = {
@@ -32,7 +34,6 @@ export type Direction = (typeof Direction)[keyof typeof Direction];
 export const Polarization = {
     RHCP: "RHCP",
     LHCP: "LHCP",
-    DualRhcpLhcp: "dualRhcpLhcp",
     LinearVertical: "linearVertical",
     LinearHorizontal: "linearHorizontal",
 } as const;

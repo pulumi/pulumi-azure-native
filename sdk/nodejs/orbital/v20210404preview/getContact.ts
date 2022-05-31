@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Customer creates a contact resource for a spacecraft resource.
  */
+/** @deprecated Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later. */
 export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): Promise<GetContactResult> {
+    pulumi.log.warn("getContact is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")
     if (!opts) {
         opts = {}
     }

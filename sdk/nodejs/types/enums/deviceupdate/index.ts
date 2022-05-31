@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20200301preview from "./v20200301preview";
+import * as v20220401preview from "./v20220401preview";
 
 export {
     v20200301preview,
+    v20220401preview,
 };
 
 export const AuthenticationType = {
@@ -49,3 +51,13 @@ export const PublicNetworkAccess = {
  * Whether or not public network access is allowed for the account.
  */
 export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
+export const SKU = {
+    Free: "Free",
+    Standard: "Standard",
+} as const;
+
+/**
+ * Device Update Sku
+ */
+export type SKU = (typeof SKU)[keyof typeof SKU];

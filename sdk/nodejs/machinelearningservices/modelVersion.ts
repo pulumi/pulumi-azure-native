@@ -90,7 +90,7 @@ export class ModelVersion extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:ModelVersion" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220201preview:ModelVersion" }, { type: "azure-native:machinelearningservices/v20220501:ModelVersion" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ModelVersion.__pulumiType, name, resourceInputs, opts);
     }

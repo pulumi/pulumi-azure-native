@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * OpenShiftClusterAdminKubeconfig represents an OpenShift cluster's admin kubeconfig.
- * API Version: 2021-09-01-preview.
+ * API Version: 2022-04-01.
  */
 export function listOpenShiftClusterAdminCredentials(args: ListOpenShiftClusterAdminCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListOpenShiftClusterAdminCredentialsResult> {
     if (!opts) {

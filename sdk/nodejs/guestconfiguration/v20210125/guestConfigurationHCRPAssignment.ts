@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
+ *
+ * @deprecated Version v20210125 will be removed in the next major version of the provider. Upgrade to version v20220125 or later.
  */
 export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GuestConfigurationHCRPAssignment {
+        pulumi.log.warn("GuestConfigurationHCRPAssignment is deprecated: Version v20210125 will be removed in the next major version of the provider. Upgrade to version v20220125 or later.")
         return new GuestConfigurationHCRPAssignment(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20210125 will be removed in the next major version of the provider. Upgrade to version v20220125 or later. */
     constructor(name: string, args: GuestConfigurationHCRPAssignmentArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("GuestConfigurationHCRPAssignment is deprecated: Version v20210125 will be removed in the next major version of the provider. Upgrade to version v20220125 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -89,7 +94,7 @@ export class GuestConfigurationHCRPAssignment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment" }, { type: "azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:guestconfiguration:GuestConfigurationHCRPAssignment" }, { type: "azure-native:guestconfiguration/v20181120:GuestConfigurationHCRPAssignment" }, { type: "azure-native:guestconfiguration/v20200625:GuestConfigurationHCRPAssignment" }, { type: "azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GuestConfigurationHCRPAssignment.__pulumiType, name, resourceInputs, opts);
     }

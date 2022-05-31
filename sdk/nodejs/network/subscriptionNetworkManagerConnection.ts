@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Network Manager Connection resource
- * API Version: 2022-02-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource {
     /**
@@ -88,7 +88,7 @@ export class SubscriptionNetworkManagerConnection extends pulumi.CustomResource 
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220201preview:SubscriptionNetworkManagerConnection" }, { type: "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SubscriptionNetworkManagerConnection.__pulumiType, name, resourceInputs, opts);
     }

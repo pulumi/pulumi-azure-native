@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
- * API Version: 2021-04-04-preview.
+ * API Version: 2022-03-01.
  */
 export class ContactProfile extends pulumi.CustomResource {
     /**
@@ -69,6 +69,10 @@ export class ContactProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
+     * Network configuration of customer virtual network.
+     */
+    public readonly networkConfiguration!: pulumi.Output<outputs.orbital.ContactProfilesPropertiesResponseNetworkConfiguration>;
+    /**
      * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.orbital.SystemDataResponse>;
@@ -95,6 +99,9 @@ export class ContactProfile extends pulumi.CustomResource {
             if ((!args || args.links === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'links'");
             }
+            if ((!args || args.networkConfiguration === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'networkConfiguration'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -105,6 +112,7 @@ export class ContactProfile extends pulumi.CustomResource {
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minimumElevationDegrees"] = args ? args.minimumElevationDegrees : undefined;
             resourceInputs["minimumViableContactDuration"] = args ? args.minimumViableContactDuration : undefined;
+            resourceInputs["networkConfiguration"] = args ? args.networkConfiguration : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["etag"] = undefined /*out*/;
@@ -120,12 +128,13 @@ export class ContactProfile extends pulumi.CustomResource {
             resourceInputs["minimumElevationDegrees"] = undefined /*out*/;
             resourceInputs["minimumViableContactDuration"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["networkConfiguration"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20210404preview:ContactProfile" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20210404preview:ContactProfile" }, { type: "azure-native:orbital/v20220301:ContactProfile" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ContactProfile.__pulumiType, name, resourceInputs, opts);
     }
@@ -163,6 +172,10 @@ export interface ContactProfileArgs {
      * Minimum viable contact duration in ISO 8601 format.
      */
     minimumViableContactDuration?: pulumi.Input<string>;
+    /**
+     * Network configuration of customer virtual network.
+     */
+    networkConfiguration: pulumi.Input<inputs.orbital.ContactProfilesPropertiesNetworkConfigurationArgs>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -7,7 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Description of the WCF relay resource.
  */
+/** @deprecated Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later. */
 export function getWCFRelay(args: GetWCFRelayArgs, opts?: pulumi.InvokeOptions): Promise<GetWCFRelayResult> {
+    pulumi.log.warn("getWCFRelay is deprecated: Version v20170401 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")
     if (!opts) {
         opts = {}
     }

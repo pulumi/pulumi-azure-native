@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Response for the ListAvailableContacts API service call.
- * API Version: 2021-04-04-preview.
+ * API Version: 2022-03-01.
  */
 export function listSpacecraftAvailableContacts(args: ListSpacecraftAvailableContactsArgs, opts?: pulumi.InvokeOptions): Promise<ListSpacecraftAvailableContactsResult> {
     if (!opts) {
@@ -29,7 +29,7 @@ export interface ListSpacecraftAvailableContactsArgs {
     /**
      * The reference to the contact profile resource.
      */
-    contactProfile: inputs.orbital.ResourceReference;
+    contactProfile: inputs.orbital.ContactParametersContactProfile;
     /**
      * End time of a contact.
      */
@@ -74,7 +74,7 @@ export interface ListSpacecraftAvailableContactsOutputArgs {
     /**
      * The reference to the contact profile resource.
      */
-    contactProfile: pulumi.Input<inputs.orbital.ResourceReferenceArgs>;
+    contactProfile: pulumi.Input<inputs.orbital.ContactParametersContactProfileArgs>;
     /**
      * End time of a contact.
      */

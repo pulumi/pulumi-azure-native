@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * LoadTest details
+ *
+ * @deprecated Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later.
  */
 export class LoadTest extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class LoadTest extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): LoadTest {
+        pulumi.log.warn("LoadTest is deprecated: Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later.")
         return new LoadTest(name, undefined as any, { ...opts, id: id });
     }
 
@@ -79,7 +82,9 @@ export class LoadTest extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later. */
     constructor(name: string, args: LoadTestArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("LoadTest is deprecated: Version v20211201preview will be removed in the next major version of the provider. Upgrade to version v20220415preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -128,7 +133,7 @@ export interface LoadTestArgs {
      */
     identity?: pulumi.Input<inputs.loadtestservice.v20211201preview.SystemAssignedServiceIdentityArgs>;
     /**
-     * Load Test name.
+     * Load Test resource name.
      */
     loadTestName?: pulumi.Input<string>;
     /**

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Scope Connections resource
- * API Version: 2022-02-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getScopeConnection(args: GetScopeConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetScopeConnectionResult> {
     if (!opts) {

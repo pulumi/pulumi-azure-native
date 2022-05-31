@@ -15,21 +15,21 @@ export function getContainerAppsAuthConfig(args: GetContainerAppsAuthConfigArgs,
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app/v20220301:getContainerAppsAuthConfig", {
+        "authConfigName": args.authConfigName,
         "containerAppName": args.containerAppName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetContainerAppsAuthConfigArgs {
     /**
+     * Name of the Container App AuthConfig.
+     */
+    authConfigName: string;
+    /**
      * Name of the Container App.
      */
     containerAppName: string;
-    /**
-     * Name of the Container App AuthConfig.
-     */
-    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -84,13 +84,13 @@ export function getContainerAppsAuthConfigOutput(args: GetContainerAppsAuthConfi
 
 export interface GetContainerAppsAuthConfigOutputArgs {
     /**
+     * Name of the Container App AuthConfig.
+     */
+    authConfigName: pulumi.Input<string>;
+    /**
      * Name of the Container App.
      */
     containerAppName: pulumi.Input<string>;
-    /**
-     * Name of the Container App AuthConfig.
-     */
-    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

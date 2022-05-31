@@ -106,7 +106,7 @@ export interface GetVolumeResult {
      */
     readonly fileSystemId: string;
     /**
-     * Resource Id
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
      */
     readonly id: string;
     /**
@@ -126,7 +126,7 @@ export interface GetVolumeResult {
      */
     readonly ldapEnabled?: boolean;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     readonly location: string;
     /**
@@ -134,7 +134,7 @@ export interface GetVolumeResult {
      */
     readonly mountTargets: outputs.netapp.v20210801.MountTargetPropertiesResponse[];
     /**
-     * Resource name
+     * The name of the resource
      */
     readonly name: string;
     /**
@@ -194,16 +194,20 @@ export interface GetVolumeResult {
      */
     readonly subnetId: string;
     /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.netapp.v20210801.SystemDataResponse;
+    /**
      * T2 network information
      */
     readonly t2Network: string;
     /**
-     * Resource tags
+     * Resource tags.
      */
     readonly tags?: {[key: string]: string};
     readonly throughputMibps?: number;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     readonly type: string;
     /**

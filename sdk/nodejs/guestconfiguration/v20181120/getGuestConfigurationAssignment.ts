@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Guest configuration assignment is an association between a machine and guest configuration.
  */
-/** @deprecated Version v20181120 will be removed in the next major version of the provider. Upgrade to version v20200625 or later. */
+/** @deprecated Version v20181120 will be removed in the next major version of the provider. Upgrade to version v20220125 or later. */
 export function getGuestConfigurationAssignment(args: GetGuestConfigurationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetGuestConfigurationAssignmentResult> {
-    pulumi.log.warn("getGuestConfigurationAssignment is deprecated: Version v20181120 will be removed in the next major version of the provider. Upgrade to version v20200625 or later.")
+    pulumi.log.warn("getGuestConfigurationAssignment is deprecated: Version v20181120 will be removed in the next major version of the provider. Upgrade to version v20220125 or later.")
     if (!opts) {
         opts = {}
     }

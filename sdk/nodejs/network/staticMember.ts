@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * StaticMember Item.
- * API Version: 2022-02-01-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class StaticMember extends pulumi.CustomResource {
     /**
@@ -44,6 +44,14 @@ export class StaticMember extends pulumi.CustomResource {
      * Resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
+    /**
+     * The provisioning state of the scope assignment resource.
+     */
+    public /*out*/ readonly provisioningState!: pulumi.Output<string>;
+    /**
+     * Resource region.
+     */
+    public /*out*/ readonly region!: pulumi.Output<string>;
     /**
      * Resource Id.
      */
@@ -84,17 +92,21 @@ export class StaticMember extends pulumi.CustomResource {
             resourceInputs["staticMemberName"] = args ? args.staticMemberName : undefined;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
+            resourceInputs["provisioningState"] = undefined /*out*/;
+            resourceInputs["region"] = undefined /*out*/;
             resourceInputs["resourceId"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:StaticMember" }, { type: "azure-native:network/v20220201preview:StaticMember" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20210501preview:StaticMember" }, { type: "azure-native:network/v20220201preview:StaticMember" }, { type: "azure-native:network/v20220401preview:StaticMember" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticMember.__pulumiType, name, resourceInputs, opts);
     }

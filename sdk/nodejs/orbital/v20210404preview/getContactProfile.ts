@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
  */
+/** @deprecated Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later. */
 export function getContactProfile(args: GetContactProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetContactProfileResult> {
+    pulumi.log.warn("getContactProfile is deprecated: Version v20210404preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")
     if (!opts) {
         opts = {}
     }

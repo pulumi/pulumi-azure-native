@@ -39,7 +39,7 @@ export class ManagedEnvironmentsStorage extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Storage properties
      */
@@ -64,16 +64,17 @@ export class ManagedEnvironmentsStorage extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.envName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'envName'");
+            if ((!args || args.environmentName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'environmentName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["envName"] = args ? args.envName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["storageName"] = args ? args.storageName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -96,11 +97,7 @@ export interface ManagedEnvironmentsStorageArgs {
     /**
      * Name of the Environment.
      */
-    envName: pulumi.Input<string>;
-    /**
-     * Name of the storage.
-     */
-    name?: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
     /**
      * Storage properties
      */
@@ -109,4 +106,8 @@ export interface ManagedEnvironmentsStorageArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the storage.
+     */
+    storageName?: pulumi.Input<string>;
 }

@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * Private endpoint connection proxy details.
+ *
+ * @deprecated Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.
  */
 export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnectionProxy {
+        pulumi.log.warn("PrivateEndpointConnectionProxy is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.")
         return new PrivateEndpointConnectionProxy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -71,7 +74,9 @@ export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later. */
     constructor(name: string, args: PrivateEndpointConnectionProxyArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("PrivateEndpointConnectionProxy is deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20220401preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -101,7 +106,7 @@ export class PrivateEndpointConnectionProxy extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate:PrivateEndpointConnectionProxy" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate:PrivateEndpointConnectionProxy" }, { type: "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PrivateEndpointConnectionProxy.__pulumiType, name, resourceInputs, opts);
     }

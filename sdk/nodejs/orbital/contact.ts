@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Customer creates a contact resource for a spacecraft resource.
- * API Version: 2021-04-04-preview.
+ * API Version: 2022-03-01.
  */
 export class Contact extends pulumi.CustomResource {
     /**
@@ -37,9 +37,13 @@ export class Contact extends pulumi.CustomResource {
     }
 
     /**
+     * The configuration associated with the allocated antenna.
+     */
+    public /*out*/ readonly antennaConfiguration!: pulumi.Output<outputs.orbital.ContactsPropertiesResponseAntennaConfiguration>;
+    /**
      * The reference to the contact profile resource.
      */
-    public readonly contactProfile!: pulumi.Output<outputs.orbital.ResourceReferenceResponse>;
+    public readonly contactProfile!: pulumi.Output<outputs.orbital.ContactsPropertiesResponseContactProfile>;
     /**
      * Azimuth of the antenna at the end of the contact in decimal degrees.
      */
@@ -149,6 +153,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["reservationStartTime"] = args ? args.reservationStartTime : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["spacecraftName"] = args ? args.spacecraftName : undefined;
+            resourceInputs["antennaConfiguration"] = undefined /*out*/;
             resourceInputs["endAzimuthDegrees"] = undefined /*out*/;
             resourceInputs["endElevationDegrees"] = undefined /*out*/;
             resourceInputs["errorMessage"] = undefined /*out*/;
@@ -165,6 +170,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["txStartTime"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["antennaConfiguration"] = undefined /*out*/;
             resourceInputs["contactProfile"] = undefined /*out*/;
             resourceInputs["endAzimuthDegrees"] = undefined /*out*/;
             resourceInputs["endElevationDegrees"] = undefined /*out*/;
@@ -186,7 +192,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20210404preview:Contact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20210404preview:Contact" }, { type: "azure-native:orbital/v20220301:Contact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Contact.__pulumiType, name, resourceInputs, opts);
     }
@@ -203,7 +209,7 @@ export interface ContactArgs {
     /**
      * The reference to the contact profile resource.
      */
-    contactProfile: pulumi.Input<inputs.orbital.ResourceReferenceArgs>;
+    contactProfile: pulumi.Input<inputs.orbital.ContactsPropertiesContactProfileArgs>;
     /**
      * Azure Ground Station name.
      */

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The endpoint for the target resource.
- * API Version: 2021-10-06-preview.
+ * API Version: 2022-05-01-preview.
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     if (!opts) {
@@ -67,6 +67,9 @@ export interface GetEndpointResult {
      * The name of the resource
      */
     readonly name: string;
+    /**
+     * The resource provisioning state.
+     */
     readonly provisioningState: string;
     /**
      * The resource Id of the connectivity endpoint (optional).

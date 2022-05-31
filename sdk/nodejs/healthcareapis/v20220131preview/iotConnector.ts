@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * IoT Connector definition.
+ *
+ * @deprecated Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.
  */
 export class IotConnector extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class IotConnector extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IotConnector {
+        pulumi.log.warn("IotConnector is deprecated: Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")
         return new IotConnector(name, undefined as any, { ...opts, id: id });
     }
 
@@ -83,7 +86,9 @@ export class IotConnector extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later. */
     constructor(name: string, args: IotConnectorArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("IotConnector is deprecated: Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -119,7 +124,7 @@ export class IotConnector extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:IotConnector" }, { type: "azure-native:healthcareapis/v20210601preview:IotConnector" }, { type: "azure-native:healthcareapis/v20211101:IotConnector" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:IotConnector" }, { type: "azure-native:healthcareapis/v20210601preview:IotConnector" }, { type: "azure-native:healthcareapis/v20211101:IotConnector" }, { type: "azure-native:healthcareapis/v20220515:IotConnector" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(IotConnector.__pulumiType, name, resourceInputs, opts);
     }
