@@ -32,7 +32,7 @@ func loadMetadata(t *testing.T) *resources.AzureAPIMetadata {
 }
 
 func loadSchema(t *testing.T) *schema.PackageSpec {
-	bytes, err := ioutil.ReadFile("../../../../cmd/pulumi-resource-azure-native/schema-full.json")
+	bytes, err := ioutil.ReadFile("../../../../cmd/pulumi-resource-azure-native/schema-azure-native.json")
 	require.NoError(t, err)
 	var pkgSpec schema.PackageSpec
 	require.NoError(t, json.Unmarshal(bytes, &pkgSpec))

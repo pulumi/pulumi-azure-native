@@ -72,7 +72,12 @@ codegen::
 provider::
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
+GOBIN_ENV := $(shell go env GOBIN)
+GOPATH_ENV := $(shell go env GOPATH)
+GOBIN_ACTUAL := $(if $(GOBIN_ENV),$(GOBIN_ENV),$(GOPATH_ENV)/bin)/
+
 install_provider::
+	cp provider/cmd/$(PROVIDER)/schema-$(PACK).json $(GOBIN_ACTUAL)
 	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
 test_provider::

@@ -69,9 +69,8 @@ type azureNativeProvider struct {
 	client          autorest.Client
 	resourceMap     *resources.PartialAzureAPIMetadata
 	config          map[string]string
-	schemaBytes     []byte
 	metadataBytes   []byte
-	schemaString    string // optimization, this and schemaBytes should have same underlying repr
+	loadSchema      SchemaLoader
 	fullPkgSpec     *schema.PackageSpec
 	fullResourceMap *resources.AzureAPIMetadata
 	converter       *resources.SdkShapeConverter
@@ -79,7 +78,9 @@ type azureNativeProvider struct {
 	rgLocationMap   map[string]string
 }
 
-func makeProvider(host *provider.HostClient, name, version string, schemaBytes []byte, schemaString string,
+type SchemaLoader = func() ([]byte, string, error)
+
+func makeProvider(host *provider.HostClient, name, version string, schemaLoader SchemaLoader,
 	azureAPIResourcesBytes []byte) (rpc.ResourceProviderServer, error) {
 	autorest.Count429AsRetry = false
 	// Creating a REST client, defaulting to Pulumi Partner ID until the Configure method is invoked.
@@ -104,7 +105,7 @@ func makeProvider(host *provider.HostClient, name, version string, schemaBytes [
 		client:        client,
 		resourceMap:   resourceMap,
 		config:        map[string]string{},
-		schemaBytes:   schemaBytes,
+		loadSchema:    schemaLoader,
 		converter:     &converter,
 		rgLocationMap: map[string]string{},
 	}, nil
@@ -141,6 +142,15 @@ func (k *azureNativeProvider) getFullMetadata() (*resources.AzureAPIMetadata, er
 	}
 
 	return k.fullResourceMap, nil
+}
+
+func (k *azureNativeProvider) schema() ([]byte, string, error) {
+	bytes, str, err := k.loadSchema()
+	if err != nil {
+		return nil, "", err
+	}
+
+	return bytes, str, nil
 }
 
 func (p *azureNativeProvider) Attach(context context.Context, req *rpc.PluginAttach) (*emptypb.Empty, error) {
@@ -247,7 +257,12 @@ func (k *azureNativeProvider) Invoke(ctx context.Context, req *rpc.InvokeRequest
 		}
 
 		if k.fullPkgSpec == nil {
-			if _, err := json.Parse(k.schemaBytes, k.fullPkgSpec, json.ZeroCopy); err != nil {
+			schemaBytes, _, err := k.loadSchema()
+			if err != nil {
+				return nil, fmt.Errorf("loading schema: %w", err)
+			}
+
+			if _, err := json.Parse(schemaBytes, k.fullPkgSpec, json.ZeroCopy); err != nil {
 				return nil, fmt.Errorf("deserializing schema: %w", err)
 			}
 		}
@@ -676,7 +691,12 @@ func (k *azureNativeProvider) GetSchema(_ context.Context, req *rpc.GetSchemaReq
 		return nil, fmt.Errorf("unsupported schema version %d", v)
 	}
 
-	return &rpc.GetSchemaResponse{Schema: string(k.schemaBytes)}, nil
+	_, schemaString, err := k.loadSchema()
+	if err != nil {
+		return nil, fmt.Errorf("loading schema: %w", err)
+	}
+
+	return &rpc.GetSchemaResponse{Schema: schemaString}, nil
 }
 
 // CheckConfig validates the configuration for this provider.

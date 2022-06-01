@@ -26,7 +26,7 @@ import (
 //go:embed metadata-compact.json
 var azureApiResources string
 
-//go:embed schema-full.json
+//go:embed schema-azure-native.json
 var pulumiSchema string
 
 func main() {

@@ -57,7 +57,7 @@ func main() {
 			if languages == "schema" {
 				// We can't generate schema.json every time because it's slow and isn't reproducible.
 				// So we warn in case someone's expecting to see changes to schema.json after running this.
-				fmt.Println("Emitted `schema-full.json`. `schema.json` is generated as part of the docs.")
+				fmt.Println("Emitted `schema-azure-native.json`. `schema.json` is generated as part of the docs.")
 			}
 			// Also, emit the resource metadata for the provider.
 			if err = emitMetadata(meta, outdir, "main"); err != nil {
@@ -117,7 +117,7 @@ func emitSchema(pkgSpec schema.PackageSpec, version, outDir string, goPackageNam
 		return errors.Wrap(err, "marshaling Pulumi schema")
 	}
 
-	if err := emitFile(outDir, "schema-full.json", schemaJSON); err != nil {
+	if err := emitFile(outDir, "schema-azure-native.json", schemaJSON); err != nil {
 		return err
 	}
 
