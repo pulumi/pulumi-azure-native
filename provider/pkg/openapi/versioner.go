@@ -83,9 +83,9 @@ var deprecatedProviderVersions = map[string][]string{
 
 // A manually-maintained list of API versions to ignore while calculating the top-level resources.
 var ignoredProviderVersions = map[string][]string{
-	"Automanage": {"v20210430preview"}, // Conflict in configuration profile definition (enum vs resource) with the previous version.
-	"Migrate":    {"v20200501"},        // Conflict in property types with the previous version.
-	"NetApp":     {"v20210801"},        // Conflict in property counts with the previous version.
+	"Automanage": {"v20210430preview", "v20220504"}, // Conflict in configuration profile definition (enum vs resource) with the previous version.
+	"Migrate":    {"v20200501"},                     // Conflict in property types with the previous version.
+	"NetApp":     {"v20210801"},                     // Conflict in property counts with the previous version.
 	"StorSimple": {"v20161001"},
 }
 
@@ -111,6 +111,7 @@ var cutoffProviderVersions = map[string]string{
 	"cdn":                           "v20200901",
 	"certificateregistration":       "v20201001",
 	"cognitiveservices":             "v20170418",
+	"communication":                 "v20211001preview",
 	"compute":                       "v20210301",
 	"confidentialledger":            "v20201201preview",
 	"confluent":                     "v20200301",
@@ -128,12 +129,14 @@ var cutoffProviderVersions = map[string]string{
 	"dbforpostgresql":               "v20171201",
 	"desktopvirtualization":         "v20210201preview",
 	"devices":                       "v20200831",
+	"deviceupdate":                  "v20200301preview",
 	"documentdb":                    "v20210315",
 	"domainregistration":            "v20201001",
 	"eventgrid":                     "v20210601preview",
 	"eventhub":                      "v20180101preview",
 	"extendedlocation":              "v20210315preview",
 	"fluidrelay":                    "v20210312preview",
+	"guestconfiguration":            "v20200625",
 	"hardwaresecuritymodules":       "v20181031preview",
 	"hdinsight":                     "v20180601preview",
 	"healthbot":                     "v20201208",
@@ -146,6 +149,7 @@ var cutoffProviderVersions = map[string]string{
 	"kubernetesconfiguration":       "v20210301",
 	"kusto":                         "v20210101",
 	"labservices":                   "v20211001preview",
+	"loadtestservice":               "v20211201preview",
 	"machinelearningservices":       "v20210101",
 	"maintenance":                   "v20210401preview",
 	"management":                    "v20200501",
@@ -155,11 +159,14 @@ var cutoffProviderVersions = map[string]string{
 	"mobilenetwork":                 "v202201101preview",
 	"netapp":                        "v20201201",
 	"operationalinsights":           "v20201001",
+	"orbital":                       "v20210404preview",
 	"peering":                       "v20210101",
 	"policyinsights":                "v20190701",
 	"purview":                       "v20201201preview",
 	"quantum":                       "v20191104preview",
 	"recoveryservices":              "v20210201preview",
+	"redhatopenshift":               "v20210901preview",
+	"relay":                         "v20180101preview",
 	"security":                      "v20200101preview",
 	"securityinsights":              "v20210301preview",
 	"servicebus":                    "v20170401", // This might be able to be lifted https://github.com/pulumi/pulumi-azure-native/pull/1592#issuecomment-1076447550
@@ -169,11 +176,11 @@ var cutoffProviderVersions = map[string]string{
 	"solutions":                     "v20190701",
 	"sql":                           "v20201101preview",
 	"sqlvirtualmachine":             "v20170301preview",
-	"streamanalytics":               "v20160301",
 	"storage":                       "v20210201",
 	"storagecache":                  "v20210301",
-	"storagesync":                   "v20200301",
 	"storagepool":                   "v20200315preview",
+	"storagesync":                   "v20200301",
+	"streamanalytics":               "v20160301",
 	"subscription":                  "v20200901",
 	"synapse":                       "v20210301",
 	"videoanalyzer":                 "v20210501preview",
@@ -273,13 +280,16 @@ var lockedTypeVersions = map[string]string{
 	"network:RouteFilter":                                 "v20201101",
 	"network:RouteFilterRule":                             "v20201101",
 	"network:RouteTable":                                  "v20201101",
+	"network:ScopeConnection":                             "v20220201preview",
 	"network:SecurityAdminConfiguration":                  "v20210201preview",
 	"network:SecurityPartnerProvider":                     "v20201101",
 	"network:SecurityRule":                                "v20201101",
 	"network:SecurityUserConfiguration":                   "v20210201preview",
 	"network:ServiceEndpointPolicy":                       "v20201101",
 	"network:ServiceEndpointPolicyDefinition":             "v20201101",
+	"network:StaticMember":                                "v20220201preview",
 	"network:Subnet":                                      "v20201101",
+	"network:SubscriptionNetworkManagerConnection":        "v20220201preview",
 	"network:UserRule":                                    "v20210201preview",
 	"network:UserRuleCollection":                          "v20210201preview",
 	"network:VirtualApplianceSite":                        "v20201101",
