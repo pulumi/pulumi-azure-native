@@ -113,7 +113,7 @@ class AzureTrafficCollector(pulumi.CustomResource):
                  __props__=None):
         """
         Azure Traffic Collector resource.
-        API Version: 2021-09-01-preview.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,7 +131,7 @@ class AzureTrafficCollector(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Azure Traffic Collector resource.
-        API Version: 2021-09-01-preview.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param AzureTrafficCollectorArgs args: The arguments to use to populate this resource's properties.

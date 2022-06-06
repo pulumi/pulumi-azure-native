@@ -21,10 +21,13 @@ class GetDicomServiceResult:
     """
     The description of Dicom Service
     """
-    def __init__(__self__, authentication_configuration=None, etag=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_url=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, authentication_configuration=None, cors_configuration=None, etag=None, id=None, identity=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, service_url=None, system_data=None, tags=None, type=None):
         if authentication_configuration and not isinstance(authentication_configuration, dict):
             raise TypeError("Expected argument 'authentication_configuration' to be a dict")
         pulumi.set(__self__, "authentication_configuration", authentication_configuration)
+        if cors_configuration and not isinstance(cors_configuration, dict):
+            raise TypeError("Expected argument 'cors_configuration' to be a dict")
+        pulumi.set(__self__, "cors_configuration", cors_configuration)
         if etag and not isinstance(etag, str):
             raise TypeError("Expected argument 'etag' to be a str")
         pulumi.set(__self__, "etag", etag)
@@ -69,6 +72,14 @@ class GetDicomServiceResult:
         Dicom Service authentication configuration.
         """
         return pulumi.get(self, "authentication_configuration")
+
+    @property
+    @pulumi.getter(name="corsConfiguration")
+    def cors_configuration(self) -> Optional['outputs.CorsConfigurationResponse']:
+        """
+        Dicom Service Cors configuration.
+        """
+        return pulumi.get(self, "cors_configuration")
 
     @property
     @pulumi.getter
@@ -174,6 +185,7 @@ class AwaitableGetDicomServiceResult(GetDicomServiceResult):
             yield self
         return GetDicomServiceResult(
             authentication_configuration=self.authentication_configuration,
+            cors_configuration=self.cors_configuration,
             etag=self.etag,
             id=self.id,
             identity=self.identity,
@@ -194,7 +206,7 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDicomServiceResult:
     """
     The description of Dicom Service
-    API Version: 2021-11-01.
+    API Version: 2022-05-15.
 
 
     :param str dicom_service_name: The name of DICOM Service resource.
@@ -213,6 +225,7 @@ def get_dicom_service(dicom_service_name: Optional[str] = None,
 
     return AwaitableGetDicomServiceResult(
         authentication_configuration=__ret__.authentication_configuration,
+        cors_configuration=__ret__.cors_configuration,
         etag=__ret__.etag,
         id=__ret__.id,
         identity=__ret__.identity,
@@ -234,7 +247,7 @@ def get_dicom_service_output(dicom_service_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDicomServiceResult]:
     """
     The description of Dicom Service
-    API Version: 2021-11-01.
+    API Version: 2022-05-15.
 
 
     :param str dicom_service_name: The name of DICOM Service resource.

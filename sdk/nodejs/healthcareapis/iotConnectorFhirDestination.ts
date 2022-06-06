@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT Connector FHIR destination definition.
- * API Version: 2021-11-01.
+ * API Version: 2022-05-15.
  */
 export class IotConnectorFhirDestination extends pulumi.CustomResource {
     /**

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure Traffic Collector resource.
- * API Version: 2021-09-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getAzureTrafficCollector(args: GetAzureTrafficCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureTrafficCollectorResult> {
     if (!opts) {

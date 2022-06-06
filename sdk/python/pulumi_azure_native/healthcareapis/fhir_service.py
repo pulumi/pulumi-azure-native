@@ -248,7 +248,7 @@ class FhirService(pulumi.CustomResource):
                  __props__=None):
         """
         The description of Fhir Service
-        API Version: 2021-11-01.
+        API Version: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,7 +274,7 @@ class FhirService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of Fhir Service
-        API Version: 2021-11-01.
+        API Version: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param FhirServiceArgs args: The arguments to use to populate this resource's properties.

@@ -157,7 +157,7 @@ def get_service(resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetServiceResult:
     """
     The description of the service.
-    API Version: 2021-11-01.
+    API Version: 2022-05-15.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.
@@ -191,7 +191,7 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetServiceResult]:
     """
     The description of the service.
-    API Version: 2021-11-01.
+    API Version: 2022-05-15.
 
 
     :param str resource_group_name: The name of the resource group that contains the service instance.

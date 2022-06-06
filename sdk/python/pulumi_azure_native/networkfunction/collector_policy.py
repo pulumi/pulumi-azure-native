@@ -112,7 +112,7 @@ class CollectorPolicy(pulumi.CustomResource):
                  __props__=None):
         """
         Collector policy resource.
-        API Version: 2021-09-01-preview.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -130,7 +130,7 @@ class CollectorPolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Collector policy resource.
-        API Version: 2021-09-01-preview.
+        API Version: 2022-05-01.
 
         :param str resource_name: The name of the resource.
         :param CollectorPolicyInitArgs args: The arguments to use to populate this resource's properties.

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of the service.
- * API Version: 2021-11-01.
+ * API Version: 2022-05-15.
  */
 export class Service extends pulumi.CustomResource {
     /**

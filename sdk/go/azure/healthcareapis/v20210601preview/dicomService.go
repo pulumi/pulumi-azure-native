@@ -13,7 +13,7 @@ import (
 
 // The description of Dicom Service
 //
-// Deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.
+// Deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.
 type DicomService struct {
 	pulumi.CustomResourceState
 

@@ -12,7 +12,7 @@ import (
 )
 
 // IoT Connector definition.
-// API Version: 2021-11-01.
+// API Version: 2022-05-15.
 type IotConnector struct {
 	pulumi.CustomResourceState
 

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * IoT Connector definition.
- * API Version: 2021-11-01.
+ * API Version: 2022-05-15.
  */
 export class IotConnector extends pulumi.CustomResource {
     /**

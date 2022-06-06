@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// The description of the service.
-    /// API Version: 2021-11-01.
+    /// API Version: 2022-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:Service")]
     public partial class Service : Pulumi.CustomResource

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetworkFunction
 {
     /// <summary>
     /// Collector policy resource.
-    /// API Version: 2021-09-01-preview.
+    /// API Version: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkfunction:CollectorPolicy")]
     public partial class CollectorPolicy : Pulumi.CustomResource

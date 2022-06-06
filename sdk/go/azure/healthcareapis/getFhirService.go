@@ -11,7 +11,7 @@ import (
 )
 
 // The description of Fhir Service
-// API Version: 2021-11-01.
+// API Version: 2022-05-15.
 func LookupFhirService(ctx *pulumi.Context, args *LookupFhirServiceArgs, opts ...pulumi.InvokeOption) (*LookupFhirServiceResult, error) {
 	var rv LookupFhirServiceResult
 	err := ctx.Invoke("azure-native:healthcareapis:getFhirService", args, &rv, opts...)

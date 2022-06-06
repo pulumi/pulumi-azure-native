@@ -11,7 +11,7 @@ import (
 )
 
 // The endpoint for the target resource.
-// API Version: 2021-10-06-preview.
+// API Version: 2022-05-01-preview.
 func LookupEndpoint(ctx *pulumi.Context, args *LookupEndpointArgs, opts ...pulumi.InvokeOption) (*LookupEndpointResult, error) {
 	var rv LookupEndpointResult
 	err := ctx.Invoke("azure-native:hybridconnectivity:getEndpoint", args, &rv, opts...)
@@ -45,7 +45,8 @@ type LookupEndpointResult struct {
 	// The type of identity that last modified the resource.
 	LastModifiedByType *string `pulumi:"lastModifiedByType"`
 	// The name of the resource
-	Name              string `pulumi:"name"`
+	Name string `pulumi:"name"`
+	// The resource provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// The resource Id of the connectivity endpoint (optional).
 	ResourceId *string `pulumi:"resourceId"`
@@ -132,6 +133,7 @@ func (o LookupEndpointResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The resource provisioning state.
 func (o LookupEndpointResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEndpointResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }

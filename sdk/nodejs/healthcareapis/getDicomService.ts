@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of Dicom Service
- * API Version: 2021-11-01.
+ * API Version: 2022-05-15.
  */
 export function getDicomService(args: GetDicomServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetDicomServiceResult> {
     if (!opts) {
@@ -45,6 +45,10 @@ export interface GetDicomServiceResult {
      * Dicom Service authentication configuration.
      */
     readonly authenticationConfiguration?: outputs.healthcareapis.DicomServiceAuthenticationConfigurationResponse;
+    /**
+     * Dicom Service Cors configuration.
+     */
+    readonly corsConfiguration?: outputs.healthcareapis.CorsConfigurationResponse;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */

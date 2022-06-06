@@ -11,7 +11,7 @@ import (
 )
 
 // Azure Traffic Collector resource.
-// API Version: 2021-09-01-preview.
+// API Version: 2022-05-01.
 func LookupAzureTrafficCollector(ctx *pulumi.Context, args *LookupAzureTrafficCollectorArgs, opts ...pulumi.InvokeOption) (*LookupAzureTrafficCollectorResult, error) {
 	var rv LookupAzureTrafficCollectorResult
 	err := ctx.Invoke("azure-native:networkfunction:getAzureTrafficCollector", args, &rv, opts...)

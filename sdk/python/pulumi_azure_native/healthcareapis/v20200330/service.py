@@ -131,11 +131,11 @@ class ServiceArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20200330 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""", DeprecationWarning)
+warnings.warn("""Version v20200330 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
 
 
 class Service(pulumi.CustomResource):
-    warnings.warn("""Version v20200330 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""", DeprecationWarning)
+    warnings.warn("""Version v20200330 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -194,7 +194,7 @@ class Service(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Service is deprecated: Version v20200330 will be removed in the next major version of the provider. Upgrade to version v20211101 or later.""")
+        pulumi.log.warn("""Service is deprecated: Version v20200330 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

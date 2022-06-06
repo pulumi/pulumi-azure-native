@@ -159,7 +159,7 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
                  __props__=None):
         """
         IoT Connector FHIR destination definition.
-        API Version: 2021-11-01.
+        API Version: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -180,7 +180,7 @@ class IotConnectorFhirDestination(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         IoT Connector FHIR destination definition.
-        API Version: 2021-11-01.
+        API Version: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param IotConnectorFhirDestinationArgs args: The arguments to use to populate this resource's properties.

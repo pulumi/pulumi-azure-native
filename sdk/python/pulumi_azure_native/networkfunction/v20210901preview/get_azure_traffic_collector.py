@@ -16,6 +16,8 @@ __all__ = [
     'get_azure_traffic_collector_output',
 ]
 
+warnings.warn("""Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetAzureTrafficCollectorResult:
     """
@@ -162,6 +164,7 @@ def get_azure_traffic_collector(azure_traffic_collector_name: Optional[str] = No
     :param str azure_traffic_collector_name: Azure Traffic Collector name
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_azure_traffic_collector is deprecated: Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later.""")
     __args__ = dict()
     __args__['azureTrafficCollectorName'] = azure_traffic_collector_name
     __args__['resourceGroupName'] = resource_group_name
@@ -195,4 +198,5 @@ def get_azure_traffic_collector_output(azure_traffic_collector_name: Optional[pu
     :param str azure_traffic_collector_name: Azure Traffic Collector name
     :param str resource_group_name: The name of the resource group.
     """
+    pulumi.log.warn("""get_azure_traffic_collector is deprecated: Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later.""")
     ...

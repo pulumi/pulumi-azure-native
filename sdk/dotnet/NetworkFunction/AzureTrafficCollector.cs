@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.NetworkFunction
 {
     /// <summary>
     /// Azure Traffic Collector resource.
-    /// API Version: 2021-09-01-preview.
+    /// API Version: 2022-05-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:networkfunction:AzureTrafficCollector")]
     public partial class AzureTrafficCollector : Pulumi.CustomResource

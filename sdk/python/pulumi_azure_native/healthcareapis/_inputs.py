@@ -10,6 +10,7 @@ from .. import _utilities
 from ._enums import *
 
 __all__ = [
+    'CorsConfigurationArgs',
     'FhirServiceAccessPolicyEntryArgs',
     'FhirServiceAcrConfigurationArgs',
     'FhirServiceAuthenticationConfigurationArgs',
@@ -31,6 +32,94 @@ __all__ = [
     'ServicesPropertiesArgs',
     'ServicesResourceIdentityArgs',
 ]
+
+@pulumi.input_type
+class CorsConfigurationArgs:
+    def __init__(__self__, *,
+                 allow_credentials: Optional[pulumi.Input[bool]] = None,
+                 headers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 max_age: Optional[pulumi.Input[int]] = None,
+                 methods: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 origins: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        The settings for the CORS configuration of the service instance.
+        :param pulumi.Input[bool] allow_credentials: If credentials are allowed via CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] headers: The headers to be allowed via CORS.
+        :param pulumi.Input[int] max_age: The max age to be allowed via CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] methods: The methods to be allowed via CORS.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] origins: The origins to be allowed via CORS.
+        """
+        if allow_credentials is not None:
+            pulumi.set(__self__, "allow_credentials", allow_credentials)
+        if headers is not None:
+            pulumi.set(__self__, "headers", headers)
+        if max_age is not None:
+            pulumi.set(__self__, "max_age", max_age)
+        if methods is not None:
+            pulumi.set(__self__, "methods", methods)
+        if origins is not None:
+            pulumi.set(__self__, "origins", origins)
+
+    @property
+    @pulumi.getter(name="allowCredentials")
+    def allow_credentials(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If credentials are allowed via CORS.
+        """
+        return pulumi.get(self, "allow_credentials")
+
+    @allow_credentials.setter
+    def allow_credentials(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "allow_credentials", value)
+
+    @property
+    @pulumi.getter
+    def headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The headers to be allowed via CORS.
+        """
+        return pulumi.get(self, "headers")
+
+    @headers.setter
+    def headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "headers", value)
+
+    @property
+    @pulumi.getter(name="maxAge")
+    def max_age(self) -> Optional[pulumi.Input[int]]:
+        """
+        The max age to be allowed via CORS.
+        """
+        return pulumi.get(self, "max_age")
+
+    @max_age.setter
+    def max_age(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "max_age", value)
+
+    @property
+    @pulumi.getter
+    def methods(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The methods to be allowed via CORS.
+        """
+        return pulumi.get(self, "methods")
+
+    @methods.setter
+    def methods(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "methods", value)
+
+    @property
+    @pulumi.getter
+    def origins(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The origins to be allowed via CORS.
+        """
+        return pulumi.get(self, "origins")
+
+    @origins.setter
+    def origins(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "origins", value)
+
 
 @pulumi.input_type
 class FhirServiceAccessPolicyEntryArgs:

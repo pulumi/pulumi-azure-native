@@ -82,7 +82,12 @@ class WorkspacePrivateEndpointConnectionArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
+warnings.warn("""Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
+
+
 class WorkspacePrivateEndpointConnection(pulumi.CustomResource):
+    warnings.warn("""Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -131,6 +136,7 @@ class WorkspacePrivateEndpointConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""WorkspacePrivateEndpointConnection is deprecated: Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

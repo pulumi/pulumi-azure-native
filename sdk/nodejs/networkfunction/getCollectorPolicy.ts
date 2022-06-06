@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Collector policy resource.
- * API Version: 2021-09-01-preview.
+ * API Version: 2022-05-01.
  */
 export function getCollectorPolicy(args: GetCollectorPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCollectorPolicyResult> {
     if (!opts) {

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of Dicom Service
- * API Version: 2021-11-01.
+ * API Version: 2022-05-15.
  */
 export class DicomService extends pulumi.CustomResource {
     /**
@@ -40,6 +40,10 @@ export class DicomService extends pulumi.CustomResource {
      * Dicom Service authentication configuration.
      */
     public /*out*/ readonly authenticationConfiguration!: pulumi.Output<outputs.healthcareapis.DicomServiceAuthenticationConfigurationResponse | undefined>;
+    /**
+     * Dicom Service Cors configuration.
+     */
+    public readonly corsConfiguration!: pulumi.Output<outputs.healthcareapis.CorsConfigurationResponse | undefined>;
     /**
      * An etag associated with the resource, used for optimistic concurrency when editing it.
      */
@@ -102,6 +106,7 @@ export class DicomService extends pulumi.CustomResource {
             if ((!args || args.workspaceName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'workspaceName'");
             }
+            resourceInputs["corsConfiguration"] = args ? args.corsConfiguration : undefined;
             resourceInputs["dicomServiceName"] = args ? args.dicomServiceName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -119,6 +124,7 @@ export class DicomService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["authenticationConfiguration"] = undefined /*out*/;
+            resourceInputs["corsConfiguration"] = undefined /*out*/;
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["identity"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
@@ -142,6 +148,10 @@ export class DicomService extends pulumi.CustomResource {
  * The set of arguments for constructing a DicomService resource.
  */
 export interface DicomServiceArgs {
+    /**
+     * Dicom Service Cors configuration.
+     */
+    corsConfiguration?: pulumi.Input<inputs.healthcareapis.CorsConfigurationArgs>;
     /**
      * The name of DICOM Service resource.
      */

@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Collector policy resource.
  */
+/** @deprecated Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later. */
 export function getCollectorPolicy(args: GetCollectorPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetCollectorPolicyResult> {
+    pulumi.log.warn("getCollectorPolicy is deprecated: Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later.")
     if (!opts) {
         opts = {}
     }

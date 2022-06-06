@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.NetworkFunction
     {
         /// <summary>
         /// Azure Traffic Collector resource.
-        /// API Version: 2021-09-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Task<GetAzureTrafficCollectorResult> InvokeAsync(GetAzureTrafficCollectorArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAzureTrafficCollectorResult>("azure-native:networkfunction:getAzureTrafficCollector", args ?? new GetAzureTrafficCollectorArgs(), options.WithDefaults());
 
         /// <summary>
         /// Azure Traffic Collector resource.
-        /// API Version: 2021-09-01-preview.
+        /// API Version: 2022-05-01.
         /// </summary>
         public static Output<GetAzureTrafficCollectorResult> Invoke(GetAzureTrafficCollectorInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAzureTrafficCollectorResult>("azure-native:networkfunction:getAzureTrafficCollector", args ?? new GetAzureTrafficCollectorInvokeArgs(), options.WithDefaults());

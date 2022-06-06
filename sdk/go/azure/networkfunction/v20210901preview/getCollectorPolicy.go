@@ -11,6 +11,8 @@ import (
 )
 
 // Collector policy resource.
+//
+// Deprecated: Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later.
 func LookupCollectorPolicy(ctx *pulumi.Context, args *LookupCollectorPolicyArgs, opts ...pulumi.InvokeOption) (*LookupCollectorPolicyResult, error) {
 	var rv LookupCollectorPolicyResult
 	err := ctx.Invoke("azure-native:networkfunction/v20210901preview:getCollectorPolicy", args, &rv, opts...)

@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NetworkFunction.V20210901Preview
 {
+    [Obsolete(@"Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later.")]
     public static class GetCollectorPolicy
     {
         /// <summary>

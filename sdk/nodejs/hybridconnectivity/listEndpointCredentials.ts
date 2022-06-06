@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The endpoint access for the target resource.
- * API Version: 2021-10-06-preview.
+ * API Version: 2022-05-01-preview.
  */
 export function listEndpointCredentials(args: ListEndpointCredentialsArgs, opts?: pulumi.InvokeOptions): Promise<ListEndpointCredentialsResult> {
     if (!opts) {

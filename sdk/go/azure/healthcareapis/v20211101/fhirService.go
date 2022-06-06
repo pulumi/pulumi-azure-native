@@ -12,6 +12,8 @@ import (
 )
 
 // The description of Fhir Service
+//
+// Deprecated: Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.
 type FhirService struct {
 	pulumi.CustomResourceState
 

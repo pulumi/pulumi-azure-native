@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Azure Traffic Collector resource.
  */
+/** @deprecated Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later. */
 export function getAzureTrafficCollector(args: GetAzureTrafficCollectorArgs, opts?: pulumi.InvokeOptions): Promise<GetAzureTrafficCollectorResult> {
+    pulumi.log.warn("getAzureTrafficCollector is deprecated: Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later.")
     if (!opts) {
         opts = {}
     }

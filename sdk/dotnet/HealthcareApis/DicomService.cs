@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// The description of Dicom Service
-    /// API Version: 2021-11-01.
+    /// API Version: 2022-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:DicomService")]
     public partial class DicomService : Pulumi.CustomResource
@@ -21,6 +21,12 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         [Output("authenticationConfiguration")]
         public Output<Outputs.DicomServiceAuthenticationConfigurationResponse?> AuthenticationConfiguration { get; private set; } = null!;
+
+        /// <summary>
+        /// Dicom Service Cors configuration.
+        /// </summary>
+        [Output("corsConfiguration")]
+        public Output<Outputs.CorsConfigurationResponse?> CorsConfiguration { get; private set; } = null!;
 
         /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
@@ -140,6 +146,12 @@ namespace Pulumi.AzureNative.HealthcareApis
 
     public sealed class DicomServiceArgs : Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Dicom Service Cors configuration.
+        /// </summary>
+        [Input("corsConfiguration")]
+        public Input<Inputs.CorsConfigurationArgs>? CorsConfiguration { get; set; }
+
         /// <summary>
         /// The name of DICOM Service resource.
         /// </summary>
