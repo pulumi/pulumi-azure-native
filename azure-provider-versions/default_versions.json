@@ -855,14 +855,14 @@
         "Bot": "2020-12-08"
     },
     "HealthcareApis": {
-        "DicomService": "2021-11-01",
-        "FhirService": "2021-11-01",
-        "IotConnector": "2021-11-01",
-        "IotConnectorFhirDestination": "2021-11-01",
-        "PrivateEndpointConnection": "2021-11-01",
-        "Service": "2021-11-01",
-        "Workspace": "2021-11-01",
-        "WorkspacePrivateEndpointConnection": "2021-11-01"
+        "DicomService": "2022-05-15",
+        "FhirService": "2022-05-15",
+        "IotConnector": "2022-05-15",
+        "IotConnectorFhirDestination": "2022-05-15",
+        "PrivateEndpointConnection": "2022-05-15",
+        "Service": "2022-05-15",
+        "Workspace": "2022-05-15",
+        "WorkspacePrivateEndpointConnection": "2022-05-15"
     },
     "HybridCompute": {
         "Machine": "2020-08-02",
@@ -872,8 +872,8 @@
         "PrivateLinkScopedResource": "2020-08-15-preview"
     },
     "HybridConnectivity": {
-        "Endpoint": "2021-10-06-preview",
-        "listEndpointCredentials": "2021-10-06-preview",
+        "Endpoint": "2022-05-01-preview",
+        "listEndpointCredentials": "2022-05-01-preview",
         "listEndpointManagedProxyDetails": "2022-05-01-preview"
     },
     "HybridData": {
@@ -1375,8 +1375,8 @@
         "listNetworkManagerEffectiveSecurityAdminRule": "2021-02-01-preview"
     },
     "NetworkFunction": {
-        "AzureTrafficCollector": "2021-09-01-preview",
-        "CollectorPolicy": "2021-09-01-preview"
+        "AzureTrafficCollector": "2022-05-01",
+        "CollectorPolicy": "2022-05-01"
     },
     "NotificationHubs": {
         "Namespace": "2017-04-01",
