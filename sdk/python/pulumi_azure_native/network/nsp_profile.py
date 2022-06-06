@@ -7,8 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
-from ._inputs import *
 
 __all__ = ['NspProfileArgs', 'NspProfile']
 
@@ -17,7 +15,6 @@ class NspProfileArgs:
     def __init__(__self__, *,
                  network_security_perimeter_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
-                 enabled_log_categories: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingCategoryArgs']]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -27,7 +24,6 @@ class NspProfileArgs:
         The set of arguments for constructing a NspProfile resource.
         :param pulumi.Input[str] network_security_perimeter_name: The name of the network security perimeter.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Sequence[pulumi.Input['LoggingCategoryArgs']]] enabled_log_categories: Gets the enabled log categories.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the profile resource that is unique within a perimeter. This name can be used to access the resource.
@@ -36,8 +32,6 @@ class NspProfileArgs:
         """
         pulumi.set(__self__, "network_security_perimeter_name", network_security_perimeter_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if enabled_log_categories is not None:
-            pulumi.set(__self__, "enabled_log_categories", enabled_log_categories)
         if id is not None:
             pulumi.set(__self__, "id", id)
         if location is not None:
@@ -72,18 +66,6 @@ class NspProfileArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
-
-    @property
-    @pulumi.getter(name="enabledLogCategories")
-    def enabled_log_categories(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['LoggingCategoryArgs']]]]:
-        """
-        Gets the enabled log categories.
-        """
-        return pulumi.get(self, "enabled_log_categories")
-
-    @enabled_log_categories.setter
-    def enabled_log_categories(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoggingCategoryArgs']]]]):
-        pulumi.set(self, "enabled_log_categories", value)
 
     @property
     @pulumi.getter
@@ -151,7 +133,6 @@ class NspProfile(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled_log_categories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoggingCategoryArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -166,7 +147,6 @@ class NspProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoggingCategoryArgs']]]] enabled_log_categories: Gets the enabled log categories.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[str] location: Resource location.
         :param pulumi.Input[str] name: The name of the profile resource that is unique within a perimeter. This name can be used to access the resource.
@@ -200,7 +180,6 @@ class NspProfile(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
-                 enabled_log_categories: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoggingCategoryArgs']]]]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -220,7 +199,6 @@ class NspProfile(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = NspProfileArgs.__new__(NspProfileArgs)
 
-            __props__.__dict__["enabled_log_categories"] = enabled_log_categories
             __props__.__dict__["id"] = id
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
@@ -259,7 +237,6 @@ class NspProfile(pulumi.CustomResource):
         __props__ = NspProfileArgs.__new__(NspProfileArgs)
 
         __props__.__dict__["access_rules_version"] = None
-        __props__.__dict__["enabled_log_categories"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["tags"] = None
@@ -273,14 +250,6 @@ class NspProfile(pulumi.CustomResource):
         Version number that increases with every update to access rules within the profile.
         """
         return pulumi.get(self, "access_rules_version")
-
-    @property
-    @pulumi.getter(name="enabledLogCategories")
-    def enabled_log_categories(self) -> pulumi.Output[Optional[Sequence['outputs.LoggingCategoryResponse']]]:
-        """
-        Gets the enabled log categories.
-        """
-        return pulumi.get(self, "enabled_log_categories")
 
     @property
     @pulumi.getter

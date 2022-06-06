@@ -12,7 +12,6 @@ from ._enums import *
 __all__ = [
     'DatabaseIdentityArgs',
     'DatabaseVulnerabilityAssessmentRuleBaselineItemArgs',
-    'DelegationArgs',
     'ElasticPoolPerDatabaseSettingsArgs',
     'FailoverGroupReadOnlyEndpointArgs',
     'FailoverGroupReadWriteEndpointArgs',
@@ -45,33 +44,17 @@ __all__ = [
 @pulumi.input_type
 class DatabaseIdentityArgs:
     def __init__(__self__, *,
-                 delegated_resources: Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegationArgs']]]] = None,
                  type: Optional[pulumi.Input[Union[str, 'DatabaseIdentityType']]] = None,
                  user_assigned_identities: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Azure Active Directory identity configuration for a resource.
-        :param pulumi.Input[Mapping[str, pulumi.Input['DelegationArgs']]] delegated_resources: Resources delegated to the database - Internal Use Only
         :param pulumi.Input[Union[str, 'DatabaseIdentityType']] type: The identity type
         :param pulumi.Input[Mapping[str, Any]] user_assigned_identities: The resource ids of the user assigned identities to use
         """
-        if delegated_resources is not None:
-            pulumi.set(__self__, "delegated_resources", delegated_resources)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if user_assigned_identities is not None:
             pulumi.set(__self__, "user_assigned_identities", user_assigned_identities)
-
-    @property
-    @pulumi.getter(name="delegatedResources")
-    def delegated_resources(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegationArgs']]]]:
-        """
-        Resources delegated to the database - Internal Use Only
-        """
-        return pulumi.get(self, "delegated_resources")
-
-    @delegated_resources.setter
-    def delegated_resources(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['DelegationArgs']]]]):
-        pulumi.set(self, "delegated_resources", value)
 
     @property
     @pulumi.getter
@@ -119,30 +102,6 @@ class DatabaseVulnerabilityAssessmentRuleBaselineItemArgs:
     @result.setter
     def result(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "result", value)
-
-
-@pulumi.input_type
-class DelegationArgs:
-    def __init__(__self__, *,
-                 resource_id: Optional[pulumi.Input[str]] = None):
-        """
-        Delegated Resource Properties - Internal Use Only
-        :param pulumi.Input[str] resource_id: The resource id of the source resource - Internal Use Only
-        """
-        if resource_id is not None:
-            pulumi.set(__self__, "resource_id", resource_id)
-
-    @property
-    @pulumi.getter(name="resourceId")
-    def resource_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The resource id of the source resource - Internal Use Only
-        """
-        return pulumi.get(self, "resource_id")
-
-    @resource_id.setter
-    def resource_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "resource_id", value)
 
 
 @pulumi.input_type

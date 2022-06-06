@@ -192,10 +192,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
         /// </summary>
         public readonly string PausedDate;
         /// <summary>
-        /// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        /// </summary>
-        public readonly string? PrimaryDelegatedIdentityClientId;
-        /// <summary>
         /// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         /// </summary>
         public readonly string? ReadScale;
@@ -304,8 +300,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
 
             string pausedDate,
 
-            string? primaryDelegatedIdentityClientId,
-
             string? readScale,
 
             string? requestedBackupStorageRedundancy,
@@ -354,7 +348,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview
             MinCapacity = minCapacity;
             Name = name;
             PausedDate = pausedDate;
-            PrimaryDelegatedIdentityClientId = primaryDelegatedIdentityClientId;
             ReadScale = readScale;
             RequestedBackupStorageRedundancy = requestedBackupStorageRedundancy;
             RequestedServiceObjectiveName = requestedServiceObjectiveName;

@@ -34,7 +34,6 @@ class DatabaseArgs:
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
-                 primary_delegated_identity_client_id: Optional[pulumi.Input[str]] = None,
                  read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
@@ -85,7 +84,6 @@ class DatabaseArgs:
         :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
         :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
-        :param pulumi.Input[str] primary_delegated_identity_client_id: The Primary Delegated Identity Client id used for per database CMK - for internal use only
         :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
@@ -157,8 +155,6 @@ class DatabaseArgs:
             pulumi.set(__self__, "max_size_bytes", max_size_bytes)
         if min_capacity is not None:
             pulumi.set(__self__, "min_capacity", min_capacity)
-        if primary_delegated_identity_client_id is not None:
-            pulumi.set(__self__, "primary_delegated_identity_client_id", primary_delegated_identity_client_id)
         if read_scale is not None:
             pulumi.set(__self__, "read_scale", read_scale)
         if recoverable_database_id is not None:
@@ -421,18 +417,6 @@ class DatabaseArgs:
         pulumi.set(self, "min_capacity", value)
 
     @property
-    @pulumi.getter(name="primaryDelegatedIdentityClientId")
-    def primary_delegated_identity_client_id(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        """
-        return pulumi.get(self, "primary_delegated_identity_client_id")
-
-    @primary_delegated_identity_client_id.setter
-    def primary_delegated_identity_client_id(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "primary_delegated_identity_client_id", value)
-
-    @property
     @pulumi.getter(name="readScale")
     def read_scale(self) -> Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]]:
         """
@@ -644,7 +628,6 @@ class Database(pulumi.CustomResource):
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
-                 primary_delegated_identity_client_id: Optional[pulumi.Input[str]] = None,
                  read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
@@ -699,7 +682,6 @@ class Database(pulumi.CustomResource):
         :param pulumi.Input[str] maintenance_configuration_id: Maintenance configuration id assigned to the database. This configuration defines the period when the maintenance updates will occur.
         :param pulumi.Input[float] max_size_bytes: The max size of the database expressed in bytes.
         :param pulumi.Input[float] min_capacity: Minimal capacity that database will always have allocated, if not paused
-        :param pulumi.Input[str] primary_delegated_identity_client_id: The Primary Delegated Identity Client id used for per database CMK - for internal use only
         :param pulumi.Input[Union[str, 'DatabaseReadScale']] read_scale: The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
         :param pulumi.Input[str] recoverable_database_id: The resource identifier of the recoverable database associated with create operation of this database.
         :param pulumi.Input[str] recovery_services_recovery_point_id: The resource identifier of the recovery point associated with create operation of this database.
@@ -779,7 +761,6 @@ class Database(pulumi.CustomResource):
                  maintenance_configuration_id: Optional[pulumi.Input[str]] = None,
                  max_size_bytes: Optional[pulumi.Input[float]] = None,
                  min_capacity: Optional[pulumi.Input[float]] = None,
-                 primary_delegated_identity_client_id: Optional[pulumi.Input[str]] = None,
                  read_scale: Optional[pulumi.Input[Union[str, 'DatabaseReadScale']]] = None,
                  recoverable_database_id: Optional[pulumi.Input[str]] = None,
                  recovery_services_recovery_point_id: Optional[pulumi.Input[str]] = None,
@@ -824,7 +805,6 @@ class Database(pulumi.CustomResource):
             __props__.__dict__["maintenance_configuration_id"] = maintenance_configuration_id
             __props__.__dict__["max_size_bytes"] = max_size_bytes
             __props__.__dict__["min_capacity"] = min_capacity
-            __props__.__dict__["primary_delegated_identity_client_id"] = primary_delegated_identity_client_id
             __props__.__dict__["read_scale"] = read_scale
             __props__.__dict__["recoverable_database_id"] = recoverable_database_id
             __props__.__dict__["recovery_services_recovery_point_id"] = recovery_services_recovery_point_id
@@ -914,7 +894,6 @@ class Database(pulumi.CustomResource):
         __props__.__dict__["min_capacity"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["paused_date"] = None
-        __props__.__dict__["primary_delegated_identity_client_id"] = None
         __props__.__dict__["read_scale"] = None
         __props__.__dict__["requested_backup_storage_redundancy"] = None
         __props__.__dict__["requested_service_objective_name"] = None
@@ -1142,14 +1121,6 @@ class Database(pulumi.CustomResource):
         The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
         """
         return pulumi.get(self, "paused_date")
-
-    @property
-    @pulumi.getter(name="primaryDelegatedIdentityClientId")
-    def primary_delegated_identity_client_id(self) -> pulumi.Output[Optional[str]]:
-        """
-        The Primary Delegated Identity Client id used for per database CMK - for internal use only
-        """
-        return pulumi.get(self, "primary_delegated_identity_client_id")
 
     @property
     @pulumi.getter(name="readScale")

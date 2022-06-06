@@ -50,6 +50,7 @@ __all__ = [
     'RepoResponse',
     'RepositoryResponse',
     'SecurityAlertTimelineItemResponse',
+    'SecurityMLAnalyticsSettingsDataSourceResponse',
     'SystemDataResponse',
     'TIDataConnectorDataTypesResponse',
     'TIDataConnectorDataTypesResponseIndicators',
@@ -2322,6 +2323,60 @@ class SecurityAlertTimelineItemResponse(dict):
         The alert product name.
         """
         return pulumi.get(self, "product_name")
+
+
+@pulumi.output_type
+class SecurityMLAnalyticsSettingsDataSourceResponse(dict):
+    """
+    security ml analytics settings data sources
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "connectorId":
+            suggest = "connector_id"
+        elif key == "dataTypes":
+            suggest = "data_types"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SecurityMLAnalyticsSettingsDataSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SecurityMLAnalyticsSettingsDataSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SecurityMLAnalyticsSettingsDataSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 connector_id: Optional[str] = None,
+                 data_types: Optional[Sequence[str]] = None):
+        """
+        security ml analytics settings data sources
+        :param str connector_id: The connector id that provides the following data types
+        :param Sequence[str] data_types: The data types used by the security ml analytics settings
+        """
+        if connector_id is not None:
+            pulumi.set(__self__, "connector_id", connector_id)
+        if data_types is not None:
+            pulumi.set(__self__, "data_types", data_types)
+
+    @property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> Optional[str]:
+        """
+        The connector id that provides the following data types
+        """
+        return pulumi.get(self, "connector_id")
+
+    @property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> Optional[Sequence[str]]:
+        """
+        The data types used by the security ml analytics settings
+        """
+        return pulumi.get(self, "data_types")
 
 
 @pulumi.output_type

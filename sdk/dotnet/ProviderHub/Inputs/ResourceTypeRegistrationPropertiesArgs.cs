@@ -93,7 +93,7 @@ namespace Pulumi.AzureNative.ProviderHub.Inputs
         }
 
         [Input("marketplaceType")]
-        public Input<string>? MarketplaceType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.MarketplaceType>? MarketplaceType { get; set; }
 
         [Input("provisioningState")]
         public InputUnion<string, Pulumi.AzureNative.ProviderHub.ProvisioningState>? ProvisioningState { get; set; }

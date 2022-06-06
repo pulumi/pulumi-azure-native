@@ -15,21 +15,21 @@ export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOpt
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app/v20220301:getCertificate", {
-        "managedEnvironmentName": args.managedEnvironmentName,
-        "name": args.name,
+        "certificateName": args.certificateName,
+        "environmentName": args.environmentName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetCertificateArgs {
     /**
-     * Name of the Managed Environment.
-     */
-    managedEnvironmentName: string;
-    /**
      * Name of the Certificate.
      */
-    name: string;
+    certificateName: string;
+    /**
+     * Name of the Managed Environment.
+     */
+    environmentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -76,13 +76,13 @@ export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulu
 
 export interface GetCertificateOutputArgs {
     /**
-     * Name of the Managed Environment.
-     */
-    managedEnvironmentName: pulumi.Input<string>;
-    /**
      * Name of the Certificate.
      */
-    name: pulumi.Input<string>;
+    certificateName: pulumi.Input<string>;
+    /**
+     * Name of the Managed Environment.
+     */
+    environmentName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

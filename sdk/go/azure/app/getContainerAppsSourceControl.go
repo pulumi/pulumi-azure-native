@@ -24,10 +24,10 @@ func LookupContainerAppsSourceControl(ctx *pulumi.Context, args *LookupContainer
 type LookupContainerAppsSourceControlArgs struct {
 	// Name of the Container App.
 	ContainerAppName string `pulumi:"containerAppName"`
-	// Name of the Container App SourceControl.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the Container App SourceControl.
+	SourceControlName string `pulumi:"sourceControlName"`
 }
 
 // Container App SourceControl.
@@ -68,10 +68,10 @@ func LookupContainerAppsSourceControlOutput(ctx *pulumi.Context, args LookupCont
 type LookupContainerAppsSourceControlOutputArgs struct {
 	// Name of the Container App.
 	ContainerAppName pulumi.StringInput `pulumi:"containerAppName"`
-	// Name of the Container App SourceControl.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the Container App SourceControl.
+	SourceControlName pulumi.StringInput `pulumi:"sourceControlName"`
 }
 
 func (LookupContainerAppsSourceControlOutputArgs) ElementType() reflect.Type {

@@ -19,8 +19,8 @@ class ContainerAppsSourceControlArgs:
                  resource_group_name: pulumi.Input[str],
                  branch: Optional[pulumi.Input[str]] = None,
                  github_action_configuration: Optional[pulumi.Input['GithubActionConfigurationArgs']] = None,
-                 name: Optional[pulumi.Input[str]] = None,
-                 repo_url: Optional[pulumi.Input[str]] = None):
+                 repo_url: Optional[pulumi.Input[str]] = None,
+                 source_control_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a ContainerAppsSourceControl resource.
         :param pulumi.Input[str] container_app_name: Name of the Container App.
@@ -29,8 +29,8 @@ class ContainerAppsSourceControlArgs:
         :param pulumi.Input['GithubActionConfigurationArgs'] github_action_configuration: Container App Revision Template with all possible settings and the
                defaults if user did not provide them. The defaults are populated
                as they were at the creation time
-        :param pulumi.Input[str] name: Name of the Container App SourceControl.
         :param pulumi.Input[str] repo_url: The repo url which will be integrated to ContainerApp.
+        :param pulumi.Input[str] source_control_name: Name of the Container App SourceControl.
         """
         pulumi.set(__self__, "container_app_name", container_app_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -38,10 +38,10 @@ class ContainerAppsSourceControlArgs:
             pulumi.set(__self__, "branch", branch)
         if github_action_configuration is not None:
             pulumi.set(__self__, "github_action_configuration", github_action_configuration)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if repo_url is not None:
             pulumi.set(__self__, "repo_url", repo_url)
+        if source_control_name is not None:
+            pulumi.set(__self__, "source_control_name", source_control_name)
 
     @property
     @pulumi.getter(name="containerAppName")
@@ -94,18 +94,6 @@ class ContainerAppsSourceControlArgs:
         pulumi.set(self, "github_action_configuration", value)
 
     @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the Container App SourceControl.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
     @pulumi.getter(name="repoUrl")
     def repo_url(self) -> Optional[pulumi.Input[str]]:
         """
@@ -117,6 +105,18 @@ class ContainerAppsSourceControlArgs:
     def repo_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "repo_url", value)
 
+    @property
+    @pulumi.getter(name="sourceControlName")
+    def source_control_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Container App SourceControl.
+        """
+        return pulumi.get(self, "source_control_name")
+
+    @source_control_name.setter
+    def source_control_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_control_name", value)
+
 
 class ContainerAppsSourceControl(pulumi.CustomResource):
     @overload
@@ -126,9 +126,9 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
                  branch: Optional[pulumi.Input[str]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
                  github_action_configuration: Optional[pulumi.Input[pulumi.InputType['GithubActionConfigurationArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  repo_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_control_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Container App SourceControl.
@@ -140,9 +140,9 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['GithubActionConfigurationArgs']] github_action_configuration: Container App Revision Template with all possible settings and the
                defaults if user did not provide them. The defaults are populated
                as they were at the creation time
-        :param pulumi.Input[str] name: Name of the Container App SourceControl.
         :param pulumi.Input[str] repo_url: The repo url which will be integrated to ContainerApp.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] source_control_name: Name of the Container App SourceControl.
         """
         ...
     @overload
@@ -171,9 +171,9 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
                  branch: Optional[pulumi.Input[str]] = None,
                  container_app_name: Optional[pulumi.Input[str]] = None,
                  github_action_configuration: Optional[pulumi.Input[pulumi.InputType['GithubActionConfigurationArgs']]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  repo_url: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
+                 source_control_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         if opts is None:
             opts = pulumi.ResourceOptions()
@@ -191,11 +191,12 @@ class ContainerAppsSourceControl(pulumi.CustomResource):
                 raise TypeError("Missing required property 'container_app_name'")
             __props__.__dict__["container_app_name"] = container_app_name
             __props__.__dict__["github_action_configuration"] = github_action_configuration
-            __props__.__dict__["name"] = name
             __props__.__dict__["repo_url"] = repo_url
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
+            __props__.__dict__["source_control_name"] = source_control_name
+            __props__.__dict__["name"] = None
             __props__.__dict__["operation_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None

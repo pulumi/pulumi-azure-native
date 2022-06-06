@@ -16,8 +16,8 @@ export function getContainerAppsSourceControl(args: GetContainerAppsSourceContro
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app/v20220301:getContainerAppsSourceControl", {
         "containerAppName": args.containerAppName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
+        "sourceControlName": args.sourceControlName,
     }, opts);
 }
 
@@ -27,13 +27,13 @@ export interface GetContainerAppsSourceControlArgs {
      */
     containerAppName: string;
     /**
-     * Name of the Container App SourceControl.
-     */
-    name: string;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
+    /**
+     * Name of the Container App SourceControl.
+     */
+    sourceControlName: string;
 }
 
 /**
@@ -86,11 +86,11 @@ export interface GetContainerAppsSourceControlOutputArgs {
      */
     containerAppName: pulumi.Input<string>;
     /**
-     * Name of the Container App SourceControl.
-     */
-    name: pulumi.Input<string>;
-    /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Container App SourceControl.
+     */
+    sourceControlName: pulumi.Input<string>;
 }

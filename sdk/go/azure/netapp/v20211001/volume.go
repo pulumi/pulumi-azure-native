@@ -55,13 +55,13 @@ type Volume struct {
 	KerberosEnabled pulumi.BoolPtrOutput `pulumi:"kerberosEnabled"`
 	// Specifies whether LDAP is enabled or not for a given NFS volume.
 	LdapEnabled pulumi.BoolPtrOutput `pulumi:"ldapEnabled"`
-	// Resource location
+	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB.
 	MaximumNumberOfFiles pulumi.Float64Output `pulumi:"maximumNumberOfFiles"`
 	// List of mount targets
 	MountTargets MountTargetPropertiesResponseArrayOutput `pulumi:"mountTargets"`
-	// Resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Basic network, or Standard features available to the volume.
 	NetworkFeatures pulumi.StringPtrOutput `pulumi:"networkFeatures"`
@@ -91,14 +91,14 @@ type Volume struct {
 	StorageToNetworkProximity pulumi.StringOutput `pulumi:"storageToNetworkProximity"`
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
 	SubnetId pulumi.StringOutput `pulumi:"subnetId"`
-	// The system meta data relating to this resource.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// T2 network information
 	T2Network pulumi.StringOutput `pulumi:"t2Network"`
-	// Resource tags
+	// Resource tags.
 	Tags            pulumi.StringMapOutput  `pulumi:"tags"`
 	ThroughputMibps pulumi.Float64PtrOutput `pulumi:"throughputMibps"`
-	// Resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
 	UnixPermissions pulumi.StringPtrOutput `pulumi:"unixPermissions"`
@@ -173,9 +173,6 @@ func NewVolume(ctx *pulumi.Context,
 	if isZero(args.SnapshotDirectoryVisible) {
 		args.SnapshotDirectoryVisible = pulumi.BoolPtr(true)
 	}
-	if isZero(args.ThroughputMibps) {
-		args.ThroughputMibps = pulumi.Float64Ptr(0.0)
-	}
 	if isZero(args.UnixPermissions) {
 		args.UnixPermissions = pulumi.StringPtr("0770")
 	}
@@ -249,6 +246,9 @@ func NewVolume(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:netapp/v20210801:Volume"),
 		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20220101:Volume"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Volume
@@ -317,7 +317,7 @@ type volumeArgs struct {
 	KerberosEnabled *bool `pulumi:"kerberosEnabled"`
 	// Specifies whether LDAP is enabled or not for a given NFS volume.
 	LdapEnabled *bool `pulumi:"ldapEnabled"`
-	// Resource location
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Basic network, or Standard features available to the volume.
 	NetworkFeatures *string `pulumi:"networkFeatures"`
@@ -345,7 +345,7 @@ type volumeArgs struct {
 	SnapshotId *string `pulumi:"snapshotId"`
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
 	SubnetId string `pulumi:"subnetId"`
-	// Resource tags
+	// Resource tags.
 	Tags            map[string]string `pulumi:"tags"`
 	ThroughputMibps *float64          `pulumi:"throughputMibps"`
 	// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
@@ -396,7 +396,7 @@ type VolumeArgs struct {
 	KerberosEnabled pulumi.BoolPtrInput
 	// Specifies whether LDAP is enabled or not for a given NFS volume.
 	LdapEnabled pulumi.BoolPtrInput
-	// Resource location
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Basic network, or Standard features available to the volume.
 	NetworkFeatures pulumi.StringPtrInput
@@ -424,7 +424,7 @@ type VolumeArgs struct {
 	SnapshotId pulumi.StringPtrInput
 	// The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes
 	SubnetId pulumi.StringInput
-	// Resource tags
+	// Resource tags.
 	Tags            pulumi.StringMapInput
 	ThroughputMibps pulumi.Float64PtrInput
 	// UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users.
@@ -576,7 +576,7 @@ func (o VolumeOutput) LdapEnabled() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.BoolPtrOutput { return v.LdapEnabled }).(pulumi.BoolPtrOutput)
 }
 
-// Resource location
+// The geo-location where the resource lives
 func (o VolumeOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -591,7 +591,7 @@ func (o VolumeOutput) MountTargets() MountTargetPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *Volume) MountTargetPropertiesResponseArrayOutput { return v.MountTargets }).(MountTargetPropertiesResponseArrayOutput)
 }
 
-// Resource name
+// The name of the resource
 func (o VolumeOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -666,7 +666,7 @@ func (o VolumeOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
 }
 
-// The system meta data relating to this resource.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o VolumeOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *Volume) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
@@ -676,7 +676,7 @@ func (o VolumeOutput) T2Network() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.T2Network }).(pulumi.StringOutput)
 }
 
-// Resource tags
+// Resource tags.
 func (o VolumeOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
@@ -685,7 +685,7 @@ func (o VolumeOutput) ThroughputMibps() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v *Volume) pulumi.Float64PtrOutput { return v.ThroughputMibps }).(pulumi.Float64PtrOutput)
 }
 
-// Resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o VolumeOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Volume) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

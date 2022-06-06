@@ -7,253 +7,176 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Lab details.
 // API Version: 2021-12-01-preview.
-type GetLab struct {
-	pulumi.CustomResourceState
-
-	// Default monetary cap for each student in this lab
-	BudgetPerStudent AmountResponseOutput `pulumi:"budgetPerStudent"`
-	// The type of currency being used for the value.
-	Currency pulumi.StringPtrOutput `pulumi:"currency"`
-	// Detail description of this lab
-	Description pulumi.StringOutput `pulumi:"description"`
-	// Lab Display Name
-	DisplayName pulumi.StringOutput `pulumi:"displayName"`
-	// Lab creation date
-	EffectiveDate pulumi.StringOutput `pulumi:"effectiveDate"`
-	// Default expiration date for each student in this lab
-	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
-	// invitation code for redeemable lab
-	InvitationCode pulumi.StringOutput `pulumi:"invitationCode"`
-	// the total number of students that can be accepted to the lab.
-	MaxStudentCount pulumi.Float64Output `pulumi:"maxStudentCount"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// The status of this lab
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-	// Amount value.
-	Value pulumi.Float64PtrOutput `pulumi:"value"`
-}
-
-// NewGetLab registers a new resource with the given unique name, arguments, and options.
-func NewGetLab(ctx *pulumi.Context,
-	name string, args *GetLabArgs, opts ...pulumi.ResourceOption) (*GetLab, error) {
-	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
-	}
-
-	if args.BillingAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'BillingAccountName'")
-	}
-	if args.BillingProfileName == nil {
-		return nil, errors.New("invalid value for required argument 'BillingProfileName'")
-	}
-	if args.BudgetPerStudent == nil {
-		return nil, errors.New("invalid value for required argument 'BudgetPerStudent'")
-	}
-	if args.Description == nil {
-		return nil, errors.New("invalid value for required argument 'Description'")
-	}
-	if args.DisplayName == nil {
-		return nil, errors.New("invalid value for required argument 'DisplayName'")
-	}
-	if args.ExpirationDate == nil {
-		return nil, errors.New("invalid value for required argument 'ExpirationDate'")
-	}
-	if args.InvoiceSectionName == nil {
-		return nil, errors.New("invalid value for required argument 'InvoiceSectionName'")
-	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:education/v20211201preview:GetLab"),
-		},
-	})
-	opts = append(opts, aliases)
-	var resource GetLab
-	err := ctx.RegisterResource("azure-native:education:GetLab", name, args, &resource, opts...)
+func LookupLab(ctx *pulumi.Context, args *LookupLabArgs, opts ...pulumi.InvokeOption) (*LookupLabResult, error) {
+	var rv LookupLabResult
+	err := ctx.Invoke("azure-native:education:getLab", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &resource, nil
+	return &rv, nil
 }
 
-// GetGetLab gets an existing GetLab resource's state with the given name, ID, and optional
-// state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetGetLab(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *GetLabState, opts ...pulumi.ResourceOption) (*GetLab, error) {
-	var resource GetLab
-	err := ctx.ReadResource("azure-native:education:GetLab", name, id, state, &resource, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return &resource, nil
-}
-
-// Input properties used for looking up and filtering GetLab resources.
-type getLabState struct {
-}
-
-type GetLabState struct {
-}
-
-func (GetLabState) ElementType() reflect.Type {
-	return reflect.TypeOf((*getLabState)(nil)).Elem()
-}
-
-type getLabArgs struct {
+type LookupLabArgs struct {
 	// Billing account name.
 	BillingAccountName string `pulumi:"billingAccountName"`
 	// Billing profile name.
 	BillingProfileName string `pulumi:"billingProfileName"`
+	// May be used to include budget information.
+	IncludeBudget *bool `pulumi:"includeBudget"`
+	// Invoice section name.
+	InvoiceSectionName string `pulumi:"invoiceSectionName"`
+}
+
+// Lab details.
+type LookupLabResult struct {
 	// Default monetary cap for each student in this lab
-	BudgetPerStudent Amount `pulumi:"budgetPerStudent"`
+	BudgetPerStudent AmountResponse `pulumi:"budgetPerStudent"`
 	// The type of currency being used for the value.
 	Currency *string `pulumi:"currency"`
 	// Detail description of this lab
 	Description string `pulumi:"description"`
 	// Lab Display Name
 	DisplayName string `pulumi:"displayName"`
+	// Lab creation date
+	EffectiveDate string `pulumi:"effectiveDate"`
 	// Default expiration date for each student in this lab
 	ExpirationDate string `pulumi:"expirationDate"`
-	// Invoice section name.
-	InvoiceSectionName string `pulumi:"invoiceSectionName"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// invitation code for redeemable lab
+	InvitationCode string `pulumi:"invitationCode"`
+	// the total number of students that can be accepted to the lab.
+	MaxStudentCount float64 `pulumi:"maxStudentCount"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The status of this lab
+	Status string `pulumi:"status"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
 	// Amount value.
 	Value *float64 `pulumi:"value"`
 }
 
-// The set of arguments for constructing a GetLab resource.
-type GetLabArgs struct {
+func LookupLabOutput(ctx *pulumi.Context, args LookupLabOutputArgs, opts ...pulumi.InvokeOption) LookupLabResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupLabResult, error) {
+			args := v.(LookupLabArgs)
+			r, err := LookupLab(ctx, &args, opts...)
+			var s LookupLabResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(LookupLabResultOutput)
+}
+
+type LookupLabOutputArgs struct {
 	// Billing account name.
-	BillingAccountName pulumi.StringInput
+	BillingAccountName pulumi.StringInput `pulumi:"billingAccountName"`
 	// Billing profile name.
-	BillingProfileName pulumi.StringInput
-	// Default monetary cap for each student in this lab
-	BudgetPerStudent AmountInput
-	// The type of currency being used for the value.
-	Currency pulumi.StringPtrInput
-	// Detail description of this lab
-	Description pulumi.StringInput
-	// Lab Display Name
-	DisplayName pulumi.StringInput
-	// Default expiration date for each student in this lab
-	ExpirationDate pulumi.StringInput
+	BillingProfileName pulumi.StringInput `pulumi:"billingProfileName"`
+	// May be used to include budget information.
+	IncludeBudget pulumi.BoolPtrInput `pulumi:"includeBudget"`
 	// Invoice section name.
-	InvoiceSectionName pulumi.StringInput
-	// Amount value.
-	Value pulumi.Float64PtrInput
+	InvoiceSectionName pulumi.StringInput `pulumi:"invoiceSectionName"`
 }
 
-func (GetLabArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*getLabArgs)(nil)).Elem()
+func (LookupLabOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLabArgs)(nil)).Elem()
 }
 
-type GetLabInput interface {
-	pulumi.Input
+// Lab details.
+type LookupLabResultOutput struct{ *pulumi.OutputState }
 
-	ToGetLabOutput() GetLabOutput
-	ToGetLabOutputWithContext(ctx context.Context) GetLabOutput
+func (LookupLabResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupLabResult)(nil)).Elem()
 }
 
-func (*GetLab) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetLab)(nil)).Elem()
-}
-
-func (i *GetLab) ToGetLabOutput() GetLabOutput {
-	return i.ToGetLabOutputWithContext(context.Background())
-}
-
-func (i *GetLab) ToGetLabOutputWithContext(ctx context.Context) GetLabOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetLabOutput)
-}
-
-type GetLabOutput struct{ *pulumi.OutputState }
-
-func (GetLabOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetLab)(nil)).Elem()
-}
-
-func (o GetLabOutput) ToGetLabOutput() GetLabOutput {
+func (o LookupLabResultOutput) ToLookupLabResultOutput() LookupLabResultOutput {
 	return o
 }
 
-func (o GetLabOutput) ToGetLabOutputWithContext(ctx context.Context) GetLabOutput {
+func (o LookupLabResultOutput) ToLookupLabResultOutputWithContext(ctx context.Context) LookupLabResultOutput {
 	return o
 }
 
 // Default monetary cap for each student in this lab
-func (o GetLabOutput) BudgetPerStudent() AmountResponseOutput {
-	return o.ApplyT(func(v *GetLab) AmountResponseOutput { return v.BudgetPerStudent }).(AmountResponseOutput)
+func (o LookupLabResultOutput) BudgetPerStudent() AmountResponseOutput {
+	return o.ApplyT(func(v LookupLabResult) AmountResponse { return v.BudgetPerStudent }).(AmountResponseOutput)
 }
 
 // The type of currency being used for the value.
-func (o GetLabOutput) Currency() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetLab) pulumi.StringPtrOutput { return v.Currency }).(pulumi.StringPtrOutput)
+func (o LookupLabResultOutput) Currency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupLabResult) *string { return v.Currency }).(pulumi.StringPtrOutput)
 }
 
 // Detail description of this lab
-func (o GetLabOutput) Description() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+func (o LookupLabResultOutput) Description() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.Description }).(pulumi.StringOutput)
 }
 
 // Lab Display Name
-func (o GetLabOutput) DisplayName() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.DisplayName }).(pulumi.StringOutput)
+func (o LookupLabResultOutput) DisplayName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.DisplayName }).(pulumi.StringOutput)
 }
 
 // Lab creation date
-func (o GetLabOutput) EffectiveDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.EffectiveDate }).(pulumi.StringOutput)
+func (o LookupLabResultOutput) EffectiveDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.EffectiveDate }).(pulumi.StringOutput)
 }
 
 // Default expiration date for each student in this lab
-func (o GetLabOutput) ExpirationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
+func (o LookupLabResultOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.ExpirationDate }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupLabResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // invitation code for redeemable lab
-func (o GetLabOutput) InvitationCode() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.InvitationCode }).(pulumi.StringOutput)
+func (o LookupLabResultOutput) InvitationCode() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.InvitationCode }).(pulumi.StringOutput)
 }
 
 // the total number of students that can be accepted to the lab.
-func (o GetLabOutput) MaxStudentCount() pulumi.Float64Output {
-	return o.ApplyT(func(v *GetLab) pulumi.Float64Output { return v.MaxStudentCount }).(pulumi.Float64Output)
+func (o LookupLabResultOutput) MaxStudentCount() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupLabResult) float64 { return v.MaxStudentCount }).(pulumi.Float64Output)
 }
 
 // The name of the resource
-func (o GetLabOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o LookupLabResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // The status of this lab
-func (o GetLabOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o LookupLabResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // Azure Resource Manager metadata containing createdBy and modifiedBy information.
-func (o GetLabOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v *GetLab) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+func (o LookupLabResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupLabResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-func (o GetLabOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetLab) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o LookupLabResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupLabResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 // Amount value.
-func (o GetLabOutput) Value() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *GetLab) pulumi.Float64PtrOutput { return v.Value }).(pulumi.Float64PtrOutput)
+func (o LookupLabResultOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v LookupLabResult) *float64 { return v.Value }).(pulumi.Float64PtrOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetLabOutput{})
+	pulumi.RegisterOutputType(LookupLabResultOutput{})
 }

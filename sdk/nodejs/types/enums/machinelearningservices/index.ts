@@ -21,6 +21,8 @@ import * as v20210301preview from "./v20210301preview";
 import * as v20210401 from "./v20210401";
 import * as v20210701 from "./v20210701";
 import * as v20220101preview from "./v20220101preview";
+import * as v20220201preview from "./v20220201preview";
+import * as v20220501 from "./v20220501";
 
 export {
     v20180301preview,
@@ -42,6 +44,8 @@ export {
     v20210401,
     v20210701,
     v20220101preview,
+    v20220201preview,
+    v20220501,
 };
 
 export const ApplicationSharingPolicy = {
@@ -135,6 +139,11 @@ export const DataBindingMode = {
     Mount: "Mount",
     Download: "Download",
     Upload: "Upload",
+    ReadOnlyMount: "ReadOnlyMount",
+    ReadWriteMount: "ReadWriteMount",
+    Direct: "Direct",
+    EvalMount: "EvalMount",
+    EvalDownload: "EvalDownload",
 } as const;
 
 /**

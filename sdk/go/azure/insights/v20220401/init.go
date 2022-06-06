@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:insights/v20220401:ActionGroup":
 		r = &ActionGroup{}
+	case "azure-native:insights/v20220401:Workbook":
+		r = &Workbook{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

@@ -19,12 +19,15 @@ from .get_subvolume import *
 from .get_subvolume_metadata import *
 from .get_volume import *
 from .get_volume_group import *
+from .get_volume_quota_rule import *
+from .list_volume_replications import *
 from .pool import *
 from .snapshot import *
 from .snapshot_policy import *
 from .subvolume import *
 from .volume import *
 from .volume_group import *
+from .volume_quota_rule import *
 from ._inputs import *
 from . import outputs
 
@@ -74,6 +77,8 @@ if typing.TYPE_CHECKING:
     v20210801 = __v20210801
     import pulumi_azure_native.netapp.v20211001 as __v20211001
     v20211001 = __v20211001
+    import pulumi_azure_native.netapp.v20220101 as __v20220101
+    v20220101 = __v20220101
 else:
     v20170815 = _utilities.lazy_import('pulumi_azure_native.netapp.v20170815')
     v20190501 = _utilities.lazy_import('pulumi_azure_native.netapp.v20190501')
@@ -97,4 +102,5 @@ else:
     v20210601 = _utilities.lazy_import('pulumi_azure_native.netapp.v20210601')
     v20210801 = _utilities.lazy_import('pulumi_azure_native.netapp.v20210801')
     v20211001 = _utilities.lazy_import('pulumi_azure_native.netapp.v20211001')
+    v20220101 = _utilities.lazy_import('pulumi_azure_native.netapp.v20220101')
 

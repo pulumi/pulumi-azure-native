@@ -22,10 +22,10 @@ func LookupDaprComponent(ctx *pulumi.Context, args *LookupDaprComponentArgs, opt
 }
 
 type LookupDaprComponentArgs struct {
+	// Name of the Dapr Component.
+	ComponentName string `pulumi:"componentName"`
 	// Name of the Managed Environment.
 	EnvironmentName string `pulumi:"environmentName"`
-	// Name of the Dapr Component.
-	Name string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -70,10 +70,10 @@ func LookupDaprComponentOutput(ctx *pulumi.Context, args LookupDaprComponentOutp
 }
 
 type LookupDaprComponentOutputArgs struct {
+	// Name of the Dapr Component.
+	ComponentName pulumi.StringInput `pulumi:"componentName"`
 	// Name of the Managed Environment.
 	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
-	// Name of the Dapr Component.
-	Name pulumi.StringInput `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

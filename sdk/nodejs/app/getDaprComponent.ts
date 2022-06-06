@@ -16,21 +16,21 @@ export function getDaprComponent(args: GetDaprComponentArgs, opts?: pulumi.Invok
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app:getDaprComponent", {
+        "componentName": args.componentName,
         "environmentName": args.environmentName,
-        "name": args.name,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
 
 export interface GetDaprComponentArgs {
     /**
+     * Name of the Dapr Component.
+     */
+    componentName: string;
+    /**
      * Name of the Managed Environment.
      */
     environmentName: string;
-    /**
-     * Name of the Dapr Component.
-     */
-    name: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -93,13 +93,13 @@ export function getDaprComponentOutput(args: GetDaprComponentOutputArgs, opts?: 
 
 export interface GetDaprComponentOutputArgs {
     /**
+     * Name of the Dapr Component.
+     */
+    componentName: pulumi.Input<string>;
+    /**
      * Name of the Managed Environment.
      */
     environmentName: pulumi.Input<string>;
-    /**
-     * Name of the Dapr Component.
-     */
-    name: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -13,6 +13,7 @@ export * from "./getManagedClusterSnapshot";
 export * from "./getOpenShiftManagedCluster";
 export * from "./getPrivateEndpointConnection";
 export * from "./getSnapshot";
+export * from "./getTrustedAccessRoleBinding";
 export * from "./listManagedClusterAccessProfile";
 export * from "./listManagedClusterAdminCredentials";
 export * from "./listManagedClusterMonitoringUserCredentials";
@@ -23,6 +24,7 @@ export * from "./managedClusterSnapshot";
 export * from "./openShiftManagedCluster";
 export * from "./privateEndpointConnection";
 export * from "./snapshot";
+export * from "./trustedAccessRoleBinding";
 
 // Export enums:
 export * from "../types/enums/containerservice";
@@ -68,6 +70,9 @@ import * as v20220201 from "./v20220201";
 import * as v20220202preview from "./v20220202preview";
 import * as v20220301 from "./v20220301";
 import * as v20220302preview from "./v20220302preview";
+import * as v20220401 from "./v20220401";
+import * as v20220402preview from "./v20220402preview";
+import * as v20220502preview from "./v20220502preview";
 
 export {
     v20151101preview,
@@ -110,6 +115,9 @@ export {
     v20220202preview,
     v20220301,
     v20220302preview,
+    v20220401,
+    v20220402preview,
+    v20220502preview,
 };
 
 // Import resources to register:
@@ -120,6 +128,7 @@ import { ManagedClusterSnapshot } from "./managedClusterSnapshot";
 import { OpenShiftManagedCluster } from "./openShiftManagedCluster";
 import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { Snapshot } from "./snapshot";
+import { TrustedAccessRoleBinding } from "./trustedAccessRoleBinding";
 
 const _module = {
     version: utilities.getVersion(),
@@ -139,6 +148,8 @@ const _module = {
                 return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:containerservice:Snapshot":
                 return new Snapshot(name, <any>undefined, { urn })
+            case "azure-native:containerservice:TrustedAccessRoleBinding":
+                return new TrustedAccessRoleBinding(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

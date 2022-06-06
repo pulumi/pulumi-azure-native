@@ -15,6 +15,7 @@ __all__ = [
     'ReplicationSchedule',
     'SecurityStyle',
     'ServiceLevel',
+    'Type',
 ]
 
 
@@ -133,4 +134,26 @@ class ServiceLevel(str, Enum):
     STANDARD_ZRS = "StandardZRS"
     """
     Zone redundant storage service level
+    """
+
+
+class Type(str, Enum):
+    """
+    Type of quota
+    """
+    DEFAULT_USER_QUOTA = "DefaultUserQuota"
+    """
+    Default user quota
+    """
+    DEFAULT_GROUP_QUOTA = "DefaultGroupQuota"
+    """
+    Default group quota
+    """
+    INDIVIDUAL_USER_QUOTA = "IndividualUserQuota"
+    """
+    Individual user quota
+    """
+    INDIVIDUAL_GROUP_QUOTA = "IndividualGroupQuota"
+    """
+    Individual group quota
     """

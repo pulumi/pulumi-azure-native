@@ -6,20 +6,31 @@ import * as utilities from "../utilities";
 
 // Export members:
 export * from "./communicationService";
+export * from "./domain";
+export * from "./emailService";
 export * from "./getCommunicationService";
+export * from "./getDomain";
+export * from "./getEmailService";
 export * from "./listCommunicationServiceKeys";
+
+// Export enums:
+export * from "../types/enums/communication";
 
 // Export sub-modules:
 import * as v20200820 from "./v20200820";
 import * as v20200820preview from "./v20200820preview";
+import * as v20211001preview from "./v20211001preview";
 
 export {
     v20200820,
     v20200820preview,
+    v20211001preview,
 };
 
 // Import resources to register:
 import { CommunicationService } from "./communicationService";
+import { Domain } from "./domain";
+import { EmailService } from "./emailService";
 
 const _module = {
     version: utilities.getVersion(),
@@ -27,6 +38,10 @@ const _module = {
         switch (type) {
             case "azure-native:communication:CommunicationService":
                 return new CommunicationService(name, <any>undefined, { urn })
+            case "azure-native:communication:Domain":
+                return new Domain(name, <any>undefined, { urn })
+            case "azure-native:communication:EmailService":
+                return new EmailService(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -97,6 +97,8 @@ namespace Pulumi.AzureNative.SecurityInsights
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static AttackTactic Reconnaissance { get; } = new AttackTactic("Reconnaissance");
+        public static AttackTactic ResourceDevelopment { get; } = new AttackTactic("ResourceDevelopment");
         public static AttackTactic InitialAccess { get; } = new AttackTactic("InitialAccess");
         public static AttackTactic Execution { get; } = new AttackTactic("Execution");
         public static AttackTactic Persistence { get; } = new AttackTactic("Persistence");
@@ -109,6 +111,9 @@ namespace Pulumi.AzureNative.SecurityInsights
         public static AttackTactic Exfiltration { get; } = new AttackTactic("Exfiltration");
         public static AttackTactic CommandAndControl { get; } = new AttackTactic("CommandAndControl");
         public static AttackTactic Impact { get; } = new AttackTactic("Impact");
+        public static AttackTactic PreAttack { get; } = new AttackTactic("PreAttack");
+        public static AttackTactic ImpairProcessControl { get; } = new AttackTactic("ImpairProcessControl");
+        public static AttackTactic InhibitResponseFunction { get; } = new AttackTactic("InhibitResponseFunction");
 
         public static bool operator ==(AttackTactic left, AttackTactic right) => left.Equals(right);
         public static bool operator !=(AttackTactic left, AttackTactic right) => !left.Equals(right);
@@ -1125,6 +1130,36 @@ namespace Pulumi.AzureNative.SecurityInsights
     }
 
     /// <summary>
+    /// The kind of security ML Analytics Settings
+    /// </summary>
+    [EnumType]
+    public readonly struct SecurityMLAnalyticsSettingsKind : IEquatable<SecurityMLAnalyticsSettingsKind>
+    {
+        private readonly string _value;
+
+        private SecurityMLAnalyticsSettingsKind(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SecurityMLAnalyticsSettingsKind Anomaly { get; } = new SecurityMLAnalyticsSettingsKind("Anomaly");
+
+        public static bool operator ==(SecurityMLAnalyticsSettingsKind left, SecurityMLAnalyticsSettingsKind right) => left.Equals(right);
+        public static bool operator !=(SecurityMLAnalyticsSettingsKind left, SecurityMLAnalyticsSettingsKind right) => !left.Equals(right);
+
+        public static explicit operator string(SecurityMLAnalyticsSettingsKind value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SecurityMLAnalyticsSettingsKind other && Equals(other);
+        public bool Equals(SecurityMLAnalyticsSettingsKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The kind of the setting
     /// </summary>
     [EnumType]
@@ -1150,6 +1185,43 @@ namespace Pulumi.AzureNative.SecurityInsights
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is SettingKind other && Equals(other);
         public bool Equals(SettingKind other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The anomaly SecurityMLAnalyticsSettings status
+    /// </summary>
+    [EnumType]
+    public readonly struct SettingsStatus : IEquatable<SettingsStatus>
+    {
+        private readonly string _value;
+
+        private SettingsStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Anomaly settings status in Production mode
+        /// </summary>
+        public static SettingsStatus Production { get; } = new SettingsStatus("Production");
+        /// <summary>
+        /// Anomaly settings status in Flighting mode
+        /// </summary>
+        public static SettingsStatus Flighting { get; } = new SettingsStatus("Flighting");
+
+        public static bool operator ==(SettingsStatus left, SettingsStatus right) => left.Equals(right);
+        public static bool operator !=(SettingsStatus left, SettingsStatus right) => !left.Equals(right);
+
+        public static explicit operator string(SettingsStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SettingsStatus other && Equals(other);
+        public bool Equals(SettingsStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

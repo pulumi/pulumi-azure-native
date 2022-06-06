@@ -32,10 +32,10 @@ class SnapshotPolicyArgs:
         :param pulumi.Input['DailyScheduleArgs'] daily_schedule: Schedule for daily snapshots
         :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
         :param pulumi.Input['HourlyScheduleArgs'] hourly_schedule: Schedule for hourly snapshots
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input['MonthlyScheduleArgs'] monthly_schedule: Schedule for monthly snapshots
         :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['WeeklyScheduleArgs'] weekly_schedule: Schedule for weekly snapshots
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -121,7 +121,7 @@ class SnapshotPolicyArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -157,7 +157,7 @@ class SnapshotPolicyArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -203,11 +203,11 @@ class SnapshotPolicy(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['DailyScheduleArgs']] daily_schedule: Schedule for daily snapshots
         :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
         :param pulumi.Input[pulumi.InputType['HourlyScheduleArgs']] hourly_schedule: Schedule for hourly snapshots
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[pulumi.InputType['MonthlyScheduleArgs']] monthly_schedule: Schedule for monthly snapshots
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[str] snapshot_policy_name: The name of the snapshot policy
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['WeeklyScheduleArgs']] weekly_schedule: Schedule for weekly snapshots
         """
         ...
@@ -273,8 +273,9 @@ class SnapshotPolicy(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200501:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200601:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200701:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200801:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200901:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201101:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201201:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210201:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210601:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20211001:SnapshotPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200501:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200601:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200701:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200801:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200901:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201101:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201201:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210201:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210601:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20211001:SnapshotPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220101:SnapshotPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SnapshotPolicy, __self__).__init__(
             'azure-native:netapp/v20210801:SnapshotPolicy',
@@ -306,6 +307,7 @@ class SnapshotPolicy(pulumi.CustomResource):
         __props__.__dict__["monthly_schedule"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["weekly_schedule"] = None
@@ -347,7 +349,7 @@ class SnapshotPolicy(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -363,7 +365,7 @@ class SnapshotPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -376,10 +378,18 @@ class SnapshotPolicy(pulumi.CustomResource):
         return pulumi.get(self, "provisioning_state")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -387,7 +397,7 @@ class SnapshotPolicy(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

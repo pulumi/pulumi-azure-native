@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.IoTCentral.V20211101Preview.Outputs
     public sealed class NetworkRuleSetIpRuleResponse
     {
         /// <summary>
+        /// The network action for the IP mask.
+        /// </summary>
+        public readonly string Action;
+        /// <summary>
         /// The readable name of the IP rule.
         /// </summary>
         public readonly string? FilterName;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.IoTCentral.V20211101Preview.Outputs
 
         [OutputConstructor]
         private NetworkRuleSetIpRuleResponse(
+            string action,
+
             string? filterName,
 
             string? ipMask)
         {
+            Action = action;
             FilterName = filterName;
             IpMask = ipMask;
         }

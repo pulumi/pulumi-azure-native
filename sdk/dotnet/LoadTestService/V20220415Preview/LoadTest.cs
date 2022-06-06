@@ -144,7 +144,7 @@ namespace Pulumi.AzureNative.LoadTestService.V20220415Preview
         public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
-        /// Load Test name.
+        /// Load Test resource name.
         /// </summary>
         [Input("loadTestName")]
         public Input<string>? LoadTestName { get; set; }

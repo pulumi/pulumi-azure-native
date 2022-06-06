@@ -157,6 +157,12 @@ namespace Pulumi.AzureNative.App
         public Input<Inputs.ConfigurationArgs>? Configuration { get; set; }
 
         /// <summary>
+        /// Name of the Container App.
+        /// </summary>
+        [Input("containerAppName")]
+        public Input<string>? ContainerAppName { get; set; }
+
+        /// <summary>
         /// managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         /// </summary>
         [Input("identity")]
@@ -173,12 +179,6 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Input("managedEnvironmentId")]
         public Input<string>? ManagedEnvironmentId { get; set; }
-
-        /// <summary>
-        /// Name of the Container App.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

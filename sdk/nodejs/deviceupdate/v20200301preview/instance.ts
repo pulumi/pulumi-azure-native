@@ -118,7 +118,7 @@ export class Instance extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate:Instance" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:deviceupdate:Instance" }, { type: "azure-native:deviceupdate/v20220401preview:Instance" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Instance.__pulumiType, name, resourceInputs, opts);
     }

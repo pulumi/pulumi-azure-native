@@ -71,7 +71,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
     }
 
     /// <summary>
-    /// Day of the week.
+    /// The day of the week (Monday-Sunday).
     /// </summary>
     [EnumType]
     public readonly struct DayOfWeek : IEquatable<DayOfWeek>
@@ -547,7 +547,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
     }
 
     /// <summary>
-    /// The type of maintenance for session host components.
+    /// The preferred mechanism for updating the agent components. This is either Scheduled or Default.
     /// </summary>
     [EnumType]
     public readonly struct SessionHostComponentUpdateType : IEquatable<SessionHostComponentUpdateType>
@@ -560,11 +560,11 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
         }
 
         /// <summary>
-        /// Agent and other agent side components are delivery schedule is controlled by WVD Infra.
+        /// The agent components are updated according to the AVD infrastructure flighting. For more information, see https://aka.ms/avdagent.
         /// </summary>
         public static SessionHostComponentUpdateType Default { get; } = new SessionHostComponentUpdateType("Default");
         /// <summary>
-        /// TenantAdmin have opted in for Scheduled Component Update feature.
+        /// This enables the Scheduled Agent Updates feature which allows the agent components to get updated according to the schedule that the admin define. For more information, see https://aka.ms/avdsau.
         /// </summary>
         public static SessionHostComponentUpdateType Scheduled { get; } = new SessionHostComponentUpdateType("Scheduled");
 

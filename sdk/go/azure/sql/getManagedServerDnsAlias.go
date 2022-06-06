@@ -37,6 +37,8 @@ type LookupManagedServerDnsAliasResult struct {
 	Id string `pulumi:"id"`
 	// Resource name.
 	Name string `pulumi:"name"`
+	// The fully qualified public DNS record for managed server alias
+	PublicAzureDnsRecord string `pulumi:"publicAzureDnsRecord"`
 	// Resource type.
 	Type string `pulumi:"type"`
 }
@@ -94,6 +96,11 @@ func (o LookupManagedServerDnsAliasResultOutput) Id() pulumi.StringOutput {
 // Resource name.
 func (o LookupManagedServerDnsAliasResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupManagedServerDnsAliasResult) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The fully qualified public DNS record for managed server alias
+func (o LookupManagedServerDnsAliasResultOutput) PublicAzureDnsRecord() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupManagedServerDnsAliasResult) string { return v.PublicAzureDnsRecord }).(pulumi.StringOutput)
 }
 
 // Resource type.

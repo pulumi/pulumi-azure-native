@@ -27,7 +27,9 @@ __all__ = [
     'MicrosoftSecurityProductName',
     'Operator',
     'RepoType',
+    'SecurityMLAnalyticsSettingsKind',
     'SettingKind',
+    'SettingsStatus',
     'Source',
     'SourceKind',
     'SupportTier',
@@ -74,6 +76,8 @@ class AttackTactic(str, Enum):
     """
     The severity for alerts created by this alert rule.
     """
+    RECONNAISSANCE = "Reconnaissance"
+    RESOURCE_DEVELOPMENT = "ResourceDevelopment"
     INITIAL_ACCESS = "InitialAccess"
     EXECUTION = "Execution"
     PERSISTENCE = "Persistence"
@@ -86,6 +90,9 @@ class AttackTactic(str, Enum):
     EXFILTRATION = "Exfiltration"
     COMMAND_AND_CONTROL = "CommandAndControl"
     IMPACT = "Impact"
+    PRE_ATTACK = "PreAttack"
+    IMPAIR_PROCESS_CONTROL = "ImpairProcessControl"
+    INHIBIT_RESPONSE_FUNCTION = "InhibitResponseFunction"
 
 
 class AutomationRuleActionType(str, Enum):
@@ -650,6 +657,13 @@ class RepoType(str, Enum):
     DEV_OPS = "DevOps"
 
 
+class SecurityMLAnalyticsSettingsKind(str, Enum):
+    """
+    The kind of security ML Analytics Settings
+    """
+    ANOMALY = "Anomaly"
+
+
 class SettingKind(str, Enum):
     """
     The kind of the setting
@@ -658,6 +672,20 @@ class SettingKind(str, Enum):
     EYES_ON = "EyesOn"
     ENTITY_ANALYTICS = "EntityAnalytics"
     UEBA = "Ueba"
+
+
+class SettingsStatus(str, Enum):
+    """
+    The anomaly SecurityMLAnalyticsSettings status
+    """
+    PRODUCTION = "Production"
+    """
+    Anomaly settings status in Production mode
+    """
+    FLIGHTING = "Flighting"
+    """
+    Anomaly settings status in Flighting mode
+    """
 
 
 class Source(str, Enum):

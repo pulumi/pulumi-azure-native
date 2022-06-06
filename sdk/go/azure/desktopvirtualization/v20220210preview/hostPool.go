@@ -15,7 +15,7 @@ import (
 type HostPool struct {
 	pulumi.CustomResourceState
 
-	// The session host configuration for updating agent, monitoring agent, and stack component.
+	// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
 	AgentUpdate AgentUpdatePropertiesResponsePtrOutput `pulumi:"agentUpdate"`
 	// List of applicationGroup links.
 	ApplicationGroupReferences pulumi.StringArrayOutput `pulumi:"applicationGroupReferences"`
@@ -180,7 +180,7 @@ func (HostPoolState) ElementType() reflect.Type {
 }
 
 type hostPoolArgs struct {
-	// The session host configuration for updating agent, monitoring agent, and stack component.
+	// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
 	AgentUpdate *AgentUpdateProperties `pulumi:"agentUpdate"`
 	// Custom rdp property of HostPool.
 	CustomRdpProperty *string `pulumi:"customRdpProperty"`
@@ -239,7 +239,7 @@ type hostPoolArgs struct {
 
 // The set of arguments for constructing a HostPool resource.
 type HostPoolArgs struct {
-	// The session host configuration for updating agent, monitoring agent, and stack component.
+	// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
 	AgentUpdate AgentUpdatePropertiesPtrInput
 	// Custom rdp property of HostPool.
 	CustomRdpProperty pulumi.StringPtrInput
@@ -333,7 +333,7 @@ func (o HostPoolOutput) ToHostPoolOutputWithContext(ctx context.Context) HostPoo
 	return o
 }
 
-// The session host configuration for updating agent, monitoring agent, and stack component.
+// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
 func (o HostPoolOutput) AgentUpdate() AgentUpdatePropertiesResponsePtrOutput {
 	return o.ApplyT(func(v *HostPool) AgentUpdatePropertiesResponsePtrOutput { return v.AgentUpdate }).(AgentUpdatePropertiesResponsePtrOutput)
 }

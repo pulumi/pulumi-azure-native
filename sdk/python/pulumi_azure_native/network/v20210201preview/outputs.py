@@ -25,7 +25,6 @@ __all__ = [
     'EffectiveVirtualNetworkResponse',
     'GroupMembersItemResponse',
     'HubResponse',
-    'LoggingCategoryResponse',
     'NetworkManagerDeploymentStatusResponse',
     'NetworkManagerPropertiesResponseNetworkManagerScopes',
     'NetworkManagerSecurityGroupItemResponse',
@@ -2163,29 +2162,6 @@ class HubResponse(dict):
         Resource Type.
         """
         return pulumi.get(self, "resource_type")
-
-
-@pulumi.output_type
-class LoggingCategoryResponse(dict):
-    """
-    Logging Category
-    """
-    def __init__(__self__, *,
-                 name: Optional[str] = None):
-        """
-        Logging Category
-        :param str name: The name of the logging category.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[str]:
-        """
-        The name of the logging category.
-        """
-        return pulumi.get(self, "name")
 
 
 @pulumi.output_type

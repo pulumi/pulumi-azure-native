@@ -9,6 +9,7 @@ import * as v20180101preview from "./v20180101preview";
 import * as v20210101preview from "./v20210101preview";
 import * as v20210601preview from "./v20210601preview";
 import * as v20211101 from "./v20211101";
+import * as v20220101preview from "./v20220101preview";
 
 export {
     v20140901,
@@ -18,6 +19,7 @@ export {
     v20210101preview,
     v20210601preview,
     v20211101,
+    v20220101preview,
 };
 
 export const AccessRights = {
@@ -27,6 +29,15 @@ export const AccessRights = {
 } as const;
 
 export type AccessRights = (typeof AccessRights)[keyof typeof AccessRights];
+
+export const ApplicationGroupPolicyType = {
+    ThrottlingPolicy: "ThrottlingPolicy",
+} as const;
+
+/**
+ * Application Group Policy types
+ */
+export type ApplicationGroupPolicyType = (typeof ApplicationGroupPolicyType)[keyof typeof ApplicationGroupPolicyType];
 
 export const ClusterSkuName = {
     Dedicated: "Dedicated",
@@ -97,6 +108,18 @@ export const IPAction = {
  * The IP Filter Action
  */
 export type IPAction = (typeof IPAction)[keyof typeof IPAction];
+
+export const MetricId = {
+    IncomingBytes: "IncomingBytes",
+    OutgoingBytes: "OutgoingBytes",
+    IncomingMessages: "IncomingMessages",
+    OutgoingMessages: "OutgoingMessages",
+} as const;
+
+/**
+ * Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+ */
+export type MetricId = (typeof MetricId)[keyof typeof MetricId];
 
 export const NetworkRuleIPAction = {
     Allow: "Allow",

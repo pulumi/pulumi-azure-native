@@ -128,7 +128,7 @@ export interface LoadTestArgs {
      */
     identity?: pulumi.Input<inputs.loadtestservice.v20211201preview.SystemAssignedServiceIdentityArgs>;
     /**
-     * Load Test name.
+     * Load Test resource name.
      */
     loadTestName?: pulumi.Input<string>;
     /**

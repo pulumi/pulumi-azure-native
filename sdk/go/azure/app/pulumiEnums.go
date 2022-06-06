@@ -23,8 +23,8 @@ const (
 type ActiveRevisionsMode string
 
 const (
-	ActiveRevisionsModeMultiple = ActiveRevisionsMode("multiple")
-	ActiveRevisionsModeSingle   = ActiveRevisionsMode("single")
+	ActiveRevisionsModeMultiple = ActiveRevisionsMode("Multiple")
+	ActiveRevisionsModeSingle   = ActiveRevisionsMode("Single")
 )
 
 // Tells Dapr which protocol your application is using. Valid options are http and grpc. Default is http
@@ -557,6 +557,14 @@ const (
 	ManagedServiceIdentityType_SystemAssigned_UserAssigned = ManagedServiceIdentityType("SystemAssigned,UserAssigned")
 )
 
+// Scheme to use for connecting to the host. Defaults to HTTP.
+type Scheme string
+
+const (
+	SchemeHTTP  = Scheme("HTTP")
+	SchemeHTTPS = Scheme("HTTPS")
+)
+
 // Storage type for the volume. If not provided, use EmptyDir.
 type StorageType string
 
@@ -569,9 +577,9 @@ const (
 type Type string
 
 const (
-	TypeLiveness  = Type("liveness")
-	TypeReadiness = Type("readiness")
-	TypeStartup   = Type("startup")
+	TypeLiveness  = Type("Liveness")
+	TypeReadiness = Type("Readiness")
+	TypeStartup   = Type("Startup")
 )
 
 // The action to take when an unauthenticated client attempts to access the app.

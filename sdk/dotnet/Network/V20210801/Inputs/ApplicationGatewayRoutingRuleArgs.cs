@@ -46,6 +46,12 @@ namespace Pulumi.AzureNative.Network.V20210801.Inputs
         public Input<string>? Name { get; set; }
 
         /// <summary>
+        /// Priority of the routing rule.
+        /// </summary>
+        [Input("priority", required: true)]
+        public Input<int> Priority { get; set; } = null!;
+
+        /// <summary>
         /// Rule type.
         /// </summary>
         [Input("ruleType")]

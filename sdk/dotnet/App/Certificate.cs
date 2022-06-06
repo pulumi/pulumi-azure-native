@@ -103,22 +103,22 @@ namespace Pulumi.AzureNative.App
     public sealed class CertificateArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The geo-location where the resource lives
+        /// Name of the Certificate.
         /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
+        [Input("certificateName")]
+        public Input<string>? CertificateName { get; set; }
 
         /// <summary>
         /// Name of the Managed Environment.
         /// </summary>
-        [Input("managedEnvironmentName", required: true)]
-        public Input<string> ManagedEnvironmentName { get; set; } = null!;
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Certificate.
+        /// The geo-location where the resource lives
         /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("location")]
+        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// Certificate resource specific properties

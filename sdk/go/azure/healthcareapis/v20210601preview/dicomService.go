@@ -60,6 +60,9 @@ func NewDicomService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20220131preview:DicomService"),
 		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20220515:DicomService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DicomService

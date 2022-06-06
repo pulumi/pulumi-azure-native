@@ -156,6 +156,11 @@ class DataBindingMode(str, Enum):
     MOUNT = "Mount"
     DOWNLOAD = "Download"
     UPLOAD = "Upload"
+    READ_ONLY_MOUNT = "ReadOnlyMount"
+    READ_WRITE_MOUNT = "ReadWriteMount"
+    DIRECT = "Direct"
+    EVAL_MOUNT = "EvalMount"
+    EVAL_DOWNLOAD = "EvalDownload"
 
 
 class DatasetType(str, Enum):

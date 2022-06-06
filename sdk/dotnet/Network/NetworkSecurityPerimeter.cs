@@ -17,34 +17,22 @@ namespace Pulumi.AzureNative.Network
     public partial class NetworkSecurityPerimeter : Pulumi.CustomResource
     {
         /// <summary>
-        /// A description of the network security perimeter.
-        /// </summary>
-        [Output("description")]
-        public Output<string?> Description { get; private set; } = null!;
-
-        /// <summary>
-        /// A friendly name for the network security perimeter.
-        /// </summary>
-        [Output("displayName")]
-        public Output<string?> DisplayName { get; private set; } = null!;
-
-        /// <summary>
-        /// A unique read-only string that changes whenever the resource is updated.
-        /// </summary>
-        [Output("etag")]
-        public Output<string> Etag { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
+        public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
         /// Resource name.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// perimeter guid of the network security perimeter.
+        /// </summary>
+        [Output("perimeterGuid")]
+        public Output<string?> PerimeterGuid { get; private set; } = null!;
 
         /// <summary>
         /// The provisioning state of the scope assignment resource.
@@ -115,18 +103,6 @@ namespace Pulumi.AzureNative.Network
     public sealed class NetworkSecurityPerimeterArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A description of the network security perimeter.
-        /// </summary>
-        [Input("description")]
-        public Input<string>? Description { get; set; }
-
-        /// <summary>
-        /// A friendly name for the network security perimeter.
-        /// </summary>
-        [Input("displayName")]
-        public Input<string>? DisplayName { get; set; }
-
-        /// <summary>
         /// Resource ID.
         /// </summary>
         [Input("id")]
@@ -149,6 +125,12 @@ namespace Pulumi.AzureNative.Network
         /// </summary>
         [Input("networkSecurityPerimeterName")]
         public Input<string>? NetworkSecurityPerimeterName { get; set; }
+
+        /// <summary>
+        /// perimeter guid of the network security perimeter.
+        /// </summary>
+        [Input("perimeterGuid")]
+        public Input<string>? PerimeterGuid { get; set; }
 
         /// <summary>
         /// The name of the resource group.

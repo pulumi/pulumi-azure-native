@@ -124,9 +124,6 @@ func NewVolume(ctx *pulumi.Context,
 	if isZero(args.SnapshotDirectoryVisible) {
 		args.SnapshotDirectoryVisible = pulumi.BoolPtr(true)
 	}
-	if isZero(args.ThroughputMibps) {
-		args.ThroughputMibps = pulumi.Float64Ptr(0.0)
-	}
 	if isZero(args.UnixPermissions) {
 		args.UnixPermissions = pulumi.StringPtr("0770")
 	}
@@ -199,6 +196,9 @@ func NewVolume(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:netapp/v20211001:Volume"),
+		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20220101:Volume"),
 		},
 	})
 	opts = append(opts, aliases)

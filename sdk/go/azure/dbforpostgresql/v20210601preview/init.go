@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:dbforpostgresql/v20210601preview:Configuration":
 		r = &Configuration{}
+	case "azure-native:dbforpostgresql/v20210601preview:Database":
+		r = &Database{}
 	case "azure-native:dbforpostgresql/v20210601preview:FirewallRule":
 		r = &FirewallRule{}
 	case "azure-native:dbforpostgresql/v20210601preview:Server":

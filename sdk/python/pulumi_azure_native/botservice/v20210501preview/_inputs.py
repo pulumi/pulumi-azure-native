@@ -2287,6 +2287,7 @@ class SlackChannelPropertiesArgs:
                  client_id: Optional[pulumi.Input[str]] = None,
                  client_secret: Optional[pulumi.Input[str]] = None,
                  landing_page_url: Optional[pulumi.Input[str]] = None,
+                 register_before_o_auth_flow: Optional[pulumi.Input[bool]] = None,
                  scopes: Optional[pulumi.Input[str]] = None,
                  signing_secret: Optional[pulumi.Input[str]] = None,
                  verification_token: Optional[pulumi.Input[str]] = None):
@@ -2296,6 +2297,7 @@ class SlackChannelPropertiesArgs:
         :param pulumi.Input[str] client_id: The Slack client id
         :param pulumi.Input[str] client_secret: The Slack client secret. Value only returned through POST to the action Channel List API, otherwise empty.
         :param pulumi.Input[str] landing_page_url: The Slack landing page Url
+        :param pulumi.Input[bool] register_before_o_auth_flow: Whether to register the settings before OAuth validation is performed. Recommended to True.
         :param pulumi.Input[str] scopes: The Slack permission scopes.
         :param pulumi.Input[str] signing_secret: The Slack signing secret.
         :param pulumi.Input[str] verification_token: The Slack verification token. Value only returned through POST to the action Channel List API, otherwise empty.
@@ -2307,6 +2309,8 @@ class SlackChannelPropertiesArgs:
             pulumi.set(__self__, "client_secret", client_secret)
         if landing_page_url is not None:
             pulumi.set(__self__, "landing_page_url", landing_page_url)
+        if register_before_o_auth_flow is not None:
+            pulumi.set(__self__, "register_before_o_auth_flow", register_before_o_auth_flow)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
         if signing_secret is not None:
@@ -2361,6 +2365,18 @@ class SlackChannelPropertiesArgs:
     @landing_page_url.setter
     def landing_page_url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "landing_page_url", value)
+
+    @property
+    @pulumi.getter(name="registerBeforeOAuthFlow")
+    def register_before_o_auth_flow(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to register the settings before OAuth validation is performed. Recommended to True.
+        """
+        return pulumi.get(self, "register_before_o_auth_flow")
+
+    @register_before_o_auth_flow.setter
+    def register_before_o_auth_flow(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "register_before_o_auth_flow", value)
 
     @property
     @pulumi.getter

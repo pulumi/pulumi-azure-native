@@ -86,6 +86,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20210301Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices:BatchDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:BatchDeployment"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:BatchDeployment"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

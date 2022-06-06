@@ -23,7 +23,7 @@ func ListContainerAppSecrets(ctx *pulumi.Context, args *ListContainerAppSecretsA
 
 type ListContainerAppSecretsArgs struct {
 	// Name of the Container App.
-	Name string `pulumi:"name"`
+	ContainerAppName string `pulumi:"containerAppName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -49,7 +49,7 @@ func ListContainerAppSecretsOutput(ctx *pulumi.Context, args ListContainerAppSec
 
 type ListContainerAppSecretsOutputArgs struct {
 	// Name of the Container App.
-	Name pulumi.StringInput `pulumi:"name"`
+	ContainerAppName pulumi.StringInput `pulumi:"containerAppName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

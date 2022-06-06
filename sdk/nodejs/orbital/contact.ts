@@ -186,7 +186,7 @@ export class Contact extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20210404preview:Contact" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:orbital/v20210404preview:Contact" }, { type: "azure-native:orbital/v20220301:Contact" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Contact.__pulumiType, name, resourceInputs, opts);
     }

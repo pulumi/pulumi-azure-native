@@ -3,6 +3,14 @@
 
 package v20201120
 
+type ExtendedLocationType string
+
+const (
+	ExtendedLocationTypeNotSpecified = ExtendedLocationType("NotSpecified")
+	ExtendedLocationTypeEdgeZone     = ExtendedLocationType("EdgeZone")
+	ExtendedLocationTypeArcZone      = ExtendedLocationType("ArcZone")
+)
+
 type ExtensionCategory string
 
 const (
@@ -64,6 +72,15 @@ const (
 	LoggingDirectionsResponse = LoggingDirections("Response")
 )
 
+type MarketplaceType string
+
+const (
+	MarketplaceTypeNotSpecified = MarketplaceType("NotSpecified")
+	MarketplaceTypeAddOn        = MarketplaceType("AddOn")
+	MarketplaceTypeBypass       = MarketplaceType("Bypass")
+	MarketplaceTypeStore        = MarketplaceType("Store")
+)
+
 type MessageScope string
 
 const (
@@ -77,6 +94,21 @@ const (
 	NotificationModeNotSpecified = NotificationMode("NotSpecified")
 	NotificationModeEventHub     = NotificationMode("EventHub")
 	NotificationModeWebHook      = NotificationMode("WebHook")
+)
+
+type OperationActionType string
+
+const (
+	OperationActionTypeNotSpecified = OperationActionType("NotSpecified")
+	OperationActionTypeInternal     = OperationActionType("Internal")
+)
+
+type OperationOrigins string
+
+const (
+	OperationOriginsNotSpecified = OperationOrigins("NotSpecified")
+	OperationOriginsUser         = OperationOrigins("User")
+	OperationOriginsSystem       = OperationOrigins("System")
 )
 
 type OptInHeaderType string
@@ -121,6 +153,14 @@ const (
 	RegionalityNotSpecified = Regionality("NotSpecified")
 	RegionalityGlobal       = Regionality("Global")
 	RegionalityRegional     = Regionality("Regional")
+)
+
+type ResourceAccessPolicy string
+
+const (
+	ResourceAccessPolicyNotSpecified      = ResourceAccessPolicy("NotSpecified")
+	ResourceAccessPolicyAcisReadAllowed   = ResourceAccessPolicy("AcisReadAllowed")
+	ResourceAccessPolicyAcisActionAllowed = ResourceAccessPolicy("AcisActionAllowed")
 )
 
 type ResourceDeletionPolicy string

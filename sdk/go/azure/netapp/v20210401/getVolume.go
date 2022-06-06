@@ -136,10 +136,6 @@ func (val *LookupVolumeResult) Defaults() *LookupVolumeResult {
 		snapshotDirectoryVisible_ := true
 		tmp.SnapshotDirectoryVisible = &snapshotDirectoryVisible_
 	}
-	if isZero(tmp.ThroughputMibps) {
-		throughputMibps_ := 0.0
-		tmp.ThroughputMibps = &throughputMibps_
-	}
 	if isZero(tmp.UnixPermissions) {
 		unixPermissions_ := "0770"
 		tmp.UnixPermissions = &unixPermissions_

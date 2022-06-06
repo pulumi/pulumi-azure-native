@@ -114,6 +114,8 @@ namespace Pulumi.AzureNative.MachineLearningServices.V20220101Preview
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210401:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210701:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

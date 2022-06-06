@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
     public sealed class GetHostPoolResult
     {
         /// <summary>
-        /// The session host configuration for updating agent, monitoring agent, and stack component.
+        /// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
         /// </summary>
         public readonly Outputs.AgentUpdatePropertiesResponse? AgentUpdate;
         /// <summary>

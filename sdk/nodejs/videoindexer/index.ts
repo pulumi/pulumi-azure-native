@@ -15,11 +15,13 @@ export * from "../types/enums/videoindexer";
 import * as v20211018preview from "./v20211018preview";
 import * as v20211027preview from "./v20211027preview";
 import * as v20211110preview from "./v20211110preview";
+import * as v20220413preview from "./v20220413preview";
 
 export {
     v20211018preview,
     v20211027preview,
     v20211110preview,
+    v20220413preview,
 };
 
 // Import resources to register:

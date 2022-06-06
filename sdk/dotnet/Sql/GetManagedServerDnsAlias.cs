@@ -88,6 +88,10 @@ namespace Pulumi.AzureNative.Sql
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// The fully qualified public DNS record for managed server alias
+        /// </summary>
+        public readonly string PublicAzureDnsRecord;
+        /// <summary>
         /// Resource type.
         /// </summary>
         public readonly string Type;
@@ -100,11 +104,14 @@ namespace Pulumi.AzureNative.Sql
 
             string name,
 
+            string publicAzureDnsRecord,
+
             string type)
         {
             AzureDnsRecord = azureDnsRecord;
             Id = id;
             Name = name;
+            PublicAzureDnsRecord = publicAzureDnsRecord;
             Type = type;
         }
     }

@@ -9,160 +9,106 @@ import * as utilities from "../utilities";
  * Lab details.
  * API Version: 2021-12-01-preview.
  */
-export class GetLab extends pulumi.CustomResource {
-    /**
-     * Get an existing GetLab resource's state with the given name, ID, and optional extra
-     * properties used to qualify the lookup.
-     *
-     * @param name The _unique_ name of the resulting resource.
-     * @param id The _unique_ provider ID of the resource to lookup.
-     * @param opts Optional settings to control the behavior of the CustomResource.
-     */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GetLab {
-        return new GetLab(name, undefined as any, { ...opts, id: id });
+export function getLab(args: GetLabArgs, opts?: pulumi.InvokeOptions): Promise<GetLabResult> {
+    if (!opts) {
+        opts = {}
     }
 
-    /** @internal */
-    public static readonly __pulumiType = 'azure-native:education:GetLab';
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    return pulumi.runtime.invoke("azure-native:education:getLab", {
+        "billingAccountName": args.billingAccountName,
+        "billingProfileName": args.billingProfileName,
+        "includeBudget": args.includeBudget,
+        "invoiceSectionName": args.invoiceSectionName,
+    }, opts);
+}
 
+export interface GetLabArgs {
     /**
-     * Returns true if the given object is an instance of GetLab.  This is designed to work even
-     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     * Billing account name.
      */
-    public static isInstance(obj: any): obj is GetLab {
-        if (obj === undefined || obj === null) {
-            return false;
-        }
-        return obj['__pulumiType'] === GetLab.__pulumiType;
-    }
-
+    billingAccountName: string;
     /**
-     * Default monetary cap for each student in this lab
+     * Billing profile name.
      */
-    public readonly budgetPerStudent!: pulumi.Output<outputs.education.AmountResponse>;
+    billingProfileName: string;
     /**
-     * The type of currency being used for the value.
+     * May be used to include budget information.
      */
-    public readonly currency!: pulumi.Output<string | undefined>;
+    includeBudget?: boolean;
     /**
-     * Detail description of this lab
+     * Invoice section name.
      */
-    public readonly description!: pulumi.Output<string>;
-    /**
-     * Lab Display Name
-     */
-    public readonly displayName!: pulumi.Output<string>;
-    /**
-     * Lab creation date
-     */
-    public /*out*/ readonly effectiveDate!: pulumi.Output<string>;
-    /**
-     * Default expiration date for each student in this lab
-     */
-    public readonly expirationDate!: pulumi.Output<string>;
-    /**
-     * invitation code for redeemable lab
-     */
-    public /*out*/ readonly invitationCode!: pulumi.Output<string>;
-    /**
-     * the total number of students that can be accepted to the lab.
-     */
-    public /*out*/ readonly maxStudentCount!: pulumi.Output<number>;
-    /**
-     * The name of the resource
-     */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * The status of this lab
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.education.SystemDataResponse>;
-    /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-     */
-    public /*out*/ readonly type!: pulumi.Output<string>;
-    /**
-     * Amount value.
-     */
-    public readonly value!: pulumi.Output<number | undefined>;
-
-    /**
-     * Create a GetLab resource with the given unique name, arguments, and options.
-     *
-     * @param name The _unique_ name of the resource.
-     * @param args The arguments to use to populate this resource's properties.
-     * @param opts A bag of options that control this resource's behavior.
-     */
-    constructor(name: string, args: GetLabArgs, opts?: pulumi.CustomResourceOptions) {
-        let resourceInputs: pulumi.Inputs = {};
-        opts = opts || {};
-        if (!opts.id) {
-            if ((!args || args.billingAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'billingAccountName'");
-            }
-            if ((!args || args.billingProfileName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'billingProfileName'");
-            }
-            if ((!args || args.budgetPerStudent === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'budgetPerStudent'");
-            }
-            if ((!args || args.description === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'description'");
-            }
-            if ((!args || args.displayName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'displayName'");
-            }
-            if ((!args || args.expirationDate === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'expirationDate'");
-            }
-            if ((!args || args.invoiceSectionName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'invoiceSectionName'");
-            }
-            resourceInputs["billingAccountName"] = args ? args.billingAccountName : undefined;
-            resourceInputs["billingProfileName"] = args ? args.billingProfileName : undefined;
-            resourceInputs["budgetPerStudent"] = args ? args.budgetPerStudent : undefined;
-            resourceInputs["currency"] = args ? args.currency : undefined;
-            resourceInputs["description"] = args ? args.description : undefined;
-            resourceInputs["displayName"] = args ? args.displayName : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["invoiceSectionName"] = args ? args.invoiceSectionName : undefined;
-            resourceInputs["value"] = args ? args.value : undefined;
-            resourceInputs["effectiveDate"] = undefined /*out*/;
-            resourceInputs["invitationCode"] = undefined /*out*/;
-            resourceInputs["maxStudentCount"] = undefined /*out*/;
-            resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
-        } else {
-            resourceInputs["budgetPerStudent"] = undefined /*out*/;
-            resourceInputs["currency"] = undefined /*out*/;
-            resourceInputs["description"] = undefined /*out*/;
-            resourceInputs["displayName"] = undefined /*out*/;
-            resourceInputs["effectiveDate"] = undefined /*out*/;
-            resourceInputs["expirationDate"] = undefined /*out*/;
-            resourceInputs["invitationCode"] = undefined /*out*/;
-            resourceInputs["maxStudentCount"] = undefined /*out*/;
-            resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
-            resourceInputs["value"] = undefined /*out*/;
-        }
-        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:education/v20211201preview:GetLab" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GetLab.__pulumiType, name, resourceInputs, opts);
-    }
+    invoiceSectionName: string;
 }
 
 /**
- * The set of arguments for constructing a GetLab resource.
+ * Lab details.
  */
-export interface GetLabArgs {
+export interface GetLabResult {
+    /**
+     * Default monetary cap for each student in this lab
+     */
+    readonly budgetPerStudent: outputs.education.AmountResponse;
+    /**
+     * The type of currency being used for the value.
+     */
+    readonly currency?: string;
+    /**
+     * Detail description of this lab
+     */
+    readonly description: string;
+    /**
+     * Lab Display Name
+     */
+    readonly displayName: string;
+    /**
+     * Lab creation date
+     */
+    readonly effectiveDate: string;
+    /**
+     * Default expiration date for each student in this lab
+     */
+    readonly expirationDate: string;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
+     * invitation code for redeemable lab
+     */
+    readonly invitationCode: string;
+    /**
+     * the total number of students that can be accepted to the lab.
+     */
+    readonly maxStudentCount: number;
+    /**
+     * The name of the resource
+     */
+    readonly name: string;
+    /**
+     * The status of this lab
+     */
+    readonly status: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.education.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     */
+    readonly type: string;
+    /**
+     * Amount value.
+     */
+    readonly value?: number;
+}
+
+export function getLabOutput(args: GetLabOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLabResult> {
+    return pulumi.output(args).apply(a => getLab(a, opts))
+}
+
+export interface GetLabOutputArgs {
     /**
      * Billing account name.
      */
@@ -172,31 +118,11 @@ export interface GetLabArgs {
      */
     billingProfileName: pulumi.Input<string>;
     /**
-     * Default monetary cap for each student in this lab
+     * May be used to include budget information.
      */
-    budgetPerStudent: pulumi.Input<inputs.education.AmountArgs>;
-    /**
-     * The type of currency being used for the value.
-     */
-    currency?: pulumi.Input<string>;
-    /**
-     * Detail description of this lab
-     */
-    description: pulumi.Input<string>;
-    /**
-     * Lab Display Name
-     */
-    displayName: pulumi.Input<string>;
-    /**
-     * Default expiration date for each student in this lab
-     */
-    expirationDate: pulumi.Input<string>;
+    includeBudget?: pulumi.Input<boolean>;
     /**
      * Invoice section name.
      */
     invoiceSectionName: pulumi.Input<string>;
-    /**
-     * Amount value.
-     */
-    value?: pulumi.Input<number>;
 }

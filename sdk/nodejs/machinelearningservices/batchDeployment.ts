@@ -114,7 +114,7 @@ export class BatchDeployment extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:BatchDeployment" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:machinelearningservices/v20210301preview:BatchDeployment" }, { type: "azure-native:machinelearningservices/v20220201preview:BatchDeployment" }, { type: "azure-native:machinelearningservices/v20220501:BatchDeployment" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(BatchDeployment.__pulumiType, name, resourceInputs, opts);
     }

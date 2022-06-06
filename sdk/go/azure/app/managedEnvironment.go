@@ -107,10 +107,10 @@ type managedEnvironmentArgs struct {
 	DaprAIConnectionString *string `pulumi:"daprAIConnectionString"`
 	// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
 	DaprAIInstrumentationKey *string `pulumi:"daprAIInstrumentationKey"`
+	// Name of the Environment.
+	EnvironmentName *string `pulumi:"environmentName"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Name of the Environment.
-	Name *string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -131,10 +131,10 @@ type ManagedEnvironmentArgs struct {
 	DaprAIConnectionString pulumi.StringPtrInput
 	// Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
 	DaprAIInstrumentationKey pulumi.StringPtrInput
+	// Name of the Environment.
+	EnvironmentName pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// Name of the Environment.
-	Name pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

@@ -1814,8 +1814,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if throughput_mibps is None:
-            throughput_mibps = 0
         if throughput_mibps is not None:
             pulumi.set(__self__, "throughput_mibps", throughput_mibps)
         if unix_permissions is None:

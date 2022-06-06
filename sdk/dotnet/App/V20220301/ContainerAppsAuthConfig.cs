@@ -114,6 +114,12 @@ namespace Pulumi.AzureNative.App.V20220301
     public sealed class ContainerAppsAuthConfigArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Name of the Container App AuthConfig.
+        /// </summary>
+        [Input("authConfigName")]
+        public Input<string>? AuthConfigName { get; set; }
+
+        /// <summary>
         /// Name of the Container App.
         /// </summary>
         [Input("containerAppName", required: true)]
@@ -142,12 +148,6 @@ namespace Pulumi.AzureNative.App.V20220301
         /// </summary>
         [Input("login")]
         public Input<Inputs.LoginArgs>? Login { get; set; }
-
-        /// <summary>
-        /// Name of the Container App AuthConfig.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.

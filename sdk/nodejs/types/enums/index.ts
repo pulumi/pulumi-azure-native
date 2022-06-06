@@ -30,6 +30,7 @@ import * as certificateregistration from "./certificateregistration";
 import * as changeanalysis from "./changeanalysis";
 import * as chaos from "./chaos";
 import * as cognitiveservices from "./cognitiveservices";
+import * as communication from "./communication";
 import * as compute from "./compute";
 import * as confidentialledger from "./confidentialledger";
 import * as connectedvmwarevsphere from "./connectedvmwarevsphere";
@@ -112,6 +113,7 @@ import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
 import * as netapp from "./netapp";
 import * as network from "./network";
+import * as networkfunction from "./networkfunction";
 import * as notificationhubs from "./notificationhubs";
 import * as operationalinsights from "./operationalinsights";
 import * as orbital from "./orbital";
@@ -164,6 +166,7 @@ import * as vmwarecloudsimple from "./vmwarecloudsimple";
 import * as web from "./web";
 import * as webpubsub from "./webpubsub";
 import * as windowsesu from "./windowsesu";
+import * as workloads from "./workloads";
 
 export {
     aad,
@@ -194,6 +197,7 @@ export {
     changeanalysis,
     chaos,
     cognitiveservices,
+    communication,
     compute,
     confidentialledger,
     connectedvmwarevsphere,
@@ -276,6 +280,7 @@ export {
     mobilenetwork,
     netapp,
     network,
+    networkfunction,
     notificationhubs,
     operationalinsights,
     orbital,
@@ -328,4 +333,5 @@ export {
     web,
     webpubsub,
     windowsesu,
+    workloads,
 };

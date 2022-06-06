@@ -116,7 +116,7 @@ class AutoBackupSettingsArgs:
     def __init__(__self__, *,
                  backup_schedule_type: Optional[pulumi.Input[Union[str, 'BackupScheduleType']]] = None,
                  backup_system_dbs: Optional[pulumi.Input[bool]] = None,
-                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]] = None,
+                 days_of_week: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AutoBackupDaysOfWeek']]]]] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  enable_encryption: Optional[pulumi.Input[bool]] = None,
                  full_backup_frequency: Optional[pulumi.Input[Union[str, 'FullBackupFrequencyType']]] = None,
@@ -132,7 +132,7 @@ class AutoBackupSettingsArgs:
         Configure backups for databases in your SQL virtual machine.
         :param pulumi.Input[Union[str, 'BackupScheduleType']] backup_schedule_type: Backup schedule type.
         :param pulumi.Input[bool] backup_system_dbs: Include or exclude system databases from auto backup.
-        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]] days_of_week: Days of the week for the backups when FullBackupFrequency is set to Weekly.
+        :param pulumi.Input[Sequence[pulumi.Input[Union[str, 'AutoBackupDaysOfWeek']]]] days_of_week: Days of the week for the backups when FullBackupFrequency is set to Weekly.
         :param pulumi.Input[bool] enable: Enable or disable autobackup on SQL virtual machine.
         :param pulumi.Input[bool] enable_encryption: Enable or disable encryption for backup on SQL virtual machine.
         :param pulumi.Input[Union[str, 'FullBackupFrequencyType']] full_backup_frequency: Frequency of full backups. In both cases, full backups begin during the next scheduled time window.
@@ -200,14 +200,14 @@ class AutoBackupSettingsArgs:
 
     @property
     @pulumi.getter(name="daysOfWeek")
-    def days_of_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]]:
+    def days_of_week(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AutoBackupDaysOfWeek']]]]]:
         """
         Days of the week for the backups when FullBackupFrequency is set to Weekly.
         """
         return pulumi.get(self, "days_of_week")
 
     @days_of_week.setter
-    def days_of_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'DaysOfWeek']]]]]):
+    def days_of_week(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[Union[str, 'AutoBackupDaysOfWeek']]]]]):
         pulumi.set(self, "days_of_week", value)
 
     @property
@@ -905,13 +905,13 @@ class SQLTempDbSettingsArgs:
 @pulumi.input_type
 class ScheduleArgs:
     def __init__(__self__, *,
-                 day_of_week: Optional[pulumi.Input['DayOfWeek']] = None,
+                 day_of_week: Optional[pulumi.Input['AssessmentDayOfWeek']] = None,
                  enable: Optional[pulumi.Input[bool]] = None,
                  monthly_occurrence: Optional[pulumi.Input[int]] = None,
                  start_time: Optional[pulumi.Input[str]] = None,
                  weekly_interval: Optional[pulumi.Input[int]] = None):
         """
-        :param pulumi.Input['DayOfWeek'] day_of_week: Day of the week to run assessment.
+        :param pulumi.Input['AssessmentDayOfWeek'] day_of_week: Day of the week to run assessment.
         :param pulumi.Input[bool] enable: Enable or disable assessment schedule on SQL virtual machine.
         :param pulumi.Input[int] monthly_occurrence: Occurrence of the DayOfWeek day within a month to schedule assessment. Takes values: 1,2,3,4 and -1. Use -1 for last DayOfWeek day of the month
         :param pulumi.Input[str] start_time: Time of the day in HH:mm format. Eg. 17:30
@@ -930,14 +930,14 @@ class ScheduleArgs:
 
     @property
     @pulumi.getter(name="dayOfWeek")
-    def day_of_week(self) -> Optional[pulumi.Input['DayOfWeek']]:
+    def day_of_week(self) -> Optional[pulumi.Input['AssessmentDayOfWeek']]:
         """
         Day of the week to run assessment.
         """
         return pulumi.get(self, "day_of_week")
 
     @day_of_week.setter
-    def day_of_week(self, value: Optional[pulumi.Input['DayOfWeek']]):
+    def day_of_week(self, value: Optional[pulumi.Input['AssessmentDayOfWeek']]):
         pulumi.set(self, "day_of_week", value)
 
     @property

@@ -87,7 +87,7 @@ export class GatewayRouteConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20220101preview:GatewayRouteConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:appplatform:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20220101preview:GatewayRouteConfig" }, { type: "azure-native:appplatform/v20220501preview:GatewayRouteConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(GatewayRouteConfig.__pulumiType, name, resourceInputs, opts);
     }

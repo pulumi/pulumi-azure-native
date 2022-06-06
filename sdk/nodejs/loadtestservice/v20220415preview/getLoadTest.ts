@@ -22,7 +22,7 @@ export function getLoadTest(args: GetLoadTestArgs, opts?: pulumi.InvokeOptions):
 
 export interface GetLoadTestArgs {
     /**
-     * Load Test name.
+     * Load Test resource name.
      */
     loadTestName: string;
     /**
@@ -87,7 +87,7 @@ export function getLoadTestOutput(args: GetLoadTestOutputArgs, opts?: pulumi.Inv
 
 export interface GetLoadTestOutputArgs {
     /**
-     * Load Test name.
+     * Load Test resource name.
      */
     loadTestName: pulumi.Input<string>;
     /**

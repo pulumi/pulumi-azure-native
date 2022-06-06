@@ -214,7 +214,7 @@ class AwaitableGetManagedEnvironmentResult(GetManagedEnvironmentResult):
             zone_redundant=self.zone_redundant)
 
 
-def get_managed_environment(name: Optional[str] = None,
+def get_managed_environment(environment_name: Optional[str] = None,
                             resource_group_name: Optional[str] = None,
                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentResult:
     """
@@ -222,11 +222,11 @@ def get_managed_environment(name: Optional[str] = None,
     API Version: 2022-03-01.
 
 
-    :param str name: Name of the Environment.
+    :param str environment_name: Name of the Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['environmentName'] = environment_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -253,7 +253,7 @@ def get_managed_environment(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_managed_environment)
-def get_managed_environment_output(name: Optional[pulumi.Input[str]] = None,
+def get_managed_environment_output(environment_name: Optional[pulumi.Input[str]] = None,
                                    resource_group_name: Optional[pulumi.Input[str]] = None,
                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentResult]:
     """
@@ -261,7 +261,7 @@ def get_managed_environment_output(name: Optional[pulumi.Input[str]] = None,
     API Version: 2022-03-01.
 
 
-    :param str name: Name of the Environment.
+    :param str environment_name: Name of the Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

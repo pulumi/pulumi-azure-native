@@ -97,5 +97,19 @@ const (
 	ServiceLevelStandardZRS = ServiceLevel("StandardZRS")
 )
 
+// Type of quota
+type Type string
+
+const (
+	// Default user quota
+	TypeDefaultUserQuota = Type("DefaultUserQuota")
+	// Default group quota
+	TypeDefaultGroupQuota = Type("DefaultGroupQuota")
+	// Individual user quota
+	TypeIndividualUserQuota = Type("IndividualUserQuota")
+	// Individual group quota
+	TypeIndividualGroupQuota = Type("IndividualGroupQuota")
+)
+
 func init() {
 }

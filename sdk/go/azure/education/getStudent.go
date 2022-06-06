@@ -7,278 +7,183 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
 // Student details.
 // API Version: 2021-12-01-preview.
-type GetStudent struct {
-	pulumi.CustomResourceState
-
-	// Student Budget
-	Budget AmountResponseOutput `pulumi:"budget"`
-	// Date student was added to the lab
-	EffectiveDate pulumi.StringOutput `pulumi:"effectiveDate"`
-	// Student Email
-	Email pulumi.StringOutput `pulumi:"email"`
-	// Date this student is set to expire from the lab.
-	ExpirationDate pulumi.StringOutput `pulumi:"expirationDate"`
-	// First Name
-	FirstName pulumi.StringOutput `pulumi:"firstName"`
-	// Last Name
-	LastName pulumi.StringOutput `pulumi:"lastName"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Student Role
-	Role pulumi.StringOutput `pulumi:"role"`
-	// Student Lab Status
-	Status pulumi.StringOutput `pulumi:"status"`
-	// Subscription alias
-	SubscriptionAlias pulumi.StringPtrOutput `pulumi:"subscriptionAlias"`
-	// Subscription Id
-	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
-	// subscription invite last sent date
-	SubscriptionInviteLastSentDate pulumi.StringPtrOutput `pulumi:"subscriptionInviteLastSentDate"`
-	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
-}
-
-// NewGetStudent registers a new resource with the given unique name, arguments, and options.
-func NewGetStudent(ctx *pulumi.Context,
-	name string, args *GetStudentArgs, opts ...pulumi.ResourceOption) (*GetStudent, error) {
-	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
-	}
-
-	if args.BillingAccountName == nil {
-		return nil, errors.New("invalid value for required argument 'BillingAccountName'")
-	}
-	if args.BillingProfileName == nil {
-		return nil, errors.New("invalid value for required argument 'BillingProfileName'")
-	}
-	if args.Budget == nil {
-		return nil, errors.New("invalid value for required argument 'Budget'")
-	}
-	if args.Email == nil {
-		return nil, errors.New("invalid value for required argument 'Email'")
-	}
-	if args.ExpirationDate == nil {
-		return nil, errors.New("invalid value for required argument 'ExpirationDate'")
-	}
-	if args.FirstName == nil {
-		return nil, errors.New("invalid value for required argument 'FirstName'")
-	}
-	if args.InvoiceSectionName == nil {
-		return nil, errors.New("invalid value for required argument 'InvoiceSectionName'")
-	}
-	if args.LastName == nil {
-		return nil, errors.New("invalid value for required argument 'LastName'")
-	}
-	if args.Role == nil {
-		return nil, errors.New("invalid value for required argument 'Role'")
-	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:education/v20211201preview:GetStudent"),
-		},
-	})
-	opts = append(opts, aliases)
-	var resource GetStudent
-	err := ctx.RegisterResource("azure-native:education:GetStudent", name, args, &resource, opts...)
+func LookupStudent(ctx *pulumi.Context, args *LookupStudentArgs, opts ...pulumi.InvokeOption) (*LookupStudentResult, error) {
+	var rv LookupStudentResult
+	err := ctx.Invoke("azure-native:education:getStudent", args, &rv, opts...)
 	if err != nil {
 		return nil, err
 	}
-	return &resource, nil
+	return &rv, nil
 }
 
-// GetGetStudent gets an existing GetStudent resource's state with the given name, ID, and optional
-// state properties that are used to uniquely qualify the lookup (nil if not required).
-func GetGetStudent(ctx *pulumi.Context,
-	name string, id pulumi.IDInput, state *GetStudentState, opts ...pulumi.ResourceOption) (*GetStudent, error) {
-	var resource GetStudent
-	err := ctx.ReadResource("azure-native:education:GetStudent", name, id, state, &resource, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return &resource, nil
-}
-
-// Input properties used for looking up and filtering GetStudent resources.
-type getStudentState struct {
-}
-
-type GetStudentState struct {
-}
-
-func (GetStudentState) ElementType() reflect.Type {
-	return reflect.TypeOf((*getStudentState)(nil)).Elem()
-}
-
-type getStudentArgs struct {
+type LookupStudentArgs struct {
 	// Billing account name.
 	BillingAccountName string `pulumi:"billingAccountName"`
 	// Billing profile name.
 	BillingProfileName string `pulumi:"billingProfileName"`
+	// Invoice section name.
+	InvoiceSectionName string `pulumi:"invoiceSectionName"`
+	// Student alias.
+	StudentAlias string `pulumi:"studentAlias"`
+}
+
+// Student details.
+type LookupStudentResult struct {
 	// Student Budget
-	Budget Amount `pulumi:"budget"`
+	Budget AmountResponse `pulumi:"budget"`
+	// Date student was added to the lab
+	EffectiveDate string `pulumi:"effectiveDate"`
 	// Student Email
 	Email string `pulumi:"email"`
 	// Date this student is set to expire from the lab.
 	ExpirationDate string `pulumi:"expirationDate"`
 	// First Name
 	FirstName string `pulumi:"firstName"`
-	// Invoice section name.
-	InvoiceSectionName string `pulumi:"invoiceSectionName"`
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
 	// Last Name
 	LastName string `pulumi:"lastName"`
+	// The name of the resource
+	Name string `pulumi:"name"`
 	// Student Role
 	Role string `pulumi:"role"`
-	// Student alias.
-	StudentAlias *string `pulumi:"studentAlias"`
+	// Student Lab Status
+	Status string `pulumi:"status"`
 	// Subscription alias
 	SubscriptionAlias *string `pulumi:"subscriptionAlias"`
+	// Subscription Id
+	SubscriptionId string `pulumi:"subscriptionId"`
 	// subscription invite last sent date
 	SubscriptionInviteLastSentDate *string `pulumi:"subscriptionInviteLastSentDate"`
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
 }
 
-// The set of arguments for constructing a GetStudent resource.
-type GetStudentArgs struct {
+func LookupStudentOutput(ctx *pulumi.Context, args LookupStudentOutputArgs, opts ...pulumi.InvokeOption) LookupStudentResultOutput {
+	return pulumi.ToOutputWithContext(context.Background(), args).
+		ApplyT(func(v interface{}) (LookupStudentResult, error) {
+			args := v.(LookupStudentArgs)
+			r, err := LookupStudent(ctx, &args, opts...)
+			var s LookupStudentResult
+			if r != nil {
+				s = *r
+			}
+			return s, err
+		}).(LookupStudentResultOutput)
+}
+
+type LookupStudentOutputArgs struct {
 	// Billing account name.
-	BillingAccountName pulumi.StringInput
+	BillingAccountName pulumi.StringInput `pulumi:"billingAccountName"`
 	// Billing profile name.
-	BillingProfileName pulumi.StringInput
-	// Student Budget
-	Budget AmountInput
-	// Student Email
-	Email pulumi.StringInput
-	// Date this student is set to expire from the lab.
-	ExpirationDate pulumi.StringInput
-	// First Name
-	FirstName pulumi.StringInput
+	BillingProfileName pulumi.StringInput `pulumi:"billingProfileName"`
 	// Invoice section name.
-	InvoiceSectionName pulumi.StringInput
-	// Last Name
-	LastName pulumi.StringInput
-	// Student Role
-	Role pulumi.StringInput
+	InvoiceSectionName pulumi.StringInput `pulumi:"invoiceSectionName"`
 	// Student alias.
-	StudentAlias pulumi.StringPtrInput
-	// Subscription alias
-	SubscriptionAlias pulumi.StringPtrInput
-	// subscription invite last sent date
-	SubscriptionInviteLastSentDate pulumi.StringPtrInput
+	StudentAlias pulumi.StringInput `pulumi:"studentAlias"`
 }
 
-func (GetStudentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*getStudentArgs)(nil)).Elem()
+func (LookupStudentOutputArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStudentArgs)(nil)).Elem()
 }
 
-type GetStudentInput interface {
-	pulumi.Input
+// Student details.
+type LookupStudentResultOutput struct{ *pulumi.OutputState }
 
-	ToGetStudentOutput() GetStudentOutput
-	ToGetStudentOutputWithContext(ctx context.Context) GetStudentOutput
+func (LookupStudentResultOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*LookupStudentResult)(nil)).Elem()
 }
 
-func (*GetStudent) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetStudent)(nil)).Elem()
-}
-
-func (i *GetStudent) ToGetStudentOutput() GetStudentOutput {
-	return i.ToGetStudentOutputWithContext(context.Background())
-}
-
-func (i *GetStudent) ToGetStudentOutputWithContext(ctx context.Context) GetStudentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetStudentOutput)
-}
-
-type GetStudentOutput struct{ *pulumi.OutputState }
-
-func (GetStudentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**GetStudent)(nil)).Elem()
-}
-
-func (o GetStudentOutput) ToGetStudentOutput() GetStudentOutput {
+func (o LookupStudentResultOutput) ToLookupStudentResultOutput() LookupStudentResultOutput {
 	return o
 }
 
-func (o GetStudentOutput) ToGetStudentOutputWithContext(ctx context.Context) GetStudentOutput {
+func (o LookupStudentResultOutput) ToLookupStudentResultOutputWithContext(ctx context.Context) LookupStudentResultOutput {
 	return o
 }
 
 // Student Budget
-func (o GetStudentOutput) Budget() AmountResponseOutput {
-	return o.ApplyT(func(v *GetStudent) AmountResponseOutput { return v.Budget }).(AmountResponseOutput)
+func (o LookupStudentResultOutput) Budget() AmountResponseOutput {
+	return o.ApplyT(func(v LookupStudentResult) AmountResponse { return v.Budget }).(AmountResponseOutput)
 }
 
 // Date student was added to the lab
-func (o GetStudentOutput) EffectiveDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.EffectiveDate }).(pulumi.StringOutput)
+func (o LookupStudentResultOutput) EffectiveDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStudentResult) string { return v.EffectiveDate }).(pulumi.StringOutput)
 }
 
 // Student Email
-func (o GetStudentOutput) Email() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.Email }).(pulumi.StringOutput)
+func (o LookupStudentResultOutput) Email() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStudentResult) string { return v.Email }).(pulumi.StringOutput)
 }
 
 // Date this student is set to expire from the lab.
-func (o GetStudentOutput) ExpirationDate() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.ExpirationDate }).(pulumi.StringOutput)
+func (o LookupStudentResultOutput) ExpirationDate() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStudentResult) string { return v.ExpirationDate }).(pulumi.StringOutput)
 }
 
 // First Name
-func (o GetStudentOutput) FirstName() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.FirstName }).(pulumi.StringOutput)
+func (o LookupStudentResultOutput) FirstName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStudentResult) string { return v.FirstName }).(pulumi.StringOutput)
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o LookupStudentResultOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStudentResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
 // Last Name
-func (o GetStudentOutput) LastName() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.LastName }).(pulumi.StringOutput)
+func (o LookupStudentResultOutput) LastName() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStudentResult) string { return v.LastName }).(pulumi.StringOutput)
 }
 
 // The name of the resource
-func (o GetStudentOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+func (o LookupStudentResultOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStudentResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
 // Student Role
-func (o GetStudentOutput) Role() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.Role }).(pulumi.StringOutput)
+func (o LookupStudentResultOutput) Role() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStudentResult) string { return v.Role }).(pulumi.StringOutput)
 }
 
 // Student Lab Status
-func (o GetStudentOutput) Status() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+func (o LookupStudentResultOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStudentResult) string { return v.Status }).(pulumi.StringOutput)
 }
 
 // Subscription alias
-func (o GetStudentOutput) SubscriptionAlias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringPtrOutput { return v.SubscriptionAlias }).(pulumi.StringPtrOutput)
+func (o LookupStudentResultOutput) SubscriptionAlias() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStudentResult) *string { return v.SubscriptionAlias }).(pulumi.StringPtrOutput)
 }
 
 // Subscription Id
-func (o GetStudentOutput) SubscriptionId() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
+func (o LookupStudentResultOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStudentResult) string { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 // subscription invite last sent date
-func (o GetStudentOutput) SubscriptionInviteLastSentDate() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringPtrOutput { return v.SubscriptionInviteLastSentDate }).(pulumi.StringPtrOutput)
+func (o LookupStudentResultOutput) SubscriptionInviteLastSentDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v LookupStudentResult) *string { return v.SubscriptionInviteLastSentDate }).(pulumi.StringPtrOutput)
 }
 
 // Azure Resource Manager metadata containing createdBy and modifiedBy information.
-func (o GetStudentOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v *GetStudent) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+func (o LookupStudentResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupStudentResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-func (o GetStudentOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *GetStudent) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+func (o LookupStudentResultOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStudentResult) string { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {
-	pulumi.RegisterOutputType(GetStudentOutput{})
+	pulumi.RegisterOutputType(LookupStudentResultOutput{})
 }

@@ -33,11 +33,11 @@ class AgentUpdatePropertiesArgs:
                  type: Optional[pulumi.Input[Union[str, 'SessionHostComponentUpdateType']]] = None,
                  use_session_host_local_time: Optional[pulumi.Input[bool]] = None):
         """
-        The session host configuration for updating agent, monitoring agent, and stack component.
-        :param pulumi.Input[str] maintenance_window_time_zone: Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
-        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]] maintenance_windows: List of maintenance windows. Maintenance windows are 2 hours long.
-        :param pulumi.Input[Union[str, 'SessionHostComponentUpdateType']] type: The type of maintenance for session host components.
-        :param pulumi.Input[bool] use_session_host_local_time: Whether to use localTime of the virtual machine.
+        The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
+        :param pulumi.Input[str] maintenance_window_time_zone: The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false.
+        :param pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]] maintenance_windows: The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified.
+        :param pulumi.Input[Union[str, 'SessionHostComponentUpdateType']] type: The preferred mechanism for updating the agent components. This is either Scheduled or Default.
+        :param pulumi.Input[bool] use_session_host_local_time: Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false.
         """
         if maintenance_window_time_zone is not None:
             pulumi.set(__self__, "maintenance_window_time_zone", maintenance_window_time_zone)
@@ -52,7 +52,7 @@ class AgentUpdatePropertiesArgs:
     @pulumi.getter(name="maintenanceWindowTimeZone")
     def maintenance_window_time_zone(self) -> Optional[pulumi.Input[str]]:
         """
-        Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+        The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false.
         """
         return pulumi.get(self, "maintenance_window_time_zone")
 
@@ -64,7 +64,7 @@ class AgentUpdatePropertiesArgs:
     @pulumi.getter(name="maintenanceWindows")
     def maintenance_windows(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['MaintenanceWindowPropertiesArgs']]]]:
         """
-        List of maintenance windows. Maintenance windows are 2 hours long.
+        The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified.
         """
         return pulumi.get(self, "maintenance_windows")
 
@@ -76,7 +76,7 @@ class AgentUpdatePropertiesArgs:
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[Union[str, 'SessionHostComponentUpdateType']]]:
         """
-        The type of maintenance for session host components.
+        The preferred mechanism for updating the agent components. This is either Scheduled or Default.
         """
         return pulumi.get(self, "type")
 
@@ -88,7 +88,7 @@ class AgentUpdatePropertiesArgs:
     @pulumi.getter(name="useSessionHostLocalTime")
     def use_session_host_local_time(self) -> Optional[pulumi.Input[bool]]:
         """
-        Whether to use localTime of the virtual machine.
+        Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false.
         """
         return pulumi.get(self, "use_session_host_local_time")
 
@@ -104,8 +104,8 @@ class MaintenanceWindowPropertiesArgs:
                  hour: Optional[pulumi.Input[int]] = None):
         """
         Maintenance window starting hour and day of week.
-        :param pulumi.Input['DayOfWeek'] day_of_week: Day of the week.
-        :param pulumi.Input[int] hour: The update start hour of the day. (0 - 23)
+        :param pulumi.Input['DayOfWeek'] day_of_week: The day of the week (Monday-Sunday).
+        :param pulumi.Input[int] hour: The starting hour of the maintenance window (0-23). Note that maintenance windows are 2 hours long. This means that updates can be applied anytime from the specified start hour to 2 hours after.
         """
         if day_of_week is not None:
             pulumi.set(__self__, "day_of_week", day_of_week)
@@ -116,7 +116,7 @@ class MaintenanceWindowPropertiesArgs:
     @pulumi.getter(name="dayOfWeek")
     def day_of_week(self) -> Optional[pulumi.Input['DayOfWeek']]:
         """
-        Day of the week.
+        The day of the week (Monday-Sunday).
         """
         return pulumi.get(self, "day_of_week")
 
@@ -128,7 +128,7 @@ class MaintenanceWindowPropertiesArgs:
     @pulumi.getter
     def hour(self) -> Optional[pulumi.Input[int]]:
         """
-        The update start hour of the day. (0 - 23)
+        The starting hour of the maintenance window (0-23). Note that maintenance windows are 2 hours long. This means that updates can be applied anytime from the specified start hour to 2 hours after.
         """
         return pulumi.get(self, "hour")
 

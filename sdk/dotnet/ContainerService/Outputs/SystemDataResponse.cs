@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
     public sealed class SystemDataResponse
     {
         /// <summary>
-        /// The UTC timestamp of resource creation.
+        /// The timestamp of resource creation (UTC).
         /// </summary>
         public readonly string? CreatedAt;
         /// <summary>
@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.ContainerService.Outputs
         /// </summary>
         public readonly string? CreatedByType;
         /// <summary>
-        /// The type of identity that last modified the resource.
+        /// The timestamp of resource last modification (UTC)
         /// </summary>
         public readonly string? LastModifiedAt;
         /// <summary>

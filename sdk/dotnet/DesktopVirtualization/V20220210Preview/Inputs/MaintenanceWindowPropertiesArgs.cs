@@ -16,13 +16,13 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview.Inputs
     public sealed class MaintenanceWindowPropertiesArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Day of the week.
+        /// The day of the week (Monday-Sunday).
         /// </summary>
         [Input("dayOfWeek")]
         public Input<Pulumi.AzureNative.DesktopVirtualization.V20220210Preview.DayOfWeek>? DayOfWeek { get; set; }
 
         /// <summary>
-        /// The update start hour of the day. (0 - 23)
+        /// The starting hour of the maintenance window (0-23). Note that maintenance windows are 2 hours long. This means that updates can be applied anytime from the specified start hour to 2 hours after.
         /// </summary>
         [Input("hour")]
         public Input<int>? Hour { get; set; }

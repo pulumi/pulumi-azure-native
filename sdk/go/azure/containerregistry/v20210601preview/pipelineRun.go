@@ -63,6 +63,9 @@ func NewPipelineRun(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:containerregistry/v20211201preview:PipelineRun"),
 		},
+		{
+			Type: pulumi.String("azure-native:containerregistry/v20220201preview:PipelineRun"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PipelineRun

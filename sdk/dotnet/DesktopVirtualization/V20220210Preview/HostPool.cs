@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
     public partial class HostPool : Pulumi.CustomResource
     {
         /// <summary>
-        /// The session host configuration for updating agent, monitoring agent, and stack component.
+        /// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
         /// </summary>
         [Output("agentUpdate")]
         public Output<Outputs.AgentUpdatePropertiesResponse?> AgentUpdate { get; private set; } = null!;
@@ -279,7 +279,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20220210Preview
     public sealed class HostPoolArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The session host configuration for updating agent, monitoring agent, and stack component.
+        /// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
         /// </summary>
         [Input("agentUpdate")]
         public Input<Inputs.AgentUpdatePropertiesArgs>? AgentUpdate { get; set; }

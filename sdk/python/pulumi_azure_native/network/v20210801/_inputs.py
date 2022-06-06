@@ -3108,6 +3108,7 @@ class ApplicationGatewayRewriteRuleArgs:
 @pulumi.input_type
 class ApplicationGatewayRoutingRuleArgs:
     def __init__(__self__, *,
+                 priority: pulumi.Input[int],
                  backend_address_pool: Optional[pulumi.Input['SubResourceArgs']] = None,
                  backend_settings: Optional[pulumi.Input['SubResourceArgs']] = None,
                  id: Optional[pulumi.Input[str]] = None,
@@ -3116,6 +3117,7 @@ class ApplicationGatewayRoutingRuleArgs:
                  rule_type: Optional[pulumi.Input[Union[str, 'ApplicationGatewayRequestRoutingRuleType']]] = None):
         """
         Routing rule of an application gateway.
+        :param pulumi.Input[int] priority: Priority of the routing rule.
         :param pulumi.Input['SubResourceArgs'] backend_address_pool: Backend address pool resource of the application gateway.
         :param pulumi.Input['SubResourceArgs'] backend_settings: Backend settings resource of the application gateway.
         :param pulumi.Input[str] id: Resource ID.
@@ -3123,6 +3125,7 @@ class ApplicationGatewayRoutingRuleArgs:
         :param pulumi.Input[str] name: Name of the routing rule that is unique within an Application Gateway.
         :param pulumi.Input[Union[str, 'ApplicationGatewayRequestRoutingRuleType']] rule_type: Rule type.
         """
+        pulumi.set(__self__, "priority", priority)
         if backend_address_pool is not None:
             pulumi.set(__self__, "backend_address_pool", backend_address_pool)
         if backend_settings is not None:
@@ -3135,6 +3138,18 @@ class ApplicationGatewayRoutingRuleArgs:
             pulumi.set(__self__, "name", name)
         if rule_type is not None:
             pulumi.set(__self__, "rule_type", rule_type)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Priority of the routing rule.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
 
     @property
     @pulumi.getter(name="backendAddressPool")

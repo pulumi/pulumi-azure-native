@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.ServiceBus.V20180101Preview
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210101preview:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20210601preview:NamespaceAuthorizationRule"},
                     new Pulumi.Alias { Type = "azure-native:servicebus/v20211101:NamespaceAuthorizationRule"},
+                    new Pulumi.Alias { Type = "azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

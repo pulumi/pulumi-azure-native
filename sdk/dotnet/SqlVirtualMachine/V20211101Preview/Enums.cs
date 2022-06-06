@@ -8,6 +8,75 @@ using Pulumi;
 namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
 {
     /// <summary>
+    /// Day of the week to run assessment.
+    /// </summary>
+    [EnumType]
+    public readonly struct AssessmentDayOfWeek : IEquatable<AssessmentDayOfWeek>
+    {
+        private readonly string _value;
+
+        private AssessmentDayOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AssessmentDayOfWeek Monday { get; } = new AssessmentDayOfWeek("Monday");
+        public static AssessmentDayOfWeek Tuesday { get; } = new AssessmentDayOfWeek("Tuesday");
+        public static AssessmentDayOfWeek Wednesday { get; } = new AssessmentDayOfWeek("Wednesday");
+        public static AssessmentDayOfWeek Thursday { get; } = new AssessmentDayOfWeek("Thursday");
+        public static AssessmentDayOfWeek Friday { get; } = new AssessmentDayOfWeek("Friday");
+        public static AssessmentDayOfWeek Saturday { get; } = new AssessmentDayOfWeek("Saturday");
+        public static AssessmentDayOfWeek Sunday { get; } = new AssessmentDayOfWeek("Sunday");
+
+        public static bool operator ==(AssessmentDayOfWeek left, AssessmentDayOfWeek right) => left.Equals(right);
+        public static bool operator !=(AssessmentDayOfWeek left, AssessmentDayOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(AssessmentDayOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AssessmentDayOfWeek other && Equals(other);
+        public bool Equals(AssessmentDayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct AutoBackupDaysOfWeek : IEquatable<AutoBackupDaysOfWeek>
+    {
+        private readonly string _value;
+
+        private AutoBackupDaysOfWeek(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AutoBackupDaysOfWeek Monday { get; } = new AutoBackupDaysOfWeek("Monday");
+        public static AutoBackupDaysOfWeek Tuesday { get; } = new AutoBackupDaysOfWeek("Tuesday");
+        public static AutoBackupDaysOfWeek Wednesday { get; } = new AutoBackupDaysOfWeek("Wednesday");
+        public static AutoBackupDaysOfWeek Thursday { get; } = new AutoBackupDaysOfWeek("Thursday");
+        public static AutoBackupDaysOfWeek Friday { get; } = new AutoBackupDaysOfWeek("Friday");
+        public static AutoBackupDaysOfWeek Saturday { get; } = new AutoBackupDaysOfWeek("Saturday");
+        public static AutoBackupDaysOfWeek Sunday { get; } = new AutoBackupDaysOfWeek("Sunday");
+
+        public static bool operator ==(AutoBackupDaysOfWeek left, AutoBackupDaysOfWeek right) => left.Equals(right);
+        public static bool operator !=(AutoBackupDaysOfWeek left, AutoBackupDaysOfWeek right) => !left.Equals(right);
+
+        public static explicit operator string(AutoBackupDaysOfWeek value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AutoBackupDaysOfWeek other && Equals(other);
+        public bool Equals(AutoBackupDaysOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Backup schedule type.
     /// </summary>
     [EnumType]
@@ -83,6 +152,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static DayOfWeek Everyday { get; } = new DayOfWeek("Everyday");
         public static DayOfWeek Monday { get; } = new DayOfWeek("Monday");
         public static DayOfWeek Tuesday { get; } = new DayOfWeek("Tuesday");
         public static DayOfWeek Wednesday { get; } = new DayOfWeek("Wednesday");
@@ -99,39 +169,6 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is DayOfWeek other && Equals(other);
         public bool Equals(DayOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
-
-        public override string ToString() => _value;
-    }
-
-    [EnumType]
-    public readonly struct DaysOfWeek : IEquatable<DaysOfWeek>
-    {
-        private readonly string _value;
-
-        private DaysOfWeek(string value)
-        {
-            _value = value ?? throw new ArgumentNullException(nameof(value));
-        }
-
-        public static DaysOfWeek Monday { get; } = new DaysOfWeek("Monday");
-        public static DaysOfWeek Tuesday { get; } = new DaysOfWeek("Tuesday");
-        public static DaysOfWeek Wednesday { get; } = new DaysOfWeek("Wednesday");
-        public static DaysOfWeek Thursday { get; } = new DaysOfWeek("Thursday");
-        public static DaysOfWeek Friday { get; } = new DaysOfWeek("Friday");
-        public static DaysOfWeek Saturday { get; } = new DaysOfWeek("Saturday");
-        public static DaysOfWeek Sunday { get; } = new DaysOfWeek("Sunday");
-
-        public static bool operator ==(DaysOfWeek left, DaysOfWeek right) => left.Equals(right);
-        public static bool operator !=(DaysOfWeek left, DaysOfWeek right) => !left.Equals(right);
-
-        public static explicit operator string(DaysOfWeek value) => value._value;
-
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is DaysOfWeek other && Equals(other);
-        public bool Equals(DaysOfWeek other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

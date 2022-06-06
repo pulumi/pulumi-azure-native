@@ -9589,7 +9589,7 @@ type OSProfile struct {
 	CustomData *string `pulumi:"customData"`
 	// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 	LinuxConfiguration *LinuxConfiguration `pulumi:"linuxConfiguration"`
-	// Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
+	// Optional property which must either be set to True or omitted.
 	RequireGuestProvisionSignal *bool `pulumi:"requireGuestProvisionSignal"`
 	// Specifies set of certificates that should be installed onto the virtual machine. To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
 	Secrets []VaultSecretGroup `pulumi:"secrets"`
@@ -9622,7 +9622,7 @@ type OSProfileArgs struct {
 	CustomData pulumi.StringPtrInput `pulumi:"customData"`
 	// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 	LinuxConfiguration LinuxConfigurationPtrInput `pulumi:"linuxConfiguration"`
-	// Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
+	// Optional property which must either be set to True or omitted.
 	RequireGuestProvisionSignal pulumi.BoolPtrInput `pulumi:"requireGuestProvisionSignal"`
 	// Specifies set of certificates that should be installed onto the virtual machine. To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
 	Secrets VaultSecretGroupArrayInput `pulumi:"secrets"`
@@ -9738,7 +9738,7 @@ func (o OSProfileOutput) LinuxConfiguration() LinuxConfigurationPtrOutput {
 	return o.ApplyT(func(v OSProfile) *LinuxConfiguration { return v.LinuxConfiguration }).(LinuxConfigurationPtrOutput)
 }
 
-// Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
+// Optional property which must either be set to True or omitted.
 func (o OSProfileOutput) RequireGuestProvisionSignal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OSProfile) *bool { return v.RequireGuestProvisionSignal }).(pulumi.BoolPtrOutput)
 }
@@ -9837,7 +9837,7 @@ func (o OSProfilePtrOutput) LinuxConfiguration() LinuxConfigurationPtrOutput {
 	}).(LinuxConfigurationPtrOutput)
 }
 
-// Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
+// Optional property which must either be set to True or omitted.
 func (o OSProfilePtrOutput) RequireGuestProvisionSignal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OSProfile) *bool {
 		if v == nil {
@@ -9881,7 +9881,7 @@ type OSProfileResponse struct {
 	CustomData *string `pulumi:"customData"`
 	// Specifies the Linux operating system settings on the virtual machine. <br><br>For a list of supported Linux distributions, see [Linux on Azure-Endorsed Distributions](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 	LinuxConfiguration *LinuxConfigurationResponse `pulumi:"linuxConfiguration"`
-	// Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
+	// Optional property which must either be set to True or omitted.
 	RequireGuestProvisionSignal *bool `pulumi:"requireGuestProvisionSignal"`
 	// Specifies set of certificates that should be installed onto the virtual machine. To install certificates on a virtual machine it is recommended to use the [Azure Key Vault virtual machine extension for Linux](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-linux) or the [Azure Key Vault virtual machine extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/key-vault-windows).
 	Secrets []VaultSecretGroupResponse `pulumi:"secrets"`
@@ -9934,7 +9934,7 @@ func (o OSProfileResponseOutput) LinuxConfiguration() LinuxConfigurationResponse
 	return o.ApplyT(func(v OSProfileResponse) *LinuxConfigurationResponse { return v.LinuxConfiguration }).(LinuxConfigurationResponsePtrOutput)
 }
 
-// Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
+// Optional property which must either be set to True or omitted.
 func (o OSProfileResponseOutput) RequireGuestProvisionSignal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v OSProfileResponse) *bool { return v.RequireGuestProvisionSignal }).(pulumi.BoolPtrOutput)
 }
@@ -10033,7 +10033,7 @@ func (o OSProfileResponsePtrOutput) LinuxConfiguration() LinuxConfigurationRespo
 	}).(LinuxConfigurationResponsePtrOutput)
 }
 
-// Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
+// Optional property which must either be set to True or omitted.
 func (o OSProfileResponsePtrOutput) RequireGuestProvisionSignal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *OSProfileResponse) *bool {
 		if v == nil {

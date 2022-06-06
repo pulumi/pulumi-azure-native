@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.Inputs
         /// Day of the week to run assessment.
         /// </summary>
         [Input("dayOfWeek")]
-        public Input<Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.DayOfWeek>? DayOfWeek { get; set; }
+        public Input<Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview.AssessmentDayOfWeek>? DayOfWeek { get; set; }
 
         /// <summary>
         /// Enable or disable assessment schedule on SQL virtual machine.

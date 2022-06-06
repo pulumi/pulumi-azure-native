@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
 /**
@@ -44,10 +43,6 @@ export interface GetNspProfileResult {
      * Version number that increases with every update to access rules within the profile.
      */
     readonly accessRulesVersion: string;
-    /**
-     * Gets the enabled log categories.
-     */
-    readonly enabledLogCategories?: outputs.network.v20210201preview.LoggingCategoryResponse[];
     /**
      * Resource ID.
      */

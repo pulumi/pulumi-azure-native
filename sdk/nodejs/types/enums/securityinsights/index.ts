@@ -11,6 +11,7 @@ import * as v20211001 from "./v20211001";
 import * as v20211001preview from "./v20211001preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220401preview from "./v20220401preview";
+import * as v20220501preview from "./v20220501preview";
 
 export {
     v20190101preview,
@@ -22,6 +23,7 @@ export {
     v20211001preview,
     v20220101preview,
     v20220401preview,
+    v20220501preview,
 };
 
 export const AlertRuleKind = {
@@ -60,6 +62,8 @@ export const AlertSeverity = {
 export type AlertSeverity = (typeof AlertSeverity)[keyof typeof AlertSeverity];
 
 export const AttackTactic = {
+    Reconnaissance: "Reconnaissance",
+    ResourceDevelopment: "ResourceDevelopment",
     InitialAccess: "InitialAccess",
     Execution: "Execution",
     Persistence: "Persistence",
@@ -72,6 +76,9 @@ export const AttackTactic = {
     Exfiltration: "Exfiltration",
     CommandAndControl: "CommandAndControl",
     Impact: "Impact",
+    PreAttack: "PreAttack",
+    ImpairProcessControl: "ImpairProcessControl",
+    InhibitResponseFunction: "InhibitResponseFunction",
 } as const;
 
 /**
@@ -679,6 +686,15 @@ export const RepoType = {
  */
 export type RepoType = (typeof RepoType)[keyof typeof RepoType];
 
+export const SecurityMLAnalyticsSettingsKind = {
+    Anomaly: "Anomaly",
+} as const;
+
+/**
+ * The kind of security ML Analytics Settings
+ */
+export type SecurityMLAnalyticsSettingsKind = (typeof SecurityMLAnalyticsSettingsKind)[keyof typeof SecurityMLAnalyticsSettingsKind];
+
 export const SettingKind = {
     Anomalies: "Anomalies",
     EyesOn: "EyesOn",
@@ -690,6 +706,22 @@ export const SettingKind = {
  * The kind of the setting
  */
 export type SettingKind = (typeof SettingKind)[keyof typeof SettingKind];
+
+export const SettingsStatus = {
+    /**
+     * Anomaly settings status in Production mode
+     */
+    Production: "Production",
+    /**
+     * Anomaly settings status in Flighting mode
+     */
+    Flighting: "Flighting",
+} as const;
+
+/**
+ * The anomaly SecurityMLAnalyticsSettings status
+ */
+export type SettingsStatus = (typeof SettingsStatus)[keyof typeof SettingsStatus];
 
 export const Source = {
     Local_file: "Local file",

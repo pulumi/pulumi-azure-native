@@ -20,7 +20,6 @@ class LoadBalancerBackendAddressPoolArgs:
                  backend_address_pool_name: Optional[pulumi.Input[str]] = None,
                  id: Optional[pulumi.Input[str]] = None,
                  load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a LoadBalancerBackendAddressPool resource.
@@ -29,7 +28,6 @@ class LoadBalancerBackendAddressPoolArgs:
         :param pulumi.Input[str] backend_address_pool_name: The name of the backend address pool.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]] load_balancer_backend_addresses: An array of backend addresses.
-        :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         """
         pulumi.set(__self__, "load_balancer_name", load_balancer_name)
@@ -40,8 +38,6 @@ class LoadBalancerBackendAddressPoolArgs:
             pulumi.set(__self__, "id", id)
         if load_balancer_backend_addresses is not None:
             pulumi.set(__self__, "load_balancer_backend_addresses", load_balancer_backend_addresses)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -107,18 +103,6 @@ class LoadBalancerBackendAddressPoolArgs:
 
     @property
     @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The location of the backend address pool.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
     def name(self) -> Optional[pulumi.Input[str]]:
         """
         The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
@@ -139,7 +123,6 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -152,7 +135,6 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]] load_balancer_backend_addresses: An array of backend addresses.
         :param pulumi.Input[str] load_balancer_name: The name of the load balancer.
-        :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         """
@@ -184,7 +166,6 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
                  id: Optional[pulumi.Input[str]] = None,
                  load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['LoadBalancerBackendAddressArgs']]]]] = None,
                  load_balancer_name: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -205,7 +186,6 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
             if load_balancer_name is None and not opts.urn:
                 raise TypeError("Missing required property 'load_balancer_name'")
             __props__.__dict__["load_balancer_name"] = load_balancer_name
-            __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -245,7 +225,6 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         __props__.__dict__["etag"] = None
         __props__.__dict__["load_balancer_backend_addresses"] = None
         __props__.__dict__["load_balancing_rules"] = None
-        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["outbound_rule"] = None
         __props__.__dict__["outbound_rules"] = None
@@ -284,14 +263,6 @@ class LoadBalancerBackendAddressPool(pulumi.CustomResource):
         An array of references to load balancing rules that use this backend address pool.
         """
         return pulumi.get(self, "load_balancing_rules")
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
-        """
-        The location of the backend address pool.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter

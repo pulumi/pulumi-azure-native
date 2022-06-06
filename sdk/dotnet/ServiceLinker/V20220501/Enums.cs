@@ -42,6 +42,36 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220501
     }
 
     /// <summary>
+    /// The azure resource type.
+    /// </summary>
+    [EnumType]
+    public readonly struct AzureResourceType : IEquatable<AzureResourceType>
+    {
+        private readonly string _value;
+
+        private AzureResourceType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static AzureResourceType KeyVault { get; } = new AzureResourceType("KeyVault");
+
+        public static bool operator ==(AzureResourceType left, AzureResourceType right) => left.Equals(right);
+        public static bool operator !=(AzureResourceType left, AzureResourceType right) => !left.Equals(right);
+
+        public static explicit operator string(AzureResourceType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AzureResourceType other && Equals(other);
+        public bool Equals(AzureResourceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The application client type
     /// </summary>
     [EnumType]
@@ -116,27 +146,27 @@ namespace Pulumi.AzureNative.ServiceLinker.V20220501
     /// The target service type.
     /// </summary>
     [EnumType]
-    public readonly struct Type : IEquatable<Type>
+    public readonly struct TargetServiceType : IEquatable<TargetServiceType>
     {
         private readonly string _value;
 
-        private Type(string value)
+        private TargetServiceType(string value)
         {
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Type AzureResource { get; } = new Type("AzureResource");
-        public static Type ConfluentBootstrapServer { get; } = new Type("ConfluentBootstrapServer");
-        public static Type ConfluentSchemaRegistry { get; } = new Type("ConfluentSchemaRegistry");
+        public static TargetServiceType AzureResource { get; } = new TargetServiceType("AzureResource");
+        public static TargetServiceType ConfluentBootstrapServer { get; } = new TargetServiceType("ConfluentBootstrapServer");
+        public static TargetServiceType ConfluentSchemaRegistry { get; } = new TargetServiceType("ConfluentSchemaRegistry");
 
-        public static bool operator ==(Type left, Type right) => left.Equals(right);
-        public static bool operator !=(Type left, Type right) => !left.Equals(right);
+        public static bool operator ==(TargetServiceType left, TargetServiceType right) => left.Equals(right);
+        public static bool operator !=(TargetServiceType left, TargetServiceType right) => !left.Equals(right);
 
-        public static explicit operator string(Type value) => value._value;
+        public static explicit operator string(TargetServiceType value) => value._value;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
-        public override bool Equals(object? obj) => obj is Type other && Equals(other);
-        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+        public override bool Equals(object? obj) => obj is TargetServiceType other && Equals(other);
+        public bool Equals(TargetServiceType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

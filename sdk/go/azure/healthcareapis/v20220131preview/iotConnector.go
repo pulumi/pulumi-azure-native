@@ -60,6 +60,9 @@ func NewIotConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20211101:IotConnector"),
 		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20220515:IotConnector"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource IotConnector

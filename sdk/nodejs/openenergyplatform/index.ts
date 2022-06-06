@@ -7,12 +7,15 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./energyService";
 export * from "./getEnergyService";
+export * from "./listEnergyServicePartitions";
 
 // Export sub-modules:
 import * as v20210601preview from "./v20210601preview";
+import * as v20220404preview from "./v20220404preview";
 
 export {
     v20210601preview,
+    v20220404preview,
 };
 
 // Import resources to register:

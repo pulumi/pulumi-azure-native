@@ -202,6 +202,8 @@ func (o NetworkRuleSetIpRuleArrayOutput) Index(i pulumi.IntInput) NetworkRuleSet
 
 // An object for an IP range that will be allowed access.
 type NetworkRuleSetIpRuleResponse struct {
+	// The network action for the IP mask.
+	Action string `pulumi:"action"`
 	// The readable name of the IP rule.
 	FilterName *string `pulumi:"filterName"`
 	// The CIDR block defining the IP range.
@@ -221,6 +223,11 @@ func (o NetworkRuleSetIpRuleResponseOutput) ToNetworkRuleSetIpRuleResponseOutput
 
 func (o NetworkRuleSetIpRuleResponseOutput) ToNetworkRuleSetIpRuleResponseOutputWithContext(ctx context.Context) NetworkRuleSetIpRuleResponseOutput {
 	return o
+}
+
+// The network action for the IP mask.
+func (o NetworkRuleSetIpRuleResponseOutput) Action() pulumi.StringOutput {
+	return o.ApplyT(func(v NetworkRuleSetIpRuleResponse) string { return v.Action }).(pulumi.StringOutput)
 }
 
 // The readable name of the IP rule.

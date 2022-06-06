@@ -88,6 +88,8 @@ func (ContainerAppsAuthConfigState) ElementType() reflect.Type {
 }
 
 type containerAppsAuthConfigArgs struct {
+	// Name of the Container App AuthConfig.
+	AuthConfigName *string `pulumi:"authConfigName"`
 	// Name of the Container App.
 	ContainerAppName string `pulumi:"containerAppName"`
 	// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
@@ -98,8 +100,6 @@ type containerAppsAuthConfigArgs struct {
 	IdentityProviders *IdentityProviders `pulumi:"identityProviders"`
 	// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
 	Login *Login `pulumi:"login"`
-	// Name of the Container App AuthConfig.
-	Name *string `pulumi:"name"`
 	// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
 	Platform *AuthPlatform `pulumi:"platform"`
 	// The name of the resource group. The name is case insensitive.
@@ -108,6 +108,8 @@ type containerAppsAuthConfigArgs struct {
 
 // The set of arguments for constructing a ContainerAppsAuthConfig resource.
 type ContainerAppsAuthConfigArgs struct {
+	// Name of the Container App AuthConfig.
+	AuthConfigName pulumi.StringPtrInput
 	// Name of the Container App.
 	ContainerAppName pulumi.StringInput
 	// The configuration settings that determines the validation flow of users using  Service Authentication/Authorization.
@@ -118,8 +120,6 @@ type ContainerAppsAuthConfigArgs struct {
 	IdentityProviders IdentityProvidersPtrInput
 	// The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
 	Login LoginPtrInput
-	// Name of the Container App AuthConfig.
-	Name pulumi.StringPtrInput
 	// The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
 	Platform AuthPlatformPtrInput
 	// The name of the resource group. The name is case insensitive.

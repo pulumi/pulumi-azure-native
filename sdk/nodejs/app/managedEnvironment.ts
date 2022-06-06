@@ -65,7 +65,7 @@ export class ManagedEnvironment extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Provisioning state of the Environment.
      */
@@ -112,14 +112,15 @@ export class ManagedEnvironment extends pulumi.CustomResource {
             resourceInputs["appLogsConfiguration"] = args ? args.appLogsConfiguration : undefined;
             resourceInputs["daprAIConnectionString"] = args ? args.daprAIConnectionString : undefined;
             resourceInputs["daprAIInstrumentationKey"] = args ? args.daprAIInstrumentationKey : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vnetConfiguration"] = args ? args.vnetConfiguration : undefined;
             resourceInputs["zoneRedundant"] = args ? args.zoneRedundant : undefined;
             resourceInputs["defaultDomain"] = undefined /*out*/;
             resourceInputs["deploymentErrors"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["staticIp"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -166,13 +167,13 @@ export interface ManagedEnvironmentArgs {
      */
     daprAIInstrumentationKey?: pulumi.Input<string>;
     /**
+     * Name of the Environment.
+     */
+    environmentName?: pulumi.Input<string>;
+    /**
      * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
-    /**
-     * Name of the Environment.
-     */
-    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -8839,6 +8839,8 @@ type ApplicationGatewayRoutingRule struct {
 	Listener *SubResource `pulumi:"listener"`
 	// Name of the routing rule that is unique within an Application Gateway.
 	Name *string `pulumi:"name"`
+	// Priority of the routing rule.
+	Priority int `pulumi:"priority"`
 	// Rule type.
 	RuleType *string `pulumi:"ruleType"`
 }
@@ -8866,6 +8868,8 @@ type ApplicationGatewayRoutingRuleArgs struct {
 	Listener SubResourcePtrInput `pulumi:"listener"`
 	// Name of the routing rule that is unique within an Application Gateway.
 	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Priority of the routing rule.
+	Priority pulumi.IntInput `pulumi:"priority"`
 	// Rule type.
 	RuleType pulumi.StringPtrInput `pulumi:"ruleType"`
 }
@@ -8947,6 +8951,11 @@ func (o ApplicationGatewayRoutingRuleOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRoutingRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+// Priority of the routing rule.
+func (o ApplicationGatewayRoutingRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationGatewayRoutingRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
 // Rule type.
 func (o ApplicationGatewayRoutingRuleOutput) RuleType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRoutingRule) *string { return v.RuleType }).(pulumi.StringPtrOutput)
@@ -8986,6 +8995,8 @@ type ApplicationGatewayRoutingRuleResponse struct {
 	Listener *SubResourceResponse `pulumi:"listener"`
 	// Name of the routing rule that is unique within an Application Gateway.
 	Name *string `pulumi:"name"`
+	// Priority of the routing rule.
+	Priority int `pulumi:"priority"`
 	// The provisioning state of the request routing rule resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Rule type.
@@ -9037,6 +9048,11 @@ func (o ApplicationGatewayRoutingRuleResponseOutput) Listener() SubResourceRespo
 // Name of the routing rule that is unique within an Application Gateway.
 func (o ApplicationGatewayRoutingRuleResponseOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ApplicationGatewayRoutingRuleResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Priority of the routing rule.
+func (o ApplicationGatewayRoutingRuleResponseOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v ApplicationGatewayRoutingRuleResponse) int { return v.Priority }).(pulumi.IntOutput)
 }
 
 // The provisioning state of the request routing rule resource.

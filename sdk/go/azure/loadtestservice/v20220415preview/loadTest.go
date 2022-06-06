@@ -94,7 +94,7 @@ type loadTestArgs struct {
 	Encryption *EncryptionProperties `pulumi:"encryption"`
 	// The type of identity used for the resource.
 	Identity *ManagedServiceIdentity `pulumi:"identity"`
-	// Load Test name.
+	// Load Test resource name.
 	LoadTestName *string `pulumi:"loadTestName"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
@@ -112,7 +112,7 @@ type LoadTestArgs struct {
 	Encryption EncryptionPropertiesPtrInput
 	// The type of identity used for the resource.
 	Identity ManagedServiceIdentityPtrInput
-	// Load Test name.
+	// Load Test resource name.
 	LoadTestName pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput

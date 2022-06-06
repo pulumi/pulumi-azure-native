@@ -7,14 +7,20 @@ import * as utilities from "../../utilities";
 // Export members:
 export * from "./configurationProfile";
 export * from "./configurationProfileAssignment";
+export * from "./configurationProfileHCIAssignment";
+export * from "./configurationProfileHCRPAssignment";
 export * from "./configurationProfilesVersion";
 export * from "./getConfigurationProfile";
 export * from "./getConfigurationProfileAssignment";
+export * from "./getConfigurationProfileHCIAssignment";
+export * from "./getConfigurationProfileHCRPAssignment";
 export * from "./getConfigurationProfilesVersion";
 
 // Import resources to register:
 import { ConfigurationProfile } from "./configurationProfile";
 import { ConfigurationProfileAssignment } from "./configurationProfileAssignment";
+import { ConfigurationProfileHCIAssignment } from "./configurationProfileHCIAssignment";
+import { ConfigurationProfileHCRPAssignment } from "./configurationProfileHCRPAssignment";
 import { ConfigurationProfilesVersion } from "./configurationProfilesVersion";
 
 const _module = {
@@ -25,6 +31,10 @@ const _module = {
                 return new ConfigurationProfile(name, <any>undefined, { urn })
             case "azure-native:automanage/v20210430preview:ConfigurationProfileAssignment":
                 return new ConfigurationProfileAssignment(name, <any>undefined, { urn })
+            case "azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment":
+                return new ConfigurationProfileHCIAssignment(name, <any>undefined, { urn })
+            case "azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment":
+                return new ConfigurationProfileHCRPAssignment(name, <any>undefined, { urn })
             case "azure-native:automanage/v20210430preview:ConfigurationProfilesVersion":
                 return new ConfigurationProfilesVersion(name, <any>undefined, { urn })
             default:

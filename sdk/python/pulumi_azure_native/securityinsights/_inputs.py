@@ -37,6 +37,7 @@ __all__ = [
     'OfficeDataConnectorDataTypesTeamsArgs',
     'OfficeDataConnectorDataTypesArgs',
     'RepositoryArgs',
+    'SecurityMLAnalyticsSettingsDataSourceArgs',
     'TIDataConnectorDataTypesIndicatorsArgs',
     'TIDataConnectorDataTypesArgs',
     'ThreatIntelligenceExternalReferenceArgs',
@@ -1406,6 +1407,46 @@ class RepositoryArgs:
     @url.setter
     def url(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "url", value)
+
+
+@pulumi.input_type
+class SecurityMLAnalyticsSettingsDataSourceArgs:
+    def __init__(__self__, *,
+                 connector_id: Optional[pulumi.Input[str]] = None,
+                 data_types: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        security ml analytics settings data sources
+        :param pulumi.Input[str] connector_id: The connector id that provides the following data types
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] data_types: The data types used by the security ml analytics settings
+        """
+        if connector_id is not None:
+            pulumi.set(__self__, "connector_id", connector_id)
+        if data_types is not None:
+            pulumi.set(__self__, "data_types", data_types)
+
+    @property
+    @pulumi.getter(name="connectorId")
+    def connector_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The connector id that provides the following data types
+        """
+        return pulumi.get(self, "connector_id")
+
+    @connector_id.setter
+    def connector_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "connector_id", value)
+
+    @property
+    @pulumi.getter(name="dataTypes")
+    def data_types(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The data types used by the security ml analytics settings
+        """
+        return pulumi.get(self, "data_types")
+
+    @data_types.setter
+    def data_types(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "data_types", value)
 
 
 @pulumi.input_type

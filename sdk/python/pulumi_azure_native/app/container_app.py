@@ -18,34 +18,34 @@ class ContainerAppArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  configuration: Optional[pulumi.Input['ConfigurationArgs']] = None,
+                 container_app_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input['ManagedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_environment_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input['TemplateArgs']] = None):
         """
         The set of arguments for constructing a ContainerApp resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input['ConfigurationArgs'] configuration: Non versioned Container App configuration properties.
+        :param pulumi.Input[str] container_app_name: Name of the Container App.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_environment_id: Resource ID of the Container App's environment.
-        :param pulumi.Input[str] name: Name of the Container App.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['TemplateArgs'] template: Container App versioned application definition.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if configuration is not None:
             pulumi.set(__self__, "configuration", configuration)
+        if container_app_name is not None:
+            pulumi.set(__self__, "container_app_name", container_app_name)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if managed_environment_id is not None:
             pulumi.set(__self__, "managed_environment_id", managed_environment_id)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if template is not None:
@@ -74,6 +74,18 @@ class ContainerAppArgs:
     @configuration.setter
     def configuration(self, value: Optional[pulumi.Input['ConfigurationArgs']]):
         pulumi.set(self, "configuration", value)
+
+    @property
+    @pulumi.getter(name="containerAppName")
+    def container_app_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Container App.
+        """
+        return pulumi.get(self, "container_app_name")
+
+    @container_app_name.setter
+    def container_app_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "container_app_name", value)
 
     @property
     @pulumi.getter
@@ -113,18 +125,6 @@ class ContainerAppArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the Container App.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
         Resource tags.
@@ -154,10 +154,10 @@ class ContainerApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['ConfigurationArgs']]] = None,
+                 container_app_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_environment_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
@@ -169,10 +169,10 @@ class ContainerApp(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['ConfigurationArgs']] configuration: Non versioned Container App configuration properties.
+        :param pulumi.Input[str] container_app_name: Name of the Container App.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] managed_environment_id: Resource ID of the Container App's environment.
-        :param pulumi.Input[str] name: Name of the Container App.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['TemplateArgs']] template: Container App versioned application definition.
@@ -203,10 +203,10 @@ class ContainerApp(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  configuration: Optional[pulumi.Input[pulumi.InputType['ConfigurationArgs']]] = None,
+                 container_app_name: Optional[pulumi.Input[str]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  managed_environment_id: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
@@ -223,10 +223,10 @@ class ContainerApp(pulumi.CustomResource):
             __props__ = ContainerAppArgs.__new__(ContainerAppArgs)
 
             __props__.__dict__["configuration"] = configuration
+            __props__.__dict__["container_app_name"] = container_app_name
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["managed_environment_id"] = managed_environment_id
-            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -235,6 +235,7 @@ class ContainerApp(pulumi.CustomResource):
             __props__.__dict__["custom_domain_verification_id"] = None
             __props__.__dict__["latest_revision_fqdn"] = None
             __props__.__dict__["latest_revision_name"] = None
+            __props__.__dict__["name"] = None
             __props__.__dict__["outbound_ip_addresses"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None

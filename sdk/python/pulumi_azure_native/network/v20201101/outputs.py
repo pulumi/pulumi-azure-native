@@ -6365,7 +6365,6 @@ class BackendAddressPoolResponse(dict):
                  type: str,
                  id: Optional[str] = None,
                  load_balancer_backend_addresses: Optional[Sequence['outputs.LoadBalancerBackendAddressResponse']] = None,
-                 location: Optional[str] = None,
                  name: Optional[str] = None):
         """
         Pool of backend IP addresses.
@@ -6378,7 +6377,6 @@ class BackendAddressPoolResponse(dict):
         :param str type: Type of the resource.
         :param str id: Resource ID.
         :param Sequence['LoadBalancerBackendAddressResponse'] load_balancer_backend_addresses: An array of backend addresses.
-        :param str location: The location of the backend address pool.
         :param str name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         """
         pulumi.set(__self__, "backend_ip_configurations", backend_ip_configurations)
@@ -6392,8 +6390,6 @@ class BackendAddressPoolResponse(dict):
             pulumi.set(__self__, "id", id)
         if load_balancer_backend_addresses is not None:
             pulumi.set(__self__, "load_balancer_backend_addresses", load_balancer_backend_addresses)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -6468,14 +6464,6 @@ class BackendAddressPoolResponse(dict):
         An array of backend addresses.
         """
         return pulumi.get(self, "load_balancer_backend_addresses")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        The location of the backend address pool.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter

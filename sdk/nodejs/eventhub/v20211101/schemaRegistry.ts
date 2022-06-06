@@ -113,7 +113,7 @@ export class SchemaRegistry extends pulumi.CustomResource {
             resourceInputs["updatedAtUtc"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:SchemaRegistry" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventhub:SchemaRegistry" }, { type: "azure-native:eventhub/v20220101preview:SchemaRegistry" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SchemaRegistry.__pulumiType, name, resourceInputs, opts);
     }

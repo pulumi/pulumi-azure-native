@@ -23,19 +23,19 @@ type SnapshotPolicy struct {
 	Etag pulumi.StringOutput `pulumi:"etag"`
 	// Schedule for hourly snapshots
 	HourlySchedule HourlyScheduleResponsePtrOutput `pulumi:"hourlySchedule"`
-	// Resource location
+	// The geo-location where the resource lives
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Schedule for monthly snapshots
 	MonthlySchedule MonthlyScheduleResponsePtrOutput `pulumi:"monthlySchedule"`
-	// Resource name
+	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
-	// The system meta data relating to this resource.
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Resource tags
+	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
-	// Resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Schedule for weekly snapshots
 	WeeklySchedule WeeklyScheduleResponsePtrOutput `pulumi:"weeklySchedule"`
@@ -94,6 +94,9 @@ func NewSnapshotPolicy(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:netapp/v20210801:SnapshotPolicy"),
 		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20220101:SnapshotPolicy"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SnapshotPolicy
@@ -136,7 +139,7 @@ type snapshotPolicyArgs struct {
 	Enabled *bool `pulumi:"enabled"`
 	// Schedule for hourly snapshots
 	HourlySchedule *HourlySchedule `pulumi:"hourlySchedule"`
-	// Resource location
+	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Schedule for monthly snapshots
 	MonthlySchedule *MonthlySchedule `pulumi:"monthlySchedule"`
@@ -144,7 +147,7 @@ type snapshotPolicyArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the snapshot policy
 	SnapshotPolicyName *string `pulumi:"snapshotPolicyName"`
-	// Resource tags
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// Schedule for weekly snapshots
 	WeeklySchedule *WeeklySchedule `pulumi:"weeklySchedule"`
@@ -160,7 +163,7 @@ type SnapshotPolicyArgs struct {
 	Enabled pulumi.BoolPtrInput
 	// Schedule for hourly snapshots
 	HourlySchedule HourlySchedulePtrInput
-	// Resource location
+	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Schedule for monthly snapshots
 	MonthlySchedule MonthlySchedulePtrInput
@@ -168,7 +171,7 @@ type SnapshotPolicyArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the snapshot policy
 	SnapshotPolicyName pulumi.StringPtrInput
-	// Resource tags
+	// Resource tags.
 	Tags pulumi.StringMapInput
 	// Schedule for weekly snapshots
 	WeeklySchedule WeeklySchedulePtrInput
@@ -231,7 +234,7 @@ func (o SnapshotPolicyOutput) HourlySchedule() HourlyScheduleResponsePtrOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) HourlyScheduleResponsePtrOutput { return v.HourlySchedule }).(HourlyScheduleResponsePtrOutput)
 }
 
-// Resource location
+// The geo-location where the resource lives
 func (o SnapshotPolicyOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
@@ -241,7 +244,7 @@ func (o SnapshotPolicyOutput) MonthlySchedule() MonthlyScheduleResponsePtrOutput
 	return o.ApplyT(func(v *SnapshotPolicy) MonthlyScheduleResponsePtrOutput { return v.MonthlySchedule }).(MonthlyScheduleResponsePtrOutput)
 }
 
-// Resource name
+// The name of the resource
 func (o SnapshotPolicyOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
@@ -251,17 +254,17 @@ func (o SnapshotPolicyOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// The system meta data relating to this resource.
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 func (o SnapshotPolicyOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Resource tags
+// Resource tags.
 func (o SnapshotPolicyOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o SnapshotPolicyOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *SnapshotPolicy) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -84,6 +84,9 @@ func NewReplicationRecoveryPlan(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:recoveryservices/v20220201:ReplicationRecoveryPlan"),
 		},
+		{
+			Type: pulumi.String("azure-native:recoveryservices/v20220301:ReplicationRecoveryPlan"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ReplicationRecoveryPlan

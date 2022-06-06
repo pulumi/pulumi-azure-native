@@ -14,6 +14,7 @@ import * as v20200901 from "./v20200901";
 import * as v20210101 from "./v20210101";
 import * as v20210601 from "./v20210601";
 import * as v20220101 from "./v20220101";
+import * as v20220601 from "./v20220601";
 
 export {
     v20170101,
@@ -28,6 +29,7 @@ export {
     v20210101,
     v20210601,
     v20220101,
+    v20220601,
 };
 
 export const AutoUserScope = {

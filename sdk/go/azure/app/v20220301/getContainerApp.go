@@ -22,7 +22,7 @@ func LookupContainerApp(ctx *pulumi.Context, args *LookupContainerAppArgs, opts 
 
 type LookupContainerAppArgs struct {
 	// Name of the Container App.
-	Name string `pulumi:"name"`
+	ContainerAppName string `pulumi:"containerAppName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -87,7 +87,7 @@ func LookupContainerAppOutput(ctx *pulumi.Context, args LookupContainerAppOutput
 
 type LookupContainerAppOutputArgs struct {
 	// Name of the Container App.
-	Name pulumi.StringInput `pulumi:"name"`
+	ContainerAppName pulumi.StringInput `pulumi:"containerAppName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

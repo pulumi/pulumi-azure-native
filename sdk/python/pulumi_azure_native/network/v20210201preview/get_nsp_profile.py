@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
-from . import outputs
 
 __all__ = [
     'GetNspProfileResult',
@@ -21,13 +20,10 @@ class GetNspProfileResult:
     """
     The network security perimeter profile resource
     """
-    def __init__(__self__, access_rules_version=None, enabled_log_categories=None, id=None, location=None, name=None, tags=None, type=None):
+    def __init__(__self__, access_rules_version=None, id=None, location=None, name=None, tags=None, type=None):
         if access_rules_version and not isinstance(access_rules_version, str):
             raise TypeError("Expected argument 'access_rules_version' to be a str")
         pulumi.set(__self__, "access_rules_version", access_rules_version)
-        if enabled_log_categories and not isinstance(enabled_log_categories, list):
-            raise TypeError("Expected argument 'enabled_log_categories' to be a list")
-        pulumi.set(__self__, "enabled_log_categories", enabled_log_categories)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -51,14 +47,6 @@ class GetNspProfileResult:
         Version number that increases with every update to access rules within the profile.
         """
         return pulumi.get(self, "access_rules_version")
-
-    @property
-    @pulumi.getter(name="enabledLogCategories")
-    def enabled_log_categories(self) -> Optional[Sequence['outputs.LoggingCategoryResponse']]:
-        """
-        Gets the enabled log categories.
-        """
-        return pulumi.get(self, "enabled_log_categories")
 
     @property
     @pulumi.getter
@@ -108,7 +96,6 @@ class AwaitableGetNspProfileResult(GetNspProfileResult):
             yield self
         return GetNspProfileResult(
             access_rules_version=self.access_rules_version,
-            enabled_log_categories=self.enabled_log_categories,
             id=self.id,
             location=self.location,
             name=self.name,
@@ -140,7 +127,6 @@ def get_nsp_profile(network_security_perimeter_name: Optional[str] = None,
 
     return AwaitableGetNspProfileResult(
         access_rules_version=__ret__.access_rules_version,
-        enabled_log_categories=__ret__.enabled_log_categories,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,

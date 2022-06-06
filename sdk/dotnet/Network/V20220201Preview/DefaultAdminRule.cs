@@ -147,6 +147,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
                     new Pulumi.Alias { Type = "azure-native:network:DefaultAdminRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:DefaultAdminRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501preview:DefaultAdminRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:DefaultAdminRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

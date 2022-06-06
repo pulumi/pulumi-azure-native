@@ -2,7 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
-import { input as inputs, output as outputs, enums } from "../types";
 import * as utilities from "../utilities";
 
 /**
@@ -41,10 +40,6 @@ export class NspProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly accessRulesVersion!: pulumi.Output<string>;
     /**
-     * Gets the enabled log categories.
-     */
-    public readonly enabledLogCategories!: pulumi.Output<outputs.network.LoggingCategoryResponse[] | undefined>;
-    /**
      * Resource location.
      */
     public readonly location!: pulumi.Output<string | undefined>;
@@ -78,7 +73,6 @@ export class NspProfile extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["enabledLogCategories"] = args ? args.enabledLogCategories : undefined;
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -90,7 +84,6 @@ export class NspProfile extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["accessRulesVersion"] = undefined /*out*/;
-            resourceInputs["enabledLogCategories"] = undefined /*out*/;
             resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
@@ -107,10 +100,6 @@ export class NspProfile extends pulumi.CustomResource {
  * The set of arguments for constructing a NspProfile resource.
  */
 export interface NspProfileArgs {
-    /**
-     * Gets the enabled log categories.
-     */
-    enabledLogCategories?: pulumi.Input<pulumi.Input<inputs.network.LoggingCategoryArgs>[]>;
     /**
      * Resource ID.
      */

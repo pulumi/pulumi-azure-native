@@ -74,6 +74,9 @@ func NewCodelessApiPollingDataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20220101preview:CodelessApiPollingDataConnector"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20220501preview:CodelessApiPollingDataConnector"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource CodelessApiPollingDataConnector

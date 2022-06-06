@@ -144,10 +144,6 @@ export class Database extends pulumi.CustomResource {
      */
     public /*out*/ readonly pausedDate!: pulumi.Output<string>;
     /**
-     * The Primary Delegated Identity Client id used for per database CMK - for internal use only
-     */
-    public readonly primaryDelegatedIdentityClientId!: pulumi.Output<string | undefined>;
-    /**
      * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */
     public readonly readScale!: pulumi.Output<string | undefined>;
@@ -231,7 +227,6 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["maintenanceConfigurationId"] = args ? args.maintenanceConfigurationId : undefined;
             resourceInputs["maxSizeBytes"] = args ? args.maxSizeBytes : undefined;
             resourceInputs["minCapacity"] = args ? args.minCapacity : undefined;
-            resourceInputs["primaryDelegatedIdentityClientId"] = args ? args.primaryDelegatedIdentityClientId : undefined;
             resourceInputs["readScale"] = args ? args.readScale : undefined;
             resourceInputs["recoverableDatabaseId"] = args ? args.recoverableDatabaseId : undefined;
             resourceInputs["recoveryServicesRecoveryPointId"] = args ? args.recoveryServicesRecoveryPointId : undefined;
@@ -294,7 +289,6 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["minCapacity"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["pausedDate"] = undefined /*out*/;
-            resourceInputs["primaryDelegatedIdentityClientId"] = undefined /*out*/;
             resourceInputs["readScale"] = undefined /*out*/;
             resourceInputs["requestedBackupStorageRedundancy"] = undefined /*out*/;
             resourceInputs["requestedServiceObjectiveName"] = undefined /*out*/;
@@ -397,10 +391,6 @@ export interface DatabaseArgs {
      * Minimal capacity that database will always have allocated, if not paused
      */
     minCapacity?: pulumi.Input<number>;
-    /**
-     * The Primary Delegated Identity Client id used for per database CMK - for internal use only
-     */
-    primaryDelegatedIdentityClientId?: pulumi.Input<string>;
     /**
      * The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
      */

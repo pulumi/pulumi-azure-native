@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Compute.V20211101.Outputs
         /// </summary>
         public readonly Outputs.LinuxConfigurationResponse? LinuxConfiguration;
         /// <summary>
-        /// Specifies whether the guest provision signal is required to infer provision success of the virtual machine.  **Note: This property is for private testing only, and all customers must not set the property to false.**
+        /// Optional property which must either be set to True or omitted.
         /// </summary>
         public readonly bool? RequireGuestProvisionSignal;
         /// <summary>

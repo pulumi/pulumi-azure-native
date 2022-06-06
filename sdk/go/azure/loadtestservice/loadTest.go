@@ -91,7 +91,7 @@ type loadTestArgs struct {
 	Description *string `pulumi:"description"`
 	// The type of identity used for the resource.
 	Identity *SystemAssignedServiceIdentity `pulumi:"identity"`
-	// Load Test name.
+	// Load Test resource name.
 	LoadTestName *string `pulumi:"loadTestName"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
@@ -107,7 +107,7 @@ type LoadTestArgs struct {
 	Description pulumi.StringPtrInput
 	// The type of identity used for the resource.
 	Identity SystemAssignedServiceIdentityPtrInput
-	// Load Test name.
+	// Load Test resource name.
 	LoadTestName pulumi.StringPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput

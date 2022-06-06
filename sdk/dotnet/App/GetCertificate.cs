@@ -30,16 +30,16 @@ namespace Pulumi.AzureNative.App
     public sealed class GetCertificateArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Managed Environment.
-        /// </summary>
-        [Input("managedEnvironmentName", required: true)]
-        public string ManagedEnvironmentName { get; set; } = null!;
-
-        /// <summary>
         /// Name of the Certificate.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("certificateName", required: true)]
+        public string CertificateName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Managed Environment.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public string EnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
@@ -55,16 +55,16 @@ namespace Pulumi.AzureNative.App
     public sealed class GetCertificateInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Name of the Managed Environment.
-        /// </summary>
-        [Input("managedEnvironmentName", required: true)]
-        public Input<string> ManagedEnvironmentName { get; set; } = null!;
-
-        /// <summary>
         /// Name of the Certificate.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("certificateName", required: true)]
+        public Input<string> CertificateName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Managed Environment.
+        /// </summary>
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

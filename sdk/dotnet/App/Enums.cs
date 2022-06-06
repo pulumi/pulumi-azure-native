@@ -52,8 +52,8 @@ namespace Pulumi.AzureNative.App
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static ActiveRevisionsMode Multiple { get; } = new ActiveRevisionsMode("multiple");
-        public static ActiveRevisionsMode Single { get; } = new ActiveRevisionsMode("single");
+        public static ActiveRevisionsMode Multiple { get; } = new ActiveRevisionsMode("Multiple");
+        public static ActiveRevisionsMode Single { get; } = new ActiveRevisionsMode("Single");
 
         public static bool operator ==(ActiveRevisionsMode left, ActiveRevisionsMode right) => left.Equals(right);
         public static bool operator !=(ActiveRevisionsMode left, ActiveRevisionsMode right) => !left.Equals(right);
@@ -291,6 +291,37 @@ namespace Pulumi.AzureNative.App
     }
 
     /// <summary>
+    /// Scheme to use for connecting to the host. Defaults to HTTP.
+    /// </summary>
+    [EnumType]
+    public readonly struct Scheme : IEquatable<Scheme>
+    {
+        private readonly string _value;
+
+        private Scheme(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Scheme HTTP { get; } = new Scheme("HTTP");
+        public static Scheme HTTPS { get; } = new Scheme("HTTPS");
+
+        public static bool operator ==(Scheme left, Scheme right) => left.Equals(right);
+        public static bool operator !=(Scheme left, Scheme right) => !left.Equals(right);
+
+        public static explicit operator string(Scheme value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Scheme other && Equals(other);
+        public bool Equals(Scheme other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Storage type for the volume. If not provided, use EmptyDir.
     /// </summary>
     [EnumType]
@@ -334,9 +365,9 @@ namespace Pulumi.AzureNative.App
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static Type Liveness { get; } = new Type("liveness");
-        public static Type Readiness { get; } = new Type("readiness");
-        public static Type Startup { get; } = new Type("startup");
+        public static Type Liveness { get; } = new Type("Liveness");
+        public static Type Readiness { get; } = new Type("Readiness");
+        public static Type Startup { get; } = new Type("Startup");
 
         public static bool operator ==(Type left, Type right) => left.Equals(right);
         public static bool operator !=(Type left, Type right) => !left.Equals(right);

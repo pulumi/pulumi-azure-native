@@ -42,8 +42,6 @@ type LookupLoadBalancerBackendAddressPoolResult struct {
 	LoadBalancerBackendAddresses []LoadBalancerBackendAddressResponse `pulumi:"loadBalancerBackendAddresses"`
 	// An array of references to load balancing rules that use this backend address pool.
 	LoadBalancingRules []SubResourceResponse `pulumi:"loadBalancingRules"`
-	// The location of the backend address pool.
-	Location *string `pulumi:"location"`
 	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// A reference to an outbound rule that uses this backend address pool.
@@ -124,11 +122,6 @@ func (o LookupLoadBalancerBackendAddressPoolResultOutput) LoadBalancerBackendAdd
 // An array of references to load balancing rules that use this backend address pool.
 func (o LookupLoadBalancerBackendAddressPoolResultOutput) LoadBalancingRules() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v LookupLoadBalancerBackendAddressPoolResult) []SubResourceResponse { return v.LoadBalancingRules }).(SubResourceResponseArrayOutput)
-}
-
-// The location of the backend address pool.
-func (o LookupLoadBalancerBackendAddressPoolResultOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupLoadBalancerBackendAddressPoolResult) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.

@@ -228,7 +228,7 @@ class CustomDomain(pulumi.CustomResource):
     @pulumi.getter(name="customHttpsProvisioningState")
     def custom_https_provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning status of Custom Https of the custom domain.
+        Provisioning status of the custom domain.
         """
         return pulumi.get(self, "custom_https_provisioning_state")
 
@@ -260,7 +260,7 @@ class CustomDomain(pulumi.CustomResource):
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
         """
-        Provisioning status of the custom domain.
+        Provisioning status of Custom Https of the custom domain.
         """
         return pulumi.get(self, "provisioning_state")
 

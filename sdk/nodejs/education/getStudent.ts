@@ -9,173 +9,110 @@ import * as utilities from "../utilities";
  * Student details.
  * API Version: 2021-12-01-preview.
  */
-export class GetStudent extends pulumi.CustomResource {
-    /**
-     * Get an existing GetStudent resource's state with the given name, ID, and optional extra
-     * properties used to qualify the lookup.
-     *
-     * @param name The _unique_ name of the resulting resource.
-     * @param id The _unique_ provider ID of the resource to lookup.
-     * @param opts Optional settings to control the behavior of the CustomResource.
-     */
-    public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): GetStudent {
-        return new GetStudent(name, undefined as any, { ...opts, id: id });
+export function getStudent(args: GetStudentArgs, opts?: pulumi.InvokeOptions): Promise<GetStudentResult> {
+    if (!opts) {
+        opts = {}
     }
 
-    /** @internal */
-    public static readonly __pulumiType = 'azure-native:education:GetStudent';
+    opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+    return pulumi.runtime.invoke("azure-native:education:getStudent", {
+        "billingAccountName": args.billingAccountName,
+        "billingProfileName": args.billingProfileName,
+        "invoiceSectionName": args.invoiceSectionName,
+        "studentAlias": args.studentAlias,
+    }, opts);
+}
 
+export interface GetStudentArgs {
     /**
-     * Returns true if the given object is an instance of GetStudent.  This is designed to work even
-     * when multiple copies of the Pulumi SDK have been loaded into the same process.
+     * Billing account name.
      */
-    public static isInstance(obj: any): obj is GetStudent {
-        if (obj === undefined || obj === null) {
-            return false;
-        }
-        return obj['__pulumiType'] === GetStudent.__pulumiType;
-    }
-
+    billingAccountName: string;
     /**
-     * Student Budget
+     * Billing profile name.
      */
-    public readonly budget!: pulumi.Output<outputs.education.AmountResponse>;
+    billingProfileName: string;
     /**
-     * Date student was added to the lab
+     * Invoice section name.
      */
-    public /*out*/ readonly effectiveDate!: pulumi.Output<string>;
+    invoiceSectionName: string;
     /**
-     * Student Email
+     * Student alias.
      */
-    public readonly email!: pulumi.Output<string>;
-    /**
-     * Date this student is set to expire from the lab.
-     */
-    public readonly expirationDate!: pulumi.Output<string>;
-    /**
-     * First Name
-     */
-    public readonly firstName!: pulumi.Output<string>;
-    /**
-     * Last Name
-     */
-    public readonly lastName!: pulumi.Output<string>;
-    /**
-     * The name of the resource
-     */
-    public /*out*/ readonly name!: pulumi.Output<string>;
-    /**
-     * Student Role
-     */
-    public readonly role!: pulumi.Output<string>;
-    /**
-     * Student Lab Status
-     */
-    public /*out*/ readonly status!: pulumi.Output<string>;
-    /**
-     * Subscription alias
-     */
-    public readonly subscriptionAlias!: pulumi.Output<string | undefined>;
-    /**
-     * Subscription Id
-     */
-    public /*out*/ readonly subscriptionId!: pulumi.Output<string>;
-    /**
-     * subscription invite last sent date
-     */
-    public readonly subscriptionInviteLastSentDate!: pulumi.Output<string | undefined>;
-    /**
-     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
-     */
-    public /*out*/ readonly systemData!: pulumi.Output<outputs.education.SystemDataResponse>;
-    /**
-     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-     */
-    public /*out*/ readonly type!: pulumi.Output<string>;
-
-    /**
-     * Create a GetStudent resource with the given unique name, arguments, and options.
-     *
-     * @param name The _unique_ name of the resource.
-     * @param args The arguments to use to populate this resource's properties.
-     * @param opts A bag of options that control this resource's behavior.
-     */
-    constructor(name: string, args: GetStudentArgs, opts?: pulumi.CustomResourceOptions) {
-        let resourceInputs: pulumi.Inputs = {};
-        opts = opts || {};
-        if (!opts.id) {
-            if ((!args || args.billingAccountName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'billingAccountName'");
-            }
-            if ((!args || args.billingProfileName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'billingProfileName'");
-            }
-            if ((!args || args.budget === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'budget'");
-            }
-            if ((!args || args.email === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'email'");
-            }
-            if ((!args || args.expirationDate === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'expirationDate'");
-            }
-            if ((!args || args.firstName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'firstName'");
-            }
-            if ((!args || args.invoiceSectionName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'invoiceSectionName'");
-            }
-            if ((!args || args.lastName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'lastName'");
-            }
-            if ((!args || args.role === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'role'");
-            }
-            resourceInputs["billingAccountName"] = args ? args.billingAccountName : undefined;
-            resourceInputs["billingProfileName"] = args ? args.billingProfileName : undefined;
-            resourceInputs["budget"] = args ? args.budget : undefined;
-            resourceInputs["email"] = args ? args.email : undefined;
-            resourceInputs["expirationDate"] = args ? args.expirationDate : undefined;
-            resourceInputs["firstName"] = args ? args.firstName : undefined;
-            resourceInputs["invoiceSectionName"] = args ? args.invoiceSectionName : undefined;
-            resourceInputs["lastName"] = args ? args.lastName : undefined;
-            resourceInputs["role"] = args ? args.role : undefined;
-            resourceInputs["studentAlias"] = args ? args.studentAlias : undefined;
-            resourceInputs["subscriptionAlias"] = args ? args.subscriptionAlias : undefined;
-            resourceInputs["subscriptionInviteLastSentDate"] = args ? args.subscriptionInviteLastSentDate : undefined;
-            resourceInputs["effectiveDate"] = undefined /*out*/;
-            resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["subscriptionId"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
-        } else {
-            resourceInputs["budget"] = undefined /*out*/;
-            resourceInputs["effectiveDate"] = undefined /*out*/;
-            resourceInputs["email"] = undefined /*out*/;
-            resourceInputs["expirationDate"] = undefined /*out*/;
-            resourceInputs["firstName"] = undefined /*out*/;
-            resourceInputs["lastName"] = undefined /*out*/;
-            resourceInputs["name"] = undefined /*out*/;
-            resourceInputs["role"] = undefined /*out*/;
-            resourceInputs["status"] = undefined /*out*/;
-            resourceInputs["subscriptionAlias"] = undefined /*out*/;
-            resourceInputs["subscriptionId"] = undefined /*out*/;
-            resourceInputs["subscriptionInviteLastSentDate"] = undefined /*out*/;
-            resourceInputs["systemData"] = undefined /*out*/;
-            resourceInputs["type"] = undefined /*out*/;
-        }
-        opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:education/v20211201preview:GetStudent" }] };
-        opts = pulumi.mergeOptions(opts, aliasOpts);
-        super(GetStudent.__pulumiType, name, resourceInputs, opts);
-    }
+    studentAlias: string;
 }
 
 /**
- * The set of arguments for constructing a GetStudent resource.
+ * Student details.
  */
-export interface GetStudentArgs {
+export interface GetStudentResult {
+    /**
+     * Student Budget
+     */
+    readonly budget: outputs.education.AmountResponse;
+    /**
+     * Date student was added to the lab
+     */
+    readonly effectiveDate: string;
+    /**
+     * Student Email
+     */
+    readonly email: string;
+    /**
+     * Date this student is set to expire from the lab.
+     */
+    readonly expirationDate: string;
+    /**
+     * First Name
+     */
+    readonly firstName: string;
+    /**
+     * Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+     */
+    readonly id: string;
+    /**
+     * Last Name
+     */
+    readonly lastName: string;
+    /**
+     * The name of the resource
+     */
+    readonly name: string;
+    /**
+     * Student Role
+     */
+    readonly role: string;
+    /**
+     * Student Lab Status
+     */
+    readonly status: string;
+    /**
+     * Subscription alias
+     */
+    readonly subscriptionAlias?: string;
+    /**
+     * Subscription Id
+     */
+    readonly subscriptionId: string;
+    /**
+     * subscription invite last sent date
+     */
+    readonly subscriptionInviteLastSentDate?: string;
+    /**
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
+     */
+    readonly systemData: outputs.education.SystemDataResponse;
+    /**
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+     */
+    readonly type: string;
+}
+
+export function getStudentOutput(args: GetStudentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStudentResult> {
+    return pulumi.output(args).apply(a => getStudent(a, opts))
+}
+
+export interface GetStudentOutputArgs {
     /**
      * Billing account name.
      */
@@ -185,43 +122,11 @@ export interface GetStudentArgs {
      */
     billingProfileName: pulumi.Input<string>;
     /**
-     * Student Budget
-     */
-    budget: pulumi.Input<inputs.education.AmountArgs>;
-    /**
-     * Student Email
-     */
-    email: pulumi.Input<string>;
-    /**
-     * Date this student is set to expire from the lab.
-     */
-    expirationDate: pulumi.Input<string>;
-    /**
-     * First Name
-     */
-    firstName: pulumi.Input<string>;
-    /**
      * Invoice section name.
      */
     invoiceSectionName: pulumi.Input<string>;
     /**
-     * Last Name
-     */
-    lastName: pulumi.Input<string>;
-    /**
-     * Student Role
-     */
-    role: pulumi.Input<string | enums.education.StudentRole>;
-    /**
      * Student alias.
      */
-    studentAlias?: pulumi.Input<string>;
-    /**
-     * Subscription alias
-     */
-    subscriptionAlias?: pulumi.Input<string>;
-    /**
-     * subscription invite last sent date
-     */
-    subscriptionInviteLastSentDate?: pulumi.Input<string>;
+    studentAlias: pulumi.Input<string>;
 }

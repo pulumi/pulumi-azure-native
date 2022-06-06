@@ -132,7 +132,7 @@ export class Certificate extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:batch:Certificate" }, { type: "azure-native:batch/v20170901:Certificate" }, { type: "azure-native:batch/v20181201:Certificate" }, { type: "azure-native:batch/v20190401:Certificate" }, { type: "azure-native:batch/v20190801:Certificate" }, { type: "azure-native:batch/v20200501:Certificate" }, { type: "azure-native:batch/v20200901:Certificate" }, { type: "azure-native:batch/v20210101:Certificate" }, { type: "azure-native:batch/v20210601:Certificate" }, { type: "azure-native:batch/v20220101:Certificate" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:batch:Certificate" }, { type: "azure-native:batch/v20170901:Certificate" }, { type: "azure-native:batch/v20181201:Certificate" }, { type: "azure-native:batch/v20190401:Certificate" }, { type: "azure-native:batch/v20190801:Certificate" }, { type: "azure-native:batch/v20200501:Certificate" }, { type: "azure-native:batch/v20200901:Certificate" }, { type: "azure-native:batch/v20210101:Certificate" }, { type: "azure-native:batch/v20210601:Certificate" }, { type: "azure-native:batch/v20220101:Certificate" }, { type: "azure-native:batch/v20220601:Certificate" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Certificate.__pulumiType, name, resourceInputs, opts);
     }

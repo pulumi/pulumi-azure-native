@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.AppPlatform.V20220301Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:appplatform:GatewayRouteConfig"},
                     new Pulumi.Alias { Type = "azure-native:appplatform/v20220101preview:GatewayRouteConfig"},
+                    new Pulumi.Alias { Type = "azure-native:appplatform/v20220501preview:GatewayRouteConfig"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

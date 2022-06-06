@@ -51,7 +51,7 @@ class HostPoolArgs:
         :param pulumi.Input[Union[str, 'LoadBalancerType']] load_balancer_type: The type of the load balancer.
         :param pulumi.Input[Union[str, 'PreferredAppGroupType']] preferred_app_group_type: The type of preferred application group type, default to Desktop Application Group
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['AgentUpdatePropertiesArgs'] agent_update: The session host configuration for updating agent, monitoring agent, and stack component.
+        :param pulumi.Input['AgentUpdatePropertiesArgs'] agent_update: The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
         :param pulumi.Input[str] custom_rdp_property: Custom rdp property of HostPool.
         :param pulumi.Input[str] description: Description of HostPool.
         :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
@@ -181,7 +181,7 @@ class HostPoolArgs:
     @pulumi.getter(name="agentUpdate")
     def agent_update(self) -> Optional[pulumi.Input['AgentUpdatePropertiesArgs']]:
         """
-        The session host configuration for updating agent, monitoring agent, and stack component.
+        The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
         """
         return pulumi.get(self, "agent_update")
 
@@ -509,7 +509,7 @@ class HostPool(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[pulumi.InputType['AgentUpdatePropertiesArgs']] agent_update: The session host configuration for updating agent, monitoring agent, and stack component.
+        :param pulumi.Input[pulumi.InputType['AgentUpdatePropertiesArgs']] agent_update: The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
         :param pulumi.Input[str] custom_rdp_property: Custom rdp property of HostPool.
         :param pulumi.Input[str] description: Description of HostPool.
         :param pulumi.Input[str] friendly_name: Friendly name of HostPool.
@@ -711,7 +711,7 @@ class HostPool(pulumi.CustomResource):
     @pulumi.getter(name="agentUpdate")
     def agent_update(self) -> pulumi.Output[Optional['outputs.AgentUpdatePropertiesResponse']]:
         """
-        The session host configuration for updating agent, monitoring agent, and stack component.
+        The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
         """
         return pulumi.get(self, "agent_update")
 

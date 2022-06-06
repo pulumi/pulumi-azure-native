@@ -151,6 +151,59 @@ func (o DataPartitionNamesResponseArrayOutput) Index(i pulumi.IntInput) DataPart
 	}).(DataPartitionNamesResponseOutput)
 }
 
+// Defines the properties of an individual data partition.
+type DataPartitionPropertiesResponse struct {
+	// Name of the data partition
+	Name *string `pulumi:"name"`
+	// Name of the data partition
+	ProvisioningState *string `pulumi:"provisioningState"`
+}
+
+// Defines the properties of an individual data partition.
+type DataPartitionPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (DataPartitionPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DataPartitionPropertiesResponse)(nil)).Elem()
+}
+
+func (o DataPartitionPropertiesResponseOutput) ToDataPartitionPropertiesResponseOutput() DataPartitionPropertiesResponseOutput {
+	return o
+}
+
+func (o DataPartitionPropertiesResponseOutput) ToDataPartitionPropertiesResponseOutputWithContext(ctx context.Context) DataPartitionPropertiesResponseOutput {
+	return o
+}
+
+// Name of the data partition
+func (o DataPartitionPropertiesResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataPartitionPropertiesResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Name of the data partition
+func (o DataPartitionPropertiesResponseOutput) ProvisioningState() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DataPartitionPropertiesResponse) *string { return v.ProvisioningState }).(pulumi.StringPtrOutput)
+}
+
+type DataPartitionPropertiesResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (DataPartitionPropertiesResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DataPartitionPropertiesResponse)(nil)).Elem()
+}
+
+func (o DataPartitionPropertiesResponseArrayOutput) ToDataPartitionPropertiesResponseArrayOutput() DataPartitionPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o DataPartitionPropertiesResponseArrayOutput) ToDataPartitionPropertiesResponseArrayOutputWithContext(ctx context.Context) DataPartitionPropertiesResponseArrayOutput {
+	return o
+}
+
+func (o DataPartitionPropertiesResponseArrayOutput) Index(i pulumi.IntInput) DataPartitionPropertiesResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DataPartitionPropertiesResponse {
+		return vs[0].([]DataPartitionPropertiesResponse)[vs[1].(int)]
+	}).(DataPartitionPropertiesResponseOutput)
+}
+
 type EnergyServiceProperties struct {
 	AuthAppId          *string              `pulumi:"authAppId"`
 	DataPartitionNames []DataPartitionNames `pulumi:"dataPartitionNames"`
@@ -402,6 +455,8 @@ func init() {
 	pulumi.RegisterOutputType(DataPartitionNamesArrayOutput{})
 	pulumi.RegisterOutputType(DataPartitionNamesResponseOutput{})
 	pulumi.RegisterOutputType(DataPartitionNamesResponseArrayOutput{})
+	pulumi.RegisterOutputType(DataPartitionPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(DataPartitionPropertiesResponseArrayOutput{})
 	pulumi.RegisterOutputType(EnergyServicePropertiesOutput{})
 	pulumi.RegisterOutputType(EnergyServicePropertiesPtrOutput{})
 	pulumi.RegisterOutputType(EnergyServicePropertiesResponseOutput{})

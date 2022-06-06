@@ -172,16 +172,16 @@ namespace Pulumi.AzureNative.App.V20220301
         public Input<string>? DaprAIInstrumentationKey { get; set; }
 
         /// <summary>
+        /// Name of the Environment.
+        /// </summary>
+        [Input("environmentName")]
+        public Input<string>? EnvironmentName { get; set; }
+
+        /// <summary>
         /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
-
-        /// <summary>
-        /// Name of the Environment.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.

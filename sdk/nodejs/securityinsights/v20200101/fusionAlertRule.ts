@@ -134,7 +134,7 @@ export class FusionAlertRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:FusionAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220401preview:FusionAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:FusionAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001:FusionAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220401preview:FusionAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:FusionAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FusionAlertRule.__pulumiType, name, resourceInputs, opts);
     }

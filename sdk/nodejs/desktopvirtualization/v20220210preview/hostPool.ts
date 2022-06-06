@@ -36,7 +36,7 @@ export class HostPool extends pulumi.CustomResource {
     }
 
     /**
-     * The session host configuration for updating agent, monitoring agent, and stack component.
+     * The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
      */
     public readonly agentUpdate!: pulumi.Output<outputs.desktopvirtualization.v20220210preview.AgentUpdatePropertiesResponse | undefined>;
     /**
@@ -276,7 +276,7 @@ export class HostPool extends pulumi.CustomResource {
  */
 export interface HostPoolArgs {
     /**
-     * The session host configuration for updating agent, monitoring agent, and stack component.
+     * The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
      */
     agentUpdate?: pulumi.Input<inputs.desktopvirtualization.v20220210preview.AgentUpdatePropertiesArgs>;
     /**

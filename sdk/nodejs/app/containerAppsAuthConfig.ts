@@ -55,7 +55,7 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
      */
@@ -86,14 +86,15 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["authConfigName"] = args ? args.authConfigName : undefined;
             resourceInputs["containerAppName"] = args ? args.containerAppName : undefined;
             resourceInputs["globalValidation"] = args ? args.globalValidation : undefined;
             resourceInputs["httpSettings"] = args ? args.httpSettings : undefined;
             resourceInputs["identityProviders"] = args ? args.identityProviders : undefined;
             resourceInputs["login"] = args ? args.login : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["platform"] = args ? args.platform : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -118,6 +119,10 @@ export class ContainerAppsAuthConfig extends pulumi.CustomResource {
  */
 export interface ContainerAppsAuthConfigArgs {
     /**
+     * Name of the Container App AuthConfig.
+     */
+    authConfigName?: pulumi.Input<string>;
+    /**
      * Name of the Container App.
      */
     containerAppName: pulumi.Input<string>;
@@ -137,10 +142,6 @@ export interface ContainerAppsAuthConfigArgs {
      * The configuration settings of the login flow of users using ContainerApp Service Authentication/Authorization.
      */
     login?: pulumi.Input<inputs.app.LoginArgs>;
-    /**
-     * Name of the Container App AuthConfig.
-     */
-    name?: pulumi.Input<string>;
     /**
      * The configuration settings of the platform of ContainerApp Service Authentication/Authorization.
      */

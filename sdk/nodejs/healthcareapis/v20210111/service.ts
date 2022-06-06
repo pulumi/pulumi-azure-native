@@ -117,7 +117,7 @@ export class Service extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:Service" }, { type: "azure-native:healthcareapis/v20180820preview:Service" }, { type: "azure-native:healthcareapis/v20190916:Service" }, { type: "azure-native:healthcareapis/v20200315:Service" }, { type: "azure-native:healthcareapis/v20200330:Service" }, { type: "azure-native:healthcareapis/v20210601preview:Service" }, { type: "azure-native:healthcareapis/v20211101:Service" }, { type: "azure-native:healthcareapis/v20220131preview:Service" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis:Service" }, { type: "azure-native:healthcareapis/v20180820preview:Service" }, { type: "azure-native:healthcareapis/v20190916:Service" }, { type: "azure-native:healthcareapis/v20200315:Service" }, { type: "azure-native:healthcareapis/v20200330:Service" }, { type: "azure-native:healthcareapis/v20210601preview:Service" }, { type: "azure-native:healthcareapis/v20211101:Service" }, { type: "azure-native:healthcareapis/v20220131preview:Service" }, { type: "azure-native:healthcareapis/v20220515:Service" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Service.__pulumiType, name, resourceInputs, opts);
     }

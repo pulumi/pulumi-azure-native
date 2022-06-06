@@ -9,144 +9,54 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Education.V20211201Preview
 {
-    /// <summary>
-    /// Student details.
-    /// </summary>
-    [AzureNativeResourceType("azure-native:education/v20211201preview:GetStudent")]
-    public partial class GetStudent : Pulumi.CustomResource
+    public static class GetStudent
     {
         /// <summary>
-        /// Student Budget
+        /// Student details.
         /// </summary>
-        [Output("budget")]
-        public Output<Outputs.AmountResponse> Budget { get; private set; } = null!;
+        public static Task<GetStudentResult> InvokeAsync(GetStudentArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetStudentResult>("azure-native:education/v20211201preview:getStudent", args ?? new GetStudentArgs(), options.WithDefaults());
 
         /// <summary>
-        /// Date student was added to the lab
+        /// Student details.
         /// </summary>
-        [Output("effectiveDate")]
-        public Output<string> EffectiveDate { get; private set; } = null!;
+        public static Output<GetStudentResult> Invoke(GetStudentInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetStudentResult>("azure-native:education/v20211201preview:getStudent", args ?? new GetStudentInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetStudentArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Billing account name.
+        /// </summary>
+        [Input("billingAccountName", required: true)]
+        public string BillingAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Student Email
+        /// Billing profile name.
         /// </summary>
-        [Output("email")]
-        public Output<string> Email { get; private set; } = null!;
+        [Input("billingProfileName", required: true)]
+        public string BillingProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Date this student is set to expire from the lab.
+        /// Invoice section name.
         /// </summary>
-        [Output("expirationDate")]
-        public Output<string> ExpirationDate { get; private set; } = null!;
+        [Input("invoiceSectionName", required: true)]
+        public string InvoiceSectionName { get; set; } = null!;
 
         /// <summary>
-        /// First Name
+        /// Student alias.
         /// </summary>
-        [Output("firstName")]
-        public Output<string> FirstName { get; private set; } = null!;
+        [Input("studentAlias", required: true)]
+        public string StudentAlias { get; set; } = null!;
 
-        /// <summary>
-        /// Last Name
-        /// </summary>
-        [Output("lastName")]
-        public Output<string> LastName { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Student Role
-        /// </summary>
-        [Output("role")]
-        public Output<string> Role { get; private set; } = null!;
-
-        /// <summary>
-        /// Student Lab Status
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// Subscription alias
-        /// </summary>
-        [Output("subscriptionAlias")]
-        public Output<string?> SubscriptionAlias { get; private set; } = null!;
-
-        /// <summary>
-        /// Subscription Id
-        /// </summary>
-        [Output("subscriptionId")]
-        public Output<string> SubscriptionId { get; private set; } = null!;
-
-        /// <summary>
-        /// subscription invite last sent date
-        /// </summary>
-        [Output("subscriptionInviteLastSentDate")]
-        public Output<string?> SubscriptionInviteLastSentDate { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        /// </summary>
-        [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
-
-
-        /// <summary>
-        /// Create a GetStudent resource with the given unique name, arguments, and options.
-        /// </summary>
-        ///
-        /// <param name="name">The unique name of the resource</param>
-        /// <param name="args">The arguments used to populate this resource's properties</param>
-        /// <param name="options">A bag of options that control this resource's behavior</param>
-        public GetStudent(string name, GetStudentArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:education/v20211201preview:GetStudent", name, args ?? new GetStudentArgs(), MakeResourceOptions(options, ""))
+        public GetStudentArgs()
         {
-        }
-
-        private GetStudent(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:education/v20211201preview:GetStudent", name, null, MakeResourceOptions(options, id))
-        {
-        }
-
-        private static CustomResourceOptions MakeResourceOptions(CustomResourceOptions? options, Input<string>? id)
-        {
-            var defaultOptions = new CustomResourceOptions
-            {
-                Version = Utilities.Version,
-                Aliases =
-                {
-                    new Pulumi.Alias { Type = "azure-native:education:GetStudent"},
-                },
-            };
-            var merged = CustomResourceOptions.Merge(defaultOptions, options);
-            // Override the ID if one was specified for consistency with other language SDKs.
-            merged.Id = id ?? merged.Id;
-            return merged;
-        }
-        /// <summary>
-        /// Get an existing GetStudent resource's state with the given name, ID, and optional extra
-        /// properties used to qualify the lookup.
-        /// </summary>
-        ///
-        /// <param name="name">The unique name of the resulting resource.</param>
-        /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static GetStudent Get(string name, Input<string> id, CustomResourceOptions? options = null)
-        {
-            return new GetStudent(name, id, options);
         }
     }
 
-    public sealed class GetStudentArgs : Pulumi.ResourceArgs
+    public sealed class GetStudentInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Billing account name.
@@ -161,67 +71,134 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         public Input<string> BillingProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Student Budget
-        /// </summary>
-        [Input("budget", required: true)]
-        public Input<Inputs.AmountArgs> Budget { get; set; } = null!;
-
-        /// <summary>
-        /// Student Email
-        /// </summary>
-        [Input("email", required: true)]
-        public Input<string> Email { get; set; } = null!;
-
-        /// <summary>
-        /// Date this student is set to expire from the lab.
-        /// </summary>
-        [Input("expirationDate", required: true)]
-        public Input<string> ExpirationDate { get; set; } = null!;
-
-        /// <summary>
-        /// First Name
-        /// </summary>
-        [Input("firstName", required: true)]
-        public Input<string> FirstName { get; set; } = null!;
-
-        /// <summary>
         /// Invoice section name.
         /// </summary>
         [Input("invoiceSectionName", required: true)]
         public Input<string> InvoiceSectionName { get; set; } = null!;
 
         /// <summary>
+        /// Student alias.
+        /// </summary>
+        [Input("studentAlias", required: true)]
+        public Input<string> StudentAlias { get; set; } = null!;
+
+        public GetStudentInvokeArgs()
+        {
+        }
+    }
+
+
+    [OutputType]
+    public sealed class GetStudentResult
+    {
+        /// <summary>
+        /// Student Budget
+        /// </summary>
+        public readonly Outputs.AmountResponse Budget;
+        /// <summary>
+        /// Date student was added to the lab
+        /// </summary>
+        public readonly string EffectiveDate;
+        /// <summary>
+        /// Student Email
+        /// </summary>
+        public readonly string Email;
+        /// <summary>
+        /// Date this student is set to expire from the lab.
+        /// </summary>
+        public readonly string ExpirationDate;
+        /// <summary>
+        /// First Name
+        /// </summary>
+        public readonly string FirstName;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
         /// Last Name
         /// </summary>
-        [Input("lastName", required: true)]
-        public Input<string> LastName { get; set; } = null!;
-
+        public readonly string LastName;
+        /// <summary>
+        /// The name of the resource
+        /// </summary>
+        public readonly string Name;
         /// <summary>
         /// Student Role
         /// </summary>
-        [Input("role", required: true)]
-        public InputUnion<string, Pulumi.AzureNative.Education.V20211201Preview.StudentRole> Role { get; set; } = null!;
-
+        public readonly string Role;
         /// <summary>
-        /// Student alias.
+        /// Student Lab Status
         /// </summary>
-        [Input("studentAlias")]
-        public Input<string>? StudentAlias { get; set; }
-
+        public readonly string Status;
         /// <summary>
         /// Subscription alias
         /// </summary>
-        [Input("subscriptionAlias")]
-        public Input<string>? SubscriptionAlias { get; set; }
-
+        public readonly string? SubscriptionAlias;
+        /// <summary>
+        /// Subscription Id
+        /// </summary>
+        public readonly string SubscriptionId;
         /// <summary>
         /// subscription invite last sent date
         /// </summary>
-        [Input("subscriptionInviteLastSentDate")]
-        public Input<string>? SubscriptionInviteLastSentDate { get; set; }
+        public readonly string? SubscriptionInviteLastSentDate;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// </summary>
+        public readonly string Type;
 
-        public GetStudentArgs()
+        [OutputConstructor]
+        private GetStudentResult(
+            Outputs.AmountResponse budget,
+
+            string effectiveDate,
+
+            string email,
+
+            string expirationDate,
+
+            string firstName,
+
+            string id,
+
+            string lastName,
+
+            string name,
+
+            string role,
+
+            string status,
+
+            string? subscriptionAlias,
+
+            string subscriptionId,
+
+            string? subscriptionInviteLastSentDate,
+
+            Outputs.SystemDataResponse systemData,
+
+            string type)
         {
+            Budget = budget;
+            EffectiveDate = effectiveDate;
+            Email = email;
+            ExpirationDate = expirationDate;
+            FirstName = firstName;
+            Id = id;
+            LastName = lastName;
+            Name = name;
+            Role = role;
+            Status = status;
+            SubscriptionAlias = subscriptionAlias;
+            SubscriptionId = subscriptionId;
+            SubscriptionInviteLastSentDate = subscriptionInviteLastSentDate;
+            SystemData = systemData;
+            Type = type;
         }
     }
 }

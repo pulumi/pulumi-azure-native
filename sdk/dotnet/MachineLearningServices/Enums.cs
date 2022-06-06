@@ -278,6 +278,11 @@ namespace Pulumi.AzureNative.MachineLearningServices
         public static DataBindingMode Mount { get; } = new DataBindingMode("Mount");
         public static DataBindingMode Download { get; } = new DataBindingMode("Download");
         public static DataBindingMode Upload { get; } = new DataBindingMode("Upload");
+        public static DataBindingMode ReadOnlyMount { get; } = new DataBindingMode("ReadOnlyMount");
+        public static DataBindingMode ReadWriteMount { get; } = new DataBindingMode("ReadWriteMount");
+        public static DataBindingMode Direct { get; } = new DataBindingMode("Direct");
+        public static DataBindingMode EvalMount { get; } = new DataBindingMode("EvalMount");
+        public static DataBindingMode EvalDownload { get; } = new DataBindingMode("EvalDownload");
 
         public static bool operator ==(DataBindingMode left, DataBindingMode right) => left.Equals(right);
         public static bool operator !=(DataBindingMode left, DataBindingMode right) => !left.Equals(right);

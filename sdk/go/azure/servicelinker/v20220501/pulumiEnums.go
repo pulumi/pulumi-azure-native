@@ -14,6 +14,13 @@ const (
 	AuthTypeSecret                      = AuthType("secret")
 )
 
+// The azure resource type.
+type AzureResourceType string
+
+const (
+	AzureResourceTypeKeyVault = AzureResourceType("KeyVault")
+)
+
 // The application client type
 type ClientType string
 
@@ -40,12 +47,12 @@ const (
 )
 
 // The target service type.
-type Type string
+type TargetServiceType string
 
 const (
-	TypeAzureResource            = Type("AzureResource")
-	TypeConfluentBootstrapServer = Type("ConfluentBootstrapServer")
-	TypeConfluentSchemaRegistry  = Type("ConfluentSchemaRegistry")
+	TargetServiceTypeAzureResource            = TargetServiceType("AzureResource")
+	TargetServiceTypeConfluentBootstrapServer = TargetServiceType("ConfluentBootstrapServer")
+	TargetServiceTypeConfluentSchemaRegistry  = TargetServiceType("ConfluentSchemaRegistry")
 )
 
 // Type of VNet solution.

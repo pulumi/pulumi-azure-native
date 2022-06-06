@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20210901preview:Ueba"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:Ueba"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Ueba"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Ueba"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

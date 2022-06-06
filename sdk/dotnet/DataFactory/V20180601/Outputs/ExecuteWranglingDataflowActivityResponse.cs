@@ -61,6 +61,10 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
         /// </summary>
         public readonly ImmutableDictionary<string, Outputs.PowerQuerySinkResponse>? Sinks;
         /// <summary>
+        /// Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
+        /// </summary>
+        public readonly object? SourceStagingConcurrency;
+        /// <summary>
         /// Staging info for execute data flow activity.
         /// </summary>
         public readonly Outputs.DataFlowStagingInfoResponse? Staging;
@@ -102,6 +106,8 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
 
             ImmutableDictionary<string, Outputs.PowerQuerySinkResponse>? sinks,
 
+            object? sourceStagingConcurrency,
+
             Outputs.DataFlowStagingInfoResponse? staging,
 
             object? traceLevel,
@@ -121,6 +127,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Outputs
             Queries = queries;
             RunConcurrently = runConcurrently;
             Sinks = sinks;
+            SourceStagingConcurrency = sourceStagingConcurrency;
             Staging = staging;
             TraceLevel = traceLevel;
             Type = type;

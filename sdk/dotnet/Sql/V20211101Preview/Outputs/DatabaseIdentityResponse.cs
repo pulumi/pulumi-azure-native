@@ -17,10 +17,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview.Outputs
     public sealed class DatabaseIdentityResponse
     {
         /// <summary>
-        /// Resources delegated to the database - Internal Use Only
-        /// </summary>
-        public readonly ImmutableDictionary<string, Outputs.DelegationResponse>? DelegatedResources;
-        /// <summary>
         /// The Azure Active Directory tenant id.
         /// </summary>
         public readonly string TenantId;
@@ -35,15 +31,12 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview.Outputs
 
         [OutputConstructor]
         private DatabaseIdentityResponse(
-            ImmutableDictionary<string, Outputs.DelegationResponse>? delegatedResources,
-
             string tenantId,
 
             string? type,
 
             ImmutableDictionary<string, Outputs.DatabaseUserIdentityResponse>? userAssignedIdentities)
         {
-            DelegatedResources = delegatedResources;
             TenantId = tenantId;
             Type = type;
             UserAssignedIdentities = userAssignedIdentities;
