@@ -26,7 +26,7 @@ env:
 jobs:
   build_sdks:
     name: build_sdks
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.language == 'dotnet' && 'macos-latest' || 'ubuntu-latest' }}
     needs: prerequisites
     strategy:
       fail-fast: true
