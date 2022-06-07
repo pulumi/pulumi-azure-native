@@ -7,6 +7,7 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from ... import _utilities
+from . import outputs
 from ._enums import *
 
 __all__ = ['PoolArgs', 'Pool']
@@ -32,10 +33,10 @@ class PoolArgs:
         :param pulumi.Input[float] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
         :param pulumi.Input[bool] cool_access: If enabled (true) the pool can contain cool Access enabled volumes.
         :param pulumi.Input[Union[str, 'EncryptionType']] encryption_type: Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[Union[str, 'QosType']] qos_type: The qos type of the pool
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -136,7 +137,7 @@ class PoolArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -172,7 +173,7 @@ class PoolArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -205,13 +206,13 @@ class Pool(pulumi.CustomResource):
         :param pulumi.Input[str] account_name: The name of the NetApp account
         :param pulumi.Input[bool] cool_access: If enabled (true) the pool can contain cool Access enabled volumes.
         :param pulumi.Input[Union[str, 'EncryptionType']] encryption_type: Encryption type of the capacity pool, set encryption type for data at rest for this pool and all volumes in it. This value can only be set when creating new pool.
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] pool_name: The name of the capacity pool
         :param pulumi.Input[Union[str, 'QosType']] qos_type: The qos type of the pool
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'ServiceLevel']] service_level: The service level of the file system
         :param pulumi.Input[float] size: Provisioned size of the pool (in bytes). Allowed values are in 4TiB chunks (value must be multiply of 4398046511104).
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         ...
     @overload
@@ -287,10 +288,11 @@ class Pool(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["pool_id"] = None
             __props__.__dict__["provisioning_state"] = None
+            __props__.__dict__["system_data"] = None
             __props__.__dict__["total_throughput_mibps"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["utilized_throughput_mibps"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Pool"), pulumi.Alias(type_="azure-native:netapp/v20170815:Pool"), pulumi.Alias(type_="azure-native:netapp/v20190501:Pool"), pulumi.Alias(type_="azure-native:netapp/v20190601:Pool"), pulumi.Alias(type_="azure-native:netapp/v20190701:Pool"), pulumi.Alias(type_="azure-native:netapp/v20190801:Pool"), pulumi.Alias(type_="azure-native:netapp/v20191001:Pool"), pulumi.Alias(type_="azure-native:netapp/v20191101:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200201:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200301:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200501:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200601:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200701:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200801:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200901:Pool"), pulumi.Alias(type_="azure-native:netapp/v20201101:Pool"), pulumi.Alias(type_="azure-native:netapp/v20201201:Pool"), pulumi.Alias(type_="azure-native:netapp/v20210201:Pool"), pulumi.Alias(type_="azure-native:netapp/v20210401:Pool"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Pool"), pulumi.Alias(type_="azure-native:netapp/v20210601:Pool"), pulumi.Alias(type_="azure-native:netapp/v20211001:Pool")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:Pool"), pulumi.Alias(type_="azure-native:netapp/v20170815:Pool"), pulumi.Alias(type_="azure-native:netapp/v20190501:Pool"), pulumi.Alias(type_="azure-native:netapp/v20190601:Pool"), pulumi.Alias(type_="azure-native:netapp/v20190701:Pool"), pulumi.Alias(type_="azure-native:netapp/v20190801:Pool"), pulumi.Alias(type_="azure-native:netapp/v20191001:Pool"), pulumi.Alias(type_="azure-native:netapp/v20191101:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200201:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200301:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200501:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200601:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200701:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200801:Pool"), pulumi.Alias(type_="azure-native:netapp/v20200901:Pool"), pulumi.Alias(type_="azure-native:netapp/v20201101:Pool"), pulumi.Alias(type_="azure-native:netapp/v20201201:Pool"), pulumi.Alias(type_="azure-native:netapp/v20210201:Pool"), pulumi.Alias(type_="azure-native:netapp/v20210401:Pool"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:Pool"), pulumi.Alias(type_="azure-native:netapp/v20210601:Pool"), pulumi.Alias(type_="azure-native:netapp/v20211001:Pool"), pulumi.Alias(type_="azure-native:netapp/v20220101:Pool")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Pool, __self__).__init__(
             'azure-native:netapp/v20210801:Pool',
@@ -324,6 +326,7 @@ class Pool(pulumi.CustomResource):
         __props__.__dict__["qos_type"] = None
         __props__.__dict__["service_level"] = None
         __props__.__dict__["size"] = None
+        __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["total_throughput_mibps"] = None
         __props__.__dict__["type"] = None
@@ -358,7 +361,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -366,7 +369,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -411,10 +414,18 @@ class Pool(pulumi.CustomResource):
         return pulumi.get(self, "size")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -430,7 +441,7 @@ class Pool(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

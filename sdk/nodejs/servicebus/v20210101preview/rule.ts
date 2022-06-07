@@ -109,7 +109,7 @@ export class Rule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Rule" }, { type: "azure-native:servicebus/v20170401:Rule" }, { type: "azure-native:servicebus/v20180101preview:Rule" }, { type: "azure-native:servicebus/v20210601preview:Rule" }, { type: "azure-native:servicebus/v20211101:Rule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus:Rule" }, { type: "azure-native:servicebus/v20170401:Rule" }, { type: "azure-native:servicebus/v20180101preview:Rule" }, { type: "azure-native:servicebus/v20210601preview:Rule" }, { type: "azure-native:servicebus/v20211101:Rule" }, { type: "azure-native:servicebus/v20220101preview:Rule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Rule.__pulumiType, name, resourceInputs, opts);
     }

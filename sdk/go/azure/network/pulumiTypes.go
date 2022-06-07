@@ -14186,8 +14186,6 @@ type BackendAddressPool struct {
 	Id *string `pulumi:"id"`
 	// An array of backend addresses.
 	LoadBalancerBackendAddresses []LoadBalancerBackendAddress `pulumi:"loadBalancerBackendAddresses"`
-	// The location of the backend address pool.
-	Location *string `pulumi:"location"`
 	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 }
@@ -14209,8 +14207,6 @@ type BackendAddressPoolArgs struct {
 	Id pulumi.StringPtrInput `pulumi:"id"`
 	// An array of backend addresses.
 	LoadBalancerBackendAddresses LoadBalancerBackendAddressArrayInput `pulumi:"loadBalancerBackendAddresses"`
-	// The location of the backend address pool.
-	Location pulumi.StringPtrInput `pulumi:"location"`
 	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
 	Name pulumi.StringPtrInput `pulumi:"name"`
 }
@@ -14277,11 +14273,6 @@ func (o BackendAddressPoolOutput) LoadBalancerBackendAddresses() LoadBalancerBac
 	return o.ApplyT(func(v BackendAddressPool) []LoadBalancerBackendAddress { return v.LoadBalancerBackendAddresses }).(LoadBalancerBackendAddressArrayOutput)
 }
 
-// The location of the backend address pool.
-func (o BackendAddressPoolOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackendAddressPool) *string { return v.Location }).(pulumi.StringPtrOutput)
-}
-
 // The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
 func (o BackendAddressPoolOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BackendAddressPool) *string { return v.Name }).(pulumi.StringPtrOutput)
@@ -14319,8 +14310,6 @@ type BackendAddressPoolResponse struct {
 	LoadBalancerBackendAddresses []LoadBalancerBackendAddressResponse `pulumi:"loadBalancerBackendAddresses"`
 	// An array of references to load balancing rules that use this backend address pool.
 	LoadBalancingRules []SubResourceResponse `pulumi:"loadBalancingRules"`
-	// The location of the backend address pool.
-	Location *string `pulumi:"location"`
 	// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
 	Name *string `pulumi:"name"`
 	// A reference to an outbound rule that uses this backend address pool.
@@ -14375,11 +14364,6 @@ func (o BackendAddressPoolResponseOutput) LoadBalancerBackendAddresses() LoadBal
 // An array of references to load balancing rules that use this backend address pool.
 func (o BackendAddressPoolResponseOutput) LoadBalancingRules() SubResourceResponseArrayOutput {
 	return o.ApplyT(func(v BackendAddressPoolResponse) []SubResourceResponse { return v.LoadBalancingRules }).(SubResourceResponseArrayOutput)
-}
-
-// The location of the backend address pool.
-func (o BackendAddressPoolResponseOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v BackendAddressPoolResponse) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
@@ -39540,152 +39524,6 @@ func (o LocalNetworkGatewayResponsePtrOutput) Type() pulumi.StringPtrOutput {
 		}
 		return &v.Type
 	}).(pulumi.StringPtrOutput)
-}
-
-// Logging Category
-type LoggingCategory struct {
-	// The name of the logging category.
-	Name *string `pulumi:"name"`
-}
-
-// LoggingCategoryInput is an input type that accepts LoggingCategoryArgs and LoggingCategoryOutput values.
-// You can construct a concrete instance of `LoggingCategoryInput` via:
-//
-//          LoggingCategoryArgs{...}
-type LoggingCategoryInput interface {
-	pulumi.Input
-
-	ToLoggingCategoryOutput() LoggingCategoryOutput
-	ToLoggingCategoryOutputWithContext(context.Context) LoggingCategoryOutput
-}
-
-// Logging Category
-type LoggingCategoryArgs struct {
-	// The name of the logging category.
-	Name pulumi.StringPtrInput `pulumi:"name"`
-}
-
-func (LoggingCategoryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingCategory)(nil)).Elem()
-}
-
-func (i LoggingCategoryArgs) ToLoggingCategoryOutput() LoggingCategoryOutput {
-	return i.ToLoggingCategoryOutputWithContext(context.Background())
-}
-
-func (i LoggingCategoryArgs) ToLoggingCategoryOutputWithContext(ctx context.Context) LoggingCategoryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingCategoryOutput)
-}
-
-// LoggingCategoryArrayInput is an input type that accepts LoggingCategoryArray and LoggingCategoryArrayOutput values.
-// You can construct a concrete instance of `LoggingCategoryArrayInput` via:
-//
-//          LoggingCategoryArray{ LoggingCategoryArgs{...} }
-type LoggingCategoryArrayInput interface {
-	pulumi.Input
-
-	ToLoggingCategoryArrayOutput() LoggingCategoryArrayOutput
-	ToLoggingCategoryArrayOutputWithContext(context.Context) LoggingCategoryArrayOutput
-}
-
-type LoggingCategoryArray []LoggingCategoryInput
-
-func (LoggingCategoryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoggingCategory)(nil)).Elem()
-}
-
-func (i LoggingCategoryArray) ToLoggingCategoryArrayOutput() LoggingCategoryArrayOutput {
-	return i.ToLoggingCategoryArrayOutputWithContext(context.Background())
-}
-
-func (i LoggingCategoryArray) ToLoggingCategoryArrayOutputWithContext(ctx context.Context) LoggingCategoryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(LoggingCategoryArrayOutput)
-}
-
-// Logging Category
-type LoggingCategoryOutput struct{ *pulumi.OutputState }
-
-func (LoggingCategoryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingCategory)(nil)).Elem()
-}
-
-func (o LoggingCategoryOutput) ToLoggingCategoryOutput() LoggingCategoryOutput {
-	return o
-}
-
-func (o LoggingCategoryOutput) ToLoggingCategoryOutputWithContext(ctx context.Context) LoggingCategoryOutput {
-	return o
-}
-
-// The name of the logging category.
-func (o LoggingCategoryOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoggingCategory) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type LoggingCategoryArrayOutput struct{ *pulumi.OutputState }
-
-func (LoggingCategoryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoggingCategory)(nil)).Elem()
-}
-
-func (o LoggingCategoryArrayOutput) ToLoggingCategoryArrayOutput() LoggingCategoryArrayOutput {
-	return o
-}
-
-func (o LoggingCategoryArrayOutput) ToLoggingCategoryArrayOutputWithContext(ctx context.Context) LoggingCategoryArrayOutput {
-	return o
-}
-
-func (o LoggingCategoryArrayOutput) Index(i pulumi.IntInput) LoggingCategoryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingCategory {
-		return vs[0].([]LoggingCategory)[vs[1].(int)]
-	}).(LoggingCategoryOutput)
-}
-
-// Logging Category
-type LoggingCategoryResponse struct {
-	// The name of the logging category.
-	Name *string `pulumi:"name"`
-}
-
-// Logging Category
-type LoggingCategoryResponseOutput struct{ *pulumi.OutputState }
-
-func (LoggingCategoryResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*LoggingCategoryResponse)(nil)).Elem()
-}
-
-func (o LoggingCategoryResponseOutput) ToLoggingCategoryResponseOutput() LoggingCategoryResponseOutput {
-	return o
-}
-
-func (o LoggingCategoryResponseOutput) ToLoggingCategoryResponseOutputWithContext(ctx context.Context) LoggingCategoryResponseOutput {
-	return o
-}
-
-// The name of the logging category.
-func (o LoggingCategoryResponseOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LoggingCategoryResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
-}
-
-type LoggingCategoryResponseArrayOutput struct{ *pulumi.OutputState }
-
-func (LoggingCategoryResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]LoggingCategoryResponse)(nil)).Elem()
-}
-
-func (o LoggingCategoryResponseArrayOutput) ToLoggingCategoryResponseArrayOutput() LoggingCategoryResponseArrayOutput {
-	return o
-}
-
-func (o LoggingCategoryResponseArrayOutput) ToLoggingCategoryResponseArrayOutputWithContext(ctx context.Context) LoggingCategoryResponseArrayOutput {
-	return o
-}
-
-func (o LoggingCategoryResponseArrayOutput) Index(i pulumi.IntInput) LoggingCategoryResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) LoggingCategoryResponse {
-		return vs[0].([]LoggingCategoryResponse)[vs[1].(int)]
-	}).(LoggingCategoryResponseOutput)
 }
 
 // Exclude variables from managed rule evaluation.
@@ -71464,10 +71302,6 @@ func init() {
 	pulumi.RegisterOutputType(LocalNetworkGatewayTypePtrOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayResponseOutput{})
 	pulumi.RegisterOutputType(LocalNetworkGatewayResponsePtrOutput{})
-	pulumi.RegisterOutputType(LoggingCategoryOutput{})
-	pulumi.RegisterOutputType(LoggingCategoryArrayOutput{})
-	pulumi.RegisterOutputType(LoggingCategoryResponseOutput{})
-	pulumi.RegisterOutputType(LoggingCategoryResponseArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleExclusionOutput{})
 	pulumi.RegisterOutputType(ManagedRuleExclusionArrayOutput{})
 	pulumi.RegisterOutputType(ManagedRuleExclusionResponseOutput{})

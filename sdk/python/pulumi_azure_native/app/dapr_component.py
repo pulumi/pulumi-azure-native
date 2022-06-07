@@ -17,11 +17,11 @@ class DaprComponentArgs:
     def __init__(__self__, *,
                  environment_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 component_name: Optional[pulumi.Input[str]] = None,
                  component_type: Optional[pulumi.Input[str]] = None,
                  ignore_errors: Optional[pulumi.Input[bool]] = None,
                  init_timeout: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input['SecretArgs']]]] = None,
                  version: Optional[pulumi.Input[str]] = None):
@@ -29,17 +29,19 @@ class DaprComponentArgs:
         The set of arguments for constructing a DaprComponent resource.
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] component_name: Name of the Dapr Component.
         :param pulumi.Input[str] component_type: Component type
         :param pulumi.Input[bool] ignore_errors: Boolean describing if the component errors are ignores
         :param pulumi.Input[str] init_timeout: Initialization timeout
         :param pulumi.Input[Sequence[pulumi.Input['DaprMetadataArgs']]] metadata: Component metadata
-        :param pulumi.Input[str] name: Name of the Dapr Component.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Names of container apps that can use this Dapr component
         :param pulumi.Input[Sequence[pulumi.Input['SecretArgs']]] secrets: Collection of secrets used by a Dapr component
         :param pulumi.Input[str] version: Component version
         """
         pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if component_name is not None:
+            pulumi.set(__self__, "component_name", component_name)
         if component_type is not None:
             pulumi.set(__self__, "component_type", component_type)
         if ignore_errors is not None:
@@ -48,8 +50,6 @@ class DaprComponentArgs:
             pulumi.set(__self__, "init_timeout", init_timeout)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if scopes is not None:
             pulumi.set(__self__, "scopes", scopes)
         if secrets is not None:
@@ -80,6 +80,18 @@ class DaprComponentArgs:
     @resource_group_name.setter
     def resource_group_name(self, value: pulumi.Input[str]):
         pulumi.set(self, "resource_group_name", value)
+
+    @property
+    @pulumi.getter(name="componentName")
+    def component_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Dapr Component.
+        """
+        return pulumi.get(self, "component_name")
+
+    @component_name.setter
+    def component_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "component_name", value)
 
     @property
     @pulumi.getter(name="componentType")
@@ -131,18 +143,6 @@ class DaprComponentArgs:
 
     @property
     @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the Dapr Component.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
-
-    @property
-    @pulumi.getter
     def scopes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
         Names of container apps that can use this Dapr component
@@ -183,12 +183,12 @@ class DaprComponent(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 component_name: Optional[pulumi.Input[str]] = None,
                  component_type: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  ignore_errors: Optional[pulumi.Input[bool]] = None,
                  init_timeout: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprMetadataArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretArgs']]]]] = None,
@@ -200,12 +200,12 @@ class DaprComponent(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] component_name: Name of the Dapr Component.
         :param pulumi.Input[str] component_type: Component type
         :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[bool] ignore_errors: Boolean describing if the component errors are ignores
         :param pulumi.Input[str] init_timeout: Initialization timeout
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprMetadataArgs']]]] metadata: Component metadata
-        :param pulumi.Input[str] name: Name of the Dapr Component.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] scopes: Names of container apps that can use this Dapr component
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretArgs']]]] secrets: Collection of secrets used by a Dapr component
@@ -236,12 +236,12 @@ class DaprComponent(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 component_name: Optional[pulumi.Input[str]] = None,
                  component_type: Optional[pulumi.Input[str]] = None,
                  environment_name: Optional[pulumi.Input[str]] = None,
                  ignore_errors: Optional[pulumi.Input[bool]] = None,
                  init_timeout: Optional[pulumi.Input[str]] = None,
                  metadata: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DaprMetadataArgs']]]]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  scopes: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  secrets: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SecretArgs']]]]] = None,
@@ -258,6 +258,7 @@ class DaprComponent(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = DaprComponentArgs.__new__(DaprComponentArgs)
 
+            __props__.__dict__["component_name"] = component_name
             __props__.__dict__["component_type"] = component_type
             if environment_name is None and not opts.urn:
                 raise TypeError("Missing required property 'environment_name'")
@@ -265,13 +266,13 @@ class DaprComponent(pulumi.CustomResource):
             __props__.__dict__["ignore_errors"] = ignore_errors
             __props__.__dict__["init_timeout"] = init_timeout
             __props__.__dict__["metadata"] = metadata
-            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["scopes"] = scopes
             __props__.__dict__["secrets"] = secrets
             __props__.__dict__["version"] = version
+            __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app/v20220101preview:DaprComponent"), pulumi.Alias(type_="azure-native:app/v20220301:DaprComponent")])

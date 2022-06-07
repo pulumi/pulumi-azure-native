@@ -24,7 +24,7 @@ namespace Pulumi.AzureNative.ProviderHub.V20201120.Inputs
         public Input<string> Location { get; set; } = null!;
 
         [Input("type")]
-        public Input<string>? Type { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.ProviderHub.V20201120.ExtendedLocationType>? Type { get; set; }
 
         [Input("zoneDetails")]
         private InputList<Inputs.SkuZoneDetailArgs>? _zoneDetails;

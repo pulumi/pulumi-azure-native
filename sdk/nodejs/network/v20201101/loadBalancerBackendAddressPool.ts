@@ -52,10 +52,6 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
      */
     public /*out*/ readonly loadBalancingRules!: pulumi.Output<outputs.network.v20201101.SubResourceResponse[]>;
     /**
-     * The location of the backend address pool.
-     */
-    public readonly location!: pulumi.Output<string | undefined>;
-    /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
     public readonly name!: pulumi.Output<string | undefined>;
@@ -97,7 +93,6 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             resourceInputs["id"] = args ? args.id : undefined;
             resourceInputs["loadBalancerBackendAddresses"] = args ? args.loadBalancerBackendAddresses : undefined;
             resourceInputs["loadBalancerName"] = args ? args.loadBalancerName : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["backendIPConfigurations"] = undefined /*out*/;
@@ -112,7 +107,6 @@ export class LoadBalancerBackendAddressPool extends pulumi.CustomResource {
             resourceInputs["etag"] = undefined /*out*/;
             resourceInputs["loadBalancerBackendAddresses"] = undefined /*out*/;
             resourceInputs["loadBalancingRules"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outboundRule"] = undefined /*out*/;
             resourceInputs["outboundRules"] = undefined /*out*/;
@@ -146,10 +140,6 @@ export interface LoadBalancerBackendAddressPoolArgs {
      * The name of the load balancer.
      */
     loadBalancerName: pulumi.Input<string>;
-    /**
-     * The location of the backend address pool.
-     */
-    location?: pulumi.Input<string>;
     /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */

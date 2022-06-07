@@ -33,6 +33,8 @@ __all__ = [
     'CodeContainerArgs',
     'CodeVersionArgs',
     'CommandJobArgs',
+    'ComponentContainerArgs',
+    'ComponentVersionArgs',
     'ComputeBindingArgs',
     'ComputeConfigurationArgs',
     'ComputeInstancePropertiesArgs',
@@ -2114,6 +2116,191 @@ class CommandJobArgs:
     @timeout.setter
     def timeout(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "timeout", value)
+
+
+@pulumi.input_type
+class ComponentContainerArgs:
+    def __init__(__self__, *,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_archived: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Component container definition.
+        <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[bool] is_archived: Is the asset archived?
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the asset archived?
+        """
+        return pulumi.get(self, "is_archived")
+
+    @is_archived.setter
+    def is_archived(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_archived", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
+
+
+@pulumi.input_type
+class ComponentVersionArgs:
+    def __init__(__self__, *,
+                 component_spec: Optional[Any] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 is_anonymous: Optional[pulumi.Input[bool]] = None,
+                 is_archived: Optional[pulumi.Input[bool]] = None,
+                 properties: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
+        """
+        Definition of a component version: defines resources that span component types.
+        :param Any component_spec: Defines Component definition details.
+               <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+        :param pulumi.Input[str] description: The asset description text.
+        :param pulumi.Input[bool] is_anonymous: If the name version are system generated (anonymous registration).
+        :param pulumi.Input[bool] is_archived: Is the asset archived?
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] properties: The asset property dictionary.
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Tag dictionary. Tags can be added, removed, and updated.
+        """
+        if component_spec is not None:
+            pulumi.set(__self__, "component_spec", component_spec)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if is_anonymous is None:
+            is_anonymous = False
+        if is_anonymous is not None:
+            pulumi.set(__self__, "is_anonymous", is_anonymous)
+        if is_archived is None:
+            is_archived = False
+        if is_archived is not None:
+            pulumi.set(__self__, "is_archived", is_archived)
+        if properties is not None:
+            pulumi.set(__self__, "properties", properties)
+        if tags is not None:
+            pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="componentSpec")
+    def component_spec(self) -> Optional[Any]:
+        """
+        Defines Component definition details.
+        <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+        """
+        return pulumi.get(self, "component_spec")
+
+    @component_spec.setter
+    def component_spec(self, value: Optional[Any]):
+        pulumi.set(self, "component_spec", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        The asset description text.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="isAnonymous")
+    def is_anonymous(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If the name version are system generated (anonymous registration).
+        """
+        return pulumi.get(self, "is_anonymous")
+
+    @is_anonymous.setter
+    def is_anonymous(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_anonymous", value)
+
+    @property
+    @pulumi.getter(name="isArchived")
+    def is_archived(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is the asset archived?
+        """
+        return pulumi.get(self, "is_archived")
+
+    @is_archived.setter
+    def is_archived(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "is_archived", value)
+
+    @property
+    @pulumi.getter
+    def properties(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        The asset property dictionary.
+        """
+        return pulumi.get(self, "properties")
+
+    @properties.setter
+    def properties(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "properties", value)
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
+        """
+        Tag dictionary. Tags can be added, removed, and updated.
+        """
+        return pulumi.get(self, "tags")
+
+    @tags.setter
+    def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
+        pulumi.set(self, "tags", value)
 
 
 @pulumi.input_type

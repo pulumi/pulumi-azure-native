@@ -19,6 +19,8 @@ type ManagedServerDnsAlias struct {
 	AzureDnsRecord pulumi.StringOutput `pulumi:"azureDnsRecord"`
 	// Resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The fully qualified public DNS record for managed server alias
+	PublicAzureDnsRecord pulumi.StringOutput `pulumi:"publicAzureDnsRecord"`
 	// Resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -142,6 +144,11 @@ func (o ManagedServerDnsAliasOutput) AzureDnsRecord() pulumi.StringOutput {
 // Resource name.
 func (o ManagedServerDnsAliasOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedServerDnsAlias) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The fully qualified public DNS record for managed server alias
+func (o ManagedServerDnsAliasOutput) PublicAzureDnsRecord() pulumi.StringOutput {
+	return o.ApplyT(func(v *ManagedServerDnsAlias) pulumi.StringOutput { return v.PublicAzureDnsRecord }).(pulumi.StringOutput)
 }
 
 // Resource type.

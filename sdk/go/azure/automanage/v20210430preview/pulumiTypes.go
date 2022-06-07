@@ -16,8 +16,6 @@ type ConfigurationProfileAssignmentProperties struct {
 	ConfigurationProfile *string `pulumi:"configurationProfile"`
 	// The profileOverrides setting for the configuration profile assignment.
 	ProfileOverrides map[string]interface{} `pulumi:"profileOverrides"`
-	// The target VM resource URI
-	TargetId *string `pulumi:"targetId"`
 }
 
 // ConfigurationProfileAssignmentPropertiesInput is an input type that accepts ConfigurationProfileAssignmentPropertiesArgs and ConfigurationProfileAssignmentPropertiesOutput values.
@@ -37,8 +35,6 @@ type ConfigurationProfileAssignmentPropertiesArgs struct {
 	ConfigurationProfile pulumi.StringPtrInput `pulumi:"configurationProfile"`
 	// The profileOverrides setting for the configuration profile assignment.
 	ProfileOverrides pulumi.MapInput `pulumi:"profileOverrides"`
-	// The target VM resource URI
-	TargetId pulumi.StringPtrInput `pulumi:"targetId"`
 }
 
 func (ConfigurationProfileAssignmentPropertiesArgs) ElementType() reflect.Type {
@@ -129,11 +125,6 @@ func (o ConfigurationProfileAssignmentPropertiesOutput) ProfileOverrides() pulum
 	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) map[string]interface{} { return v.ProfileOverrides }).(pulumi.MapOutput)
 }
 
-// The target VM resource URI
-func (o ConfigurationProfileAssignmentPropertiesOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.TargetId }).(pulumi.StringPtrOutput)
-}
-
 type ConfigurationProfileAssignmentPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileAssignmentPropertiesPtrOutput) ElementType() reflect.Type {
@@ -178,16 +169,6 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ProfileOverrides() pu
 	}).(pulumi.MapOutput)
 }
 
-// The target VM resource URI
-func (o ConfigurationProfileAssignmentPropertiesPtrOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TargetId
-	}).(pulumi.StringPtrOutput)
-}
-
 // Automanage configuration profile assignment properties.
 type ConfigurationProfileAssignmentPropertiesResponse struct {
 	// The Automanage configurationProfile ARM Resource URI.
@@ -197,7 +178,7 @@ type ConfigurationProfileAssignmentPropertiesResponse struct {
 	// The status of onboarding, which only appears in the response.
 	Status string `pulumi:"status"`
 	// The target VM resource URI
-	TargetId *string `pulumi:"targetId"`
+	TargetId string `pulumi:"targetId"`
 }
 
 // Automanage configuration profile assignment properties.
@@ -233,8 +214,8 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) Status() pulumi.
 }
 
 // The target VM resource URI
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) TargetId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.TargetId }).(pulumi.StringPtrOutput)
+func (o ConfigurationProfileAssignmentPropertiesResponseOutput) TargetId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) string { return v.TargetId }).(pulumi.StringOutput)
 }
 
 // Automanage configuration profile properties.

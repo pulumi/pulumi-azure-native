@@ -107,7 +107,7 @@ export class MigrationConfig extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:MigrationConfig" }, { type: "azure-native:servicebus/v20180101preview:MigrationConfig" }, { type: "azure-native:servicebus/v20210101preview:MigrationConfig" }, { type: "azure-native:servicebus/v20210601preview:MigrationConfig" }, { type: "azure-native:servicebus/v20211101:MigrationConfig" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:servicebus/v20170401:MigrationConfig" }, { type: "azure-native:servicebus/v20180101preview:MigrationConfig" }, { type: "azure-native:servicebus/v20210101preview:MigrationConfig" }, { type: "azure-native:servicebus/v20210601preview:MigrationConfig" }, { type: "azure-native:servicebus/v20211101:MigrationConfig" }, { type: "azure-native:servicebus/v20220101preview:MigrationConfig" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(MigrationConfig.__pulumiType, name, resourceInputs, opts);
     }

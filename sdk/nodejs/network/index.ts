@@ -103,6 +103,7 @@ export * from "./getNetworkVirtualAppliance";
 export * from "./getNetworkWatcher";
 export * from "./getNspAccessRule";
 export * from "./getNspAssociation";
+export * from "./getNspAssociationsProxy";
 export * from "./getNspProfile";
 export * from "./getOutboundEndpoint";
 export * from "./getP2sVpnGateway";
@@ -202,6 +203,7 @@ export * from "./networkVirtualAppliance";
 export * from "./networkWatcher";
 export * from "./nspAccessRule";
 export * from "./nspAssociation";
+export * from "./nspAssociationsProxy";
 export * from "./nspProfile";
 export * from "./outboundEndpoint";
 export * from "./p2sVpnGateway";
@@ -321,6 +323,7 @@ import * as v20210501 from "./v20210501";
 import * as v20210501preview from "./v20210501preview";
 import * as v20210801 from "./v20210801";
 import * as v20220201preview from "./v20220201preview";
+import * as v20220401preview from "./v20220401preview";
 
 export {
     v20150501preview,
@@ -381,6 +384,7 @@ export {
     v20210501preview,
     v20210801,
     v20220201preview,
+    v20220401preview,
 };
 
 // Import resources to register:
@@ -443,6 +447,7 @@ import { NetworkVirtualAppliance } from "./networkVirtualAppliance";
 import { NetworkWatcher } from "./networkWatcher";
 import { NspAccessRule } from "./nspAccessRule";
 import { NspAssociation } from "./nspAssociation";
+import { NspAssociationsProxy } from "./nspAssociationsProxy";
 import { NspProfile } from "./nspProfile";
 import { OutboundEndpoint } from "./outboundEndpoint";
 import { P2sVpnGateway } from "./p2sVpnGateway";
@@ -622,6 +627,8 @@ const _module = {
                 return new NspAccessRule(name, <any>undefined, { urn })
             case "azure-native:network:NspAssociation":
                 return new NspAssociation(name, <any>undefined, { urn })
+            case "azure-native:network:NspAssociationsProxy":
+                return new NspAssociationsProxy(name, <any>undefined, { urn })
             case "azure-native:network:NspProfile":
                 return new NspProfile(name, <any>undefined, { urn })
             case "azure-native:network:OutboundEndpoint":

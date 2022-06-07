@@ -40,7 +40,7 @@ export class CustomDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly customHttpsParameters!: pulumi.Output<outputs.cdn.v20210601.CdnManagedHttpsParametersResponse | outputs.cdn.v20210601.UserManagedHttpsParametersResponse | undefined>;
     /**
-     * Provisioning status of Custom Https of the custom domain.
+     * Provisioning status of the custom domain.
      */
     public /*out*/ readonly customHttpsProvisioningState!: pulumi.Output<string>;
     /**
@@ -56,7 +56,7 @@ export class CustomDomain extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Provisioning status of the custom domain.
+     * Provisioning status of Custom Https of the custom domain.
      */
     public /*out*/ readonly provisioningState!: pulumi.Output<string>;
     /**

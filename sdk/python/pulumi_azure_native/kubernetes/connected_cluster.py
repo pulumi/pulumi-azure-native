@@ -265,7 +265,7 @@ class ConnectedCluster(pulumi.CustomResource):
             __props__.__dict__["total_core_count"] = None
             __props__.__dict__["total_node_count"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetes/v20200101preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20210301:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20210401preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20211001:ConnectedCluster")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:kubernetes/v20200101preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20210301:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20210401preview:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20211001:ConnectedCluster"), pulumi.Alias(type_="azure-native:kubernetes/v20220501preview:ConnectedCluster")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(ConnectedCluster, __self__).__init__(
             'azure-native:kubernetes:ConnectedCluster',

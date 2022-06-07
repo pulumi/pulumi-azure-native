@@ -10,15 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// The session host configuration for updating agent, monitoring agent, and stack component.
+// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
 type AgentUpdateProperties struct {
-	// Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+	// The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false.
 	MaintenanceWindowTimeZone *string `pulumi:"maintenanceWindowTimeZone"`
-	// List of maintenance windows. Maintenance windows are 2 hours long.
+	// The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified.
 	MaintenanceWindows []MaintenanceWindowProperties `pulumi:"maintenanceWindows"`
-	// The type of maintenance for session host components.
+	// The preferred mechanism for updating the agent components. This is either Scheduled or Default.
 	Type *string `pulumi:"type"`
-	// Whether to use localTime of the virtual machine.
+	// Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false.
 	UseSessionHostLocalTime *bool `pulumi:"useSessionHostLocalTime"`
 }
 
@@ -33,15 +33,15 @@ type AgentUpdatePropertiesInput interface {
 	ToAgentUpdatePropertiesOutputWithContext(context.Context) AgentUpdatePropertiesOutput
 }
 
-// The session host configuration for updating agent, monitoring agent, and stack component.
+// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
 type AgentUpdatePropertiesArgs struct {
-	// Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+	// The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false.
 	MaintenanceWindowTimeZone pulumi.StringPtrInput `pulumi:"maintenanceWindowTimeZone"`
-	// List of maintenance windows. Maintenance windows are 2 hours long.
+	// The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified.
 	MaintenanceWindows MaintenanceWindowPropertiesArrayInput `pulumi:"maintenanceWindows"`
-	// The type of maintenance for session host components.
+	// The preferred mechanism for updating the agent components. This is either Scheduled or Default.
 	Type pulumi.StringPtrInput `pulumi:"type"`
-	// Whether to use localTime of the virtual machine.
+	// Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false.
 	UseSessionHostLocalTime pulumi.BoolPtrInput `pulumi:"useSessionHostLocalTime"`
 }
 
@@ -98,7 +98,7 @@ func (i *agentUpdatePropertiesPtrType) ToAgentUpdatePropertiesPtrOutputWithConte
 	return pulumi.ToOutputWithContext(ctx, i).(AgentUpdatePropertiesPtrOutput)
 }
 
-// The session host configuration for updating agent, monitoring agent, and stack component.
+// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
 type AgentUpdatePropertiesOutput struct{ *pulumi.OutputState }
 
 func (AgentUpdatePropertiesOutput) ElementType() reflect.Type {
@@ -123,22 +123,22 @@ func (o AgentUpdatePropertiesOutput) ToAgentUpdatePropertiesPtrOutputWithContext
 	}).(AgentUpdatePropertiesPtrOutput)
 }
 
-// Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+// The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false.
 func (o AgentUpdatePropertiesOutput) MaintenanceWindowTimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentUpdateProperties) *string { return v.MaintenanceWindowTimeZone }).(pulumi.StringPtrOutput)
 }
 
-// List of maintenance windows. Maintenance windows are 2 hours long.
+// The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified.
 func (o AgentUpdatePropertiesOutput) MaintenanceWindows() MaintenanceWindowPropertiesArrayOutput {
 	return o.ApplyT(func(v AgentUpdateProperties) []MaintenanceWindowProperties { return v.MaintenanceWindows }).(MaintenanceWindowPropertiesArrayOutput)
 }
 
-// The type of maintenance for session host components.
+// The preferred mechanism for updating the agent components. This is either Scheduled or Default.
 func (o AgentUpdatePropertiesOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentUpdateProperties) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Whether to use localTime of the virtual machine.
+// Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false.
 func (o AgentUpdatePropertiesOutput) UseSessionHostLocalTime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentUpdateProperties) *bool { return v.UseSessionHostLocalTime }).(pulumi.BoolPtrOutput)
 }
@@ -167,7 +167,7 @@ func (o AgentUpdatePropertiesPtrOutput) Elem() AgentUpdatePropertiesOutput {
 	}).(AgentUpdatePropertiesOutput)
 }
 
-// Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+// The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false.
 func (o AgentUpdatePropertiesPtrOutput) MaintenanceWindowTimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentUpdateProperties) *string {
 		if v == nil {
@@ -177,7 +177,7 @@ func (o AgentUpdatePropertiesPtrOutput) MaintenanceWindowTimeZone() pulumi.Strin
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of maintenance windows. Maintenance windows are 2 hours long.
+// The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified.
 func (o AgentUpdatePropertiesPtrOutput) MaintenanceWindows() MaintenanceWindowPropertiesArrayOutput {
 	return o.ApplyT(func(v *AgentUpdateProperties) []MaintenanceWindowProperties {
 		if v == nil {
@@ -187,7 +187,7 @@ func (o AgentUpdatePropertiesPtrOutput) MaintenanceWindows() MaintenanceWindowPr
 	}).(MaintenanceWindowPropertiesArrayOutput)
 }
 
-// The type of maintenance for session host components.
+// The preferred mechanism for updating the agent components. This is either Scheduled or Default.
 func (o AgentUpdatePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentUpdateProperties) *string {
 		if v == nil {
@@ -197,7 +197,7 @@ func (o AgentUpdatePropertiesPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to use localTime of the virtual machine.
+// Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false.
 func (o AgentUpdatePropertiesPtrOutput) UseSessionHostLocalTime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentUpdateProperties) *bool {
 		if v == nil {
@@ -207,19 +207,19 @@ func (o AgentUpdatePropertiesPtrOutput) UseSessionHostLocalTime() pulumi.BoolPtr
 	}).(pulumi.BoolPtrOutput)
 }
 
-// The session host configuration for updating agent, monitoring agent, and stack component.
+// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
 type AgentUpdatePropertiesResponse struct {
-	// Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+	// The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false.
 	MaintenanceWindowTimeZone *string `pulumi:"maintenanceWindowTimeZone"`
-	// List of maintenance windows. Maintenance windows are 2 hours long.
+	// The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified.
 	MaintenanceWindows []MaintenanceWindowPropertiesResponse `pulumi:"maintenanceWindows"`
-	// The type of maintenance for session host components.
+	// The preferred mechanism for updating the agent components. This is either Scheduled or Default.
 	Type *string `pulumi:"type"`
-	// Whether to use localTime of the virtual machine.
+	// Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false.
 	UseSessionHostLocalTime *bool `pulumi:"useSessionHostLocalTime"`
 }
 
-// The session host configuration for updating agent, monitoring agent, and stack component.
+// The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
 type AgentUpdatePropertiesResponseOutput struct{ *pulumi.OutputState }
 
 func (AgentUpdatePropertiesResponseOutput) ElementType() reflect.Type {
@@ -234,24 +234,24 @@ func (o AgentUpdatePropertiesResponseOutput) ToAgentUpdatePropertiesResponseOutp
 	return o
 }
 
-// Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+// The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false.
 func (o AgentUpdatePropertiesResponseOutput) MaintenanceWindowTimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentUpdatePropertiesResponse) *string { return v.MaintenanceWindowTimeZone }).(pulumi.StringPtrOutput)
 }
 
-// List of maintenance windows. Maintenance windows are 2 hours long.
+// The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified.
 func (o AgentUpdatePropertiesResponseOutput) MaintenanceWindows() MaintenanceWindowPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v AgentUpdatePropertiesResponse) []MaintenanceWindowPropertiesResponse {
 		return v.MaintenanceWindows
 	}).(MaintenanceWindowPropertiesResponseArrayOutput)
 }
 
-// The type of maintenance for session host components.
+// The preferred mechanism for updating the agent components. This is either Scheduled or Default.
 func (o AgentUpdatePropertiesResponseOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AgentUpdatePropertiesResponse) *string { return v.Type }).(pulumi.StringPtrOutput)
 }
 
-// Whether to use localTime of the virtual machine.
+// Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false.
 func (o AgentUpdatePropertiesResponseOutput) UseSessionHostLocalTime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AgentUpdatePropertiesResponse) *bool { return v.UseSessionHostLocalTime }).(pulumi.BoolPtrOutput)
 }
@@ -280,7 +280,7 @@ func (o AgentUpdatePropertiesResponsePtrOutput) Elem() AgentUpdatePropertiesResp
 	}).(AgentUpdatePropertiesResponseOutput)
 }
 
-// Time zone for maintenance as defined in https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. Must be set if useLocalTime is true.
+// The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false.
 func (o AgentUpdatePropertiesResponsePtrOutput) MaintenanceWindowTimeZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentUpdatePropertiesResponse) *string {
 		if v == nil {
@@ -290,7 +290,7 @@ func (o AgentUpdatePropertiesResponsePtrOutput) MaintenanceWindowTimeZone() pulu
 	}).(pulumi.StringPtrOutput)
 }
 
-// List of maintenance windows. Maintenance windows are 2 hours long.
+// The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified.
 func (o AgentUpdatePropertiesResponsePtrOutput) MaintenanceWindows() MaintenanceWindowPropertiesResponseArrayOutput {
 	return o.ApplyT(func(v *AgentUpdatePropertiesResponse) []MaintenanceWindowPropertiesResponse {
 		if v == nil {
@@ -300,7 +300,7 @@ func (o AgentUpdatePropertiesResponsePtrOutput) MaintenanceWindows() Maintenance
 	}).(MaintenanceWindowPropertiesResponseArrayOutput)
 }
 
-// The type of maintenance for session host components.
+// The preferred mechanism for updating the agent components. This is either Scheduled or Default.
 func (o AgentUpdatePropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AgentUpdatePropertiesResponse) *string {
 		if v == nil {
@@ -310,7 +310,7 @@ func (o AgentUpdatePropertiesResponsePtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Whether to use localTime of the virtual machine.
+// Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false.
 func (o AgentUpdatePropertiesResponsePtrOutput) UseSessionHostLocalTime() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *AgentUpdatePropertiesResponse) *bool {
 		if v == nil {
@@ -322,9 +322,9 @@ func (o AgentUpdatePropertiesResponsePtrOutput) UseSessionHostLocalTime() pulumi
 
 // Maintenance window starting hour and day of week.
 type MaintenanceWindowProperties struct {
-	// Day of the week.
+	// The day of the week (Monday-Sunday).
 	DayOfWeek *DayOfWeek `pulumi:"dayOfWeek"`
-	// The update start hour of the day. (0 - 23)
+	// The starting hour of the maintenance window (0-23). Note that maintenance windows are 2 hours long. This means that updates can be applied anytime from the specified start hour to 2 hours after.
 	Hour *int `pulumi:"hour"`
 }
 
@@ -341,9 +341,9 @@ type MaintenanceWindowPropertiesInput interface {
 
 // Maintenance window starting hour and day of week.
 type MaintenanceWindowPropertiesArgs struct {
-	// Day of the week.
+	// The day of the week (Monday-Sunday).
 	DayOfWeek DayOfWeekPtrInput `pulumi:"dayOfWeek"`
-	// The update start hour of the day. (0 - 23)
+	// The starting hour of the maintenance window (0-23). Note that maintenance windows are 2 hours long. This means that updates can be applied anytime from the specified start hour to 2 hours after.
 	Hour pulumi.IntPtrInput `pulumi:"hour"`
 }
 
@@ -399,12 +399,12 @@ func (o MaintenanceWindowPropertiesOutput) ToMaintenanceWindowPropertiesOutputWi
 	return o
 }
 
-// Day of the week.
+// The day of the week (Monday-Sunday).
 func (o MaintenanceWindowPropertiesOutput) DayOfWeek() DayOfWeekPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowProperties) *DayOfWeek { return v.DayOfWeek }).(DayOfWeekPtrOutput)
 }
 
-// The update start hour of the day. (0 - 23)
+// The starting hour of the maintenance window (0-23). Note that maintenance windows are 2 hours long. This means that updates can be applied anytime from the specified start hour to 2 hours after.
 func (o MaintenanceWindowPropertiesOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowProperties) *int { return v.Hour }).(pulumi.IntPtrOutput)
 }
@@ -431,9 +431,9 @@ func (o MaintenanceWindowPropertiesArrayOutput) Index(i pulumi.IntInput) Mainten
 
 // Maintenance window starting hour and day of week.
 type MaintenanceWindowPropertiesResponse struct {
-	// Day of the week.
+	// The day of the week (Monday-Sunday).
 	DayOfWeek *string `pulumi:"dayOfWeek"`
-	// The update start hour of the day. (0 - 23)
+	// The starting hour of the maintenance window (0-23). Note that maintenance windows are 2 hours long. This means that updates can be applied anytime from the specified start hour to 2 hours after.
 	Hour *int `pulumi:"hour"`
 }
 
@@ -452,12 +452,12 @@ func (o MaintenanceWindowPropertiesResponseOutput) ToMaintenanceWindowProperties
 	return o
 }
 
-// Day of the week.
+// The day of the week (Monday-Sunday).
 func (o MaintenanceWindowPropertiesResponseOutput) DayOfWeek() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowPropertiesResponse) *string { return v.DayOfWeek }).(pulumi.StringPtrOutput)
 }
 
-// The update start hour of the day. (0 - 23)
+// The starting hour of the maintenance window (0-23). Note that maintenance windows are 2 hours long. This means that updates can be applied anytime from the specified start hour to 2 hours after.
 func (o MaintenanceWindowPropertiesResponseOutput) Hour() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v MaintenanceWindowPropertiesResponse) *int { return v.Hour }).(pulumi.IntPtrOutput)
 }

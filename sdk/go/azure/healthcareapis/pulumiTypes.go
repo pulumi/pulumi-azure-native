@@ -10,6 +10,350 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// The settings for the CORS configuration of the service instance.
+type CorsConfiguration struct {
+	// If credentials are allowed via CORS.
+	AllowCredentials *bool `pulumi:"allowCredentials"`
+	// The headers to be allowed via CORS.
+	Headers []string `pulumi:"headers"`
+	// The max age to be allowed via CORS.
+	MaxAge *int `pulumi:"maxAge"`
+	// The methods to be allowed via CORS.
+	Methods []string `pulumi:"methods"`
+	// The origins to be allowed via CORS.
+	Origins []string `pulumi:"origins"`
+}
+
+// CorsConfigurationInput is an input type that accepts CorsConfigurationArgs and CorsConfigurationOutput values.
+// You can construct a concrete instance of `CorsConfigurationInput` via:
+//
+//          CorsConfigurationArgs{...}
+type CorsConfigurationInput interface {
+	pulumi.Input
+
+	ToCorsConfigurationOutput() CorsConfigurationOutput
+	ToCorsConfigurationOutputWithContext(context.Context) CorsConfigurationOutput
+}
+
+// The settings for the CORS configuration of the service instance.
+type CorsConfigurationArgs struct {
+	// If credentials are allowed via CORS.
+	AllowCredentials pulumi.BoolPtrInput `pulumi:"allowCredentials"`
+	// The headers to be allowed via CORS.
+	Headers pulumi.StringArrayInput `pulumi:"headers"`
+	// The max age to be allowed via CORS.
+	MaxAge pulumi.IntPtrInput `pulumi:"maxAge"`
+	// The methods to be allowed via CORS.
+	Methods pulumi.StringArrayInput `pulumi:"methods"`
+	// The origins to be allowed via CORS.
+	Origins pulumi.StringArrayInput `pulumi:"origins"`
+}
+
+func (CorsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsConfiguration)(nil)).Elem()
+}
+
+func (i CorsConfigurationArgs) ToCorsConfigurationOutput() CorsConfigurationOutput {
+	return i.ToCorsConfigurationOutputWithContext(context.Background())
+}
+
+func (i CorsConfigurationArgs) ToCorsConfigurationOutputWithContext(ctx context.Context) CorsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsConfigurationOutput)
+}
+
+func (i CorsConfigurationArgs) ToCorsConfigurationPtrOutput() CorsConfigurationPtrOutput {
+	return i.ToCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i CorsConfigurationArgs) ToCorsConfigurationPtrOutputWithContext(ctx context.Context) CorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsConfigurationOutput).ToCorsConfigurationPtrOutputWithContext(ctx)
+}
+
+// CorsConfigurationPtrInput is an input type that accepts CorsConfigurationArgs, CorsConfigurationPtr and CorsConfigurationPtrOutput values.
+// You can construct a concrete instance of `CorsConfigurationPtrInput` via:
+//
+//          CorsConfigurationArgs{...}
+//
+//  or:
+//
+//          nil
+type CorsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToCorsConfigurationPtrOutput() CorsConfigurationPtrOutput
+	ToCorsConfigurationPtrOutputWithContext(context.Context) CorsConfigurationPtrOutput
+}
+
+type corsConfigurationPtrType CorsConfigurationArgs
+
+func CorsConfigurationPtr(v *CorsConfigurationArgs) CorsConfigurationPtrInput {
+	return (*corsConfigurationPtrType)(v)
+}
+
+func (*corsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorsConfiguration)(nil)).Elem()
+}
+
+func (i *corsConfigurationPtrType) ToCorsConfigurationPtrOutput() CorsConfigurationPtrOutput {
+	return i.ToCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *corsConfigurationPtrType) ToCorsConfigurationPtrOutputWithContext(ctx context.Context) CorsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CorsConfigurationPtrOutput)
+}
+
+// The settings for the CORS configuration of the service instance.
+type CorsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (CorsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsConfiguration)(nil)).Elem()
+}
+
+func (o CorsConfigurationOutput) ToCorsConfigurationOutput() CorsConfigurationOutput {
+	return o
+}
+
+func (o CorsConfigurationOutput) ToCorsConfigurationOutputWithContext(ctx context.Context) CorsConfigurationOutput {
+	return o
+}
+
+func (o CorsConfigurationOutput) ToCorsConfigurationPtrOutput() CorsConfigurationPtrOutput {
+	return o.ToCorsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o CorsConfigurationOutput) ToCorsConfigurationPtrOutputWithContext(ctx context.Context) CorsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CorsConfiguration) *CorsConfiguration {
+		return &v
+	}).(CorsConfigurationPtrOutput)
+}
+
+// If credentials are allowed via CORS.
+func (o CorsConfigurationOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CorsConfiguration) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// The headers to be allowed via CORS.
+func (o CorsConfigurationOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsConfiguration) []string { return v.Headers }).(pulumi.StringArrayOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o CorsConfigurationOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CorsConfiguration) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o CorsConfigurationOutput) Methods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsConfiguration) []string { return v.Methods }).(pulumi.StringArrayOutput)
+}
+
+// The origins to be allowed via CORS.
+func (o CorsConfigurationOutput) Origins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsConfiguration) []string { return v.Origins }).(pulumi.StringArrayOutput)
+}
+
+type CorsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (CorsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorsConfiguration)(nil)).Elem()
+}
+
+func (o CorsConfigurationPtrOutput) ToCorsConfigurationPtrOutput() CorsConfigurationPtrOutput {
+	return o
+}
+
+func (o CorsConfigurationPtrOutput) ToCorsConfigurationPtrOutputWithContext(ctx context.Context) CorsConfigurationPtrOutput {
+	return o
+}
+
+func (o CorsConfigurationPtrOutput) Elem() CorsConfigurationOutput {
+	return o.ApplyT(func(v *CorsConfiguration) CorsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret CorsConfiguration
+		return ret
+	}).(CorsConfigurationOutput)
+}
+
+// If credentials are allowed via CORS.
+func (o CorsConfigurationPtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CorsConfiguration) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The headers to be allowed via CORS.
+func (o CorsConfigurationPtrOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o CorsConfigurationPtrOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CorsConfiguration) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAge
+	}).(pulumi.IntPtrOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o CorsConfigurationPtrOutput) Methods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Methods
+	}).(pulumi.StringArrayOutput)
+}
+
+// The origins to be allowed via CORS.
+func (o CorsConfigurationPtrOutput) Origins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CorsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Origins
+	}).(pulumi.StringArrayOutput)
+}
+
+// The settings for the CORS configuration of the service instance.
+type CorsConfigurationResponse struct {
+	// If credentials are allowed via CORS.
+	AllowCredentials *bool `pulumi:"allowCredentials"`
+	// The headers to be allowed via CORS.
+	Headers []string `pulumi:"headers"`
+	// The max age to be allowed via CORS.
+	MaxAge *int `pulumi:"maxAge"`
+	// The methods to be allowed via CORS.
+	Methods []string `pulumi:"methods"`
+	// The origins to be allowed via CORS.
+	Origins []string `pulumi:"origins"`
+}
+
+// The settings for the CORS configuration of the service instance.
+type CorsConfigurationResponseOutput struct{ *pulumi.OutputState }
+
+func (CorsConfigurationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*CorsConfigurationResponse)(nil)).Elem()
+}
+
+func (o CorsConfigurationResponseOutput) ToCorsConfigurationResponseOutput() CorsConfigurationResponseOutput {
+	return o
+}
+
+func (o CorsConfigurationResponseOutput) ToCorsConfigurationResponseOutputWithContext(ctx context.Context) CorsConfigurationResponseOutput {
+	return o
+}
+
+// If credentials are allowed via CORS.
+func (o CorsConfigurationResponseOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v CorsConfigurationResponse) *bool { return v.AllowCredentials }).(pulumi.BoolPtrOutput)
+}
+
+// The headers to be allowed via CORS.
+func (o CorsConfigurationResponseOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsConfigurationResponse) []string { return v.Headers }).(pulumi.StringArrayOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o CorsConfigurationResponseOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v CorsConfigurationResponse) *int { return v.MaxAge }).(pulumi.IntPtrOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o CorsConfigurationResponseOutput) Methods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsConfigurationResponse) []string { return v.Methods }).(pulumi.StringArrayOutput)
+}
+
+// The origins to be allowed via CORS.
+func (o CorsConfigurationResponseOutput) Origins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v CorsConfigurationResponse) []string { return v.Origins }).(pulumi.StringArrayOutput)
+}
+
+type CorsConfigurationResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (CorsConfigurationResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CorsConfigurationResponse)(nil)).Elem()
+}
+
+func (o CorsConfigurationResponsePtrOutput) ToCorsConfigurationResponsePtrOutput() CorsConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o CorsConfigurationResponsePtrOutput) ToCorsConfigurationResponsePtrOutputWithContext(ctx context.Context) CorsConfigurationResponsePtrOutput {
+	return o
+}
+
+func (o CorsConfigurationResponsePtrOutput) Elem() CorsConfigurationResponseOutput {
+	return o.ApplyT(func(v *CorsConfigurationResponse) CorsConfigurationResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CorsConfigurationResponse
+		return ret
+	}).(CorsConfigurationResponseOutput)
+}
+
+// If credentials are allowed via CORS.
+func (o CorsConfigurationResponsePtrOutput) AllowCredentials() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CorsConfigurationResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AllowCredentials
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The headers to be allowed via CORS.
+func (o CorsConfigurationResponsePtrOutput) Headers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CorsConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Headers
+	}).(pulumi.StringArrayOutput)
+}
+
+// The max age to be allowed via CORS.
+func (o CorsConfigurationResponsePtrOutput) MaxAge() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CorsConfigurationResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAge
+	}).(pulumi.IntPtrOutput)
+}
+
+// The methods to be allowed via CORS.
+func (o CorsConfigurationResponsePtrOutput) Methods() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CorsConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Methods
+	}).(pulumi.StringArrayOutput)
+}
+
+// The origins to be allowed via CORS.
+func (o CorsConfigurationResponsePtrOutput) Origins() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CorsConfigurationResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Origins
+	}).(pulumi.StringArrayOutput)
+}
+
 // Authentication configuration information
 type DicomServiceAuthenticationConfigurationResponse struct {
 	// The audiences for the service
@@ -4993,6 +5337,10 @@ func (o WorkspaceResponsePropertiesOutput) PublicNetworkAccess() pulumi.StringOu
 }
 
 func init() {
+	pulumi.RegisterOutputType(CorsConfigurationOutput{})
+	pulumi.RegisterOutputType(CorsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(CorsConfigurationResponseOutput{})
+	pulumi.RegisterOutputType(CorsConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(DicomServiceAuthenticationConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(DicomServiceAuthenticationConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(FhirServiceAccessPolicyEntryOutput{})

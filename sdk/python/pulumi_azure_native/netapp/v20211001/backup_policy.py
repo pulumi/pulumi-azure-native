@@ -30,9 +30,9 @@ class BackupPolicyArgs:
         :param pulumi.Input[str] backup_policy_name: Backup policy Name which uniquely identify backup policy.
         :param pulumi.Input[int] daily_backups_to_keep: Daily backups count to keep
         :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[int] monthly_backups_to_keep: Monthly backups count to keep
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] weekly_backups_to_keep: Weekly backups count to keep
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -116,7 +116,7 @@ class BackupPolicyArgs:
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -140,7 +140,7 @@ class BackupPolicyArgs:
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -185,10 +185,10 @@ class BackupPolicy(pulumi.CustomResource):
         :param pulumi.Input[str] backup_policy_name: Backup policy Name which uniquely identify backup policy.
         :param pulumi.Input[int] daily_backups_to_keep: Daily backups count to keep
         :param pulumi.Input[bool] enabled: The property to decide policy is enabled or not
-        :param pulumi.Input[str] location: Resource location
+        :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[int] monthly_backups_to_keep: Monthly backups count to keep
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
-        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags
+        :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[int] weekly_backups_to_keep: Weekly backups count to keep
         """
         ...
@@ -257,7 +257,7 @@ class BackupPolicy(pulumi.CustomResource):
             __props__.__dict__["type"] = None
             __props__.__dict__["volume_backups"] = None
             __props__.__dict__["volumes_assigned"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200501:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200601:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200701:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200801:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200901:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201101:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210601:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210801:BackupPolicy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:netapp:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200501:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200601:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200701:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200801:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20200901:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201101:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20201201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210201:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210401preview:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210601:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20210801:BackupPolicy"), pulumi.Alias(type_="azure-native:netapp/v20220101:BackupPolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(BackupPolicy, __self__).__init__(
             'azure-native:netapp/v20211001:BackupPolicy',
@@ -333,7 +333,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -349,7 +349,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[str]:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -365,7 +365,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter(name="systemData")
     def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
         """
-        The system meta data relating to this resource.
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
         return pulumi.get(self, "system_data")
 
@@ -373,7 +373,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, str]]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -381,7 +381,7 @@ class BackupPolicy(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[str]:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 

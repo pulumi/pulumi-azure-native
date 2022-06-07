@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.AppConfiguration
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20200701preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20210301preview:ConfigurationStore"},
                     new Pulumi.Alias { Type = "azure-native:appconfiguration/v20211001preview:ConfigurationStore"},
+                    new Pulumi.Alias { Type = "azure-native:appconfiguration/v20220501:ConfigurationStore"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

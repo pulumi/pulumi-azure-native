@@ -61,6 +61,12 @@ func NewFluidRelayServer(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:fluidrelay/v20210910preview:FluidRelayServer"),
 		},
+		{
+			Type: pulumi.String("azure-native:fluidrelay/v20220421:FluidRelayServer"),
+		},
+		{
+			Type: pulumi.String("azure-native:fluidrelay/v20220511:FluidRelayServer"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FluidRelayServer

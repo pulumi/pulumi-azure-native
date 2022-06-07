@@ -36,16 +36,16 @@ namespace Pulumi.AzureNative.App
         public string ContainerAppName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Container App SourceControl.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Container App SourceControl.
+        /// </summary>
+        [Input("sourceControlName", required: true)]
+        public string SourceControlName { get; set; } = null!;
 
         public GetContainerAppsSourceControlArgs()
         {
@@ -61,16 +61,16 @@ namespace Pulumi.AzureNative.App
         public Input<string> ContainerAppName { get; set; } = null!;
 
         /// <summary>
-        /// Name of the Container App SourceControl.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
-
-        /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Container App SourceControl.
+        /// </summary>
+        [Input("sourceControlName", required: true)]
+        public Input<string> SourceControlName { get; set; } = null!;
 
         public GetContainerAppsSourceControlInvokeArgs()
         {

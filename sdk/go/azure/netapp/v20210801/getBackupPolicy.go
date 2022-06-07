@@ -39,19 +39,21 @@ type LookupBackupPolicyResult struct {
 	Enabled *bool `pulumi:"enabled"`
 	// A unique read-only string that changes whenever the resource is updated.
 	Etag string `pulumi:"etag"`
-	// Resource Id
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Resource location
+	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
 	// Monthly backups count to keep
 	MonthlyBackupsToKeep *int `pulumi:"monthlyBackupsToKeep"`
-	// Resource name
+	// The name of the resource
 	Name string `pulumi:"name"`
 	// Azure lifecycle management
 	ProvisioningState string `pulumi:"provisioningState"`
-	// Resource tags
+	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+	SystemData SystemDataResponse `pulumi:"systemData"`
+	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Resource type
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
 	// A list of volumes assigned to this policy
 	VolumeBackups []VolumeBackupsResponse `pulumi:"volumeBackups"`
@@ -122,12 +124,12 @@ func (o LookupBackupPolicyResultOutput) Etag() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Etag }).(pulumi.StringOutput)
 }
 
-// Resource Id
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupBackupPolicyResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Resource location
+// The geo-location where the resource lives
 func (o LookupBackupPolicyResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Location }).(pulumi.StringOutput)
 }
@@ -137,7 +139,7 @@ func (o LookupBackupPolicyResultOutput) MonthlyBackupsToKeep() pulumi.IntPtrOutp
 	return o.ApplyT(func(v LookupBackupPolicyResult) *int { return v.MonthlyBackupsToKeep }).(pulumi.IntPtrOutput)
 }
 
-// Resource name
+// The name of the resource
 func (o LookupBackupPolicyResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -147,12 +149,17 @@ func (o LookupBackupPolicyResultOutput) ProvisioningState() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
 }
 
-// Resource tags
+// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+func (o LookupBackupPolicyResultOutput) SystemData() SystemDataResponseOutput {
+	return o.ApplyT(func(v LookupBackupPolicyResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// Resource tags.
 func (o LookupBackupPolicyResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Resource type
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 func (o LookupBackupPolicyResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBackupPolicyResult) string { return v.Type }).(pulumi.StringOutput)
 }

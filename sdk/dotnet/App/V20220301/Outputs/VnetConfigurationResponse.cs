@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.App.V20220301.Outputs
         /// </summary>
         public readonly string? InfrastructureSubnetId;
         /// <summary>
-        /// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+        /// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
         /// </summary>
         public readonly bool? Internal;
         /// <summary>

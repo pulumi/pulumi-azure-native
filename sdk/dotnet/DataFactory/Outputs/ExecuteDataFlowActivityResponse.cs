@@ -57,6 +57,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? RunConcurrently;
         /// <summary>
+        /// Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
+        /// </summary>
+        public readonly object? SourceStagingConcurrency;
+        /// <summary>
         /// Staging info for execute data flow activity.
         /// </summary>
         public readonly Outputs.DataFlowStagingInfoResponse? Staging;
@@ -96,6 +100,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? runConcurrently,
 
+            object? sourceStagingConcurrency,
+
             Outputs.DataFlowStagingInfoResponse? staging,
 
             object? traceLevel,
@@ -114,6 +120,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             Name = name;
             Policy = policy;
             RunConcurrently = runConcurrently;
+            SourceStagingConcurrency = sourceStagingConcurrency;
             Staging = staging;
             TraceLevel = traceLevel;
             Type = type;

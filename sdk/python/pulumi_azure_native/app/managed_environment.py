@@ -19,8 +19,8 @@ class ManagedEnvironmentArgs:
                  app_logs_configuration: Optional[pulumi.Input['AppLogsConfigurationArgs']] = None,
                  dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vnet_configuration: Optional[pulumi.Input['VnetConfigurationArgs']] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
@@ -32,8 +32,8 @@ class ManagedEnvironmentArgs:
                supported
         :param pulumi.Input[str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+        :param pulumi.Input[str] environment_name: Name of the Environment.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: Name of the Environment.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input['VnetConfigurationArgs'] vnet_configuration: Vnet configuration for the environment
         :param pulumi.Input[bool] zone_redundant: Whether or not this Managed Environment is zone-redundant.
@@ -45,10 +45,10 @@ class ManagedEnvironmentArgs:
             pulumi.set(__self__, "dapr_ai_connection_string", dapr_ai_connection_string)
         if dapr_ai_instrumentation_key is not None:
             pulumi.set(__self__, "dapr_ai_instrumentation_key", dapr_ai_instrumentation_key)
+        if environment_name is not None:
+            pulumi.set(__self__, "environment_name", environment_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if vnet_configuration is not None:
@@ -107,6 +107,18 @@ class ManagedEnvironmentArgs:
         pulumi.set(self, "dapr_ai_instrumentation_key", value)
 
     @property
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Environment.
+        """
+        return pulumi.get(self, "environment_name")
+
+    @environment_name.setter
+    def environment_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "environment_name", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -117,18 +129,6 @@ class ManagedEnvironmentArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the Environment.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -175,8 +175,8 @@ class ManagedEnvironment(pulumi.CustomResource):
                  app_logs_configuration: Optional[pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']]] = None,
                  dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vnet_configuration: Optional[pulumi.Input[pulumi.InputType['VnetConfigurationArgs']]] = None,
@@ -193,8 +193,8 @@ class ManagedEnvironment(pulumi.CustomResource):
                supported
         :param pulumi.Input[str] dapr_ai_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry
         :param pulumi.Input[str] dapr_ai_instrumentation_key: Azure Monitor instrumentation key used by Dapr to export Service to Service communication telemetry
+        :param pulumi.Input[str] environment_name: Name of the Environment.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: Name of the Environment.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         :param pulumi.Input[pulumi.InputType['VnetConfigurationArgs']] vnet_configuration: Vnet configuration for the environment
@@ -228,8 +228,8 @@ class ManagedEnvironment(pulumi.CustomResource):
                  app_logs_configuration: Optional[pulumi.Input[pulumi.InputType['AppLogsConfigurationArgs']]] = None,
                  dapr_ai_connection_string: Optional[pulumi.Input[str]] = None,
                  dapr_ai_instrumentation_key: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vnet_configuration: Optional[pulumi.Input[pulumi.InputType['VnetConfigurationArgs']]] = None,
@@ -249,8 +249,8 @@ class ManagedEnvironment(pulumi.CustomResource):
             __props__.__dict__["app_logs_configuration"] = app_logs_configuration
             __props__.__dict__["dapr_ai_connection_string"] = dapr_ai_connection_string
             __props__.__dict__["dapr_ai_instrumentation_key"] = dapr_ai_instrumentation_key
+            __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["location"] = location
-            __props__.__dict__["name"] = name
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -259,6 +259,7 @@ class ManagedEnvironment(pulumi.CustomResource):
             __props__.__dict__["zone_redundant"] = zone_redundant
             __props__.__dict__["default_domain"] = None
             __props__.__dict__["deployment_errors"] = None
+            __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["static_ip"] = None
             __props__.__dict__["system_data"] = None

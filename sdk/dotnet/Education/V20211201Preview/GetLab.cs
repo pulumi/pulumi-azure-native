@@ -9,138 +9,54 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Education.V20211201Preview
 {
-    /// <summary>
-    /// Lab details.
-    /// </summary>
-    [AzureNativeResourceType("azure-native:education/v20211201preview:GetLab")]
-    public partial class GetLab : Pulumi.CustomResource
+    public static class GetLab
     {
         /// <summary>
-        /// Default monetary cap for each student in this lab
+        /// Lab details.
         /// </summary>
-        [Output("budgetPerStudent")]
-        public Output<Outputs.AmountResponse> BudgetPerStudent { get; private set; } = null!;
+        public static Task<GetLabResult> InvokeAsync(GetLabArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.InvokeAsync<GetLabResult>("azure-native:education/v20211201preview:getLab", args ?? new GetLabArgs(), options.WithDefaults());
 
         /// <summary>
-        /// The type of currency being used for the value.
+        /// Lab details.
         /// </summary>
-        [Output("currency")]
-        public Output<string?> Currency { get; private set; } = null!;
+        public static Output<GetLabResult> Invoke(GetLabInvokeArgs args, InvokeOptions? options = null)
+            => Pulumi.Deployment.Instance.Invoke<GetLabResult>("azure-native:education/v20211201preview:getLab", args ?? new GetLabInvokeArgs(), options.WithDefaults());
+    }
+
+
+    public sealed class GetLabArgs : Pulumi.InvokeArgs
+    {
+        /// <summary>
+        /// Billing account name.
+        /// </summary>
+        [Input("billingAccountName", required: true)]
+        public string BillingAccountName { get; set; } = null!;
 
         /// <summary>
-        /// Detail description of this lab
+        /// Billing profile name.
         /// </summary>
-        [Output("description")]
-        public Output<string> Description { get; private set; } = null!;
+        [Input("billingProfileName", required: true)]
+        public string BillingProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Lab Display Name
+        /// May be used to include budget information.
         /// </summary>
-        [Output("displayName")]
-        public Output<string> DisplayName { get; private set; } = null!;
+        [Input("includeBudget")]
+        public bool? IncludeBudget { get; set; }
 
         /// <summary>
-        /// Lab creation date
+        /// Invoice section name.
         /// </summary>
-        [Output("effectiveDate")]
-        public Output<string> EffectiveDate { get; private set; } = null!;
+        [Input("invoiceSectionName", required: true)]
+        public string InvoiceSectionName { get; set; } = null!;
 
-        /// <summary>
-        /// Default expiration date for each student in this lab
-        /// </summary>
-        [Output("expirationDate")]
-        public Output<string> ExpirationDate { get; private set; } = null!;
-
-        /// <summary>
-        /// invitation code for redeemable lab
-        /// </summary>
-        [Output("invitationCode")]
-        public Output<string> InvitationCode { get; private set; } = null!;
-
-        /// <summary>
-        /// the total number of students that can be accepted to the lab.
-        /// </summary>
-        [Output("maxStudentCount")]
-        public Output<double> MaxStudentCount { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// The status of this lab
-        /// </summary>
-        [Output("status")]
-        public Output<string> Status { get; private set; } = null!;
-
-        /// <summary>
-        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        /// </summary>
-        [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
-
-        /// <summary>
-        /// Amount value.
-        /// </summary>
-        [Output("value")]
-        public Output<double?> Value { get; private set; } = null!;
-
-
-        /// <summary>
-        /// Create a GetLab resource with the given unique name, arguments, and options.
-        /// </summary>
-        ///
-        /// <param name="name">The unique name of the resource</param>
-        /// <param name="args">The arguments used to populate this resource's properties</param>
-        /// <param name="options">A bag of options that control this resource's behavior</param>
-        public GetLab(string name, GetLabArgs args, CustomResourceOptions? options = null)
-            : base("azure-native:education/v20211201preview:GetLab", name, args ?? new GetLabArgs(), MakeResourceOptions(options, ""))
+        public GetLabArgs()
         {
-        }
-
-        private GetLab(string name, Input<string> id, CustomResourceOptions? options = null)
-            : base("azure-native:education/v20211201preview:GetLab", name, null, MakeResourceOptions(options, id))
-        {
-        }
-
-        private static CustomResourceOptions MakeResourceOptions(CustomResourceOptions? options, Input<string>? id)
-        {
-            var defaultOptions = new CustomResourceOptions
-            {
-                Version = Utilities.Version,
-                Aliases =
-                {
-                    new Pulumi.Alias { Type = "azure-native:education:GetLab"},
-                },
-            };
-            var merged = CustomResourceOptions.Merge(defaultOptions, options);
-            // Override the ID if one was specified for consistency with other language SDKs.
-            merged.Id = id ?? merged.Id;
-            return merged;
-        }
-        /// <summary>
-        /// Get an existing GetLab resource's state with the given name, ID, and optional extra
-        /// properties used to qualify the lookup.
-        /// </summary>
-        ///
-        /// <param name="name">The unique name of the resulting resource.</param>
-        /// <param name="id">The unique provider ID of the resource to lookup.</param>
-        /// <param name="options">A bag of options that control this resource's behavior</param>
-        public static GetLab Get(string name, Input<string> id, CustomResourceOptions? options = null)
-        {
-            return new GetLab(name, id, options);
         }
     }
 
-    public sealed class GetLabArgs : Pulumi.ResourceArgs
+    public sealed class GetLabInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
         /// Billing account name.
@@ -155,34 +71,10 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         public Input<string> BillingProfileName { get; set; } = null!;
 
         /// <summary>
-        /// Default monetary cap for each student in this lab
+        /// May be used to include budget information.
         /// </summary>
-        [Input("budgetPerStudent", required: true)]
-        public Input<Inputs.AmountArgs> BudgetPerStudent { get; set; } = null!;
-
-        /// <summary>
-        /// The type of currency being used for the value.
-        /// </summary>
-        [Input("currency")]
-        public Input<string>? Currency { get; set; }
-
-        /// <summary>
-        /// Detail description of this lab
-        /// </summary>
-        [Input("description", required: true)]
-        public Input<string> Description { get; set; } = null!;
-
-        /// <summary>
-        /// Lab Display Name
-        /// </summary>
-        [Input("displayName", required: true)]
-        public Input<string> DisplayName { get; set; } = null!;
-
-        /// <summary>
-        /// Default expiration date for each student in this lab
-        /// </summary>
-        [Input("expirationDate", required: true)]
-        public Input<string> ExpirationDate { get; set; } = null!;
+        [Input("includeBudget")]
+        public Input<bool>? IncludeBudget { get; set; }
 
         /// <summary>
         /// Invoice section name.
@@ -190,14 +82,116 @@ namespace Pulumi.AzureNative.Education.V20211201Preview
         [Input("invoiceSectionName", required: true)]
         public Input<string> InvoiceSectionName { get; set; } = null!;
 
+        public GetLabInvokeArgs()
+        {
+        }
+    }
+
+
+    [OutputType]
+    public sealed class GetLabResult
+    {
+        /// <summary>
+        /// Default monetary cap for each student in this lab
+        /// </summary>
+        public readonly Outputs.AmountResponse BudgetPerStudent;
+        /// <summary>
+        /// The type of currency being used for the value.
+        /// </summary>
+        public readonly string? Currency;
+        /// <summary>
+        /// Detail description of this lab
+        /// </summary>
+        public readonly string Description;
+        /// <summary>
+        /// Lab Display Name
+        /// </summary>
+        public readonly string DisplayName;
+        /// <summary>
+        /// Lab creation date
+        /// </summary>
+        public readonly string EffectiveDate;
+        /// <summary>
+        /// Default expiration date for each student in this lab
+        /// </summary>
+        public readonly string ExpirationDate;
+        /// <summary>
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        /// </summary>
+        public readonly string Id;
+        /// <summary>
+        /// invitation code for redeemable lab
+        /// </summary>
+        public readonly string InvitationCode;
+        /// <summary>
+        /// the total number of students that can be accepted to the lab.
+        /// </summary>
+        public readonly double MaxStudentCount;
+        /// <summary>
+        /// The name of the resource
+        /// </summary>
+        public readonly string Name;
+        /// <summary>
+        /// The status of this lab
+        /// </summary>
+        public readonly string Status;
+        /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+        /// </summary>
+        public readonly string Type;
         /// <summary>
         /// Amount value.
         /// </summary>
-        [Input("value")]
-        public Input<double>? Value { get; set; }
+        public readonly double? Value;
 
-        public GetLabArgs()
+        [OutputConstructor]
+        private GetLabResult(
+            Outputs.AmountResponse budgetPerStudent,
+
+            string? currency,
+
+            string description,
+
+            string displayName,
+
+            string effectiveDate,
+
+            string expirationDate,
+
+            string id,
+
+            string invitationCode,
+
+            double maxStudentCount,
+
+            string name,
+
+            string status,
+
+            Outputs.SystemDataResponse systemData,
+
+            string type,
+
+            double? value)
         {
+            BudgetPerStudent = budgetPerStudent;
+            Currency = currency;
+            Description = description;
+            DisplayName = displayName;
+            EffectiveDate = effectiveDate;
+            ExpirationDate = expirationDate;
+            Id = id;
+            InvitationCode = invitationCode;
+            MaxStudentCount = maxStudentCount;
+            Name = name;
+            Status = status;
+            SystemData = systemData;
+            Type = type;
+            Value = value;
         }
     }
 }

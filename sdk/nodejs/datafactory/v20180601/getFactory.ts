@@ -76,6 +76,10 @@ export interface GetFactoryResult {
      */
     readonly publicNetworkAccess?: string;
     /**
+     * Purview information of the factory.
+     */
+    readonly purviewConfiguration?: outputs.datafactory.v20180601.PurviewConfigurationResponse;
+    /**
      * Git repo information of the factory.
      */
     readonly repoConfiguration?: outputs.datafactory.v20180601.FactoryGitHubConfigurationResponse | outputs.datafactory.v20180601.FactoryVSTSConfigurationResponse;

@@ -55,7 +55,7 @@ export class DaprComponent extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Names of container apps that can use this Dapr component
      */
@@ -94,16 +94,17 @@ export class DaprComponent extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["componentName"] = args ? args.componentName : undefined;
             resourceInputs["componentType"] = args ? args.componentType : undefined;
             resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["ignoreErrors"] = args ? args.ignoreErrors : undefined;
             resourceInputs["initTimeout"] = args ? args.initTimeout : undefined;
             resourceInputs["metadata"] = args ? args.metadata : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["scopes"] = args ? args.scopes : undefined;
             resourceInputs["secrets"] = args ? args.secrets : undefined;
             resourceInputs["version"] = args ? args.version : undefined;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -130,6 +131,10 @@ export class DaprComponent extends pulumi.CustomResource {
  */
 export interface DaprComponentArgs {
     /**
+     * Name of the Dapr Component.
+     */
+    componentName?: pulumi.Input<string>;
+    /**
      * Component type
      */
     componentType?: pulumi.Input<string>;
@@ -149,10 +154,6 @@ export interface DaprComponentArgs {
      * Component metadata
      */
     metadata?: pulumi.Input<pulumi.Input<inputs.app.DaprMetadataArgs>[]>;
-    /**
-     * Name of the Dapr Component.
-     */
-    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

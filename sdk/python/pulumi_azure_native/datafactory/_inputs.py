@@ -401,6 +401,7 @@ __all__ = [
     'PrivateEndpointArgs',
     'PrivateLinkConnectionApprovalRequestArgs',
     'PrivateLinkConnectionStateArgs',
+    'PurviewConfigurationArgs',
     'QuickBooksLinkedServiceArgs',
     'QuickBooksObjectDatasetArgs',
     'QuickBooksSourceArgs',
@@ -23468,6 +23469,7 @@ class DataFlowSinkArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  flowlet: Optional[pulumi.Input['DataFlowReferenceArgs']] = None,
                  linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 rejected_data_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  schema_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None):
         """
         Transformation for data flow sink.
@@ -23476,6 +23478,7 @@ class DataFlowSinkArgs:
         :param pulumi.Input[str] description: Transformation description.
         :param pulumi.Input['DataFlowReferenceArgs'] flowlet: Flowlet Reference
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service: Linked service reference.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] rejected_data_linked_service: Rejected data linked service reference.
         :param pulumi.Input['LinkedServiceReferenceArgs'] schema_linked_service: Schema linked service reference.
         """
         pulumi.set(__self__, "name", name)
@@ -23487,6 +23490,8 @@ class DataFlowSinkArgs:
             pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
+        if rejected_data_linked_service is not None:
+            pulumi.set(__self__, "rejected_data_linked_service", rejected_data_linked_service)
         if schema_linked_service is not None:
             pulumi.set(__self__, "schema_linked_service", schema_linked_service)
 
@@ -23549,6 +23554,18 @@ class DataFlowSinkArgs:
     @linked_service.setter
     def linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
         pulumi.set(self, "linked_service", value)
+
+    @property
+    @pulumi.getter(name="rejectedDataLinkedService")
+    def rejected_data_linked_service(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Rejected data linked service reference.
+        """
+        return pulumi.get(self, "rejected_data_linked_service")
+
+    @rejected_data_linked_service.setter
+    def rejected_data_linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "rejected_data_linked_service", value)
 
     @property
     @pulumi.getter(name="schemaLinkedService")
@@ -30125,6 +30142,7 @@ class ExecuteDataFlowActivityArgs:
                  linked_service_name: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  policy: Optional[pulumi.Input['ActivityPolicyArgs']] = None,
                  run_concurrently: Optional[Any] = None,
+                 source_staging_concurrency: Optional[Any] = None,
                  staging: Optional[pulumi.Input['DataFlowStagingInfoArgs']] = None,
                  trace_level: Optional[Any] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
@@ -30142,6 +30160,7 @@ class ExecuteDataFlowActivityArgs:
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
         :param pulumi.Input['ActivityPolicyArgs'] policy: Activity policy.
         :param Any run_concurrently: Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
+        :param Any source_staging_concurrency: Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
         :param pulumi.Input['DataFlowStagingInfoArgs'] staging: Staging info for execute data flow activity.
         :param Any trace_level: Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
@@ -30165,6 +30184,8 @@ class ExecuteDataFlowActivityArgs:
             pulumi.set(__self__, "policy", policy)
         if run_concurrently is not None:
             pulumi.set(__self__, "run_concurrently", run_concurrently)
+        if source_staging_concurrency is not None:
+            pulumi.set(__self__, "source_staging_concurrency", source_staging_concurrency)
         if staging is not None:
             pulumi.set(__self__, "staging", staging)
         if trace_level is not None:
@@ -30304,6 +30325,18 @@ class ExecuteDataFlowActivityArgs:
     @run_concurrently.setter
     def run_concurrently(self, value: Optional[Any]):
         pulumi.set(self, "run_concurrently", value)
+
+    @property
+    @pulumi.getter(name="sourceStagingConcurrency")
+    def source_staging_concurrency(self) -> Optional[Any]:
+        """
+        Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
+        """
+        return pulumi.get(self, "source_staging_concurrency")
+
+    @source_staging_concurrency.setter
+    def source_staging_concurrency(self, value: Optional[Any]):
+        pulumi.set(self, "source_staging_concurrency", value)
 
     @property
     @pulumi.getter
@@ -30842,6 +30875,7 @@ class ExecuteWranglingDataflowActivityArgs:
                  queries: Optional[pulumi.Input[Sequence[pulumi.Input['PowerQuerySinkMappingArgs']]]] = None,
                  run_concurrently: Optional[Any] = None,
                  sinks: Optional[pulumi.Input[Mapping[str, pulumi.Input['PowerQuerySinkArgs']]]] = None,
+                 source_staging_concurrency: Optional[Any] = None,
                  staging: Optional[pulumi.Input['DataFlowStagingInfoArgs']] = None,
                  trace_level: Optional[Any] = None,
                  user_properties: Optional[pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]]] = None):
@@ -30860,6 +30894,7 @@ class ExecuteWranglingDataflowActivityArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PowerQuerySinkMappingArgs']]] queries: List of mapping for Power Query mashup query to sink dataset(s).
         :param Any run_concurrently: Concurrent run setting used for data flow execution. Allows sinks with the same save order to be processed concurrently. Type: boolean (or Expression with resultType boolean)
         :param pulumi.Input[Mapping[str, pulumi.Input['PowerQuerySinkArgs']]] sinks: (Deprecated. Please use Queries). List of Power Query activity sinks mapped to a queryName.
+        :param Any source_staging_concurrency: Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
         :param pulumi.Input['DataFlowStagingInfoArgs'] staging: Staging info for execute data flow activity.
         :param Any trace_level: Trace level setting used for data flow monitoring output. Supported values are: 'coarse', 'fine', and 'none'. Type: string (or Expression with resultType string)
         :param pulumi.Input[Sequence[pulumi.Input['UserPropertyArgs']]] user_properties: Activity user properties.
@@ -30885,6 +30920,8 @@ class ExecuteWranglingDataflowActivityArgs:
             pulumi.set(__self__, "run_concurrently", run_concurrently)
         if sinks is not None:
             pulumi.set(__self__, "sinks", sinks)
+        if source_staging_concurrency is not None:
+            pulumi.set(__self__, "source_staging_concurrency", source_staging_concurrency)
         if staging is not None:
             pulumi.set(__self__, "staging", staging)
         if trace_level is not None:
@@ -31036,6 +31073,18 @@ class ExecuteWranglingDataflowActivityArgs:
     @sinks.setter
     def sinks(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['PowerQuerySinkArgs']]]]):
         pulumi.set(self, "sinks", value)
+
+    @property
+    @pulumi.getter(name="sourceStagingConcurrency")
+    def source_staging_concurrency(self) -> Optional[Any]:
+        """
+        Specify number of parallel staging for sources applicable to the sink. Type: integer (or Expression with resultType integer)
+        """
+        return pulumi.get(self, "source_staging_concurrency")
+
+    @source_staging_concurrency.setter
+    def source_staging_concurrency(self, value: Optional[Any]):
+        pulumi.set(self, "source_staging_concurrency", value)
 
     @property
     @pulumi.getter
@@ -31254,7 +31303,7 @@ class FactoryGitHubConfigurationArgs:
                Expected value is 'FactoryGitHubConfiguration'.
         :param pulumi.Input[str] client_id: GitHub bring your own app client id.
         :param pulumi.Input['GitHubClientSecretArgs'] client_secret: GitHub bring your own app client secret information.
-        :param pulumi.Input[str] host_name: GitHub Enterprise host name. For example: https://github.mydomain.com
+        :param pulumi.Input[str] host_name: GitHub Enterprise host name. For example: `https://github.mydomain.com`
         :param pulumi.Input[str] last_commit_id: Last commit id.
         """
         pulumi.set(__self__, "account_name", account_name)
@@ -31360,7 +31409,7 @@ class FactoryGitHubConfigurationArgs:
     @pulumi.getter(name="hostName")
     def host_name(self) -> Optional[pulumi.Input[str]]:
         """
-        GitHub Enterprise host name. For example: https://github.mydomain.com
+        GitHub Enterprise host name. For example: `https://github.mydomain.com`
         """
         return pulumi.get(self, "host_name")
 
@@ -56212,6 +56261,7 @@ class PowerQuerySinkArgs:
                  description: Optional[pulumi.Input[str]] = None,
                  flowlet: Optional[pulumi.Input['DataFlowReferenceArgs']] = None,
                  linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
+                 rejected_data_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  schema_linked_service: Optional[pulumi.Input['LinkedServiceReferenceArgs']] = None,
                  script: Optional[pulumi.Input[str]] = None):
         """
@@ -56221,6 +56271,7 @@ class PowerQuerySinkArgs:
         :param pulumi.Input[str] description: Transformation description.
         :param pulumi.Input['DataFlowReferenceArgs'] flowlet: Flowlet Reference
         :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service: Linked service reference.
+        :param pulumi.Input['LinkedServiceReferenceArgs'] rejected_data_linked_service: Rejected data linked service reference.
         :param pulumi.Input['LinkedServiceReferenceArgs'] schema_linked_service: Schema linked service reference.
         :param pulumi.Input[str] script: sink script.
         """
@@ -56233,6 +56284,8 @@ class PowerQuerySinkArgs:
             pulumi.set(__self__, "flowlet", flowlet)
         if linked_service is not None:
             pulumi.set(__self__, "linked_service", linked_service)
+        if rejected_data_linked_service is not None:
+            pulumi.set(__self__, "rejected_data_linked_service", rejected_data_linked_service)
         if schema_linked_service is not None:
             pulumi.set(__self__, "schema_linked_service", schema_linked_service)
         if script is not None:
@@ -56297,6 +56350,18 @@ class PowerQuerySinkArgs:
     @linked_service.setter
     def linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
         pulumi.set(self, "linked_service", value)
+
+    @property
+    @pulumi.getter(name="rejectedDataLinkedService")
+    def rejected_data_linked_service(self) -> Optional[pulumi.Input['LinkedServiceReferenceArgs']]:
+        """
+        Rejected data linked service reference.
+        """
+        return pulumi.get(self, "rejected_data_linked_service")
+
+    @rejected_data_linked_service.setter
+    def rejected_data_linked_service(self, value: Optional[pulumi.Input['LinkedServiceReferenceArgs']]):
+        pulumi.set(self, "rejected_data_linked_service", value)
 
     @property
     @pulumi.getter(name="schemaLinkedService")
@@ -57174,6 +57239,30 @@ class PrivateLinkConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class PurviewConfigurationArgs:
+    def __init__(__self__, *,
+                 purview_resource_id: Optional[pulumi.Input[str]] = None):
+        """
+        Purview configuration.
+        :param pulumi.Input[str] purview_resource_id: Purview resource id.
+        """
+        if purview_resource_id is not None:
+            pulumi.set(__self__, "purview_resource_id", purview_resource_id)
+
+    @property
+    @pulumi.getter(name="purviewResourceId")
+    def purview_resource_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        Purview resource id.
+        """
+        return pulumi.get(self, "purview_resource_id")
+
+    @purview_resource_id.setter
+    def purview_resource_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "purview_resource_id", value)
 
 
 @pulumi.input_type

@@ -12,7 +12,7 @@ import (
 )
 
 // Single item in List or Get Schema Group operation
-// API Version: 2021-11-01.
+// API Version: 2022-01-01-preview.
 type SchemaRegistry struct {
 	pulumi.CustomResourceState
 
@@ -52,6 +52,9 @@ func NewSchemaRegistry(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:eventhub/v20211101:SchemaRegistry"),
+		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20220101preview:SchemaRegistry"),
 		},
 	})
 	opts = append(opts, aliases)

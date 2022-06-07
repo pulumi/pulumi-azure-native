@@ -101,7 +101,7 @@ export class SecurityUserConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:SecurityUserConfiguration" }, { type: "azure-native:network/v20210201preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20210501preview:SecurityUserConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:SecurityUserConfiguration" }, { type: "azure-native:network/v20210201preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20210501preview:SecurityUserConfiguration" }, { type: "azure-native:network/v20220401preview:SecurityUserConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SecurityUserConfiguration.__pulumiType, name, resourceInputs, opts);
     }

@@ -16,9 +16,9 @@ export function getManagedEnvironmentsStorage(args: GetManagedEnvironmentsStorag
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app:getManagedEnvironmentsStorage", {
-        "envName": args.envName,
-        "name": args.name,
+        "environmentName": args.environmentName,
         "resourceGroupName": args.resourceGroupName,
+        "storageName": args.storageName,
     }, opts);
 }
 
@@ -26,15 +26,15 @@ export interface GetManagedEnvironmentsStorageArgs {
     /**
      * Name of the Environment.
      */
-    envName: string;
-    /**
-     * Name of the storage.
-     */
-    name: string;
+    environmentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: string;
+    /**
+     * Name of the storage.
+     */
+    storageName: string;
 }
 
 /**
@@ -71,13 +71,13 @@ export interface GetManagedEnvironmentsStorageOutputArgs {
     /**
      * Name of the Environment.
      */
-    envName: pulumi.Input<string>;
-    /**
-     * Name of the storage.
-     */
-    name: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the storage.
+     */
+    storageName: pulumi.Input<string>;
 }

@@ -20,6 +20,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.orbital.v20210404preview as __v20210404preview
     v20210404preview = __v20210404preview
+    import pulumi_azure_native.orbital.v20220301 as __v20220301
+    v20220301 = __v20220301
 else:
     v20210404preview = _utilities.lazy_import('pulumi_azure_native.orbital.v20210404preview')
+    v20220301 = _utilities.lazy_import('pulumi_azure_native.orbital.v20220301')
 

@@ -21,7 +21,7 @@ class GetVolumeResult:
     """
     Volume resource
     """
-    def __init__(__self__, avs_data_store=None, backup_id=None, baremetal_tenant_id=None, capacity_pool_resource_id=None, clone_progress=None, cool_access=None, coolness_period=None, creation_token=None, data_protection=None, default_group_quota_in_ki_bs=None, default_user_quota_in_ki_bs=None, encryption_key_source=None, etag=None, export_policy=None, file_system_id=None, id=None, is_default_quota_enabled=None, is_restoring=None, kerberos_enabled=None, ldap_enabled=None, location=None, mount_targets=None, name=None, network_features=None, network_sibling_set_id=None, placement_rules=None, protocol_types=None, provisioning_state=None, proximity_placement_group=None, security_style=None, service_level=None, smb_continuously_available=None, smb_encryption=None, snapshot_directory_visible=None, snapshot_id=None, storage_to_network_proximity=None, subnet_id=None, t2_network=None, tags=None, throughput_mibps=None, type=None, unix_permissions=None, usage_threshold=None, volume_group_name=None, volume_spec_name=None, volume_type=None):
+    def __init__(__self__, avs_data_store=None, backup_id=None, baremetal_tenant_id=None, capacity_pool_resource_id=None, clone_progress=None, cool_access=None, coolness_period=None, creation_token=None, data_protection=None, default_group_quota_in_ki_bs=None, default_user_quota_in_ki_bs=None, encryption_key_source=None, etag=None, export_policy=None, file_system_id=None, id=None, is_default_quota_enabled=None, is_restoring=None, kerberos_enabled=None, ldap_enabled=None, location=None, mount_targets=None, name=None, network_features=None, network_sibling_set_id=None, placement_rules=None, protocol_types=None, provisioning_state=None, proximity_placement_group=None, security_style=None, service_level=None, smb_continuously_available=None, smb_encryption=None, snapshot_directory_visible=None, snapshot_id=None, storage_to_network_proximity=None, subnet_id=None, system_data=None, t2_network=None, tags=None, throughput_mibps=None, type=None, unix_permissions=None, usage_threshold=None, volume_group_name=None, volume_spec_name=None, volume_type=None):
         if avs_data_store and not isinstance(avs_data_store, str):
             raise TypeError("Expected argument 'avs_data_store' to be a str")
         pulumi.set(__self__, "avs_data_store", avs_data_store)
@@ -133,6 +133,9 @@ class GetVolumeResult:
         if subnet_id and not isinstance(subnet_id, str):
             raise TypeError("Expected argument 'subnet_id' to be a str")
         pulumi.set(__self__, "subnet_id", subnet_id)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
         if t2_network and not isinstance(t2_network, str):
             raise TypeError("Expected argument 't2_network' to be a str")
         pulumi.set(__self__, "t2_network", t2_network)
@@ -285,7 +288,7 @@ class GetVolumeResult:
     @pulumi.getter
     def id(self) -> str:
         """
-        Resource Id
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
 
@@ -325,7 +328,7 @@ class GetVolumeResult:
     @pulumi.getter
     def location(self) -> str:
         """
-        Resource location
+        The geo-location where the resource lives
         """
         return pulumi.get(self, "location")
 
@@ -341,7 +344,7 @@ class GetVolumeResult:
     @pulumi.getter
     def name(self) -> str:
         """
-        Resource name
+        The name of the resource
         """
         return pulumi.get(self, "name")
 
@@ -458,6 +461,14 @@ class GetVolumeResult:
         return pulumi.get(self, "subnet_id")
 
     @property
+    @pulumi.getter(name="systemData")
+    def system_data(self) -> 'outputs.SystemDataResponse':
+        """
+        Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        """
+        return pulumi.get(self, "system_data")
+
+    @property
     @pulumi.getter(name="t2Network")
     def t2_network(self) -> str:
         """
@@ -469,7 +480,7 @@ class GetVolumeResult:
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
-        Resource tags
+        Resource tags.
         """
         return pulumi.get(self, "tags")
 
@@ -482,7 +493,7 @@ class GetVolumeResult:
     @pulumi.getter
     def type(self) -> str:
         """
-        Resource type
+        The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
         return pulumi.get(self, "type")
 
@@ -570,6 +581,7 @@ class AwaitableGetVolumeResult(GetVolumeResult):
             snapshot_id=self.snapshot_id,
             storage_to_network_proximity=self.storage_to_network_proximity,
             subnet_id=self.subnet_id,
+            system_data=self.system_data,
             t2_network=self.t2_network,
             tags=self.tags,
             throughput_mibps=self.throughput_mibps,
@@ -644,6 +656,7 @@ def get_volume(account_name: Optional[str] = None,
         snapshot_id=__ret__.snapshot_id,
         storage_to_network_proximity=__ret__.storage_to_network_proximity,
         subnet_id=__ret__.subnet_id,
+        system_data=__ret__.system_data,
         t2_network=__ret__.t2_network,
         tags=__ret__.tags,
         throughput_mibps=__ret__.throughput_mibps,

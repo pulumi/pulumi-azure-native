@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Workspace resource.
- * API Version: 2021-11-01.
+ * API Version: 2022-05-15.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -98,7 +98,7 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:Workspace" }, { type: "azure-native:healthcareapis/v20211101:Workspace" }, { type: "azure-native:healthcareapis/v20220131preview:Workspace" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:Workspace" }, { type: "azure-native:healthcareapis/v20211101:Workspace" }, { type: "azure-native:healthcareapis/v20220131preview:Workspace" }, { type: "azure-native:healthcareapis/v20220515:Workspace" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Workspace.__pulumiType, name, resourceInputs, opts);
     }

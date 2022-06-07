@@ -78,6 +78,7 @@ namespace Pulumi.AzureNative.Network.V20220201Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:network:SubscriptionNetworkManagerConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501preview:SubscriptionNetworkManagerConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

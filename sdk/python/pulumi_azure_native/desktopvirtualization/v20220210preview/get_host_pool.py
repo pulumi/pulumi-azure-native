@@ -135,7 +135,7 @@ class GetHostPoolResult:
     @pulumi.getter(name="agentUpdate")
     def agent_update(self) -> Optional['outputs.AgentUpdatePropertiesResponse']:
         """
-        The session host configuration for updating agent, monitoring agent, and stack component.
+        The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
         """
         return pulumi.get(self, "agent_update")
 

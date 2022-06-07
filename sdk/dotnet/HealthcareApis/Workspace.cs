@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// Workspace resource.
-    /// API Version: 2021-11-01.
+    /// API Version: 2022-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20210601preview:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:Workspace"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:Workspace"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:Workspace"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

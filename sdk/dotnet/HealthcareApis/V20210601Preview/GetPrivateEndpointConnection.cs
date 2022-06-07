@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20210601Preview
 {
-    [Obsolete(@"Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")]
+    [Obsolete(@"Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")]
     public static class GetPrivateEndpointConnection
     {
         /// <summary>

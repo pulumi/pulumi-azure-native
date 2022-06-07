@@ -37,8 +37,8 @@ func NewCertificate(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ManagedEnvironmentName == nil {
-		return nil, errors.New("invalid value for required argument 'ManagedEnvironmentName'")
+	if args.EnvironmentName == nil {
+		return nil, errors.New("invalid value for required argument 'EnvironmentName'")
 	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
@@ -84,12 +84,12 @@ func (CertificateState) ElementType() reflect.Type {
 }
 
 type certificateArgs struct {
+	// Name of the Certificate.
+	CertificateName *string `pulumi:"certificateName"`
+	// Name of the Managed Environment.
+	EnvironmentName string `pulumi:"environmentName"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
-	// Name of the Managed Environment.
-	ManagedEnvironmentName string `pulumi:"managedEnvironmentName"`
-	// Name of the Certificate.
-	Name *string `pulumi:"name"`
 	// Certificate resource specific properties
 	Properties *CertificateProperties `pulumi:"properties"`
 	// The name of the resource group. The name is case insensitive.
@@ -100,12 +100,12 @@ type certificateArgs struct {
 
 // The set of arguments for constructing a Certificate resource.
 type CertificateArgs struct {
+	// Name of the Certificate.
+	CertificateName pulumi.StringPtrInput
+	// Name of the Managed Environment.
+	EnvironmentName pulumi.StringInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
-	// Name of the Managed Environment.
-	ManagedEnvironmentName pulumi.StringInput
-	// Name of the Certificate.
-	Name pulumi.StringPtrInput
 	// Certificate resource specific properties
 	Properties CertificatePropertiesPtrInput
 	// The name of the resource group. The name is case insensitive.

@@ -101,14 +101,14 @@ func (ContainerAppState) ElementType() reflect.Type {
 type containerAppArgs struct {
 	// Non versioned Container App configuration properties.
 	Configuration *Configuration `pulumi:"configuration"`
+	// Name of the Container App.
+	ContainerAppName *string `pulumi:"containerAppName"`
 	// managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
 	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// The geo-location where the resource lives
 	Location *string `pulumi:"location"`
 	// Resource ID of the Container App's environment.
 	ManagedEnvironmentId *string `pulumi:"managedEnvironmentId"`
-	// Name of the Container App.
-	Name *string `pulumi:"name"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Resource tags.
@@ -121,14 +121,14 @@ type containerAppArgs struct {
 type ContainerAppArgs struct {
 	// Non versioned Container App configuration properties.
 	Configuration ConfigurationPtrInput
+	// Name of the Container App.
+	ContainerAppName pulumi.StringPtrInput
 	// managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
 	Identity ManagedServiceIdentityPtrInput
 	// The geo-location where the resource lives
 	Location pulumi.StringPtrInput
 	// Resource ID of the Container App's environment.
 	ManagedEnvironmentId pulumi.StringPtrInput
-	// Name of the Container App.
-	Name pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Resource tags.

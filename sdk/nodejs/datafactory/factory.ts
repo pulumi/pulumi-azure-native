@@ -73,6 +73,10 @@ export class Factory extends pulumi.CustomResource {
      */
     public readonly publicNetworkAccess!: pulumi.Output<string | undefined>;
     /**
+     * Purview information of the factory.
+     */
+    public readonly purviewConfiguration!: pulumi.Output<outputs.datafactory.PurviewConfigurationResponse | undefined>;
+    /**
      * Git repo information of the factory.
      */
     public readonly repoConfiguration!: pulumi.Output<outputs.datafactory.FactoryGitHubConfigurationResponse | outputs.datafactory.FactoryVSTSConfigurationResponse | undefined>;
@@ -109,6 +113,7 @@ export class Factory extends pulumi.CustomResource {
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["publicNetworkAccess"] = args ? args.publicNetworkAccess : undefined;
+            resourceInputs["purviewConfiguration"] = args ? args.purviewConfiguration : undefined;
             resourceInputs["repoConfiguration"] = args ? args.repoConfiguration : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -128,6 +133,7 @@ export class Factory extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["publicNetworkAccess"] = undefined /*out*/;
+            resourceInputs["purviewConfiguration"] = undefined /*out*/;
             resourceInputs["repoConfiguration"] = undefined /*out*/;
             resourceInputs["tags"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -168,6 +174,10 @@ export interface FactoryArgs {
      * Whether or not public network access is allowed for the data factory.
      */
     publicNetworkAccess?: pulumi.Input<string | enums.datafactory.PublicNetworkAccess>;
+    /**
+     * Purview information of the factory.
+     */
+    purviewConfiguration?: pulumi.Input<inputs.datafactory.PurviewConfigurationArgs>;
     /**
      * Git repo information of the factory.
      */

@@ -48,7 +48,7 @@ export class ContainerAppsSourceControl extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Current provisioning State of the operation
      */
@@ -86,9 +86,10 @@ export class ContainerAppsSourceControl extends pulumi.CustomResource {
             resourceInputs["branch"] = args ? args.branch : undefined;
             resourceInputs["containerAppName"] = args ? args.containerAppName : undefined;
             resourceInputs["githubActionConfiguration"] = args ? args.githubActionConfiguration : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["repoUrl"] = args ? args.repoUrl : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
+            resourceInputs["sourceControlName"] = args ? args.sourceControlName : undefined;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["operationState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
@@ -127,10 +128,6 @@ export interface ContainerAppsSourceControlArgs {
      */
     githubActionConfiguration?: pulumi.Input<inputs.app.v20220301.GithubActionConfigurationArgs>;
     /**
-     * Name of the Container App SourceControl.
-     */
-    name?: pulumi.Input<string>;
-    /**
      * The repo url which will be integrated to ContainerApp.
      */
     repoUrl?: pulumi.Input<string>;
@@ -138,4 +135,8 @@ export interface ContainerAppsSourceControlArgs {
      * The name of the resource group. The name is case insensitive.
      */
     resourceGroupName: pulumi.Input<string>;
+    /**
+     * Name of the Container App SourceControl.
+     */
+    sourceControlName?: pulumi.Input<string>;
 }

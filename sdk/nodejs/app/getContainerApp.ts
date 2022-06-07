@@ -16,7 +16,7 @@ export function getContainerApp(args: GetContainerAppArgs, opts?: pulumi.InvokeO
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app:getContainerApp", {
-        "name": args.name,
+        "containerAppName": args.containerAppName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -25,7 +25,7 @@ export interface GetContainerAppArgs {
     /**
      * Name of the Container App.
      */
-    name: string;
+    containerAppName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -106,7 +106,7 @@ export interface GetContainerAppOutputArgs {
     /**
      * Name of the Container App.
      */
-    name: pulumi.Input<string>;
+    containerAppName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -12,6 +12,8 @@ import (
 )
 
 // The description of Dicom Service
+//
+// Deprecated: Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.
 type DicomService struct {
 	pulumi.CustomResourceState
 
@@ -63,6 +65,9 @@ func NewDicomService(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20211101:DicomService"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20220515:DicomService"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -33,6 +33,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CodeContainer{}
 	case "azure-native:machinelearningservices:CodeVersion":
 		r = &CodeVersion{}
+	case "azure-native:machinelearningservices:ComponentContainer":
+		r = &ComponentContainer{}
+	case "azure-native:machinelearningservices:ComponentVersion":
+		r = &ComponentVersion{}
 	case "azure-native:machinelearningservices:DataContainer":
 		r = &DataContainer{}
 	case "azure-native:machinelearningservices:DataVersion":

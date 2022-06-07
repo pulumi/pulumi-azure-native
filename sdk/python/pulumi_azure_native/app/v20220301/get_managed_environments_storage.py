@@ -92,22 +92,22 @@ class AwaitableGetManagedEnvironmentsStorageResult(GetManagedEnvironmentsStorage
             type=self.type)
 
 
-def get_managed_environments_storage(env_name: Optional[str] = None,
-                                     name: Optional[str] = None,
+def get_managed_environments_storage(environment_name: Optional[str] = None,
                                      resource_group_name: Optional[str] = None,
+                                     storage_name: Optional[str] = None,
                                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetManagedEnvironmentsStorageResult:
     """
     Storage resource for managedEnvironment.
 
 
-    :param str env_name: Name of the Environment.
-    :param str name: Name of the storage.
+    :param str environment_name: Name of the Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str storage_name: Name of the storage.
     """
     __args__ = dict()
-    __args__['envName'] = env_name
-    __args__['name'] = name
+    __args__['environmentName'] = environment_name
     __args__['resourceGroupName'] = resource_group_name
+    __args__['storageName'] = storage_name
     if opts is None:
         opts = pulumi.InvokeOptions()
     if opts.version is None:
@@ -123,16 +123,16 @@ def get_managed_environments_storage(env_name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_managed_environments_storage)
-def get_managed_environments_storage_output(env_name: Optional[pulumi.Input[str]] = None,
-                                            name: Optional[pulumi.Input[str]] = None,
+def get_managed_environments_storage_output(environment_name: Optional[pulumi.Input[str]] = None,
                                             resource_group_name: Optional[pulumi.Input[str]] = None,
+                                            storage_name: Optional[pulumi.Input[str]] = None,
                                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetManagedEnvironmentsStorageResult]:
     """
     Storage resource for managedEnvironment.
 
 
-    :param str env_name: Name of the Environment.
-    :param str name: Name of the storage.
+    :param str environment_name: Name of the Environment.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
+    :param str storage_name: Name of the storage.
     """
     ...

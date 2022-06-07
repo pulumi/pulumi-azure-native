@@ -69,8 +69,6 @@ type Database struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
 	PausedDate pulumi.StringOutput `pulumi:"pausedDate"`
-	// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-	PrimaryDelegatedIdentityClientId pulumi.StringPtrOutput `pulumi:"primaryDelegatedIdentityClientId"`
 	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 	ReadScale pulumi.StringPtrOutput `pulumi:"readScale"`
 	// The storage account type to be used to store backups for this database.
@@ -224,8 +222,6 @@ type databaseArgs struct {
 	MaxSizeBytes *float64 `pulumi:"maxSizeBytes"`
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity *float64 `pulumi:"minCapacity"`
-	// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-	PrimaryDelegatedIdentityClientId *string `pulumi:"primaryDelegatedIdentityClientId"`
 	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 	ReadScale *string `pulumi:"readScale"`
 	// The resource identifier of the recoverable database associated with create operation of this database.
@@ -324,8 +320,6 @@ type DatabaseArgs struct {
 	MaxSizeBytes pulumi.Float64PtrInput
 	// Minimal capacity that database will always have allocated, if not paused
 	MinCapacity pulumi.Float64PtrInput
-	// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-	PrimaryDelegatedIdentityClientId pulumi.StringPtrInput
 	// The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.
 	ReadScale pulumi.StringPtrInput
 	// The resource identifier of the recoverable database associated with create operation of this database.
@@ -544,11 +538,6 @@ func (o DatabaseOutput) Name() pulumi.StringOutput {
 // The date when database was paused by user configuration or action(ISO8601 format). Null if the database is ready.
 func (o DatabaseOutput) PausedDate() pulumi.StringOutput {
 	return o.ApplyT(func(v *Database) pulumi.StringOutput { return v.PausedDate }).(pulumi.StringOutput)
-}
-
-// The Primary Delegated Identity Client id used for per database CMK - for internal use only
-func (o DatabaseOutput) PrimaryDelegatedIdentityClientId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Database) pulumi.StringPtrOutput { return v.PrimaryDelegatedIdentityClientId }).(pulumi.StringPtrOutput)
 }
 
 // The state of read-only routing. If enabled, connections that have application intent set to readonly in their connection string may be routed to a readonly secondary replica in the same region. Not applicable to a Hyperscale database within an elastic pool.

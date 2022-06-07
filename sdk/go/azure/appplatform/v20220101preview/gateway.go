@@ -53,6 +53,9 @@ func NewGateway(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:appplatform/v20220301preview:Gateway"),
 		},
+		{
+			Type: pulumi.String("azure-native:appplatform/v20220501preview:Gateway"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Gateway

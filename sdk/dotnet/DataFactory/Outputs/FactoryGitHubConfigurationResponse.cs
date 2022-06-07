@@ -33,7 +33,7 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly string CollaborationBranch;
         /// <summary>
-        /// GitHub Enterprise host name. For example: https://github.mydomain.com
+        /// GitHub Enterprise host name. For example: `https://github.mydomain.com`
         /// </summary>
         public readonly string? HostName;
         /// <summary>

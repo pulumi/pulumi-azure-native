@@ -61,10 +61,6 @@ export interface GetLoadBalancerBackendAddressPoolResult {
      */
     readonly loadBalancingRules: outputs.network.v20201101.SubResourceResponse[];
     /**
-     * The location of the backend address pool.
-     */
-    readonly location?: string;
-    /**
      * The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
      */
     readonly name?: string;

@@ -37,18 +37,23 @@ const (
 type AttackTactic string
 
 const (
-	AttackTacticInitialAccess       = AttackTactic("InitialAccess")
-	AttackTacticExecution           = AttackTactic("Execution")
-	AttackTacticPersistence         = AttackTactic("Persistence")
-	AttackTacticPrivilegeEscalation = AttackTactic("PrivilegeEscalation")
-	AttackTacticDefenseEvasion      = AttackTactic("DefenseEvasion")
-	AttackTacticCredentialAccess    = AttackTactic("CredentialAccess")
-	AttackTacticDiscovery           = AttackTactic("Discovery")
-	AttackTacticLateralMovement     = AttackTactic("LateralMovement")
-	AttackTacticCollection          = AttackTactic("Collection")
-	AttackTacticExfiltration        = AttackTactic("Exfiltration")
-	AttackTacticCommandAndControl   = AttackTactic("CommandAndControl")
-	AttackTacticImpact              = AttackTactic("Impact")
+	AttackTacticReconnaissance          = AttackTactic("Reconnaissance")
+	AttackTacticResourceDevelopment     = AttackTactic("ResourceDevelopment")
+	AttackTacticInitialAccess           = AttackTactic("InitialAccess")
+	AttackTacticExecution               = AttackTactic("Execution")
+	AttackTacticPersistence             = AttackTactic("Persistence")
+	AttackTacticPrivilegeEscalation     = AttackTactic("PrivilegeEscalation")
+	AttackTacticDefenseEvasion          = AttackTactic("DefenseEvasion")
+	AttackTacticCredentialAccess        = AttackTactic("CredentialAccess")
+	AttackTacticDiscovery               = AttackTactic("Discovery")
+	AttackTacticLateralMovement         = AttackTactic("LateralMovement")
+	AttackTacticCollection              = AttackTactic("Collection")
+	AttackTacticExfiltration            = AttackTactic("Exfiltration")
+	AttackTacticCommandAndControl       = AttackTactic("CommandAndControl")
+	AttackTacticImpact                  = AttackTactic("Impact")
+	AttackTacticPreAttack               = AttackTactic("PreAttack")
+	AttackTacticImpairProcessControl    = AttackTactic("ImpairProcessControl")
+	AttackTacticInhibitResponseFunction = AttackTactic("InhibitResponseFunction")
 )
 
 // The type of the automation rule action
@@ -409,6 +414,13 @@ const (
 	RepoTypeDevOps = RepoType("DevOps")
 )
 
+// The kind of security ML Analytics Settings
+type SecurityMLAnalyticsSettingsKind string
+
+const (
+	SecurityMLAnalyticsSettingsKindAnomaly = SecurityMLAnalyticsSettingsKind("Anomaly")
+)
+
 // The kind of the setting
 type SettingKind string
 
@@ -417,6 +429,16 @@ const (
 	SettingKindEyesOn          = SettingKind("EyesOn")
 	SettingKindEntityAnalytics = SettingKind("EntityAnalytics")
 	SettingKindUeba            = SettingKind("Ueba")
+)
+
+// The anomaly SecurityMLAnalyticsSettings status
+type SettingsStatus string
+
+const (
+	// Anomaly settings status in Production mode
+	SettingsStatusProduction = SettingsStatus("Production")
+	// Anomaly settings status in Flighting mode
+	SettingsStatusFlighting = SettingsStatus("Flighting")
 )
 
 // The source of the watchlist

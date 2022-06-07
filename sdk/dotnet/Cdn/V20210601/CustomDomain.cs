@@ -22,7 +22,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public Output<Union<Outputs.CdnManagedHttpsParametersResponse, Outputs.UserManagedHttpsParametersResponse>?> CustomHttpsParameters { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning status of Custom Https of the custom domain.
+        /// Provisioning status of the custom domain.
         /// </summary>
         [Output("customHttpsProvisioningState")]
         public Output<string> CustomHttpsProvisioningState { get; private set; } = null!;
@@ -46,7 +46,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioning status of the custom domain.
+        /// Provisioning status of Custom Https of the custom domain.
         /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;

@@ -130,12 +130,6 @@ namespace Pulumi.AzureNative.App.V20220301
         public Input<Inputs.GithubActionConfigurationArgs>? GithubActionConfiguration { get; set; }
 
         /// <summary>
-        /// Name of the Container App SourceControl.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
-
-        /// <summary>
         /// The repo url which will be integrated to ContainerApp.
         /// </summary>
         [Input("repoUrl")]
@@ -146,6 +140,12 @@ namespace Pulumi.AzureNative.App.V20220301
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the Container App SourceControl.
+        /// </summary>
+        [Input("sourceControlName")]
+        public Input<string>? SourceControlName { get; set; }
 
         public ContainerAppsSourceControlArgs()
         {

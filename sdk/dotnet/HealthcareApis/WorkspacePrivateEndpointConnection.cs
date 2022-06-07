@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HealthcareApis
 {
     /// <summary>
     /// The Private Endpoint Connection resource.
-    /// API Version: 2021-11-01.
+    /// API Version: 2022-05-15.
     /// </summary>
     [AzureNativeResourceType("azure-native:healthcareapis:WorkspacePrivateEndpointConnection")]
     public partial class WorkspacePrivateEndpointConnection : Pulumi.CustomResource
@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.HealthcareApis
                 {
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20211101:WorkspacePrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

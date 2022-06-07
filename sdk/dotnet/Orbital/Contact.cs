@@ -156,6 +156,7 @@ namespace Pulumi.AzureNative.Orbital
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:orbital/v20210404preview:Contact"},
+                    new Pulumi.Alias { Type = "azure-native:orbital/v20220301:Contact"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

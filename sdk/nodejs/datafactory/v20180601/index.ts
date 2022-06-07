@@ -15,6 +15,7 @@ export * from "./getExposureControlFeatureValueByFactory";
 export * from "./getFactory";
 export * from "./getFactoryDataPlaneAccess";
 export * from "./getFactoryGitHubAccessToken";
+export * from "./getGlobalParameter";
 export * from "./getIntegrationRuntime";
 export * from "./getIntegrationRuntimeConnectionInfo";
 export * from "./getIntegrationRuntimeObjectMetadatum";
@@ -25,6 +26,7 @@ export * from "./getPipeline";
 export * from "./getPrivateEndpointConnection";
 export * from "./getTrigger";
 export * from "./getTriggerEventSubscriptionStatus";
+export * from "./globalParameter";
 export * from "./integrationRuntime";
 export * from "./linkedService";
 export * from "./listIntegrationRuntimeAuthKeys";
@@ -40,6 +42,7 @@ export * from "../../types/enums/datafactory/v20180601";
 import { DataFlow } from "./dataFlow";
 import { Dataset } from "./dataset";
 import { Factory } from "./factory";
+import { GlobalParameter } from "./globalParameter";
 import { IntegrationRuntime } from "./integrationRuntime";
 import { LinkedService } from "./linkedService";
 import { ManagedPrivateEndpoint } from "./managedPrivateEndpoint";
@@ -57,6 +60,8 @@ const _module = {
                 return new Dataset(name, <any>undefined, { urn })
             case "azure-native:datafactory/v20180601:Factory":
                 return new Factory(name, <any>undefined, { urn })
+            case "azure-native:datafactory/v20180601:GlobalParameter":
+                return new GlobalParameter(name, <any>undefined, { urn })
             case "azure-native:datafactory/v20180601:IntegrationRuntime":
                 return new IntegrationRuntime(name, <any>undefined, { urn })
             case "azure-native:datafactory/v20180601:LinkedService":

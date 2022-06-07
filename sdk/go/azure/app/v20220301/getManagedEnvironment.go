@@ -22,7 +22,7 @@ func LookupManagedEnvironment(ctx *pulumi.Context, args *LookupManagedEnvironmen
 
 type LookupManagedEnvironmentArgs struct {
 	// Name of the Environment.
-	Name string `pulumi:"name"`
+	EnvironmentName string `pulumi:"environmentName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -78,7 +78,7 @@ func LookupManagedEnvironmentOutput(ctx *pulumi.Context, args LookupManagedEnvir
 
 type LookupManagedEnvironmentOutputArgs struct {
 	// Name of the Environment.
-	Name pulumi.StringInput `pulumi:"name"`
+	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 }

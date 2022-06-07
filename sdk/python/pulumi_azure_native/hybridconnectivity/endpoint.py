@@ -195,7 +195,7 @@ class Endpoint(pulumi.CustomResource):
                  __props__=None):
         """
         The endpoint for the target resource.
-        API Version: 2021-10-06-preview.
+        API Version: 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -218,7 +218,7 @@ class Endpoint(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The endpoint for the target resource.
-        API Version: 2021-10-06-preview.
+        API Version: 2022-05-01-preview.
 
         :param str resource_name: The name of the resource.
         :param EndpointArgs args: The arguments to use to populate this resource's properties.
@@ -368,6 +368,9 @@ class Endpoint(pulumi.CustomResource):
     @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> pulumi.Output[str]:
+        """
+        The resource provisioning state.
+        """
         return pulumi.get(self, "provisioning_state")
 
     @property

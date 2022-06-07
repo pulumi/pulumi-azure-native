@@ -21,7 +21,7 @@ func LookupLoadTest(ctx *pulumi.Context, args *LookupLoadTestArgs, opts ...pulum
 }
 
 type LookupLoadTestArgs struct {
-	// Load Test name.
+	// Load Test resource name.
 	LoadTestName string `pulumi:"loadTestName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
@@ -65,7 +65,7 @@ func LookupLoadTestOutput(ctx *pulumi.Context, args LookupLoadTestOutputArgs, op
 }
 
 type LookupLoadTestOutputArgs struct {
-	// Load Test name.
+	// Load Test resource name.
 	LoadTestName pulumi.StringInput `pulumi:"loadTestName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`

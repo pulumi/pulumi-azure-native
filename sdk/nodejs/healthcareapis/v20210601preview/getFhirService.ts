@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The description of Fhir Service
  */
-/** @deprecated Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later. */
+/** @deprecated Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later. */
 export function getFhirService(args: GetFhirServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetFhirServiceResult> {
-    pulumi.log.warn("getFhirService is deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20211101 or later.")
+    pulumi.log.warn("getFhirService is deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")
     if (!opts) {
         opts = {}
     }

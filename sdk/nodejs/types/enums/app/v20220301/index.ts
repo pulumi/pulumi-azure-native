@@ -13,8 +13,8 @@ export const AccessMode = {
 export type AccessMode = (typeof AccessMode)[keyof typeof AccessMode];
 
 export const ActiveRevisionsMode = {
-    Multiple: "multiple",
-    Single: "single",
+    Multiple: "Multiple",
+    Single: "Single",
 } as const;
 
 /**
@@ -96,6 +96,16 @@ export const ManagedServiceIdentityType = {
  */
 export type ManagedServiceIdentityType = (typeof ManagedServiceIdentityType)[keyof typeof ManagedServiceIdentityType];
 
+export const Scheme = {
+    HTTP: "HTTP",
+    HTTPS: "HTTPS",
+} as const;
+
+/**
+ * Scheme to use for connecting to the host. Defaults to HTTP.
+ */
+export type Scheme = (typeof Scheme)[keyof typeof Scheme];
+
 export const StorageType = {
     AzureFile: "AzureFile",
     EmptyDir: "EmptyDir",
@@ -107,9 +117,9 @@ export const StorageType = {
 export type StorageType = (typeof StorageType)[keyof typeof StorageType];
 
 export const Type = {
-    Liveness: "liveness",
-    Readiness: "readiness",
-    Startup: "startup",
+    Liveness: "Liveness",
+    Readiness: "Readiness",
+    Startup: "Startup",
 } as const;
 
 /**

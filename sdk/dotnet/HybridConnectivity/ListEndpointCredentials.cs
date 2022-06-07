@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridConnectivity
     {
         /// <summary>
         /// The endpoint access for the target resource.
-        /// API Version: 2021-10-06-preview.
+        /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Task<ListEndpointCredentialsResult> InvokeAsync(ListEndpointCredentialsArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<ListEndpointCredentialsResult>("azure-native:hybridconnectivity:listEndpointCredentials", args ?? new ListEndpointCredentialsArgs(), options.WithDefaults());
 
         /// <summary>
         /// The endpoint access for the target resource.
-        /// API Version: 2021-10-06-preview.
+        /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Output<ListEndpointCredentialsResult> Invoke(ListEndpointCredentialsInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<ListEndpointCredentialsResult>("azure-native:hybridconnectivity:listEndpointCredentials", args ?? new ListEndpointCredentialsInvokeArgs(), options.WithDefaults());

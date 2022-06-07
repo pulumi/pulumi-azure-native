@@ -18,6 +18,13 @@ const (
 	AccessRightsListen = AccessRights("Listen")
 )
 
+// Application Group Policy types
+type ApplicationGroupPolicyType string
+
+const (
+	ApplicationGroupPolicyTypeThrottlingPolicy = ApplicationGroupPolicyType("ThrottlingPolicy")
+)
+
 // Name of this SKU.
 type ClusterSkuName string
 
@@ -388,6 +395,16 @@ type IPAction string
 const (
 	IPActionAccept = IPAction("Accept")
 	IPActionReject = IPAction("Reject")
+)
+
+// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+type MetricId string
+
+const (
+	MetricIdIncomingBytes    = MetricId("IncomingBytes")
+	MetricIdOutgoingBytes    = MetricId("OutgoingBytes")
+	MetricIdIncomingMessages = MetricId("IncomingMessages")
+	MetricIdOutgoingMessages = MetricId("OutgoingMessages")
 )
 
 // The IP Filter Action

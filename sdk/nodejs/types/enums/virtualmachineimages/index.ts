@@ -5,11 +5,13 @@
 import * as v20190501preview from "./v20190501preview";
 import * as v20200214 from "./v20200214";
 import * as v20211001 from "./v20211001";
+import * as v20220214 from "./v20220214";
 
 export {
     v20190501preview,
     v20200214,
     v20211001,
+    v20220214,
 };
 
 export const ResourceIdentityType = {

@@ -11,7 +11,7 @@ import (
 )
 
 // The description of Dicom Service
-// API Version: 2021-11-01.
+// API Version: 2022-05-15.
 func LookupDicomService(ctx *pulumi.Context, args *LookupDicomServiceArgs, opts ...pulumi.InvokeOption) (*LookupDicomServiceResult, error) {
 	var rv LookupDicomServiceResult
 	err := ctx.Invoke("azure-native:healthcareapis:getDicomService", args, &rv, opts...)
@@ -34,6 +34,8 @@ type LookupDicomServiceArgs struct {
 type LookupDicomServiceResult struct {
 	// Dicom Service authentication configuration.
 	AuthenticationConfiguration *DicomServiceAuthenticationConfigurationResponse `pulumi:"authenticationConfiguration"`
+	// Dicom Service Cors configuration.
+	CorsConfiguration *CorsConfigurationResponse `pulumi:"corsConfiguration"`
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag *string `pulumi:"etag"`
 	// The resource identifier.
@@ -106,6 +108,11 @@ func (o LookupDicomServiceResultOutput) AuthenticationConfiguration() DicomServi
 	return o.ApplyT(func(v LookupDicomServiceResult) *DicomServiceAuthenticationConfigurationResponse {
 		return v.AuthenticationConfiguration
 	}).(DicomServiceAuthenticationConfigurationResponsePtrOutput)
+}
+
+// Dicom Service Cors configuration.
+func (o LookupDicomServiceResultOutput) CorsConfiguration() CorsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v LookupDicomServiceResult) *CorsConfigurationResponse { return v.CorsConfiguration }).(CorsConfigurationResponsePtrOutput)
 }
 
 // An etag associated with the resource, used for optimistic concurrency when editing it.

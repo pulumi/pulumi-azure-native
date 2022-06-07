@@ -89,6 +89,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:OnlineEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:OnlineEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:OnlineEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

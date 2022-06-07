@@ -15,18 +15,6 @@ namespace Pulumi.AzureNative.Sql.V20211101Preview.Inputs
     /// </summary>
     public sealed class DatabaseIdentityArgs : Pulumi.ResourceArgs
     {
-        [Input("delegatedResources")]
-        private InputMap<Inputs.DelegationArgs>? _delegatedResources;
-
-        /// <summary>
-        /// Resources delegated to the database - Internal Use Only
-        /// </summary>
-        public InputMap<Inputs.DelegationArgs> DelegatedResources
-        {
-            get => _delegatedResources ?? (_delegatedResources = new InputMap<Inputs.DelegationArgs>());
-            set => _delegatedResources = value;
-        }
-
         /// <summary>
         /// The identity type
         /// </summary>

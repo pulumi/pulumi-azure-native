@@ -11,7 +11,7 @@ import (
 )
 
 // Single item in List or Get Schema Group operation
-// API Version: 2021-11-01.
+// API Version: 2022-01-01-preview.
 func LookupSchemaRegistry(ctx *pulumi.Context, args *LookupSchemaRegistryArgs, opts ...pulumi.InvokeOption) (*LookupSchemaRegistryResult, error) {
 	var rv LookupSchemaRegistryResult
 	err := ctx.Invoke("azure-native:eventhub:getSchemaRegistry", args, &rv, opts...)

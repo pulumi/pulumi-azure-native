@@ -69,6 +69,9 @@ func NewConsumerGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:eventhub/v20210601preview:ConsumerGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:eventhub/v20220101preview:ConsumerGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConsumerGroup

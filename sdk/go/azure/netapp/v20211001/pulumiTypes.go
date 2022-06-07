@@ -3883,10 +3883,6 @@ func (val *VolumeGroupVolumeProperties) Defaults() *VolumeGroupVolumeProperties 
 		snapshotDirectoryVisible_ := true
 		tmp.SnapshotDirectoryVisible = &snapshotDirectoryVisible_
 	}
-	if isZero(tmp.ThroughputMibps) {
-		throughputMibps_ := 0.0
-		tmp.ThroughputMibps = &throughputMibps_
-	}
 	if isZero(tmp.UnixPermissions) {
 		unixPermissions_ := "0770"
 		tmp.UnixPermissions = &unixPermissions_
@@ -4023,9 +4019,6 @@ func (val *VolumeGroupVolumePropertiesArgs) Defaults() *VolumeGroupVolumePropert
 	}
 	if isZero(tmp.SnapshotDirectoryVisible) {
 		tmp.SnapshotDirectoryVisible = pulumi.BoolPtr(true)
-	}
-	if isZero(tmp.ThroughputMibps) {
-		tmp.ThroughputMibps = pulumi.Float64Ptr(0.0)
 	}
 	if isZero(tmp.UnixPermissions) {
 		tmp.UnixPermissions = pulumi.StringPtr("0770")
@@ -4428,10 +4421,6 @@ func (val *VolumeGroupVolumePropertiesResponse) Defaults() *VolumeGroupVolumePro
 	if isZero(tmp.SnapshotDirectoryVisible) {
 		snapshotDirectoryVisible_ := true
 		tmp.SnapshotDirectoryVisible = &snapshotDirectoryVisible_
-	}
-	if isZero(tmp.ThroughputMibps) {
-		throughputMibps_ := 0.0
-		tmp.ThroughputMibps = &throughputMibps_
 	}
 	if isZero(tmp.UnixPermissions) {
 		unixPermissions_ := "0770"

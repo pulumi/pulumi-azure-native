@@ -30,7 +30,7 @@ namespace Pulumi.AzureNative.LoadTestService
     public sealed class GetLoadTestArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Load Test name.
+        /// Load Test resource name.
         /// </summary>
         [Input("loadTestName", required: true)]
         public string LoadTestName { get; set; } = null!;
@@ -49,7 +49,7 @@ namespace Pulumi.AzureNative.LoadTestService
     public sealed class GetLoadTestInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Load Test name.
+        /// Load Test resource name.
         /// </summary>
         [Input("loadTestName", required: true)]
         public Input<string> LoadTestName { get; set; } = null!;

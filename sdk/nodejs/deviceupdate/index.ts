@@ -19,9 +19,11 @@ export * from "../types/enums/deviceupdate";
 
 // Export sub-modules:
 import * as v20200301preview from "./v20200301preview";
+import * as v20220401preview from "./v20220401preview";
 
 export {
     v20200301preview,
+    v20220401preview,
 };
 
 // Import resources to register:

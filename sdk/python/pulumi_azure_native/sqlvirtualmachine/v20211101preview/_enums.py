@@ -5,10 +5,11 @@
 from enum import Enum
 
 __all__ = [
+    'AssessmentDayOfWeek',
+    'AutoBackupDaysOfWeek',
     'BackupScheduleType',
     'ConnectivityType',
     'DayOfWeek',
-    'DaysOfWeek',
     'DiskConfigurationType',
     'FullBackupFrequencyType',
     'IdentityType',
@@ -19,6 +20,29 @@ __all__ = [
     'SqlWorkloadType',
     'StorageWorkloadType',
 ]
+
+
+class AssessmentDayOfWeek(str, Enum):
+    """
+    Day of the week to run assessment.
+    """
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+    SUNDAY = "Sunday"
+
+
+class AutoBackupDaysOfWeek(str, Enum):
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+    SATURDAY = "Saturday"
+    SUNDAY = "Sunday"
 
 
 class BackupScheduleType(str, Enum):
@@ -42,16 +66,7 @@ class DayOfWeek(str, Enum):
     """
     Day of week to apply the patch on.
     """
-    MONDAY = "Monday"
-    TUESDAY = "Tuesday"
-    WEDNESDAY = "Wednesday"
-    THURSDAY = "Thursday"
-    FRIDAY = "Friday"
-    SATURDAY = "Saturday"
-    SUNDAY = "Sunday"
-
-
-class DaysOfWeek(str, Enum):
+    EVERYDAY = "Everyday"
     MONDAY = "Monday"
     TUESDAY = "Tuesday"
     WEDNESDAY = "Wednesday"

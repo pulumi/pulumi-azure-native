@@ -66,6 +66,8 @@ namespace Pulumi.AzureNative.MachineLearningServices
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20210301preview:DataContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220201preview:DataContainer"},
+                    new Pulumi.Alias { Type = "azure-native:machinelearningservices/v20220501:DataContainer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

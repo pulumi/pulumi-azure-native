@@ -103,7 +103,7 @@ export class EyesOn extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:EyesOn" }, { type: "azure-native:securityinsights/v20190101preview:EyesOn" }, { type: "azure-native:securityinsights/v20210901preview:EyesOn" }, { type: "azure-native:securityinsights/v20211001preview:EyesOn" }, { type: "azure-native:securityinsights/v20220101preview:EyesOn" }, { type: "azure-native:securityinsights/v20220401preview:EyesOn" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:EyesOn" }, { type: "azure-native:securityinsights/v20190101preview:EyesOn" }, { type: "azure-native:securityinsights/v20210901preview:EyesOn" }, { type: "azure-native:securityinsights/v20211001preview:EyesOn" }, { type: "azure-native:securityinsights/v20220101preview:EyesOn" }, { type: "azure-native:securityinsights/v20220401preview:EyesOn" }, { type: "azure-native:securityinsights/v20220501preview:EyesOn" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(EyesOn.__pulumiType, name, resourceInputs, opts);
     }

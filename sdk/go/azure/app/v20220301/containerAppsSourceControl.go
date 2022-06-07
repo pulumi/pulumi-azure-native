@@ -95,12 +95,12 @@ type containerAppsSourceControlArgs struct {
 	// defaults if user did not provide them. The defaults are populated
 	// as they were at the creation time
 	GithubActionConfiguration *GithubActionConfiguration `pulumi:"githubActionConfiguration"`
-	// Name of the Container App SourceControl.
-	Name *string `pulumi:"name"`
 	// The repo url which will be integrated to ContainerApp.
 	RepoUrl *string `pulumi:"repoUrl"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the Container App SourceControl.
+	SourceControlName *string `pulumi:"sourceControlName"`
 }
 
 // The set of arguments for constructing a ContainerAppsSourceControl resource.
@@ -113,12 +113,12 @@ type ContainerAppsSourceControlArgs struct {
 	// defaults if user did not provide them. The defaults are populated
 	// as they were at the creation time
 	GithubActionConfiguration GithubActionConfigurationPtrInput
-	// Name of the Container App SourceControl.
-	Name pulumi.StringPtrInput
 	// The repo url which will be integrated to ContainerApp.
 	RepoUrl pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
+	// Name of the Container App SourceControl.
+	SourceControlName pulumi.StringPtrInput
 }
 
 func (ContainerAppsSourceControlArgs) ElementType() reflect.Type {

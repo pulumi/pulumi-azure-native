@@ -2644,6 +2644,73 @@ func (o ReplicationObjectResponsePtrOutput) ReplicationSchedule() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// Replication properties
+type ReplicationResponse struct {
+	// Indicates whether the local volume is the source or destination for the Volume Replication
+	EndpointType *string `pulumi:"endpointType"`
+	// The remote region for the other end of the Volume Replication.
+	RemoteVolumeRegion *string `pulumi:"remoteVolumeRegion"`
+	// The resource ID of the remote volume.
+	RemoteVolumeResourceId string `pulumi:"remoteVolumeResourceId"`
+	// Schedule
+	ReplicationSchedule *string `pulumi:"replicationSchedule"`
+}
+
+// Replication properties
+type ReplicationResponseOutput struct{ *pulumi.OutputState }
+
+func (ReplicationResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ReplicationResponse)(nil)).Elem()
+}
+
+func (o ReplicationResponseOutput) ToReplicationResponseOutput() ReplicationResponseOutput {
+	return o
+}
+
+func (o ReplicationResponseOutput) ToReplicationResponseOutputWithContext(ctx context.Context) ReplicationResponseOutput {
+	return o
+}
+
+// Indicates whether the local volume is the source or destination for the Volume Replication
+func (o ReplicationResponseOutput) EndpointType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationResponse) *string { return v.EndpointType }).(pulumi.StringPtrOutput)
+}
+
+// The remote region for the other end of the Volume Replication.
+func (o ReplicationResponseOutput) RemoteVolumeRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationResponse) *string { return v.RemoteVolumeRegion }).(pulumi.StringPtrOutput)
+}
+
+// The resource ID of the remote volume.
+func (o ReplicationResponseOutput) RemoteVolumeResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v ReplicationResponse) string { return v.RemoteVolumeResourceId }).(pulumi.StringOutput)
+}
+
+// Schedule
+func (o ReplicationResponseOutput) ReplicationSchedule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ReplicationResponse) *string { return v.ReplicationSchedule }).(pulumi.StringPtrOutput)
+}
+
+type ReplicationResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ReplicationResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ReplicationResponse)(nil)).Elem()
+}
+
+func (o ReplicationResponseArrayOutput) ToReplicationResponseArrayOutput() ReplicationResponseArrayOutput {
+	return o
+}
+
+func (o ReplicationResponseArrayOutput) ToReplicationResponseArrayOutputWithContext(ctx context.Context) ReplicationResponseArrayOutput {
+	return o
+}
+
+func (o ReplicationResponseArrayOutput) Index(i pulumi.IntInput) ReplicationResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ReplicationResponse {
+		return vs[0].([]ReplicationResponse)[vs[1].(int)]
+	}).(ReplicationResponseOutput)
+}
+
 // Metadata pertaining to creation and last modification of the resource.
 type SystemDataResponse struct {
 	// The timestamp of resource creation (UTC).
@@ -3681,10 +3748,6 @@ func (val *VolumeGroupVolumeProperties) Defaults() *VolumeGroupVolumeProperties 
 		snapshotDirectoryVisible_ := true
 		tmp.SnapshotDirectoryVisible = &snapshotDirectoryVisible_
 	}
-	if isZero(tmp.ThroughputMibps) {
-		throughputMibps_ := 0.0
-		tmp.ThroughputMibps = &throughputMibps_
-	}
 	if isZero(tmp.UnixPermissions) {
 		unixPermissions_ := "0770"
 		tmp.UnixPermissions = &unixPermissions_
@@ -3821,9 +3884,6 @@ func (val *VolumeGroupVolumePropertiesArgs) Defaults() *VolumeGroupVolumePropert
 	}
 	if isZero(tmp.SnapshotDirectoryVisible) {
 		tmp.SnapshotDirectoryVisible = pulumi.BoolPtr(true)
-	}
-	if isZero(tmp.ThroughputMibps) {
-		tmp.ThroughputMibps = pulumi.Float64Ptr(0.0)
 	}
 	if isZero(tmp.UnixPermissions) {
 		tmp.UnixPermissions = pulumi.StringPtr("0770")
@@ -4226,10 +4286,6 @@ func (val *VolumeGroupVolumePropertiesResponse) Defaults() *VolumeGroupVolumePro
 	if isZero(tmp.SnapshotDirectoryVisible) {
 		snapshotDirectoryVisible_ := true
 		tmp.SnapshotDirectoryVisible = &snapshotDirectoryVisible_
-	}
-	if isZero(tmp.ThroughputMibps) {
-		throughputMibps_ := 0.0
-		tmp.ThroughputMibps = &throughputMibps_
 	}
 	if isZero(tmp.UnixPermissions) {
 		unixPermissions_ := "0770"
@@ -5560,6 +5616,8 @@ func init() {
 	pulumi.RegisterOutputType(ReplicationObjectPtrOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectResponseOutput{})
 	pulumi.RegisterOutputType(ReplicationObjectResponsePtrOutput{})
+	pulumi.RegisterOutputType(ReplicationResponseOutput{})
+	pulumi.RegisterOutputType(ReplicationResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
 	pulumi.RegisterOutputType(VolumeBackupPropertiesOutput{})
 	pulumi.RegisterOutputType(VolumeBackupPropertiesPtrOutput{})

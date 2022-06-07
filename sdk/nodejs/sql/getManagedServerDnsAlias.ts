@@ -50,6 +50,10 @@ export interface GetManagedServerDnsAliasResult {
      */
     readonly name: string;
     /**
+     * The fully qualified public DNS record for managed server alias
+     */
+    readonly publicAzureDnsRecord: string;
+    /**
      * Resource type.
      */
     readonly type: string;

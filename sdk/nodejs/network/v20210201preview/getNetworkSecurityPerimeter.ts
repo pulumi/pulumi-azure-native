@@ -35,29 +35,21 @@ export interface GetNetworkSecurityPerimeterArgs {
  */
 export interface GetNetworkSecurityPerimeterResult {
     /**
-     * A description of the network security perimeter.
-     */
-    readonly description?: string;
-    /**
-     * A friendly name for the network security perimeter.
-     */
-    readonly displayName?: string;
-    /**
-     * A unique read-only string that changes whenever the resource is updated.
-     */
-    readonly etag: string;
-    /**
      * Resource ID.
      */
     readonly id: string;
     /**
      * Resource location.
      */
-    readonly location?: string;
+    readonly location: string;
     /**
      * Resource name.
      */
     readonly name: string;
+    /**
+     * perimeter guid of the network security perimeter.
+     */
+    readonly perimeterGuid?: string;
     /**
      * The provisioning state of the scope assignment resource.
      */

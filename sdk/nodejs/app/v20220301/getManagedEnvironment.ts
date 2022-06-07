@@ -15,7 +15,7 @@ export function getManagedEnvironment(args: GetManagedEnvironmentArgs, opts?: pu
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
     return pulumi.runtime.invoke("azure-native:app/v20220301:getManagedEnvironment", {
-        "name": args.name,
+        "environmentName": args.environmentName,
         "resourceGroupName": args.resourceGroupName,
     }, opts);
 }
@@ -24,7 +24,7 @@ export interface GetManagedEnvironmentArgs {
     /**
      * Name of the Environment.
      */
-    name: string;
+    environmentName: string;
     /**
      * The name of the resource group. The name is case insensitive.
      */
@@ -107,7 +107,7 @@ export interface GetManagedEnvironmentOutputArgs {
     /**
      * Name of the Environment.
      */
-    name: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

@@ -53,6 +53,9 @@ func NewSubvolume(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:netapp/v20211001:Subvolume"),
 		},
+		{
+			Type: pulumi.String("azure-native:netapp/v20220101:Subvolume"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Subvolume

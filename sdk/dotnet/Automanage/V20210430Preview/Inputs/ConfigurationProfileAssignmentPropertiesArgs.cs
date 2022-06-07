@@ -33,12 +33,6 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview.Inputs
             set => _profileOverrides = value;
         }
 
-        /// <summary>
-        /// The target VM resource URI
-        /// </summary>
-        [Input("targetId")]
-        public Input<string>? TargetId { get; set; }
-
         public ConfigurationProfileAssignmentPropertiesArgs()
         {
         }

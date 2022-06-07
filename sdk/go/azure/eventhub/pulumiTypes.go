@@ -2264,6 +2264,205 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
+// Properties of the throttling policy
+type ThrottlingPolicy struct {
+	// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+	MetricId string `pulumi:"metricId"`
+	// The Name of this policy
+	Name string `pulumi:"name"`
+	// The Threshold limit above which the application group will be throttled.Rate limit is always per second.
+	RateLimitThreshold float64 `pulumi:"rateLimitThreshold"`
+	// Application Group Policy types
+	// Expected value is 'ThrottlingPolicy'.
+	Type string `pulumi:"type"`
+}
+
+// ThrottlingPolicyInput is an input type that accepts ThrottlingPolicyArgs and ThrottlingPolicyOutput values.
+// You can construct a concrete instance of `ThrottlingPolicyInput` via:
+//
+//          ThrottlingPolicyArgs{...}
+type ThrottlingPolicyInput interface {
+	pulumi.Input
+
+	ToThrottlingPolicyOutput() ThrottlingPolicyOutput
+	ToThrottlingPolicyOutputWithContext(context.Context) ThrottlingPolicyOutput
+}
+
+// Properties of the throttling policy
+type ThrottlingPolicyArgs struct {
+	// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+	MetricId pulumi.StringInput `pulumi:"metricId"`
+	// The Name of this policy
+	Name pulumi.StringInput `pulumi:"name"`
+	// The Threshold limit above which the application group will be throttled.Rate limit is always per second.
+	RateLimitThreshold pulumi.Float64Input `pulumi:"rateLimitThreshold"`
+	// Application Group Policy types
+	// Expected value is 'ThrottlingPolicy'.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (ThrottlingPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThrottlingPolicy)(nil)).Elem()
+}
+
+func (i ThrottlingPolicyArgs) ToThrottlingPolicyOutput() ThrottlingPolicyOutput {
+	return i.ToThrottlingPolicyOutputWithContext(context.Background())
+}
+
+func (i ThrottlingPolicyArgs) ToThrottlingPolicyOutputWithContext(ctx context.Context) ThrottlingPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThrottlingPolicyOutput)
+}
+
+// ThrottlingPolicyArrayInput is an input type that accepts ThrottlingPolicyArray and ThrottlingPolicyArrayOutput values.
+// You can construct a concrete instance of `ThrottlingPolicyArrayInput` via:
+//
+//          ThrottlingPolicyArray{ ThrottlingPolicyArgs{...} }
+type ThrottlingPolicyArrayInput interface {
+	pulumi.Input
+
+	ToThrottlingPolicyArrayOutput() ThrottlingPolicyArrayOutput
+	ToThrottlingPolicyArrayOutputWithContext(context.Context) ThrottlingPolicyArrayOutput
+}
+
+type ThrottlingPolicyArray []ThrottlingPolicyInput
+
+func (ThrottlingPolicyArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThrottlingPolicy)(nil)).Elem()
+}
+
+func (i ThrottlingPolicyArray) ToThrottlingPolicyArrayOutput() ThrottlingPolicyArrayOutput {
+	return i.ToThrottlingPolicyArrayOutputWithContext(context.Background())
+}
+
+func (i ThrottlingPolicyArray) ToThrottlingPolicyArrayOutputWithContext(ctx context.Context) ThrottlingPolicyArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ThrottlingPolicyArrayOutput)
+}
+
+// Properties of the throttling policy
+type ThrottlingPolicyOutput struct{ *pulumi.OutputState }
+
+func (ThrottlingPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThrottlingPolicy)(nil)).Elem()
+}
+
+func (o ThrottlingPolicyOutput) ToThrottlingPolicyOutput() ThrottlingPolicyOutput {
+	return o
+}
+
+func (o ThrottlingPolicyOutput) ToThrottlingPolicyOutputWithContext(ctx context.Context) ThrottlingPolicyOutput {
+	return o
+}
+
+// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+func (o ThrottlingPolicyOutput) MetricId() pulumi.StringOutput {
+	return o.ApplyT(func(v ThrottlingPolicy) string { return v.MetricId }).(pulumi.StringOutput)
+}
+
+// The Name of this policy
+func (o ThrottlingPolicyOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ThrottlingPolicy) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Threshold limit above which the application group will be throttled.Rate limit is always per second.
+func (o ThrottlingPolicyOutput) RateLimitThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ThrottlingPolicy) float64 { return v.RateLimitThreshold }).(pulumi.Float64Output)
+}
+
+// Application Group Policy types
+// Expected value is 'ThrottlingPolicy'.
+func (o ThrottlingPolicyOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ThrottlingPolicy) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ThrottlingPolicyArrayOutput struct{ *pulumi.OutputState }
+
+func (ThrottlingPolicyArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThrottlingPolicy)(nil)).Elem()
+}
+
+func (o ThrottlingPolicyArrayOutput) ToThrottlingPolicyArrayOutput() ThrottlingPolicyArrayOutput {
+	return o
+}
+
+func (o ThrottlingPolicyArrayOutput) ToThrottlingPolicyArrayOutputWithContext(ctx context.Context) ThrottlingPolicyArrayOutput {
+	return o
+}
+
+func (o ThrottlingPolicyArrayOutput) Index(i pulumi.IntInput) ThrottlingPolicyOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThrottlingPolicy {
+		return vs[0].([]ThrottlingPolicy)[vs[1].(int)]
+	}).(ThrottlingPolicyOutput)
+}
+
+// Properties of the throttling policy
+type ThrottlingPolicyResponse struct {
+	// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+	MetricId string `pulumi:"metricId"`
+	// The Name of this policy
+	Name string `pulumi:"name"`
+	// The Threshold limit above which the application group will be throttled.Rate limit is always per second.
+	RateLimitThreshold float64 `pulumi:"rateLimitThreshold"`
+	// Application Group Policy types
+	// Expected value is 'ThrottlingPolicy'.
+	Type string `pulumi:"type"`
+}
+
+// Properties of the throttling policy
+type ThrottlingPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (ThrottlingPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ThrottlingPolicyResponse)(nil)).Elem()
+}
+
+func (o ThrottlingPolicyResponseOutput) ToThrottlingPolicyResponseOutput() ThrottlingPolicyResponseOutput {
+	return o
+}
+
+func (o ThrottlingPolicyResponseOutput) ToThrottlingPolicyResponseOutputWithContext(ctx context.Context) ThrottlingPolicyResponseOutput {
+	return o
+}
+
+// Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal
+func (o ThrottlingPolicyResponseOutput) MetricId() pulumi.StringOutput {
+	return o.ApplyT(func(v ThrottlingPolicyResponse) string { return v.MetricId }).(pulumi.StringOutput)
+}
+
+// The Name of this policy
+func (o ThrottlingPolicyResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ThrottlingPolicyResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The Threshold limit above which the application group will be throttled.Rate limit is always per second.
+func (o ThrottlingPolicyResponseOutput) RateLimitThreshold() pulumi.Float64Output {
+	return o.ApplyT(func(v ThrottlingPolicyResponse) float64 { return v.RateLimitThreshold }).(pulumi.Float64Output)
+}
+
+// Application Group Policy types
+// Expected value is 'ThrottlingPolicy'.
+func (o ThrottlingPolicyResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v ThrottlingPolicyResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type ThrottlingPolicyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ThrottlingPolicyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ThrottlingPolicyResponse)(nil)).Elem()
+}
+
+func (o ThrottlingPolicyResponseArrayOutput) ToThrottlingPolicyResponseArrayOutput() ThrottlingPolicyResponseArrayOutput {
+	return o
+}
+
+func (o ThrottlingPolicyResponseArrayOutput) ToThrottlingPolicyResponseArrayOutputWithContext(ctx context.Context) ThrottlingPolicyResponseArrayOutput {
+	return o
+}
+
+func (o ThrottlingPolicyResponseArrayOutput) Index(i pulumi.IntInput) ThrottlingPolicyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ThrottlingPolicyResponse {
+		return vs[0].([]ThrottlingPolicyResponse)[vs[1].(int)]
+	}).(ThrottlingPolicyResponseOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(CaptureDescriptionOutput{})
 	pulumi.RegisterOutputType(CaptureDescriptionPtrOutput{})
@@ -2302,4 +2501,8 @@ func init() {
 	pulumi.RegisterOutputType(SubnetResponseOutput{})
 	pulumi.RegisterOutputType(SubnetResponsePtrOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(ThrottlingPolicyOutput{})
+	pulumi.RegisterOutputType(ThrottlingPolicyArrayOutput{})
+	pulumi.RegisterOutputType(ThrottlingPolicyResponseOutput{})
+	pulumi.RegisterOutputType(ThrottlingPolicyResponseArrayOutput{})
 }

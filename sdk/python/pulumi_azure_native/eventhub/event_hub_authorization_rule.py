@@ -175,7 +175,7 @@ class EventHubAuthorizationRule(pulumi.CustomResource):
             __props__.__dict__["rights"] = rights
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20140901:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20150801:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20170401:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20210101preview:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20210601preview:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20211101:EventHubAuthorizationRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventhub/v20140901:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20150801:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20170401:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20180101preview:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20210101preview:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20210601preview:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20211101:EventHubAuthorizationRule"), pulumi.Alias(type_="azure-native:eventhub/v20220101preview:EventHubAuthorizationRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(EventHubAuthorizationRule, __self__).__init__(
             'azure-native:eventhub:EventHubAuthorizationRule',

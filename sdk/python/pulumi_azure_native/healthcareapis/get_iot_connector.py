@@ -170,7 +170,7 @@ def get_iot_connector(iot_connector_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetIotConnectorResult:
     """
     IoT Connector definition.
-    API Version: 2021-11-01.
+    API Version: 2022-05-15.
 
 
     :param str iot_connector_name: The name of IoT Connector resource.
@@ -208,7 +208,7 @@ def get_iot_connector_output(iot_connector_name: Optional[pulumi.Input[str]] = N
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetIotConnectorResult]:
     """
     IoT Connector definition.
-    API Version: 2021-11-01.
+    API Version: 2022-05-15.
 
 
     :param str iot_connector_name: The name of IoT Connector resource.

@@ -34,13 +34,13 @@ namespace Pulumi.AzureNative.NetApp.V20211001
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Output("location")]
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -76,13 +76,13 @@ namespace Pulumi.AzureNative.NetApp.V20211001
         public Output<double> Size { get; private set; } = null!;
 
         /// <summary>
-        /// The system meta data relating to this resource.
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
         /// </summary>
         [Output("systemData")]
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.AzureNative.NetApp.V20211001
         public Output<double> TotalThroughputMibps { get; private set; } = null!;
 
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -152,6 +152,7 @@ namespace Pulumi.AzureNative.NetApp.V20211001
                     new Pulumi.Alias { Type = "azure-native:netapp/v20210401preview:Pool"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20210601:Pool"},
                     new Pulumi.Alias { Type = "azure-native:netapp/v20210801:Pool"},
+                    new Pulumi.Alias { Type = "azure-native:netapp/v20220101:Pool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -194,7 +195,7 @@ namespace Pulumi.AzureNative.NetApp.V20211001
         public InputUnion<string, Pulumi.AzureNative.NetApp.V20211001.EncryptionType>? EncryptionType { get; set; }
 
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         [Input("location")]
         public Input<string>? Location { get; set; }
@@ -233,7 +234,7 @@ namespace Pulumi.AzureNative.NetApp.V20211001
         private InputMap<string>? _tags;
 
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public InputMap<string> Tags
         {

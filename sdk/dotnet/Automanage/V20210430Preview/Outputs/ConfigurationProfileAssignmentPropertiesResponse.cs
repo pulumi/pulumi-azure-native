@@ -31,7 +31,7 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview.Outputs
         /// <summary>
         /// The target VM resource URI
         /// </summary>
-        public readonly string? TargetId;
+        public readonly string TargetId;
 
         [OutputConstructor]
         private ConfigurationProfileAssignmentPropertiesResponse(
@@ -41,7 +41,7 @@ namespace Pulumi.AzureNative.Automanage.V20210430Preview.Outputs
 
             string status,
 
-            string? targetId)
+            string targetId)
         {
             ConfigurationProfile = configurationProfile;
             ProfileOverrides = profileOverrides;

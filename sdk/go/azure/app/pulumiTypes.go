@@ -17487,7 +17487,7 @@ type VnetConfiguration struct {
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
 	// Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
 	InfrastructureSubnetId *string `pulumi:"infrastructureSubnetId"`
-	// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+	// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
 	Internal *bool `pulumi:"internal"`
 	// IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
 	PlatformReservedCidr *string `pulumi:"platformReservedCidr"`
@@ -17514,7 +17514,7 @@ type VnetConfigurationArgs struct {
 	DockerBridgeCidr pulumi.StringPtrInput `pulumi:"dockerBridgeCidr"`
 	// Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
 	InfrastructureSubnetId pulumi.StringPtrInput `pulumi:"infrastructureSubnetId"`
-	// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+	// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
 	Internal pulumi.BoolPtrInput `pulumi:"internal"`
 	// IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
 	PlatformReservedCidr pulumi.StringPtrInput `pulumi:"platformReservedCidr"`
@@ -17612,7 +17612,7 @@ func (o VnetConfigurationOutput) InfrastructureSubnetId() pulumi.StringPtrOutput
 	return o.ApplyT(func(v VnetConfiguration) *string { return v.InfrastructureSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
 func (o VnetConfigurationOutput) Internal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VnetConfiguration) *bool { return v.Internal }).(pulumi.BoolPtrOutput)
 }
@@ -17676,7 +17676,7 @@ func (o VnetConfigurationPtrOutput) InfrastructureSubnetId() pulumi.StringPtrOut
 	}).(pulumi.StringPtrOutput)
 }
 
-// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
 func (o VnetConfigurationPtrOutput) Internal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VnetConfiguration) *bool {
 		if v == nil {
@@ -17722,7 +17722,7 @@ type VnetConfigurationResponse struct {
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
 	// Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
 	InfrastructureSubnetId *string `pulumi:"infrastructureSubnetId"`
-	// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+	// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
 	Internal *bool `pulumi:"internal"`
 	// IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
 	PlatformReservedCidr *string `pulumi:"platformReservedCidr"`
@@ -17757,7 +17757,7 @@ func (o VnetConfigurationResponseOutput) InfrastructureSubnetId() pulumi.StringP
 	return o.ApplyT(func(v VnetConfigurationResponse) *string { return v.InfrastructureSubnetId }).(pulumi.StringPtrOutput)
 }
 
-// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
 func (o VnetConfigurationResponseOutput) Internal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v VnetConfigurationResponse) *bool { return v.Internal }).(pulumi.BoolPtrOutput)
 }
@@ -17821,7 +17821,7 @@ func (o VnetConfigurationResponsePtrOutput) InfrastructureSubnetId() pulumi.Stri
 	}).(pulumi.StringPtrOutput)
 }
 
-// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+// Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
 func (o VnetConfigurationResponsePtrOutput) Internal() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *VnetConfigurationResponse) *bool {
 		if v == nil {

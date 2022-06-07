@@ -11,6 +11,7 @@ from . import outputs
 
 __all__ = [
     'DataPartitionNamesResponse',
+    'DataPartitionPropertiesResponse',
     'EnergyServicePropertiesResponse',
     'SystemDataResponse',
 ]
@@ -32,6 +33,41 @@ class DataPartitionNamesResponse(dict):
     @pulumi.getter
     def name(self) -> Optional[str]:
         return pulumi.get(self, "name")
+
+
+@pulumi.output_type
+class DataPartitionPropertiesResponse(dict):
+    """
+    Defines the properties of an individual data partition.
+    """
+    def __init__(__self__, *,
+                 name: Optional[str] = None,
+                 provisioning_state: Optional[str] = None):
+        """
+        Defines the properties of an individual data partition.
+        :param str name: Name of the data partition
+        :param str provisioning_state: Name of the data partition
+        """
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if provisioning_state is not None:
+            pulumi.set(__self__, "provisioning_state", provisioning_state)
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Name of the data partition
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="provisioningState")
+    def provisioning_state(self) -> Optional[str]:
+        """
+        Name of the data partition
+        """
+        return pulumi.get(self, "provisioning_state")
 
 
 @pulumi.output_type

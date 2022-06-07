@@ -39,6 +39,12 @@ func NewManagementGroupNetworkManagerConnection(ctx *pulumi.Context,
 	if args.ManagementGroupId == nil {
 		return nil, errors.New("invalid value for required argument 'ManagementGroupId'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource ManagementGroupNetworkManagerConnection
 	err := ctx.RegisterResource("azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection", name, args, &resource, opts...)
 	if err != nil {

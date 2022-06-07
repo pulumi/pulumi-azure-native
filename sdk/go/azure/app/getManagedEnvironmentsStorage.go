@@ -23,11 +23,11 @@ func LookupManagedEnvironmentsStorage(ctx *pulumi.Context, args *LookupManagedEn
 
 type LookupManagedEnvironmentsStorageArgs struct {
 	// Name of the Environment.
-	EnvName string `pulumi:"envName"`
-	// Name of the storage.
-	Name string `pulumi:"name"`
+	EnvironmentName string `pulumi:"environmentName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
+	// Name of the storage.
+	StorageName string `pulumi:"storageName"`
 }
 
 // Storage resource for managedEnvironment.
@@ -59,11 +59,11 @@ func LookupManagedEnvironmentsStorageOutput(ctx *pulumi.Context, args LookupMana
 
 type LookupManagedEnvironmentsStorageOutputArgs struct {
 	// Name of the Environment.
-	EnvName pulumi.StringInput `pulumi:"envName"`
-	// Name of the storage.
-	Name pulumi.StringInput `pulumi:"name"`
+	EnvironmentName pulumi.StringInput `pulumi:"environmentName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
+	// Name of the storage.
+	StorageName pulumi.StringInput `pulumi:"storageName"`
 }
 
 func (LookupManagedEnvironmentsStorageOutputArgs) ElementType() reflect.Type {

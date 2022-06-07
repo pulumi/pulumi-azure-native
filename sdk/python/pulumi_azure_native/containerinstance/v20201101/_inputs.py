@@ -24,7 +24,7 @@ __all__ = [
     'EnvironmentVariableArgs',
     'GitRepoVolumeArgs',
     'GpuResourceArgs',
-    'HttpHeadersArgs',
+    'HttpHeaderArgs',
     'ImageRegistryCredentialArgs',
     'InitContainerDefinitionArgs',
     'IpAddressArgs',
@@ -222,13 +222,13 @@ class ContainerGroupNetworkProfileArgs:
 class ContainerHttpGetArgs:
     def __init__(__self__, *,
                  port: pulumi.Input[int],
-                 http_headers: Optional[pulumi.Input['HttpHeadersArgs']] = None,
+                 http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]]] = None,
                  path: Optional[pulumi.Input[str]] = None,
                  scheme: Optional[pulumi.Input[Union[str, 'Scheme']]] = None):
         """
         The container Http Get settings, for liveness or readiness probe
         :param pulumi.Input[int] port: The port number to probe.
-        :param pulumi.Input['HttpHeadersArgs'] http_headers: The HTTP headers.
+        :param pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]] http_headers: The HTTP headers.
         :param pulumi.Input[str] path: The path to probe.
         :param pulumi.Input[Union[str, 'Scheme']] scheme: The scheme.
         """
@@ -254,14 +254,14 @@ class ContainerHttpGetArgs:
 
     @property
     @pulumi.getter(name="httpHeaders")
-    def http_headers(self) -> Optional[pulumi.Input['HttpHeadersArgs']]:
+    def http_headers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]]]:
         """
         The HTTP headers.
         """
         return pulumi.get(self, "http_headers")
 
     @http_headers.setter
-    def http_headers(self, value: Optional[pulumi.Input['HttpHeadersArgs']]):
+    def http_headers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['HttpHeaderArgs']]]]):
         pulumi.set(self, "http_headers", value)
 
     @property
@@ -854,12 +854,12 @@ class GpuResourceArgs:
 
 
 @pulumi.input_type
-class HttpHeadersArgs:
+class HttpHeaderArgs:
     def __init__(__self__, *,
                  name: Optional[pulumi.Input[str]] = None,
                  value: Optional[pulumi.Input[str]] = None):
         """
-        The HTTP headers.
+        The HTTP header.
         :param pulumi.Input[str] name: The header name.
         :param pulumi.Input[str] value: The header value.
         """

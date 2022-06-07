@@ -5,10 +5,10 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
-export * from "./getGetLab";
-export * from "./getGetStudent";
 export * from "./getLab";
 export * from "./getStudent";
+export * from "./lab";
+export * from "./student";
 
 // Export enums:
 export * from "../types/enums/education";
@@ -21,17 +21,17 @@ export {
 };
 
 // Import resources to register:
-import { GetLab } from "./getLab";
-import { GetStudent } from "./getStudent";
+import { Lab } from "./lab";
+import { Student } from "./student";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "azure-native:education:GetLab":
-                return new GetLab(name, <any>undefined, { urn })
-            case "azure-native:education:GetStudent":
-                return new GetStudent(name, <any>undefined, { urn })
+            case "azure-native:education:Lab":
+                return new Lab(name, <any>undefined, { urn })
+            case "azure-native:education:Student":
+                return new Student(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -42,7 +42,7 @@ export class Certificate extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Certificate resource specific properties
      */
@@ -71,18 +71,19 @@ export class Certificate extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.managedEnvironmentName === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'managedEnvironmentName'");
+            if ((!args || args.environmentName === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'environmentName'");
             }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
+            resourceInputs["certificateName"] = args ? args.certificateName : undefined;
+            resourceInputs["environmentName"] = args ? args.environmentName : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
-            resourceInputs["managedEnvironmentName"] = args ? args.managedEnvironmentName : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
@@ -105,17 +106,17 @@ export class Certificate extends pulumi.CustomResource {
  */
 export interface CertificateArgs {
     /**
-     * The geo-location where the resource lives
+     * Name of the Certificate.
      */
-    location?: pulumi.Input<string>;
+    certificateName?: pulumi.Input<string>;
     /**
      * Name of the Managed Environment.
      */
-    managedEnvironmentName: pulumi.Input<string>;
+    environmentName: pulumi.Input<string>;
     /**
-     * Name of the Certificate.
+     * The geo-location where the resource lives
      */
-    name?: pulumi.Input<string>;
+    location?: pulumi.Input<string>;
     /**
      * Certificate resource specific properties
      */

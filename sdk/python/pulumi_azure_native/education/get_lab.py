@@ -8,304 +8,66 @@ import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 from . import outputs
-from ._inputs import *
 
-__all__ = ['GetLabArgs', 'GetLab']
+__all__ = [
+    'GetLabResult',
+    'AwaitableGetLabResult',
+    'get_lab',
+    'get_lab_output',
+]
 
-@pulumi.input_type
-class GetLabArgs:
-    def __init__(__self__, *,
-                 billing_account_name: pulumi.Input[str],
-                 billing_profile_name: pulumi.Input[str],
-                 budget_per_student: pulumi.Input['AmountArgs'],
-                 description: pulumi.Input[str],
-                 display_name: pulumi.Input[str],
-                 expiration_date: pulumi.Input[str],
-                 invoice_section_name: pulumi.Input[str],
-                 currency: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[float]] = None):
-        """
-        The set of arguments for constructing a GetLab resource.
-        :param pulumi.Input[str] billing_account_name: Billing account name.
-        :param pulumi.Input[str] billing_profile_name: Billing profile name.
-        :param pulumi.Input['AmountArgs'] budget_per_student: Default monetary cap for each student in this lab
-        :param pulumi.Input[str] description: Detail description of this lab
-        :param pulumi.Input[str] display_name: Lab Display Name
-        :param pulumi.Input[str] expiration_date: Default expiration date for each student in this lab
-        :param pulumi.Input[str] invoice_section_name: Invoice section name.
-        :param pulumi.Input[str] currency: The type of currency being used for the value.
-        :param pulumi.Input[float] value: Amount value.
-        """
-        pulumi.set(__self__, "billing_account_name", billing_account_name)
-        pulumi.set(__self__, "billing_profile_name", billing_profile_name)
+@pulumi.output_type
+class GetLabResult:
+    """
+    Lab details.
+    """
+    def __init__(__self__, budget_per_student=None, currency=None, description=None, display_name=None, effective_date=None, expiration_date=None, id=None, invitation_code=None, max_student_count=None, name=None, status=None, system_data=None, type=None, value=None):
+        if budget_per_student and not isinstance(budget_per_student, dict):
+            raise TypeError("Expected argument 'budget_per_student' to be a dict")
         pulumi.set(__self__, "budget_per_student", budget_per_student)
+        if currency and not isinstance(currency, str):
+            raise TypeError("Expected argument 'currency' to be a str")
+        pulumi.set(__self__, "currency", currency)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if display_name and not isinstance(display_name, str):
+            raise TypeError("Expected argument 'display_name' to be a str")
         pulumi.set(__self__, "display_name", display_name)
+        if effective_date and not isinstance(effective_date, str):
+            raise TypeError("Expected argument 'effective_date' to be a str")
+        pulumi.set(__self__, "effective_date", effective_date)
+        if expiration_date and not isinstance(expiration_date, str):
+            raise TypeError("Expected argument 'expiration_date' to be a str")
         pulumi.set(__self__, "expiration_date", expiration_date)
-        pulumi.set(__self__, "invoice_section_name", invoice_section_name)
-        if currency is not None:
-            pulumi.set(__self__, "currency", currency)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter(name="billingAccountName")
-    def billing_account_name(self) -> pulumi.Input[str]:
-        """
-        Billing account name.
-        """
-        return pulumi.get(self, "billing_account_name")
-
-    @billing_account_name.setter
-    def billing_account_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "billing_account_name", value)
-
-    @property
-    @pulumi.getter(name="billingProfileName")
-    def billing_profile_name(self) -> pulumi.Input[str]:
-        """
-        Billing profile name.
-        """
-        return pulumi.get(self, "billing_profile_name")
-
-    @billing_profile_name.setter
-    def billing_profile_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "billing_profile_name", value)
+        if id and not isinstance(id, str):
+            raise TypeError("Expected argument 'id' to be a str")
+        pulumi.set(__self__, "id", id)
+        if invitation_code and not isinstance(invitation_code, str):
+            raise TypeError("Expected argument 'invitation_code' to be a str")
+        pulumi.set(__self__, "invitation_code", invitation_code)
+        if max_student_count and not isinstance(max_student_count, float):
+            raise TypeError("Expected argument 'max_student_count' to be a float")
+        pulumi.set(__self__, "max_student_count", max_student_count)
+        if name and not isinstance(name, str):
+            raise TypeError("Expected argument 'name' to be a str")
+        pulumi.set(__self__, "name", name)
+        if status and not isinstance(status, str):
+            raise TypeError("Expected argument 'status' to be a str")
+        pulumi.set(__self__, "status", status)
+        if system_data and not isinstance(system_data, dict):
+            raise TypeError("Expected argument 'system_data' to be a dict")
+        pulumi.set(__self__, "system_data", system_data)
+        if type and not isinstance(type, str):
+            raise TypeError("Expected argument 'type' to be a str")
+        pulumi.set(__self__, "type", type)
+        if value and not isinstance(value, float):
+            raise TypeError("Expected argument 'value' to be a float")
+        pulumi.set(__self__, "value", value)
 
     @property
     @pulumi.getter(name="budgetPerStudent")
-    def budget_per_student(self) -> pulumi.Input['AmountArgs']:
-        """
-        Default monetary cap for each student in this lab
-        """
-        return pulumi.get(self, "budget_per_student")
-
-    @budget_per_student.setter
-    def budget_per_student(self, value: pulumi.Input['AmountArgs']):
-        pulumi.set(self, "budget_per_student", value)
-
-    @property
-    @pulumi.getter
-    def description(self) -> pulumi.Input[str]:
-        """
-        Detail description of this lab
-        """
-        return pulumi.get(self, "description")
-
-    @description.setter
-    def description(self, value: pulumi.Input[str]):
-        pulumi.set(self, "description", value)
-
-    @property
-    @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Input[str]:
-        """
-        Lab Display Name
-        """
-        return pulumi.get(self, "display_name")
-
-    @display_name.setter
-    def display_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "display_name", value)
-
-    @property
-    @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> pulumi.Input[str]:
-        """
-        Default expiration date for each student in this lab
-        """
-        return pulumi.get(self, "expiration_date")
-
-    @expiration_date.setter
-    def expiration_date(self, value: pulumi.Input[str]):
-        pulumi.set(self, "expiration_date", value)
-
-    @property
-    @pulumi.getter(name="invoiceSectionName")
-    def invoice_section_name(self) -> pulumi.Input[str]:
-        """
-        Invoice section name.
-        """
-        return pulumi.get(self, "invoice_section_name")
-
-    @invoice_section_name.setter
-    def invoice_section_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "invoice_section_name", value)
-
-    @property
-    @pulumi.getter
-    def currency(self) -> Optional[pulumi.Input[str]]:
-        """
-        The type of currency being used for the value.
-        """
-        return pulumi.get(self, "currency")
-
-    @currency.setter
-    def currency(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "currency", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[float]]:
-        """
-        Amount value.
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[float]]):
-        pulumi.set(self, "value", value)
-
-
-class GetLab(pulumi.CustomResource):
-    @overload
-    def __init__(__self__,
-                 resource_name: str,
-                 opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_name: Optional[pulumi.Input[str]] = None,
-                 billing_profile_name: Optional[pulumi.Input[str]] = None,
-                 budget_per_student: Optional[pulumi.Input[pulumi.InputType['AmountArgs']]] = None,
-                 currency: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 expiration_date: Optional[pulumi.Input[str]] = None,
-                 invoice_section_name: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[float]] = None,
-                 __props__=None):
-        """
-        Lab details.
-        API Version: 2021-12-01-preview.
-
-        :param str resource_name: The name of the resource.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] billing_account_name: Billing account name.
-        :param pulumi.Input[str] billing_profile_name: Billing profile name.
-        :param pulumi.Input[pulumi.InputType['AmountArgs']] budget_per_student: Default monetary cap for each student in this lab
-        :param pulumi.Input[str] currency: The type of currency being used for the value.
-        :param pulumi.Input[str] description: Detail description of this lab
-        :param pulumi.Input[str] display_name: Lab Display Name
-        :param pulumi.Input[str] expiration_date: Default expiration date for each student in this lab
-        :param pulumi.Input[str] invoice_section_name: Invoice section name.
-        :param pulumi.Input[float] value: Amount value.
-        """
-        ...
-    @overload
-    def __init__(__self__,
-                 resource_name: str,
-                 args: GetLabArgs,
-                 opts: Optional[pulumi.ResourceOptions] = None):
-        """
-        Lab details.
-        API Version: 2021-12-01-preview.
-
-        :param str resource_name: The name of the resource.
-        :param GetLabArgs args: The arguments to use to populate this resource's properties.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-        """
-        ...
-    def __init__(__self__, resource_name: str, *args, **kwargs):
-        resource_args, opts = _utilities.get_resource_args_opts(GetLabArgs, pulumi.ResourceOptions, *args, **kwargs)
-        if resource_args is not None:
-            __self__._internal_init(resource_name, opts, **resource_args.__dict__)
-        else:
-            __self__._internal_init(resource_name, *args, **kwargs)
-
-    def _internal_init(__self__,
-                 resource_name: str,
-                 opts: Optional[pulumi.ResourceOptions] = None,
-                 billing_account_name: Optional[pulumi.Input[str]] = None,
-                 billing_profile_name: Optional[pulumi.Input[str]] = None,
-                 budget_per_student: Optional[pulumi.Input[pulumi.InputType['AmountArgs']]] = None,
-                 currency: Optional[pulumi.Input[str]] = None,
-                 description: Optional[pulumi.Input[str]] = None,
-                 display_name: Optional[pulumi.Input[str]] = None,
-                 expiration_date: Optional[pulumi.Input[str]] = None,
-                 invoice_section_name: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[float]] = None,
-                 __props__=None):
-        if opts is None:
-            opts = pulumi.ResourceOptions()
-        if not isinstance(opts, pulumi.ResourceOptions):
-            raise TypeError('Expected resource options to be a ResourceOptions instance')
-        if opts.version is None:
-            opts.version = _utilities.get_version()
-        if opts.id is None:
-            if __props__ is not None:
-                raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
-            __props__ = GetLabArgs.__new__(GetLabArgs)
-
-            if billing_account_name is None and not opts.urn:
-                raise TypeError("Missing required property 'billing_account_name'")
-            __props__.__dict__["billing_account_name"] = billing_account_name
-            if billing_profile_name is None and not opts.urn:
-                raise TypeError("Missing required property 'billing_profile_name'")
-            __props__.__dict__["billing_profile_name"] = billing_profile_name
-            if budget_per_student is None and not opts.urn:
-                raise TypeError("Missing required property 'budget_per_student'")
-            __props__.__dict__["budget_per_student"] = budget_per_student
-            __props__.__dict__["currency"] = currency
-            if description is None and not opts.urn:
-                raise TypeError("Missing required property 'description'")
-            __props__.__dict__["description"] = description
-            if display_name is None and not opts.urn:
-                raise TypeError("Missing required property 'display_name'")
-            __props__.__dict__["display_name"] = display_name
-            if expiration_date is None and not opts.urn:
-                raise TypeError("Missing required property 'expiration_date'")
-            __props__.__dict__["expiration_date"] = expiration_date
-            if invoice_section_name is None and not opts.urn:
-                raise TypeError("Missing required property 'invoice_section_name'")
-            __props__.__dict__["invoice_section_name"] = invoice_section_name
-            __props__.__dict__["value"] = value
-            __props__.__dict__["effective_date"] = None
-            __props__.__dict__["invitation_code"] = None
-            __props__.__dict__["max_student_count"] = None
-            __props__.__dict__["name"] = None
-            __props__.__dict__["status"] = None
-            __props__.__dict__["system_data"] = None
-            __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:education/v20211201preview:GetLab")])
-        opts = pulumi.ResourceOptions.merge(opts, alias_opts)
-        super(GetLab, __self__).__init__(
-            'azure-native:education:GetLab',
-            resource_name,
-            __props__,
-            opts)
-
-    @staticmethod
-    def get(resource_name: str,
-            id: pulumi.Input[str],
-            opts: Optional[pulumi.ResourceOptions] = None) -> 'GetLab':
-        """
-        Get an existing GetLab resource's state with the given name, id, and optional extra
-        properties used to qualify the lookup.
-
-        :param str resource_name: The unique name of the resulting resource.
-        :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
-        :param pulumi.ResourceOptions opts: Options for the resource.
-        """
-        opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
-
-        __props__ = GetLabArgs.__new__(GetLabArgs)
-
-        __props__.__dict__["budget_per_student"] = None
-        __props__.__dict__["currency"] = None
-        __props__.__dict__["description"] = None
-        __props__.__dict__["display_name"] = None
-        __props__.__dict__["effective_date"] = None
-        __props__.__dict__["expiration_date"] = None
-        __props__.__dict__["invitation_code"] = None
-        __props__.__dict__["max_student_count"] = None
-        __props__.__dict__["name"] = None
-        __props__.__dict__["status"] = None
-        __props__.__dict__["system_data"] = None
-        __props__.__dict__["type"] = None
-        __props__.__dict__["value"] = None
-        return GetLab(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="budgetPerStudent")
-    def budget_per_student(self) -> pulumi.Output['outputs.AmountResponse']:
+    def budget_per_student(self) -> 'outputs.AmountResponse':
         """
         Default monetary cap for each student in this lab
         """
@@ -313,7 +75,7 @@ class GetLab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def currency(self) -> pulumi.Output[Optional[str]]:
+    def currency(self) -> Optional[str]:
         """
         The type of currency being used for the value.
         """
@@ -321,7 +83,7 @@ class GetLab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def description(self) -> pulumi.Output[str]:
+    def description(self) -> str:
         """
         Detail description of this lab
         """
@@ -329,7 +91,7 @@ class GetLab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="displayName")
-    def display_name(self) -> pulumi.Output[str]:
+    def display_name(self) -> str:
         """
         Lab Display Name
         """
@@ -337,7 +99,7 @@ class GetLab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="effectiveDate")
-    def effective_date(self) -> pulumi.Output[str]:
+    def effective_date(self) -> str:
         """
         Lab creation date
         """
@@ -345,15 +107,23 @@ class GetLab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="expirationDate")
-    def expiration_date(self) -> pulumi.Output[str]:
+    def expiration_date(self) -> str:
         """
         Default expiration date for each student in this lab
         """
         return pulumi.get(self, "expiration_date")
 
     @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+        """
+        return pulumi.get(self, "id")
+
+    @property
     @pulumi.getter(name="invitationCode")
-    def invitation_code(self) -> pulumi.Output[str]:
+    def invitation_code(self) -> str:
         """
         invitation code for redeemable lab
         """
@@ -361,7 +131,7 @@ class GetLab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="maxStudentCount")
-    def max_student_count(self) -> pulumi.Output[float]:
+    def max_student_count(self) -> float:
         """
         the total number of students that can be accepted to the lab.
         """
@@ -369,7 +139,7 @@ class GetLab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def name(self) -> pulumi.Output[str]:
+    def name(self) -> str:
         """
         The name of the resource
         """
@@ -377,7 +147,7 @@ class GetLab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def status(self) -> pulumi.Output[str]:
+    def status(self) -> str:
         """
         The status of this lab
         """
@@ -385,7 +155,7 @@ class GetLab(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
+    def system_data(self) -> 'outputs.SystemDataResponse':
         """
         Azure Resource Manager metadata containing createdBy and modifiedBy information.
         """
@@ -393,7 +163,7 @@ class GetLab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[str]:
+    def type(self) -> str:
         """
         The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         """
@@ -401,9 +171,92 @@ class GetLab(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def value(self) -> pulumi.Output[Optional[float]]:
+    def value(self) -> Optional[float]:
         """
         Amount value.
         """
         return pulumi.get(self, "value")
 
+
+class AwaitableGetLabResult(GetLabResult):
+    # pylint: disable=using-constant-test
+    def __await__(self):
+        if False:
+            yield self
+        return GetLabResult(
+            budget_per_student=self.budget_per_student,
+            currency=self.currency,
+            description=self.description,
+            display_name=self.display_name,
+            effective_date=self.effective_date,
+            expiration_date=self.expiration_date,
+            id=self.id,
+            invitation_code=self.invitation_code,
+            max_student_count=self.max_student_count,
+            name=self.name,
+            status=self.status,
+            system_data=self.system_data,
+            type=self.type,
+            value=self.value)
+
+
+def get_lab(billing_account_name: Optional[str] = None,
+            billing_profile_name: Optional[str] = None,
+            include_budget: Optional[bool] = None,
+            invoice_section_name: Optional[str] = None,
+            opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLabResult:
+    """
+    Lab details.
+    API Version: 2021-12-01-preview.
+
+
+    :param str billing_account_name: Billing account name.
+    :param str billing_profile_name: Billing profile name.
+    :param bool include_budget: May be used to include budget information.
+    :param str invoice_section_name: Invoice section name.
+    """
+    __args__ = dict()
+    __args__['billingAccountName'] = billing_account_name
+    __args__['billingProfileName'] = billing_profile_name
+    __args__['includeBudget'] = include_budget
+    __args__['invoiceSectionName'] = invoice_section_name
+    if opts is None:
+        opts = pulumi.InvokeOptions()
+    if opts.version is None:
+        opts.version = _utilities.get_version()
+    __ret__ = pulumi.runtime.invoke('azure-native:education:getLab', __args__, opts=opts, typ=GetLabResult).value
+
+    return AwaitableGetLabResult(
+        budget_per_student=__ret__.budget_per_student,
+        currency=__ret__.currency,
+        description=__ret__.description,
+        display_name=__ret__.display_name,
+        effective_date=__ret__.effective_date,
+        expiration_date=__ret__.expiration_date,
+        id=__ret__.id,
+        invitation_code=__ret__.invitation_code,
+        max_student_count=__ret__.max_student_count,
+        name=__ret__.name,
+        status=__ret__.status,
+        system_data=__ret__.system_data,
+        type=__ret__.type,
+        value=__ret__.value)
+
+
+@_utilities.lift_output_func(get_lab)
+def get_lab_output(billing_account_name: Optional[pulumi.Input[str]] = None,
+                   billing_profile_name: Optional[pulumi.Input[str]] = None,
+                   include_budget: Optional[pulumi.Input[Optional[bool]]] = None,
+                   invoice_section_name: Optional[pulumi.Input[str]] = None,
+                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetLabResult]:
+    """
+    Lab details.
+    API Version: 2021-12-01-preview.
+
+
+    :param str billing_account_name: Billing account name.
+    :param str billing_profile_name: Billing profile name.
+    :param bool include_budget: May be used to include budget information.
+    :param str invoice_section_name: Invoice section name.
+    """
+    ...

@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.SecurityInsights
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:EyesOn"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:EyesOn"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:EyesOn"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:EyesOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

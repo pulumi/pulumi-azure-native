@@ -11,7 +11,7 @@ import (
 )
 
 // The description of the service.
-// API Version: 2021-11-01.
+// API Version: 2022-05-15.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:healthcareapis:getService", args, &rv, opts...)

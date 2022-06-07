@@ -11,6 +11,8 @@ export * from "./batchDeployment";
 export * from "./batchEndpoint";
 export * from "./codeContainer";
 export * from "./codeVersion";
+export * from "./componentContainer";
+export * from "./componentVersion";
 export * from "./dataContainer";
 export * from "./dataVersion";
 export * from "./endpointVariant";
@@ -22,6 +24,8 @@ export * from "./getBatchDeployment";
 export * from "./getBatchEndpoint";
 export * from "./getCodeContainer";
 export * from "./getCodeVersion";
+export * from "./getComponentContainer";
+export * from "./getComponentVersion";
 export * from "./getDataContainer";
 export * from "./getDataVersion";
 export * from "./getEndpointVariant";
@@ -92,6 +96,8 @@ import * as v20210301preview from "./v20210301preview";
 import * as v20210401 from "./v20210401";
 import * as v20210701 from "./v20210701";
 import * as v20220101preview from "./v20220101preview";
+import * as v20220201preview from "./v20220201preview";
+import * as v20220501 from "./v20220501";
 
 export {
     v20180301preview,
@@ -113,6 +119,8 @@ export {
     v20210401,
     v20210701,
     v20220101preview,
+    v20220201preview,
+    v20220501,
 };
 
 // Import resources to register:
@@ -122,6 +130,8 @@ import { BatchDeployment } from "./batchDeployment";
 import { BatchEndpoint } from "./batchEndpoint";
 import { CodeContainer } from "./codeContainer";
 import { CodeVersion } from "./codeVersion";
+import { ComponentContainer } from "./componentContainer";
+import { ComponentVersion } from "./componentVersion";
 import { DataContainer } from "./dataContainer";
 import { DataVersion } from "./dataVersion";
 import { EndpointVariant } from "./endpointVariant";
@@ -159,6 +169,10 @@ const _module = {
                 return new CodeContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:CodeVersion":
                 return new CodeVersion(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:ComponentContainer":
+                return new ComponentContainer(name, <any>undefined, { urn })
+            case "azure-native:machinelearningservices:ComponentVersion":
+                return new ComponentVersion(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:DataContainer":
                 return new DataContainer(name, <any>undefined, { urn })
             case "azure-native:machinelearningservices:DataVersion":

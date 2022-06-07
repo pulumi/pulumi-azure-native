@@ -67,7 +67,7 @@ export class ContainerApp extends pulumi.CustomResource {
     /**
      * The name of the resource
      */
-    public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly name!: pulumi.Output<string>;
     /**
      * Outbound IP Addresses for container app.
      */
@@ -108,16 +108,17 @@ export class ContainerApp extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["configuration"] = args ? (args.configuration ? pulumi.output(args.configuration).apply(inputs.app.configurationArgsProvideDefaults) : undefined) : undefined;
+            resourceInputs["containerAppName"] = args ? args.containerAppName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["managedEnvironmentId"] = args ? args.managedEnvironmentId : undefined;
-            resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["template"] = args ? args.template : undefined;
             resourceInputs["customDomainVerificationId"] = undefined /*out*/;
             resourceInputs["latestRevisionFqdn"] = undefined /*out*/;
             resourceInputs["latestRevisionName"] = undefined /*out*/;
+            resourceInputs["name"] = undefined /*out*/;
             resourceInputs["outboundIPAddresses"] = undefined /*out*/;
             resourceInputs["provisioningState"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
@@ -154,6 +155,10 @@ export interface ContainerAppArgs {
      */
     configuration?: pulumi.Input<inputs.app.ConfigurationArgs>;
     /**
+     * Name of the Container App.
+     */
+    containerAppName?: pulumi.Input<string>;
+    /**
      * managed identities for the Container App to interact with other Azure services without maintaining any secrets or credentials in code.
      */
     identity?: pulumi.Input<inputs.app.ManagedServiceIdentityArgs>;
@@ -165,10 +170,6 @@ export interface ContainerAppArgs {
      * Resource ID of the Container App's environment.
      */
     managedEnvironmentId?: pulumi.Input<string>;
-    /**
-     * Name of the Container App.
-     */
-    name?: pulumi.Input<string>;
     /**
      * The name of the resource group. The name is case insensitive.
      */

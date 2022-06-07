@@ -5193,6 +5193,405 @@ type CommandJobResponse struct {
 	Timeout *string `pulumi:"timeout"`
 }
 
+// Component container definition.
+// <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+type ComponentContainerType struct {
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for ComponentContainerType
+func (val *ComponentContainerType) Defaults() *ComponentContainerType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
+}
+
+// ComponentContainerTypeInput is an input type that accepts ComponentContainerTypeArgs and ComponentContainerTypeOutput values.
+// You can construct a concrete instance of `ComponentContainerTypeInput` via:
+//
+//          ComponentContainerTypeArgs{...}
+type ComponentContainerTypeInput interface {
+	pulumi.Input
+
+	ToComponentContainerTypeOutput() ComponentContainerTypeOutput
+	ToComponentContainerTypeOutputWithContext(context.Context) ComponentContainerTypeOutput
+}
+
+// Component container definition.
+// <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+type ComponentContainerTypeArgs struct {
+	// The asset description text.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived pulumi.BoolPtrInput `pulumi:"isArchived"`
+	// The asset property dictionary.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for ComponentContainerTypeArgs
+func (val *ComponentContainerTypeArgs) Defaults() *ComponentContainerTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		tmp.IsArchived = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
+func (ComponentContainerTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentContainerType)(nil)).Elem()
+}
+
+func (i ComponentContainerTypeArgs) ToComponentContainerTypeOutput() ComponentContainerTypeOutput {
+	return i.ToComponentContainerTypeOutputWithContext(context.Background())
+}
+
+func (i ComponentContainerTypeArgs) ToComponentContainerTypeOutputWithContext(ctx context.Context) ComponentContainerTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentContainerTypeOutput)
+}
+
+// Component container definition.
+// <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+type ComponentContainerTypeOutput struct{ *pulumi.OutputState }
+
+func (ComponentContainerTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentContainerType)(nil)).Elem()
+}
+
+func (o ComponentContainerTypeOutput) ToComponentContainerTypeOutput() ComponentContainerTypeOutput {
+	return o
+}
+
+func (o ComponentContainerTypeOutput) ToComponentContainerTypeOutputWithContext(ctx context.Context) ComponentContainerTypeOutput {
+	return o
+}
+
+// The asset description text.
+func (o ComponentContainerTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentContainerType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Is the asset archived?
+func (o ComponentContainerTypeOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComponentContainerType) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// The asset property dictionary.
+func (o ComponentContainerTypeOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComponentContainerType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Tag dictionary. Tags can be added, removed, and updated.
+func (o ComponentContainerTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComponentContainerType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Component container definition.
+// <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+type ComponentContainerResponse struct {
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The latest version inside this container.
+	LatestVersion string `pulumi:"latestVersion"`
+	// The next auto incremental version
+	NextVersion string `pulumi:"nextVersion"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for ComponentContainerResponse
+func (val *ComponentContainerResponse) Defaults() *ComponentContainerResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
+}
+
+// Component container definition.
+// <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+type ComponentContainerResponseOutput struct{ *pulumi.OutputState }
+
+func (ComponentContainerResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentContainerResponse)(nil)).Elem()
+}
+
+func (o ComponentContainerResponseOutput) ToComponentContainerResponseOutput() ComponentContainerResponseOutput {
+	return o
+}
+
+func (o ComponentContainerResponseOutput) ToComponentContainerResponseOutputWithContext(ctx context.Context) ComponentContainerResponseOutput {
+	return o
+}
+
+// The asset description text.
+func (o ComponentContainerResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentContainerResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Is the asset archived?
+func (o ComponentContainerResponseOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComponentContainerResponse) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// The latest version inside this container.
+func (o ComponentContainerResponseOutput) LatestVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ComponentContainerResponse) string { return v.LatestVersion }).(pulumi.StringOutput)
+}
+
+// The next auto incremental version
+func (o ComponentContainerResponseOutput) NextVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v ComponentContainerResponse) string { return v.NextVersion }).(pulumi.StringOutput)
+}
+
+// The asset property dictionary.
+func (o ComponentContainerResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComponentContainerResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Tag dictionary. Tags can be added, removed, and updated.
+func (o ComponentContainerResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComponentContainerResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Definition of a component version: defines resources that span component types.
+type ComponentVersionType struct {
+	// Defines Component definition details.
+	// <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+	ComponentSpec interface{} `pulumi:"componentSpec"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// If the name version are system generated (anonymous registration).
+	IsAnonymous *bool `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for ComponentVersionType
+func (val *ComponentVersionType) Defaults() *ComponentVersionType {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
+}
+
+// ComponentVersionTypeInput is an input type that accepts ComponentVersionTypeArgs and ComponentVersionTypeOutput values.
+// You can construct a concrete instance of `ComponentVersionTypeInput` via:
+//
+//          ComponentVersionTypeArgs{...}
+type ComponentVersionTypeInput interface {
+	pulumi.Input
+
+	ToComponentVersionTypeOutput() ComponentVersionTypeOutput
+	ToComponentVersionTypeOutputWithContext(context.Context) ComponentVersionTypeOutput
+}
+
+// Definition of a component version: defines resources that span component types.
+type ComponentVersionTypeArgs struct {
+	// Defines Component definition details.
+	// <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+	ComponentSpec pulumi.Input `pulumi:"componentSpec"`
+	// The asset description text.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// If the name version are system generated (anonymous registration).
+	IsAnonymous pulumi.BoolPtrInput `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived pulumi.BoolPtrInput `pulumi:"isArchived"`
+	// The asset property dictionary.
+	Properties pulumi.StringMapInput `pulumi:"properties"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for ComponentVersionTypeArgs
+func (val *ComponentVersionTypeArgs) Defaults() *ComponentVersionTypeArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		tmp.IsAnonymous = pulumi.BoolPtr(false)
+	}
+	if isZero(tmp.IsArchived) {
+		tmp.IsArchived = pulumi.BoolPtr(false)
+	}
+	return &tmp
+}
+func (ComponentVersionTypeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentVersionType)(nil)).Elem()
+}
+
+func (i ComponentVersionTypeArgs) ToComponentVersionTypeOutput() ComponentVersionTypeOutput {
+	return i.ToComponentVersionTypeOutputWithContext(context.Background())
+}
+
+func (i ComponentVersionTypeArgs) ToComponentVersionTypeOutputWithContext(ctx context.Context) ComponentVersionTypeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ComponentVersionTypeOutput)
+}
+
+// Definition of a component version: defines resources that span component types.
+type ComponentVersionTypeOutput struct{ *pulumi.OutputState }
+
+func (ComponentVersionTypeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentVersionType)(nil)).Elem()
+}
+
+func (o ComponentVersionTypeOutput) ToComponentVersionTypeOutput() ComponentVersionTypeOutput {
+	return o
+}
+
+func (o ComponentVersionTypeOutput) ToComponentVersionTypeOutputWithContext(ctx context.Context) ComponentVersionTypeOutput {
+	return o
+}
+
+// Defines Component definition details.
+// <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+func (o ComponentVersionTypeOutput) ComponentSpec() pulumi.AnyOutput {
+	return o.ApplyT(func(v ComponentVersionType) interface{} { return v.ComponentSpec }).(pulumi.AnyOutput)
+}
+
+// The asset description text.
+func (o ComponentVersionTypeOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentVersionType) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// If the name version are system generated (anonymous registration).
+func (o ComponentVersionTypeOutput) IsAnonymous() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComponentVersionType) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
+}
+
+// Is the asset archived?
+func (o ComponentVersionTypeOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComponentVersionType) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// The asset property dictionary.
+func (o ComponentVersionTypeOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComponentVersionType) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Tag dictionary. Tags can be added, removed, and updated.
+func (o ComponentVersionTypeOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComponentVersionType) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+// Definition of a component version: defines resources that span component types.
+type ComponentVersionResponse struct {
+	// Defines Component definition details.
+	// <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+	ComponentSpec interface{} `pulumi:"componentSpec"`
+	// The asset description text.
+	Description *string `pulumi:"description"`
+	// If the name version are system generated (anonymous registration).
+	IsAnonymous *bool `pulumi:"isAnonymous"`
+	// Is the asset archived?
+	IsArchived *bool `pulumi:"isArchived"`
+	// The asset property dictionary.
+	Properties map[string]string `pulumi:"properties"`
+	// Tag dictionary. Tags can be added, removed, and updated.
+	Tags map[string]string `pulumi:"tags"`
+}
+
+// Defaults sets the appropriate defaults for ComponentVersionResponse
+func (val *ComponentVersionResponse) Defaults() *ComponentVersionResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.IsAnonymous) {
+		isAnonymous_ := false
+		tmp.IsAnonymous = &isAnonymous_
+	}
+	if isZero(tmp.IsArchived) {
+		isArchived_ := false
+		tmp.IsArchived = &isArchived_
+	}
+	return &tmp
+}
+
+// Definition of a component version: defines resources that span component types.
+type ComponentVersionResponseOutput struct{ *pulumi.OutputState }
+
+func (ComponentVersionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ComponentVersionResponse)(nil)).Elem()
+}
+
+func (o ComponentVersionResponseOutput) ToComponentVersionResponseOutput() ComponentVersionResponseOutput {
+	return o
+}
+
+func (o ComponentVersionResponseOutput) ToComponentVersionResponseOutputWithContext(ctx context.Context) ComponentVersionResponseOutput {
+	return o
+}
+
+// Defines Component definition details.
+// <see href="https://docs.microsoft.com/en-us/azure/machine-learning/reference-yaml-component-command" />
+func (o ComponentVersionResponseOutput) ComponentSpec() pulumi.AnyOutput {
+	return o.ApplyT(func(v ComponentVersionResponse) interface{} { return v.ComponentSpec }).(pulumi.AnyOutput)
+}
+
+// The asset description text.
+func (o ComponentVersionResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ComponentVersionResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// If the name version are system generated (anonymous registration).
+func (o ComponentVersionResponseOutput) IsAnonymous() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComponentVersionResponse) *bool { return v.IsAnonymous }).(pulumi.BoolPtrOutput)
+}
+
+// Is the asset archived?
+func (o ComponentVersionResponseOutput) IsArchived() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ComponentVersionResponse) *bool { return v.IsArchived }).(pulumi.BoolPtrOutput)
+}
+
+// The asset property dictionary.
+func (o ComponentVersionResponseOutput) Properties() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComponentVersionResponse) map[string]string { return v.Properties }).(pulumi.StringMapOutput)
+}
+
+// Tag dictionary. Tags can be added, removed, and updated.
+func (o ComponentVersionResponseOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v ComponentVersionResponse) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
+}
+
 // Compute binding definition.
 type ComputeBinding struct {
 	// ID of the compute resource.
@@ -19478,6 +19877,10 @@ func init() {
 	pulumi.RegisterOutputType(CodeContainerResponseOutput{})
 	pulumi.RegisterOutputType(CodeVersionTypeOutput{})
 	pulumi.RegisterOutputType(CodeVersionResponseOutput{})
+	pulumi.RegisterOutputType(ComponentContainerTypeOutput{})
+	pulumi.RegisterOutputType(ComponentContainerResponseOutput{})
+	pulumi.RegisterOutputType(ComponentVersionTypeOutput{})
+	pulumi.RegisterOutputType(ComponentVersionResponseOutput{})
 	pulumi.RegisterOutputType(ComputeBindingOutput{})
 	pulumi.RegisterOutputType(ComputeBindingPtrOutput{})
 	pulumi.RegisterOutputType(ComputeBindingResponseOutput{})

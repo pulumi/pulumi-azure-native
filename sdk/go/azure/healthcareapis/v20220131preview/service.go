@@ -12,6 +12,8 @@ import (
 )
 
 // The description of the service.
+//
+// Deprecated: Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.
 type Service struct {
 	pulumi.CustomResourceState
 
@@ -72,6 +74,9 @@ func NewService(ctx *pulumi.Context,
 		},
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20211101:Service"),
+		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20220515:Service"),
 		},
 	})
 	opts = append(opts, aliases)

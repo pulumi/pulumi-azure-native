@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.Cdn.V20210601.Inputs
         private InputList<Inputs.ManagedRuleOverrideArgs>? _rules;
 
         /// <summary>
-        /// List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        /// List of rules that will be enabled. If none specified, all rules in the group will be disabled.
         /// </summary>
         public InputList<Inputs.ManagedRuleOverrideArgs> Rules
         {

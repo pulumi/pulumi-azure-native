@@ -248,7 +248,7 @@ class FhirService(pulumi.CustomResource):
                  __props__=None):
         """
         The description of Fhir Service
-        API Version: 2021-11-01.
+        API Version: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -274,7 +274,7 @@ class FhirService(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The description of Fhir Service
-        API Version: 2021-11-01.
+        API Version: 2022-05-15.
 
         :param str resource_name: The name of the resource.
         :param FhirServiceArgs args: The arguments to use to populate this resource's properties.
@@ -341,7 +341,7 @@ class FhirService(pulumi.CustomResource):
             __props__.__dict__["public_network_access"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:FhirService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220131preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:FhirService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FhirService, __self__).__init__(
             'azure-native:healthcareapis:FhirService',

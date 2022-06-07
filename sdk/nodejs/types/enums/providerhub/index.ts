@@ -14,6 +14,14 @@ export {
     v20210901preview,
 };
 
+export const ExtendedLocationType = {
+    NotSpecified: "NotSpecified",
+    EdgeZone: "EdgeZone",
+    ArcZone: "ArcZone",
+} as const;
+
+export type ExtendedLocationType = (typeof ExtendedLocationType)[keyof typeof ExtendedLocationType];
+
 export const ExtensionCategory = {
     NotSpecified: "NotSpecified",
     ResourceCreationValidate: "ResourceCreationValidate",
@@ -75,6 +83,15 @@ export const LoggingDirections = {
 
 export type LoggingDirections = (typeof LoggingDirections)[keyof typeof LoggingDirections];
 
+export const MarketplaceType = {
+    NotSpecified: "NotSpecified",
+    AddOn: "AddOn",
+    Bypass: "Bypass",
+    Store: "Store",
+} as const;
+
+export type MarketplaceType = (typeof MarketplaceType)[keyof typeof MarketplaceType];
+
 export const MessageScope = {
     NotSpecified: "NotSpecified",
     RegisteredSubscriptions: "RegisteredSubscriptions",
@@ -89,6 +106,21 @@ export const NotificationMode = {
 } as const;
 
 export type NotificationMode = (typeof NotificationMode)[keyof typeof NotificationMode];
+
+export const OperationActionType = {
+    NotSpecified: "NotSpecified",
+    Internal: "Internal",
+} as const;
+
+export type OperationActionType = (typeof OperationActionType)[keyof typeof OperationActionType];
+
+export const OperationOrigins = {
+    NotSpecified: "NotSpecified",
+    User: "User",
+    System: "System",
+} as const;
+
+export type OperationOrigins = (typeof OperationOrigins)[keyof typeof OperationOrigins];
 
 export const OptInHeaderType = {
     NotSpecified: "NotSpecified",
@@ -133,6 +165,14 @@ export const Regionality = {
 } as const;
 
 export type Regionality = (typeof Regionality)[keyof typeof Regionality];
+
+export const ResourceAccessPolicy = {
+    NotSpecified: "NotSpecified",
+    AcisReadAllowed: "AcisReadAllowed",
+    AcisActionAllowed: "AcisActionAllowed",
+} as const;
+
+export type ResourceAccessPolicy = (typeof ResourceAccessPolicy)[keyof typeof ResourceAccessPolicy];
 
 export const ResourceDeletionPolicy = {
     NotSpecified: "NotSpecified",

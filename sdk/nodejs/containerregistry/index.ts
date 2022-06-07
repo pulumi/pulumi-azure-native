@@ -65,6 +65,7 @@ import * as v20210601preview from "./v20210601preview";
 import * as v20210801preview from "./v20210801preview";
 import * as v20210901 from "./v20210901";
 import * as v20211201preview from "./v20211201preview";
+import * as v20220201preview from "./v20220201preview";
 
 export {
     v20160627preview,
@@ -83,6 +84,7 @@ export {
     v20210801preview,
     v20210901,
     v20211201preview,
+    v20220201preview,
 };
 
 // Import resources to register:

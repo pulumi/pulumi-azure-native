@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211001:ResourceGuardProxy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:ResourceGuardProxy"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220101:ResourceGuardProxy"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:ResourceGuardProxy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -104,6 +105,24 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201
     public sealed class ResourceGuardProxyArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Optional ETag.
+        /// </summary>
+        [Input("eTag")]
+        public Input<string>? ETag { get; set; }
+
+        /// <summary>
+        /// Resource location.
+        /// </summary>
+        [Input("location")]
+        public Input<string>? Location { get; set; }
+
+        /// <summary>
+        /// ResourceGuardProxyBaseResource properties
+        /// </summary>
+        [Input("properties")]
+        public Input<Inputs.ResourceGuardProxyBaseArgs>? Properties { get; set; }
+
+        /// <summary>
         /// The name of the resource group where the recovery services vault is present.
         /// </summary>
         [Input("resourceGroupName", required: true)]
@@ -111,6 +130,18 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220201
 
         [Input("resourceGuardProxyName")]
         public Input<string>? ResourceGuardProxyName { get; set; }
+
+        [Input("tags")]
+        private InputMap<string>? _tags;
+
+        /// <summary>
+        /// Resource tags.
+        /// </summary>
+        public InputMap<string> Tags
+        {
+            get => _tags ?? (_tags = new InputMap<string>());
+            set => _tags = value;
+        }
 
         /// <summary>
         /// The name of the recovery services vault.

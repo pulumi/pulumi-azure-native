@@ -15,43 +15,43 @@ __all__ = ['CertificateArgs', 'Certificate']
 @pulumi.input_type
 class CertificateArgs:
     def __init__(__self__, *,
-                 managed_environment_name: pulumi.Input[str],
+                 environment_name: pulumi.Input[str],
                  resource_group_name: pulumi.Input[str],
+                 certificate_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input['CertificatePropertiesArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a Certificate resource.
-        :param pulumi.Input[str] managed_environment_name: Name of the Managed Environment.
+        :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
+        :param pulumi.Input[str] certificate_name: Name of the Certificate.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] name: Name of the Certificate.
         :param pulumi.Input['CertificatePropertiesArgs'] properties: Certificate resource specific properties
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
-        pulumi.set(__self__, "managed_environment_name", managed_environment_name)
+        pulumi.set(__self__, "environment_name", environment_name)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if certificate_name is not None:
+            pulumi.set(__self__, "certificate_name", certificate_name)
         if location is not None:
             pulumi.set(__self__, "location", location)
-        if name is not None:
-            pulumi.set(__self__, "name", name)
         if properties is not None:
             pulumi.set(__self__, "properties", properties)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
 
     @property
-    @pulumi.getter(name="managedEnvironmentName")
-    def managed_environment_name(self) -> pulumi.Input[str]:
+    @pulumi.getter(name="environmentName")
+    def environment_name(self) -> pulumi.Input[str]:
         """
         Name of the Managed Environment.
         """
-        return pulumi.get(self, "managed_environment_name")
+        return pulumi.get(self, "environment_name")
 
-    @managed_environment_name.setter
-    def managed_environment_name(self, value: pulumi.Input[str]):
-        pulumi.set(self, "managed_environment_name", value)
+    @environment_name.setter
+    def environment_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "environment_name", value)
 
     @property
     @pulumi.getter(name="resourceGroupName")
@@ -66,6 +66,18 @@ class CertificateArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
+    @pulumi.getter(name="certificateName")
+    def certificate_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the Certificate.
+        """
+        return pulumi.get(self, "certificate_name")
+
+    @certificate_name.setter
+    def certificate_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "certificate_name", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -76,18 +88,6 @@ class CertificateArgs:
     @location.setter
     def location(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "location", value)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        Name of the Certificate.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
     @property
     @pulumi.getter
@@ -119,9 +119,9 @@ class Certificate(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_environment_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -131,9 +131,9 @@ class Certificate(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[str] certificate_name: Name of the Certificate.
+        :param pulumi.Input[str] environment_name: Name of the Managed Environment.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] managed_environment_name: Name of the Managed Environment.
-        :param pulumi.Input[str] name: Name of the Certificate.
         :param pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']] properties: Certificate resource specific properties
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -162,9 +162,9 @@ class Certificate(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 certificate_name: Optional[pulumi.Input[str]] = None,
+                 environment_name: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
-                 managed_environment_name: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['CertificatePropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -180,16 +180,17 @@ class Certificate(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CertificateArgs.__new__(CertificateArgs)
 
+            __props__.__dict__["certificate_name"] = certificate_name
+            if environment_name is None and not opts.urn:
+                raise TypeError("Missing required property 'environment_name'")
+            __props__.__dict__["environment_name"] = environment_name
             __props__.__dict__["location"] = location
-            if managed_environment_name is None and not opts.urn:
-                raise TypeError("Missing required property 'managed_environment_name'")
-            __props__.__dict__["managed_environment_name"] = managed_environment_name
-            __props__.__dict__["name"] = name
             __props__.__dict__["properties"] = properties
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:app:Certificate"), pulumi.Alias(type_="azure-native:app/v20220101preview:Certificate")])

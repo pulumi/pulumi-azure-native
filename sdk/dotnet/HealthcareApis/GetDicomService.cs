@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HealthcareApis
     {
         /// <summary>
         /// The description of Dicom Service
-        /// API Version: 2021-11-01.
+        /// API Version: 2022-05-15.
         /// </summary>
         public static Task<GetDicomServiceResult> InvokeAsync(GetDicomServiceArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetDicomServiceResult>("azure-native:healthcareapis:getDicomService", args ?? new GetDicomServiceArgs(), options.WithDefaults());
 
         /// <summary>
         /// The description of Dicom Service
-        /// API Version: 2021-11-01.
+        /// API Version: 2022-05-15.
         /// </summary>
         public static Output<GetDicomServiceResult> Invoke(GetDicomServiceInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetDicomServiceResult>("azure-native:healthcareapis:getDicomService", args ?? new GetDicomServiceInvokeArgs(), options.WithDefaults());
@@ -86,6 +86,10 @@ namespace Pulumi.AzureNative.HealthcareApis
         /// </summary>
         public readonly Outputs.DicomServiceAuthenticationConfigurationResponse? AuthenticationConfiguration;
         /// <summary>
+        /// Dicom Service Cors configuration.
+        /// </summary>
+        public readonly Outputs.CorsConfigurationResponse? CorsConfiguration;
+        /// <summary>
         /// An etag associated with the resource, used for optimistic concurrency when editing it.
         /// </summary>
         public readonly string? Etag;
@@ -138,6 +142,8 @@ namespace Pulumi.AzureNative.HealthcareApis
         private GetDicomServiceResult(
             Outputs.DicomServiceAuthenticationConfigurationResponse? authenticationConfiguration,
 
+            Outputs.CorsConfigurationResponse? corsConfiguration,
+
             string? etag,
 
             string id,
@@ -163,6 +169,7 @@ namespace Pulumi.AzureNative.HealthcareApis
             string type)
         {
             AuthenticationConfiguration = authenticationConfiguration;
+            CorsConfiguration = corsConfiguration;
             Etag = etag;
             Id = id;
             Identity = identity;

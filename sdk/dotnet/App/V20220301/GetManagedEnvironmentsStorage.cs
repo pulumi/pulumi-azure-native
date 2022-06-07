@@ -30,20 +30,20 @@ namespace Pulumi.AzureNative.App.V20220301
         /// <summary>
         /// Name of the Environment.
         /// </summary>
-        [Input("envName", required: true)]
-        public string EnvName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the storage.
-        /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("environmentName", required: true)]
+        public string EnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public string ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the storage.
+        /// </summary>
+        [Input("storageName", required: true)]
+        public string StorageName { get; set; } = null!;
 
         public GetManagedEnvironmentsStorageArgs()
         {
@@ -55,20 +55,20 @@ namespace Pulumi.AzureNative.App.V20220301
         /// <summary>
         /// Name of the Environment.
         /// </summary>
-        [Input("envName", required: true)]
-        public Input<string> EnvName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the storage.
-        /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group. The name is case insensitive.
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the storage.
+        /// </summary>
+        [Input("storageName", required: true)]
+        public Input<string> StorageName { get; set; } = null!;
 
         public GetManagedEnvironmentsStorageInvokeArgs()
         {

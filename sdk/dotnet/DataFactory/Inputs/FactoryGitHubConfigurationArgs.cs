@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> CollaborationBranch { get; set; } = null!;
 
         /// <summary>
-        /// GitHub Enterprise host name. For example: https://github.mydomain.com
+        /// GitHub Enterprise host name. For example: `https://github.mydomain.com`
         /// </summary>
         [Input("hostName")]
         public Input<string>? HostName { get; set; }

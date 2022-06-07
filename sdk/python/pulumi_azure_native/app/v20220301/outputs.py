@@ -4771,7 +4771,7 @@ class VnetConfigurationResponse(dict):
         Configuration properties for apps environment to join a Virtual Network
         :param str docker_bridge_cidr: CIDR notation IP range assigned to the Docker bridge, network. Must not overlap with any other provided IP ranges.
         :param str infrastructure_subnet_id: Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
-        :param bool internal: Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+        :param bool internal: Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
         :param str platform_reserved_cidr: IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
         :param str platform_reserved_dns_ip:  An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server.
         :param str runtime_subnet_id: Resource ID of a subnet that Container App containers are injected into. This subnet must be in the same VNET as the subnet defined in infrastructureSubnetId. Must not overlap with any other provided IP ranges.
@@ -4809,7 +4809,7 @@ class VnetConfigurationResponse(dict):
     @pulumi.getter
     def internal(self) -> Optional[bool]:
         """
-        Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+        Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
         """
         return pulumi.get(self, "internal")
 

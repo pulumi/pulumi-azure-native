@@ -11,6 +11,8 @@ import (
 )
 
 // The Private Endpoint Connection resource.
+//
+// Deprecated: Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.
 func LookupWorkspacePrivateEndpointConnection(ctx *pulumi.Context, args *LookupWorkspacePrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupWorkspacePrivateEndpointConnectionResult, error) {
 	var rv LookupWorkspacePrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:healthcareapis/v20211101:getWorkspacePrivateEndpointConnection", args, &rv, opts...)

@@ -12,12 +12,14 @@ import (
 )
 
 // The description of Dicom Service
-// API Version: 2021-11-01.
+// API Version: 2022-05-15.
 type DicomService struct {
 	pulumi.CustomResourceState
 
 	// Dicom Service authentication configuration.
 	AuthenticationConfiguration DicomServiceAuthenticationConfigurationResponsePtrOutput `pulumi:"authenticationConfiguration"`
+	// Dicom Service Cors configuration.
+	CorsConfiguration CorsConfigurationResponsePtrOutput `pulumi:"corsConfiguration"`
 	// An etag associated with the resource, used for optimistic concurrency when editing it.
 	Etag pulumi.StringPtrOutput `pulumi:"etag"`
 	// Setting indicating whether the service has a managed identity associated with it.
@@ -65,6 +67,9 @@ func NewDicomService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:healthcareapis/v20220131preview:DicomService"),
 		},
+		{
+			Type: pulumi.String("azure-native:healthcareapis/v20220515:DicomService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource DicomService
@@ -99,6 +104,8 @@ func (DicomServiceState) ElementType() reflect.Type {
 }
 
 type dicomServiceArgs struct {
+	// Dicom Service Cors configuration.
+	CorsConfiguration *CorsConfiguration `pulumi:"corsConfiguration"`
 	// The name of DICOM Service resource.
 	DicomServiceName *string `pulumi:"dicomServiceName"`
 	// Setting indicating whether the service has a managed identity associated with it.
@@ -115,6 +122,8 @@ type dicomServiceArgs struct {
 
 // The set of arguments for constructing a DicomService resource.
 type DicomServiceArgs struct {
+	// Dicom Service Cors configuration.
+	CorsConfiguration CorsConfigurationPtrInput
 	// The name of DICOM Service resource.
 	DicomServiceName pulumi.StringPtrInput
 	// Setting indicating whether the service has a managed identity associated with it.
@@ -171,6 +180,11 @@ func (o DicomServiceOutput) AuthenticationConfiguration() DicomServiceAuthentica
 	return o.ApplyT(func(v *DicomService) DicomServiceAuthenticationConfigurationResponsePtrOutput {
 		return v.AuthenticationConfiguration
 	}).(DicomServiceAuthenticationConfigurationResponsePtrOutput)
+}
+
+// Dicom Service Cors configuration.
+func (o DicomServiceOutput) CorsConfiguration() CorsConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *DicomService) CorsConfigurationResponsePtrOutput { return v.CorsConfiguration }).(CorsConfigurationResponsePtrOutput)
 }
 
 // An etag associated with the resource, used for optimistic concurrency when editing it.

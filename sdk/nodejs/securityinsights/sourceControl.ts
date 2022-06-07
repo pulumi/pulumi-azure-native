@@ -167,7 +167,7 @@ export class SourceControl extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20210301preview:SourceControl" }, { type: "azure-native:securityinsights/v20210901preview:SourceControl" }, { type: "azure-native:securityinsights/v20211001preview:SourceControl" }, { type: "azure-native:securityinsights/v20220101preview:SourceControl" }, { type: "azure-native:securityinsights/v20220401preview:SourceControl" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20210301preview:SourceControl" }, { type: "azure-native:securityinsights/v20210901preview:SourceControl" }, { type: "azure-native:securityinsights/v20211001preview:SourceControl" }, { type: "azure-native:securityinsights/v20220101preview:SourceControl" }, { type: "azure-native:securityinsights/v20220401preview:SourceControl" }, { type: "azure-native:securityinsights/v20220501preview:SourceControl" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SourceControl.__pulumiType, name, resourceInputs, opts);
     }

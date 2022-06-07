@@ -23,6 +23,7 @@ class FactoryArgs:
                  identity: Optional[pulumi.Input['FactoryIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 purview_configuration: Optional[pulumi.Input['PurviewConfigurationArgs']] = None,
                  repo_configuration: Optional[pulumi.Input[Union['FactoryGitHubConfigurationArgs', 'FactoryVSTSConfigurationArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -34,6 +35,7 @@ class FactoryArgs:
         :param pulumi.Input['FactoryIdentityArgs'] identity: Managed service identity of the factory.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for the data factory.
+        :param pulumi.Input['PurviewConfigurationArgs'] purview_configuration: Purview information of the factory.
         :param pulumi.Input[Union['FactoryGitHubConfigurationArgs', 'FactoryVSTSConfigurationArgs']] repo_configuration: Git repo information of the factory.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
         """
@@ -50,6 +52,8 @@ class FactoryArgs:
             pulumi.set(__self__, "location", location)
         if public_network_access is not None:
             pulumi.set(__self__, "public_network_access", public_network_access)
+        if purview_configuration is not None:
+            pulumi.set(__self__, "purview_configuration", purview_configuration)
         if repo_configuration is not None:
             pulumi.set(__self__, "repo_configuration", repo_configuration)
         if tags is not None:
@@ -140,6 +144,18 @@ class FactoryArgs:
         pulumi.set(self, "public_network_access", value)
 
     @property
+    @pulumi.getter(name="purviewConfiguration")
+    def purview_configuration(self) -> Optional[pulumi.Input['PurviewConfigurationArgs']]:
+        """
+        Purview information of the factory.
+        """
+        return pulumi.get(self, "purview_configuration")
+
+    @purview_configuration.setter
+    def purview_configuration(self, value: Optional[pulumi.Input['PurviewConfigurationArgs']]):
+        pulumi.set(self, "purview_configuration", value)
+
+    @property
     @pulumi.getter(name="repoConfiguration")
     def repo_configuration(self) -> Optional[pulumi.Input[Union['FactoryGitHubConfigurationArgs', 'FactoryVSTSConfigurationArgs']]]:
         """
@@ -175,6 +191,7 @@ class Factory(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 purview_configuration: Optional[pulumi.Input[pulumi.InputType['PurviewConfigurationArgs']]] = None,
                  repo_configuration: Optional[pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -191,6 +208,7 @@ class Factory(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['FactoryIdentityArgs']] identity: Managed service identity of the factory.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[Union[str, 'PublicNetworkAccess']] public_network_access: Whether or not public network access is allowed for the data factory.
+        :param pulumi.Input[pulumi.InputType['PurviewConfigurationArgs']] purview_configuration: Purview information of the factory.
         :param pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]] repo_configuration: Git repo information of the factory.
         :param pulumi.Input[str] resource_group_name: The resource group name.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: The resource tags.
@@ -226,6 +244,7 @@ class Factory(pulumi.CustomResource):
                  identity: Optional[pulumi.Input[pulumi.InputType['FactoryIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  public_network_access: Optional[pulumi.Input[Union[str, 'PublicNetworkAccess']]] = None,
+                 purview_configuration: Optional[pulumi.Input[pulumi.InputType['PurviewConfigurationArgs']]] = None,
                  repo_configuration: Optional[pulumi.Input[Union[pulumi.InputType['FactoryGitHubConfigurationArgs'], pulumi.InputType['FactoryVSTSConfigurationArgs']]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -247,6 +266,7 @@ class Factory(pulumi.CustomResource):
             __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             __props__.__dict__["public_network_access"] = public_network_access
+            __props__.__dict__["purview_configuration"] = purview_configuration
             __props__.__dict__["repo_configuration"] = repo_configuration
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -291,6 +311,7 @@ class Factory(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["public_network_access"] = None
+        __props__.__dict__["purview_configuration"] = None
         __props__.__dict__["repo_configuration"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
@@ -368,6 +389,14 @@ class Factory(pulumi.CustomResource):
         Whether or not public network access is allowed for the data factory.
         """
         return pulumi.get(self, "public_network_access")
+
+    @property
+    @pulumi.getter(name="purviewConfiguration")
+    def purview_configuration(self) -> pulumi.Output[Optional['outputs.PurviewConfigurationResponse']]:
+        """
+        Purview information of the factory.
+        """
+        return pulumi.get(self, "purview_configuration")
 
     @property
     @pulumi.getter(name="repoConfiguration")

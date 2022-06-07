@@ -149,6 +149,7 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
             __props__.__dict__["resource_group_name"] = resource_group_name
             __props__.__dict__["azure_dns_record"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["public_azure_dns_record"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:sql:ManagedServerDnsAlias")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -176,6 +177,7 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
 
         __props__.__dict__["azure_dns_record"] = None
         __props__.__dict__["name"] = None
+        __props__.__dict__["public_azure_dns_record"] = None
         __props__.__dict__["type"] = None
         return ManagedServerDnsAlias(resource_name, opts=opts, __props__=__props__)
 
@@ -194,6 +196,14 @@ class ManagedServerDnsAlias(pulumi.CustomResource):
         Resource name.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="publicAzureDnsRecord")
+    def public_azure_dns_record(self) -> pulumi.Output[str]:
+        """
+        The fully qualified public DNS record for managed server alias
+        """
+        return pulumi.get(self, "public_azure_dns_record")
 
     @property
     @pulumi.getter

@@ -11,7 +11,7 @@ import (
 )
 
 // The endpoint access for the target resource.
-// API Version: 2021-10-06-preview.
+// API Version: 2022-05-01-preview.
 func ListEndpointCredentials(ctx *pulumi.Context, args *ListEndpointCredentialsArgs, opts ...pulumi.InvokeOption) (*ListEndpointCredentialsResult, error) {
 	var rv ListEndpointCredentialsResult
 	err := ctx.Invoke("azure-native:hybridconnectivity:listEndpointCredentials", args, &rv, opts...)

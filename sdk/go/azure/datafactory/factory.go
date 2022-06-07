@@ -34,6 +34,8 @@ type Factory struct {
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// Whether or not public network access is allowed for the data factory.
 	PublicNetworkAccess pulumi.StringPtrOutput `pulumi:"publicNetworkAccess"`
+	// Purview information of the factory.
+	PurviewConfiguration PurviewConfigurationResponsePtrOutput `pulumi:"purviewConfiguration"`
 	// Git repo information of the factory.
 	RepoConfiguration pulumi.AnyOutput `pulumi:"repoConfiguration"`
 	// The resource tags.
@@ -107,6 +109,8 @@ type factoryArgs struct {
 	Location *string `pulumi:"location"`
 	// Whether or not public network access is allowed for the data factory.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
+	// Purview information of the factory.
+	PurviewConfiguration *PurviewConfiguration `pulumi:"purviewConfiguration"`
 	// Git repo information of the factory.
 	RepoConfiguration interface{} `pulumi:"repoConfiguration"`
 	// The resource group name.
@@ -129,6 +133,8 @@ type FactoryArgs struct {
 	Location pulumi.StringPtrInput
 	// Whether or not public network access is allowed for the data factory.
 	PublicNetworkAccess pulumi.StringPtrInput
+	// Purview information of the factory.
+	PurviewConfiguration PurviewConfigurationPtrInput
 	// Git repo information of the factory.
 	RepoConfiguration pulumi.Input
 	// The resource group name.
@@ -217,6 +223,11 @@ func (o FactoryOutput) ProvisioningState() pulumi.StringOutput {
 // Whether or not public network access is allowed for the data factory.
 func (o FactoryOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Factory) pulumi.StringPtrOutput { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
+}
+
+// Purview information of the factory.
+func (o FactoryOutput) PurviewConfiguration() PurviewConfigurationResponsePtrOutput {
+	return o.ApplyT(func(v *Factory) PurviewConfigurationResponsePtrOutput { return v.PurviewConfiguration }).(PurviewConfigurationResponsePtrOutput)
 }
 
 // Git repo information of the factory.

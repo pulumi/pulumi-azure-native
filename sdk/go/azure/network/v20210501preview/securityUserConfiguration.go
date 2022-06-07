@@ -60,6 +60,9 @@ func NewSecurityUserConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20220201preview:SecurityUserConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20220401preview:SecurityUserConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SecurityUserConfiguration

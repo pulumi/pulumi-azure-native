@@ -4213,10 +4213,10 @@ class SystemDataResponse(dict):
                  last_modified_by_type: Optional[str] = None):
         """
         Metadata pertaining to creation and last modification of the resource.
-        :param str created_at: The UTC timestamp of resource creation.
+        :param str created_at: The timestamp of resource creation (UTC).
         :param str created_by: The identity that created the resource.
         :param str created_by_type: The type of identity that created the resource.
-        :param str last_modified_at: The type of identity that last modified the resource.
+        :param str last_modified_at: The timestamp of resource last modification (UTC)
         :param str last_modified_by: The identity that last modified the resource.
         :param str last_modified_by_type: The type of identity that last modified the resource.
         """
@@ -4237,7 +4237,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[str]:
         """
-        The UTC timestamp of resource creation.
+        The timestamp of resource creation (UTC).
         """
         return pulumi.get(self, "created_at")
 
@@ -4261,7 +4261,7 @@ class SystemDataResponse(dict):
     @pulumi.getter(name="lastModifiedAt")
     def last_modified_at(self) -> Optional[str]:
         """
-        The type of identity that last modified the resource.
+        The timestamp of resource last modification (UTC)
         """
         return pulumi.get(self, "last_modified_at")
 

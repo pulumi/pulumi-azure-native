@@ -26,7 +26,7 @@ env:
 jobs:
   build_sdks:
     name: build_sdks
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.language == 'dotnet' && 'macos-latest' || 'ubuntu-latest' }}
     needs: prerequisites
     strategy:
       fail-fast: true
@@ -71,12 +71,17 @@ jobs:
         uses: pulumi/setup-pulumi@v2
       - name: Download provider + tfgen binaries
         uses: actions/download-artifact@v2
+        if: ${{ matrix.language != 'dotnet' }}
         with:
           name: pulumi-${{ env.PROVIDER }}
           path: ${{ github.workspace }}/bin
       - name: Restore binary perms
+        if: ${{ matrix.language != 'dotnet' }}
         run: find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print
           -exec chmod +x {} \;
+      - name: Build codegen binaries
+        if: ${{ matrix.language == 'dotnet' }}
+        run: make codegen
       - name: Initialize submodules
         run: make init_submodules
       - name: Generate SDK

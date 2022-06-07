@@ -243,7 +243,12 @@ class FhirServiceArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
+
+
 class FhirService(pulumi.CustomResource):
+    warnings.warn("""Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -322,6 +327,7 @@ class FhirService(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""FhirService is deprecated: Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -359,7 +365,7 @@ class FhirService(pulumi.CustomResource):
             __props__.__dict__["public_network_access"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:FhirService")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:healthcareapis:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20210601preview:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20211101:FhirService"), pulumi.Alias(type_="azure-native:healthcareapis/v20220515:FhirService")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FhirService, __self__).__init__(
             'azure-native:healthcareapis/v20220131preview:FhirService',

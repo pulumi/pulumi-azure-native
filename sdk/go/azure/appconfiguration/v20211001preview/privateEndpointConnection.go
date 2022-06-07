@@ -59,6 +59,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:appconfiguration/v20210301preview:PrivateEndpointConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:appconfiguration/v20220501:PrivateEndpointConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource PrivateEndpointConnection

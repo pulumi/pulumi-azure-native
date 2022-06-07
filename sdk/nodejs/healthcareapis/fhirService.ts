@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The description of Fhir Service
- * API Version: 2021-11-01.
+ * API Version: 2022-05-15.
  */
 export class FhirService extends pulumi.CustomResource {
     /**
@@ -168,7 +168,7 @@ export class FhirService extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:FhirService" }, { type: "azure-native:healthcareapis/v20211101:FhirService" }, { type: "azure-native:healthcareapis/v20220131preview:FhirService" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:healthcareapis/v20210601preview:FhirService" }, { type: "azure-native:healthcareapis/v20211101:FhirService" }, { type: "azure-native:healthcareapis/v20220131preview:FhirService" }, { type: "azure-native:healthcareapis/v20220515:FhirService" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FhirService.__pulumiType, name, resourceInputs, opts);
     }

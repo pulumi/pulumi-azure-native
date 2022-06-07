@@ -68,17 +68,28 @@ class NetworkRuleSetIpRuleResponse(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 action: str,
                  filter_name: Optional[str] = None,
                  ip_mask: Optional[str] = None):
         """
         An object for an IP range that will be allowed access.
+        :param str action: The network action for the IP mask.
         :param str filter_name: The readable name of the IP rule.
         :param str ip_mask: The CIDR block defining the IP range.
         """
+        pulumi.set(__self__, "action", action)
         if filter_name is not None:
             pulumi.set(__self__, "filter_name", filter_name)
         if ip_mask is not None:
             pulumi.set(__self__, "ip_mask", ip_mask)
+
+    @property
+    @pulumi.getter
+    def action(self) -> str:
+        """
+        The network action for the IP mask.
+        """
+        return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="filterName")

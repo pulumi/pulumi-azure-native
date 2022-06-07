@@ -174,7 +174,6 @@ __all__ = [
     'LoadBalancingRuleArgs',
     'LoadBalancingSettingsModelArgs',
     'LocalNetworkGatewayArgs',
-    'LoggingCategoryArgs',
     'ManagedRuleExclusionArgs',
     'ManagedRuleGroupOverrideArgs',
     'ManagedRuleOverrideArgs',
@@ -4825,21 +4824,17 @@ class BackendAddressPoolArgs:
     def __init__(__self__, *,
                  id: Optional[pulumi.Input[str]] = None,
                  load_balancer_backend_addresses: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None):
         """
         Pool of backend IP addresses.
         :param pulumi.Input[str] id: Resource ID.
         :param pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]] load_balancer_backend_addresses: An array of backend addresses.
-        :param pulumi.Input[str] location: The location of the backend address pool.
         :param pulumi.Input[str] name: The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         """
         if id is not None:
             pulumi.set(__self__, "id", id)
         if load_balancer_backend_addresses is not None:
             pulumi.set(__self__, "load_balancer_backend_addresses", load_balancer_backend_addresses)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if name is not None:
             pulumi.set(__self__, "name", name)
 
@@ -4866,18 +4861,6 @@ class BackendAddressPoolArgs:
     @load_balancer_backend_addresses.setter
     def load_balancer_backend_addresses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['LoadBalancerBackendAddressArgs']]]]):
         pulumi.set(self, "load_balancer_backend_addresses", value)
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The location of the backend address pool.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
 
     @property
     @pulumi.getter
@@ -12249,30 +12232,6 @@ class LocalNetworkGatewayArgs:
     @tags.setter
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "tags", value)
-
-
-@pulumi.input_type
-class LoggingCategoryArgs:
-    def __init__(__self__, *,
-                 name: Optional[pulumi.Input[str]] = None):
-        """
-        Logging Category
-        :param pulumi.Input[str] name: The name of the logging category.
-        """
-        if name is not None:
-            pulumi.set(__self__, "name", name)
-
-    @property
-    @pulumi.getter
-    def name(self) -> Optional[pulumi.Input[str]]:
-        """
-        The name of the logging category.
-        """
-        return pulumi.get(self, "name")
-
-    @name.setter
-    def name(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type

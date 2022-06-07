@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.HybridConnectivity
 {
     /// <summary>
     /// The endpoint for the target resource.
-    /// API Version: 2021-10-06-preview.
+    /// API Version: 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:hybridconnectivity:Endpoint")]
     public partial class Endpoint : Pulumi.CustomResource
@@ -58,6 +58,9 @@ namespace Pulumi.AzureNative.HybridConnectivity
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        /// <summary>
+        /// The resource provisioning state.
+        /// </summary>
         [Output("provisioningState")]
         public Output<string> ProvisioningState { get; private set; } = null!;
 

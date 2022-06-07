@@ -134,6 +134,7 @@ import * as mixedreality from "./mixedreality";
 import * as mobilenetwork from "./mobilenetwork";
 import * as netapp from "./netapp";
 import * as network from "./network";
+import * as networkfunction from "./networkfunction";
 import * as notificationhubs from "./notificationhubs";
 import * as offazure from "./offazure";
 import * as openenergyplatform from "./openenergyplatform";
@@ -193,6 +194,7 @@ import * as web from "./web";
 import * as webpubsub from "./webpubsub";
 import * as windowsesu from "./windowsesu";
 import * as windowsiot from "./windowsiot";
+import * as workloads from "./workloads";
 
 export {
     aad,
@@ -321,6 +323,7 @@ export {
     mobilenetwork,
     netapp,
     network,
+    networkfunction,
     notificationhubs,
     offazure,
     openenergyplatform,
@@ -380,6 +383,7 @@ export {
     webpubsub,
     windowsesu,
     windowsiot,
+    workloads,
 };
 
 import { Provider } from "./provider";

@@ -36,7 +36,7 @@ export interface GetHostPoolArgs {
  */
 export interface GetHostPoolResult {
     /**
-     * The session host configuration for updating agent, monitoring agent, and stack component.
+     * The preferred settings for updating the agent components (RDAgent, Geneva Monitoring agent, and side-by-side stack) on session hosts.
      */
     readonly agentUpdate?: outputs.desktopvirtualization.v20220210preview.AgentUpdatePropertiesResponse;
     /**

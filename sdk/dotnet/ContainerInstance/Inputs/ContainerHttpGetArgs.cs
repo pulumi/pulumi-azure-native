@@ -15,11 +15,17 @@ namespace Pulumi.AzureNative.ContainerInstance.Inputs
     /// </summary>
     public sealed class ContainerHttpGetArgs : Pulumi.ResourceArgs
     {
+        [Input("httpHeaders")]
+        private InputList<Inputs.HttpHeaderArgs>? _httpHeaders;
+
         /// <summary>
         /// The HTTP headers.
         /// </summary>
-        [Input("httpHeaders")]
-        public Input<Inputs.HttpHeadersArgs>? HttpHeaders { get; set; }
+        public InputList<Inputs.HttpHeaderArgs> HttpHeaders
+        {
+            get => _httpHeaders ?? (_httpHeaders = new InputList<Inputs.HttpHeaderArgs>());
+            set => _httpHeaders = value;
+        }
 
         /// <summary>
         /// The path to probe.

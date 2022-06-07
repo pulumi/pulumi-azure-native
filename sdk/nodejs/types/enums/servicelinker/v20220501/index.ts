@@ -15,6 +15,15 @@ export const AuthType = {
  */
 export type AuthType = (typeof AuthType)[keyof typeof AuthType];
 
+export const AzureResourceType = {
+    KeyVault: "KeyVault",
+} as const;
+
+/**
+ * The azure resource type.
+ */
+export type AzureResourceType = (typeof AzureResourceType)[keyof typeof AzureResourceType];
+
 export const ClientType = {
     None: "none",
     Dotnet: "dotnet",
@@ -44,7 +53,7 @@ export const SecretType = {
  */
 export type SecretType = (typeof SecretType)[keyof typeof SecretType];
 
-export const Type = {
+export const TargetServiceType = {
     AzureResource: "AzureResource",
     ConfluentBootstrapServer: "ConfluentBootstrapServer",
     ConfluentSchemaRegistry: "ConfluentSchemaRegistry",
@@ -53,7 +62,7 @@ export const Type = {
 /**
  * The target service type.
  */
-export type Type = (typeof Type)[keyof typeof Type];
+export type TargetServiceType = (typeof TargetServiceType)[keyof typeof TargetServiceType];
 
 export const VNetSolutionType = {
     ServiceEndpoint: "serviceEndpoint",

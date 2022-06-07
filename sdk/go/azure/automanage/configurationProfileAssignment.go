@@ -44,6 +44,9 @@ func NewConfigurationProfileAssignment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:automanage/v20210430preview:ConfigurationProfileAssignment"),
 		},
+		{
+			Type: pulumi.String("azure-native:automanage/v20220504:ConfigurationProfileAssignment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationProfileAssignment

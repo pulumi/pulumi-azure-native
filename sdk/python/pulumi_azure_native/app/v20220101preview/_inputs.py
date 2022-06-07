@@ -1060,14 +1060,14 @@ class ContainerAppProbeHttpGetArgs:
                  host: Optional[pulumi.Input[str]] = None,
                  http_headers: Optional[pulumi.Input[Sequence[pulumi.Input['ContainerAppProbeHttpHeadersArgs']]]] = None,
                  path: Optional[pulumi.Input[str]] = None,
-                 scheme: Optional[pulumi.Input[str]] = None):
+                 scheme: Optional[pulumi.Input[Union[str, 'Scheme']]] = None):
         """
         HTTPGet specifies the http request to perform.
         :param pulumi.Input[int] port: Name or number of the port to access on the container. Number must be in the range 1 to 65535. Name must be an IANA_SVC_NAME.
         :param pulumi.Input[str] host: Host name to connect to, defaults to the pod IP. You probably want to set "Host" in httpHeaders instead.
         :param pulumi.Input[Sequence[pulumi.Input['ContainerAppProbeHttpHeadersArgs']]] http_headers: Custom headers to set in the request. HTTP allows repeated headers.
         :param pulumi.Input[str] path: Path to access on the HTTP server.
-        :param pulumi.Input[str] scheme: Scheme to use for connecting to the host. Defaults to HTTP.
+        :param pulumi.Input[Union[str, 'Scheme']] scheme: Scheme to use for connecting to the host. Defaults to HTTP.
         """
         pulumi.set(__self__, "port", port)
         if host is not None:
@@ -1129,14 +1129,14 @@ class ContainerAppProbeHttpGetArgs:
 
     @property
     @pulumi.getter
-    def scheme(self) -> Optional[pulumi.Input[str]]:
+    def scheme(self) -> Optional[pulumi.Input[Union[str, 'Scheme']]]:
         """
         Scheme to use for connecting to the host. Defaults to HTTP.
         """
         return pulumi.get(self, "scheme")
 
     @scheme.setter
-    def scheme(self, value: Optional[pulumi.Input[str]]):
+    def scheme(self, value: Optional[pulumi.Input[Union[str, 'Scheme']]]):
         pulumi.set(self, "scheme", value)
 
 
@@ -3931,7 +3931,7 @@ class VnetConfigurationArgs:
         Configuration properties for apps environment to join a Virtual Network
         :param pulumi.Input[str] docker_bridge_cidr: CIDR notation IP range assigned to the Docker bridge, network. Must not overlap with any other provided IP ranges.
         :param pulumi.Input[str] infrastructure_subnet_id: Resource ID of a subnet for infrastructure components. This subnet must be in the same VNET as the subnet defined in runtimeSubnetId. Must not overlap with any other provided IP ranges.
-        :param pulumi.Input[bool] internal: Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+        :param pulumi.Input[bool] internal: Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
         :param pulumi.Input[str] platform_reserved_cidr: IP range in CIDR notation that can be reserved for environment infrastructure IP addresses. Must not overlap with any other provided IP ranges.
         :param pulumi.Input[str] platform_reserved_dns_ip:  An IP address from the IP range defined by platformReservedCidr that will be reserved for the internal DNS server.
         :param pulumi.Input[str] runtime_subnet_id: Resource ID of a subnet that Container App containers are injected into. This subnet must be in the same VNET as the subnet defined in infrastructureSubnetId. Must not overlap with any other provided IP ranges.
@@ -3977,7 +3977,7 @@ class VnetConfigurationArgs:
     @pulumi.getter
     def internal(self) -> Optional[pulumi.Input[bool]]:
         """
-        Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource, must provide ControlPlaneSubnetResourceId and AppSubnetResourceId if enabling this property
+        Boolean indicating the environment only has an internal load balancer. These environments do not have a public static IP resource. They must provide runtimeSubnetId and infrastructureSubnetId if enabling this property
         """
         return pulumi.get(self, "internal")
 

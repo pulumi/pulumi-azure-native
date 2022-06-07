@@ -20,6 +20,7 @@ __all__ = [
     'MountTargetPropertiesResponse',
     'PlacementKeyValuePairsResponse',
     'ReplicationObjectResponse',
+    'ReplicationResponse',
     'SystemDataResponse',
     'VolumeBackupPropertiesResponse',
     'VolumeBackupsResponse',
@@ -1041,6 +1042,64 @@ class ReplicationObjectResponse(dict):
 
 
 @pulumi.output_type
+class ReplicationResponse(dict):
+    """
+    Replication properties
+    """
+    def __init__(__self__, *,
+                 remote_volume_resource_id: str,
+                 endpoint_type: Optional[str] = None,
+                 remote_volume_region: Optional[str] = None,
+                 replication_schedule: Optional[str] = None):
+        """
+        Replication properties
+        :param str remote_volume_resource_id: The resource ID of the remote volume.
+        :param str endpoint_type: Indicates whether the local volume is the source or destination for the Volume Replication
+        :param str remote_volume_region: The remote region for the other end of the Volume Replication.
+        :param str replication_schedule: Schedule
+        """
+        pulumi.set(__self__, "remote_volume_resource_id", remote_volume_resource_id)
+        if endpoint_type is not None:
+            pulumi.set(__self__, "endpoint_type", endpoint_type)
+        if remote_volume_region is not None:
+            pulumi.set(__self__, "remote_volume_region", remote_volume_region)
+        if replication_schedule is not None:
+            pulumi.set(__self__, "replication_schedule", replication_schedule)
+
+    @property
+    @pulumi.getter(name="remoteVolumeResourceId")
+    def remote_volume_resource_id(self) -> str:
+        """
+        The resource ID of the remote volume.
+        """
+        return pulumi.get(self, "remote_volume_resource_id")
+
+    @property
+    @pulumi.getter(name="endpointType")
+    def endpoint_type(self) -> Optional[str]:
+        """
+        Indicates whether the local volume is the source or destination for the Volume Replication
+        """
+        return pulumi.get(self, "endpoint_type")
+
+    @property
+    @pulumi.getter(name="remoteVolumeRegion")
+    def remote_volume_region(self) -> Optional[str]:
+        """
+        The remote region for the other end of the Volume Replication.
+        """
+        return pulumi.get(self, "remote_volume_region")
+
+    @property
+    @pulumi.getter(name="replicationSchedule")
+    def replication_schedule(self) -> Optional[str]:
+        """
+        Schedule
+        """
+        return pulumi.get(self, "replication_schedule")
+
+
+@pulumi.output_type
 class SystemDataResponse(dict):
     """
     Metadata pertaining to creation and last modification of the resource.
@@ -1705,8 +1764,6 @@ class VolumeGroupVolumePropertiesResponse(dict):
             pulumi.set(__self__, "snapshot_id", snapshot_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
-        if throughput_mibps is None:
-            throughput_mibps = 0
         if throughput_mibps is not None:
             pulumi.set(__self__, "throughput_mibps", throughput_mibps)
         if unix_permissions is None:

@@ -152,7 +152,7 @@ namespace Pulumi.AzureNative.NetApp.V20210801
         /// </summary>
         public readonly string FileSystemId;
         /// <summary>
-        /// Resource Id
+        /// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         /// </summary>
         public readonly string Id;
         /// <summary>
@@ -172,7 +172,7 @@ namespace Pulumi.AzureNative.NetApp.V20210801
         /// </summary>
         public readonly bool? LdapEnabled;
         /// <summary>
-        /// Resource location
+        /// The geo-location where the resource lives
         /// </summary>
         public readonly string Location;
         /// <summary>
@@ -180,7 +180,7 @@ namespace Pulumi.AzureNative.NetApp.V20210801
         /// </summary>
         public readonly ImmutableArray<Outputs.MountTargetPropertiesResponse> MountTargets;
         /// <summary>
-        /// Resource name
+        /// The name of the resource
         /// </summary>
         public readonly string Name;
         /// <summary>
@@ -240,16 +240,20 @@ namespace Pulumi.AzureNative.NetApp.V20210801
         /// </summary>
         public readonly string SubnetId;
         /// <summary>
+        /// Azure Resource Manager metadata containing createdBy and modifiedBy information.
+        /// </summary>
+        public readonly Outputs.SystemDataResponse SystemData;
+        /// <summary>
         /// T2 network information
         /// </summary>
         public readonly string T2Network;
         /// <summary>
-        /// Resource tags
+        /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         public readonly double? ThroughputMibps;
         /// <summary>
-        /// Resource type
+        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
         /// </summary>
         public readonly string Type;
         /// <summary>
@@ -349,6 +353,8 @@ namespace Pulumi.AzureNative.NetApp.V20210801
 
             string subnetId,
 
+            Outputs.SystemDataResponse systemData,
+
             string t2Network,
 
             ImmutableDictionary<string, string>? tags,
@@ -404,6 +410,7 @@ namespace Pulumi.AzureNative.NetApp.V20210801
             SnapshotId = snapshotId;
             StorageToNetworkProximity = storageToNetworkProximity;
             SubnetId = subnetId;
+            SystemData = systemData;
             T2Network = t2Network;
             Tags = tags;
             ThroughputMibps = throughputMibps;

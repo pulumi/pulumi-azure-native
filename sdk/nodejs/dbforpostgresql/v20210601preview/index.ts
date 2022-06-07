@@ -6,8 +6,10 @@ import * as utilities from "../../utilities";
 
 // Export members:
 export * from "./configuration";
+export * from "./database";
 export * from "./firewallRule";
 export * from "./getConfiguration";
+export * from "./getDatabase";
 export * from "./getFirewallRule";
 export * from "./getServer";
 export * from "./server";
@@ -17,6 +19,7 @@ export * from "../../types/enums/dbforpostgresql/v20210601preview";
 
 // Import resources to register:
 import { Configuration } from "./configuration";
+import { Database } from "./database";
 import { FirewallRule } from "./firewallRule";
 import { Server } from "./server";
 
@@ -26,6 +29,8 @@ const _module = {
         switch (type) {
             case "azure-native:dbforpostgresql/v20210601preview:Configuration":
                 return new Configuration(name, <any>undefined, { urn })
+            case "azure-native:dbforpostgresql/v20210601preview:Database":
+                return new Database(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql/v20210601preview:FirewallRule":
                 return new FirewallRule(name, <any>undefined, { urn })
             case "azure-native:dbforpostgresql/v20210601preview:Server":

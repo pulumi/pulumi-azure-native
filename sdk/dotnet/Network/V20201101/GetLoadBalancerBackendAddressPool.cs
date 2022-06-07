@@ -100,10 +100,6 @@ namespace Pulumi.AzureNative.Network.V20201101
         /// </summary>
         public readonly ImmutableArray<Outputs.SubResourceResponse> LoadBalancingRules;
         /// <summary>
-        /// The location of the backend address pool.
-        /// </summary>
-        public readonly string? Location;
-        /// <summary>
         /// The name of the resource that is unique within the set of backend address pools used by the load balancer. This name can be used to access the resource.
         /// </summary>
         public readonly string? Name;
@@ -136,8 +132,6 @@ namespace Pulumi.AzureNative.Network.V20201101
 
             ImmutableArray<Outputs.SubResourceResponse> loadBalancingRules,
 
-            string? location,
-
             string? name,
 
             Outputs.SubResourceResponse outboundRule,
@@ -153,7 +147,6 @@ namespace Pulumi.AzureNative.Network.V20201101
             Id = id;
             LoadBalancerBackendAddresses = loadBalancerBackendAddresses;
             LoadBalancingRules = loadBalancingRules;
-            Location = location;
             Name = name;
             OutboundRule = outboundRule;
             OutboundRules = outboundRules;

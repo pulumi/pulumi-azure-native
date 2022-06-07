@@ -212,18 +212,18 @@ class AwaitableGetContainerAppResult(GetContainerAppResult):
             type=self.type)
 
 
-def get_container_app(name: Optional[str] = None,
+def get_container_app(container_app_name: Optional[str] = None,
                       resource_group_name: Optional[str] = None,
                       opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContainerAppResult:
     """
     Container App.
 
 
-    :param str name: Name of the Container App.
+    :param str container_app_name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
-    __args__['name'] = name
+    __args__['containerAppName'] = container_app_name
     __args__['resourceGroupName'] = resource_group_name
     if opts is None:
         opts = pulumi.InvokeOptions()
@@ -250,14 +250,14 @@ def get_container_app(name: Optional[str] = None,
 
 
 @_utilities.lift_output_func(get_container_app)
-def get_container_app_output(name: Optional[pulumi.Input[str]] = None,
+def get_container_app_output(container_app_name: Optional[pulumi.Input[str]] = None,
                              resource_group_name: Optional[pulumi.Input[str]] = None,
                              opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContainerAppResult]:
     """
     Container App.
 
 
-    :param str name: Name of the Container App.
+    :param str container_app_name: Name of the Container App.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

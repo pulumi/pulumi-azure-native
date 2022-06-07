@@ -18,8 +18,6 @@ type NspProfile struct {
 
 	// Version number that increases with every update to access rules within the profile.
 	AccessRulesVersion pulumi.StringOutput `pulumi:"accessRulesVersion"`
-	// Gets the enabled log categories.
-	EnabledLogCategories LoggingCategoryResponseArrayOutput `pulumi:"enabledLogCategories"`
 	// Resource location.
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Resource name.
@@ -81,8 +79,6 @@ func (NspProfileState) ElementType() reflect.Type {
 }
 
 type nspProfileArgs struct {
-	// Gets the enabled log categories.
-	EnabledLogCategories []LoggingCategory `pulumi:"enabledLogCategories"`
 	// Resource ID.
 	Id *string `pulumi:"id"`
 	// Resource location.
@@ -101,8 +97,6 @@ type nspProfileArgs struct {
 
 // The set of arguments for constructing a NspProfile resource.
 type NspProfileArgs struct {
-	// Gets the enabled log categories.
-	EnabledLogCategories LoggingCategoryArrayInput
 	// Resource ID.
 	Id pulumi.StringPtrInput
 	// Resource location.
@@ -159,11 +153,6 @@ func (o NspProfileOutput) ToNspProfileOutputWithContext(ctx context.Context) Nsp
 // Version number that increases with every update to access rules within the profile.
 func (o NspProfileOutput) AccessRulesVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *NspProfile) pulumi.StringOutput { return v.AccessRulesVersion }).(pulumi.StringOutput)
-}
-
-// Gets the enabled log categories.
-func (o NspProfileOutput) EnabledLogCategories() LoggingCategoryResponseArrayOutput {
-	return o.ApplyT(func(v *NspProfile) LoggingCategoryResponseArrayOutput { return v.EnabledLogCategories }).(LoggingCategoryResponseArrayOutput)
 }
 
 // Resource location.

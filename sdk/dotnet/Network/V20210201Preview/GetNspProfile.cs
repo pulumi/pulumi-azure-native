@@ -84,10 +84,6 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         /// </summary>
         public readonly string AccessRulesVersion;
         /// <summary>
-        /// Gets the enabled log categories.
-        /// </summary>
-        public readonly ImmutableArray<Outputs.LoggingCategoryResponse> EnabledLogCategories;
-        /// <summary>
         /// Resource ID.
         /// </summary>
         public readonly string Id;
@@ -112,8 +108,6 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         private GetNspProfileResult(
             string accessRulesVersion,
 
-            ImmutableArray<Outputs.LoggingCategoryResponse> enabledLogCategories,
-
             string id,
 
             string? location,
@@ -125,7 +119,6 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
             string type)
         {
             AccessRulesVersion = accessRulesVersion;
-            EnabledLogCategories = enabledLogCategories;
             Id = id;
             Location = location;
             Name = name;

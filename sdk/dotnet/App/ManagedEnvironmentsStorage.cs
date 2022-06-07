@@ -93,14 +93,8 @@ namespace Pulumi.AzureNative.App
         /// <summary>
         /// Name of the Environment.
         /// </summary>
-        [Input("envName", required: true)]
-        public Input<string> EnvName { get; set; } = null!;
-
-        /// <summary>
-        /// Name of the storage.
-        /// </summary>
-        [Input("name")]
-        public Input<string>? Name { get; set; }
+        [Input("environmentName", required: true)]
+        public Input<string> EnvironmentName { get; set; } = null!;
 
         /// <summary>
         /// Storage properties
@@ -113,6 +107,12 @@ namespace Pulumi.AzureNative.App
         /// </summary>
         [Input("resourceGroupName", required: true)]
         public Input<string> ResourceGroupName { get; set; } = null!;
+
+        /// <summary>
+        /// Name of the storage.
+        /// </summary>
+        [Input("storageName")]
+        public Input<string>? StorageName { get; set; }
 
         public ManagedEnvironmentsStorageArgs()
         {

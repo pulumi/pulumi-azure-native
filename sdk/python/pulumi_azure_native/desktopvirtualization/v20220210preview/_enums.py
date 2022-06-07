@@ -47,7 +47,7 @@ class CommandLineSetting(str, Enum):
 
 class DayOfWeek(str, Enum):
     """
-    Day of the week.
+    The day of the week (Monday-Sunday).
     """
     MONDAY = "Monday"
     TUESDAY = "Tuesday"
@@ -201,15 +201,15 @@ class ScalingHostPoolType(str, Enum):
 
 class SessionHostComponentUpdateType(str, Enum):
     """
-    The type of maintenance for session host components.
+    The preferred mechanism for updating the agent components. This is either Scheduled or Default.
     """
     DEFAULT = "Default"
     """
-    Agent and other agent side components are delivery schedule is controlled by WVD Infra.
+    The agent components are updated according to the AVD infrastructure flighting. For more information, see https://aka.ms/avdagent.
     """
     SCHEDULED = "Scheduled"
     """
-    TenantAdmin have opted in for Scheduled Component Update feature.
+    This enables the Scheduled Agent Updates feature which allows the agent components to get updated according to the schedule that the admin define. For more information, see https://aka.ms/avdsau.
     """
 
 

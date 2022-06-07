@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
         public Output<string> AccessRulesVersion { get; private set; } = null!;
 
         /// <summary>
-        /// Gets the enabled log categories.
-        /// </summary>
-        [Output("enabledLogCategories")]
-        public Output<ImmutableArray<Outputs.LoggingCategoryResponse>> EnabledLogCategories { get; private set; } = null!;
-
-        /// <summary>
         /// Resource location.
         /// </summary>
         [Output("location")]
@@ -100,18 +94,6 @@ namespace Pulumi.AzureNative.Network.V20210201Preview
 
     public sealed class NspProfileArgs : Pulumi.ResourceArgs
     {
-        [Input("enabledLogCategories")]
-        private InputList<Inputs.LoggingCategoryArgs>? _enabledLogCategories;
-
-        /// <summary>
-        /// Gets the enabled log categories.
-        /// </summary>
-        public InputList<Inputs.LoggingCategoryArgs> EnabledLogCategories
-        {
-            get => _enabledLogCategories ?? (_enabledLogCategories = new InputList<Inputs.LoggingCategoryArgs>());
-            set => _enabledLogCategories = value;
-        }
-
         /// <summary>
         /// Resource ID.
         /// </summary>

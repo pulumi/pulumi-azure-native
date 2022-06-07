@@ -2920,7 +2920,7 @@ class ManagedRuleGroupOverrideArgs:
         """
         Defines a managed rule group override setting.
         :param pulumi.Input[str] rule_group_name: Describes the managed rule group within the rule set to override
-        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]] rules: List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        :param pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]] rules: List of rules that will be enabled. If none specified, all rules in the group will be disabled.
         """
         pulumi.set(__self__, "rule_group_name", rule_group_name)
         if rules is not None:
@@ -2942,7 +2942,7 @@ class ManagedRuleGroupOverrideArgs:
     @pulumi.getter
     def rules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ManagedRuleOverrideArgs']]]]:
         """
-        List of rules that will be disabled. If none specified, all rules in the group will be disabled.
+        List of rules that will be enabled. If none specified, all rules in the group will be disabled.
         """
         return pulumi.get(self, "rules")
 

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.HybridConnectivity
     {
         /// <summary>
         /// The endpoint for the target resource.
-        /// API Version: 2021-10-06-preview.
+        /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetEndpointResult> InvokeAsync(GetEndpointArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointArgs(), options.WithDefaults());
 
         /// <summary>
         /// The endpoint for the target resource.
-        /// API Version: 2021-10-06-preview.
+        /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetEndpointResult> Invoke(GetEndpointInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetEndpointResult>("azure-native:hybridconnectivity:getEndpoint", args ?? new GetEndpointInvokeArgs(), options.WithDefaults());
@@ -101,6 +101,9 @@ namespace Pulumi.AzureNative.HybridConnectivity
         /// The name of the resource
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The resource provisioning state.
+        /// </summary>
         public readonly string ProvisioningState;
         /// <summary>
         /// The resource Id of the connectivity endpoint (optional).

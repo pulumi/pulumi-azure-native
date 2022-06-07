@@ -11,6 +11,7 @@ export * from "./action";
 export * from "./activityCustomEntityQuery";
 export * from "./alertRule";
 export * from "./anomalies";
+export * from "./anomalySecurityMLAnalyticsSettings";
 export * from "./ascdataConnector";
 export * from "./automationRule";
 export * from "./awsCloudTrailDataConnector";
@@ -28,6 +29,7 @@ export * from "./getAction";
 export * from "./getActivityCustomEntityQuery";
 export * from "./getAlertRule";
 export * from "./getAnomalies";
+export * from "./getAnomalySecurityMLAnalyticsSettings";
 export * from "./getAutomationRule";
 export * from "./getAwsCloudTrailDataConnector";
 export * from "./getBookmark";
@@ -49,6 +51,7 @@ export * from "./getMicrosoftSecurityIncidentCreationAlertRule";
 export * from "./getOfficeDataConnector";
 export * from "./getProductSetting";
 export * from "./getScheduledAlertRule";
+export * from "./getSecurityMLAnalyticsSetting";
 export * from "./getSentinelOnboardingState";
 export * from "./getSourceControl";
 export * from "./getTIDataConnector";
@@ -67,6 +70,7 @@ export * from "./microsoftSecurityIncidentCreationAlertRule";
 export * from "./officeDataConnector";
 export * from "./productSetting";
 export * from "./scheduledAlertRule";
+export * from "./securityMLAnalyticsSetting";
 export * from "./sentinelOnboardingState";
 export * from "./sourceControl";
 export * from "./threatIntelligenceIndicator";
@@ -88,6 +92,7 @@ import * as v20211001 from "./v20211001";
 import * as v20211001preview from "./v20211001preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220401preview from "./v20220401preview";
+import * as v20220501preview from "./v20220501preview";
 
 export {
     v20190101preview,
@@ -99,6 +104,7 @@ export {
     v20211001preview,
     v20220101preview,
     v20220401preview,
+    v20220501preview,
 };
 
 // Import resources to register:
@@ -109,6 +115,7 @@ import { Action } from "./action";
 import { ActivityCustomEntityQuery } from "./activityCustomEntityQuery";
 import { AlertRule } from "./alertRule";
 import { Anomalies } from "./anomalies";
+import { AnomalySecurityMLAnalyticsSettings } from "./anomalySecurityMLAnalyticsSettings";
 import { AutomationRule } from "./automationRule";
 import { AwsCloudTrailDataConnector } from "./awsCloudTrailDataConnector";
 import { Bookmark } from "./bookmark";
@@ -128,6 +135,7 @@ import { MicrosoftSecurityIncidentCreationAlertRule } from "./microsoftSecurityI
 import { OfficeDataConnector } from "./officeDataConnector";
 import { ProductSetting } from "./productSetting";
 import { ScheduledAlertRule } from "./scheduledAlertRule";
+import { SecurityMLAnalyticsSetting } from "./securityMLAnalyticsSetting";
 import { SentinelOnboardingState } from "./sentinelOnboardingState";
 import { SourceControl } from "./sourceControl";
 import { TIDataConnector } from "./tidataConnector";
@@ -154,6 +162,8 @@ const _module = {
                 return new AlertRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:Anomalies":
                 return new Anomalies(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings":
+                return new AnomalySecurityMLAnalyticsSettings(name, <any>undefined, { urn })
             case "azure-native:securityinsights:AutomationRule":
                 return new AutomationRule(name, <any>undefined, { urn })
             case "azure-native:securityinsights:AwsCloudTrailDataConnector":
@@ -192,6 +202,8 @@ const _module = {
                 return new ProductSetting(name, <any>undefined, { urn })
             case "azure-native:securityinsights:ScheduledAlertRule":
                 return new ScheduledAlertRule(name, <any>undefined, { urn })
+            case "azure-native:securityinsights:SecurityMLAnalyticsSetting":
+                return new SecurityMLAnalyticsSetting(name, <any>undefined, { urn })
             case "azure-native:securityinsights:SentinelOnboardingState":
                 return new SentinelOnboardingState(name, <any>undefined, { urn })
             case "azure-native:securityinsights:SourceControl":

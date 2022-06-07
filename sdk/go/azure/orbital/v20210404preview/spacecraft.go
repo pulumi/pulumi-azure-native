@@ -60,6 +60,9 @@ func NewSpacecraft(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:orbital:Spacecraft"),
 		},
+		{
+			Type: pulumi.String("azure-native:orbital/v20220301:Spacecraft"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Spacecraft

@@ -6,10 +6,10 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from ._enums import *
-from .get_get_lab import *
-from .get_get_student import *
 from .get_lab import *
 from .get_student import *
+from .lab import *
+from .student import *
 from ._inputs import *
 from . import outputs
 

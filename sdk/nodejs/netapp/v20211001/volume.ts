@@ -116,7 +116,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly ldapEnabled!: pulumi.Output<boolean | undefined>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -128,7 +128,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly mountTargets!: pulumi.Output<outputs.netapp.v20211001.MountTargetPropertiesResponse[]>;
     /**
-     * Resource name
+     * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
@@ -188,7 +188,7 @@ export class Volume extends pulumi.CustomResource {
      */
     public readonly subnetId!: pulumi.Output<string>;
     /**
-     * The system meta data relating to this resource.
+     * Azure Resource Manager metadata containing createdBy and modifiedBy information.
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.netapp.v20211001.SystemDataResponse>;
     /**
@@ -196,12 +196,12 @@ export class Volume extends pulumi.CustomResource {
      */
     public /*out*/ readonly t2Network!: pulumi.Output<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly throughputMibps!: pulumi.Output<number | undefined>;
     /**
-     * Resource type
+     * The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
      */
     public /*out*/ readonly type!: pulumi.Output<string>;
     /**
@@ -286,7 +286,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["snapshotId"] = args ? args.snapshotId : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
-            resourceInputs["throughputMibps"] = (args ? args.throughputMibps : undefined) ?? 0;
+            resourceInputs["throughputMibps"] = args ? args.throughputMibps : undefined;
             resourceInputs["unixPermissions"] = (args ? args.unixPermissions : undefined) ?? "0770";
             resourceInputs["usageThreshold"] = (args ? args.usageThreshold : undefined) ?? 107374182400;
             resourceInputs["volumeName"] = args ? args.volumeName : undefined;
@@ -357,7 +357,7 @@ export class Volume extends pulumi.CustomResource {
             resourceInputs["volumeType"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:netapp:Volume" }, { type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-native:netapp/v20201201:Volume" }, { type: "azure-native:netapp/v20210201:Volume" }, { type: "azure-native:netapp/v20210401:Volume" }, { type: "azure-native:netapp/v20210401preview:Volume" }, { type: "azure-native:netapp/v20210601:Volume" }, { type: "azure-native:netapp/v20210801:Volume" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:netapp:Volume" }, { type: "azure-native:netapp/v20170815:Volume" }, { type: "azure-native:netapp/v20190501:Volume" }, { type: "azure-native:netapp/v20190601:Volume" }, { type: "azure-native:netapp/v20190701:Volume" }, { type: "azure-native:netapp/v20190801:Volume" }, { type: "azure-native:netapp/v20191001:Volume" }, { type: "azure-native:netapp/v20191101:Volume" }, { type: "azure-native:netapp/v20200201:Volume" }, { type: "azure-native:netapp/v20200301:Volume" }, { type: "azure-native:netapp/v20200501:Volume" }, { type: "azure-native:netapp/v20200601:Volume" }, { type: "azure-native:netapp/v20200701:Volume" }, { type: "azure-native:netapp/v20200801:Volume" }, { type: "azure-native:netapp/v20200901:Volume" }, { type: "azure-native:netapp/v20201101:Volume" }, { type: "azure-native:netapp/v20201201:Volume" }, { type: "azure-native:netapp/v20210201:Volume" }, { type: "azure-native:netapp/v20210401:Volume" }, { type: "azure-native:netapp/v20210401preview:Volume" }, { type: "azure-native:netapp/v20210601:Volume" }, { type: "azure-native:netapp/v20210801:Volume" }, { type: "azure-native:netapp/v20220101:Volume" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Volume.__pulumiType, name, resourceInputs, opts);
     }
@@ -436,7 +436,7 @@ export interface VolumeArgs {
      */
     ldapEnabled?: pulumi.Input<boolean>;
     /**
-     * Resource location
+     * The geo-location where the resource lives
      */
     location?: pulumi.Input<string>;
     /**
@@ -492,7 +492,7 @@ export interface VolumeArgs {
      */
     subnetId: pulumi.Input<string>;
     /**
-     * Resource tags
+     * Resource tags.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     throughputMibps?: pulumi.Input<number>;
