@@ -6831,6 +6831,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dbforpostgresql/v20220120preview",
+  "fqn": "pulumi_azure_native.dbforpostgresql.v20220120preview",
+  "classes": {
+   "azure-native:dbforpostgresql/v20220120preview:Configuration": "Configuration",
+   "azure-native:dbforpostgresql/v20220120preview:Database": "Database",
+   "azure-native:dbforpostgresql/v20220120preview:FirewallRule": "FirewallRule",
+   "azure-native:dbforpostgresql/v20220120preview:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "delegatednetwork",
   "fqn": "pulumi_azure_native.delegatednetwork",
   "classes": {
@@ -7629,6 +7640,17 @@ _utilities.register(
    "azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint": "DigitalTwinsEndpoint",
    "azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection": "TimeSeriesDatabaseConnection"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "digitaltwins/v20220531",
+  "fqn": "pulumi_azure_native.digitaltwins.v20220531",
+  "classes": {
+   "azure-native:digitaltwins/v20220531:DigitalTwin": "DigitalTwin",
+   "azure-native:digitaltwins/v20220531:DigitalTwinsEndpoint": "DigitalTwinsEndpoint",
+   "azure-native:digitaltwins/v20220531:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:digitaltwins/v20220531:TimeSeriesDatabaseConnection": "TimeSeriesDatabaseConnection"
   }
  },
  {
@@ -11511,6 +11533,15 @@ _utilities.register(
   "classes": {
    "azure-native:marketplace/v20211201:PrivateStoreCollection": "PrivateStoreCollection",
    "azure-native:marketplace/v20211201:PrivateStoreCollectionOffer": "PrivateStoreCollectionOffer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "marketplace/v20220301",
+  "fqn": "pulumi_azure_native.marketplace.v20220301",
+  "classes": {
+   "azure-native:marketplace/v20220301:PrivateStoreCollection": "PrivateStoreCollection",
+   "azure-native:marketplace/v20220301:PrivateStoreCollectionOffer": "PrivateStoreCollectionOffer"
   }
  },
  {
@@ -15887,6 +15918,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "recoveryservices/v20220401",
+  "fqn": "pulumi_azure_native.recoveryservices.v20220401",
+  "classes": {
+   "azure-native:recoveryservices/v20220401:Vault": "Vault"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "redhatopenshift",
   "fqn": "pulumi_azure_native.redhatopenshift",
   "classes": {
@@ -17129,6 +17168,63 @@ _utilities.register(
    "azure-native:securityinsights/v20220501preview:Ueba": "Ueba",
    "azure-native:securityinsights/v20220501preview:Watchlist": "Watchlist",
    "azure-native:securityinsights/v20220501preview:WatchlistItem": "WatchlistItem"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "securityinsights/v20220601preview",
+  "fqn": "pulumi_azure_native.securityinsights.v20220601preview",
+  "classes": {
+   "azure-native:securityinsights/v20220601preview:AADDataConnector": "AADDataConnector",
+   "azure-native:securityinsights/v20220601preview:AATPDataConnector": "AATPDataConnector",
+   "azure-native:securityinsights/v20220601preview:ASCDataConnector": "ASCDataConnector",
+   "azure-native:securityinsights/v20220601preview:Action": "Action",
+   "azure-native:securityinsights/v20220601preview:ActivityCustomEntityQuery": "ActivityCustomEntityQuery",
+   "azure-native:securityinsights/v20220601preview:AlertRule": "AlertRule",
+   "azure-native:securityinsights/v20220601preview:Anomalies": "Anomalies",
+   "azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings": "AnomalySecurityMLAnalyticsSettings",
+   "azure-native:securityinsights/v20220601preview:AutomationRule": "AutomationRule",
+   "azure-native:securityinsights/v20220601preview:AwsCloudTrailDataConnector": "AwsCloudTrailDataConnector",
+   "azure-native:securityinsights/v20220601preview:AwsS3DataConnector": "AwsS3DataConnector",
+   "azure-native:securityinsights/v20220601preview:Bookmark": "Bookmark",
+   "azure-native:securityinsights/v20220601preview:BookmarkRelation": "BookmarkRelation",
+   "azure-native:securityinsights/v20220601preview:CodelessApiPollingDataConnector": "CodelessApiPollingDataConnector",
+   "azure-native:securityinsights/v20220601preview:CodelessUiDataConnector": "CodelessUiDataConnector",
+   "azure-native:securityinsights/v20220601preview:DataConnector": "DataConnector",
+   "azure-native:securityinsights/v20220601preview:Dynamics365DataConnector": "Dynamics365DataConnector",
+   "azure-native:securityinsights/v20220601preview:EntityAnalytics": "EntityAnalytics",
+   "azure-native:securityinsights/v20220601preview:EntityQuery": "EntityQuery",
+   "azure-native:securityinsights/v20220601preview:EyesOn": "EyesOn",
+   "azure-native:securityinsights/v20220601preview:FusionAlertRule": "FusionAlertRule",
+   "azure-native:securityinsights/v20220601preview:Incident": "Incident",
+   "azure-native:securityinsights/v20220601preview:IncidentComment": "IncidentComment",
+   "azure-native:securityinsights/v20220601preview:IncidentRelation": "IncidentRelation",
+   "azure-native:securityinsights/v20220601preview:IoTDataConnector": "IoTDataConnector",
+   "azure-native:securityinsights/v20220601preview:MCASDataConnector": "MCASDataConnector",
+   "azure-native:securityinsights/v20220601preview:MDATPDataConnector": "MDATPDataConnector",
+   "azure-native:securityinsights/v20220601preview:MLBehaviorAnalyticsAlertRule": "MLBehaviorAnalyticsAlertRule",
+   "azure-native:securityinsights/v20220601preview:MSTIDataConnector": "MSTIDataConnector",
+   "azure-native:securityinsights/v20220601preview:MTPDataConnector": "MTPDataConnector",
+   "azure-native:securityinsights/v20220601preview:Metadata": "Metadata",
+   "azure-native:securityinsights/v20220601preview:MicrosoftSecurityIncidentCreationAlertRule": "MicrosoftSecurityIncidentCreationAlertRule",
+   "azure-native:securityinsights/v20220601preview:NrtAlertRule": "NrtAlertRule",
+   "azure-native:securityinsights/v20220601preview:Office365ProjectDataConnector": "Office365ProjectDataConnector",
+   "azure-native:securityinsights/v20220601preview:OfficeATPDataConnector": "OfficeATPDataConnector",
+   "azure-native:securityinsights/v20220601preview:OfficeDataConnector": "OfficeDataConnector",
+   "azure-native:securityinsights/v20220601preview:OfficeIRMDataConnector": "OfficeIRMDataConnector",
+   "azure-native:securityinsights/v20220601preview:OfficePowerBIDataConnector": "OfficePowerBIDataConnector",
+   "azure-native:securityinsights/v20220601preview:ProductSetting": "ProductSetting",
+   "azure-native:securityinsights/v20220601preview:ScheduledAlertRule": "ScheduledAlertRule",
+   "azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting": "SecurityMLAnalyticsSetting",
+   "azure-native:securityinsights/v20220601preview:SentinelOnboardingState": "SentinelOnboardingState",
+   "azure-native:securityinsights/v20220601preview:SourceControl": "SourceControl",
+   "azure-native:securityinsights/v20220601preview:TIDataConnector": "TIDataConnector",
+   "azure-native:securityinsights/v20220601preview:ThreatIntelligenceAlertRule": "ThreatIntelligenceAlertRule",
+   "azure-native:securityinsights/v20220601preview:ThreatIntelligenceIndicator": "ThreatIntelligenceIndicator",
+   "azure-native:securityinsights/v20220601preview:TiTaxiiDataConnector": "TiTaxiiDataConnector",
+   "azure-native:securityinsights/v20220601preview:Ueba": "Ueba",
+   "azure-native:securityinsights/v20220601preview:Watchlist": "Watchlist",
+   "azure-native:securityinsights/v20220601preview:WatchlistItem": "WatchlistItem"
   }
  },
  {
@@ -18809,6 +18905,15 @@ _utilities.register(
   "classes": {
    "azure-native:storagecache/v20220101:Cache": "Cache",
    "azure-native:storagecache/v20220101:StorageTarget": "StorageTarget"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "storagecache/v20220501",
+  "fqn": "pulumi_azure_native.storagecache.v20220501",
+  "classes": {
+   "azure-native:storagecache/v20220501:Cache": "Cache",
+   "azure-native:storagecache/v20220501:StorageTarget": "StorageTarget"
   }
  },
  {

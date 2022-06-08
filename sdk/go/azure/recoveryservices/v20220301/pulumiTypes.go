@@ -12013,7 +12013,7 @@ type Sku struct {
 	Capacity *string `pulumi:"capacity"`
 	// The sku family
 	Family *string `pulumi:"family"`
-	// The Sku name.
+	// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the 'backupstorageconfig
 	Name string `pulumi:"name"`
 	// The sku size
 	Size *string `pulumi:"size"`
@@ -12038,7 +12038,7 @@ type SkuArgs struct {
 	Capacity pulumi.StringPtrInput `pulumi:"capacity"`
 	// The sku family
 	Family pulumi.StringPtrInput `pulumi:"family"`
-	// The Sku name.
+	// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the 'backupstorageconfig
 	Name pulumi.StringInput `pulumi:"name"`
 	// The sku size
 	Size pulumi.StringPtrInput `pulumi:"size"`
@@ -12134,7 +12134,7 @@ func (o SkuOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Sku) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The Sku name.
+// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the 'backupstorageconfig
 func (o SkuOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v Sku) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -12193,7 +12193,7 @@ func (o SkuPtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Sku name.
+// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the 'backupstorageconfig
 func (o SkuPtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Sku) *string {
 		if v == nil {
@@ -12229,7 +12229,7 @@ type SkuResponse struct {
 	Capacity *string `pulumi:"capacity"`
 	// The sku family
 	Family *string `pulumi:"family"`
-	// The Sku name.
+	// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the 'backupstorageconfig
 	Name string `pulumi:"name"`
 	// The sku size
 	Size *string `pulumi:"size"`
@@ -12262,7 +12262,7 @@ func (o SkuResponseOutput) Family() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SkuResponse) *string { return v.Family }).(pulumi.StringPtrOutput)
 }
 
-// The Sku name.
+// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the 'backupstorageconfig
 func (o SkuResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SkuResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -12321,7 +12321,7 @@ func (o SkuResponsePtrOutput) Family() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The Sku name.
+// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the 'backupstorageconfig
 func (o SkuResponsePtrOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *SkuResponse) *string {
 		if v == nil {

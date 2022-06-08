@@ -135,6 +135,9 @@ func NewScheduledAlertRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20220501preview:ScheduledAlertRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20220601preview:ScheduledAlertRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ScheduledAlertRule

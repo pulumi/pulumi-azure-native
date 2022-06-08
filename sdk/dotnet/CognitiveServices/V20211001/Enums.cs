@@ -20,6 +20,7 @@ namespace Pulumi.AzureNative.CognitiveServices.V20211001
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
+        public static DeploymentScaleType Standard { get; } = new DeploymentScaleType("Standard");
         public static DeploymentScaleType Manual { get; } = new DeploymentScaleType("Manual");
 
         public static bool operator ==(DeploymentScaleType left, DeploymentScaleType right) => left.Equals(right);

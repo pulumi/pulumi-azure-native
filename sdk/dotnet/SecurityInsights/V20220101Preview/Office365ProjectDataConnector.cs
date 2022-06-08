@@ -99,6 +99,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:Office365ProjectDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Office365ProjectDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Office365ProjectDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Office365ProjectDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -89,7 +89,7 @@ export class Database extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20201105preview:Database" }, { type: "azure-native:dbforpostgresql/v20210601:Database" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dbforpostgresql/v20201105preview:Database" }, { type: "azure-native:dbforpostgresql/v20210601:Database" }, { type: "azure-native:dbforpostgresql/v20220120preview:Database" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Database.__pulumiType, name, resourceInputs, opts);
     }

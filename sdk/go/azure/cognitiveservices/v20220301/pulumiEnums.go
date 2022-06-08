@@ -14,7 +14,8 @@ import (
 type DeploymentScaleType string
 
 const (
-	DeploymentScaleTypeManual = DeploymentScaleType("Manual")
+	DeploymentScaleTypeStandard = DeploymentScaleType("Standard")
+	DeploymentScaleTypeManual   = DeploymentScaleType("Manual")
 )
 
 // Account hosting model.

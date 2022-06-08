@@ -504,7 +504,7 @@
         "ServerKey": "2020-01-01",
         "ServerSecurityAlertPolicy": "2017-12-01",
         "VirtualNetworkRule": "2017-12-01",
-        "getGetPrivateDnsZoneSuffixExecute": "2021-06-01"
+        "getGetPrivateDnsZoneSuffixExecute": "2022-01-20-preview"
     },
     "Dashboard": {
         "Grafana": "2021-09-01-preview"

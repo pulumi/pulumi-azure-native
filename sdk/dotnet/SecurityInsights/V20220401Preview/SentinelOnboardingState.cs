@@ -77,6 +77,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220401Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20211001preview:SentinelOnboardingState"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:SentinelOnboardingState"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:SentinelOnboardingState"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SentinelOnboardingState"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

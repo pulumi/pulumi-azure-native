@@ -52,6 +52,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public Input<object>? AzureCloudType { get; set; }
 
         /// <summary>
+        /// The client ID associated with your application. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("clientId")]
+        public Input<object>? ClientId { get; set; }
+
+        /// <summary>
+        /// The client secret associated with your application.
+        /// </summary>
+        [Input("clientSecret")]
+        public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? ClientSecret { get; set; }
+
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         [Input("connectVia")]
@@ -100,6 +112,18 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs>? Password { get; set; }
 
         /// <summary>
+        /// The target service or resource to which the access will be requested. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("resource")]
+        public Input<object>? Resource { get; set; }
+
+        /// <summary>
+        /// The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("scope")]
+        public Input<object>? Scope { get; set; }
+
+        /// <summary>
         /// The application's client ID used in AadServicePrincipal authentication type.
         /// </summary>
         [Input("servicePrincipalId")]
@@ -116,6 +140,12 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// </summary>
         [Input("tenant")]
         public Input<object>? Tenant { get; set; }
+
+        /// <summary>
+        /// The token endpoint of the authorization server to acquire access token. Type: string (or Expression with resultType string).
+        /// </summary>
+        [Input("tokenEndpoint")]
+        public Input<object>? TokenEndpoint { get; set; }
 
         /// <summary>
         /// Type of linked service.

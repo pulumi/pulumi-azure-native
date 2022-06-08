@@ -43,6 +43,9 @@ func NewTimeSeriesDatabaseConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:digitaltwins/v20220531:TimeSeriesDatabaseConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource TimeSeriesDatabaseConnection

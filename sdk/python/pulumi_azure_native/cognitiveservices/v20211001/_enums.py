@@ -20,6 +20,7 @@ class DeploymentScaleType(str, Enum):
     """
     Deployment scale type.
     """
+    STANDARD = "Standard"
     MANUAL = "Manual"
 
 

@@ -455,6 +455,7 @@ class RestServiceAuthenticationType(str, Enum):
     BASIC = "Basic"
     AAD_SERVICE_PRINCIPAL = "AadServicePrincipal"
     MANAGED_SERVICE_IDENTITY = "ManagedServiceIdentity"
+    O_AUTH2_CLIENT_CREDENTIAL = "OAuth2ClientCredential"
 
 
 class SalesforceSinkWriteBehavior(str, Enum):

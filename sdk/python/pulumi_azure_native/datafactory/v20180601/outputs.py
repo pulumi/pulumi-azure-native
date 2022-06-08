@@ -56803,6 +56803,10 @@ class RestServiceLinkedServiceResponse(dict):
             suggest = "auth_headers"
         elif key == "azureCloudType":
             suggest = "azure_cloud_type"
+        elif key == "clientId":
+            suggest = "client_id"
+        elif key == "clientSecret":
+            suggest = "client_secret"
         elif key == "connectVia":
             suggest = "connect_via"
         elif key == "enableServerCertificateValidation":
@@ -56813,6 +56817,8 @@ class RestServiceLinkedServiceResponse(dict):
             suggest = "service_principal_id"
         elif key == "servicePrincipalKey":
             suggest = "service_principal_key"
+        elif key == "tokenEndpoint":
+            suggest = "token_endpoint"
         elif key == "userName":
             suggest = "user_name"
 
@@ -56835,6 +56841,8 @@ class RestServiceLinkedServiceResponse(dict):
                  annotations: Optional[Sequence[Any]] = None,
                  auth_headers: Optional[Any] = None,
                  azure_cloud_type: Optional[Any] = None,
+                 client_id: Optional[Any] = None,
+                 client_secret: Optional[Any] = None,
                  connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
                  credential: Optional['outputs.CredentialReferenceResponse'] = None,
                  description: Optional[str] = None,
@@ -56842,9 +56850,12 @@ class RestServiceLinkedServiceResponse(dict):
                  encrypted_credential: Optional[Any] = None,
                  parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
                  password: Optional[Any] = None,
+                 resource: Optional[Any] = None,
+                 scope: Optional[Any] = None,
                  service_principal_id: Optional[Any] = None,
                  service_principal_key: Optional[Any] = None,
                  tenant: Optional[Any] = None,
+                 token_endpoint: Optional[Any] = None,
                  user_name: Optional[Any] = None):
         """
         Rest Service linked service.
@@ -56856,6 +56867,8 @@ class RestServiceLinkedServiceResponse(dict):
         :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
         :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
         :param Any azure_cloud_type: Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
+        :param Any client_id: The client ID associated with your application. Type: string (or Expression with resultType string).
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] client_secret: The client secret associated with your application.
         :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
         :param 'CredentialReferenceResponse' credential: The credential reference containing authentication information.
         :param str description: Linked service description.
@@ -56863,9 +56876,12 @@ class RestServiceLinkedServiceResponse(dict):
         :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
         :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: The password used in Basic authentication type.
+        :param Any resource: The target service or resource to which the access will be requested. Type: string (or Expression with resultType string).
+        :param Any scope: The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string).
         :param Any service_principal_id: The application's client ID used in AadServicePrincipal authentication type.
         :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] service_principal_key: The application's key used in AadServicePrincipal authentication type.
         :param Any tenant: The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
+        :param Any token_endpoint: The token endpoint of the authorization server to acquire access token. Type: string (or Expression with resultType string).
         :param Any user_name: The user name used in Basic authentication type.
         """
         pulumi.set(__self__, "authentication_type", authentication_type)
@@ -56879,6 +56895,10 @@ class RestServiceLinkedServiceResponse(dict):
             pulumi.set(__self__, "auth_headers", auth_headers)
         if azure_cloud_type is not None:
             pulumi.set(__self__, "azure_cloud_type", azure_cloud_type)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if client_secret is not None:
+            pulumi.set(__self__, "client_secret", client_secret)
         if connect_via is not None:
             pulumi.set(__self__, "connect_via", connect_via)
         if credential is not None:
@@ -56893,12 +56913,18 @@ class RestServiceLinkedServiceResponse(dict):
             pulumi.set(__self__, "parameters", parameters)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if resource is not None:
+            pulumi.set(__self__, "resource", resource)
+        if scope is not None:
+            pulumi.set(__self__, "scope", scope)
         if service_principal_id is not None:
             pulumi.set(__self__, "service_principal_id", service_principal_id)
         if service_principal_key is not None:
             pulumi.set(__self__, "service_principal_key", service_principal_key)
         if tenant is not None:
             pulumi.set(__self__, "tenant", tenant)
+        if token_endpoint is not None:
+            pulumi.set(__self__, "token_endpoint", token_endpoint)
         if user_name is not None:
             pulumi.set(__self__, "user_name", user_name)
 
@@ -56960,6 +56986,22 @@ class RestServiceLinkedServiceResponse(dict):
         return pulumi.get(self, "azure_cloud_type")
 
     @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[Any]:
+        """
+        The client ID associated with your application. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="clientSecret")
+    def client_secret(self) -> Optional[Any]:
+        """
+        The client secret associated with your application.
+        """
+        return pulumi.get(self, "client_secret")
+
+    @property
     @pulumi.getter(name="connectVia")
     def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
         """
@@ -57016,6 +57058,22 @@ class RestServiceLinkedServiceResponse(dict):
         return pulumi.get(self, "password")
 
     @property
+    @pulumi.getter
+    def resource(self) -> Optional[Any]:
+        """
+        The target service or resource to which the access will be requested. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "resource")
+
+    @property
+    @pulumi.getter
+    def scope(self) -> Optional[Any]:
+        """
+        The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "scope")
+
+    @property
     @pulumi.getter(name="servicePrincipalId")
     def service_principal_id(self) -> Optional[Any]:
         """
@@ -57038,6 +57096,14 @@ class RestServiceLinkedServiceResponse(dict):
         The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
         """
         return pulumi.get(self, "tenant")
+
+    @property
+    @pulumi.getter(name="tokenEndpoint")
+    def token_endpoint(self) -> Optional[Any]:
+        """
+        The token endpoint of the authorization server to acquire access token. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "token_endpoint")
 
     @property
     @pulumi.getter(name="userName")

@@ -37,6 +37,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly object? AzureCloudType;
         /// <summary>
+        /// The client ID associated with your application. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? ClientId;
+        /// <summary>
+        /// The client secret associated with your application.
+        /// </summary>
+        public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? ClientSecret;
+        /// <summary>
         /// The integration runtime reference.
         /// </summary>
         public readonly Outputs.IntegrationRuntimeReferenceResponse? ConnectVia;
@@ -65,6 +73,14 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? Password;
         /// <summary>
+        /// The target service or resource to which the access will be requested. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Resource;
+        /// <summary>
+        /// The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? Scope;
+        /// <summary>
         /// The application's client ID used in AadServicePrincipal authentication type.
         /// </summary>
         public readonly object? ServicePrincipalId;
@@ -76,6 +92,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
         /// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
         /// </summary>
         public readonly object? Tenant;
+        /// <summary>
+        /// The token endpoint of the authorization server to acquire access token. Type: string (or Expression with resultType string).
+        /// </summary>
+        public readonly object? TokenEndpoint;
         /// <summary>
         /// Type of linked service.
         /// Expected value is 'RestService'.
@@ -102,6 +122,10 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             object? azureCloudType,
 
+            object? clientId,
+
+            Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? clientSecret,
+
             Outputs.IntegrationRuntimeReferenceResponse? connectVia,
 
             Outputs.CredentialReferenceResponse? credential,
@@ -116,11 +140,17 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? password,
 
+            object? resource,
+
+            object? scope,
+
             object? servicePrincipalId,
 
             Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse>? servicePrincipalKey,
 
             object? tenant,
+
+            object? tokenEndpoint,
 
             string type,
 
@@ -133,6 +163,8 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             AuthHeaders = authHeaders;
             AuthenticationType = authenticationType;
             AzureCloudType = azureCloudType;
+            ClientId = clientId;
+            ClientSecret = clientSecret;
             ConnectVia = connectVia;
             Credential = credential;
             Description = description;
@@ -140,9 +172,12 @@ namespace Pulumi.AzureNative.DataFactory.Outputs
             EncryptedCredential = encryptedCredential;
             Parameters = parameters;
             Password = password;
+            Resource = resource;
+            Scope = scope;
             ServicePrincipalId = servicePrincipalId;
             ServicePrincipalKey = servicePrincipalKey;
             Tenant = tenant;
+            TokenEndpoint = tokenEndpoint;
             Type = type;
             Url = url;
             UserName = userName;

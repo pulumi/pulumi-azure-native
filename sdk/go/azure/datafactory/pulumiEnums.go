@@ -387,6 +387,7 @@ const (
 	RestServiceAuthenticationTypeBasic                  = RestServiceAuthenticationType("Basic")
 	RestServiceAuthenticationTypeAadServicePrincipal    = RestServiceAuthenticationType("AadServicePrincipal")
 	RestServiceAuthenticationTypeManagedServiceIdentity = RestServiceAuthenticationType("ManagedServiceIdentity")
+	RestServiceAuthenticationTypeOAuth2ClientCredential = RestServiceAuthenticationType("OAuth2ClientCredential")
 )
 
 // The write behavior for the operation. Default is Insert.

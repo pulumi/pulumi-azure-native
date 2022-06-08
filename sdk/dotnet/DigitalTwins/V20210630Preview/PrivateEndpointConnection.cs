@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:digitaltwins:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201201:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20220531:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

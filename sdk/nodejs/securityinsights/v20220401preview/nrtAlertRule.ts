@@ -207,7 +207,7 @@ export class NrtAlertRule extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:NrtAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20200101:NrtAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20211001:NrtAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:NrtAlertRule" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights:NrtAlertRule" }, { type: "azure-native:securityinsights/v20190101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20200101:NrtAlertRule" }, { type: "azure-native:securityinsights/v20210301preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20210901preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20211001:NrtAlertRule" }, { type: "azure-native:securityinsights/v20211001preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220101preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220501preview:NrtAlertRule" }, { type: "azure-native:securityinsights/v20220601preview:NrtAlertRule" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(NrtAlertRule.__pulumiType, name, resourceInputs, opts);
     }

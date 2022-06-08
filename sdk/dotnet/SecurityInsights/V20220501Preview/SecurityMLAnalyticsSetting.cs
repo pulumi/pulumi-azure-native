@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:securityinsights:SecurityMLAnalyticsSetting"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

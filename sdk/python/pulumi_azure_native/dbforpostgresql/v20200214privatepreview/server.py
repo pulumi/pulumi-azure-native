@@ -488,7 +488,7 @@ class Server(pulumi.CustomResource):
             __props__.__dict__["standby_availability_zone"] = None
             __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210410privatepreview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Server")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbforpostgresql/v20200214preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210410privatepreview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210601preview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20210615privatepreview:Server"), pulumi.Alias(type_="azure-native:dbforpostgresql/v20220120preview:Server")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Server, __self__).__init__(
             'azure-native:dbforpostgresql/v20200214privatepreview:Server',

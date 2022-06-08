@@ -155,7 +155,7 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection"), pulumi.Alias(type_="azure-native:digitaltwins/v20220531:TimeSeriesDatabaseConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TimeSeriesDatabaseConnection, __self__).__init__(
             'azure-native:digitaltwins:TimeSeriesDatabaseConnection',

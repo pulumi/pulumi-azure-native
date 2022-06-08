@@ -84,7 +84,7 @@ export class TimeSeriesDatabaseConnection extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:digitaltwins/v20210630preview:TimeSeriesDatabaseConnection" }, { type: "azure-native:digitaltwins/v20220531:TimeSeriesDatabaseConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TimeSeriesDatabaseConnection.__pulumiType, name, resourceInputs, opts);
     }

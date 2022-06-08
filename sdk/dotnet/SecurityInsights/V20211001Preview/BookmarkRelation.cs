@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:BookmarkRelation"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:BookmarkRelation"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:BookmarkRelation"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:BookmarkRelation"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -1337,6 +1337,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
         public static RestServiceAuthenticationType Basic { get; } = new RestServiceAuthenticationType("Basic");
         public static RestServiceAuthenticationType AadServicePrincipal { get; } = new RestServiceAuthenticationType("AadServicePrincipal");
         public static RestServiceAuthenticationType ManagedServiceIdentity { get; } = new RestServiceAuthenticationType("ManagedServiceIdentity");
+        public static RestServiceAuthenticationType OAuth2ClientCredential { get; } = new RestServiceAuthenticationType("OAuth2ClientCredential");
 
         public static bool operator ==(RestServiceAuthenticationType left, RestServiceAuthenticationType right) => left.Equals(right);
         public static bool operator !=(RestServiceAuthenticationType left, RestServiceAuthenticationType right) => !left.Equals(right);

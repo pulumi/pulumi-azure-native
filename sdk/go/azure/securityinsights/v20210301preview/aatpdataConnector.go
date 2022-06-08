@@ -83,6 +83,9 @@ func NewAATPDataConnector(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:securityinsights/v20220501preview:AATPDataConnector"),
 		},
+		{
+			Type: pulumi.String("azure-native:securityinsights/v20220601preview:AATPDataConnector"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AATPDataConnector

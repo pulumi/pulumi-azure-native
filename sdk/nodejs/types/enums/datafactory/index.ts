@@ -467,6 +467,7 @@ export const RestServiceAuthenticationType = {
     Basic: "Basic",
     AadServicePrincipal: "AadServicePrincipal",
     ManagedServiceIdentity: "ManagedServiceIdentity",
+    OAuth2ClientCredential: "OAuth2ClientCredential",
 } as const;
 
 /**

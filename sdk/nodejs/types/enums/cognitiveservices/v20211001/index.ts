@@ -3,6 +3,7 @@
 
 
 export const DeploymentScaleType = {
+    Standard: "Standard",
     Manual: "Manual",
 } as const;
 

@@ -22,11 +22,13 @@ export * from "../types/enums/marketplace";
 import * as v20200101 from "./v20200101";
 import * as v20210601 from "./v20210601";
 import * as v20211201 from "./v20211201";
+import * as v20220301 from "./v20220301";
 
 export {
     v20200101,
     v20210601,
     v20211201,
+    v20220301,
 };
 
 // Import resources to register:

@@ -62,6 +62,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20201201
                     new Pulumi.Alias { Type = "azure-native:digitaltwins/v20200301preview:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:digitaltwins/v20201031:DigitalTwinsEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:digitaltwins/v20210630preview:DigitalTwinsEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20220531:DigitalTwinsEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

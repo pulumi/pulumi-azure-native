@@ -15593,7 +15593,7 @@ class SkuArgs:
                  tier: Optional[pulumi.Input[str]] = None):
         """
         Identifies the unique system identifier for each Azure resource.
-        :param pulumi.Input[Union[str, 'SkuName']] name: The Sku name.
+        :param pulumi.Input[Union[str, 'SkuName']] name: Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the 'backupstorageconfig
         :param pulumi.Input[str] capacity: The sku capacity
         :param pulumi.Input[str] family: The sku family
         :param pulumi.Input[str] size: The sku size
@@ -15613,7 +15613,7 @@ class SkuArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[Union[str, 'SkuName']]:
         """
-        The Sku name.
+        Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the 'backupstorageconfig
         """
         return pulumi.get(self, "name")
 

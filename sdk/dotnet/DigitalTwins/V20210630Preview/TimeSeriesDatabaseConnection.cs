@@ -65,6 +65,7 @@ namespace Pulumi.AzureNative.DigitalTwins.V20210630Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:digitaltwins:TimeSeriesDatabaseConnection"},
+                    new Pulumi.Alias { Type = "azure-native:digitaltwins/v20220531:TimeSeriesDatabaseConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -20636,6 +20636,10 @@ type RestServiceLinkedService struct {
 	AuthenticationType string `pulumi:"authenticationType"`
 	// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
 	AzureCloudType interface{} `pulumi:"azureCloudType"`
+	// The client ID associated with your application. Type: string (or Expression with resultType string).
+	ClientId interface{} `pulumi:"clientId"`
+	// The client secret associated with your application.
+	ClientSecret interface{} `pulumi:"clientSecret"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
 	// The credential reference containing authentication information.
@@ -20650,12 +20654,18 @@ type RestServiceLinkedService struct {
 	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
 	// The password used in Basic authentication type.
 	Password interface{} `pulumi:"password"`
+	// The target service or resource to which the access will be requested. Type: string (or Expression with resultType string).
+	Resource interface{} `pulumi:"resource"`
+	// The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string).
+	Scope interface{} `pulumi:"scope"`
 	// The application's client ID used in AadServicePrincipal authentication type.
 	ServicePrincipalId interface{} `pulumi:"servicePrincipalId"`
 	// The application's key used in AadServicePrincipal authentication type.
 	ServicePrincipalKey interface{} `pulumi:"servicePrincipalKey"`
 	// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
 	Tenant interface{} `pulumi:"tenant"`
+	// The token endpoint of the authorization server to acquire access token. Type: string (or Expression with resultType string).
+	TokenEndpoint interface{} `pulumi:"tokenEndpoint"`
 	// Type of linked service.
 	// Expected value is 'RestService'.
 	Type string `pulumi:"type"`
@@ -20677,6 +20687,10 @@ type RestServiceLinkedServiceResponse struct {
 	AuthenticationType string `pulumi:"authenticationType"`
 	// Indicates the azure cloud type of the service principle auth. Allowed values are AzurePublic, AzureChina, AzureUsGovernment, AzureGermany. Default value is the data factory regions’ cloud type. Type: string (or Expression with resultType string).
 	AzureCloudType interface{} `pulumi:"azureCloudType"`
+	// The client ID associated with your application. Type: string (or Expression with resultType string).
+	ClientId interface{} `pulumi:"clientId"`
+	// The client secret associated with your application.
+	ClientSecret interface{} `pulumi:"clientSecret"`
 	// The integration runtime reference.
 	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
 	// The credential reference containing authentication information.
@@ -20691,12 +20705,18 @@ type RestServiceLinkedServiceResponse struct {
 	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
 	// The password used in Basic authentication type.
 	Password interface{} `pulumi:"password"`
+	// The target service or resource to which the access will be requested. Type: string (or Expression with resultType string).
+	Resource interface{} `pulumi:"resource"`
+	// The scope of the access required. It describes what kind of access will be requested. Type: string (or Expression with resultType string).
+	Scope interface{} `pulumi:"scope"`
 	// The application's client ID used in AadServicePrincipal authentication type.
 	ServicePrincipalId interface{} `pulumi:"servicePrincipalId"`
 	// The application's key used in AadServicePrincipal authentication type.
 	ServicePrincipalKey interface{} `pulumi:"servicePrincipalKey"`
 	// The tenant information (domain name or tenant ID) used in AadServicePrincipal authentication type under which your application resides.
 	Tenant interface{} `pulumi:"tenant"`
+	// The token endpoint of the authorization server to acquire access token. Type: string (or Expression with resultType string).
+	TokenEndpoint interface{} `pulumi:"tokenEndpoint"`
 	// Type of linked service.
 	// Expected value is 'RestService'.
 	Type string `pulumi:"type"`

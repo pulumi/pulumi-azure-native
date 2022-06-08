@@ -196,7 +196,7 @@ export class AnomalySecurityMLAnalyticsSettings extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings" }, { type: "azure-native:securityinsights/v20220601preview:AnomalySecurityMLAnalyticsSettings" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(AnomalySecurityMLAnalyticsSettings.__pulumiType, name, resourceInputs, opts);
     }
