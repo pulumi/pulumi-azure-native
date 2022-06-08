@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DigitalTwins
 {
     /// <summary>
     /// The private endpoint connection of a Digital Twin.
-    /// API Version: 2022-05-31.
+    /// API Version: 2020-12-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
@@ -22,17 +22,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
-        /// <summary>
-        /// The connection properties.
-        /// </summary>
         [Output("properties")]
-        public Output<Outputs.ConnectionPropertiesResponse> Properties { get; private set; } = null!;
-
-        /// <summary>
-        /// Metadata pertaining to creation and last modification of the private endpoint connection.
-        /// </summary>
-        [Output("systemData")]
-        public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
+        public Output<Outputs.PrivateEndpointConnectionResponseProperties> Properties { get; private set; } = null!;
 
         /// <summary>
         /// The resource type.
@@ -97,11 +88,8 @@ namespace Pulumi.AzureNative.DigitalTwins
         [Input("privateEndpointConnectionName")]
         public Input<string>? PrivateEndpointConnectionName { get; set; }
 
-        /// <summary>
-        /// The connection properties.
-        /// </summary>
         [Input("properties", required: true)]
-        public Input<Inputs.ConnectionPropertiesArgs> Properties { get; set; } = null!;
+        public Input<Inputs.PrivateEndpointConnectionPropertiesArgs> Properties { get; set; } = null!;
 
         /// <summary>
         /// The name of the resource group that contains the DigitalTwinsInstance.

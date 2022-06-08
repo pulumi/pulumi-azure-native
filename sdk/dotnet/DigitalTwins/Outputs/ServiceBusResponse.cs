@@ -17,7 +17,7 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
     public sealed class ServiceBusResponse
     {
         /// <summary>
-        /// Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+        /// Specifies the authentication type being used for connecting to the endpoint.
         /// </summary>
         public readonly string? AuthenticationType;
         /// <summary>
@@ -38,11 +38,11 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
         /// </summary>
         public readonly string EndpointType;
         /// <summary>
-        /// The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol 'sb://'.
+        /// The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
         /// </summary>
         public readonly string? EndpointUri;
         /// <summary>
-        /// The ServiceBus Topic name for identity-based authentication.
+        /// The ServiceBus Topic name for identity-based authentication
         /// </summary>
         public readonly string? EntityPath;
         /// <summary>

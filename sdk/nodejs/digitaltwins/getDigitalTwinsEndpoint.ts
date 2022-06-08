@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * DigitalTwinsInstance endpoint resource.
- * API Version: 2022-05-31.
+ * API Version: 2020-12-01.
  */
 export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinsEndpointResult> {
     if (!opts) {
@@ -53,10 +53,6 @@ export interface GetDigitalTwinsEndpointResult {
      * DigitalTwinsInstance endpoint resource properties.
      */
     readonly properties: outputs.digitaltwins.EventGridResponse | outputs.digitaltwins.EventHubResponse | outputs.digitaltwins.ServiceBusResponse;
-    /**
-     * Metadata pertaining to creation and last modification of the resource.
-     */
-    readonly systemData: outputs.digitaltwins.SystemDataResponse;
     /**
      * The resource type.
      */

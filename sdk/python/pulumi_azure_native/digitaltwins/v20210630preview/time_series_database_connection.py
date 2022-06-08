@@ -82,12 +82,7 @@ class TimeSeriesDatabaseConnectionArgs:
         pulumi.set(self, "time_series_database_connection_name", value)
 
 
-warnings.warn("""Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""", DeprecationWarning)
-
-
 class TimeSeriesDatabaseConnection(pulumi.CustomResource):
-    warnings.warn("""Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -136,7 +131,6 @@ class TimeSeriesDatabaseConnection(pulumi.CustomResource):
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  time_series_database_connection_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""TimeSeriesDatabaseConnection is deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

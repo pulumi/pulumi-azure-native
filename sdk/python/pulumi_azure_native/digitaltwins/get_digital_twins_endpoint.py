@@ -21,7 +21,7 @@ class GetDigitalTwinsEndpointResult:
     """
     DigitalTwinsInstance endpoint resource.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, id=None, name=None, properties=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
@@ -31,9 +31,6 @@ class GetDigitalTwinsEndpointResult:
         if properties and not isinstance(properties, dict):
             raise TypeError("Expected argument 'properties' to be a dict")
         pulumi.set(__self__, "properties", properties)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -63,14 +60,6 @@ class GetDigitalTwinsEndpointResult:
         return pulumi.get(self, "properties")
 
     @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the resource.
-        """
-        return pulumi.get(self, "system_data")
-
-    @property
     @pulumi.getter
     def type(self) -> str:
         """
@@ -88,7 +77,6 @@ class AwaitableGetDigitalTwinsEndpointResult(GetDigitalTwinsEndpointResult):
             id=self.id,
             name=self.name,
             properties=self.properties,
-            system_data=self.system_data,
             type=self.type)
 
 
@@ -98,7 +86,7 @@ def get_digital_twins_endpoint(endpoint_name: Optional[str] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDigitalTwinsEndpointResult:
     """
     DigitalTwinsInstance endpoint resource.
-    API Version: 2022-05-31.
+    API Version: 2020-12-01.
 
 
     :param str endpoint_name: Name of Endpoint Resource.
@@ -119,7 +107,6 @@ def get_digital_twins_endpoint(endpoint_name: Optional[str] = None,
         id=__ret__.id,
         name=__ret__.name,
         properties=__ret__.properties,
-        system_data=__ret__.system_data,
         type=__ret__.type)
 
 
@@ -130,7 +117,7 @@ def get_digital_twins_endpoint_output(endpoint_name: Optional[pulumi.Input[str]]
                                       opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDigitalTwinsEndpointResult]:
     """
     DigitalTwinsInstance endpoint resource.
-    API Version: 2022-05-31.
+    API Version: 2020-12-01.
 
 
     :param str endpoint_name: Name of Endpoint Resource.

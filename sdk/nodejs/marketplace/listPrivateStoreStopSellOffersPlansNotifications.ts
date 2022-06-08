@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * List of stop sell offers and plans notifications.
- * API Version: 2022-03-01.
+ * API Version: 2021-12-01.
  */
 export function listPrivateStoreStopSellOffersPlansNotifications(args: ListPrivateStoreStopSellOffersPlansNotificationsArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreStopSellOffersPlansNotificationsResult> {
     if (!opts) {

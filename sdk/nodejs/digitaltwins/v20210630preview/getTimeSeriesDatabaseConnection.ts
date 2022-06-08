@@ -8,9 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Describes a time series database connection resource.
  */
-/** @deprecated Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later. */
 export function getTimeSeriesDatabaseConnection(args: GetTimeSeriesDatabaseConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetTimeSeriesDatabaseConnectionResult> {
-    pulumi.log.warn("getTimeSeriesDatabaseConnection is deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.")
     if (!opts) {
         opts = {}
     }

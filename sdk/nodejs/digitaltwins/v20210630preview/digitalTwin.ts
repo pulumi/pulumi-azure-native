@@ -7,8 +7,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the DigitalTwins service.
- *
- * @deprecated Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.
  */
 export class DigitalTwin extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class DigitalTwin extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DigitalTwin {
-        pulumi.log.warn("DigitalTwin is deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.")
         return new DigitalTwin(name, undefined as any, { ...opts, id: id });
     }
 
@@ -94,9 +91,7 @@ export class DigitalTwin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later. */
     constructor(name: string, args: DigitalTwinArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DigitalTwin is deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -11,7 +11,7 @@ import (
 )
 
 // The description of the DigitalTwins service.
-// API Version: 2022-05-31.
+// API Version: 2020-12-01.
 func LookupDigitalTwin(ctx *pulumi.Context, args *LookupDigitalTwinArgs, opts ...pulumi.InvokeOption) (*LookupDigitalTwinResult, error) {
 	var rv LookupDigitalTwinResult
 	err := ctx.Invoke("azure-native:digitaltwins:getDigitalTwin", args, &rv, opts...)
@@ -43,15 +43,12 @@ type LookupDigitalTwinResult struct {
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The resource name.
-	Name string `pulumi:"name"`
-	// The private endpoint connections.
+	Name                       string                              `pulumi:"name"`
 	PrivateEndpointConnections []PrivateEndpointConnectionResponse `pulumi:"privateEndpointConnections"`
 	// The provisioning state.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// Public network access for the DigitalTwinsInstance.
 	PublicNetworkAccess *string `pulumi:"publicNetworkAccess"`
-	// Metadata pertaining to creation and last modification of the DigitalTwinsInstance.
-	SystemData SystemDataResponse `pulumi:"systemData"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The resource type.
@@ -132,7 +129,6 @@ func (o LookupDigitalTwinResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupDigitalTwinResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The private endpoint connections.
 func (o LookupDigitalTwinResultOutput) PrivateEndpointConnections() PrivateEndpointConnectionResponseArrayOutput {
 	return o.ApplyT(func(v LookupDigitalTwinResult) []PrivateEndpointConnectionResponse {
 		return v.PrivateEndpointConnections
@@ -147,11 +143,6 @@ func (o LookupDigitalTwinResultOutput) ProvisioningState() pulumi.StringOutput {
 // Public network access for the DigitalTwinsInstance.
 func (o LookupDigitalTwinResultOutput) PublicNetworkAccess() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupDigitalTwinResult) *string { return v.PublicNetworkAccess }).(pulumi.StringPtrOutput)
-}
-
-// Metadata pertaining to creation and last modification of the DigitalTwinsInstance.
-func (o LookupDigitalTwinResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LookupDigitalTwinResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The resource tags.

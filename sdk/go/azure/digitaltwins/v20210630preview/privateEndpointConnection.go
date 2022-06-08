@@ -12,8 +12,6 @@ import (
 )
 
 // The private endpoint connection of a Digital Twin.
-//
-// Deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 

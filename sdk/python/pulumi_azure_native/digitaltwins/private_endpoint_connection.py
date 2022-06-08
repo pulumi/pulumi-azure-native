@@ -16,13 +16,12 @@ __all__ = ['PrivateEndpointConnectionInitArgs', 'PrivateEndpointConnection']
 @pulumi.input_type
 class PrivateEndpointConnectionInitArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['ConnectionPropertiesArgs'],
+                 properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs'],
                  resource_group_name: pulumi.Input[str],
                  resource_name: pulumi.Input[str],
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a PrivateEndpointConnection resource.
-        :param pulumi.Input['ConnectionPropertiesArgs'] properties: The connection properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input[str] resource_name: The name of the DigitalTwinsInstance.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
@@ -35,14 +34,11 @@ class PrivateEndpointConnectionInitArgs:
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Input['ConnectionPropertiesArgs']:
-        """
-        The connection properties.
-        """
+    def properties(self) -> pulumi.Input['PrivateEndpointConnectionPropertiesArgs']:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input['ConnectionPropertiesArgs']):
+    def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
         pulumi.set(self, "properties", value)
 
     @property
@@ -88,18 +84,17 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ConnectionPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         The private endpoint connection of a Digital Twin.
-        API Version: 2022-05-31.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] private_endpoint_connection_name: The name of the private endpoint connection.
-        :param pulumi.Input[pulumi.InputType['ConnectionPropertiesArgs']] properties: The connection properties.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
         :param pulumi.Input[str] resource_name_: The name of the DigitalTwinsInstance.
         """
@@ -111,7 +106,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The private endpoint connection of a Digital Twin.
-        API Version: 2022-05-31.
+        API Version: 2020-12-01.
 
         :param str resource_name: The name of the resource.
         :param PrivateEndpointConnectionInitArgs args: The arguments to use to populate this resource's properties.
@@ -129,7 +124,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  private_endpoint_connection_name: Optional[pulumi.Input[str]] = None,
-                 properties: Optional[pulumi.Input[pulumi.InputType['ConnectionPropertiesArgs']]] = None,
+                 properties: Optional[pulumi.Input[pulumi.InputType['PrivateEndpointConnectionPropertiesArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
@@ -155,7 +150,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                 raise TypeError("Missing required property 'resource_name_'")
             __props__.__dict__["resource_name"] = resource_name_
             __props__.__dict__["name"] = None
-            __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:digitaltwins/v20201201:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:digitaltwins/v20210630preview:PrivateEndpointConnection"), pulumi.Alias(type_="azure-native:digitaltwins/v20220531:PrivateEndpointConnection")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -183,7 +177,6 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
-        __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return PrivateEndpointConnection(resource_name, opts=opts, __props__=__props__)
 
@@ -197,19 +190,8 @@ class PrivateEndpointConnection(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Output['outputs.ConnectionPropertiesResponse']:
-        """
-        The connection properties.
-        """
+    def properties(self) -> pulumi.Output['outputs.PrivateEndpointConnectionResponseProperties']:
         return pulumi.get(self, "properties")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> pulumi.Output['outputs.SystemDataResponse']:
-        """
-        Metadata pertaining to creation and last modification of the private endpoint connection.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter

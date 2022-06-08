@@ -46,7 +46,7 @@ def list_private_store_stop_sell_offers_plans_notifications(private_store_id: Op
                                                             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListPrivateStoreStopSellOffersPlansNotificationsResult:
     """
     List of stop sell offers and plans notifications.
-    API Version: 2022-03-01.
+    API Version: 2021-12-01.
 
 
     :param str private_store_id: The store ID - must use the tenant ID
@@ -70,7 +70,7 @@ def list_private_store_stop_sell_offers_plans_notifications_output(private_store
                                                                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListPrivateStoreStopSellOffersPlansNotificationsResult]:
     """
     List of stop sell offers and plans notifications.
-    API Version: 2022-03-01.
+    API Version: 2021-12-01.
 
 
     :param str private_store_id: The store ID - must use the tenant ID

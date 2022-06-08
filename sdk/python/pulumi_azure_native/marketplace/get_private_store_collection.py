@@ -21,13 +21,7 @@ class GetPrivateStoreCollectionResult:
     """
     The Collection data structure.
     """
-    def __init__(__self__, all_items_approved=None, all_items_approved_modified_at=None, all_subscriptions=None, claim=None, collection_id=None, collection_name=None, enabled=None, id=None, name=None, number_of_offers=None, subscriptions_list=None, system_data=None, type=None):
-        if all_items_approved and not isinstance(all_items_approved, bool):
-            raise TypeError("Expected argument 'all_items_approved' to be a bool")
-        pulumi.set(__self__, "all_items_approved", all_items_approved)
-        if all_items_approved_modified_at and not isinstance(all_items_approved_modified_at, str):
-            raise TypeError("Expected argument 'all_items_approved_modified_at' to be a str")
-        pulumi.set(__self__, "all_items_approved_modified_at", all_items_approved_modified_at)
+    def __init__(__self__, all_subscriptions=None, claim=None, collection_id=None, collection_name=None, enabled=None, id=None, name=None, number_of_offers=None, subscriptions_list=None, system_data=None, type=None):
         if all_subscriptions and not isinstance(all_subscriptions, bool):
             raise TypeError("Expected argument 'all_subscriptions' to be a bool")
         pulumi.set(__self__, "all_subscriptions", all_subscriptions)
@@ -61,22 +55,6 @@ class GetPrivateStoreCollectionResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="allItemsApproved")
-    def all_items_approved(self) -> bool:
-        """
-        Indicating whether all items are approved for this collection (=true) or not (=false).
-        """
-        return pulumi.get(self, "all_items_approved")
-
-    @property
-    @pulumi.getter(name="allItemsApprovedModifiedAt")
-    def all_items_approved_modified_at(self) -> str:
-        """
-        Gets the modified date of all items approved.
-        """
-        return pulumi.get(self, "all_items_approved_modified_at")
 
     @property
     @pulumi.getter(name="allSubscriptions")
@@ -173,8 +151,6 @@ class AwaitableGetPrivateStoreCollectionResult(GetPrivateStoreCollectionResult):
         if False:
             yield self
         return GetPrivateStoreCollectionResult(
-            all_items_approved=self.all_items_approved,
-            all_items_approved_modified_at=self.all_items_approved_modified_at,
             all_subscriptions=self.all_subscriptions,
             claim=self.claim,
             collection_id=self.collection_id,
@@ -193,7 +169,7 @@ def get_private_store_collection(collection_id: Optional[str] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPrivateStoreCollectionResult:
     """
     The Collection data structure.
-    API Version: 2022-03-01.
+    API Version: 2021-12-01.
 
 
     :param str collection_id: The collection ID
@@ -209,8 +185,6 @@ def get_private_store_collection(collection_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:marketplace:getPrivateStoreCollection', __args__, opts=opts, typ=GetPrivateStoreCollectionResult).value
 
     return AwaitableGetPrivateStoreCollectionResult(
-        all_items_approved=__ret__.all_items_approved,
-        all_items_approved_modified_at=__ret__.all_items_approved_modified_at,
         all_subscriptions=__ret__.all_subscriptions,
         claim=__ret__.claim,
         collection_id=__ret__.collection_id,
@@ -230,7 +204,7 @@ def get_private_store_collection_output(collection_id: Optional[pulumi.Input[str
                                         opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPrivateStoreCollectionResult]:
     """
     The Collection data structure.
-    API Version: 2022-03-01.
+    API Version: 2021-12-01.
 
 
     :param str collection_id: The collection ID

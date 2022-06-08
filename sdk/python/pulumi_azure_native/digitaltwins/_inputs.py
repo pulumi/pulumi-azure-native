@@ -12,10 +12,10 @@ from ._enums import *
 __all__ = [
     'AzureDataExplorerConnectionPropertiesArgs',
     'ConnectionPropertiesPrivateLinkServiceConnectionStateArgs',
-    'ConnectionPropertiesArgs',
     'DigitalTwinsIdentityArgs',
     'EventGridArgs',
     'EventHubArgs',
+    'PrivateEndpointConnectionPropertiesArgs',
     'PrivateEndpointConnectionArgs',
     'ServiceBusArgs',
 ]
@@ -174,7 +174,6 @@ class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
                  status: pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']],
                  actions_required: Optional[pulumi.Input[str]] = None):
         """
-        The connection state.
         :param pulumi.Input[str] description: The description for the current state of a private endpoint connection.
         :param pulumi.Input[Union[str, 'PrivateLinkServiceConnectionStatus']] status: The status of a private endpoint connection.
         :param pulumi.Input[str] actions_required: Actions required for a private endpoint connection.
@@ -222,46 +221,6 @@ class ConnectionPropertiesPrivateLinkServiceConnectionStateArgs:
 
 
 @pulumi.input_type
-class ConnectionPropertiesArgs:
-    def __init__(__self__, *,
-                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
-                 private_link_service_connection_state: Optional[pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgs']] = None):
-        """
-        The properties of a private endpoint connection.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The list of group ids for the private endpoint connection.
-        :param pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgs'] private_link_service_connection_state: The connection state.
-        """
-        if group_ids is not None:
-            pulumi.set(__self__, "group_ids", group_ids)
-        if private_link_service_connection_state is not None:
-            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
-
-    @property
-    @pulumi.getter(name="groupIds")
-    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
-        """
-        The list of group ids for the private endpoint connection.
-        """
-        return pulumi.get(self, "group_ids")
-
-    @group_ids.setter
-    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
-        pulumi.set(self, "group_ids", value)
-
-    @property
-    @pulumi.getter(name="privateLinkServiceConnectionState")
-    def private_link_service_connection_state(self) -> Optional[pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]:
-        """
-        The connection state.
-        """
-        return pulumi.get(self, "private_link_service_connection_state")
-
-    @private_link_service_connection_state.setter
-    def private_link_service_connection_state(self, value: Optional[pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]):
-        pulumi.set(self, "private_link_service_connection_state", value)
-
-
-@pulumi.input_type
 class DigitalTwinsIdentityArgs:
     def __init__(__self__, *,
                  type: Optional[pulumi.Input[Union[str, 'DigitalTwinsIdentityType']]] = None):
@@ -300,9 +259,9 @@ class EventGridArgs:
         :param pulumi.Input[str] access_key1: EventGrid secondary accesskey. Will be obfuscated during read.
         :param pulumi.Input[str] endpoint_type: The type of Digital Twins endpoint
                Expected value is 'EventGrid'.
-        :param pulumi.Input[str] topic_endpoint: EventGrid Topic Endpoint.
+        :param pulumi.Input[str] topic_endpoint: EventGrid Topic Endpoint
         :param pulumi.Input[str] access_key2: EventGrid secondary accesskey. Will be obfuscated during read.
-        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Specifies the authentication type being used for connecting to the endpoint.
         :param pulumi.Input[str] dead_letter_secret: Dead letter storage secret for key-based authentication. Will be obfuscated during read.
         :param pulumi.Input[str] dead_letter_uri: Dead letter storage URL for identity-based authentication.
         """
@@ -347,7 +306,7 @@ class EventGridArgs:
     @pulumi.getter(name="topicEndpoint")
     def topic_endpoint(self) -> pulumi.Input[str]:
         """
-        EventGrid Topic Endpoint.
+        EventGrid Topic Endpoint
         """
         return pulumi.get(self, "topic_endpoint")
 
@@ -371,7 +330,7 @@ class EventGridArgs:
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
         """
-        Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+        Specifies the authentication type being used for connecting to the endpoint.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -419,12 +378,12 @@ class EventHubArgs:
         Properties related to EventHub.
         :param pulumi.Input[str] endpoint_type: The type of Digital Twins endpoint
                Expected value is 'EventHub'.
-        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Specifies the authentication type being used for connecting to the endpoint.
         :param pulumi.Input[str] connection_string_primary_key: PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         :param pulumi.Input[str] connection_string_secondary_key: SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         :param pulumi.Input[str] dead_letter_secret: Dead letter storage secret for key-based authentication. Will be obfuscated during read.
         :param pulumi.Input[str] dead_letter_uri: Dead letter storage URL for identity-based authentication.
-        :param pulumi.Input[str] endpoint_uri: The URL of the EventHub namespace for identity-based authentication. It must include the protocol 'sb://'.
+        :param pulumi.Input[str] endpoint_uri: The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
         :param pulumi.Input[str] entity_path: The EventHub name in the EventHub namespace for identity-based authentication.
         """
         pulumi.set(__self__, "endpoint_type", 'EventHub')
@@ -460,7 +419,7 @@ class EventHubArgs:
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
         """
-        Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+        Specifies the authentication type being used for connecting to the endpoint.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -520,7 +479,7 @@ class EventHubArgs:
     @pulumi.getter(name="endpointUri")
     def endpoint_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the EventHub namespace for identity-based authentication. It must include the protocol 'sb://'.
+        The URL of the EventHub namespace for identity-based authentication. It must include the protocol sb://
         """
         return pulumi.get(self, "endpoint_uri")
 
@@ -542,25 +501,56 @@ class EventHubArgs:
 
 
 @pulumi.input_type
+class PrivateEndpointConnectionPropertiesArgs:
+    def __init__(__self__, *,
+                 group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 private_link_service_connection_state: Optional[pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] group_ids: The list of group ids for the private endpoint connection.
+        """
+        if group_ids is not None:
+            pulumi.set(__self__, "group_ids", group_ids)
+        if private_link_service_connection_state is not None:
+            pulumi.set(__self__, "private_link_service_connection_state", private_link_service_connection_state)
+
+    @property
+    @pulumi.getter(name="groupIds")
+    def group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        The list of group ids for the private endpoint connection.
+        """
+        return pulumi.get(self, "group_ids")
+
+    @group_ids.setter
+    def group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "group_ids", value)
+
+    @property
+    @pulumi.getter(name="privateLinkServiceConnectionState")
+    def private_link_service_connection_state(self) -> Optional[pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]:
+        return pulumi.get(self, "private_link_service_connection_state")
+
+    @private_link_service_connection_state.setter
+    def private_link_service_connection_state(self, value: Optional[pulumi.Input['ConnectionPropertiesPrivateLinkServiceConnectionStateArgs']]):
+        pulumi.set(self, "private_link_service_connection_state", value)
+
+
+@pulumi.input_type
 class PrivateEndpointConnectionArgs:
     def __init__(__self__, *,
-                 properties: pulumi.Input['ConnectionPropertiesArgs']):
+                 properties: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
         """
         The private endpoint connection of a Digital Twin.
-        :param pulumi.Input['ConnectionPropertiesArgs'] properties: The connection properties.
         """
         pulumi.set(__self__, "properties", properties)
 
     @property
     @pulumi.getter
-    def properties(self) -> pulumi.Input['ConnectionPropertiesArgs']:
-        """
-        The connection properties.
-        """
+    def properties(self) -> pulumi.Input['PrivateEndpointConnectionPropertiesArgs']:
         return pulumi.get(self, "properties")
 
     @properties.setter
-    def properties(self, value: pulumi.Input['ConnectionPropertiesArgs']):
+    def properties(self, value: pulumi.Input['PrivateEndpointConnectionPropertiesArgs']):
         pulumi.set(self, "properties", value)
 
 
@@ -579,11 +569,11 @@ class ServiceBusArgs:
         Properties related to ServiceBus.
         :param pulumi.Input[str] endpoint_type: The type of Digital Twins endpoint
                Expected value is 'ServiceBus'.
-        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+        :param pulumi.Input[Union[str, 'AuthenticationType']] authentication_type: Specifies the authentication type being used for connecting to the endpoint.
         :param pulumi.Input[str] dead_letter_secret: Dead letter storage secret for key-based authentication. Will be obfuscated during read.
         :param pulumi.Input[str] dead_letter_uri: Dead letter storage URL for identity-based authentication.
-        :param pulumi.Input[str] endpoint_uri: The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol 'sb://'.
-        :param pulumi.Input[str] entity_path: The ServiceBus Topic name for identity-based authentication.
+        :param pulumi.Input[str] endpoint_uri: The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
+        :param pulumi.Input[str] entity_path: The ServiceBus Topic name for identity-based authentication
         :param pulumi.Input[str] primary_connection_string: PrimaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         :param pulumi.Input[str] secondary_connection_string: SecondaryConnectionString of the endpoint for key-based authentication. Will be obfuscated during read.
         """
@@ -620,7 +610,7 @@ class ServiceBusArgs:
     @pulumi.getter(name="authenticationType")
     def authentication_type(self) -> Optional[pulumi.Input[Union[str, 'AuthenticationType']]]:
         """
-        Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+        Specifies the authentication type being used for connecting to the endpoint.
         """
         return pulumi.get(self, "authentication_type")
 
@@ -656,7 +646,7 @@ class ServiceBusArgs:
     @pulumi.getter(name="endpointUri")
     def endpoint_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol 'sb://'.
+        The URL of the ServiceBus namespace for identity-based authentication. It must include the protocol sb://
         """
         return pulumi.get(self, "endpoint_uri")
 
@@ -668,7 +658,7 @@ class ServiceBusArgs:
     @pulumi.getter(name="entityPath")
     def entity_path(self) -> Optional[pulumi.Input[str]]:
         """
-        The ServiceBus Topic name for identity-based authentication.
+        The ServiceBus Topic name for identity-based authentication
         """
         return pulumi.get(self, "entity_path")
 

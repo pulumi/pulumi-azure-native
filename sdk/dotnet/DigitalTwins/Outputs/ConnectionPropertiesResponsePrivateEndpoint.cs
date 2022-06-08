@@ -10,11 +10,8 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DigitalTwins.Outputs
 {
 
-    /// <summary>
-    /// The private endpoint property of a private endpoint connection.
-    /// </summary>
     [OutputType]
-    public sealed class PrivateEndpointResponse
+    public sealed class ConnectionPropertiesResponsePrivateEndpoint
     {
         /// <summary>
         /// The resource identifier.
@@ -22,7 +19,7 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
         public readonly string Id;
 
         [OutputConstructor]
-        private PrivateEndpointResponse(string id)
+        private ConnectionPropertiesResponsePrivateEndpoint(string id)
         {
             Id = id;
         }

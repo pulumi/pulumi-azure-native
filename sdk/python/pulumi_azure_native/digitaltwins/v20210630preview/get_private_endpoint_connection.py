@@ -16,8 +16,6 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
-warnings.warn("""Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -106,7 +104,6 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param str resource_name: The name of the DigitalTwinsInstance.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -138,5 +135,4 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
     :param str resource_name: The name of the DigitalTwinsInstance.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""")
     ...

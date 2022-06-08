@@ -11,7 +11,7 @@ import (
 )
 
 // Describes a time series database connection resource.
-// API Version: 2022-05-31.
+// API Version: 2021-06-30-preview.
 func LookupTimeSeriesDatabaseConnection(ctx *pulumi.Context, args *LookupTimeSeriesDatabaseConnectionArgs, opts ...pulumi.InvokeOption) (*LookupTimeSeriesDatabaseConnectionResult, error) {
 	var rv LookupTimeSeriesDatabaseConnectionResult
 	err := ctx.Invoke("azure-native:digitaltwins:getTimeSeriesDatabaseConnection", args, &rv, opts...)

@@ -16,8 +16,6 @@ __all__ = [
     'get_time_series_database_connection_output',
 ]
 
-warnings.warn("""Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetTimeSeriesDatabaseConnectionResult:
     """
@@ -106,7 +104,6 @@ def get_time_series_database_connection(resource_group_name: Optional[str] = Non
     :param str resource_name: The name of the DigitalTwinsInstance.
     :param str time_series_database_connection_name: Name of time series database connection.
     """
-    pulumi.log.warn("""get_time_series_database_connection is deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -138,5 +135,4 @@ def get_time_series_database_connection_output(resource_group_name: Optional[pul
     :param str resource_name: The name of the DigitalTwinsInstance.
     :param str time_series_database_connection_name: Name of time series database connection.
     """
-    pulumi.log.warn("""get_time_series_database_connection is deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""")
     ...

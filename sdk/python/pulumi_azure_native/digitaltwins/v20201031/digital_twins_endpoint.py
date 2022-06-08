@@ -81,11 +81,11 @@ class DigitalTwinsEndpointArgs:
         pulumi.set(self, "endpoint_name", value)
 
 
-warnings.warn("""Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""", DeprecationWarning)
+warnings.warn("""Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
 
 
 class DigitalTwinsEndpoint(pulumi.CustomResource):
-    warnings.warn("""Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""", DeprecationWarning)
+    warnings.warn("""Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -135,7 +135,7 @@ class DigitalTwinsEndpoint(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DigitalTwinsEndpoint is deprecated: Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20220531 or later.""")
+        pulumi.log.warn("""DigitalTwinsEndpoint is deprecated: Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

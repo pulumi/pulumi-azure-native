@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * List of subscription Ids in the private store
- * API Version: 2022-03-01.
+ * API Version: 2021-12-01.
  */
 export function listPrivateStoreSubscriptionsContext(args: ListPrivateStoreSubscriptionsContextArgs, opts?: pulumi.InvokeOptions): Promise<ListPrivateStoreSubscriptionsContextResult> {
     if (!opts) {

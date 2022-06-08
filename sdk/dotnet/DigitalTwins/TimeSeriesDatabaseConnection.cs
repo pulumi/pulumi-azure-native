@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.DigitalTwins
 {
     /// <summary>
     /// Describes a time series database connection resource.
-    /// API Version: 2022-05-31.
+    /// API Version: 2021-06-30-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:digitaltwins:TimeSeriesDatabaseConnection")]
     public partial class TimeSeriesDatabaseConnection : Pulumi.CustomResource

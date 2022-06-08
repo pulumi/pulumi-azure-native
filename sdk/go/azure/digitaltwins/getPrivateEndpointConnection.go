@@ -11,7 +11,7 @@ import (
 )
 
 // The private endpoint connection of a Digital Twin.
-// API Version: 2022-05-31.
+// API Version: 2020-12-01.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:digitaltwins:getPrivateEndpointConnection", args, &rv, opts...)
@@ -35,11 +35,8 @@ type LookupPrivateEndpointConnectionResult struct {
 	// The resource identifier.
 	Id string `pulumi:"id"`
 	// The resource name.
-	Name string `pulumi:"name"`
-	// The connection properties.
-	Properties ConnectionPropertiesResponse `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the private endpoint connection.
-	SystemData SystemDataResponse `pulumi:"systemData"`
+	Name       string                                      `pulumi:"name"`
+	Properties PrivateEndpointConnectionResponseProperties `pulumi:"properties"`
 	// The resource type.
 	Type string `pulumi:"type"`
 }
@@ -95,14 +92,10 @@ func (o LookupPrivateEndpointConnectionResultOutput) Name() pulumi.StringOutput 
 	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// The connection properties.
-func (o LookupPrivateEndpointConnectionResultOutput) Properties() ConnectionPropertiesResponseOutput {
-	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) ConnectionPropertiesResponse { return v.Properties }).(ConnectionPropertiesResponseOutput)
-}
-
-// Metadata pertaining to creation and last modification of the private endpoint connection.
-func (o LookupPrivateEndpointConnectionResultOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+func (o LookupPrivateEndpointConnectionResultOutput) Properties() PrivateEndpointConnectionResponsePropertiesOutput {
+	return o.ApplyT(func(v LookupPrivateEndpointConnectionResult) PrivateEndpointConnectionResponseProperties {
+		return v.Properties
+	}).(PrivateEndpointConnectionResponsePropertiesOutput)
 }
 
 // The resource type.

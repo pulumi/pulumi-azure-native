@@ -22,7 +22,7 @@ export const AuthenticationType = {
 } as const;
 
 /**
- * Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified.
+ * Specifies the authentication type being used for connecting to the endpoint.
  */
 export type AuthenticationType = (typeof AuthenticationType)[keyof typeof AuthenticationType];
 

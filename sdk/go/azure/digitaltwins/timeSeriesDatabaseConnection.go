@@ -12,7 +12,7 @@ import (
 )
 
 // Describes a time series database connection resource.
-// API Version: 2022-05-31.
+// API Version: 2021-06-30-preview.
 type TimeSeriesDatabaseConnection struct {
 	pulumi.CustomResourceState
 

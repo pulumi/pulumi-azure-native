@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DigitalTwins.V20201201
 {
-    [Obsolete(@"Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20220531 or later.")]
     public static class GetDigitalTwin
     {
         /// <summary>

@@ -10,23 +10,14 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DigitalTwins.Outputs
 {
 
-    /// <summary>
-    /// The properties of a private endpoint connection.
-    /// </summary>
     [OutputType]
-    public sealed class ConnectionPropertiesResponse
+    public sealed class PrivateEndpointConnectionResponseProperties
     {
         /// <summary>
         /// The list of group ids for the private endpoint connection.
         /// </summary>
         public readonly ImmutableArray<string> GroupIds;
-        /// <summary>
-        /// The private endpoint.
-        /// </summary>
-        public readonly Outputs.PrivateEndpointResponse? PrivateEndpoint;
-        /// <summary>
-        /// The connection state.
-        /// </summary>
+        public readonly Outputs.ConnectionPropertiesResponsePrivateEndpoint? PrivateEndpoint;
         public readonly Outputs.ConnectionPropertiesResponsePrivateLinkServiceConnectionState? PrivateLinkServiceConnectionState;
         /// <summary>
         /// The provisioning state.
@@ -34,10 +25,10 @@ namespace Pulumi.AzureNative.DigitalTwins.Outputs
         public readonly string ProvisioningState;
 
         [OutputConstructor]
-        private ConnectionPropertiesResponse(
+        private PrivateEndpointConnectionResponseProperties(
             ImmutableArray<string> groupIds,
 
-            Outputs.PrivateEndpointResponse? privateEndpoint,
+            Outputs.ConnectionPropertiesResponsePrivateEndpoint? privateEndpoint,
 
             Outputs.ConnectionPropertiesResponsePrivateLinkServiceConnectionState? privateLinkServiceConnectionState,
 

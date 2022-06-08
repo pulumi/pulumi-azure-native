@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Marketplace
     {
         /// <summary>
         /// The Collection data structure.
-        /// API Version: 2022-03-01.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Task<GetPrivateStoreCollectionResult> InvokeAsync(GetPrivateStoreCollectionArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetPrivateStoreCollectionResult>("azure-native:marketplace:getPrivateStoreCollection", args ?? new GetPrivateStoreCollectionArgs(), options.WithDefaults());
 
         /// <summary>
         /// The Collection data structure.
-        /// API Version: 2022-03-01.
+        /// API Version: 2021-12-01.
         /// </summary>
         public static Output<GetPrivateStoreCollectionResult> Invoke(GetPrivateStoreCollectionInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetPrivateStoreCollectionResult>("azure-native:marketplace:getPrivateStoreCollection", args ?? new GetPrivateStoreCollectionInvokeArgs(), options.WithDefaults());
@@ -70,14 +70,6 @@ namespace Pulumi.AzureNative.Marketplace
     public sealed class GetPrivateStoreCollectionResult
     {
         /// <summary>
-        /// Indicating whether all items are approved for this collection (=true) or not (=false).
-        /// </summary>
-        public readonly bool AllItemsApproved;
-        /// <summary>
-        /// Gets the modified date of all items approved.
-        /// </summary>
-        public readonly string AllItemsApprovedModifiedAt;
-        /// <summary>
         /// Indicating whether all subscriptions are selected (=true) or not (=false).
         /// </summary>
         public readonly bool? AllSubscriptions;
@@ -124,10 +116,6 @@ namespace Pulumi.AzureNative.Marketplace
 
         [OutputConstructor]
         private GetPrivateStoreCollectionResult(
-            bool allItemsApproved,
-
-            string allItemsApprovedModifiedAt,
-
             bool? allSubscriptions,
 
             string? claim,
@@ -150,8 +138,6 @@ namespace Pulumi.AzureNative.Marketplace
 
             string type)
         {
-            AllItemsApproved = allItemsApproved;
-            AllItemsApprovedModifiedAt = allItemsApprovedModifiedAt;
             AllSubscriptions = allSubscriptions;
             Claim = claim;
             CollectionId = collectionId;

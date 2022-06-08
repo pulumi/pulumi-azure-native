@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Collection data structure.
- * API Version: 2022-03-01.
+ * API Version: 2021-12-01.
  */
 export class PrivateStoreCollection extends pulumi.CustomResource {
     /**
@@ -36,14 +36,6 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
         return obj['__pulumiType'] === PrivateStoreCollection.__pulumiType;
     }
 
-    /**
-     * Indicating whether all items are approved for this collection (=true) or not (=false).
-     */
-    public /*out*/ readonly allItemsApproved!: pulumi.Output<boolean>;
-    /**
-     * Gets the modified date of all items approved.
-     */
-    public /*out*/ readonly allItemsApprovedModifiedAt!: pulumi.Output<string>;
     /**
      * Indicating whether all subscriptions are selected (=true) or not (=false).
      */
@@ -106,15 +98,11 @@ export class PrivateStoreCollection extends pulumi.CustomResource {
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["privateStoreId"] = args ? args.privateStoreId : undefined;
             resourceInputs["subscriptionsList"] = args ? args.subscriptionsList : undefined;
-            resourceInputs["allItemsApproved"] = undefined /*out*/;
-            resourceInputs["allItemsApprovedModifiedAt"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["numberOfOffers"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["allItemsApproved"] = undefined /*out*/;
-            resourceInputs["allItemsApprovedModifiedAt"] = undefined /*out*/;
             resourceInputs["allSubscriptions"] = undefined /*out*/;
             resourceInputs["claim"] = undefined /*out*/;
             resourceInputs["collectionId"] = undefined /*out*/;

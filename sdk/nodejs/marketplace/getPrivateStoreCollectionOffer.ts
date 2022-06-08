@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The privateStore offer data structure.
- * API Version: 2022-03-01.
+ * API Version: 2021-12-01.
  */
 export function getPrivateStoreCollectionOffer(args: GetPrivateStoreCollectionOfferArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateStoreCollectionOfferResult> {
     if (!opts) {

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * DigitalTwinsInstance endpoint resource.
  */
-/** @deprecated Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20220531 or later. */
+/** @deprecated Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
 export function getDigitalTwinsEndpoint(args: GetDigitalTwinsEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinsEndpointResult> {
-    pulumi.log.warn("getDigitalTwinsEndpoint is deprecated: Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20220531 or later.")
+    pulumi.log.warn("getDigitalTwinsEndpoint is deprecated: Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
     if (!opts) {
         opts = {}
     }

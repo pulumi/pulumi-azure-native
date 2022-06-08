@@ -10,10 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.DigitalTwins.Inputs
 {
 
-    /// <summary>
-    /// The properties of a private endpoint connection.
-    /// </summary>
-    public sealed class ConnectionPropertiesArgs : Pulumi.ResourceArgs
+    public sealed class PrivateEndpointConnectionPropertiesArgs : Pulumi.ResourceArgs
     {
         [Input("groupIds")]
         private InputList<string>? _groupIds;
@@ -27,13 +24,10 @@ namespace Pulumi.AzureNative.DigitalTwins.Inputs
             set => _groupIds = value;
         }
 
-        /// <summary>
-        /// The connection state.
-        /// </summary>
         [Input("privateLinkServiceConnectionState")]
         public Input<Inputs.ConnectionPropertiesPrivateLinkServiceConnectionStateArgs>? PrivateLinkServiceConnectionState { get; set; }
 
-        public ConnectionPropertiesArgs()
+        public PrivateEndpointConnectionPropertiesArgs()
         {
         }
     }

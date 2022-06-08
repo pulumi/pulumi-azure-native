@@ -12,7 +12,7 @@ import (
 )
 
 // DigitalTwinsInstance endpoint resource.
-// API Version: 2022-05-31.
+// API Version: 2020-12-01.
 type DigitalTwinsEndpoint struct {
 	pulumi.CustomResourceState
 
@@ -20,8 +20,6 @@ type DigitalTwinsEndpoint struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// DigitalTwinsInstance endpoint resource properties.
 	Properties pulumi.AnyOutput `pulumi:"properties"`
-	// Metadata pertaining to creation and last modification of the resource.
-	SystemData SystemDataResponseOutput `pulumi:"systemData"`
 	// The resource type.
 	Type pulumi.StringOutput `pulumi:"type"`
 }
@@ -159,11 +157,6 @@ func (o DigitalTwinsEndpointOutput) Name() pulumi.StringOutput {
 // DigitalTwinsInstance endpoint resource properties.
 func (o DigitalTwinsEndpointOutput) Properties() pulumi.AnyOutput {
 	return o.ApplyT(func(v *DigitalTwinsEndpoint) pulumi.AnyOutput { return v.Properties }).(pulumi.AnyOutput)
-}
-
-// Metadata pertaining to creation and last modification of the resource.
-func (o DigitalTwinsEndpointOutput) SystemData() SystemDataResponseOutput {
-	return o.ApplyT(func(v *DigitalTwinsEndpoint) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
 // The resource type.

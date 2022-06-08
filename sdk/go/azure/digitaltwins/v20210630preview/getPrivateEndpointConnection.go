@@ -11,8 +11,6 @@ import (
 )
 
 // The private endpoint connection of a Digital Twin.
-//
-// Deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.
 func LookupPrivateEndpointConnection(ctx *pulumi.Context, args *LookupPrivateEndpointConnectionArgs, opts ...pulumi.InvokeOption) (*LookupPrivateEndpointConnectionResult, error) {
 	var rv LookupPrivateEndpointConnectionResult
 	err := ctx.Invoke("azure-native:digitaltwins/v20210630preview:getPrivateEndpointConnection", args, &rv, opts...)

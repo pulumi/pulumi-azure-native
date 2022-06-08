@@ -21,7 +21,7 @@ class GetDigitalTwinResult:
     """
     The description of the DigitalTwins service.
     """
-    def __init__(__self__, created_time=None, host_name=None, id=None, identity=None, last_updated_time=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, created_time=None, host_name=None, id=None, identity=None, last_updated_time=None, location=None, name=None, private_endpoint_connections=None, provisioning_state=None, public_network_access=None, tags=None, type=None):
         if created_time and not isinstance(created_time, str):
             raise TypeError("Expected argument 'created_time' to be a str")
         pulumi.set(__self__, "created_time", created_time)
@@ -52,9 +52,6 @@ class GetDigitalTwinResult:
         if public_network_access and not isinstance(public_network_access, str):
             raise TypeError("Expected argument 'public_network_access' to be a str")
         pulumi.set(__self__, "public_network_access", public_network_access)
-        if system_data and not isinstance(system_data, dict):
-            raise TypeError("Expected argument 'system_data' to be a dict")
-        pulumi.set(__self__, "system_data", system_data)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -121,9 +118,6 @@ class GetDigitalTwinResult:
     @property
     @pulumi.getter(name="privateEndpointConnections")
     def private_endpoint_connections(self) -> Optional[Sequence['outputs.PrivateEndpointConnectionResponse']]:
-        """
-        The private endpoint connections.
-        """
         return pulumi.get(self, "private_endpoint_connections")
 
     @property
@@ -141,14 +135,6 @@ class GetDigitalTwinResult:
         Public network access for the DigitalTwinsInstance.
         """
         return pulumi.get(self, "public_network_access")
-
-    @property
-    @pulumi.getter(name="systemData")
-    def system_data(self) -> 'outputs.SystemDataResponse':
-        """
-        Metadata pertaining to creation and last modification of the DigitalTwinsInstance.
-        """
-        return pulumi.get(self, "system_data")
 
     @property
     @pulumi.getter
@@ -183,7 +169,6 @@ class AwaitableGetDigitalTwinResult(GetDigitalTwinResult):
             private_endpoint_connections=self.private_endpoint_connections,
             provisioning_state=self.provisioning_state,
             public_network_access=self.public_network_access,
-            system_data=self.system_data,
             tags=self.tags,
             type=self.type)
 
@@ -193,7 +178,7 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetDigitalTwinResult:
     """
     The description of the DigitalTwins service.
-    API Version: 2022-05-31.
+    API Version: 2020-12-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.
@@ -219,7 +204,6 @@ def get_digital_twin(resource_group_name: Optional[str] = None,
         private_endpoint_connections=__ret__.private_endpoint_connections,
         provisioning_state=__ret__.provisioning_state,
         public_network_access=__ret__.public_network_access,
-        system_data=__ret__.system_data,
         tags=__ret__.tags,
         type=__ret__.type)
 
@@ -230,7 +214,7 @@ def get_digital_twin_output(resource_group_name: Optional[pulumi.Input[str]] = N
                             opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetDigitalTwinResult]:
     """
     The description of the DigitalTwins service.
-    API Version: 2022-05-31.
+    API Version: 2020-12-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the DigitalTwinsInstance.

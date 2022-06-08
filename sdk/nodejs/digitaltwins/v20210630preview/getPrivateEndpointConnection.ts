@@ -8,9 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * The private endpoint connection of a Digital Twin.
  */
-/** @deprecated Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later. */
 export function getPrivateEndpointConnection(args: GetPrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetPrivateEndpointConnectionResult> {
-    pulumi.log.warn("getPrivateEndpointConnection is deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.")
     if (!opts) {
         opts = {}
     }

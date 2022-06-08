@@ -12,8 +12,6 @@ import (
 )
 
 // Describes a time series database connection resource.
-//
-// Deprecated: Version v20210630preview will be removed in the next major version of the provider. Upgrade to version v20220531 or later.
 type TimeSeriesDatabaseConnection struct {
 	pulumi.CustomResourceState
 
