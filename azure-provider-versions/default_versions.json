@@ -504,7 +504,7 @@
         "ServerKey": "2020-01-01",
         "ServerSecurityAlertPolicy": "2017-12-01",
         "VirtualNetworkRule": "2017-12-01",
-        "getGetPrivateDnsZoneSuffixExecute": "2021-06-01"
+        "getGetPrivateDnsZoneSuffixExecute": "2022-01-20-preview"
     },
     "Dashboard": {
         "Grafana": "2021-09-01-preview"
@@ -686,10 +686,10 @@
         "listIotHubResourceKeysForKeyName": "2020-08-31"
     },
     "DigitalTwins": {
-        "DigitalTwin": "2020-12-01",
-        "DigitalTwinsEndpoint": "2020-12-01",
-        "PrivateEndpointConnection": "2020-12-01",
-        "TimeSeriesDatabaseConnection": "2021-06-30-preview"
+        "DigitalTwin": "2022-05-31",
+        "DigitalTwinsEndpoint": "2022-05-31",
+        "PrivateEndpointConnection": "2022-05-31",
+        "TimeSeriesDatabaseConnection": "2022-05-31"
     },
     "DocumentDB": {
         "CassandraCluster": "2021-03-01-preview",
@@ -1146,13 +1146,13 @@
         "listAccountSas": "2021-12-01-preview"
     },
     "Marketplace": {
-        "PrivateStore": "2021-12-01",
-        "PrivateStoreCollection": "2021-12-01",
-        "PrivateStoreCollectionOffer": "2021-12-01",
+        "PrivateStore": "2022-03-01",
+        "PrivateStoreCollection": "2022-03-01",
+        "PrivateStoreCollectionOffer": "2022-03-01",
         "PrivateStoreOffer": "2020-01-01",
-        "listPrivateStoreNewPlansNotifications": "2021-12-01",
-        "listPrivateStoreStopSellOffersPlansNotifications": "2021-12-01",
-        "listPrivateStoreSubscriptionsContext": "2021-12-01"
+        "listPrivateStoreNewPlansNotifications": "2022-03-01",
+        "listPrivateStoreStopSellOffersPlansNotifications": "2022-03-01",
+        "listPrivateStoreSubscriptionsContext": "2022-03-01"
     },
     "MarketplaceNotifications": {},
     "MarketplaceOrdering": {},
