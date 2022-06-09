@@ -15,60 +15,22 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
-// versioner checks whether the given combination of a provider, a resource path, and a versions
-// are known in version metadata returned by Azure (retrieved via the Azure CLI, stored in a local JSON file).
-type versioner struct {
-	lookup map[string]map[string]codegen.StringSet
-}
+type ProviderDefaults = map[string]VersionResources
 
-func newVersioner() (*versioner, error) {
-	dir, err := os.Getwd()
+func CalculateProviderDefaults(providers AzureProviders) (ProviderDefaults, error) {
+	versionChecker, err := newVersioner()
 	if err != nil {
-		return nil, err
+		return nil, errors.Wrapf(err, "reading provider versions")
 	}
 
-	jsonFile, err := os.Open(filepath.Join(dir, "/azure-provider-versions/provider_list.json"))
-	if err != nil {
-		return nil, err
+	providerDefaults := make(map[string]VersionResources)
+
+	for providerName, versionMap := range providers {
+		// Add a default version for each resource and invoke.
+		providerDefaults[providerName] = versionChecker.calculateLatestVersionResources(providerName, versionMap)
+
 	}
-	defer jsonFile.Close()
-
-	byteValue, err := ioutil.ReadAll(jsonFile)
-	if err != nil {
-		return nil, err
-	}
-
-	var provs []prov
-	err = json.Unmarshal(byteValue, &provs)
-	if err != nil {
-		return nil, err
-	}
-
-	result := map[string]map[string]codegen.StringSet{}
-
-	for _, prov := range provs {
-		namespace := strings.ToLower(prov.Namespace)
-		if !strings.HasPrefix(namespace, "microsoft.") {
-			continue
-		}
-		providerName := strings.TrimPrefix(namespace, "microsoft.")
-
-		versions := map[string]codegen.StringSet{}
-		allVersions := codegen.NewStringSet()
-		for _, rt := range prov.ResourceTypes {
-			set := codegen.NewStringSet()
-			for _, v := range rt.ApiVersions {
-				name := "v" + strings.ReplaceAll(v, "-", "")
-				allVersions.Add(name)
-				set.Add(name)
-			}
-			versions[strings.ToLower(rt.ResourceType)] = set
-		}
-		versions[""] = allVersions
-		result[providerName] = versions
-	}
-
-	return &versioner{lookup: result}, nil
+	return providerDefaults, nil
 }
 
 // A manually-maintained list of stable versions that we want to promote a later preview version to be used for
@@ -372,22 +334,60 @@ var deprecatedResources = codegen.NewStringSet(
 	"web:SiteInstanceDeploymentSlot",
 )
 
-type ProviderDefaults = map[string]VersionResources
+// versioner checks whether the given combination of a provider, a resource path, and a versions
+// are known in version metadata returned by Azure (retrieved via the Azure CLI, stored in a local JSON file).
+type versioner struct {
+	lookup map[string]map[string]codegen.StringSet
+}
 
-func CalculateProviderDefaults(providers AzureProviders) (ProviderDefaults, error) {
-	versionChecker, err := newVersioner()
+func newVersioner() (*versioner, error) {
+	dir, err := os.Getwd()
 	if err != nil {
-		return nil, errors.Wrapf(err, "reading provider versions")
+		return nil, err
 	}
 
-	providerDefaults := make(map[string]VersionResources)
-
-	for providerName, versionMap := range providers {
-		// Add a default version for each resource and invoke.
-		providerDefaults[providerName] = versionChecker.calculateLatestVersionResources(providerName, versionMap)
-
+	jsonFile, err := os.Open(filepath.Join(dir, "/azure-provider-versions/provider_list.json"))
+	if err != nil {
+		return nil, err
 	}
-	return providerDefaults, nil
+	defer jsonFile.Close()
+
+	byteValue, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		return nil, err
+	}
+
+	var provs []prov
+	err = json.Unmarshal(byteValue, &provs)
+	if err != nil {
+		return nil, err
+	}
+
+	result := map[string]map[string]codegen.StringSet{}
+
+	for _, prov := range provs {
+		namespace := strings.ToLower(prov.Namespace)
+		if !strings.HasPrefix(namespace, "microsoft.") {
+			continue
+		}
+		providerName := strings.TrimPrefix(namespace, "microsoft.")
+
+		versions := map[string]codegen.StringSet{}
+		allVersions := codegen.NewStringSet()
+		for _, rt := range prov.ResourceTypes {
+			set := codegen.NewStringSet()
+			for _, v := range rt.ApiVersions {
+				name := "v" + strings.ReplaceAll(v, "-", "")
+				allVersions.Add(name)
+				set.Add(name)
+			}
+			versions[strings.ToLower(rt.ResourceType)] = set
+		}
+		versions[""] = allVersions
+		result[providerName] = versions
+	}
+
+	return &versioner{lookup: result}, nil
 }
 
 // calculateLatestVersionResources builds maps of latest versions per API paths from a map of all versions of a resource
