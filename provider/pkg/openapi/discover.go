@@ -40,22 +40,10 @@ type ResourceSpec struct {
 // AllVersions finds all Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
 // collected per Azure Provider and API Version - for all API versions.
 func AllVersions() AzureProviders {
-	swaggerSpecLocations, err := swaggerLocations()
+	// Collect all versions for each path in the API across all Swagger files.
+	providers, err := rawVersions()
 	if err != nil {
 		panic(err)
-	}
-
-	// Collect all versions for each path in the API across all Swagger files.
-	providers := AzureProviders{}
-	for _, location := range swaggerSpecLocations {
-		swagger, err := NewSpec(location)
-		if err != nil {
-			panic(errors.Wrapf(err, "failed to parse %q", location))
-		}
-
-		for path := range swagger.Paths.Paths {
-			addAPIPath(providers, location, path, swagger)
-		}
 	}
 
 	versionChecker, err := newVersioner()
@@ -97,6 +85,27 @@ func AllVersions() AzureProviders {
 	}
 
 	return providers
+}
+
+func rawVersions() (AzureProviders, error) {
+	swaggerSpecLocations, err := swaggerLocations()
+	if err != nil {
+		return nil, err
+	}
+
+	// Collect all versions for each path in the API across all Swagger files.
+	providers := AzureProviders{}
+	for _, location := range swaggerSpecLocations {
+		swagger, err := NewSpec(location)
+		if err != nil {
+			return nil, errors.Wrapf(err, "failed to parse %q", location)
+		}
+
+		for path := range swagger.Paths.Paths {
+			addAPIPath(providers, location, path, swagger)
+		}
+	}
+	return providers, nil
 }
 
 func findMinDefaultVersion(versionResources VersionResources) string {
