@@ -26,7 +26,7 @@ class AccountArgs:
         """
         The set of arguments for constructing a Account resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] account_id: The account's data-plane ID
+        :param pulumi.Input[str] account_id: The account's data-plane ID. This can be set only when connecting an existing classic account
         :param pulumi.Input[str] account_name: The name of the Azure Video Analyzer for Media account.
         :param pulumi.Input['ManagedServiceIdentityArgs'] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -34,6 +34,8 @@ class AccountArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "resource_group_name", resource_group_name)
+        if account_id is None:
+            account_id = '00000000-0000-0000-0000-000000000000'
         if account_id is not None:
             pulumi.set(__self__, "account_id", account_id)
         if account_name is not None:
@@ -63,7 +65,7 @@ class AccountArgs:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[pulumi.Input[str]]:
         """
-        The account's data-plane ID
+        The account's data-plane ID. This can be set only when connecting an existing classic account
         """
         return pulumi.get(self, "account_id")
 
@@ -150,7 +152,7 @@ class Account(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] account_id: The account's data-plane ID
+        :param pulumi.Input[str] account_id: The account's data-plane ID. This can be set only when connecting an existing classic account
         :param pulumi.Input[str] account_name: The name of the Azure Video Analyzer for Media account.
         :param pulumi.Input[pulumi.InputType['ManagedServiceIdentityArgs']] identity: Managed service identity (system assigned and/or user assigned identities)
         :param pulumi.Input[str] location: The geo-location where the resource lives
@@ -201,6 +203,8 @@ class Account(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AccountArgs.__new__(AccountArgs)
 
+            if account_id is None:
+                account_id = '00000000-0000-0000-0000-000000000000'
             __props__.__dict__["account_id"] = account_id
             __props__.__dict__["account_name"] = account_name
             __props__.__dict__["identity"] = identity
@@ -256,7 +260,7 @@ class Account(pulumi.CustomResource):
     @pulumi.getter(name="accountId")
     def account_id(self) -> pulumi.Output[Optional[str]]:
         """
-        The account's data-plane ID
+        The account's data-plane ID. This can be set only when connecting an existing classic account
         """
         return pulumi.get(self, "account_id")
 

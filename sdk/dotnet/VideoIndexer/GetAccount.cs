@@ -70,7 +70,7 @@ namespace Pulumi.AzureNative.VideoIndexer
     public sealed class GetAccountResult
     {
         /// <summary>
-        /// The account's data-plane ID
+        /// The account's data-plane ID. This can be set only when connecting an existing classic account
         /// </summary>
         public readonly string? AccountId;
         /// <summary>

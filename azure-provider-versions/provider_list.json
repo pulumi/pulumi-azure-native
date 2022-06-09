@@ -108840,7 +108840,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2022-03-01-preview",
           "2021-04-01-preview",
           "2020-06-01-preview"
@@ -108857,7 +108856,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2022-03-01-preview",
           "2021-04-01-preview"
         ],
@@ -108878,7 +108876,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2022-03-01-preview",
           "2021-04-01-preview",
           "2020-06-01-preview"

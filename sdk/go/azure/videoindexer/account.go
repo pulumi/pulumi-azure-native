@@ -16,7 +16,7 @@ import (
 type Account struct {
 	pulumi.CustomResourceState
 
-	// The account's data-plane ID
+	// The account's data-plane ID. This can be set only when connecting an existing classic account
 	AccountId pulumi.StringPtrOutput `pulumi:"accountId"`
 	// The account's name
 	AccountName pulumi.StringOutput `pulumi:"accountName"`
@@ -49,6 +49,9 @@ func NewAccount(ctx *pulumi.Context,
 
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
+	}
+	if isZero(args.AccountId) {
+		args.AccountId = pulumi.StringPtr("00000000-0000-0000-0000-000000000000")
 	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
@@ -97,7 +100,7 @@ func (AccountState) ElementType() reflect.Type {
 }
 
 type accountArgs struct {
-	// The account's data-plane ID
+	// The account's data-plane ID. This can be set only when connecting an existing classic account
 	AccountId *string `pulumi:"accountId"`
 	// The name of the Azure Video Analyzer for Media account.
 	AccountName *string `pulumi:"accountName"`
@@ -115,7 +118,7 @@ type accountArgs struct {
 
 // The set of arguments for constructing a Account resource.
 type AccountArgs struct {
-	// The account's data-plane ID
+	// The account's data-plane ID. This can be set only when connecting an existing classic account
 	AccountId pulumi.StringPtrInput
 	// The name of the Azure Video Analyzer for Media account.
 	AccountName pulumi.StringPtrInput
@@ -168,7 +171,7 @@ func (o AccountOutput) ToAccountOutputWithContext(ctx context.Context) AccountOu
 	return o
 }
 
-// The account's data-plane ID
+// The account's data-plane ID. This can be set only when connecting an existing classic account
 func (o AccountOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Account) pulumi.StringPtrOutput { return v.AccountId }).(pulumi.StringPtrOutput)
 }

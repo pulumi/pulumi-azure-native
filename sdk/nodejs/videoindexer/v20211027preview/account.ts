@@ -36,7 +36,7 @@ export class Account extends pulumi.CustomResource {
     }
 
     /**
-     * The account's data-plane ID
+     * The account's data-plane ID. This can be set only when connecting an existing classic account
      */
     public readonly accountId!: pulumi.Output<string | undefined>;
     /**
@@ -94,7 +94,7 @@ export class Account extends pulumi.CustomResource {
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
-            resourceInputs["accountId"] = args ? args.accountId : undefined;
+            resourceInputs["accountId"] = (args ? args.accountId : undefined) ?? "00000000-0000-0000-0000-000000000000";
             resourceInputs["accountName"] = args ? args.accountName : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -131,7 +131,7 @@ export class Account extends pulumi.CustomResource {
  */
 export interface AccountArgs {
     /**
-     * The account's data-plane ID
+     * The account's data-plane ID. This can be set only when connecting an existing classic account
      */
     accountId?: pulumi.Input<string>;
     /**

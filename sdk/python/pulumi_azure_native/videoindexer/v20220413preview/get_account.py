@@ -66,7 +66,7 @@ class GetAccountResult:
     @pulumi.getter(name="accountId")
     def account_id(self) -> Optional[str]:
         """
-        The account's data-plane ID
+        The account's data-plane ID. This can be set only when connecting an existing classic account
         """
         return pulumi.get(self, "account_id")
 
