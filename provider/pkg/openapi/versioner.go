@@ -5,6 +5,7 @@ package openapi
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/pkg/errors"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -371,6 +372,24 @@ var deprecatedResources = codegen.NewStringSet(
 	"web:SiteInstanceDeploymentSlot",
 )
 
+type ProviderDefaults = map[string]VersionResources
+
+func CalculateProviderDefaults(providers AzureProviders) (ProviderDefaults, error) {
+	versionChecker, err := newVersioner()
+	if err != nil {
+		return nil, errors.Wrapf(err, "reading provider versions")
+	}
+
+	providerDefaults := make(map[string]VersionResources)
+
+	for providerName, versionMap := range providers {
+		// Add a default version for each resource and invoke.
+		providerDefaults[providerName] = versionChecker.calculateLatestVersionResources(providerName, versionMap)
+
+	}
+	return providerDefaults, nil
+}
+
 // calculateLatestVersionResources builds maps of latest versions per API paths from a map of all versions of a resource
 // provider.
 func (c *versioner) calculateLatestVersionResources(provider string, versionMap ProviderVersions) VersionResources {
@@ -518,7 +537,7 @@ func (c *versioner) armResourceTypes(path string) []string {
 
 // calculatePathVersions builds a map of all versions defined for an API paths from a map of all versions of a resource
 // provider. The result is a map from a normalized path to a set of versions for that path.
-func (c *versioner) calculatePathVersions(versionMap ProviderVersions) (pathVersions map[string]codegen.StringSet) {
+func calculatePathVersions(versionMap ProviderVersions) (pathVersions map[string]codegen.StringSet) {
 	pathVersions = map[string]codegen.StringSet{}
 	for version, items := range versionMap {
 		for _, r := range items.Resources {

@@ -46,17 +46,17 @@ func AllVersions() AzureProviders {
 		panic(err)
 	}
 
-	versionChecker, err := newVersioner()
+	providerDefaults, err := CalculateProviderDefaults(providers)
 	if err != nil {
-		panic(errors.Wrapf(err, "reading provider versions"))
+		panic(err)
 	}
 
 	for providerName, versionMap := range providers {
 		// Add a default version for each resource and invoke.
-		versionMap[""] = versionChecker.calculateLatestVersionResources(providerName, versionMap)
+		versionMap[""] = providerDefaults[providerName]
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
-		pathVersions := versionChecker.calculatePathVersions(versionMap)
+		pathVersions := calculatePathVersions(versionMap)
 		for version, items := range versionMap {
 			for _, r := range items.Resources {
 				var otherVersions []string
