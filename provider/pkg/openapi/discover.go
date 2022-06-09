@@ -53,12 +53,7 @@ func AllVersions() AzureProviders {
 
 	for providerName, versionMap := range providers {
 		// Add a default version for each resource and invoke.
-		defaultResources := versionChecker.calculateLatestVersions(providerName, versionMap, false /* invokes */)
-		defaultInvokes := versionChecker.calculateLatestVersions(providerName, versionMap, true /* invokes */)
-		versionMap[""] = VersionResources{
-			Resources: defaultResources,
-			Invokes:   defaultInvokes,
-		}
+		versionMap[""] = versionChecker.calculateLatestVersionResources(providerName, versionMap)
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := versionChecker.calculatePathVersions(versionMap)

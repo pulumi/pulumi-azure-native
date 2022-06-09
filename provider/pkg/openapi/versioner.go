@@ -371,6 +371,17 @@ var deprecatedResources = codegen.NewStringSet(
 	"web:SiteInstanceDeploymentSlot",
 )
 
+// calculateLatestVersionResources builds maps of latest versions per API paths from a map of all versions of a resource
+// provider.
+func (c *versioner) calculateLatestVersionResources(provider string, versionMap ProviderVersions) VersionResources {
+	defaultResources := c.calculateLatestVersions(provider, versionMap, false /* invokes */)
+	defaultInvokes := c.calculateLatestVersions(provider, versionMap, true /* invokes */)
+	return VersionResources{
+		Resources: defaultResources,
+		Invokes:   defaultInvokes,
+	}
+}
+
 // calculateLatestVersions builds a map of latest versions per API paths from a map of all versions of a resource
 // provider. The result is a map from a resource type name to resource specs.
 func (c *versioner) calculateLatestVersions(provider string, versionMap ProviderVersions,
