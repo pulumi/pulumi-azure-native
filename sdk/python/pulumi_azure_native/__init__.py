@@ -137,6 +137,8 @@ if typing.TYPE_CHECKING:
     deploymentmanager = __deploymentmanager
     import pulumi_azure_native.desktopvirtualization as __desktopvirtualization
     desktopvirtualization = __desktopvirtualization
+    import pulumi_azure_native.devhub as __devhub
+    devhub = __devhub
     import pulumi_azure_native.devices as __devices
     devices = __devices
     import pulumi_azure_native.deviceupdate as __deviceupdate
@@ -446,6 +448,7 @@ else:
     delegatednetwork = _utilities.lazy_import('pulumi_azure_native.delegatednetwork')
     deploymentmanager = _utilities.lazy_import('pulumi_azure_native.deploymentmanager')
     desktopvirtualization = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization')
+    devhub = _utilities.lazy_import('pulumi_azure_native.devhub')
     devices = _utilities.lazy_import('pulumi_azure_native.devices')
     deviceupdate = _utilities.lazy_import('pulumi_azure_native.deviceupdate')
     devops = _utilities.lazy_import('pulumi_azure_native.devops')
@@ -7101,6 +7104,22 @@ _utilities.register(
    "azure-native:desktopvirtualization/v20220210preview:PrivateEndpointConnectionByWorkspace": "PrivateEndpointConnectionByWorkspace",
    "azure-native:desktopvirtualization/v20220210preview:ScalingPlan": "ScalingPlan",
    "azure-native:desktopvirtualization/v20220210preview:Workspace": "Workspace"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devhub",
+  "fqn": "pulumi_azure_native.devhub",
+  "classes": {
+   "azure-native:devhub:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devhub/v20220401preview",
+  "fqn": "pulumi_azure_native.devhub.v20220401preview",
+  "classes": {
+   "azure-native:devhub/v20220401preview:Workflow": "Workflow"
   }
  },
  {

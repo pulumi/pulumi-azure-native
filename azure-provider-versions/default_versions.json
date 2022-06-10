@@ -634,6 +634,10 @@
         "ScalingPlan": "2021-02-01-preview",
         "Workspace": "2021-02-01-preview"
     },
+    "DevHub": {
+        "Workflow": "2022-04-01-preview",
+        "getGitHubOAuth": "2022-04-01-preview"
+    },
     "DevOps": {
         "Pipeline": "2020-07-13-preview"
     },

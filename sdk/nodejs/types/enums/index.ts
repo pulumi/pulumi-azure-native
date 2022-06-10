@@ -59,6 +59,7 @@ import * as dbforpostgresql from "./dbforpostgresql";
 import * as delegatednetwork from "./delegatednetwork";
 import * as deploymentmanager from "./deploymentmanager";
 import * as desktopvirtualization from "./desktopvirtualization";
+import * as devhub from "./devhub";
 import * as devices from "./devices";
 import * as deviceupdate from "./deviceupdate";
 import * as devops from "./devops";
@@ -226,6 +227,7 @@ export {
     delegatednetwork,
     deploymentmanager,
     desktopvirtualization,
+    devhub,
     devices,
     deviceupdate,
     devops,
