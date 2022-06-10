@@ -15,6 +15,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
+// ProviderDefaults is a map of provider name to resource & invoke ResourceSpecs
 type ProviderDefaults = map[string]VersionResources
 
 func CalculateProviderDefaults(providers AzureProviders) (ProviderDefaults, error) {
@@ -31,6 +32,25 @@ func CalculateProviderDefaults(providers AzureProviders) (ProviderDefaults, erro
 
 	}
 	return providerDefaults, nil
+}
+
+// ProviderDeprecatedVersions is a map of provider name to a list of version strings which are deprecated
+type ProviderDeprecatedVersions = map[string][]string
+
+func CalculateDeprecatedVersions(providers AzureProviders) ProviderDeprecatedVersions {
+	providerDeprecatedVersions := make(ProviderDeprecatedVersions)
+	for providerName, versionMap := range providers {
+		deprecatedVersions := make([]string, 0, len(versionMap))
+		minDefaultVersion := findMinDefaultVersion(versionMap[""])
+		for version := range versionMap {
+			if version == "" || version >= minDefaultVersion {
+				continue
+			}
+			deprecatedVersions = append(deprecatedVersions, version)
+		}
+		providerDeprecatedVersions[providerName] = deprecatedVersions
+	}
+	return providerDeprecatedVersions
 }
 
 // A manually-maintained list of stable versions that we want to promote a later preview version to be used for
@@ -561,4 +581,24 @@ type prov struct {
 type provRes struct {
 	ResourceType string   `json:"resourceType"`
 	ApiVersions  []string `json:"apiVersions"`
+}
+
+func findMinDefaultVersion(versionResources VersionResources) string {
+	minVersion := ""
+	for _, resource := range versionResources.Resources {
+		version := resource.Swagger.Info.Version
+		if minVersion == "" || version < minVersion {
+			minVersion = version
+		}
+	}
+	for _, invoke := range versionResources.Invokes {
+		version := invoke.Swagger.Info.Version
+		if minVersion == "" || version < minVersion {
+			minVersion = version
+		}
+	}
+	if minVersion == "" {
+		return ""
+	}
+	return "v" + strings.ReplaceAll(minVersion, "-", "")
 }

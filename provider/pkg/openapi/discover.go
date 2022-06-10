@@ -41,7 +41,7 @@ type ResourceSpec struct {
 // collected per Azure Provider and API Version - for all API versions.
 func AllVersions() AzureProviders {
 	// Collect all versions for each path in the API across all Swagger files.
-	providers, err := rawVersions()
+	providers, err := specVersions()
 	if err != nil {
 		panic(err)
 	}
@@ -82,7 +82,7 @@ func AllVersions() AzureProviders {
 	return providers
 }
 
-func rawVersions() (AzureProviders, error) {
+func specVersions() (AzureProviders, error) {
 	swaggerSpecLocations, err := swaggerLocations()
 	if err != nil {
 		return nil, err
@@ -101,26 +101,6 @@ func rawVersions() (AzureProviders, error) {
 		}
 	}
 	return providers, nil
-}
-
-func findMinDefaultVersion(versionResources VersionResources) string {
-	minVersion := ""
-	for _, resource := range versionResources.Resources {
-		version := resource.Swagger.Info.Version
-		if minVersion == "" || version < minVersion {
-			minVersion = version
-		}
-	}
-	for _, invoke := range versionResources.Invokes {
-		version := invoke.Swagger.Info.Version
-		if minVersion == "" || version < minVersion {
-			minVersion = version
-		}
-	}
-	if minVersion == "" {
-		return ""
-	}
-	return "v" + strings.ReplaceAll(minVersion, "-", "")
 }
 
 func deprecateAll(resourceSpecs map[string]*ResourceSpec, version, defaultVersion string) {
