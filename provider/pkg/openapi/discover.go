@@ -41,7 +41,7 @@ type ResourceSpec struct {
 // collected per Azure Provider and API Version - for all API versions.
 func AllVersions() AzureProviders {
 	// Collect all versions for each path in the API across all Swagger files.
-	providers, err := specVersions()
+	providers, err := SpecVersions()
 	if err != nil {
 		panic(err)
 	}
@@ -82,7 +82,7 @@ func AllVersions() AzureProviders {
 	return providers
 }
 
-func specVersions() (AzureProviders, error) {
+func SpecVersions() (AzureProviders, error) {
 	swaggerSpecLocations, err := swaggerLocations()
 	if err != nil {
 		return nil, err
