@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The IoT Central application.
  */
+/** @deprecated Version v20180901 will be removed in the next major version of the provider. Upgrade to version v20210601 or later. */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
+    pulumi.log.warn("getApp is deprecated: Version v20180901 will be removed in the next major version of the provider. Upgrade to version v20210601 or later.")
     if (!opts) {
         opts = {}
     }

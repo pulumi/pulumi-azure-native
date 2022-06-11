@@ -12,6 +12,7 @@ from ._enums import *
 __all__ = [
     'AppSkuInfoArgs',
     'PrivateLinkServiceConnectionStateArgs',
+    'SystemAssignedServiceIdentityArgs',
 ]
 
 @pulumi.input_type
@@ -91,5 +92,28 @@ class PrivateLinkServiceConnectionStateArgs:
     @status.setter
     def status(self, value: Optional[pulumi.Input[Union[str, 'PrivateEndpointServiceConnectionStatus']]]):
         pulumi.set(self, "status", value)
+
+
+@pulumi.input_type
+class SystemAssignedServiceIdentityArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]):
+        """
+        Managed service identity (either system assigned, or none)
+        :param pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']] type: Type of managed service identity (either system assigned, or none).
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]:
+        """
+        Type of managed service identity (either system assigned, or none).
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'SystemAssignedServiceIdentityType']]):
+        pulumi.set(self, "type", value)
 
 

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.IoTCentral
     {
         /// <summary>
         /// The IoT Central application.
-        /// API Version: 2018-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Task<GetAppResult> InvokeAsync(GetAppArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppArgs(), options.WithDefaults());
 
         /// <summary>
         /// The IoT Central application.
-        /// API Version: 2018-09-01.
+        /// API Version: 2021-06-01.
         /// </summary>
         public static Output<GetAppResult> Invoke(GetAppInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetAppResult>("azure-native:iotcentral:getApp", args ?? new GetAppInvokeArgs(), options.WithDefaults());
@@ -82,6 +82,10 @@ namespace Pulumi.AzureNative.IoTCentral
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// The managed identities for the IoT Central application.
+        /// </summary>
+        public readonly Outputs.SystemAssignedServiceIdentityResponse? Identity;
+        /// <summary>
         /// The resource location.
         /// </summary>
         public readonly string Location;
@@ -93,6 +97,10 @@ namespace Pulumi.AzureNative.IoTCentral
         /// A valid instance SKU.
         /// </summary>
         public readonly Outputs.AppSkuInfoResponse Sku;
+        /// <summary>
+        /// The current state of the application.
+        /// </summary>
+        public readonly string State;
         /// <summary>
         /// The subdomain of the application.
         /// </summary>
@@ -118,11 +126,15 @@ namespace Pulumi.AzureNative.IoTCentral
 
             string id,
 
+            Outputs.SystemAssignedServiceIdentityResponse? identity,
+
             string location,
 
             string name,
 
             Outputs.AppSkuInfoResponse sku,
+
+            string state,
 
             string? subdomain,
 
@@ -135,9 +147,11 @@ namespace Pulumi.AzureNative.IoTCentral
             ApplicationId = applicationId;
             DisplayName = displayName;
             Id = id;
+            Identity = identity;
             Location = location;
             Name = name;
             Sku = sku;
+            State = state;
             Subdomain = subdomain;
             Tags = tags;
             Template = template;

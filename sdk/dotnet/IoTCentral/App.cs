@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.IoTCentral
 {
     /// <summary>
     /// The IoT Central application.
-    /// API Version: 2018-09-01.
+    /// API Version: 2021-06-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:iotcentral:App")]
     public partial class App : Pulumi.CustomResource
@@ -27,6 +27,12 @@ namespace Pulumi.AzureNative.IoTCentral
         /// </summary>
         [Output("displayName")]
         public Output<string?> DisplayName { get; private set; } = null!;
+
+        /// <summary>
+        /// The managed identities for the IoT Central application.
+        /// </summary>
+        [Output("identity")]
+        public Output<Outputs.SystemAssignedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The resource location.
@@ -45,6 +51,12 @@ namespace Pulumi.AzureNative.IoTCentral
         /// </summary>
         [Output("sku")]
         public Output<Outputs.AppSkuInfoResponse> Sku { get; private set; } = null!;
+
+        /// <summary>
+        /// The current state of the application.
+        /// </summary>
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
 
         /// <summary>
         /// The subdomain of the application.
@@ -126,6 +138,12 @@ namespace Pulumi.AzureNative.IoTCentral
         /// </summary>
         [Input("displayName")]
         public Input<string>? DisplayName { get; set; }
+
+        /// <summary>
+        /// The managed identities for the IoT Central application.
+        /// </summary>
+        [Input("identity")]
+        public Input<Inputs.SystemAssignedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The resource location.

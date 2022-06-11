@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.IoTCentral.V20180901
 {
+    [Obsolete(@"Version v20180901 will be removed in the next major version of the provider. Upgrade to version v20210601 or later.")]
     public static class GetApp
     {
         /// <summary>

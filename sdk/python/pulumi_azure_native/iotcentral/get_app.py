@@ -21,7 +21,7 @@ class GetAppResult:
     """
     The IoT Central application.
     """
-    def __init__(__self__, application_id=None, display_name=None, id=None, location=None, name=None, sku=None, subdomain=None, tags=None, template=None, type=None):
+    def __init__(__self__, application_id=None, display_name=None, id=None, identity=None, location=None, name=None, sku=None, state=None, subdomain=None, tags=None, template=None, type=None):
         if application_id and not isinstance(application_id, str):
             raise TypeError("Expected argument 'application_id' to be a str")
         pulumi.set(__self__, "application_id", application_id)
@@ -31,6 +31,9 @@ class GetAppResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if identity and not isinstance(identity, dict):
+            raise TypeError("Expected argument 'identity' to be a dict")
+        pulumi.set(__self__, "identity", identity)
         if location and not isinstance(location, str):
             raise TypeError("Expected argument 'location' to be a str")
         pulumi.set(__self__, "location", location)
@@ -40,6 +43,9 @@ class GetAppResult:
         if sku and not isinstance(sku, dict):
             raise TypeError("Expected argument 'sku' to be a dict")
         pulumi.set(__self__, "sku", sku)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if subdomain and not isinstance(subdomain, str):
             raise TypeError("Expected argument 'subdomain' to be a str")
         pulumi.set(__self__, "subdomain", subdomain)
@@ -79,6 +85,14 @@ class GetAppResult:
 
     @property
     @pulumi.getter
+    def identity(self) -> Optional['outputs.SystemAssignedServiceIdentityResponse']:
+        """
+        The managed identities for the IoT Central application.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> str:
         """
         The resource location.
@@ -100,6 +114,14 @@ class GetAppResult:
         A valid instance SKU.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def state(self) -> str:
+        """
+        The current state of the application.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter
@@ -143,9 +165,11 @@ class AwaitableGetAppResult(GetAppResult):
             application_id=self.application_id,
             display_name=self.display_name,
             id=self.id,
+            identity=self.identity,
             location=self.location,
             name=self.name,
             sku=self.sku,
+            state=self.state,
             subdomain=self.subdomain,
             tags=self.tags,
             template=self.template,
@@ -157,7 +181,7 @@ def get_app(resource_group_name: Optional[str] = None,
             opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetAppResult:
     """
     The IoT Central application.
-    API Version: 2018-09-01.
+    API Version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.
@@ -176,9 +200,11 @@ def get_app(resource_group_name: Optional[str] = None,
         application_id=__ret__.application_id,
         display_name=__ret__.display_name,
         id=__ret__.id,
+        identity=__ret__.identity,
         location=__ret__.location,
         name=__ret__.name,
         sku=__ret__.sku,
+        state=__ret__.state,
         subdomain=__ret__.subdomain,
         tags=__ret__.tags,
         template=__ret__.template,
@@ -191,7 +217,7 @@ def get_app_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetAppResult]:
     """
     The IoT Central application.
-    API Version: 2018-09-01.
+    API Version: 2021-06-01.
 
 
     :param str resource_group_name: The name of the resource group that contains the IoT Central application.

@@ -12,6 +12,8 @@ import (
 )
 
 // The IoT Central application.
+//
+// Deprecated: Version v20180901 will be removed in the next major version of the provider. Upgrade to version v20210601 or later.
 type App struct {
 	pulumi.CustomResourceState
 

@@ -20,8 +20,6 @@ namespace Pulumi.AzureNative.IoTCentral
             _value = value ?? throw new ArgumentNullException(nameof(value));
         }
 
-        public static AppSku F1 { get; } = new AppSku("F1");
-        public static AppSku S1 { get; } = new AppSku("S1");
         public static AppSku ST0 { get; } = new AppSku("ST0");
         public static AppSku ST1 { get; } = new AppSku("ST1");
         public static AppSku ST2 { get; } = new AppSku("ST2");
@@ -66,6 +64,37 @@ namespace Pulumi.AzureNative.IoTCentral
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
         public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Type of managed service identity (either system assigned, or none).
+    /// </summary>
+    [EnumType]
+    public readonly struct SystemAssignedServiceIdentityType : IEquatable<SystemAssignedServiceIdentityType>
+    {
+        private readonly string _value;
+
+        private SystemAssignedServiceIdentityType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static SystemAssignedServiceIdentityType None { get; } = new SystemAssignedServiceIdentityType("None");
+        public static SystemAssignedServiceIdentityType SystemAssigned { get; } = new SystemAssignedServiceIdentityType("SystemAssigned");
+
+        public static bool operator ==(SystemAssignedServiceIdentityType left, SystemAssignedServiceIdentityType right) => left.Equals(right);
+        public static bool operator !=(SystemAssignedServiceIdentityType left, SystemAssignedServiceIdentityType right) => !left.Equals(right);
+
+        public static explicit operator string(SystemAssignedServiceIdentityType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is SystemAssignedServiceIdentityType other && Equals(other);
+        public bool Equals(SystemAssignedServiceIdentityType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

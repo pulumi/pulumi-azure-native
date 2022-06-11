@@ -7,6 +7,7 @@ from enum import Enum
 __all__ = [
     'AppSku',
     'PrivateEndpointServiceConnectionStatus',
+    'SystemAssignedServiceIdentityType',
 ]
 
 
@@ -14,8 +15,6 @@ class AppSku(str, Enum):
     """
     The name of the SKU.
     """
-    F1 = "F1"
-    S1 = "S1"
     ST0 = "ST0"
     ST1 = "ST1"
     ST2 = "ST2"
@@ -28,3 +27,11 @@ class PrivateEndpointServiceConnectionStatus(str, Enum):
     PENDING = "Pending"
     APPROVED = "Approved"
     REJECTED = "Rejected"
+
+
+class SystemAssignedServiceIdentityType(str, Enum):
+    """
+    Type of managed service identity (either system assigned, or none).
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"

@@ -7,8 +7,6 @@ package iotcentral
 type AppSku string
 
 const (
-	AppSkuF1  = AppSku("F1")
-	AppSkuS1  = AppSku("S1")
 	AppSkuST0 = AppSku("ST0")
 	AppSkuST1 = AppSku("ST1")
 	AppSkuST2 = AppSku("ST2")
@@ -21,6 +19,14 @@ const (
 	PrivateEndpointServiceConnectionStatusPending  = PrivateEndpointServiceConnectionStatus("Pending")
 	PrivateEndpointServiceConnectionStatusApproved = PrivateEndpointServiceConnectionStatus("Approved")
 	PrivateEndpointServiceConnectionStatusRejected = PrivateEndpointServiceConnectionStatus("Rejected")
+)
+
+// Type of managed service identity (either system assigned, or none).
+type SystemAssignedServiceIdentityType string
+
+const (
+	SystemAssignedServiceIdentityTypeNone           = SystemAssignedServiceIdentityType("None")
+	SystemAssignedServiceIdentityTypeSystemAssigned = SystemAssignedServiceIdentityType("SystemAssigned")
 )
 
 func init() {
