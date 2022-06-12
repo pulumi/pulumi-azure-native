@@ -73645,8 +73645,9 @@
           "North Central US",
           "Korea Central",
           "Japan East",
-          "East Asia",
           "West US 3",
+          "East Asia",
+          "Canada Central",
           "East US 2 EUAP"
         ],
         "properties": null,
@@ -83681,6 +83682,34 @@
         "locations": [],
         "properties": null,
         "resourceType": "Operations",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-07-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "AzureKB",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2020-07-01-preview"
+        ],
+        "capabilities": "SupportsExtension",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "Solutions",
         "zoneMappings": null
       }
     ]
@@ -103683,7 +103712,8 @@
   {
     "authorizations": [
       {
-        "applicationId": "b7faa489-a4c8-4b39-bb0c-842c3de2de6a"
+        "applicationId": "b7faa489-a4c8-4b39-bb0c-842c3de2de6a",
+        "roleDefinitionId": "d3712db5-5194-474e-a895-28eebd34c81a"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.Easm",
@@ -103716,7 +103746,13 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "South Central US"
+          "South Central US",
+          "West US",
+          "East US",
+          "East Asia",
+          "Sweden Central",
+          "Australia East",
+          "UK West"
         ],
         "properties": null,
         "resourceType": "workspaces",
@@ -103732,7 +103768,13 @@
         "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
-          "South Central US"
+          "South Central US",
+          "West US",
+          "East US",
+          "East Asia",
+          "Sweden Central",
+          "Australia East",
+          "UK West"
         ],
         "properties": null,
         "resourceType": "workspaces/labels",
@@ -104706,7 +104748,12 @@
           "West US 2",
           "West US 3",
           "South Central US",
-          "East US"
+          "East US",
+          "UK South",
+          "Australia East",
+          "Sweden Central",
+          "Japan East",
+          "Central India"
         ],
         "properties": null,
         "resourceType": "Locations/OperationStatuses",
@@ -107965,6 +108012,14 @@
     "authorizations": [
       {
         "applicationId": "d1bd24c7-b27f-477e-86dd-939e107873d7",
+        "roleDefinitionId": "152eedb2-7399-4357-8ea6-8126717fa567"
+      },
+      {
+        "applicationId": "a893dadc-5c8e-47f4-8379-6afb34bdbe12",
+        "roleDefinitionId": "152eedb2-7399-4357-8ea6-8126717fa567"
+      },
+      {
+        "applicationId": "319f651f-7ddb-4fc6-9857-7aef9250bd05",
         "roleDefinitionId": "152eedb2-7399-4357-8ea6-8126717fa567"
       },
       {
