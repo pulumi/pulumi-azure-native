@@ -88243,6 +88243,10 @@
       {
         "applicationId": "19b21e10-1304-498b-92d4-4290e94999fa",
         "roleDefinitionId": "de0f3cd9-7380-41cc-bd23-124b755df82d"
+      },
+      {
+        "applicationId": "56823b05-67d8-413a-b6ab-ad19d7710cf2",
+        "roleDefinitionId": "de0f3cd9-7380-41cc-bd23-124b755df82d"
       }
     ],
     "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.ApiSecurity",
@@ -88291,11 +88295,65 @@
         "capabilities": "None",
         "defaultApiVersion": null,
         "locationMappings": null,
-        "locations": [
-          "East US 2 EUAP"
-        ],
+        "locations": [],
         "properties": null,
         "resourceType": "Operations",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2022-03-02-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "apiCollections",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2022-03-02-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "apiCollectionsMeta",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2022-03-02-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "apiCollectionsMeta/apiCollectionMetaDetails",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2022-03-02-privatepreview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "apiCollectionDetails",
         "zoneMappings": null
       }
     ]

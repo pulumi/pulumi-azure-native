@@ -141,7 +141,7 @@ export class PartnerTopic extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:PartnerTopic" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:PartnerTopic" }, { type: "azure-native:eventgrid/v20220615:PartnerTopic" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerTopic.__pulumiType, name, resourceInputs, opts);
     }

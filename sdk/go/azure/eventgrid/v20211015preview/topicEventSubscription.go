@@ -75,6 +75,9 @@ func NewTopicEventSubscription(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:eventgrid:TopicEventSubscription"),
 		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20220615:TopicEventSubscription"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource TopicEventSubscription

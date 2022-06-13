@@ -147,7 +147,7 @@ export class PartnerTopicEventSubscription extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:PartnerTopicEventSubscription" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:eventgrid:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20200401preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20210601preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20211015preview:PartnerTopicEventSubscription" }, { type: "azure-native:eventgrid/v20220615:PartnerTopicEventSubscription" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(PartnerTopicEventSubscription.__pulumiType, name, resourceInputs, opts);
     }

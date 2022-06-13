@@ -58,6 +58,9 @@ func NewChannel(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:eventgrid:Channel"),
 		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20220615:Channel"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Channel
