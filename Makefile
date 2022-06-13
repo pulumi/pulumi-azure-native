@@ -26,7 +26,7 @@ update_submodules:: init_submodules
 		(cd $$submodule && git checkout main && git pull origin main); \
 	done
 	rm ./azure-provider-versions/provider_list.json
-	az provider list >> ./azure-provider-versions/provider_list.json
+	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
 
 ensure:: init_submodules
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
