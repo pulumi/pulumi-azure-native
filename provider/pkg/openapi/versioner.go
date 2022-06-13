@@ -15,10 +15,7 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
-// ProviderDefaults is a map of provider name to resource & invoke ResourceSpecs
-type ProviderDefaults = map[string]VersionResources
-
-func CalculateProviderDefaults(providers AzureProviders) (ProviderDefaults, error) {
+func CalculateProviderDefaults(providers AzureProviders) (CuratedVersion, error) {
 	versionChecker, err := newVersioner()
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading provider versions")
@@ -581,6 +578,23 @@ type prov struct {
 type provRes struct {
 	ResourceType string   `json:"resourceType"`
 	ApiVersions  []string `json:"apiVersions"`
+}
+
+func FindOlderVersions(specVersions AzureProviders, curatedVersion CuratedVersion) AzureProviders {
+	olderProviderVersions := AzureProviders{}
+	for providerName, versions := range specVersions {
+		olderVersions := ProviderVersions{}
+		curated := curatedVersion[providerName]
+		minCuratedVersion := findMinDefaultVersion(curated)
+		for version, resources := range versions {
+			if version == "" || version >= minCuratedVersion {
+				continue
+			}
+			olderVersions[version] = resources
+		}
+		olderProviderVersions[providerName] = olderVersions
+	}
+	return olderProviderVersions
 }
 
 func findMinDefaultVersion(versionResources VersionResources) string {

@@ -10,75 +10,92 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"os"
 	"path"
+	"sort"
 )
 
 func main() {
-	var err error
-	calculate := flag.NewFlagSet("calculate", flag.ExitOnError)
-	outputPath := calculate.String("o", "", "Output path")
-	version := calculate.Int("v", 1, "Version to generate")
+	outputDir := flag.String("o", "versions", "Output directory")
+	flag.Parse()
 
-	command := os.Args[1]
-	args := os.Args[2:]
+	err := writeAll(*outputDir)
 
-	switch command {
-	case calculate.Name():
-		calculate.Parse(args)
-		if *outputPath == "" {
-			fmt.Println("Output path must be specified")
-			os.Exit(0)
-		}
-		err = calculateVersion(*version, *outputPath)
-
-	default:
-		fmt.Printf("Unknown command %q\n", command)
-		os.Exit(1)
-	}
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
 }
 
-func calculateVersion(version int, outputPath string) error {
+func writeAll(outputDir string) error {
 	providers, err := openapi.SpecVersions()
 	if err != nil {
 		return err
 	}
-	var providerDefaults openapi.ProviderDefaults
-	switch version {
-	case 1:
-		providerDefaults, err = openapi.CalculateProviderDefaults(providers)
-		if err != nil {
-			return err
-		}
-	default:
-		return errors.Errorf("Unknown version %v", version)
-	}
-	defaultVersions := formatDefaultVersions(providerDefaults)
-	formatted, err := json.MarshalIndent(defaultVersions, "", "  ")
+
+	v1, err := openapi.CalculateProviderDefaults(providers)
 	if err != nil {
-		return errors.Wrap(err, "marshaling metadata")
+		return err
 	}
 
-	return emitFile(outputPath, formatted)
+	deprecated := openapi.FindOlderVersions(providers, v1)
+
+	err = writeVersion(v1, outputDir, 1)
+	if err != nil {
+		return err
+	}
+
+	err = writeProviderVersionSummary(deprecated, path.Join(outputDir, "deprecated.json"))
+	if err != nil {
+		return err
+	}
+
+	return writeProviderVersionSummary(providers, path.Join(outputDir, "spec.json"))
+}
+
+func writeVersion(curatedVersion openapi.CuratedVersion, outputDir string, version int) error {
+	defaultVersions := formatCuratedVersion(curatedVersion)
+	outputPath := path.Join(outputDir, fmt.Sprintf("v%v.json", version))
+	return emitJson(outputPath, defaultVersions)
 }
 
 type ProviderResourceDefaultVersions = map[string]map[string]string
 
-func formatDefaultVersions(providerDefaults openapi.ProviderDefaults) ProviderResourceDefaultVersions {
+func formatCuratedVersion(curatedVersion openapi.CuratedVersion) ProviderResourceDefaultVersions {
 	providerResourceDefaultVersions := make(ProviderResourceDefaultVersions)
-	for providerName, resources := range providerDefaults {
+	for providerName, resources := range curatedVersion {
 		resourceVersions := make(map[string]string)
-		for k, resource := range resources.Resources {
+		for k, resource := range resources.All() {
 			resourceVersions[k] = resource.Swagger.Info.Version
-		}
-		for k, invoke := range resources.Invokes {
-			resourceVersions[k] = invoke.Swagger.Info.Version
 		}
 		providerResourceDefaultVersions[providerName] = resourceVersions
 	}
 	return providerResourceDefaultVersions
+}
+
+func writeProviderVersionSummary(providerVersions openapi.AzureProviders, outputPath string) error {
+	formatted := formatProviderVersions(providerVersions)
+	return emitJson(outputPath, formatted)
+}
+
+func formatProviderVersions(providerVersions openapi.AzureProviders) map[string][]string {
+	formatted := map[string][]string{}
+	for name, versions := range providerVersions {
+		formattedVersions := make([]string, 0, len(versions))
+		for version, _ := range versions {
+			formattedVersions = append(formattedVersions, version)
+		}
+		sort.Strings(formattedVersions)
+		formatted[name] = formattedVersions
+	}
+	return formatted
+}
+
+func emitJson(outputPath string, data interface{}) error {
+	formatted, err := json.MarshalIndent(data, "", "  ")
+	if err != nil {
+		return errors.Wrap(err, "marshaling JSON")
+	}
+
+	return emitFile(outputPath, formatted)
 }
 
 func emitFile(outPath string, contents []byte) error {

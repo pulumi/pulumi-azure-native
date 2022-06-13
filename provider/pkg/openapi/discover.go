@@ -14,16 +14,33 @@ import (
 	"strings"
 )
 
+type ProviderName = string
+type ApiVersion = string
+
 // AzureProviders maps provider names (e.g. Compute) to versions in that providers and resources therein.
-type AzureProviders = map[string]ProviderVersions
+type AzureProviders = map[ProviderName]ProviderVersions
 
 // ProviderVersions maps API Versions (e.g. 2020-08-01) to resources and invokes in that version.
-type ProviderVersions = map[string]VersionResources
+type ProviderVersions = map[ApiVersion]VersionResources
 
 // VersionResources contains all resources and invokes in a given API version.
 type VersionResources struct {
 	Resources map[string]*ResourceSpec
 	Invokes   map[string]*ResourceSpec
+}
+
+// CuratedVersion is an amalgamation of multiple API versions
+type CuratedVersion = map[ProviderName]VersionResources
+
+func (v VersionResources) All() map[string]*ResourceSpec {
+	specs := map[string]*ResourceSpec{}
+	for s, resourceSpec := range v.Invokes {
+		specs[s] = resourceSpec
+	}
+	for s, resourceSpec := range v.Resources {
+		specs[s] = resourceSpec
+	}
+	return specs
 }
 
 // ResourceSpec contains a pointer in an Open API Spec that defines a resource and related metadata.
