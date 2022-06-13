@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"os"
@@ -31,6 +32,16 @@ func writeAll(outputDir string) error {
 		return err
 	}
 
+	err = writeProviderVersionSummary(providers, path.Join(outputDir, "spec-providers.json"))
+	if err != nil {
+		return err
+	}
+
+	err = writeResourceVersionSummary(providers, path.Join(outputDir, "spec-resources.json"))
+	if err != nil {
+		return err
+	}
+
 	v1, err := openapi.CalculateProviderDefaults(providers)
 	if err != nil {
 		return err
@@ -48,7 +59,7 @@ func writeAll(outputDir string) error {
 		return err
 	}
 
-	return writeProviderVersionSummary(providers, path.Join(outputDir, "spec.json"))
+	return nil
 }
 
 func writeVersion(curatedVersion openapi.CuratedVersion, outputDir string, version int) error {
@@ -85,6 +96,37 @@ func formatProviderVersions(providerVersions openapi.AzureProviders) map[string]
 		}
 		sort.Strings(formattedVersions)
 		formatted[name] = formattedVersions
+	}
+	return formatted
+}
+
+func writeResourceVersionSummary(providerVersions openapi.AzureProviders, outputPath string) error {
+	formatted := formatResourceVersions(providerVersions)
+	return emitJson(outputPath, formatted)
+}
+
+func formatResourceVersions(providerVersions openapi.AzureProviders) map[string]map[string][]string {
+	formatted := map[string]map[string][]string{}
+	for providerName, versions := range providerVersions {
+		resourceVersions := map[string]codegen.StringSet{}
+
+		for version, resources := range versions {
+			for resourceName, _ := range resources.All() {
+				var versionSet codegen.StringSet
+				var ok bool
+				if versionSet, ok = resourceVersions[resourceName]; !ok {
+					versionSet = codegen.NewStringSet()
+					resourceVersions[resourceName] = versionSet
+				}
+				versionSet.Add(version)
+			}
+		}
+
+		formattedResources := map[string][]string{}
+		for resourceName, versions := range resourceVersions {
+			formattedResources[resourceName] = versions.SortedValues()
+		}
+		formatted[providerName] = formattedResources
 	}
 	return formatted
 }
