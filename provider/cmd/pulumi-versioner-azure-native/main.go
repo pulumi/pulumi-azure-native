@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
@@ -58,6 +59,13 @@ func writeAll(outputDir string) error {
 	if err != nil {
 		return err
 	}
+
+	activePathVersions, err := providerlist.ReadProviderList()
+	if err != nil {
+		return err
+	}
+
+	err = writeActiveVersions(path.Join(outputDir, "active.json"), activePathVersions)
 
 	return nil
 }
@@ -129,6 +137,18 @@ func formatResourceVersions(providerVersions openapi.AzureProviders) map[string]
 		formatted[providerName] = formattedResources
 	}
 	return formatted
+}
+
+func writeActiveVersions(outputPath string, activePathVersions providerlist.ProviderPathVersions) error {
+	formatted := map[string]map[string][]string{}
+	for providerName, paths := range activePathVersions {
+		formattedProvider := map[string][]string{}
+		for resourcePath, versions := range paths {
+			formattedProvider[resourcePath] = versions.SortedValues()
+		}
+		formatted[providerName] = formattedProvider
+	}
+	return emitJson(outputPath, formatted)
 }
 
 func emitJson(outputPath string, data interface{}) error {
