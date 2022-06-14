@@ -15,39 +15,46 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
+func ReadCuratedVersion(path string) (CuratedVersion, error) {
+	jsonFile, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer jsonFile.Close()
+
+	byteValue, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		return nil, err
+	}
+
+	var curatedVersion CuratedVersion
+	err = json.Unmarshal(byteValue, &curatedVersion)
+	if err != nil {
+		return nil, err
+	}
+
+	return curatedVersion, nil
+}
+
 func CalculateProviderDefaults(providers AzureProviders) (CuratedVersion, error) {
 	versionChecker, err := newVersioner()
 	if err != nil {
 		return nil, errors.Wrapf(err, "reading provider versions")
 	}
 
-	providerDefaults := make(map[string]VersionResources)
+	providerDefaults := CuratedVersion{}
 
 	for providerName, versionMap := range providers {
 		// Add a default version for each resource and invoke.
-		providerDefaults[providerName] = versionChecker.calculateLatestVersionResources(providerName, versionMap)
+		resources := versionChecker.calculateLatestVersionResources(providerName, versionMap)
+		providerResourceVersions := map[ResourceName]ApiVersion{}
+		for resourceName, resource := range resources.All() {
+			providerResourceVersions[resourceName] = resource.Swagger.Info.Version
+		}
+		providerDefaults[providerName] = providerResourceVersions
 
 	}
 	return providerDefaults, nil
-}
-
-// ProviderDeprecatedVersions is a map of provider name to a list of version strings which are deprecated
-type ProviderDeprecatedVersions = map[string][]string
-
-func CalculateDeprecatedVersions(providers AzureProviders) ProviderDeprecatedVersions {
-	providerDeprecatedVersions := make(ProviderDeprecatedVersions)
-	for providerName, versionMap := range providers {
-		deprecatedVersions := make([]string, 0, len(versionMap))
-		minDefaultVersion := findMinDefaultVersion(versionMap[""])
-		for version := range versionMap {
-			if version == "" || version >= minDefaultVersion {
-				continue
-			}
-			deprecatedVersions = append(deprecatedVersions, version)
-		}
-		providerDeprecatedVersions[providerName] = deprecatedVersions
-	}
-	return providerDeprecatedVersions
 }
 
 // A manually-maintained list of stable versions that we want to promote a later preview version to be used for
@@ -597,16 +604,9 @@ func FindOlderVersions(specVersions AzureProviders, curatedVersion CuratedVersio
 	return olderProviderVersions
 }
 
-func findMinDefaultVersion(versionResources VersionResources) string {
+func findMinDefaultVersion(versionResources map[string]string) string {
 	minVersion := ""
-	for _, resource := range versionResources.Resources {
-		version := resource.Swagger.Info.Version
-		if minVersion == "" || version < minVersion {
-			minVersion = version
-		}
-	}
-	for _, invoke := range versionResources.Invokes {
-		version := invoke.Swagger.Info.Version
+	for _, version := range versionResources {
 		if minVersion == "" || version < minVersion {
 			minVersion = version
 		}
@@ -614,5 +614,9 @@ func findMinDefaultVersion(versionResources VersionResources) string {
 	if minVersion == "" {
 		return ""
 	}
-	return "v" + strings.ReplaceAll(minVersion, "-", "")
+	return apiToSdkVersion(minVersion)
+}
+
+func apiToSdkVersion(apiVersion ApiVersion) SdkVersion {
+	return "v" + strings.ReplaceAll(apiVersion, "-", "")
 }

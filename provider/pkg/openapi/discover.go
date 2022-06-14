@@ -15,22 +15,27 @@ import (
 )
 
 type ProviderName = string
+// ApiVersion e.g. 2020-01-30
 type ApiVersion = string
+type ResourceName = string
+
+// SdkVersion e.g. v20200130
+type SdkVersion = string
 
 // AzureProviders maps provider names (e.g. Compute) to versions in that providers and resources therein.
 type AzureProviders = map[ProviderName]ProviderVersions
 
-// ProviderVersions maps API Versions (e.g. 2020-08-01) to resources and invokes in that version.
-type ProviderVersions = map[ApiVersion]VersionResources
+// ProviderVersions maps API Versions (e.g. v20200801) to resources and invokes in that version.
+type ProviderVersions = map[SdkVersion]VersionResources
 
 // VersionResources contains all resources and invokes in a given API version.
 type VersionResources struct {
-	Resources map[string]*ResourceSpec
-	Invokes   map[string]*ResourceSpec
+	Resources map[ResourceName]*ResourceSpec
+	Invokes   map[ResourceName]*ResourceSpec
 }
 
 // CuratedVersion is an amalgamation of multiple API versions
-type CuratedVersion = map[ProviderName]VersionResources
+type CuratedVersion = map[ProviderName]map[ResourceName]ApiVersion
 
 func (v VersionResources) All() map[string]*ResourceSpec {
 	specs := map[string]*ResourceSpec{}
@@ -70,7 +75,8 @@ func AllVersions() AzureProviders {
 
 	for providerName, versionMap := range providers {
 		// Add a default version for each resource and invoke.
-		versionMap[""] = providerDefaults[providerName]
+		defaultResourceVersions := providerDefaults[providerName]
+		versionMap[""] = buildCuratedVersion(versionMap, defaultResourceVersions)
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
 		pathVersions := calculatePathVersions(versionMap)
@@ -86,7 +92,7 @@ func AllVersions() AzureProviders {
 			}
 		}
 
-		minDefaultVersion := findMinDefaultVersion(versionMap[""])
+		minDefaultVersion := findMinDefaultVersion(defaultResourceVersions)
 		for version, items := range versionMap {
 			if version == "" || version >= minDefaultVersion {
 				continue
@@ -97,6 +103,24 @@ func AllVersions() AzureProviders {
 	}
 
 	return providers
+}
+
+func buildCuratedVersion(versionMap ProviderVersions, curatedResourceVersions map[ResourceName]ApiVersion) VersionResources {
+	resources := map[string]*ResourceSpec{}
+	invokes := map[string]*ResourceSpec{}
+	for resourceName, apiVersion := range curatedResourceVersions {
+		if versionResources, ok := versionMap[apiToSdkVersion(apiVersion)]; ok {
+			if resource, ok := versionResources.Resources[resourceName]; ok {
+				resources[resourceName] = resource
+			} else if invoke, ok := versionResources.Invokes[resourceName]; ok {
+				invokes[resourceName] = invoke
+			}
+		}
+	}
+	return VersionResources{
+		Resources: resources,
+		Invokes:   invokes,
+	}
 }
 
 func SpecVersions() (AzureProviders, error) {

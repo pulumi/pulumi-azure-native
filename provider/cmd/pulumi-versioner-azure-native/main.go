@@ -74,23 +74,8 @@ func writeAll(outputDir string) error {
 }
 
 func writeVersion(curatedVersion openapi.CuratedVersion, outputDir string, version int) error {
-	defaultVersions := formatCuratedVersion(curatedVersion)
 	outputPath := path.Join(outputDir, fmt.Sprintf("v%v.json", version))
-	return emitJson(outputPath, defaultVersions)
-}
-
-type ProviderResourceDefaultVersions = map[string]map[string]string
-
-func formatCuratedVersion(curatedVersion openapi.CuratedVersion) ProviderResourceDefaultVersions {
-	providerResourceDefaultVersions := make(ProviderResourceDefaultVersions)
-	for providerName, resources := range curatedVersion {
-		resourceVersions := make(map[string]string)
-		for k, resource := range resources.All() {
-			resourceVersions[k] = resource.Swagger.Info.Version
-		}
-		providerResourceDefaultVersions[providerName] = resourceVersions
-	}
-	return providerResourceDefaultVersions
+	return emitJson(outputPath, curatedVersion)
 }
 
 func writeProviderVersionSummary(providerVersions openapi.AzureProviders, outputPath string) error {
