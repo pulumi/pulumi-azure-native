@@ -453,6 +453,9 @@ __all__ = [
     'SapHanaPartitionSettingsArgs',
     'SapHanaSourceArgs',
     'SapHanaTableDatasetArgs',
+    'SapOdpLinkedServiceArgs',
+    'SapOdpResourceDatasetArgs',
+    'SapOdpSourceArgs',
     'SapOpenHubLinkedServiceArgs',
     'SapOpenHubSourceArgs',
     'SapOpenHubTableDatasetArgs',
@@ -20477,7 +20480,7 @@ class CopyActivityArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[str],
                  sink: pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs']],
-                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
+                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
                  type: pulumi.Input[str],
                  data_integration_units: Optional[Any] = None,
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
@@ -20503,7 +20506,7 @@ class CopyActivityArgs:
         Copy activity.
         :param pulumi.Input[str] name: Activity name.
         :param pulumi.Input[Union['AvroSinkArgs', 'AzureBlobFSSinkArgs', 'AzureDataExplorerSinkArgs', 'AzureDataLakeStoreSinkArgs', 'AzureDatabricksDeltaLakeSinkArgs', 'AzureMySqlSinkArgs', 'AzurePostgreSqlSinkArgs', 'AzureQueueSinkArgs', 'AzureSearchIndexSinkArgs', 'AzureSqlSinkArgs', 'AzureTableSinkArgs', 'BinarySinkArgs', 'BlobSinkArgs', 'CommonDataServiceForAppsSinkArgs', 'CosmosDbMongoDbApiSinkArgs', 'CosmosDbSqlApiSinkArgs', 'DelimitedTextSinkArgs', 'DocumentDbCollectionSinkArgs', 'DynamicsCrmSinkArgs', 'DynamicsSinkArgs', 'FileSystemSinkArgs', 'InformixSinkArgs', 'JsonSinkArgs', 'MicrosoftAccessSinkArgs', 'MongoDbAtlasSinkArgs', 'MongoDbV2SinkArgs', 'OdbcSinkArgs', 'OracleSinkArgs', 'OrcSinkArgs', 'ParquetSinkArgs', 'RestSinkArgs', 'SalesforceServiceCloudSinkArgs', 'SalesforceSinkArgs', 'SapCloudForCustomerSinkArgs', 'SnowflakeSinkArgs', 'SqlDWSinkArgs', 'SqlMISinkArgs', 'SqlServerSinkArgs', 'SqlSinkArgs']] sink: Copy activity sink.
-        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Copy activity source.
+        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Copy activity source.
         :param pulumi.Input[str] type: Type of activity.
                Expected value is 'Copy'.
         :param Any data_integration_units: Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -20598,14 +20601,14 @@ class CopyActivityArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
+    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
         """
         Copy activity source.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
+    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -44654,7 +44657,7 @@ class LookupActivityArgs:
     def __init__(__self__, *,
                  dataset: pulumi.Input['DatasetReferenceArgs'],
                  name: pulumi.Input[str],
-                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
+                 source: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']],
                  type: pulumi.Input[str],
                  depends_on: Optional[pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
@@ -44666,7 +44669,7 @@ class LookupActivityArgs:
         Lookup activity.
         :param pulumi.Input['DatasetReferenceArgs'] dataset: Lookup activity dataset reference.
         :param pulumi.Input[str] name: Activity name.
-        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Dataset-specific source properties, same as copy activity source.
+        :param pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']] source: Dataset-specific source properties, same as copy activity source.
         :param pulumi.Input[str] type: Type of activity.
                Expected value is 'Lookup'.
         :param pulumi.Input[Sequence[pulumi.Input['ActivityDependencyArgs']]] depends_on: Activity depends on condition.
@@ -44719,14 +44722,14 @@ class LookupActivityArgs:
 
     @property
     @pulumi.getter
-    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
+    def source(self) -> pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]:
         """
         Dataset-specific source properties, same as copy activity source.
         """
         return pulumi.get(self, "source")
 
     @source.setter
-    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
+    def source(self, value: pulumi.Input[Union['AmazonMWSSourceArgs', 'AmazonRdsForOracleSourceArgs', 'AmazonRdsForSqlServerSourceArgs', 'AmazonRedshiftSourceArgs', 'AvroSourceArgs', 'AzureBlobFSSourceArgs', 'AzureDataExplorerSourceArgs', 'AzureDataLakeStoreSourceArgs', 'AzureDatabricksDeltaLakeSourceArgs', 'AzureMariaDBSourceArgs', 'AzureMySqlSourceArgs', 'AzurePostgreSqlSourceArgs', 'AzureSqlSourceArgs', 'AzureTableSourceArgs', 'BinarySourceArgs', 'BlobSourceArgs', 'CassandraSourceArgs', 'CommonDataServiceForAppsSourceArgs', 'ConcurSourceArgs', 'CosmosDbMongoDbApiSourceArgs', 'CosmosDbSqlApiSourceArgs', 'CouchbaseSourceArgs', 'Db2SourceArgs', 'DelimitedTextSourceArgs', 'DocumentDbCollectionSourceArgs', 'DrillSourceArgs', 'DynamicsAXSourceArgs', 'DynamicsCrmSourceArgs', 'DynamicsSourceArgs', 'EloquaSourceArgs', 'ExcelSourceArgs', 'FileSystemSourceArgs', 'GoogleAdWordsSourceArgs', 'GoogleBigQuerySourceArgs', 'GreenplumSourceArgs', 'HBaseSourceArgs', 'HdfsSourceArgs', 'HiveSourceArgs', 'HttpSourceArgs', 'HubspotSourceArgs', 'ImpalaSourceArgs', 'InformixSourceArgs', 'JiraSourceArgs', 'JsonSourceArgs', 'MagentoSourceArgs', 'MariaDBSourceArgs', 'MarketoSourceArgs', 'MicrosoftAccessSourceArgs', 'MongoDbAtlasSourceArgs', 'MongoDbSourceArgs', 'MongoDbV2SourceArgs', 'MySqlSourceArgs', 'NetezzaSourceArgs', 'ODataSourceArgs', 'OdbcSourceArgs', 'Office365SourceArgs', 'OracleServiceCloudSourceArgs', 'OracleSourceArgs', 'OrcSourceArgs', 'ParquetSourceArgs', 'PaypalSourceArgs', 'PhoenixSourceArgs', 'PostgreSqlSourceArgs', 'PrestoSourceArgs', 'QuickBooksSourceArgs', 'RelationalSourceArgs', 'ResponsysSourceArgs', 'RestSourceArgs', 'SalesforceMarketingCloudSourceArgs', 'SalesforceServiceCloudSourceArgs', 'SalesforceSourceArgs', 'SapBwSourceArgs', 'SapCloudForCustomerSourceArgs', 'SapEccSourceArgs', 'SapHanaSourceArgs', 'SapOdpSourceArgs', 'SapOpenHubSourceArgs', 'SapTableSourceArgs', 'ServiceNowSourceArgs', 'SharePointOnlineListSourceArgs', 'ShopifySourceArgs', 'SnowflakeSourceArgs', 'SparkSourceArgs', 'SqlDWSourceArgs', 'SqlMISourceArgs', 'SqlServerSourceArgs', 'SqlSourceArgs', 'SquareSourceArgs', 'SybaseSourceArgs', 'TabularSourceArgs', 'TeradataSourceArgs', 'VerticaSourceArgs', 'WebSourceArgs', 'XeroSourceArgs', 'XmlSourceArgs', 'ZohoSourceArgs']]):
         pulumi.set(self, "source", value)
 
     @property
@@ -64386,6 +64389,734 @@ class SapHanaTableDatasetArgs:
     @table.setter
     def table(self, value: Optional[Any]):
         pulumi.set(self, "table", value)
+
+
+@pulumi.input_type
+class SapOdpLinkedServiceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 client_id: Optional[Any] = None,
+                 connect_via: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 language: Optional[Any] = None,
+                 logon_group: Optional[Any] = None,
+                 message_server: Optional[Any] = None,
+                 message_server_service: Optional[Any] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 password: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]] = None,
+                 server: Optional[Any] = None,
+                 snc_library_path: Optional[Any] = None,
+                 snc_mode: Optional[Any] = None,
+                 snc_my_name: Optional[Any] = None,
+                 snc_partner_name: Optional[Any] = None,
+                 snc_qop: Optional[Any] = None,
+                 subscriber_name: Optional[Any] = None,
+                 system_id: Optional[Any] = None,
+                 system_number: Optional[Any] = None,
+                 user_name: Optional[Any] = None,
+                 x509_certificate_path: Optional[Any] = None):
+        """
+        SAP ODP Linked Service.
+        :param pulumi.Input[str] type: Type of linked service.
+               Expected value is 'SapOdp'.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
+        :param Any client_id: Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
+        :param pulumi.Input['IntegrationRuntimeReferenceArgs'] connect_via: The integration runtime reference.
+        :param pulumi.Input[str] description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any language: Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).
+        :param Any logon_group: The Logon Group for the SAP System. Type: string (or Expression with resultType string).
+        :param Any message_server: The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
+        :param Any message_server_service: The service name or port number of the Message Server. Type: string (or Expression with resultType string).
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for linked service.
+        :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password to access the SAP server where the table is located.
+        :param Any server: Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string).
+        :param Any snc_library_path: External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        :param Any snc_mode: SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
+        :param Any snc_my_name: Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        :param Any snc_partner_name: Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        :param Any snc_qop: SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string).
+        :param Any subscriber_name: The subscriber name. Type: string (or Expression with resultType string).
+        :param Any system_id: SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
+        :param Any system_number: System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
+        :param Any user_name: Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        :param Any x509_certificate_path: SNC X509 certificate file path. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'SapOdp')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if logon_group is not None:
+            pulumi.set(__self__, "logon_group", logon_group)
+        if message_server is not None:
+            pulumi.set(__self__, "message_server", message_server)
+        if message_server_service is not None:
+            pulumi.set(__self__, "message_server_service", message_server_service)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if snc_library_path is not None:
+            pulumi.set(__self__, "snc_library_path", snc_library_path)
+        if snc_mode is not None:
+            pulumi.set(__self__, "snc_mode", snc_mode)
+        if snc_my_name is not None:
+            pulumi.set(__self__, "snc_my_name", snc_my_name)
+        if snc_partner_name is not None:
+            pulumi.set(__self__, "snc_partner_name", snc_partner_name)
+        if snc_qop is not None:
+            pulumi.set(__self__, "snc_qop", snc_qop)
+        if subscriber_name is not None:
+            pulumi.set(__self__, "subscriber_name", subscriber_name)
+        if system_id is not None:
+            pulumi.set(__self__, "system_id", system_id)
+        if system_number is not None:
+            pulumi.set(__self__, "system_number", system_number)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+        if x509_certificate_path is not None:
+            pulumi.set(__self__, "x509_certificate_path", x509_certificate_path)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of linked service.
+        Expected value is 'SapOdp'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[Any]:
+        """
+        Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "client_id")
+
+    @client_id.setter
+    def client_id(self, value: Optional[Any]):
+        pulumi.set(self, "client_id", value)
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @connect_via.setter
+    def connect_via(self, value: Optional[pulumi.Input['IntegrationRuntimeReferenceArgs']]):
+        pulumi.set(self, "connect_via", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @encrypted_credential.setter
+    def encrypted_credential(self, value: Optional[Any]):
+        pulumi.set(self, "encrypted_credential", value)
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[Any]:
+        """
+        Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "language")
+
+    @language.setter
+    def language(self, value: Optional[Any]):
+        pulumi.set(self, "language", value)
+
+    @property
+    @pulumi.getter(name="logonGroup")
+    def logon_group(self) -> Optional[Any]:
+        """
+        The Logon Group for the SAP System. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "logon_group")
+
+    @logon_group.setter
+    def logon_group(self, value: Optional[Any]):
+        pulumi.set(self, "logon_group", value)
+
+    @property
+    @pulumi.getter(name="messageServer")
+    def message_server(self) -> Optional[Any]:
+        """
+        The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "message_server")
+
+    @message_server.setter
+    def message_server(self, value: Optional[Any]):
+        pulumi.set(self, "message_server", value)
+
+    @property
+    @pulumi.getter(name="messageServerService")
+    def message_server_service(self) -> Optional[Any]:
+        """
+        The service name or port number of the Message Server. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "message_server_service")
+
+    @message_server_service.setter
+    def message_server_service(self, value: Optional[Any]):
+        pulumi.set(self, "message_server_service", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]:
+        """
+        Password to access the SAP server where the table is located.
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: Optional[pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']]]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "server")
+
+    @server.setter
+    def server(self, value: Optional[Any]):
+        pulumi.set(self, "server", value)
+
+    @property
+    @pulumi.getter(name="sncLibraryPath")
+    def snc_library_path(self) -> Optional[Any]:
+        """
+        External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "snc_library_path")
+
+    @snc_library_path.setter
+    def snc_library_path(self, value: Optional[Any]):
+        pulumi.set(self, "snc_library_path", value)
+
+    @property
+    @pulumi.getter(name="sncMode")
+    def snc_mode(self) -> Optional[Any]:
+        """
+        SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "snc_mode")
+
+    @snc_mode.setter
+    def snc_mode(self, value: Optional[Any]):
+        pulumi.set(self, "snc_mode", value)
+
+    @property
+    @pulumi.getter(name="sncMyName")
+    def snc_my_name(self) -> Optional[Any]:
+        """
+        Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "snc_my_name")
+
+    @snc_my_name.setter
+    def snc_my_name(self, value: Optional[Any]):
+        pulumi.set(self, "snc_my_name", value)
+
+    @property
+    @pulumi.getter(name="sncPartnerName")
+    def snc_partner_name(self) -> Optional[Any]:
+        """
+        Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "snc_partner_name")
+
+    @snc_partner_name.setter
+    def snc_partner_name(self, value: Optional[Any]):
+        pulumi.set(self, "snc_partner_name", value)
+
+    @property
+    @pulumi.getter(name="sncQop")
+    def snc_qop(self) -> Optional[Any]:
+        """
+        SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "snc_qop")
+
+    @snc_qop.setter
+    def snc_qop(self, value: Optional[Any]):
+        pulumi.set(self, "snc_qop", value)
+
+    @property
+    @pulumi.getter(name="subscriberName")
+    def subscriber_name(self) -> Optional[Any]:
+        """
+        The subscriber name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "subscriber_name")
+
+    @subscriber_name.setter
+    def subscriber_name(self, value: Optional[Any]):
+        pulumi.set(self, "subscriber_name", value)
+
+    @property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> Optional[Any]:
+        """
+        SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "system_id")
+
+    @system_id.setter
+    def system_id(self, value: Optional[Any]):
+        pulumi.set(self, "system_id", value)
+
+    @property
+    @pulumi.getter(name="systemNumber")
+    def system_number(self) -> Optional[Any]:
+        """
+        System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "system_number")
+
+    @system_number.setter
+    def system_number(self, value: Optional[Any]):
+        pulumi.set(self, "system_number", value)
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[Any]:
+        """
+        Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_name")
+
+    @user_name.setter
+    def user_name(self, value: Optional[Any]):
+        pulumi.set(self, "user_name", value)
+
+    @property
+    @pulumi.getter(name="x509CertificatePath")
+    def x509_certificate_path(self) -> Optional[Any]:
+        """
+        SNC X509 certificate file path. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "x509_certificate_path")
+
+    @x509_certificate_path.setter
+    def x509_certificate_path(self, value: Optional[Any]):
+        pulumi.set(self, "x509_certificate_path", value)
+
+
+@pulumi.input_type
+class SapOdpResourceDatasetArgs:
+    def __init__(__self__, *,
+                 context: Any,
+                 linked_service_name: pulumi.Input['LinkedServiceReferenceArgs'],
+                 object_name: Any,
+                 type: pulumi.Input[str],
+                 annotations: Optional[pulumi.Input[Sequence[Any]]] = None,
+                 description: Optional[pulumi.Input[str]] = None,
+                 folder: Optional[pulumi.Input['DatasetFolderArgs']] = None,
+                 parameters: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]] = None,
+                 schema: Optional[Any] = None,
+                 structure: Optional[Any] = None):
+        """
+        SAP ODP Resource properties.
+        :param Any context: The context of the SAP ODP Object. Type: string (or Expression with resultType string).
+        :param pulumi.Input['LinkedServiceReferenceArgs'] linked_service_name: Linked service reference.
+        :param Any object_name: The name of the SAP ODP Object. Type: string (or Expression with resultType string).
+        :param pulumi.Input[str] type: Type of dataset.
+               Expected value is 'SapOdpResource'.
+        :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the Dataset.
+        :param pulumi.Input[str] description: Dataset description.
+        :param pulumi.Input['DatasetFolderArgs'] folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]] parameters: Parameters for dataset.
+        :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        pulumi.set(__self__, "context", context)
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "object_name", object_name)
+        pulumi.set(__self__, "type", 'SapOdpResource')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Any:
+        """
+        The context of the SAP ODP Object. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: Any):
+        pulumi.set(self, "context", value)
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> pulumi.Input['LinkedServiceReferenceArgs']:
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @linked_service_name.setter
+    def linked_service_name(self, value: pulumi.Input['LinkedServiceReferenceArgs']):
+        pulumi.set(self, "linked_service_name", value)
+
+    @property
+    @pulumi.getter(name="objectName")
+    def object_name(self) -> Any:
+        """
+        The name of the SAP ODP Object. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "object_name")
+
+    @object_name.setter
+    def object_name(self, value: Any):
+        pulumi.set(self, "object_name", value)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Type of dataset.
+        Expected value is 'SapOdpResource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[pulumi.Input[Sequence[Any]]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @annotations.setter
+    def annotations(self, value: Optional[pulumi.Input[Sequence[Any]]]):
+        pulumi.set(self, "annotations", value)
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[pulumi.Input[str]]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @description.setter
+    def description(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional[pulumi.Input['DatasetFolderArgs']]:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @folder.setter
+    def folder(self, value: Optional[pulumi.Input['DatasetFolderArgs']]):
+        pulumi.set(self, "folder", value)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input['ParameterSpecificationArgs']]]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @schema.setter
+    def schema(self, value: Optional[Any]):
+        pulumi.set(self, "schema", value)
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[Any]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+    @structure.setter
+    def structure(self, value: Optional[Any]):
+        pulumi.set(self, "structure", value)
+
+
+@pulumi.input_type
+class SapOdpSourceArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[str],
+                 additional_columns: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
+                 extraction_mode: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 projection: Optional[Any] = None,
+                 query_timeout: Optional[Any] = None,
+                 selection: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None,
+                 subscriber_process: Optional[Any] = None):
+        """
+        A copy activity source for SAP ODP source.
+        :param pulumi.Input[str] type: Copy source type.
+               Expected value is 'SapOdpSource'.
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any extraction_mode: The extraction mode. Allowed value include: Full, Delta and Recovery. The default value is Full. Type: string (or Expression with resultType string).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any projection: Specifies the columns to be selected from source data. Type: array of objects(projection) (or Expression with resultType array of objects).
+        :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any selection: Specifies the selection conditions from source data. Type: array of objects(selection) (or Expression with resultType array of objects).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any subscriber_process: The subscriber process to manage the delta process. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'SapOdpSource')
+        if additional_columns is not None:
+            pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if extraction_mode is not None:
+            pulumi.set(__self__, "extraction_mode", extraction_mode)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if projection is not None:
+            pulumi.set(__self__, "projection", projection)
+        if query_timeout is not None:
+            pulumi.set(__self__, "query_timeout", query_timeout)
+        if selection is not None:
+            pulumi.set(__self__, "selection", selection)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+        if subscriber_process is not None:
+            pulumi.set(__self__, "subscriber_process", subscriber_process)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[str]:
+        """
+        Copy source type.
+        Expected value is 'SapOdpSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "type", value)
+
+    @property
+    @pulumi.getter(name="additionalColumns")
+    def additional_columns(self) -> Optional[Any]:
+        """
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "additional_columns")
+
+    @additional_columns.setter
+    def additional_columns(self, value: Optional[Any]):
+        pulumi.set(self, "additional_columns", value)
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @disable_metrics_collection.setter
+    def disable_metrics_collection(self, value: Optional[Any]):
+        pulumi.set(self, "disable_metrics_collection", value)
+
+    @property
+    @pulumi.getter(name="extractionMode")
+    def extraction_mode(self) -> Optional[Any]:
+        """
+        The extraction mode. Allowed value include: Full, Delta and Recovery. The default value is Full. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "extraction_mode")
+
+    @extraction_mode.setter
+    def extraction_mode(self, value: Optional[Any]):
+        pulumi.set(self, "extraction_mode", value)
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @max_concurrent_connections.setter
+    def max_concurrent_connections(self, value: Optional[Any]):
+        pulumi.set(self, "max_concurrent_connections", value)
+
+    @property
+    @pulumi.getter
+    def projection(self) -> Optional[Any]:
+        """
+        Specifies the columns to be selected from source data. Type: array of objects(projection) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "projection")
+
+    @projection.setter
+    def projection(self, value: Optional[Any]):
+        pulumi.set(self, "projection", value)
+
+    @property
+    @pulumi.getter(name="queryTimeout")
+    def query_timeout(self) -> Optional[Any]:
+        """
+        Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "query_timeout")
+
+    @query_timeout.setter
+    def query_timeout(self, value: Optional[Any]):
+        pulumi.set(self, "query_timeout", value)
+
+    @property
+    @pulumi.getter
+    def selection(self) -> Optional[Any]:
+        """
+        Specifies the selection conditions from source data. Type: array of objects(selection) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "selection")
+
+    @selection.setter
+    def selection(self, value: Optional[Any]):
+        pulumi.set(self, "selection", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @source_retry_count.setter
+    def source_retry_count(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_count", value)
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @source_retry_wait.setter
+    def source_retry_wait(self, value: Optional[Any]):
+        pulumi.set(self, "source_retry_wait", value)
+
+    @property
+    @pulumi.getter(name="subscriberProcess")
+    def subscriber_process(self) -> Optional[Any]:
+        """
+        The subscriber process to manage the delta process. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "subscriber_process")
+
+    @subscriber_process.setter
+    def subscriber_process(self, value: Optional[Any]):
+        pulumi.set(self, "subscriber_process", value)
 
 
 @pulumi.input_type

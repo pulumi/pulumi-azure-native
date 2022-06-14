@@ -21,6 +21,8 @@ const (
 	RunbookTypeEnumPowerShell              = RunbookTypeEnum("PowerShell")
 	RunbookTypeEnumGraphPowerShellWorkflow = RunbookTypeEnum("GraphPowerShellWorkflow")
 	RunbookTypeEnumGraphPowerShell         = RunbookTypeEnum("GraphPowerShell")
+	RunbookTypeEnumPython2                 = RunbookTypeEnum("Python2")
+	RunbookTypeEnumPython3                 = RunbookTypeEnum("Python3")
 )
 
 // Day of the occurrence. Must be one of monday, tuesday, wednesday, thursday, friday, saturday, sunday.
