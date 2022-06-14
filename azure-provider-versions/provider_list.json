@@ -70136,6 +70136,42 @@
         "properties": null,
         "resourceType": "locations/ascoperations",
         "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2022-05-01",
+          "2022-01-01"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2022-05-01",
+        "locationMappings": null,
+        "locations": [
+          "Australia East",
+          "Canada Central",
+          "Central India",
+          "Central US",
+          "East Asia",
+          "East US",
+          "East US 2",
+          "Germany West Central",
+          "Korea Central",
+          "North Central US",
+          "North Europe",
+          "South Central US",
+          "Southeast Asia",
+          "Sweden Central",
+          "UK South",
+          "West Europe",
+          "West US",
+          "West US 2",
+          "West US 3",
+          "East US 2 EUAP"
+        ],
+        "properties": null,
+        "resourceType": "locations/usages",
+        "zoneMappings": null
       }
     ]
   },
@@ -81232,7 +81268,8 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2021-12-01"
+          "2021-12-01",
+          "2021-06-01"
         ],
         "capabilities": "None",
         "defaultApiVersion": null,
@@ -103511,6 +103548,82 @@
         "locations": [],
         "properties": null,
         "resourceType": "Operations",
+        "zoneMappings": null
+      }
+    ]
+  },
+  {
+    "authorizations": [
+      {
+        "applicationId": "9cc10dd5-84e1-4a89-b95d-f6e90c855e3d"
+      }
+    ],
+    "id": "/subscriptions/0282681f-7a9e-424b-80b2-96babd57a8a1/providers/Microsoft.DevHub",
+    "namespace": "Microsoft.DevHub",
+    "providerAuthorizationConsentState": null,
+    "registrationPolicy": "RegistrationRequired",
+    "registrationState": "NotRegistered",
+    "resourceTypes": [
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2022-04-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2022-04-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "East US"
+        ],
+        "properties": null,
+        "resourceType": "operations",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2022-04-01-preview"
+        ],
+        "capabilities": "SupportsTags, SupportsLocation",
+        "defaultApiVersion": "2022-04-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "East US"
+        ],
+        "properties": null,
+        "resourceType": "workflows",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2022-04-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": null,
+        "locationMappings": null,
+        "locations": [],
+        "properties": null,
+        "resourceType": "locations",
+        "zoneMappings": null
+      },
+      {
+        "aliases": null,
+        "apiProfiles": null,
+        "apiVersions": [
+          "2022-04-01-preview"
+        ],
+        "capabilities": "None",
+        "defaultApiVersion": "2022-04-01-preview",
+        "locationMappings": null,
+        "locations": [
+          "East US"
+        ],
+        "properties": null,
+        "resourceType": "locations/githuboauth",
         "zoneMappings": null
       }
     ]
