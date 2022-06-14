@@ -66,6 +66,9 @@ func writeAll(outputDir string) error {
 	}
 
 	err = writeActiveVersions(path.Join(outputDir, "active.json"), activePathVersions)
+	if err != nil {
+		return err
+	}
 
 	return nil
 }
@@ -99,8 +102,11 @@ func formatProviderVersions(providerVersions openapi.AzureProviders) map[string]
 	formatted := map[string][]string{}
 	for name, versions := range providerVersions {
 		formattedVersions := make([]string, 0, len(versions))
-		for version, _ := range versions {
-			formattedVersions = append(formattedVersions, version)
+		for _, resources := range versions {
+			for _, spec := range resources.All() {
+				formattedVersions = append(formattedVersions, spec.Swagger.Info.Version)
+				break
+			}
 		}
 		sort.Strings(formattedVersions)
 		formatted[name] = formattedVersions
@@ -118,15 +124,15 @@ func formatResourceVersions(providerVersions openapi.AzureProviders) map[string]
 	for providerName, versions := range providerVersions {
 		resourceVersions := map[string]codegen.StringSet{}
 
-		for version, resources := range versions {
-			for resourceName, _ := range resources.All() {
+		for _, resources := range versions {
+			for resourceName, spec := range resources.All() {
 				var versionSet codegen.StringSet
 				var ok bool
 				if versionSet, ok = resourceVersions[resourceName]; !ok {
 					versionSet = codegen.NewStringSet()
 					resourceVersions[resourceName] = versionSet
 				}
-				versionSet.Add(version)
+				versionSet.Add(spec.Swagger.Info.Version)
 			}
 		}
 
