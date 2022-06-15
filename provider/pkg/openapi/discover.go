@@ -109,7 +109,7 @@ func buildCuratedVersion(versionMap ProviderVersions, curatedResourceVersions ma
 	resources := map[string]*ResourceSpec{}
 	invokes := map[string]*ResourceSpec{}
 	for resourceName, apiVersion := range curatedResourceVersions {
-		if versionResources, ok := versionMap[apiToSdkVersion(apiVersion)]; ok {
+		if versionResources, ok := versionMap[ApiToSdkVersion(apiVersion)]; ok {
 			if resource, ok := versionResources.Resources[resourceName]; ok {
 				resources[resourceName] = resource
 			} else if invoke, ok := versionResources.Invokes[resourceName]; ok {
@@ -218,7 +218,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 	}
 
 	// Find (or create) the resource map with this name.
-	apiVersion := "v" + strings.ReplaceAll(swagger.Info.Version, "-", "")
+	apiVersion := ApiToSdkVersion(swagger.Info.Version)
 	version, ok := versionMap[apiVersion]
 	if !ok {
 		version = VersionResources{

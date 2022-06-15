@@ -614,9 +614,9 @@ func findMinDefaultVersion(versionResources map[string]string) string {
 	if minVersion == "" {
 		return ""
 	}
-	return apiToSdkVersion(minVersion)
+	return ApiToSdkVersion(minVersion)
 }
 
-func apiToSdkVersion(apiVersion ApiVersion) SdkVersion {
+func ApiToSdkVersion(apiVersion ApiVersion) SdkVersion {
 	return "v" + strings.ReplaceAll(apiVersion, "-", "")
 }
