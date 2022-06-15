@@ -157,6 +157,7 @@ namespace Pulumi.AzureNative.KubernetesConfiguration.V20220301
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration:FluxConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration"},
                     new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration"},
+                    new Pulumi.Alias { Type = "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

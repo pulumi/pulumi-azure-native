@@ -12,6 +12,7 @@ import * as v20211101preview from "./v20211101preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220301 from "./v20220301";
 import * as v20220402preview from "./v20220402preview";
+import * as v20220701 from "./v20220701";
 
 export {
     v20191101preview,
@@ -24,6 +25,7 @@ export {
     v20220101preview,
     v20220301,
     v20220402preview,
+    v20220701,
 };
 
 export const KustomizationValidationType = {

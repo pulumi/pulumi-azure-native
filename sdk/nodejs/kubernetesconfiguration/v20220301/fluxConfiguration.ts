@@ -181,7 +181,7 @@ export class FluxConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:kubernetesconfiguration:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20211101preview:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220101preview:FluxConfiguration" }, { type: "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(FluxConfiguration.__pulumiType, name, resourceInputs, opts);
     }

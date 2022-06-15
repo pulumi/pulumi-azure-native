@@ -10328,6 +10328,16 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "kubernetesconfiguration/v20220701",
+  "fqn": "pulumi_azure_native.kubernetesconfiguration.v20220701",
+  "classes": {
+   "azure-native:kubernetesconfiguration/v20220701:Extension": "Extension",
+   "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration": "FluxConfiguration",
+   "azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration": "SourceControlConfiguration"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "kusto",
   "fqn": "pulumi_azure_native.kusto",
   "classes": {

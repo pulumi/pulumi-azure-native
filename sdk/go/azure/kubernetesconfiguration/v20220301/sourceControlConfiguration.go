@@ -96,6 +96,9 @@ func NewSourceControlConfiguration(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:kubernetesconfiguration/v20220101preview:SourceControlConfiguration"),
 		},
+		{
+			Type: pulumi.String("azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SourceControlConfiguration
