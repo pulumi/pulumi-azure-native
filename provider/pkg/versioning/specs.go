@@ -32,8 +32,8 @@ func FindSpecVersions(providerVersions openapi.AzureProviders) SpecVersions {
 type ResourceVersions = map[ResourceName][]ApiVersion
 type ProviderResourceVersions = map[ProviderName]ResourceVersions
 
-// CalculateResourceVersions flips the hierarchy from Version->Resources to Resource->Versions
-func CalculateResourceVersions(providerVersions SpecVersions) ProviderResourceVersions {
+// FormatResourceVersions flips the hierarchy from Version->Resources to Resource->Versions
+func FormatResourceVersions(providerVersions SpecVersions) ProviderResourceVersions {
 	formatted := ProviderResourceVersions{}
 	for providerName, versions := range providerVersions {
 		resourceVersions := ResourceVersions{}

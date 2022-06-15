@@ -75,19 +75,12 @@ func writeAll(outputDir string) error {
 }
 
 func writeResourceVersionSummary(providerVersions versioning.SpecVersions, outputPath string) error {
-	formatted := versioning.CalculateResourceVersions(providerVersions)
+	formatted := versioning.FormatResourceVersions(providerVersions)
 	return emitJson(outputPath, formatted)
 }
 
 func writeActiveVersions(outputPath string, activePathVersions providerlist.ProviderPathVersions) error {
-	formatted := map[string]map[string][]string{}
-	for providerName, paths := range activePathVersions {
-		formattedProvider := map[string][]string{}
-		for resourcePath, versions := range paths {
-			formattedProvider[resourcePath] = versions.SortedValues()
-		}
-		formatted[providerName] = formattedProvider
-	}
+	formatted := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 	return emitJson(outputPath, formatted)
 }
 
