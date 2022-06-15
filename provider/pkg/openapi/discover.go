@@ -68,7 +68,7 @@ func AllVersions() AzureProviders {
 		panic(err)
 	}
 
-	providerDefaults, err := CalculateProviderDefaults(providers)
+	providerDefaults, err := ReadV1Version()
 	if err != nil {
 		panic(err)
 	}

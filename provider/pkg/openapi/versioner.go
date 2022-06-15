@@ -5,7 +5,7 @@ package openapi
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/pkg/errors"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -14,6 +14,15 @@ import (
 
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
+
+func ReadV1Version() (CuratedVersion, error) {
+	dir, err := os.Getwd()
+	if err != nil {
+		return nil, err
+	}
+	v1Path := filepath.Join(dir, "versions", "v1.json")
+	return ReadCuratedVersion(v1Path)
+}
 
 func ReadCuratedVersion(path string) (CuratedVersion, error) {
 	jsonFile, err := os.Open(path)
@@ -36,12 +45,8 @@ func ReadCuratedVersion(path string) (CuratedVersion, error) {
 	return curatedVersion, nil
 }
 
-func CalculateProviderDefaults(providers AzureProviders) (CuratedVersion, error) {
-	versionChecker, err := newVersioner()
-	if err != nil {
-		return nil, errors.Wrapf(err, "reading provider versions")
-	}
-
+func CalculateProviderDefaults(activePathVersions providerlist.ProviderPathVersions, providers AzureProviders) CuratedVersion {
+	versionChecker := newVersioner(activePathVersions)
 	providerDefaults := CuratedVersion{}
 
 	for providerName, versionMap := range providers {
@@ -54,7 +59,7 @@ func CalculateProviderDefaults(providers AzureProviders) (CuratedVersion, error)
 		providerDefaults[providerName] = providerResourceVersions
 
 	}
-	return providerDefaults, nil
+	return providerDefaults
 }
 
 // A manually-maintained list of stable versions that we want to promote a later preview version to be used for
@@ -364,54 +369,26 @@ type versioner struct {
 	lookup map[string]map[string]codegen.StringSet
 }
 
-func newVersioner() (*versioner, error) {
-	dir, err := os.Getwd()
-	if err != nil {
-		return nil, err
-	}
-
-	jsonFile, err := os.Open(filepath.Join(dir, "/azure-provider-versions/provider_list.json"))
-	if err != nil {
-		return nil, err
-	}
-	defer jsonFile.Close()
-
-	byteValue, err := ioutil.ReadAll(jsonFile)
-	if err != nil {
-		return nil, err
-	}
-
-	var provs []prov
-	err = json.Unmarshal(byteValue, &provs)
-	if err != nil {
-		return nil, err
-	}
-
+func newVersioner(providerPathVersions providerlist.ProviderPathVersions) (*versioner) {
 	result := map[string]map[string]codegen.StringSet{}
 
-	for _, prov := range provs {
-		namespace := strings.ToLower(prov.Namespace)
-		if !strings.HasPrefix(namespace, "microsoft.") {
-			continue
-		}
-		providerName := strings.TrimPrefix(namespace, "microsoft.")
-
+	for providerName, provider := range providerPathVersions {
 		versions := map[string]codegen.StringSet{}
 		allVersions := codegen.NewStringSet()
-		for _, rt := range prov.ResourceTypes {
-			set := codegen.NewStringSet()
-			for _, v := range rt.ApiVersions {
-				name := "v" + strings.ReplaceAll(v, "-", "")
-				allVersions.Add(name)
-				set.Add(name)
+		for resourceName, apiVersions := range provider {
+			sdkVersions := codegen.NewStringSet()
+			for _, version := range apiVersions.SortedValues() {
+				sdkVersion := ApiToSdkVersion(version)
+				allVersions.Add(sdkVersion)
+				sdkVersions.Add(sdkVersion)
 			}
-			versions[strings.ToLower(rt.ResourceType)] = set
+			versions[resourceName] = sdkVersions
 		}
 		versions[""] = allVersions
 		result[providerName] = versions
 	}
 
-	return &versioner{lookup: result}, nil
+	return &versioner{lookup: result}
 }
 
 // calculateLatestVersionResources builds maps of latest versions per API paths from a map of all versions of a resource
