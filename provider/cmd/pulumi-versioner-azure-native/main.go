@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"github.com/hashicorp/go-multierror"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
@@ -32,17 +33,14 @@ func writeAll(outputDir string) error {
 		return err
 	}
 
+	activePathVersions, err := providerlist.ReadProviderList()
+	if err != nil {
+		return err
+	}
+
 	specVersions := versioning.FindSpecVersions(providers)
-
-	err = emitJson(path.Join(outputDir, "spec.json"), specVersions)
-	if err != nil {
-		return err
-	}
-
-	err = writeResourceVersionSummary(specVersions, path.Join(outputDir, "spec-resources.json"))
-	if err != nil {
-		return err
-	}
+	specResourceVersions := versioning.FormatResourceVersions(specVersions)
+	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 
 	v1, err := openapi.CalculateProviderDefaults(providers)
 	if err != nil {
@@ -51,40 +49,31 @@ func writeAll(outputDir string) error {
 
 	deprecated := versioning.FindOlderVersions(specVersions, v1)
 
-	err = emitJson(path.Join(outputDir, "v1.json"), v1)
-	if err != nil {
-		return err
-	}
-
-	err = emitJson(path.Join(outputDir, "deprecated.json"), deprecated)
-	if err != nil {
-		return err
-	}
-
-	activePathVersions, err := providerlist.ReadProviderList()
-	if err != nil {
-		return err
-	}
-
-	err = writeActiveVersions(path.Join(outputDir, "active.json"), activePathVersions)
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return emitJsonFiles(outputDir, map[Filename]Json{
+		"spec.json":           specVersions,
+		"spec-resources.json": specResourceVersions,
+		"v1.json":             v1,
+		"deprecated.json":     deprecated,
+		"active.json":         activePathVersionsJson,
+	})
 }
 
-func writeResourceVersionSummary(providerVersions versioning.SpecVersions, outputPath string) error {
-	formatted := versioning.FormatResourceVersions(providerVersions)
-	return emitJson(outputPath, formatted)
+type Filename = string
+type Json = interface{}
+
+func emitJsonFiles(outDir string, files map[Filename]Json) error {
+	var result error
+	for filename, data := range files {
+		outPath := path.Join(outDir, filename)
+		err := emitJson(outPath, data)
+		if err != nil {
+			result = multierror.Append(result, err)
+		}
+	}
+	return result
 }
 
-func writeActiveVersions(outputPath string, activePathVersions providerlist.ProviderPathVersions) error {
-	formatted := providerlist.FormatProviderPathVersionsJson(activePathVersions)
-	return emitJson(outputPath, formatted)
-}
-
-func emitJson(outputPath string, data interface{}) error {
+func emitJson(outputPath string, data Json) error {
 	formatted, err := json.MarshalIndent(data, "", "  ")
 	if err != nil {
 		return errors.Wrap(err, "marshaling JSON")
