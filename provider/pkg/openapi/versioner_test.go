@@ -92,8 +92,7 @@ func TestFindingPathVersions(t *testing.T) {
 		"/someprefix/microsoft.foo/res4/{}": codegen.NewStringSet("2020-02-01", "2020-03-01", "2020-04-01"),
 	}
 
-	checker := versioner{}
-	actual := checker.calculatePathVersions(versionMap)
+	actual := calculatePathVersions(versionMap)
 	assert.Equal(t, actual, expected)
 }
 

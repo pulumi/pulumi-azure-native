@@ -369,7 +369,7 @@ type versioner struct {
 	lookup map[string]map[string]codegen.StringSet
 }
 
-func newVersioner(providerPathVersions providerlist.ProviderPathVersions) (*versioner) {
+func newVersioner(providerPathVersions providerlist.ProviderPathVersions) *versioner {
 	result := map[string]map[string]codegen.StringSet{}
 
 	for providerName, provider := range providerPathVersions {
@@ -391,7 +391,7 @@ func newVersioner(providerPathVersions providerlist.ProviderPathVersions) (*vers
 	return &versioner{lookup: result}
 }
 
-// calculateLatestVersionResources builds maps of latest versions per API paths from a map of all versions of a resource
+// calculateLatestVersionResources builds maps of the latest versions per API paths from a map of all versions of a resource
 // provider.
 func (c *versioner) calculateLatestVersionResources(provider string, versionMap ProviderVersions) VersionResources {
 	defaultResources := c.calculateLatestVersions(provider, versionMap, false /* invokes */)
@@ -552,16 +552,6 @@ func calculatePathVersions(versionMap ProviderVersions) (pathVersions map[string
 		}
 	}
 	return pathVersions
-}
-
-type prov struct {
-	Namespace     string    `json:"namespace"`
-	ResourceTypes []provRes `json:"resourceTypes"`
-}
-
-type provRes struct {
-	ResourceType string   `json:"resourceType"`
-	ApiVersions  []string `json:"apiVersions"`
 }
 
 func findMinDefaultVersion(versionResources map[string]string) string {
