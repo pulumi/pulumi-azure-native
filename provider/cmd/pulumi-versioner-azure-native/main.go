@@ -7,12 +7,11 @@ import (
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
-	"github.com/pulumi/pulumi/pkg/v3/codegen"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/versioning"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
 	"os"
 	"path"
-	"sort"
 )
 
 func main() {
@@ -33,12 +32,14 @@ func writeAll(outputDir string) error {
 		return err
 	}
 
-	err = writeProviderVersionSummary(providers, path.Join(outputDir, "spec-providers.json"))
+	specVersions := versioning.FindSpecVersions(providers)
+
+	err = emitJson(path.Join(outputDir, "spec.json"), specVersions)
 	if err != nil {
 		return err
 	}
 
-	err = writeResourceVersionSummary(providers, path.Join(outputDir, "spec-resources.json"))
+	err = writeResourceVersionSummary(specVersions, path.Join(outputDir, "spec-resources.json"))
 	if err != nil {
 		return err
 	}
@@ -48,14 +49,14 @@ func writeAll(outputDir string) error {
 		return err
 	}
 
-	deprecated := openapi.FindOlderVersions(providers, v1)
+	deprecated := versioning.FindOlderVersions(specVersions, v1)
 
-	err = writeVersion(v1, outputDir, 1)
+	err = emitJson(path.Join(outputDir, "v1.json"), v1)
 	if err != nil {
 		return err
 	}
 
-	err = writeProviderVersionSummary(deprecated, path.Join(outputDir, "deprecated.json"))
+	err = emitJson(path.Join(outputDir, "deprecated.json"), deprecated)
 	if err != nil {
 		return err
 	}
@@ -73,61 +74,9 @@ func writeAll(outputDir string) error {
 	return nil
 }
 
-func writeVersion(curatedVersion openapi.CuratedVersion, outputDir string, version int) error {
-	outputPath := path.Join(outputDir, fmt.Sprintf("v%v.json", version))
-	return emitJson(outputPath, curatedVersion)
-}
-
-func writeProviderVersionSummary(providerVersions openapi.AzureProviders, outputPath string) error {
-	formatted := formatProviderVersions(providerVersions)
+func writeResourceVersionSummary(providerVersions versioning.SpecVersions, outputPath string) error {
+	formatted := versioning.CalculateResourceVersions(providerVersions)
 	return emitJson(outputPath, formatted)
-}
-
-func formatProviderVersions(providerVersions openapi.AzureProviders) map[string][]string {
-	formatted := map[string][]string{}
-	for name, versions := range providerVersions {
-		formattedVersions := make([]string, 0, len(versions))
-		for _, resources := range versions {
-			for _, spec := range resources.All() {
-				formattedVersions = append(formattedVersions, spec.Swagger.Info.Version)
-				break
-			}
-		}
-		sort.Strings(formattedVersions)
-		formatted[name] = formattedVersions
-	}
-	return formatted
-}
-
-func writeResourceVersionSummary(providerVersions openapi.AzureProviders, outputPath string) error {
-	formatted := formatResourceVersions(providerVersions)
-	return emitJson(outputPath, formatted)
-}
-
-func formatResourceVersions(providerVersions openapi.AzureProviders) map[string]map[string][]string {
-	formatted := map[string]map[string][]string{}
-	for providerName, versions := range providerVersions {
-		resourceVersions := map[string]codegen.StringSet{}
-
-		for _, resources := range versions {
-			for resourceName, spec := range resources.All() {
-				var versionSet codegen.StringSet
-				var ok bool
-				if versionSet, ok = resourceVersions[resourceName]; !ok {
-					versionSet = codegen.NewStringSet()
-					resourceVersions[resourceName] = versionSet
-				}
-				versionSet.Add(spec.Swagger.Info.Version)
-			}
-		}
-
-		formattedResources := map[string][]string{}
-		for resourceName, versions := range resourceVersions {
-			formattedResources[resourceName] = versions.SortedValues()
-		}
-		formatted[providerName] = formattedResources
-	}
-	return formatted
 }
 
 func writeActiveVersions(outputPath string, activePathVersions providerlist.ProviderPathVersions) error {

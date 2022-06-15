@@ -587,23 +587,6 @@ type provRes struct {
 	ApiVersions  []string `json:"apiVersions"`
 }
 
-func FindOlderVersions(specVersions AzureProviders, curatedVersion CuratedVersion) AzureProviders {
-	olderProviderVersions := AzureProviders{}
-	for providerName, versions := range specVersions {
-		olderVersions := ProviderVersions{}
-		curated := curatedVersion[providerName]
-		minCuratedVersion := findMinDefaultVersion(curated)
-		for version, resources := range versions {
-			if version == "" || version >= minCuratedVersion {
-				continue
-			}
-			olderVersions[version] = resources
-		}
-		olderProviderVersions[providerName] = olderVersions
-	}
-	return olderProviderVersions
-}
-
 func findMinDefaultVersion(versionResources map[string]string) string {
 	minVersion := ""
 	for _, version := range versionResources {

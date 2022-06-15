@@ -1,6 +1,9 @@
 package versioning
 
-import "github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+import (
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"sort"
+)
 
 type ProviderName = string
 // ApiVersion e.g. 2020-01-30
@@ -9,17 +12,11 @@ type ResourceName = string
 
 type ProviderVersions = map[ProviderName][]ApiVersion
 
-type OutdatedVersion struct {
-	ApiVersion ApiVersion
-	SupportedVersions []ApiVersion
-}
-
-type ProviderVersionedResources = map[ProviderName]map[ApiVersion][]ResourceName
-
-func FindOlderVersions(specVersions ProviderVersionedResources, curatedVersion openapi.CuratedVersion) ProviderVersions {
+func FindOlderVersions(specVersions SpecVersions, curatedVersion openapi.CuratedVersion) ProviderVersions {
 	olderProviderVersions := ProviderVersions{}
 	for providerName, versions := range specVersions {
-		var olderVersions []ApiVersion
+		//goland:noinspection GoPreferNilSlice
+		olderVersions := []ApiVersion{}
 		curated := curatedVersion[providerName]
 		minCuratedVersion := findMinDefaultVersion(curated)
 		for version, _ := range versions {
@@ -28,6 +25,7 @@ func FindOlderVersions(specVersions ProviderVersionedResources, curatedVersion o
 			}
 			olderVersions = append(olderVersions, version)
 		}
+		sort.Strings(olderVersions)
 		olderProviderVersions[providerName] = olderVersions
 	}
 	return olderProviderVersions

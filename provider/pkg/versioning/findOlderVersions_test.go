@@ -16,7 +16,7 @@ func TestFindOlderVersions(t *testing.T) {
 	versionA := fakeApiVersion(FakeApiVersion{GreaterThan: olderVersion})
 	versionB := fakeApiVersion(FakeApiVersion{GreaterThan: olderVersion})
 
-	specVersions := ProviderVersionedResources{
+	specVersions := SpecVersions{
 		providerA: {
 			olderVersion: []string{resourceA, resourceB},
 			versionA: []string{resourceA, resourceB},
