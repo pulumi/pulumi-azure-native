@@ -30,6 +30,7 @@ update_submodules:: init_submodules
 
 ensure:: init_submodules
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
+	@jq --version
 
 local_generate_code:: clean
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go ${VERSION}
