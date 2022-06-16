@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
-	"github.com/hashicorp/go-multierror"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
@@ -57,15 +56,13 @@ type Filename = string
 type Json = interface{}
 
 func emitJsonFiles(outDir string, files map[Filename]Json) error {
-	var result error
 	for filename, data := range files {
 		outPath := path.Join(outDir, filename)
 		err := emitJson(outPath, data)
 		if err != nil {
-			result = multierror.Append(result, err)
+			return err
 		}
 	}
-	return result
 }
 
 func emitJson(outputPath string, data Json) error {
