@@ -42,6 +42,7 @@ func writeAll(outputDir string) error {
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 	v1 := openapi.CalculateProviderDefaults(activePathVersions, providers)
 	deprecated := versioning.FindOlderVersions(specVersions, v1)
+	pending := versioning.FindNewerVersions(specVersions, v1)
 
 	return emitJsonFiles(outputDir, map[Filename]Json{
 		"spec.json":           specVersions,
@@ -49,6 +50,7 @@ func writeAll(outputDir string) error {
 		"v1.json":             v1,
 		"deprecated.json":     deprecated,
 		"active.json":         activePathVersionsJson,
+		"pending.json":        pending,
 	})
 }
 
@@ -63,6 +65,7 @@ func emitJsonFiles(outDir string, files map[Filename]Json) error {
 			return err
 		}
 	}
+	return nil
 }
 
 func emitJson(outputPath string, data Json) error {
