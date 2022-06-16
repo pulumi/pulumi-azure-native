@@ -41,7 +41,7 @@ func writeAll(outputDir string) error {
 	specResourceVersions := versioning.FormatResourceVersions(specVersions)
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 	v1 := openapi.CalculateProviderDefaults(activePathVersions, providers)
-	deprecated := versioning.FindOlderVersions(specVersions, v1)
+	deprecated := versioning.FindDeprecations(specVersions, v1)
 	pending := versioning.FindNewerVersions(specVersions, v1)
 
 	return emitJsonFiles(outputDir, map[Filename]Json{

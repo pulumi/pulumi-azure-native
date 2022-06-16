@@ -27,9 +27,7 @@
   "ApiManagement": [
     "2016-07-07"
   ],
-  "App": [
-    "2022-01-01-preview"
-  ],
+  "App": [],
   "AppConfiguration": [
     "2019-02-01-preview",
     "2019-10-01",
@@ -239,8 +237,7 @@
     "2020-09-21-preview",
     "2020-10-19-preview",
     "2020-11-02-preview",
-    "2020-11-10-preview",
-    "2021-01-14-preview"
+    "2020-11-10-preview"
   ],
   "DevOps": [
     "2019-07-01-preview"
@@ -282,8 +279,7 @@
     "2020-03-01",
     "2020-04-01",
     "2020-06-01-preview",
-    "2020-09-01",
-    "2021-01-15"
+    "2020-09-01"
   ],
   "DomainRegistration": [
     "2015-04-01",
@@ -338,11 +334,7 @@
     "2018-08-20-preview",
     "2019-09-16",
     "2020-03-15",
-    "2020-03-30",
-    "2021-01-11",
-    "2021-06-01-preview",
-    "2021-11-01",
-    "2022-01-31-preview"
+    "2020-03-30"
   ],
   "HybridCompute": [
     "2019-03-18-preview",
@@ -350,9 +342,7 @@
     "2019-12-12",
     "2020-07-30-preview"
   ],
-  "HybridConnectivity": [
-    "2021-10-06-preview"
-  ],
+  "HybridConnectivity": [],
   "HybridData": [
     "2016-06-01"
   ],
@@ -480,9 +470,7 @@
     "2018-03-01-preview",
     "2018-04-01"
   ],
-  "NetworkFunction": [
-    "2021-09-01-preview"
-  ],
+  "NetworkFunction": [],
   "NotificationHubs": [
     "2014-09-01",
     "2016-03-01"
@@ -556,9 +544,7 @@
   "Security": [
     "2015-06-01-preview"
   ],
-  "SecurityAndCompliance": [
-    "2021-01-11"
-  ],
+  "SecurityAndCompliance": [],
   "SecurityInsights": [],
   "SerialConsole": [],
   "ServiceBus": [
@@ -607,8 +593,7 @@
     "2018-11-01",
     "2019-04-01",
     "2019-06-01",
-    "2020-08-01-preview",
-    "2021-01-01"
+    "2020-08-01-preview"
   ],
   "StorageCache": [
     "2019-08-01-preview",
