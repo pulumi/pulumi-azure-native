@@ -1875,14 +1875,17 @@
         "listKustoPoolLanguageExtensions": "2021-06-01-preview"
     },
     "TestBase": {
-        "CustomerEvent": "2020-12-16-preview",
-        "FavoriteProcess": "2020-12-16-preview",
-        "Package": "2020-12-16-preview",
-        "TestBaseAccount": "2020-12-16-preview",
-        "getPackageDownloadURL": "2020-12-16-preview",
-        "getTestBaseAccountFileUploadUrl": "2020-12-16-preview",
-        "getTestResultDownloadURL": "2020-12-16-preview",
-        "getTestResultVideoDownloadURL": "2020-12-16-preview"
+        "CustomerEvent": "2022-04-01-preview",
+        "FavoriteProcess": "2022-04-01-preview",
+        "Package": "2022-04-01-preview",
+        "TestBaseAccount": "2022-04-01-preview",
+        "getBillingHubServiceFreeHourBalance": "2022-04-01-preview",
+        "getBillingHubServiceUsage": "2022-04-01-preview",
+        "getPackageDownloadURL": "2022-04-01-preview",
+        "getTestBaseAccountFileUploadUrl": "2022-04-01-preview",
+        "getTestResultConsoleLogDownloadURL": "2022-04-01-preview",
+        "getTestResultDownloadURL": "2022-04-01-preview",
+        "getTestResultVideoDownloadURL": "2022-04-01-preview"
     },
     "TimeSeriesInsights": {
         "AccessPolicy": "2020-05-15",

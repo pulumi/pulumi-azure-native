@@ -90799,7 +90799,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2021-09-01-preview"
         ],
         "capabilities": "None",
@@ -90814,7 +90813,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2021-09-01-preview"
         ],
         "capabilities": "None",
@@ -90829,7 +90827,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2021-09-01-preview"
         ],
         "capabilities": "None",
@@ -90847,11 +90844,10 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2021-09-01-preview"
         ],
-        "capabilities": "SystemAssignedResourceIdentity, SupportsTags, SupportsLocation",
-        "defaultApiVersion": "2022-04-01-preview",
+        "capabilities": "SupportsTags, SupportsLocation",
+        "defaultApiVersion": null,
         "locationMappings": null,
         "locations": [
           "East US 2 EUAP",
@@ -90865,7 +90861,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2021-09-01-preview"
         ],
         "capabilities": "None",
@@ -90883,7 +90878,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2021-09-01-preview"
         ],
         "capabilities": "None",
@@ -90901,7 +90895,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2021-09-01-preview"
         ],
         "capabilities": "None",
@@ -90919,7 +90912,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2021-09-01-preview"
         ],
         "capabilities": "None",
@@ -90937,7 +90929,6 @@
         "aliases": null,
         "apiProfiles": null,
         "apiVersions": [
-          "2022-04-01-preview",
           "2021-09-01-preview"
         ],
         "capabilities": "None",
