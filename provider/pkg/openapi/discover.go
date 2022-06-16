@@ -14,10 +14,16 @@ import (
 	"strings"
 )
 
+// ProviderName e.g. aad
 type ProviderName = string
 // ApiVersion e.g. 2020-01-30
 type ApiVersion = string
+// DefinitionName is the name of either an 'invoke' or a resource (e.g. listBuckets or Bucket)
+type DefinitionName = string
+// ResourceName e.g. Bucket
 type ResourceName = string
+// InvokeName e.g. listBuckets
+type InvokeName = string
 
 // SdkVersion e.g. v20200130
 type SdkVersion = string
@@ -31,11 +37,11 @@ type ProviderVersions = map[SdkVersion]VersionResources
 // VersionResources contains all resources and invokes in a given API version.
 type VersionResources struct {
 	Resources map[ResourceName]*ResourceSpec
-	Invokes   map[ResourceName]*ResourceSpec
+	Invokes   map[InvokeName]*ResourceSpec
 }
 
 // CuratedVersion is an amalgamation of multiple API versions
-type CuratedVersion = map[ProviderName]map[ResourceName]ApiVersion
+type CuratedVersion = map[ProviderName]map[DefinitionName]ApiVersion
 
 func (v VersionResources) All() map[string]*ResourceSpec {
 	specs := map[string]*ResourceSpec{}

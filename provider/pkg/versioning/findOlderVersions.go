@@ -5,18 +5,13 @@ import (
 	"sort"
 )
 
-type ProviderName = string
-// ApiVersion e.g. 2020-01-30
-type ApiVersion = string
-type ResourceName = string
-
-type ProviderVersions = map[ProviderName][]ApiVersion
+type ProviderVersions = map[openapi.ProviderName][]openapi.ApiVersion
 
 func FindOlderVersions(specVersions SpecVersions, curatedVersion openapi.CuratedVersion) ProviderVersions {
 	olderProviderVersions := ProviderVersions{}
 	for providerName, versions := range specVersions {
 		//goland:noinspection GoPreferNilSlice
-		olderVersions := []ApiVersion{}
+		olderVersions := []openapi.ApiVersion{}
 		curated := curatedVersion[providerName]
 		minCuratedVersion := findMinDefaultVersion(curated)
 		for version, _ := range versions {
@@ -31,7 +26,7 @@ func FindOlderVersions(specVersions SpecVersions, curatedVersion openapi.Curated
 	return olderProviderVersions
 }
 
-func findMinDefaultVersion(versionResources map[ResourceName]ApiVersion) ApiVersion {
+func findMinDefaultVersion(versionResources map[openapi.DefinitionName]openapi.ApiVersion) openapi.ApiVersion {
 	minVersion := ""
 	for _, version := range versionResources {
 		if minVersion == "" || version < minVersion {

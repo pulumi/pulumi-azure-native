@@ -5,9 +5,9 @@ import (
 	"sort"
 )
 
-type VersionResources = map[ApiVersion][]ResourceName
+type VersionResources = map[openapi.ApiVersion][]openapi.ResourceName
 
-type SpecVersions = map[ProviderName]VersionResources
+type SpecVersions = map[openapi.ProviderName]VersionResources
 
 func FindSpecVersions(providerVersions openapi.AzureProviders) SpecVersions {
 	formatted := SpecVersions{}
@@ -29,8 +29,8 @@ func FindSpecVersions(providerVersions openapi.AzureProviders) SpecVersions {
 	return formatted
 }
 
-type ResourceVersions = map[ResourceName][]ApiVersion
-type ProviderResourceVersions = map[ProviderName]ResourceVersions
+type ResourceVersions = map[openapi.DefinitionName][]openapi.ApiVersion
+type ProviderResourceVersions = map[openapi.ProviderName]ResourceVersions
 
 // FormatResourceVersions flips the hierarchy from Version->Resources to Resource->Versions
 func FormatResourceVersions(providerVersions SpecVersions) ProviderResourceVersions {

@@ -2,19 +2,20 @@ package providerlist
 
 import (
 	"encoding/json"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"io/ioutil"
 	"os"
 	"path/filepath"
 	"strings"
 )
+
 // LoweredProviderName e.g. analysisservices
 type LoweredProviderName = string
 // ResourcePath is a lowered resource path e.g. locations or locations/checknameavailability
 type ResourcePath = string
 // ApiVersions StringSet of versions e.g. 2019-03-01-preview or 2018-05-05
 type ApiVersions = codegen.StringSet
-type ApiVersion = string
 // ProviderPathVersions is a map of lowered provider names to Api Versions e.g. `analysisservices -> "locations/checknameavailability" -> [2019-03-01-preview, 2018-05-05]`
 type ProviderPathVersions = map[LoweredProviderName]map[ResourcePath]ApiVersions
 
@@ -45,7 +46,7 @@ func ReadProviderList() (ProviderPathVersions,error) {
 	return toProviderPathVersions(providers), nil
 }
 
-type ProviderPathVersionsJson = map[LoweredProviderName]map[ResourcePath][]ApiVersion
+type ProviderPathVersionsJson = map[LoweredProviderName]map[ResourcePath][]openapi.ApiVersion
 
 // FormatProviderPathVersionsJson prepares the active path versions for writing to JSON – replacing the string set with a string array
 func FormatProviderPathVersionsJson(activePathVersions ProviderPathVersions) ProviderPathVersionsJson {
