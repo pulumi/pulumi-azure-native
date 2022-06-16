@@ -538,8 +538,8 @@ func (c *versioner) armResourceTypes(path string) []string {
 
 // calculatePathVersions builds a map of all versions defined for an API paths from a map of all versions of a resource
 // provider. The result is a map from a normalized path to a set of versions for that path.
-func calculatePathVersions(versionMap ProviderVersions) (pathVersions map[string]codegen.StringSet) {
-	pathVersions = map[string]codegen.StringSet{}
+func calculatePathVersions(versionMap ProviderVersions) map[string]codegen.StringSet {
+	pathVersions := map[string]codegen.StringSet{}
 	for version, items := range versionMap {
 		for _, r := range items.Resources {
 			normalizedPath := normalizePath(r.Path)
