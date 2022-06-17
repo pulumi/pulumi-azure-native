@@ -28,6 +28,8 @@ if typing.TYPE_CHECKING:
     v20220421 = __v20220421
     import pulumi_azure_native.fluidrelay.v20220511 as __v20220511
     v20220511 = __v20220511
+    import pulumi_azure_native.fluidrelay.v20220526 as __v20220526
+    v20220526 = __v20220526
 else:
     v20210312preview = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20210312preview')
     v20210615preview = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20210615preview')
@@ -36,4 +38,5 @@ else:
     v20220215 = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20220215')
     v20220421 = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20220421')
     v20220511 = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20220511')
+    v20220526 = _utilities.lazy_import('pulumi_azure_native.fluidrelay.v20220526')
 

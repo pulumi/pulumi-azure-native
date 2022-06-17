@@ -137,6 +137,8 @@ if typing.TYPE_CHECKING:
     deploymentmanager = __deploymentmanager
     import pulumi_azure_native.desktopvirtualization as __desktopvirtualization
     desktopvirtualization = __desktopvirtualization
+    import pulumi_azure_native.devhub as __devhub
+    devhub = __devhub
     import pulumi_azure_native.devices as __devices
     devices = __devices
     import pulumi_azure_native.deviceupdate as __deviceupdate
@@ -446,6 +448,7 @@ else:
     delegatednetwork = _utilities.lazy_import('pulumi_azure_native.delegatednetwork')
     deploymentmanager = _utilities.lazy_import('pulumi_azure_native.deploymentmanager')
     desktopvirtualization = _utilities.lazy_import('pulumi_azure_native.desktopvirtualization')
+    devhub = _utilities.lazy_import('pulumi_azure_native.devhub')
     devices = _utilities.lazy_import('pulumi_azure_native.devices')
     deviceupdate = _utilities.lazy_import('pulumi_azure_native.deviceupdate')
     devops = _utilities.lazy_import('pulumi_azure_native.devops')
@@ -7105,6 +7108,22 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "devhub",
+  "fqn": "pulumi_azure_native.devhub",
+  "classes": {
+   "azure-native:devhub:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "devhub/v20220401preview",
+  "fqn": "pulumi_azure_native.devhub.v20220401preview",
+  "classes": {
+   "azure-native:devhub/v20220401preview:Workflow": "Workflow"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "devices",
   "fqn": "pulumi_azure_native.devices",
   "classes": {
@@ -8710,6 +8729,29 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "eventgrid/v20220615",
+  "fqn": "pulumi_azure_native.eventgrid.v20220615",
+  "classes": {
+   "azure-native:eventgrid/v20220615:Channel": "Channel",
+   "azure-native:eventgrid/v20220615:Domain": "Domain",
+   "azure-native:eventgrid/v20220615:DomainEventSubscription": "DomainEventSubscription",
+   "azure-native:eventgrid/v20220615:DomainTopic": "DomainTopic",
+   "azure-native:eventgrid/v20220615:DomainTopicEventSubscription": "DomainTopicEventSubscription",
+   "azure-native:eventgrid/v20220615:EventSubscription": "EventSubscription",
+   "azure-native:eventgrid/v20220615:PartnerConfiguration": "PartnerConfiguration",
+   "azure-native:eventgrid/v20220615:PartnerNamespace": "PartnerNamespace",
+   "azure-native:eventgrid/v20220615:PartnerRegistration": "PartnerRegistration",
+   "azure-native:eventgrid/v20220615:PartnerTopic": "PartnerTopic",
+   "azure-native:eventgrid/v20220615:PartnerTopicEventSubscription": "PartnerTopicEventSubscription",
+   "azure-native:eventgrid/v20220615:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:eventgrid/v20220615:SystemTopic": "SystemTopic",
+   "azure-native:eventgrid/v20220615:SystemTopicEventSubscription": "SystemTopicEventSubscription",
+   "azure-native:eventgrid/v20220615:Topic": "Topic",
+   "azure-native:eventgrid/v20220615:TopicEventSubscription": "TopicEventSubscription"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "eventhub",
   "fqn": "pulumi_azure_native.eventhub",
   "classes": {
@@ -8962,6 +9004,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.fluidrelay.v20220511",
   "classes": {
    "azure-native:fluidrelay/v20220511:FluidRelayServer": "FluidRelayServer"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "fluidrelay/v20220526",
+  "fqn": "pulumi_azure_native.fluidrelay.v20220526",
+  "classes": {
+   "azure-native:fluidrelay/v20220526:FluidRelayServer": "FluidRelayServer"
   }
  },
  {
@@ -10274,6 +10324,16 @@ _utilities.register(
    "azure-native:kubernetesconfiguration/v20220402preview:Extension": "Extension",
    "azure-native:kubernetesconfiguration/v20220402preview:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:kubernetesconfiguration/v20220402preview:PrivateLinkScope": "PrivateLinkScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "kubernetesconfiguration/v20220701",
+  "fqn": "pulumi_azure_native.kubernetesconfiguration.v20220701",
+  "classes": {
+   "azure-native:kubernetesconfiguration/v20220701:Extension": "Extension",
+   "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration": "FluxConfiguration",
+   "azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration": "SourceControlConfiguration"
   }
  },
  {
@@ -16514,10 +16574,13 @@ _utilities.register(
    "azure-native:security:CustomAssessmentAutomation": "CustomAssessmentAutomation",
    "azure-native:security:CustomEntityStoreAssignment": "CustomEntityStoreAssignment",
    "azure-native:security:DeviceSecurityGroup": "DeviceSecurityGroup",
+   "azure-native:security:GovernanceAssignment": "GovernanceAssignment",
+   "azure-native:security:GovernanceRule": "GovernanceRule",
    "azure-native:security:IngestionSetting": "IngestionSetting",
    "azure-native:security:IotSecuritySolution": "IotSecuritySolution",
    "azure-native:security:JitNetworkAccessPolicy": "JitNetworkAccessPolicy",
    "azure-native:security:SecurityConnector": "SecurityConnector",
+   "azure-native:security:SecurityConnectorGovernanceRule": "SecurityConnectorGovernanceRule",
    "azure-native:security:SecurityContact": "SecurityContact",
    "azure-native:security:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment",
    "azure-native:security:SqlVulnerabilityAssessmentBaselineRule": "SqlVulnerabilityAssessmentBaselineRule",
@@ -16645,6 +16708,16 @@ _utilities.register(
   "fqn": "pulumi_azure_native.security.v20211201preview",
   "classes": {
    "azure-native:security/v20211201preview:SecurityConnector": "SecurityConnector"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "security/v20220101preview",
+  "fqn": "pulumi_azure_native.security.v20220101preview",
+  "classes": {
+   "azure-native:security/v20220101preview:GovernanceAssignment": "GovernanceAssignment",
+   "azure-native:security/v20220101preview:GovernanceRule": "GovernanceRule",
+   "azure-native:security/v20220101preview:SecurityConnectorGovernanceRule": "SecurityConnectorGovernanceRule"
   }
  },
  {

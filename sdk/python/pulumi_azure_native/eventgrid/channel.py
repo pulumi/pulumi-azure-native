@@ -279,7 +279,7 @@ class Channel(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:Channel")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:eventgrid/v20211015preview:Channel"), pulumi.Alias(type_="azure-native:eventgrid/v20220615:Channel")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Channel, __self__).__init__(
             'azure-native:eventgrid:Channel',

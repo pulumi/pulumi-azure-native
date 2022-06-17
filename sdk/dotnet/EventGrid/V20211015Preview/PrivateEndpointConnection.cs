@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20211201:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

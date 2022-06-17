@@ -1497,6 +1497,7 @@
       "2021-12-01"
     ],
     "privateclouds/workloadnetworks/publicips": [
+      "2021-06-01",
       "2021-12-01"
     ],
     "privateclouds/workloadnetworks/segments": [
@@ -1651,34 +1652,44 @@
   },
   "azurepercept": {
     "": [
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-04-01-preview"
     ],
     "accounts": [
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-04-01-preview"
     ],
     "accounts/devices": [
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-04-01-preview"
     ],
     "accounts/devices/sensors": [
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-04-01-preview"
     ],
     "accounts/solutioninstances": [
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-04-01-preview"
     ],
     "accounts/solutions": [
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-04-01-preview"
     ],
     "accounts/targets": [
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-04-01-preview"
     ],
     "checknameavailability": [
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-04-01-preview"
     ],
     "locations/operationstatuses": [
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-04-01-preview"
     ],
     "operations": [
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-04-01-preview"
     ]
   },
   "azuresphere": {
@@ -1805,7 +1816,8 @@
       "2022-04-01-preview"
     ],
     "galleryimages": [
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01-preview"
     ],
     "locations": [
       "2020-10-01",
@@ -1829,7 +1841,8 @@
       "2022-05-01"
     ],
     "networkinterfaces": [
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01-preview"
     ],
     "operations": [
       "2020-03-01-preview",
@@ -1843,14 +1856,26 @@
       "2022-03-01",
       "2022-05-01"
     ],
+    "storagecontainers": [
+      "2021-09-01-preview"
+    ],
     "virtualharddisks": [
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01-preview"
     ],
     "virtualmachines": [
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01-preview"
+    ],
+    "virtualmachines/extensions": [
+      "2021-09-01-preview"
+    ],
+    "virtualmachines/hybrididentitymetadata": [
+      "2021-09-01-preview"
     ],
     "virtualnetworks": [
-      "2021-07-01-preview"
+      "2021-07-01-preview",
+      "2021-09-01-preview"
     ]
   },
   "backupsolutions": {
@@ -5552,54 +5577,62 @@
       "2020-03-01-preview",
       "2021-03-01-preview",
       "2021-09-01-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-04-10-preview"
     ],
     "agreements": [
       "2020-03-01",
       "2020-03-01-preview",
       "2021-03-01-preview",
       "2021-09-01-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-04-10-preview"
     ],
     "checknameavailability": [
       "2020-03-01",
       "2020-03-01-preview",
       "2021-03-01-preview",
       "2021-09-01-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-04-10-preview"
     ],
     "locations": [
       "2020-03-01",
       "2020-03-01-preview",
       "2021-03-01-preview",
       "2021-09-01-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-04-10-preview"
     ],
     "locations/operationstatuses": [
       "2020-03-01",
       "2020-03-01-preview",
       "2021-03-01-preview",
       "2021-09-01-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-04-10-preview"
     ],
     "operations": [
       "2020-03-01",
       "2020-03-01-preview",
       "2021-03-01-preview",
       "2021-09-01-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-04-10-preview"
     ],
     "organizations": [
       "2020-03-01",
       "2020-03-01-preview",
       "2021-03-01-preview",
       "2021-09-01-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-04-10-preview"
     ],
     "validations": [
       "2021-03-01-preview",
       "2021-09-01-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-04-10-preview"
     ]
   },
   "connectedcache": {
@@ -7888,7 +7921,8 @@
       "2022-02-01-preview",
       "2022-03-01",
       "2022-03-31-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ],
     "backupinstances": [
       "2022-03-31-preview"
@@ -7904,7 +7938,8 @@
       "2022-01-01",
       "2022-02-01-preview",
       "2022-03-01",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ],
     "locations": [
       "2020-01-01-alpha",
@@ -7917,7 +7952,8 @@
       "2022-01-01",
       "2022-02-01-preview",
       "2022-03-01",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ],
     "locations/checkfeaturesupport": [
       "2020-01-01-alpha",
@@ -7930,7 +7966,8 @@
       "2022-01-01",
       "2022-02-01-preview",
       "2022-03-01",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ],
     "locations/checknameavailability": [
       "2020-01-01-alpha",
@@ -7943,7 +7980,8 @@
       "2022-01-01",
       "2022-02-01-preview",
       "2022-03-01",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ],
     "locations/operationresults": [
       "2020-01-01-alpha",
@@ -7956,7 +7994,8 @@
       "2022-01-01",
       "2022-02-01-preview",
       "2022-03-01",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ],
     "locations/operationstatus": [
       "2020-01-01-alpha",
@@ -7969,7 +8008,8 @@
       "2022-01-01",
       "2022-02-01-preview",
       "2022-03-01",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ],
     "operations": [
       "2020-01-01-alpha",
@@ -7982,7 +8022,8 @@
       "2022-01-01",
       "2022-02-01-preview",
       "2022-03-01",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ],
     "resourceguards": [
       "2021-02-01-preview",
@@ -7992,7 +8033,8 @@
       "2022-01-01",
       "2022-02-01-preview",
       "2022-03-01",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ]
   },
   "datareplication": {
@@ -10652,7 +10694,8 @@
       "2022-04-03",
       "2022-04-21",
       "2022-05-11",
-      "2022-05-26"
+      "2022-05-26",
+      "2022-06-01"
     ],
     "fluidrelayservers": [
       "2021-03-12-preview",
@@ -10665,14 +10708,17 @@
       "2022-04-03",
       "2022-04-21",
       "2022-05-11",
-      "2022-05-26"
+      "2022-05-26",
+      "2022-06-01"
     ],
     "fluidrelayservers/fluidrelaycontainers": [
       "2021-08-30-preview",
       "2021-09-10-preview",
       "2022-02-15",
+      "2022-04-21",
       "2022-05-11",
-      "2022-05-26"
+      "2022-05-26",
+      "2022-06-01"
     ],
     "locations": [
       "2021-08-30-preview"
@@ -10686,7 +10732,8 @@
       "2022-02-15",
       "2022-04-21",
       "2022-05-11",
-      "2022-05-26"
+      "2022-05-26",
+      "2022-06-01"
     ]
   },
   "guestconfiguration": {
@@ -13736,6 +13783,7 @@
     "": [
       "2015-04-01",
       "2015-10-01",
+      "2016-05-01-preview",
       "2018-02-05",
       "2018-03-30-preview",
       "2018-06-01-preview",
@@ -13952,6 +14000,7 @@
     "operations": [
       "2015-04-01",
       "2015-10-01",
+      "2016-05-01-preview",
       "2018-02-05",
       "2018-03-30-preview",
       "2018-06-01-preview",
@@ -13961,6 +14010,7 @@
       "2021-05-01-preview",
       "2021-05-01-privatepreview",
       "2021-06-01",
+      "2021-11-01",
       "2021-11-01-preview"
     ],
     "videoanalyzers": [
@@ -14010,13 +14060,15 @@
       "2020-05-01-preview",
       "2020-06-01-preview",
       "2021-01-01",
-      "2021-08-01"
+      "2021-08-01",
+      "2022-02-02-preview"
     ],
     "assessmentprojects": [
       "2018-06-30-preview",
       "2019-05-01",
       "2019-10-01",
-      "2020-05-01-preview"
+      "2020-05-01-preview",
+      "2022-02-02-preview"
     ],
     "locations": [
       "2017-09-25-privatepreview",
@@ -24748,6 +24800,10 @@
       "2021-09-01",
       "2021-10-01-preview",
       "2021-11-01-preview",
+      "2022-01-01",
+      "2022-05-01"
+    ],
+    "locations/usages": [
       "2022-01-01",
       "2022-05-01"
     ],

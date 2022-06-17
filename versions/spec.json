@@ -3898,6 +3898,12 @@
       "Workspace"
     ]
   },
+  "DevHub": {
+    "2022-04-01-preview": [
+      "Workflow",
+      "getGitHubOAuth"
+    ]
+  },
   "DevOps": {
     "2019-07-01-preview": [
       "Pipeline"
@@ -5065,6 +5071,40 @@
       "getSystemTopicEventSubscriptionFullUrl",
       "listDomainSharedAccessKeys",
       "listTopicSharedAccessKeys"
+    ],
+    "2022-06-15": [
+      "Channel",
+      "Domain",
+      "DomainEventSubscription",
+      "DomainTopic",
+      "DomainTopicEventSubscription",
+      "EventSubscription",
+      "PartnerConfiguration",
+      "PartnerNamespace",
+      "PartnerRegistration",
+      "PartnerTopic",
+      "PartnerTopicEventSubscription",
+      "PrivateEndpointConnection",
+      "SystemTopic",
+      "SystemTopicEventSubscription",
+      "Topic",
+      "TopicEventSubscription",
+      "getChannelFullUrl",
+      "getDomainEventSubscriptionDeliveryAttributes",
+      "getDomainEventSubscriptionFullUrl",
+      "getDomainTopicEventSubscriptionDeliveryAttributes",
+      "getDomainTopicEventSubscriptionFullUrl",
+      "getEventSubscriptionDeliveryAttributes",
+      "getEventSubscriptionFullUrl",
+      "getPartnerTopicEventSubscriptionDeliveryAttributes",
+      "getPartnerTopicEventSubscriptionFullUrl",
+      "getSystemTopicEventSubscriptionDeliveryAttributes",
+      "getSystemTopicEventSubscriptionFullUrl",
+      "getTopicEventSubscriptionDeliveryAttributes",
+      "getTopicEventSubscriptionFullUrl",
+      "listDomainSharedAccessKeys",
+      "listPartnerNamespaceSharedAccessKeys",
+      "listTopicSharedAccessKeys"
     ]
   },
   "EventHub": {
@@ -5216,6 +5256,11 @@
       "listFluidRelayServerKeys"
     ],
     "2022-05-11": [
+      "FluidRelayServer",
+      "getFluidRelayServerKeys",
+      "listFluidRelayServerKeys"
+    ],
+    "2022-05-26": [
       "FluidRelayServer",
       "getFluidRelayServerKeys",
       "listFluidRelayServerKeys"
@@ -5821,6 +5866,11 @@
       "Extension",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
+    ],
+    "2022-07-01": [
+      "Extension",
+      "FluxConfiguration",
+      "SourceControlConfiguration"
     ]
   },
   "Kusto": {
@@ -10436,6 +10486,11 @@
     ],
     "2021-12-01-preview": [
       "SecurityConnector"
+    ],
+    "2022-01-01-preview": [
+      "GovernanceAssignment",
+      "GovernanceRule",
+      "SecurityConnectorGovernanceRule"
     ]
   },
   "SecurityAndCompliance": {

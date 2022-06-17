@@ -22186,6 +22186,212 @@ type SapHanaTableDatasetResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// SAP ODP Linked Service.
+type SapOdpLinkedService struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
+	ClientId interface{} `pulumi:"clientId"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReference `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).
+	Language interface{} `pulumi:"language"`
+	// The Logon Group for the SAP System. Type: string (or Expression with resultType string).
+	LogonGroup interface{} `pulumi:"logonGroup"`
+	// The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
+	MessageServer interface{} `pulumi:"messageServer"`
+	// The service name or port number of the Message Server. Type: string (or Expression with resultType string).
+	MessageServerService interface{} `pulumi:"messageServerService"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// Password to access the SAP server where the table is located.
+	Password interface{} `pulumi:"password"`
+	// Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string).
+	Server interface{} `pulumi:"server"`
+	// External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+	SncLibraryPath interface{} `pulumi:"sncLibraryPath"`
+	// SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
+	SncMode interface{} `pulumi:"sncMode"`
+	// Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+	SncMyName interface{} `pulumi:"sncMyName"`
+	// Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+	SncPartnerName interface{} `pulumi:"sncPartnerName"`
+	// SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string).
+	SncQop interface{} `pulumi:"sncQop"`
+	// The subscriber name. Type: string (or Expression with resultType string).
+	SubscriberName interface{} `pulumi:"subscriberName"`
+	// SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
+	SystemId interface{} `pulumi:"systemId"`
+	// System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
+	SystemNumber interface{} `pulumi:"systemNumber"`
+	// Type of linked service.
+	// Expected value is 'SapOdp'.
+	Type string `pulumi:"type"`
+	// Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+	UserName interface{} `pulumi:"userName"`
+	// SNC X509 certificate file path. Type: string (or Expression with resultType string).
+	X509CertificatePath interface{} `pulumi:"x509CertificatePath"`
+}
+
+// SAP ODP Linked Service.
+type SapOdpLinkedServiceResponse struct {
+	// List of tags that can be used for describing the linked service.
+	Annotations []interface{} `pulumi:"annotations"`
+	// Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
+	ClientId interface{} `pulumi:"clientId"`
+	// The integration runtime reference.
+	ConnectVia *IntegrationRuntimeReferenceResponse `pulumi:"connectVia"`
+	// Linked service description.
+	Description *string `pulumi:"description"`
+	// The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+	EncryptedCredential interface{} `pulumi:"encryptedCredential"`
+	// Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).
+	Language interface{} `pulumi:"language"`
+	// The Logon Group for the SAP System. Type: string (or Expression with resultType string).
+	LogonGroup interface{} `pulumi:"logonGroup"`
+	// The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
+	MessageServer interface{} `pulumi:"messageServer"`
+	// The service name or port number of the Message Server. Type: string (or Expression with resultType string).
+	MessageServerService interface{} `pulumi:"messageServerService"`
+	// Parameters for linked service.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Password to access the SAP server where the table is located.
+	Password interface{} `pulumi:"password"`
+	// Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string).
+	Server interface{} `pulumi:"server"`
+	// External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+	SncLibraryPath interface{} `pulumi:"sncLibraryPath"`
+	// SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
+	SncMode interface{} `pulumi:"sncMode"`
+	// Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+	SncMyName interface{} `pulumi:"sncMyName"`
+	// Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+	SncPartnerName interface{} `pulumi:"sncPartnerName"`
+	// SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string).
+	SncQop interface{} `pulumi:"sncQop"`
+	// The subscriber name. Type: string (or Expression with resultType string).
+	SubscriberName interface{} `pulumi:"subscriberName"`
+	// SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
+	SystemId interface{} `pulumi:"systemId"`
+	// System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
+	SystemNumber interface{} `pulumi:"systemNumber"`
+	// Type of linked service.
+	// Expected value is 'SapOdp'.
+	Type string `pulumi:"type"`
+	// Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+	UserName interface{} `pulumi:"userName"`
+	// SNC X509 certificate file path. Type: string (or Expression with resultType string).
+	X509CertificatePath interface{} `pulumi:"x509CertificatePath"`
+}
+
+// SAP ODP Resource properties.
+type SapOdpResourceDataset struct {
+	// List of tags that can be used for describing the Dataset.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The context of the SAP ODP Object. Type: string (or Expression with resultType string).
+	Context interface{} `pulumi:"context"`
+	// Dataset description.
+	Description *string `pulumi:"description"`
+	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+	Folder *DatasetFolder `pulumi:"folder"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReference `pulumi:"linkedServiceName"`
+	// The name of the SAP ODP Object. Type: string (or Expression with resultType string).
+	ObjectName interface{} `pulumi:"objectName"`
+	// Parameters for dataset.
+	Parameters map[string]ParameterSpecification `pulumi:"parameters"`
+	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+	Schema interface{} `pulumi:"schema"`
+	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+	Structure interface{} `pulumi:"structure"`
+	// Type of dataset.
+	// Expected value is 'SapOdpResource'.
+	Type string `pulumi:"type"`
+}
+
+// SAP ODP Resource properties.
+type SapOdpResourceDatasetResponse struct {
+	// List of tags that can be used for describing the Dataset.
+	Annotations []interface{} `pulumi:"annotations"`
+	// The context of the SAP ODP Object. Type: string (or Expression with resultType string).
+	Context interface{} `pulumi:"context"`
+	// Dataset description.
+	Description *string `pulumi:"description"`
+	// The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+	Folder *DatasetResponseFolder `pulumi:"folder"`
+	// Linked service reference.
+	LinkedServiceName LinkedServiceReferenceResponse `pulumi:"linkedServiceName"`
+	// The name of the SAP ODP Object. Type: string (or Expression with resultType string).
+	ObjectName interface{} `pulumi:"objectName"`
+	// Parameters for dataset.
+	Parameters map[string]ParameterSpecificationResponse `pulumi:"parameters"`
+	// Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+	Schema interface{} `pulumi:"schema"`
+	// Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+	Structure interface{} `pulumi:"structure"`
+	// Type of dataset.
+	// Expected value is 'SapOdpResource'.
+	Type string `pulumi:"type"`
+}
+
+// A copy activity source for SAP ODP source.
+type SapOdpSource struct {
+	// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+	AdditionalColumns interface{} `pulumi:"additionalColumns"`
+	// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+	DisableMetricsCollection interface{} `pulumi:"disableMetricsCollection"`
+	// The extraction mode. Allowed value include: Full, Delta and Recovery. The default value is Full. Type: string (or Expression with resultType string).
+	ExtractionMode interface{} `pulumi:"extractionMode"`
+	// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+	MaxConcurrentConnections interface{} `pulumi:"maxConcurrentConnections"`
+	// Specifies the columns to be selected from source data. Type: array of objects(projection) (or Expression with resultType array of objects).
+	Projection interface{} `pulumi:"projection"`
+	// Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+	QueryTimeout interface{} `pulumi:"queryTimeout"`
+	// Specifies the selection conditions from source data. Type: array of objects(selection) (or Expression with resultType array of objects).
+	Selection interface{} `pulumi:"selection"`
+	// Source retry count. Type: integer (or Expression with resultType integer).
+	SourceRetryCount interface{} `pulumi:"sourceRetryCount"`
+	// Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+	SourceRetryWait interface{} `pulumi:"sourceRetryWait"`
+	// The subscriber process to manage the delta process. Type: string (or Expression with resultType string).
+	SubscriberProcess interface{} `pulumi:"subscriberProcess"`
+	// Copy source type.
+	// Expected value is 'SapOdpSource'.
+	Type string `pulumi:"type"`
+}
+
+// A copy activity source for SAP ODP source.
+type SapOdpSourceResponse struct {
+	// Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+	AdditionalColumns interface{} `pulumi:"additionalColumns"`
+	// If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+	DisableMetricsCollection interface{} `pulumi:"disableMetricsCollection"`
+	// The extraction mode. Allowed value include: Full, Delta and Recovery. The default value is Full. Type: string (or Expression with resultType string).
+	ExtractionMode interface{} `pulumi:"extractionMode"`
+	// The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+	MaxConcurrentConnections interface{} `pulumi:"maxConcurrentConnections"`
+	// Specifies the columns to be selected from source data. Type: array of objects(projection) (or Expression with resultType array of objects).
+	Projection interface{} `pulumi:"projection"`
+	// Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+	QueryTimeout interface{} `pulumi:"queryTimeout"`
+	// Specifies the selection conditions from source data. Type: array of objects(selection) (or Expression with resultType array of objects).
+	Selection interface{} `pulumi:"selection"`
+	// Source retry count. Type: integer (or Expression with resultType integer).
+	SourceRetryCount interface{} `pulumi:"sourceRetryCount"`
+	// Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+	SourceRetryWait interface{} `pulumi:"sourceRetryWait"`
+	// The subscriber process to manage the delta process. Type: string (or Expression with resultType string).
+	SubscriberProcess interface{} `pulumi:"subscriberProcess"`
+	// Copy source type.
+	// Expected value is 'SapOdpSource'.
+	Type string `pulumi:"type"`
+}
+
 // SAP Business Warehouse Open Hub Destination Linked Service.
 type SapOpenHubLinkedService struct {
 	// List of tags that can be used for describing the linked service.

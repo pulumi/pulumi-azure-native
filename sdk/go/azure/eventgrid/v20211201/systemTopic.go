@@ -63,6 +63,9 @@ func NewSystemTopic(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:eventgrid/v20211015preview:SystemTopic"),
 		},
+		{
+			Type: pulumi.String("azure-native:eventgrid/v20220615:SystemTopic"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SystemTopic

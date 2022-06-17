@@ -13,6 +13,8 @@ const (
 	RunbookTypeEnumPowerShell              = RunbookTypeEnum("PowerShell")
 	RunbookTypeEnumGraphPowerShellWorkflow = RunbookTypeEnum("GraphPowerShellWorkflow")
 	RunbookTypeEnumGraphPowerShell         = RunbookTypeEnum("GraphPowerShell")
+	RunbookTypeEnumPython2                 = RunbookTypeEnum("Python2")
+	RunbookTypeEnumPython3                 = RunbookTypeEnum("Python3")
 )
 
 func init() {

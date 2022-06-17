@@ -166,6 +166,7 @@ namespace Pulumi.AzureNative.EventGrid.V20211015Preview
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20200401preview:PartnerRegistration"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20201015preview:PartnerRegistration"},
                     new Pulumi.Alias { Type = "azure-native:eventgrid/v20210601preview:PartnerRegistration"},
+                    new Pulumi.Alias { Type = "azure-native:eventgrid/v20220615:PartnerRegistration"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -37,7 +37,7 @@ export interface GetAccountArgs {
  */
 export interface GetAccountResult {
     /**
-     * The account's data-plane ID
+     * The account's data-plane ID. This can be set only when connecting an existing classic account
      */
     readonly accountId?: string;
     /**

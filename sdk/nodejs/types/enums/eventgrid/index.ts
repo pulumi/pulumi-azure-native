@@ -17,6 +17,7 @@ import * as v20201015preview from "./v20201015preview";
 import * as v20210601preview from "./v20210601preview";
 import * as v20211015preview from "./v20211015preview";
 import * as v20211201 from "./v20211201";
+import * as v20220615 from "./v20220615";
 
 export {
     v20170615preview,
@@ -34,6 +35,7 @@ export {
     v20210601preview,
     v20211015preview,
     v20211201,
+    v20220615,
 };
 
 export const AdvancedFilterOperatorType = {

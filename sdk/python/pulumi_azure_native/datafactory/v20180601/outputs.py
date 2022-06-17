@@ -459,6 +459,9 @@ __all__ = [
     'SapHanaPartitionSettingsResponse',
     'SapHanaSourceResponse',
     'SapHanaTableDatasetResponse',
+    'SapOdpLinkedServiceResponse',
+    'SapOdpResourceDatasetResponse',
+    'SapOdpSourceResponse',
     'SapOpenHubLinkedServiceResponse',
     'SapOpenHubSourceResponse',
     'SapOpenHubTableDatasetResponse',
@@ -19601,7 +19604,7 @@ class CopyActivityResponse(dict):
         Copy activity.
         :param str name: Activity name.
         :param Union['AvroSinkResponse', 'AzureBlobFSSinkResponse', 'AzureDataExplorerSinkResponse', 'AzureDataLakeStoreSinkResponse', 'AzureDatabricksDeltaLakeSinkResponse', 'AzureMySqlSinkResponse', 'AzurePostgreSqlSinkResponse', 'AzureQueueSinkResponse', 'AzureSearchIndexSinkResponse', 'AzureSqlSinkResponse', 'AzureTableSinkResponse', 'BinarySinkResponse', 'BlobSinkResponse', 'CommonDataServiceForAppsSinkResponse', 'CosmosDbMongoDbApiSinkResponse', 'CosmosDbSqlApiSinkResponse', 'DelimitedTextSinkResponse', 'DocumentDbCollectionSinkResponse', 'DynamicsCrmSinkResponse', 'DynamicsSinkResponse', 'FileSystemSinkResponse', 'InformixSinkResponse', 'JsonSinkResponse', 'MicrosoftAccessSinkResponse', 'MongoDbAtlasSinkResponse', 'MongoDbV2SinkResponse', 'OdbcSinkResponse', 'OracleSinkResponse', 'OrcSinkResponse', 'ParquetSinkResponse', 'RestSinkResponse', 'SalesforceServiceCloudSinkResponse', 'SalesforceSinkResponse', 'SapCloudForCustomerSinkResponse', 'SnowflakeSinkResponse', 'SqlDWSinkResponse', 'SqlMISinkResponse', 'SqlServerSinkResponse', 'SqlSinkResponse'] sink: Copy activity sink.
-        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Copy activity source.
         :param str type: Type of activity.
                Expected value is 'Copy'.
         :param Any data_integration_units: Maximum number of data integration units that can be used to perform this data movement. Type: integer (or Expression with resultType integer), minimum: 0.
@@ -42600,7 +42603,7 @@ class LookupActivityResponse(dict):
         Lookup activity.
         :param 'DatasetReferenceResponse' dataset: Lookup activity dataset reference.
         :param str name: Activity name.
-        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
+        :param Union['AmazonMWSSourceResponse', 'AmazonRdsForOracleSourceResponse', 'AmazonRdsForSqlServerSourceResponse', 'AmazonRedshiftSourceResponse', 'AvroSourceResponse', 'AzureBlobFSSourceResponse', 'AzureDataExplorerSourceResponse', 'AzureDataLakeStoreSourceResponse', 'AzureDatabricksDeltaLakeSourceResponse', 'AzureMariaDBSourceResponse', 'AzureMySqlSourceResponse', 'AzurePostgreSqlSourceResponse', 'AzureSqlSourceResponse', 'AzureTableSourceResponse', 'BinarySourceResponse', 'BlobSourceResponse', 'CassandraSourceResponse', 'CommonDataServiceForAppsSourceResponse', 'ConcurSourceResponse', 'CosmosDbMongoDbApiSourceResponse', 'CosmosDbSqlApiSourceResponse', 'CouchbaseSourceResponse', 'Db2SourceResponse', 'DelimitedTextSourceResponse', 'DocumentDbCollectionSourceResponse', 'DrillSourceResponse', 'DynamicsAXSourceResponse', 'DynamicsCrmSourceResponse', 'DynamicsSourceResponse', 'EloquaSourceResponse', 'ExcelSourceResponse', 'FileSystemSourceResponse', 'GoogleAdWordsSourceResponse', 'GoogleBigQuerySourceResponse', 'GreenplumSourceResponse', 'HBaseSourceResponse', 'HdfsSourceResponse', 'HiveSourceResponse', 'HttpSourceResponse', 'HubspotSourceResponse', 'ImpalaSourceResponse', 'InformixSourceResponse', 'JiraSourceResponse', 'JsonSourceResponse', 'MagentoSourceResponse', 'MariaDBSourceResponse', 'MarketoSourceResponse', 'MicrosoftAccessSourceResponse', 'MongoDbAtlasSourceResponse', 'MongoDbSourceResponse', 'MongoDbV2SourceResponse', 'MySqlSourceResponse', 'NetezzaSourceResponse', 'ODataSourceResponse', 'OdbcSourceResponse', 'Office365SourceResponse', 'OracleServiceCloudSourceResponse', 'OracleSourceResponse', 'OrcSourceResponse', 'ParquetSourceResponse', 'PaypalSourceResponse', 'PhoenixSourceResponse', 'PostgreSqlSourceResponse', 'PrestoSourceResponse', 'QuickBooksSourceResponse', 'RelationalSourceResponse', 'ResponsysSourceResponse', 'RestSourceResponse', 'SalesforceMarketingCloudSourceResponse', 'SalesforceServiceCloudSourceResponse', 'SalesforceSourceResponse', 'SapBwSourceResponse', 'SapCloudForCustomerSourceResponse', 'SapEccSourceResponse', 'SapHanaSourceResponse', 'SapOdpSourceResponse', 'SapOpenHubSourceResponse', 'SapTableSourceResponse', 'ServiceNowSourceResponse', 'SharePointOnlineListSourceResponse', 'ShopifySourceResponse', 'SnowflakeSourceResponse', 'SparkSourceResponse', 'SqlDWSourceResponse', 'SqlMISourceResponse', 'SqlServerSourceResponse', 'SqlSourceResponse', 'SquareSourceResponse', 'SybaseSourceResponse', 'TabularSourceResponse', 'TeradataSourceResponse', 'VerticaSourceResponse', 'WebSourceResponse', 'XeroSourceResponse', 'XmlSourceResponse', 'ZohoSourceResponse'] source: Dataset-specific source properties, same as copy activity source.
         :param str type: Type of activity.
                Expected value is 'Lookup'.
         :param Sequence['ActivityDependencyResponse'] depends_on: Activity depends on condition.
@@ -61711,6 +61714,664 @@ class SapHanaTableDatasetResponse(dict):
         The table name of SAP HANA. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "table")
+
+
+@pulumi.output_type
+class SapOdpLinkedServiceResponse(dict):
+    """
+    SAP ODP Linked Service.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "clientId":
+            suggest = "client_id"
+        elif key == "connectVia":
+            suggest = "connect_via"
+        elif key == "encryptedCredential":
+            suggest = "encrypted_credential"
+        elif key == "logonGroup":
+            suggest = "logon_group"
+        elif key == "messageServer":
+            suggest = "message_server"
+        elif key == "messageServerService":
+            suggest = "message_server_service"
+        elif key == "sncLibraryPath":
+            suggest = "snc_library_path"
+        elif key == "sncMode":
+            suggest = "snc_mode"
+        elif key == "sncMyName":
+            suggest = "snc_my_name"
+        elif key == "sncPartnerName":
+            suggest = "snc_partner_name"
+        elif key == "sncQop":
+            suggest = "snc_qop"
+        elif key == "subscriberName":
+            suggest = "subscriber_name"
+        elif key == "systemId":
+            suggest = "system_id"
+        elif key == "systemNumber":
+            suggest = "system_number"
+        elif key == "userName":
+            suggest = "user_name"
+        elif key == "x509CertificatePath":
+            suggest = "x509_certificate_path"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapOdpLinkedServiceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapOdpLinkedServiceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapOdpLinkedServiceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 client_id: Optional[Any] = None,
+                 connect_via: Optional['outputs.IntegrationRuntimeReferenceResponse'] = None,
+                 description: Optional[str] = None,
+                 encrypted_credential: Optional[Any] = None,
+                 language: Optional[Any] = None,
+                 logon_group: Optional[Any] = None,
+                 message_server: Optional[Any] = None,
+                 message_server_service: Optional[Any] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 password: Optional[Any] = None,
+                 server: Optional[Any] = None,
+                 snc_library_path: Optional[Any] = None,
+                 snc_mode: Optional[Any] = None,
+                 snc_my_name: Optional[Any] = None,
+                 snc_partner_name: Optional[Any] = None,
+                 snc_qop: Optional[Any] = None,
+                 subscriber_name: Optional[Any] = None,
+                 system_id: Optional[Any] = None,
+                 system_number: Optional[Any] = None,
+                 user_name: Optional[Any] = None,
+                 x509_certificate_path: Optional[Any] = None):
+        """
+        SAP ODP Linked Service.
+        :param str type: Type of linked service.
+               Expected value is 'SapOdp'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the linked service.
+        :param Any client_id: Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
+        :param 'IntegrationRuntimeReferenceResponse' connect_via: The integration runtime reference.
+        :param str description: Linked service description.
+        :param Any encrypted_credential: The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        :param Any language: Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).
+        :param Any logon_group: The Logon Group for the SAP System. Type: string (or Expression with resultType string).
+        :param Any message_server: The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
+        :param Any message_server_service: The service name or port number of the Message Server. Type: string (or Expression with resultType string).
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for linked service.
+        :param Union['AzureKeyVaultSecretReferenceResponse', 'SecureStringResponse'] password: Password to access the SAP server where the table is located.
+        :param Any server: Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string).
+        :param Any snc_library_path: External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        :param Any snc_mode: SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
+        :param Any snc_my_name: Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        :param Any snc_partner_name: Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        :param Any snc_qop: SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string).
+        :param Any subscriber_name: The subscriber name. Type: string (or Expression with resultType string).
+        :param Any system_id: SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
+        :param Any system_number: System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
+        :param Any user_name: Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        :param Any x509_certificate_path: SNC X509 certificate file path. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'SapOdp')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if client_id is not None:
+            pulumi.set(__self__, "client_id", client_id)
+        if connect_via is not None:
+            pulumi.set(__self__, "connect_via", connect_via)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if encrypted_credential is not None:
+            pulumi.set(__self__, "encrypted_credential", encrypted_credential)
+        if language is not None:
+            pulumi.set(__self__, "language", language)
+        if logon_group is not None:
+            pulumi.set(__self__, "logon_group", logon_group)
+        if message_server is not None:
+            pulumi.set(__self__, "message_server", message_server)
+        if message_server_service is not None:
+            pulumi.set(__self__, "message_server_service", message_server_service)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if password is not None:
+            pulumi.set(__self__, "password", password)
+        if server is not None:
+            pulumi.set(__self__, "server", server)
+        if snc_library_path is not None:
+            pulumi.set(__self__, "snc_library_path", snc_library_path)
+        if snc_mode is not None:
+            pulumi.set(__self__, "snc_mode", snc_mode)
+        if snc_my_name is not None:
+            pulumi.set(__self__, "snc_my_name", snc_my_name)
+        if snc_partner_name is not None:
+            pulumi.set(__self__, "snc_partner_name", snc_partner_name)
+        if snc_qop is not None:
+            pulumi.set(__self__, "snc_qop", snc_qop)
+        if subscriber_name is not None:
+            pulumi.set(__self__, "subscriber_name", subscriber_name)
+        if system_id is not None:
+            pulumi.set(__self__, "system_id", system_id)
+        if system_number is not None:
+            pulumi.set(__self__, "system_number", system_number)
+        if user_name is not None:
+            pulumi.set(__self__, "user_name", user_name)
+        if x509_certificate_path is not None:
+            pulumi.set(__self__, "x509_certificate_path", x509_certificate_path)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of linked service.
+        Expected value is 'SapOdp'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the linked service.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter(name="clientId")
+    def client_id(self) -> Optional[Any]:
+        """
+        Client ID of the client on the SAP system where the table is located. (Usually a three-digit decimal number represented as a string) Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "client_id")
+
+    @property
+    @pulumi.getter(name="connectVia")
+    def connect_via(self) -> Optional['outputs.IntegrationRuntimeReferenceResponse']:
+        """
+        The integration runtime reference.
+        """
+        return pulumi.get(self, "connect_via")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Linked service description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="encryptedCredential")
+    def encrypted_credential(self) -> Optional[Any]:
+        """
+        The encrypted credential used for authentication. Credentials are encrypted using the integration runtime credential manager. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "encrypted_credential")
+
+    @property
+    @pulumi.getter
+    def language(self) -> Optional[Any]:
+        """
+        Language of the SAP system where the table is located. The default value is EN. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "language")
+
+    @property
+    @pulumi.getter(name="logonGroup")
+    def logon_group(self) -> Optional[Any]:
+        """
+        The Logon Group for the SAP System. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "logon_group")
+
+    @property
+    @pulumi.getter(name="messageServer")
+    def message_server(self) -> Optional[Any]:
+        """
+        The hostname of the SAP Message Server. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "message_server")
+
+    @property
+    @pulumi.getter(name="messageServerService")
+    def message_server_service(self) -> Optional[Any]:
+        """
+        The service name or port number of the Message Server. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "message_server_service")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for linked service.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def password(self) -> Optional[Any]:
+        """
+        Password to access the SAP server where the table is located.
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def server(self) -> Optional[Any]:
+        """
+        Host name of the SAP instance where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "server")
+
+    @property
+    @pulumi.getter(name="sncLibraryPath")
+    def snc_library_path(self) -> Optional[Any]:
+        """
+        External security product's library to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "snc_library_path")
+
+    @property
+    @pulumi.getter(name="sncMode")
+    def snc_mode(self) -> Optional[Any]:
+        """
+        SNC activation indicator to access the SAP server where the table is located. Must be either 0 (off) or 1 (on). Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "snc_mode")
+
+    @property
+    @pulumi.getter(name="sncMyName")
+    def snc_my_name(self) -> Optional[Any]:
+        """
+        Initiator's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "snc_my_name")
+
+    @property
+    @pulumi.getter(name="sncPartnerName")
+    def snc_partner_name(self) -> Optional[Any]:
+        """
+        Communication partner's SNC name to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "snc_partner_name")
+
+    @property
+    @pulumi.getter(name="sncQop")
+    def snc_qop(self) -> Optional[Any]:
+        """
+        SNC Quality of Protection. Allowed value include: 1, 2, 3, 8, 9. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "snc_qop")
+
+    @property
+    @pulumi.getter(name="subscriberName")
+    def subscriber_name(self) -> Optional[Any]:
+        """
+        The subscriber name. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "subscriber_name")
+
+    @property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> Optional[Any]:
+        """
+        SystemID of the SAP system where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "system_id")
+
+    @property
+    @pulumi.getter(name="systemNumber")
+    def system_number(self) -> Optional[Any]:
+        """
+        System number of the SAP system where the table is located. (Usually a two-digit decimal number represented as a string.) Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "system_number")
+
+    @property
+    @pulumi.getter(name="userName")
+    def user_name(self) -> Optional[Any]:
+        """
+        Username to access the SAP server where the table is located. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "user_name")
+
+    @property
+    @pulumi.getter(name="x509CertificatePath")
+    def x509_certificate_path(self) -> Optional[Any]:
+        """
+        SNC X509 certificate file path. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "x509_certificate_path")
+
+
+@pulumi.output_type
+class SapOdpResourceDatasetResponse(dict):
+    """
+    SAP ODP Resource properties.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "linkedServiceName":
+            suggest = "linked_service_name"
+        elif key == "objectName":
+            suggest = "object_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapOdpResourceDatasetResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapOdpResourceDatasetResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapOdpResourceDatasetResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 context: Any,
+                 linked_service_name: 'outputs.LinkedServiceReferenceResponse',
+                 object_name: Any,
+                 type: str,
+                 annotations: Optional[Sequence[Any]] = None,
+                 description: Optional[str] = None,
+                 folder: Optional['outputs.DatasetResponseFolder'] = None,
+                 parameters: Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']] = None,
+                 schema: Optional[Any] = None,
+                 structure: Optional[Any] = None):
+        """
+        SAP ODP Resource properties.
+        :param Any context: The context of the SAP ODP Object. Type: string (or Expression with resultType string).
+        :param 'LinkedServiceReferenceResponse' linked_service_name: Linked service reference.
+        :param Any object_name: The name of the SAP ODP Object. Type: string (or Expression with resultType string).
+        :param str type: Type of dataset.
+               Expected value is 'SapOdpResource'.
+        :param Sequence[Any] annotations: List of tags that can be used for describing the Dataset.
+        :param str description: Dataset description.
+        :param 'DatasetResponseFolder' folder: The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        :param Mapping[str, 'ParameterSpecificationResponse'] parameters: Parameters for dataset.
+        :param Any schema: Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        :param Any structure: Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        pulumi.set(__self__, "context", context)
+        pulumi.set(__self__, "linked_service_name", linked_service_name)
+        pulumi.set(__self__, "object_name", object_name)
+        pulumi.set(__self__, "type", 'SapOdpResource')
+        if annotations is not None:
+            pulumi.set(__self__, "annotations", annotations)
+        if description is not None:
+            pulumi.set(__self__, "description", description)
+        if folder is not None:
+            pulumi.set(__self__, "folder", folder)
+        if parameters is not None:
+            pulumi.set(__self__, "parameters", parameters)
+        if schema is not None:
+            pulumi.set(__self__, "schema", schema)
+        if structure is not None:
+            pulumi.set(__self__, "structure", structure)
+
+    @property
+    @pulumi.getter
+    def context(self) -> Any:
+        """
+        The context of the SAP ODP Object. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "context")
+
+    @property
+    @pulumi.getter(name="linkedServiceName")
+    def linked_service_name(self) -> 'outputs.LinkedServiceReferenceResponse':
+        """
+        Linked service reference.
+        """
+        return pulumi.get(self, "linked_service_name")
+
+    @property
+    @pulumi.getter(name="objectName")
+    def object_name(self) -> Any:
+        """
+        The name of the SAP ODP Object. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "object_name")
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Type of dataset.
+        Expected value is 'SapOdpResource'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter
+    def annotations(self) -> Optional[Sequence[Any]]:
+        """
+        List of tags that can be used for describing the Dataset.
+        """
+        return pulumi.get(self, "annotations")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[str]:
+        """
+        Dataset description.
+        """
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter
+    def folder(self) -> Optional['outputs.DatasetResponseFolder']:
+        """
+        The folder that this Dataset is in. If not specified, Dataset will appear at the root level.
+        """
+        return pulumi.get(self, "folder")
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> Optional[Mapping[str, 'outputs.ParameterSpecificationResponse']]:
+        """
+        Parameters for dataset.
+        """
+        return pulumi.get(self, "parameters")
+
+    @property
+    @pulumi.getter
+    def schema(self) -> Optional[Any]:
+        """
+        Columns that define the physical type schema of the dataset. Type: array (or Expression with resultType array), itemType: DatasetSchemaDataElement.
+        """
+        return pulumi.get(self, "schema")
+
+    @property
+    @pulumi.getter
+    def structure(self) -> Optional[Any]:
+        """
+        Columns that define the structure of the dataset. Type: array (or Expression with resultType array), itemType: DatasetDataElement.
+        """
+        return pulumi.get(self, "structure")
+
+
+@pulumi.output_type
+class SapOdpSourceResponse(dict):
+    """
+    A copy activity source for SAP ODP source.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "additionalColumns":
+            suggest = "additional_columns"
+        elif key == "disableMetricsCollection":
+            suggest = "disable_metrics_collection"
+        elif key == "extractionMode":
+            suggest = "extraction_mode"
+        elif key == "maxConcurrentConnections":
+            suggest = "max_concurrent_connections"
+        elif key == "queryTimeout":
+            suggest = "query_timeout"
+        elif key == "sourceRetryCount":
+            suggest = "source_retry_count"
+        elif key == "sourceRetryWait":
+            suggest = "source_retry_wait"
+        elif key == "subscriberProcess":
+            suggest = "subscriber_process"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SapOdpSourceResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SapOdpSourceResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SapOdpSourceResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 type: str,
+                 additional_columns: Optional[Any] = None,
+                 disable_metrics_collection: Optional[Any] = None,
+                 extraction_mode: Optional[Any] = None,
+                 max_concurrent_connections: Optional[Any] = None,
+                 projection: Optional[Any] = None,
+                 query_timeout: Optional[Any] = None,
+                 selection: Optional[Any] = None,
+                 source_retry_count: Optional[Any] = None,
+                 source_retry_wait: Optional[Any] = None,
+                 subscriber_process: Optional[Any] = None):
+        """
+        A copy activity source for SAP ODP source.
+        :param str type: Copy source type.
+               Expected value is 'SapOdpSource'.
+        :param Any additional_columns: Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        :param Any disable_metrics_collection: If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        :param Any extraction_mode: The extraction mode. Allowed value include: Full, Delta and Recovery. The default value is Full. Type: string (or Expression with resultType string).
+        :param Any max_concurrent_connections: The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        :param Any projection: Specifies the columns to be selected from source data. Type: array of objects(projection) (or Expression with resultType array of objects).
+        :param Any query_timeout: Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any selection: Specifies the selection conditions from source data. Type: array of objects(selection) (or Expression with resultType array of objects).
+        :param Any source_retry_count: Source retry count. Type: integer (or Expression with resultType integer).
+        :param Any source_retry_wait: Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        :param Any subscriber_process: The subscriber process to manage the delta process. Type: string (or Expression with resultType string).
+        """
+        pulumi.set(__self__, "type", 'SapOdpSource')
+        if additional_columns is not None:
+            pulumi.set(__self__, "additional_columns", additional_columns)
+        if disable_metrics_collection is not None:
+            pulumi.set(__self__, "disable_metrics_collection", disable_metrics_collection)
+        if extraction_mode is not None:
+            pulumi.set(__self__, "extraction_mode", extraction_mode)
+        if max_concurrent_connections is not None:
+            pulumi.set(__self__, "max_concurrent_connections", max_concurrent_connections)
+        if projection is not None:
+            pulumi.set(__self__, "projection", projection)
+        if query_timeout is not None:
+            pulumi.set(__self__, "query_timeout", query_timeout)
+        if selection is not None:
+            pulumi.set(__self__, "selection", selection)
+        if source_retry_count is not None:
+            pulumi.set(__self__, "source_retry_count", source_retry_count)
+        if source_retry_wait is not None:
+            pulumi.set(__self__, "source_retry_wait", source_retry_wait)
+        if subscriber_process is not None:
+            pulumi.set(__self__, "subscriber_process", subscriber_process)
+
+    @property
+    @pulumi.getter
+    def type(self) -> str:
+        """
+        Copy source type.
+        Expected value is 'SapOdpSource'.
+        """
+        return pulumi.get(self, "type")
+
+    @property
+    @pulumi.getter(name="additionalColumns")
+    def additional_columns(self) -> Optional[Any]:
+        """
+        Specifies the additional columns to be added to source data. Type: array of objects(AdditionalColumns) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "additional_columns")
+
+    @property
+    @pulumi.getter(name="disableMetricsCollection")
+    def disable_metrics_collection(self) -> Optional[Any]:
+        """
+        If true, disable data store metrics collection. Default is false. Type: boolean (or Expression with resultType boolean).
+        """
+        return pulumi.get(self, "disable_metrics_collection")
+
+    @property
+    @pulumi.getter(name="extractionMode")
+    def extraction_mode(self) -> Optional[Any]:
+        """
+        The extraction mode. Allowed value include: Full, Delta and Recovery. The default value is Full. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "extraction_mode")
+
+    @property
+    @pulumi.getter(name="maxConcurrentConnections")
+    def max_concurrent_connections(self) -> Optional[Any]:
+        """
+        The maximum concurrent connection count for the source data store. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "max_concurrent_connections")
+
+    @property
+    @pulumi.getter
+    def projection(self) -> Optional[Any]:
+        """
+        Specifies the columns to be selected from source data. Type: array of objects(projection) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "projection")
+
+    @property
+    @pulumi.getter(name="queryTimeout")
+    def query_timeout(self) -> Optional[Any]:
+        """
+        Query timeout. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "query_timeout")
+
+    @property
+    @pulumi.getter
+    def selection(self) -> Optional[Any]:
+        """
+        Specifies the selection conditions from source data. Type: array of objects(selection) (or Expression with resultType array of objects).
+        """
+        return pulumi.get(self, "selection")
+
+    @property
+    @pulumi.getter(name="sourceRetryCount")
+    def source_retry_count(self) -> Optional[Any]:
+        """
+        Source retry count. Type: integer (or Expression with resultType integer).
+        """
+        return pulumi.get(self, "source_retry_count")
+
+    @property
+    @pulumi.getter(name="sourceRetryWait")
+    def source_retry_wait(self) -> Optional[Any]:
+        """
+        Source retry wait. Type: string (or Expression with resultType string), pattern: ((\d+)\.)?(\d\d):(60|([0-5][0-9])):(60|([0-5][0-9])).
+        """
+        return pulumi.get(self, "source_retry_wait")
+
+    @property
+    @pulumi.getter(name="subscriberProcess")
+    def subscriber_process(self) -> Optional[Any]:
+        """
+        The subscriber process to manage the delta process. Type: string (or Expression with resultType string).
+        """
+        return pulumi.get(self, "subscriber_process")
 
 
 @pulumi.output_type

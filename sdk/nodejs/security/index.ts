@@ -27,21 +27,27 @@ export * from "./getConnector";
 export * from "./getCustomAssessmentAutomation";
 export * from "./getCustomEntityStoreAssignment";
 export * from "./getDeviceSecurityGroup";
+export * from "./getGovernanceAssignment";
+export * from "./getGovernanceRule";
 export * from "./getIngestionSetting";
 export * from "./getIotSecuritySolution";
 export * from "./getJitNetworkAccessPolicy";
 export * from "./getSecurityConnector";
+export * from "./getSecurityConnectorGovernanceRule";
 export * from "./getSecurityContact";
 export * from "./getServerVulnerabilityAssessment";
 export * from "./getSqlVulnerabilityAssessmentBaselineRule";
 export * from "./getStandard";
 export * from "./getWorkspaceSetting";
+export * from "./governanceAssignment";
+export * from "./governanceRule";
 export * from "./ingestionSetting";
 export * from "./iotSecuritySolution";
 export * from "./jitNetworkAccessPolicy";
 export * from "./listIngestionSettingConnectionStrings";
 export * from "./listIngestionSettingTokens";
 export * from "./securityConnector";
+export * from "./securityConnectorGovernanceRule";
 export * from "./securityContact";
 export * from "./serverVulnerabilityAssessment";
 export * from "./sqlVulnerabilityAssessmentBaselineRule";
@@ -65,6 +71,7 @@ import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
 import * as v20210801preview from "./v20210801preview";
 import * as v20211201preview from "./v20211201preview";
+import * as v20220101preview from "./v20220101preview";
 
 export {
     v20150601preview,
@@ -80,6 +87,7 @@ export {
     v20210701preview,
     v20210801preview,
     v20211201preview,
+    v20220101preview,
 };
 
 // Import resources to register:
@@ -94,10 +102,13 @@ import { Connector } from "./connector";
 import { CustomAssessmentAutomation } from "./customAssessmentAutomation";
 import { CustomEntityStoreAssignment } from "./customEntityStoreAssignment";
 import { DeviceSecurityGroup } from "./deviceSecurityGroup";
+import { GovernanceAssignment } from "./governanceAssignment";
+import { GovernanceRule } from "./governanceRule";
 import { IngestionSetting } from "./ingestionSetting";
 import { IotSecuritySolution } from "./iotSecuritySolution";
 import { JitNetworkAccessPolicy } from "./jitNetworkAccessPolicy";
 import { SecurityConnector } from "./securityConnector";
+import { SecurityConnectorGovernanceRule } from "./securityConnectorGovernanceRule";
 import { SecurityContact } from "./securityContact";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
 import { SqlVulnerabilityAssessmentBaselineRule } from "./sqlVulnerabilityAssessmentBaselineRule";
@@ -130,6 +141,10 @@ const _module = {
                 return new CustomEntityStoreAssignment(name, <any>undefined, { urn })
             case "azure-native:security:DeviceSecurityGroup":
                 return new DeviceSecurityGroup(name, <any>undefined, { urn })
+            case "azure-native:security:GovernanceAssignment":
+                return new GovernanceAssignment(name, <any>undefined, { urn })
+            case "azure-native:security:GovernanceRule":
+                return new GovernanceRule(name, <any>undefined, { urn })
             case "azure-native:security:IngestionSetting":
                 return new IngestionSetting(name, <any>undefined, { urn })
             case "azure-native:security:IotSecuritySolution":
@@ -138,6 +153,8 @@ const _module = {
                 return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
             case "azure-native:security:SecurityConnector":
                 return new SecurityConnector(name, <any>undefined, { urn })
+            case "azure-native:security:SecurityConnectorGovernanceRule":
+                return new SecurityConnectorGovernanceRule(name, <any>undefined, { urn })
             case "azure-native:security:SecurityContact":
                 return new SecurityContact(name, <any>undefined, { urn })
             case "azure-native:security:ServerVulnerabilityAssessment":

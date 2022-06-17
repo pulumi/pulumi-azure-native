@@ -356,7 +356,8 @@
       {
         "resourceType": "privateClouds/workloadNetworks/publicIPs",
         "apiVersions": [
-          "2021-12-01"
+          "2021-12-01",
+          "2021-06-01"
         ]
       },
       {
@@ -2203,54 +2204,63 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2022-04-01-preview",
           "2021-09-01-preview"
         ]
       },
       {
         "resourceType": "accounts",
         "apiVersions": [
+          "2022-04-01-preview",
           "2021-09-01-preview"
         ]
       },
       {
         "resourceType": "accounts/devices",
         "apiVersions": [
+          "2022-04-01-preview",
           "2021-09-01-preview"
         ]
       },
       {
         "resourceType": "accounts/devices/sensors",
         "apiVersions": [
+          "2022-04-01-preview",
           "2021-09-01-preview"
         ]
       },
       {
         "resourceType": "accounts/solutioninstances",
         "apiVersions": [
+          "2022-04-01-preview",
           "2021-09-01-preview"
         ]
       },
       {
         "resourceType": "accounts/solutions",
         "apiVersions": [
+          "2022-04-01-preview",
           "2021-09-01-preview"
         ]
       },
       {
         "resourceType": "accounts/targets",
         "apiVersions": [
+          "2022-04-01-preview",
           "2021-09-01-preview"
         ]
       },
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2022-04-01-preview",
           "2021-09-01-preview"
         ]
       },
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-04-01-preview",
           "2021-09-01-preview"
         ]
       }
@@ -2434,8 +2444,9 @@
         ]
       },
       {
-        "resourceType": "galleryImages",
+        "resourceType": "galleryimages",
         "apiVersions": [
+          "2021-09-01-preview",
           "2021-07-01-preview"
         ]
       },
@@ -2467,8 +2478,9 @@
         ]
       },
       {
-        "resourceType": "networkinterfaces",
+        "resourceType": "networkInterfaces",
         "apiVersions": [
+          "2021-09-01-preview",
           "2021-07-01-preview"
         ]
       },
@@ -2488,21 +2500,42 @@
         ]
       },
       {
-        "resourceType": "virtualharddisks",
+        "resourceType": "storageContainers",
         "apiVersions": [
+          "2021-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualHardDisks",
+        "apiVersions": [
+          "2021-09-01-preview",
+          "2021-07-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualNetworks",
+        "apiVersions": [
+          "2021-09-01-preview",
           "2021-07-01-preview"
         ]
       },
       {
         "resourceType": "virtualmachines",
         "apiVersions": [
+          "2021-09-01-preview",
           "2021-07-01-preview"
         ]
       },
       {
-        "resourceType": "virtualnetworks",
+        "resourceType": "virtualmachines/extensions",
         "apiVersions": [
-          "2021-07-01-preview"
+          "2021-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "virtualmachines/hybrididentitymetadata",
+        "apiVersions": [
+          "2021-09-01-preview"
         ]
       }
     ]
@@ -7382,6 +7415,7 @@
       {
         "resourceType": "agreements",
         "apiVersions": [
+          "2022-04-10-preview",
           "2021-12-01",
           "2021-09-01-preview",
           "2021-03-01-preview",
@@ -7392,6 +7426,7 @@
       {
         "resourceType": "checkNameAvailability",
         "apiVersions": [
+          "2022-04-10-preview",
           "2021-12-01",
           "2021-09-01-preview",
           "2021-03-01-preview",
@@ -7402,6 +7437,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-04-10-preview",
           "2021-12-01",
           "2021-09-01-preview",
           "2021-03-01-preview",
@@ -7412,6 +7448,7 @@
       {
         "resourceType": "locations/OperationStatuses",
         "apiVersions": [
+          "2022-04-10-preview",
           "2021-12-01",
           "2021-09-01-preview",
           "2021-03-01-preview",
@@ -7422,6 +7459,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-04-10-preview",
           "2021-12-01",
           "2021-09-01-preview",
           "2021-03-01-preview",
@@ -7432,6 +7470,7 @@
       {
         "resourceType": "organizations",
         "apiVersions": [
+          "2022-04-10-preview",
           "2021-12-01",
           "2021-09-01-preview",
           "2021-03-01-preview",
@@ -7442,6 +7481,7 @@
       {
         "resourceType": "validations",
         "apiVersions": [
+          "2022-04-10-preview",
           "2021-12-01",
           "2021-09-01-preview",
           "2021-03-01-preview"
@@ -10967,6 +11007,7 @@
       {
         "resourceType": "BackupVaults",
         "apiVersions": [
+          "2022-05-01",
           "2022-04-01",
           "2022-03-01",
           "2022-02-01-preview",
@@ -10983,6 +11024,7 @@
       {
         "resourceType": "ResourceGuards",
         "apiVersions": [
+          "2022-05-01",
           "2022-04-01",
           "2022-03-01",
           "2022-02-01-preview",
@@ -11002,6 +11044,7 @@
       {
         "resourceType": "locations",
         "apiVersions": [
+          "2022-05-01",
           "2022-04-01",
           "2022-03-01",
           "2022-02-01-preview",
@@ -11018,6 +11061,7 @@
       {
         "resourceType": "locations/checkFeatureSupport",
         "apiVersions": [
+          "2022-05-01",
           "2022-04-01",
           "2022-03-01",
           "2022-02-01-preview",
@@ -11034,6 +11078,7 @@
       {
         "resourceType": "locations/checkNameAvailability",
         "apiVersions": [
+          "2022-05-01",
           "2022-04-01",
           "2022-03-01",
           "2022-02-01-preview",
@@ -11050,6 +11095,7 @@
       {
         "resourceType": "locations/operationResults",
         "apiVersions": [
+          "2022-05-01",
           "2022-04-01",
           "2022-03-01",
           "2022-02-01-preview",
@@ -11066,6 +11112,7 @@
       {
         "resourceType": "locations/operationStatus",
         "apiVersions": [
+          "2022-05-01",
           "2022-04-01",
           "2022-03-01",
           "2022-02-01-preview",
@@ -11082,6 +11129,7 @@
       {
         "resourceType": "operations",
         "apiVersions": [
+          "2022-05-01",
           "2022-04-01",
           "2022-03-01",
           "2022-02-01-preview",
@@ -13871,6 +13919,7 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2022-06-01",
           "2022-05-26",
           "2022-05-11",
           "2022-04-21",
@@ -13882,6 +13931,7 @@
       {
         "resourceType": "fluidRelayServers",
         "apiVersions": [
+          "2022-06-01",
           "2022-05-26",
           "2022-05-11",
           "2022-04-21",
@@ -13898,8 +13948,10 @@
       {
         "resourceType": "fluidRelayServers/fluidRelayContainers",
         "apiVersions": [
+          "2022-06-01",
           "2022-05-26",
           "2022-05-11",
+          "2022-04-21",
           "2022-02-15",
           "2021-09-10-preview",
           "2021-08-30-preview"
@@ -17443,6 +17495,7 @@
         "resourceType": "operations",
         "apiVersions": [
           "2021-11-01-preview",
+          "2021-11-01",
           "2021-06-01",
           "2021-05-01-privatepreview",
           "2021-05-01-preview",
@@ -17452,6 +17505,7 @@
           "2018-06-01-preview",
           "2018-03-30-preview",
           "2018-02-05",
+          "2016-05-01-preview",
           "2015-10-01",
           "2015-04-01"
         ]
@@ -17516,6 +17570,7 @@
       {
         "resourceType": "assessmentProjects",
         "apiVersions": [
+          "2022-02-02-preview",
           "2020-05-01-preview",
           "2019-10-01",
           "2019-05-01",
@@ -30517,6 +30572,13 @@
         ]
       },
       {
+        "resourceType": "locations/usages",
+        "apiVersions": [
+          "2022-05-01",
+          "2022-01-01"
+        ]
+      },
+      {
         "resourceType": "operations",
         "apiVersions": [
           "2022-05-01",
@@ -33447,41 +33509,6 @@
         "resourceType": "operations",
         "apiVersions": [
           "2021-05-01-preview"
-        ]
-      }
-    ]
-  },
-  {
-    "namespace": "PaloAltoNetworks.Cloudngfw",
-    "resourceTypes": [
-      {
-        "resourceType": "Locations/operationStatuses",
-        "apiVersions": [
-          "2022-02-17-preview"
-        ]
-      },
-      {
-        "resourceType": "checkNameAvailability",
-        "apiVersions": [
-          "2022-02-17-preview"
-        ]
-      },
-      {
-        "resourceType": "locations",
-        "apiVersions": [
-          "2022-02-17-preview"
-        ]
-      },
-      {
-        "resourceType": "operations",
-        "apiVersions": [
-          "2022-02-17-preview"
-        ]
-      },
-      {
-        "resourceType": "registeredSubscriptions",
-        "apiVersions": [
-          "2022-02-17-preview"
         ]
       }
     ]

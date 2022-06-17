@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.VideoIndexer.V20211027Preview
     public partial class Account : Pulumi.CustomResource
     {
         /// <summary>
-        /// The account's data-plane ID
+        /// The account's data-plane ID. This can be set only when connecting an existing classic account
         /// </summary>
         [Output("accountId")]
         public Output<string?> AccountId { get; private set; } = null!;
@@ -134,7 +134,7 @@ namespace Pulumi.AzureNative.VideoIndexer.V20211027Preview
     public sealed class AccountArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The account's data-plane ID
+        /// The account's data-plane ID. This can be set only when connecting an existing classic account
         /// </summary>
         [Input("accountId")]
         public Input<string>? AccountId { get; set; }
@@ -183,6 +183,7 @@ namespace Pulumi.AzureNative.VideoIndexer.V20211027Preview
 
         public AccountArgs()
         {
+            AccountId = "00000000-0000-0000-0000-000000000000";
         }
     }
 }

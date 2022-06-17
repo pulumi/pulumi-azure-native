@@ -17,7 +17,7 @@ func LookupAccount(ctx *pulumi.Context, args *LookupAccountArgs, opts ...pulumi.
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupAccountArgs struct {
@@ -29,7 +29,7 @@ type LookupAccountArgs struct {
 
 // An Azure Video Analyzer for Media account.
 type LookupAccountResult struct {
-	// The account's data-plane ID
+	// The account's data-plane ID. This can be set only when connecting an existing classic account
 	AccountId *string `pulumi:"accountId"`
 	// The account's name
 	AccountName string `pulumi:"accountName"`
@@ -53,6 +53,19 @@ type LookupAccountResult struct {
 	TenantId string `pulumi:"tenantId"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupAccountResult
+func (val *LookupAccountResult) Defaults() *LookupAccountResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.AccountId) {
+		accountId_ := "00000000-0000-0000-0000-000000000000"
+		tmp.AccountId = &accountId_
+	}
+	return &tmp
 }
 
 func LookupAccountOutput(ctx *pulumi.Context, args LookupAccountOutputArgs, opts ...pulumi.InvokeOption) LookupAccountResultOutput {
@@ -94,7 +107,7 @@ func (o LookupAccountResultOutput) ToLookupAccountResultOutputWithContext(ctx co
 	return o
 }
 
-// The account's data-plane ID
+// The account's data-plane ID. This can be set only when connecting an existing classic account
 func (o LookupAccountResultOutput) AccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupAccountResult) *string { return v.AccountId }).(pulumi.StringPtrOutput)
 }

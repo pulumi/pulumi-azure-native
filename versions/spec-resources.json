@@ -4038,6 +4038,14 @@
       "2022-02-10-preview"
     ]
   },
+  "DevHub": {
+    "Workflow": [
+      "2022-04-01-preview"
+    ],
+    "getGitHubOAuth": [
+      "2022-04-01-preview"
+    ]
+  },
   "DevOps": {
     "Pipeline": [
       "2019-07-01-preview",
@@ -5064,7 +5072,8 @@
   },
   "EventGrid": {
     "Channel": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "Domain": [
       "2018-09-15-preview",
@@ -5076,10 +5085,12 @@
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "DomainEventSubscription": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "DomainTopic": [
       "2019-02-01-preview",
@@ -5090,10 +5101,12 @@
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "DomainTopicEventSubscription": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "EventChannel": [
       "2020-04-01-preview",
@@ -5116,10 +5129,12 @@
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "PartnerConfiguration": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "PartnerDestination": [
       "2021-10-15-preview"
@@ -5128,22 +5143,26 @@
       "2020-04-01-preview",
       "2020-10-15-preview",
       "2021-06-01-preview",
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "PartnerRegistration": [
       "2020-04-01-preview",
       "2020-10-15-preview",
       "2021-06-01-preview",
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "PartnerTopic": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "PartnerTopicEventSubscription": [
       "2020-04-01-preview",
       "2020-10-15-preview",
       "2021-06-01-preview",
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "PrivateEndpointConnection": [
       "2020-04-01-preview",
@@ -5151,21 +5170,24 @@
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "SystemTopic": [
       "2020-04-01-preview",
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "SystemTopicEventSubscription": [
       "2020-04-01-preview",
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "Topic": [
       "2017-06-15-preview",
@@ -5182,31 +5204,39 @@
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "TopicEventSubscription": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "getChannelFullUrl": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "getDomainEventSubscriptionDeliveryAttributes": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "getDomainEventSubscriptionFullUrl": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "getDomainTopicEventSubscriptionDeliveryAttributes": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "getDomainTopicEventSubscriptionFullUrl": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "getEventSubscriptionDeliveryAttributes": [
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "getEventSubscriptionFullUrl": [
       "2017-06-15-preview",
@@ -5223,37 +5253,44 @@
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "getPartnerTopicEventSubscriptionDeliveryAttributes": [
       "2020-10-15-preview",
       "2021-06-01-preview",
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "getPartnerTopicEventSubscriptionFullUrl": [
       "2020-04-01-preview",
       "2020-10-15-preview",
       "2021-06-01-preview",
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "getSystemTopicEventSubscriptionDeliveryAttributes": [
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "getSystemTopicEventSubscriptionFullUrl": [
       "2020-04-01-preview",
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "getTopicEventSubscriptionDeliveryAttributes": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "getTopicEventSubscriptionFullUrl": [
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "listDomainSharedAccessKeys": [
       "2018-09-15-preview",
@@ -5265,13 +5302,15 @@
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ],
     "listPartnerNamespaceSharedAccessKeys": [
       "2020-04-01-preview",
       "2020-10-15-preview",
       "2021-06-01-preview",
-      "2021-10-15-preview"
+      "2021-10-15-preview",
+      "2022-06-15"
     ],
     "listTopicSharedAccessKeys": [
       "2017-06-15-preview",
@@ -5288,7 +5327,8 @@
       "2020-10-15-preview",
       "2021-06-01-preview",
       "2021-10-15-preview",
-      "2021-12-01"
+      "2021-12-01",
+      "2022-06-15"
     ]
   },
   "EventHub": {
@@ -5434,7 +5474,8 @@
       "2021-09-10-preview",
       "2022-02-15",
       "2022-04-21",
-      "2022-05-11"
+      "2022-05-11",
+      "2022-05-26"
     ],
     "getFluidRelayServerKeys": [
       "2021-03-12-preview",
@@ -5443,11 +5484,13 @@
       "2021-09-10-preview",
       "2022-02-15",
       "2022-04-21",
-      "2022-05-11"
+      "2022-05-11",
+      "2022-05-26"
     ],
     "listFluidRelayServerKeys": [
       "2022-04-21",
-      "2022-05-11"
+      "2022-05-11",
+      "2022-05-26"
     ]
   },
   "GuestConfiguration": {
@@ -5983,12 +6026,14 @@
       "2021-11-01-preview",
       "2022-01-01-preview",
       "2022-03-01",
-      "2022-04-02-preview"
+      "2022-04-02-preview",
+      "2022-07-01"
     ],
     "FluxConfiguration": [
       "2021-11-01-preview",
       "2022-01-01-preview",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-07-01"
     ],
     "PrivateEndpointConnection": [
       "2022-04-02-preview"
@@ -6004,7 +6049,8 @@
       "2021-05-01-preview",
       "2021-11-01-preview",
       "2022-01-01-preview",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-07-01"
     ]
   },
   "Kusto": {
@@ -11015,6 +11061,12 @@
       "2017-08-01-preview",
       "2019-08-01"
     ],
+    "GovernanceAssignment": [
+      "2022-01-01-preview"
+    ],
+    "GovernanceRule": [
+      "2022-01-01-preview"
+    ],
     "IngestionSetting": [
       "2021-01-15-preview"
     ],
@@ -11029,6 +11081,9 @@
     "SecurityConnector": [
       "2021-07-01-preview",
       "2021-12-01-preview"
+    ],
+    "SecurityConnectorGovernanceRule": [
+      "2022-01-01-preview"
     ],
     "SecurityContact": [
       "2017-08-01-preview",
