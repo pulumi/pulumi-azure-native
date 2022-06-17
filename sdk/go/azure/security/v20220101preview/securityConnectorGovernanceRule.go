@@ -74,12 +74,6 @@ func NewSecurityConnectorGovernanceRule(ctx *pulumi.Context,
 	if args.SourceResourceType == nil {
 		return nil, errors.New("invalid value for required argument 'SourceResourceType'")
 	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:security:SecurityConnectorGovernanceRule"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource SecurityConnectorGovernanceRule
 	err := ctx.RegisterResource("azure-native:security/v20220101preview:SecurityConnectorGovernanceRule", name, args, &resource, opts...)
 	if err != nil {

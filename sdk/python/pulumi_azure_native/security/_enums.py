@@ -17,10 +17,6 @@ __all__ = [
     'DataSource',
     'EventSource',
     'ExportData',
-    'GovernanceRuleConditionOperator',
-    'GovernanceRuleOwnerSourceType',
-    'GovernanceRuleSourceResourceType',
-    'GovernanceRuleType',
     'ImplementationEffort',
     'MinimalSeverity',
     'OfferingType',
@@ -191,58 +187,6 @@ class ExportData(str, Enum):
     RAW_EVENTS = "RawEvents"
     """
     Agent raw events
-    """
-
-
-class GovernanceRuleConditionOperator(str, Enum):
-    """
-    The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
-    """
-    EQUALS = "Equals"
-    """
-    Checks that the string value of the data defined in Property equals the given value - exact fit
-    """
-    IN_ = "In"
-    """
-    Checks that the string value of the data defined in Property equals any of the given values (exact fit)
-    """
-
-
-class GovernanceRuleOwnerSourceType(str, Enum):
-    """
-    The owner type for the governance rule owner source
-    """
-    BY_TAG = "ByTag"
-    """
-    The rule source type defined using resource tag
-    """
-    MANUALLY = "Manually"
-    """
-    The rule source type defined manually
-    """
-
-
-class GovernanceRuleSourceResourceType(str, Enum):
-    """
-    The governance rule source, what the rule affects, e.g. Assessments
-    """
-    ASSESSMENTS = "Assessments"
-    """
-    The source of the governance rule is assessments
-    """
-
-
-class GovernanceRuleType(str, Enum):
-    """
-    The rule type of the governance rule, defines the source of the rule e.g. Integrated
-    """
-    INTEGRATED = "Integrated"
-    """
-    The source of the rule type definition is integrated
-    """
-    SERVICE_NOW = "ServiceNow"
-    """
-    The source of the rule type definition is ServiceNow
     """
 
 
