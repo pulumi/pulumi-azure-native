@@ -2,22 +2,6 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 
-export const GovernanceRuleConditionOperator = {
-    /**
-     * Checks that the string value of the data defined in Property equals the given value - exact fit
-     */
-    Equals: "Equals",
-    /**
-     * Checks that the string value of the data defined in Property equals any of the given values (exact fit)
-     */
-    In: "In",
-} as const;
-
-/**
- * The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
- */
-export type GovernanceRuleConditionOperator = (typeof GovernanceRuleConditionOperator)[keyof typeof GovernanceRuleConditionOperator];
-
 export const GovernanceRuleOwnerSourceType = {
     /**
      * The rule source type defined using resource tag

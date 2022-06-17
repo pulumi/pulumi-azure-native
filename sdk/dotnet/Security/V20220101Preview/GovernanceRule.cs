@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     public partial class GovernanceRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// The governance rule conditionSets - see examples
-        /// </summary>
-        [Output("conditionSets")]
-        public Output<ImmutableArray<ImmutableArray<ImmutableArray<Outputs.ConditionResponse>>>> ConditionSets { get; private set; } = null!;
-
-        /// <summary>
         /// description of the governanceRule
         /// </summary>
         [Output("description")]
@@ -116,10 +110,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                Aliases =
-                {
-                    new Pulumi.Alias { Type = "azure-native:security:GovernanceRule"},
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -142,18 +132,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
 
     public sealed class GovernanceRuleArgs : Pulumi.ResourceArgs
     {
-        [Input("conditionSets", required: true)]
-        private InputList<ImmutableArray<ImmutableArray<Inputs.ConditionArgs>>>? _conditionSets;
-
-        /// <summary>
-        /// The governance rule conditionSets - see examples
-        /// </summary>
-        public InputList<ImmutableArray<ImmutableArray<Inputs.ConditionArgs>>> ConditionSets
-        {
-            get => _conditionSets ?? (_conditionSets = new InputList<ImmutableArray<ImmutableArray<Inputs.ConditionArgs>>>());
-            set => _conditionSets = value;
-        }
-
         /// <summary>
         /// description of the governanceRule
         /// </summary>

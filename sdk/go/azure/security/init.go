@@ -43,10 +43,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomEntityStoreAssignment{}
 	case "azure-native:security:DeviceSecurityGroup":
 		r = &DeviceSecurityGroup{}
-	case "azure-native:security:GovernanceAssignment":
-		r = &GovernanceAssignment{}
-	case "azure-native:security:GovernanceRule":
-		r = &GovernanceRule{}
 	case "azure-native:security:IngestionSetting":
 		r = &IngestionSetting{}
 	case "azure-native:security:IotSecuritySolution":
@@ -55,8 +51,6 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &JitNetworkAccessPolicy{}
 	case "azure-native:security:SecurityConnector":
 		r = &SecurityConnector{}
-	case "azure-native:security:SecurityConnectorGovernanceRule":
-		r = &SecurityConnectorGovernanceRule{}
 	case "azure-native:security:SecurityContact":
 		r = &SecurityContact{}
 	case "azure-native:security:ServerVulnerabilityAssessment":
