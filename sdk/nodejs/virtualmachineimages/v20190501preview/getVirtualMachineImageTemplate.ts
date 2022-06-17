@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Image template is an ARM resource managed by Microsoft.VirtualMachineImages provider
  */
-/** @deprecated Version v20190501preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later. */
+/** @deprecated Version 2019-05-01-preview will be removed in v2 of the provider. */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
-    pulumi.log.warn("getVirtualMachineImageTemplate is deprecated: Version v20190501preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later.")
+    pulumi.log.warn("getVirtualMachineImageTemplate is deprecated: Version 2019-05-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

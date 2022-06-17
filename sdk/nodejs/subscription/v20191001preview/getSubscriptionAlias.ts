@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Subscription Information with the alias.
  */
-/** @deprecated Version v20191001preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
+/** @deprecated Version 2019-10-01-preview will be removed in v2 of the provider. */
 export function getSubscriptionAlias(args: GetSubscriptionAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionAliasResult> {
-    pulumi.log.warn("getSubscriptionAlias is deprecated: Version v20191001preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
+    pulumi.log.warn("getSubscriptionAlias is deprecated: Version 2019-10-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

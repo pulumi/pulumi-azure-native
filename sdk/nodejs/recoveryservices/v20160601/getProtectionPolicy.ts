@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The base class for backup policy. Workload-specific backup policies are derived from this class.
  */
-/** @deprecated Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
+/** @deprecated Version 2016-06-01 will be removed in v2 of the provider. */
 export function getProtectionPolicy(args: GetProtectionPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionPolicyResult> {
-    pulumi.log.warn("getProtectionPolicy is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
+    pulumi.log.warn("getProtectionPolicy is deprecated: Version 2016-06-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

@@ -11,8 +11,6 @@ import (
 )
 
 // Container App SourceControl.
-//
-// Deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 func LookupContainerAppsSourceControl(ctx *pulumi.Context, args *LookupContainerAppsSourceControlArgs, opts ...pulumi.InvokeOption) (*LookupContainerAppsSourceControlResult, error) {
 	var rv LookupContainerAppsSourceControlResult
 	err := ctx.Invoke("azure-native:app/v20220101preview:getContainerAppsSourceControl", args, &rv, opts...)

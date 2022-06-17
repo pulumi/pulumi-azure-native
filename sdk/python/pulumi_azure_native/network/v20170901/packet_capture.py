@@ -163,11 +163,11 @@ class PacketCaptureArgs:
         pulumi.set(self, "total_bytes_per_session", value)
 
 
-warnings.warn("""Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class PacketCapture(pulumi.CustomResource):
-    warnings.warn("""Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -231,7 +231,7 @@ class PacketCapture(pulumi.CustomResource):
                  time_limit_in_seconds: Optional[pulumi.Input[int]] = None,
                  total_bytes_per_session: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""PacketCapture is deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+        pulumi.log.warn("""PacketCapture is deprecated: Version 2017-09-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

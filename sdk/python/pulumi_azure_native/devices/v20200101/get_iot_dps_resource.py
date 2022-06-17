@@ -16,7 +16,7 @@ __all__ = [
     'get_iot_dps_resource_output',
 ]
 
-warnings.warn("""Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetIotDpsResourceResult:
@@ -140,7 +140,7 @@ def get_iot_dps_resource(provisioning_service_name: Optional[str] = None,
     :param str provisioning_service_name: Name of the provisioning service to retrieve.
     :param str resource_group_name: Resource group name.
     """
-    pulumi.log.warn("""get_iot_dps_resource is deprecated: Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_iot_dps_resource is deprecated: Version 2020-01-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['provisioningServiceName'] = provisioning_service_name
     __args__['resourceGroupName'] = resource_group_name
@@ -172,5 +172,5 @@ def get_iot_dps_resource_output(provisioning_service_name: Optional[pulumi.Input
     :param str provisioning_service_name: Name of the provisioning service to retrieve.
     :param str resource_group_name: Resource group name.
     """
-    pulumi.log.warn("""get_iot_dps_resource is deprecated: Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_iot_dps_resource is deprecated: Version 2020-01-01 will be removed in v2 of the provider.""")
     ...

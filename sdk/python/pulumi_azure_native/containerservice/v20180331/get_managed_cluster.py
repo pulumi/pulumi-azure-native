@@ -16,7 +16,7 @@ __all__ = [
     'get_managed_cluster_output',
 ]
 
-warnings.warn("""Version v20180331 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-03-31 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagedClusterResult:
@@ -248,7 +248,7 @@ def get_managed_cluster(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
-    pulumi.log.warn("""get_managed_cluster is deprecated: Version v20180331 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""")
+    pulumi.log.warn("""get_managed_cluster is deprecated: Version 2018-03-31 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -289,5 +289,5 @@ def get_managed_cluster_output(resource_group_name: Optional[pulumi.Input[str]] 
     :param str resource_group_name: The name of the resource group.
     :param str resource_name: The name of the managed cluster resource.
     """
-    pulumi.log.warn("""get_managed_cluster is deprecated: Version v20180331 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""")
+    pulumi.log.warn("""get_managed_cluster is deprecated: Version 2018-03-31 will be removed in v2 of the provider.""")
     ...

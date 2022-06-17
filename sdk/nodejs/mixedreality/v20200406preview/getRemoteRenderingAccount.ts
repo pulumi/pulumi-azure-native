@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * RemoteRenderingAccount Response.
  */
-/** @deprecated Version v20200406preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
+/** @deprecated Version 2020-04-06-preview will be removed in v2 of the provider. */
 export function getRemoteRenderingAccount(args: GetRemoteRenderingAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetRemoteRenderingAccountResult> {
-    pulumi.log.warn("getRemoteRenderingAccount is deprecated: Version v20200406preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
+    pulumi.log.warn("getRemoteRenderingAccount is deprecated: Version 2020-04-06-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

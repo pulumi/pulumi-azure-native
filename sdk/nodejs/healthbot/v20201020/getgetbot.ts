@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Bot resource definition
  */
-/** @deprecated Version v20201020 will be removed in the next major version of the provider. Upgrade to version v20201208 or later. */
+/** @deprecated Version 2020-10-20 will be removed in v2 of the provider. */
 export function getgetbot(args: GetgetbotArgs, opts?: pulumi.InvokeOptions): Promise<GetgetbotResult> {
-    pulumi.log.warn("getgetbot is deprecated: Version v20201020 will be removed in the next major version of the provider. Upgrade to version v20201208 or later.")
+    pulumi.log.warn("getgetbot is deprecated: Version 2020-10-20 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

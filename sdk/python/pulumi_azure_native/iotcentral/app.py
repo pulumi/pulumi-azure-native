@@ -19,6 +19,7 @@ class AppArgs:
                  resource_group_name: pulumi.Input[str],
                  sku: pulumi.Input['AppSkuInfoArgs'],
                  display_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_name: Optional[pulumi.Input[str]] = None,
                  subdomain: Optional[pulumi.Input[str]] = None,
@@ -29,6 +30,7 @@ class AppArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT Central application.
         :param pulumi.Input['AppSkuInfoArgs'] sku: A valid instance SKU.
         :param pulumi.Input[str] display_name: The display name of the application.
+        :param pulumi.Input['SystemAssignedServiceIdentityArgs'] identity: The managed identities for the IoT Central application.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_name: The ARM resource name of the IoT Central application.
         :param pulumi.Input[str] subdomain: The subdomain of the application.
@@ -39,6 +41,8 @@ class AppArgs:
         pulumi.set(__self__, "sku", sku)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
+        if identity is not None:
+            pulumi.set(__self__, "identity", identity)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if resource_name is not None:
@@ -85,6 +89,18 @@ class AppArgs:
     @display_name.setter
     def display_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "display_name", value)
+
+    @property
+    @pulumi.getter
+    def identity(self) -> Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]:
+        """
+        The managed identities for the IoT Central application.
+        """
+        return pulumi.get(self, "identity")
+
+    @identity.setter
+    def identity(self, value: Optional[pulumi.Input['SystemAssignedServiceIdentityArgs']]):
+        pulumi.set(self, "identity", value)
 
     @property
     @pulumi.getter
@@ -153,6 +169,7 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -163,11 +180,12 @@ class App(pulumi.CustomResource):
                  __props__=None):
         """
         The IoT Central application.
-        API Version: 2018-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] display_name: The display name of the application.
+        :param pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']] identity: The managed identities for the IoT Central application.
         :param pulumi.Input[str] location: The resource location.
         :param pulumi.Input[str] resource_group_name: The name of the resource group that contains the IoT Central application.
         :param pulumi.Input[str] resource_name_: The ARM resource name of the IoT Central application.
@@ -184,7 +202,7 @@ class App(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The IoT Central application.
-        API Version: 2018-09-01.
+        API Version: 2021-06-01.
 
         :param str resource_name: The name of the resource.
         :param AppArgs args: The arguments to use to populate this resource's properties.
@@ -202,6 +220,7 @@ class App(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
+                 identity: Optional[pulumi.Input[pulumi.InputType['SystemAssignedServiceIdentityArgs']]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  resource_name_: Optional[pulumi.Input[str]] = None,
@@ -222,6 +241,7 @@ class App(pulumi.CustomResource):
             __props__ = AppArgs.__new__(AppArgs)
 
             __props__.__dict__["display_name"] = display_name
+            __props__.__dict__["identity"] = identity
             __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
@@ -235,6 +255,7 @@ class App(pulumi.CustomResource):
             __props__.__dict__["template"] = template
             __props__.__dict__["application_id"] = None
             __props__.__dict__["name"] = None
+            __props__.__dict__["state"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:iotcentral/v20180901:App"), pulumi.Alias(type_="azure-native:iotcentral/v20210601:App"), pulumi.Alias(type_="azure-native:iotcentral/v20211101preview:App")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -262,9 +283,11 @@ class App(pulumi.CustomResource):
 
         __props__.__dict__["application_id"] = None
         __props__.__dict__["display_name"] = None
+        __props__.__dict__["identity"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["sku"] = None
+        __props__.__dict__["state"] = None
         __props__.__dict__["subdomain"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["template"] = None
@@ -289,6 +312,14 @@ class App(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def identity(self) -> pulumi.Output[Optional['outputs.SystemAssignedServiceIdentityResponse']]:
+        """
+        The managed identities for the IoT Central application.
+        """
+        return pulumi.get(self, "identity")
+
+    @property
+    @pulumi.getter
     def location(self) -> pulumi.Output[str]:
         """
         The resource location.
@@ -310,6 +341,14 @@ class App(pulumi.CustomResource):
         A valid instance SKU.
         """
         return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter
+    def state(self) -> pulumi.Output[str]:
+        """
+        The current state of the application.
+        """
+        return pulumi.get(self, "state")
 
     @property
     @pulumi.getter

@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Workspace active directory administrator
  *
- * @deprecated Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
+ * @deprecated Version 2019-06-01-preview will be removed in v2 of the provider.
  */
 export class WorkspaceAadAdmin extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): WorkspaceAadAdmin {
-        pulumi.log.warn("WorkspaceAadAdmin is deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
+        pulumi.log.warn("WorkspaceAadAdmin is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.")
         return new WorkspaceAadAdmin(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,9 +69,9 @@ export class WorkspaceAadAdmin extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
+    /** @deprecated Version 2019-06-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: WorkspaceAadAdminArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("WorkspaceAadAdmin is deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
+        pulumi.log.warn("WorkspaceAadAdmin is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

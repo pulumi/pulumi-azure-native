@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Peering in an ExpressRoute Cross Connection resource.
  */
-/** @deprecated Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
+/** @deprecated Version 2018-02-01 will be removed in v2 of the provider. */
 export function getExpressRouteCrossConnectionPeering(args: GetExpressRouteCrossConnectionPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCrossConnectionPeeringResult> {
-    pulumi.log.warn("getExpressRouteCrossConnectionPeering is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+    pulumi.log.warn("getExpressRouteCrossConnectionPeering is deprecated: Version 2018-02-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

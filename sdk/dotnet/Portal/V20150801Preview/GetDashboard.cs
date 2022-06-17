@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Portal.V20150801Preview
 {
-    [Obsolete(@"Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.")]
+    [Obsolete(@"Version 2015-08-01-preview will be removed in v2 of the provider.")]
     public static class GetDashboard
     {
         /// <summary>

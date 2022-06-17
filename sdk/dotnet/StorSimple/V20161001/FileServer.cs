@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.StorSimple.V20161001
     /// <summary>
     /// The file server.
     /// </summary>
-    [Obsolete(@"Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")]
+    [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storsimple/v20161001:FileServer")]
     public partial class FileServer : Pulumi.CustomResource
     {

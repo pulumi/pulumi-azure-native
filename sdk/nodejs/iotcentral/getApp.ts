@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The IoT Central application.
- * API Version: 2018-09-01.
+ * API Version: 2021-06-01.
  */
 export function getApp(args: GetAppArgs, opts?: pulumi.InvokeOptions): Promise<GetAppResult> {
     if (!opts) {
@@ -49,6 +49,10 @@ export interface GetAppResult {
      */
     readonly id: string;
     /**
+     * The managed identities for the IoT Central application.
+     */
+    readonly identity?: outputs.iotcentral.SystemAssignedServiceIdentityResponse;
+    /**
      * The resource location.
      */
     readonly location: string;
@@ -60,6 +64,10 @@ export interface GetAppResult {
      * A valid instance SKU.
      */
     readonly sku: outputs.iotcentral.AppSkuInfoResponse;
+    /**
+     * The current state of the application.
+     */
+    readonly state: string;
     /**
      * The subdomain of the application.
      */

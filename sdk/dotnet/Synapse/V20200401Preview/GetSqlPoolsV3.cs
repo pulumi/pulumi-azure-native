@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Synapse.V20200401Preview
 {
-    [Obsolete(@"Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")]
+    [Obsolete(@"Version 2020-04-01-preview will be removed in v2 of the provider.")]
     public static class GetSqlPoolsV3
     {
         /// <summary>

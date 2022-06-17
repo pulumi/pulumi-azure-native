@@ -12,7 +12,7 @@ import (
 
 // The link resource format.
 //
-// Deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.
+// Deprecated: Version 2017-01-01 will be removed in v2 of the provider.
 func LookupLink(ctx *pulumi.Context, args *LookupLinkArgs, opts ...pulumi.InvokeOption) (*LookupLinkResult, error) {
 	var rv LookupLinkResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170101:getLink", args, &rv, opts...)

@@ -16,7 +16,7 @@ __all__ = [
     'get_alert_rule_output',
 ]
 
-warnings.warn("""Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.""", DeprecationWarning)
+warnings.warn("""Version 2014-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAlertRuleResult:
@@ -188,7 +188,7 @@ def get_alert_rule(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("""get_alert_rule is deprecated: Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.""")
+    pulumi.log.warn("""get_alert_rule is deprecated: Version 2014-04-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name
@@ -224,5 +224,5 @@ def get_alert_rule_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str rule_name: The name of the rule.
     """
-    pulumi.log.warn("""get_alert_rule is deprecated: Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.""")
+    pulumi.log.warn("""get_alert_rule is deprecated: Version 2014-04-01 will be removed in v2 of the provider.""")
     ...

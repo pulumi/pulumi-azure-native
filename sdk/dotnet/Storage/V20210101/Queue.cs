@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Storage.V20210101
 {
-    [Obsolete(@"Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")]
     [AzureNativeResourceType("azure-native:storage/v20210101:Queue")]
     public partial class Queue : Pulumi.CustomResource
     {

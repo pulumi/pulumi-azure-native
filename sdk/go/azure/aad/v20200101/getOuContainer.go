@@ -12,7 +12,7 @@ import (
 
 // Resource for OuContainer.
 //
-// Deprecated: Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
+// Deprecated: Version 2020-01-01 will be removed in v2 of the provider.
 func LookupOuContainer(ctx *pulumi.Context, args *LookupOuContainerArgs, opts ...pulumi.InvokeOption) (*LookupOuContainerResult, error) {
 	var rv LookupOuContainerResult
 	err := ctx.Invoke("azure-native:aad/v20200101:getOuContainer", args, &rv, opts...)

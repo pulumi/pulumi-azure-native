@@ -13,7 +13,7 @@ import (
 
 // Specifies information about the gallery Image Version that you want to create or update.
 //
-// Deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
+// Deprecated: Version 2019-03-01 will be removed in v2 of the provider.
 type GalleryImageVersion struct {
 	pulumi.CustomResourceState
 

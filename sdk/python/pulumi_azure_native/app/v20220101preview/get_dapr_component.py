@@ -16,8 +16,6 @@ __all__ = [
     'get_dapr_component_output',
 ]
 
-warnings.warn("""Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetDaprComponentResult:
     """
@@ -178,7 +176,6 @@ def get_dapr_component(environment_name: Optional[str] = None,
     :param str name: Name of the Dapr Component.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_dapr_component is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['name'] = name
@@ -216,5 +213,4 @@ def get_dapr_component_output(environment_name: Optional[pulumi.Input[str]] = No
     :param str name: Name of the Dapr Component.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_dapr_component is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
     ...

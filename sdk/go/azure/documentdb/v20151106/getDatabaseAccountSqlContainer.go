@@ -12,7 +12,7 @@ import (
 
 // An Azure Cosmos DB container.
 //
-// Deprecated: Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
+// Deprecated: Version 2015-11-06 will be removed in v2 of the provider.
 func LookupDatabaseAccountSqlContainer(ctx *pulumi.Context, args *LookupDatabaseAccountSqlContainerArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountSqlContainerResult, error) {
 	var rv LookupDatabaseAccountSqlContainerResult
 	err := ctx.Invoke("azure-native:documentdb/v20151106:getDatabaseAccountSqlContainer", args, &rv, opts...)

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Maps.V20170101Preview
 {
-    [Obsolete(@"Version v20170101preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
+    [Obsolete(@"Version 2017-01-01-preview will be removed in v2 of the provider.")]
     public static class GetAccount
     {
         /// <summary>

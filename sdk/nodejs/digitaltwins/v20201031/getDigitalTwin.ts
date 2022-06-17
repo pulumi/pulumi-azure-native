@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The description of the DigitalTwins service.
  */
-/** @deprecated Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
+/** @deprecated Version 2020-10-31 will be removed in v2 of the provider. */
 export function getDigitalTwin(args: GetDigitalTwinArgs, opts?: pulumi.InvokeOptions): Promise<GetDigitalTwinResult> {
-    pulumi.log.warn("getDigitalTwin is deprecated: Version v20201031 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
+    pulumi.log.warn("getDigitalTwin is deprecated: Version 2020-10-31 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

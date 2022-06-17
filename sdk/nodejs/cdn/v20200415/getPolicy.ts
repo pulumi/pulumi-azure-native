@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Defines web application firewall policy for Azure CDN.
  */
-/** @deprecated Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
+/** @deprecated Version 2020-04-15 will be removed in v2 of the provider. */
 export function getPolicy(args: GetPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyResult> {
-    pulumi.log.warn("getPolicy is deprecated: Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
+    pulumi.log.warn("getPolicy is deprecated: Version 2020-04-15 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

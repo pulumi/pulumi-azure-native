@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Disk resource.
  */
-/** @deprecated Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
+/** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
 export function getDisk(args: GetDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskResult> {
-    pulumi.log.warn("getDisk is deprecated: Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
+    pulumi.log.warn("getDisk is deprecated: Version 2016-04-30-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

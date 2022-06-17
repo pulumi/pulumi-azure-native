@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Workload group operations for a sql pool
  */
-/** @deprecated Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
+/** @deprecated Version 2020-12-01 will be removed in v2 of the provider. */
 export function getSqlPoolWorkloadGroup(args: GetSqlPoolWorkloadGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlPoolWorkloadGroupResult> {
-    pulumi.log.warn("getSqlPoolWorkloadGroup is deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
+    pulumi.log.warn("getSqlPoolWorkloadGroup is deprecated: Version 2020-12-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

@@ -15,7 +15,7 @@ __all__ = [
     'get_compute_policy_output',
 ]
 
-warnings.warn("""Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-10-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetComputePolicyResult:
@@ -129,7 +129,7 @@ def get_compute_policy(account_name: Optional[str] = None,
     :param str compute_policy_name: The name of the compute policy to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
-    pulumi.log.warn("""get_compute_policy is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.""")
+    pulumi.log.warn("""get_compute_policy is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['computePolicyName'] = compute_policy_name
@@ -163,5 +163,5 @@ def get_compute_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str compute_policy_name: The name of the compute policy to retrieve.
     :param str resource_group_name: The name of the Azure resource group.
     """
-    pulumi.log.warn("""get_compute_policy is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.""")
+    pulumi.log.warn("""get_compute_policy is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.""")
     ...

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20200330
     /// <summary>
     /// The Private Endpoint Connection resource.
     /// </summary>
-    [Obsolete(@"Version v20200330 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")]
+    [Obsolete(@"Version 2020-03-30 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20200330:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

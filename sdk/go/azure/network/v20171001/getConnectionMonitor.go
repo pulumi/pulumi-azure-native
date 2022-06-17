@@ -12,7 +12,7 @@ import (
 
 // Information about the connection monitor.
 //
-// Deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2017-10-01 will be removed in v2 of the provider.
 func LookupConnectionMonitor(ctx *pulumi.Context, args *LookupConnectionMonitorArgs, opts ...pulumi.InvokeOption) (*LookupConnectionMonitorResult, error) {
 	var rv LookupConnectionMonitorResult
 	err := ctx.Invoke("azure-native:network/v20171001:getConnectionMonitor", args, &rv, opts...)

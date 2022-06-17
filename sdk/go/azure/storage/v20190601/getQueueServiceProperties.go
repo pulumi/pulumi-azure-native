@@ -12,7 +12,7 @@ import (
 
 // The properties of a storage account’s Queue service.
 //
-// Deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
+// Deprecated: Version 2019-06-01 will be removed in v2 of the provider.
 func LookupQueueServiceProperties(ctx *pulumi.Context, args *LookupQueueServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupQueueServicePropertiesResult, error) {
 	var rv LookupQueueServicePropertiesResult
 	err := ctx.Invoke("azure-native:storage/v20190601:getQueueServiceProperties", args, &rv, opts...)

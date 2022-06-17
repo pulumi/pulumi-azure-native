@@ -12,7 +12,7 @@ import (
 
 // The essential information related to the peer's ASN.
 //
-// Deprecated: Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
+// Deprecated: Version 2020-04-01 will be removed in v2 of the provider.
 type PeerAsn struct {
 	pulumi.CustomResourceState
 

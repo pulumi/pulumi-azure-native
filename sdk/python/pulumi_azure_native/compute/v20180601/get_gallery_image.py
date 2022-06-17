@@ -16,7 +16,7 @@ __all__ = [
     'get_gallery_image_output',
 ]
 
-warnings.warn("""Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetGalleryImageResult:
@@ -250,7 +250,7 @@ def get_gallery_image(gallery_image_name: Optional[str] = None,
     :param str gallery_name: The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_gallery_image is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_gallery_image is deprecated: Version 2018-06-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['galleryImageName'] = gallery_image_name
     __args__['galleryName'] = gallery_name
@@ -294,5 +294,5 @@ def get_gallery_image_output(gallery_image_name: Optional[pulumi.Input[str]] = N
     :param str gallery_name: The name of the Shared Image Gallery from which the Image Definitions are to be retrieved.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_gallery_image is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_gallery_image is deprecated: Version 2018-06-01 will be removed in v2 of the provider.""")
     ...

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AzureStack.V20160101
     /// <summary>
     /// Registration information.
     /// </summary>
-    [Obsolete(@"Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")]
+    [Obsolete(@"Version 2016-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:azurestack/v20160101:Registration")]
     public partial class Registration : Pulumi.CustomResource
     {

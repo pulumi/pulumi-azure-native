@@ -13,7 +13,7 @@ import (
 
 // The service resource.
 //
-// Deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.
+// Deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.
 type Service struct {
 	pulumi.CustomResourceState
 

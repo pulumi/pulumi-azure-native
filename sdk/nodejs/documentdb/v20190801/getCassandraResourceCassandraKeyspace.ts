@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Cassandra keyspace.
  */
-/** @deprecated Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
+/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getCassandraResourceCassandraKeyspace(args: GetCassandraResourceCassandraKeyspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetCassandraResourceCassandraKeyspaceResult> {
-    pulumi.log.warn("getCassandraResourceCassandraKeyspace is deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
+    pulumi.log.warn("getCassandraResourceCassandraKeyspace is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

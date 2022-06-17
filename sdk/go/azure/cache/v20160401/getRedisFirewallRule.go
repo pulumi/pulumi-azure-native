@@ -12,7 +12,7 @@ import (
 
 // A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 //
-// Deprecated: Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.
+// Deprecated: Version 2016-04-01 will be removed in v2 of the provider.
 func LookupRedisFirewallRule(ctx *pulumi.Context, args *LookupRedisFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupRedisFirewallRuleResult, error) {
 	var rv LookupRedisFirewallRuleResult
 	err := ctx.Invoke("azure-native:cache/v20160401:getRedisFirewallRule", args, &rv, opts...)

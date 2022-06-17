@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Challenge-Handshake Authentication Protocol (CHAP) setting
  */
-/** @deprecated Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later. */
+/** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
 export function getChapSetting(args: GetChapSettingArgs, opts?: pulumi.InvokeOptions): Promise<GetChapSettingResult> {
-    pulumi.log.warn("getChapSetting is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")
+    pulumi.log.warn("getChapSetting is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

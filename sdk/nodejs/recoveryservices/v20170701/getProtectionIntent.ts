@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Base class for backup ProtectionIntent.
  */
-/** @deprecated Version v20170701 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
+/** @deprecated Version 2017-07-01 will be removed in v2 of the provider. */
 export function getProtectionIntent(args: GetProtectionIntentArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionIntentResult> {
-    pulumi.log.warn("getProtectionIntent is deprecated: Version v20170701 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
+    pulumi.log.warn("getProtectionIntent is deprecated: Version 2017-07-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

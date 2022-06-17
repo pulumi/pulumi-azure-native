@@ -12,7 +12,7 @@ import (
 
 // The alert rule information
 //
-// Deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.
+// Deprecated: Version 2019-03-01 will be removed in v2 of the provider.
 func LookupSmartDetectorAlertRule(ctx *pulumi.Context, args *LookupSmartDetectorAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupSmartDetectorAlertRuleResult, error) {
 	var rv LookupSmartDetectorAlertRuleResult
 	err := ctx.Invoke("azure-native:alertsmanagement/v20190301:getSmartDetectorAlertRule", args, &rv, opts...)

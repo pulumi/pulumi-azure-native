@@ -259,11 +259,11 @@ class VirtualMachineScaleSetVMRunCommandArgs:
         pulumi.set(self, "timeout_in_seconds", value)
 
 
-warnings.warn("""Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
-    warnings.warn("""Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -346,7 +346,7 @@ class VirtualMachineScaleSetVMRunCommand(pulumi.CustomResource):
                  timeout_in_seconds: Optional[pulumi.Input[int]] = None,
                  vm_scale_set_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualMachineScaleSetVMRunCommand is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+        pulumi.log.warn("""VirtualMachineScaleSetVMRunCommand is deprecated: Version 2020-06-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

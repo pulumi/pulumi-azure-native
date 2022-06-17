@@ -11,7 +11,7 @@ import (
 )
 
 // The IoT Central application.
-// API Version: 2018-09-01.
+// API Version: 2021-06-01.
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	var rv LookupAppResult
 	err := ctx.Invoke("azure-native:iotcentral:getApp", args, &rv, opts...)
@@ -36,12 +36,16 @@ type LookupAppResult struct {
 	DisplayName *string `pulumi:"displayName"`
 	// The ARM resource identifier.
 	Id string `pulumi:"id"`
+	// The managed identities for the IoT Central application.
+	Identity *SystemAssignedServiceIdentityResponse `pulumi:"identity"`
 	// The resource location.
 	Location string `pulumi:"location"`
 	// The ARM resource name.
 	Name string `pulumi:"name"`
 	// A valid instance SKU.
 	Sku AppSkuInfoResponse `pulumi:"sku"`
+	// The current state of the application.
+	State string `pulumi:"state"`
 	// The subdomain of the application.
 	Subdomain *string `pulumi:"subdomain"`
 	// The resource tags.
@@ -106,6 +110,11 @@ func (o LookupAppResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The managed identities for the IoT Central application.
+func (o LookupAppResultOutput) Identity() SystemAssignedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupAppResult) *SystemAssignedServiceIdentityResponse { return v.Identity }).(SystemAssignedServiceIdentityResponsePtrOutput)
+}
+
 // The resource location.
 func (o LookupAppResultOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupAppResult) string { return v.Location }).(pulumi.StringOutput)
@@ -119,6 +128,11 @@ func (o LookupAppResultOutput) Name() pulumi.StringOutput {
 // A valid instance SKU.
 func (o LookupAppResultOutput) Sku() AppSkuInfoResponseOutput {
 	return o.ApplyT(func(v LookupAppResult) AppSkuInfoResponse { return v.Sku }).(AppSkuInfoResponseOutput)
+}
+
+// The current state of the application.
+func (o LookupAppResultOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAppResult) string { return v.State }).(pulumi.StringOutput)
 }
 
 // The subdomain of the application.

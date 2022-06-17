@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Schema for MSIX Package properties.
  */
-/** @deprecated Version v20201110preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later. */
+/** @deprecated Version 2020-11-10-preview will be removed in v2 of the provider. */
 export function getMSIXPackage(args: GetMSIXPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetMSIXPackageResult> {
-    pulumi.log.warn("getMSIXPackage is deprecated: Version v20201110preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.")
+    pulumi.log.warn("getMSIXPackage is deprecated: Version 2020-11-10-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

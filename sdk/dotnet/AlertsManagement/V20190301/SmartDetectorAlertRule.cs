@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AlertsManagement.V20190301
     /// <summary>
     /// The alert rule information
     /// </summary>
-    [Obsolete(@"Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.")]
+    [Obsolete(@"Version 2019-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:alertsmanagement/v20190301:SmartDetectorAlertRule")]
     public partial class SmartDetectorAlertRule : Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ import (
 
 // EventGrid Domain
 //
-// Deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.
+// Deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.
 func LookupDomain(ctx *pulumi.Context, args *LookupDomainArgs, opts ...pulumi.InvokeOption) (*LookupDomainResult, error) {
 	var rv LookupDomainResult
 	err := ctx.Invoke("azure-native:eventgrid/v20200101preview:getDomain", args, &rv, opts...)

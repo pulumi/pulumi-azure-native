@@ -159,12 +159,7 @@ class SqlResourceSqlUserDefinedFunctionArgs:
         pulumi.set(self, "user_defined_function_name", value)
 
 
-warnings.warn("""Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
-
-
 class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
-    warnings.warn("""Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -228,7 +223,6 @@ class SqlResourceSqlUserDefinedFunction(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  user_defined_function_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SqlResourceSqlUserDefinedFunction is deprecated: Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

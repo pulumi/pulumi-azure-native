@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A notebook workspace resource
  */
-/** @deprecated Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
+/** @deprecated Version 2020-04-01 will be removed in v2 of the provider. */
 export function getNotebookWorkspace(args: GetNotebookWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetNotebookWorkspaceResult> {
-    pulumi.log.warn("getNotebookWorkspace is deprecated: Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
+    pulumi.log.warn("getNotebookWorkspace is deprecated: Version 2020-04-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

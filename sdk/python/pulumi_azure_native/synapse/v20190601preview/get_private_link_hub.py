@@ -16,7 +16,7 @@ __all__ = [
     'get_private_link_hub_output',
 ]
 
-warnings.warn("""Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-06-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateLinkHubResult:
@@ -128,7 +128,7 @@ def get_private_link_hub(private_link_hub_name: Optional[str] = None,
     :param str private_link_hub_name: Name of the privateLinkHub
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_private_link_hub is deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_private_link_hub is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['privateLinkHubName'] = private_link_hub_name
     __args__['resourceGroupName'] = resource_group_name
@@ -159,5 +159,5 @@ def get_private_link_hub_output(private_link_hub_name: Optional[pulumi.Input[str
     :param str private_link_hub_name: Name of the privateLinkHub
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_private_link_hub is deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_private_link_hub is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.""")
     ...

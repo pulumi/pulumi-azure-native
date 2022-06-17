@@ -16,7 +16,7 @@ __all__ = [
     'get_encryption_scope_output',
 ]
 
-warnings.warn("""Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEncryptionScopeResult:
@@ -142,7 +142,7 @@ def get_encryption_scope(account_name: Optional[str] = None,
     :param str encryption_scope_name: The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_encryption_scope is deprecated: Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
+    pulumi.log.warn("""get_encryption_scope is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['encryptionScopeName'] = encryption_scope_name
@@ -177,5 +177,5 @@ def get_encryption_scope_output(account_name: Optional[pulumi.Input[str]] = None
     :param str encryption_scope_name: The name of the encryption scope within the specified storage account. Encryption scope names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_encryption_scope is deprecated: Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
+    pulumi.log.warn("""get_encryption_scope is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.""")
     ...

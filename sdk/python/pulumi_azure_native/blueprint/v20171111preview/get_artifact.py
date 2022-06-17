@@ -15,7 +15,7 @@ __all__ = [
     'get_artifact_output',
 ]
 
-warnings.warn("""Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetArtifactResult:
@@ -93,7 +93,7 @@ def get_artifact(artifact_name: Optional[str] = None,
     :param str blueprint_name: name of the blueprint.
     :param str management_group_name: ManagementGroup where blueprint stores.
     """
-    pulumi.log.warn("""get_artifact is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""")
+    pulumi.log.warn("""get_artifact is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['artifactName'] = artifact_name
     __args__['blueprintName'] = blueprint_name
@@ -124,5 +124,5 @@ def get_artifact_output(artifact_name: Optional[pulumi.Input[str]] = None,
     :param str blueprint_name: name of the blueprint.
     :param str management_group_name: ManagementGroup where blueprint stores.
     """
-    pulumi.log.warn("""get_artifact is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""")
+    pulumi.log.warn("""get_artifact is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
     ...

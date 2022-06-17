@@ -8,9 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * IoT Connector FHIR destination definition.
  */
-/** @deprecated Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later. */
 export function getIotConnectorFhirDestination(args: GetIotConnectorFhirDestinationArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorFhirDestinationResult> {
-    pulumi.log.warn("getIotConnectorFhirDestination is deprecated: Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")
     if (!opts) {
         opts = {}
     }

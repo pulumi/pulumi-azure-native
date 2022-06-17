@@ -12,7 +12,7 @@ import (
 
 // A budget resource.
 //
-// Deprecated: Version v20181001 will be removed in the next major version of the provider. Upgrade to version v20191001 or later.
+// Deprecated: Version 2018-10-01 will be removed in v2 of the provider.
 func LookupBudgetByResourceGroupName(ctx *pulumi.Context, args *LookupBudgetByResourceGroupNameArgs, opts ...pulumi.InvokeOption) (*LookupBudgetByResourceGroupNameResult, error) {
 	var rv LookupBudgetByResourceGroupNameResult
 	err := ctx.Invoke("azure-native:consumption/v20181001:getBudgetByResourceGroupName", args, &rv, opts...)

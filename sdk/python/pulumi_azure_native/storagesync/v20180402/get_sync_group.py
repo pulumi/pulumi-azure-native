@@ -15,7 +15,7 @@ __all__ = [
     'get_sync_group_output',
 ]
 
-warnings.warn("""Version v20180402 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-02 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSyncGroupResult:
@@ -105,7 +105,7 @@ def get_sync_group(resource_group_name: Optional[str] = None,
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
-    pulumi.log.warn("""get_sync_group is deprecated: Version v20180402 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_sync_group is deprecated: Version 2018-04-02 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageSyncServiceName'] = storage_sync_service_name
@@ -137,5 +137,5 @@ def get_sync_group_output(resource_group_name: Optional[pulumi.Input[str]] = Non
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
-    pulumi.log.warn("""get_sync_group is deprecated: Version v20180402 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_sync_group is deprecated: Version 2018-04-02 will be removed in v2 of the provider.""")
     ...

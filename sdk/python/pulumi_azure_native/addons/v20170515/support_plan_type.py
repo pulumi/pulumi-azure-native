@@ -49,11 +49,11 @@ class SupportPlanTypeArgs:
         pulumi.set(self, "plan_type_name", value)
 
 
-warnings.warn("""Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class SupportPlanType(pulumi.CustomResource):
-    warnings.warn("""Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -97,7 +97,7 @@ class SupportPlanType(pulumi.CustomResource):
                  plan_type_name: Optional[pulumi.Input[str]] = None,
                  provider_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SupportPlanType is deprecated: Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.""")
+        pulumi.log.warn("""SupportPlanType is deprecated: Version 2017-05-15 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

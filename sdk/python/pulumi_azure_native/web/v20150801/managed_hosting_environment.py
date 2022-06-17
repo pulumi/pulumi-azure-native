@@ -613,11 +613,11 @@ class ManagedHostingEnvironmentArgs:
         pulumi.set(self, "worker_pools", value)
 
 
-warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class ManagedHostingEnvironment(pulumi.CustomResource):
-    warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -767,7 +767,7 @@ class ManagedHostingEnvironment(pulumi.CustomResource):
                  vnet_subnet_name: Optional[pulumi.Input[str]] = None,
                  worker_pools: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['WorkerPoolArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ManagedHostingEnvironment is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
+        pulumi.log.warn("""ManagedHostingEnvironment is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

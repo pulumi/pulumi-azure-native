@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.HybridData.V20160601
     /// <summary>
     /// Job Definition.
     /// </summary>
-    [Obsolete(@"Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.")]
+    [Obsolete(@"Version 2016-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:hybriddata/v20160601:JobDefinition")]
     public partial class JobDefinition : Pulumi.CustomResource
     {

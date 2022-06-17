@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Storage.V20190601
     /// <summary>
     /// The replication policy between two storage accounts. Multiple rules can be defined in one policy.
     /// </summary>
-    [Obsolete(@"Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")]
+    [Obsolete(@"Version 2019-06-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20190601:ObjectReplicationPolicy")]
     public partial class ObjectReplicationPolicy : Pulumi.CustomResource
     {

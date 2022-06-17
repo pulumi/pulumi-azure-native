@@ -16,7 +16,7 @@ __all__ = [
     'get_cassandra_resource_cassandra_table_output',
 ]
 
-warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCassandraResourceCassandraTableResult:
@@ -126,7 +126,7 @@ def get_cassandra_resource_cassandra_table(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str table_name: Cosmos DB table name.
     """
-    pulumi.log.warn("""get_cassandra_resource_cassandra_table is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_cassandra_resource_cassandra_table is deprecated: Version 2020-09-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['keyspaceName'] = keyspace_name
@@ -163,5 +163,5 @@ def get_cassandra_resource_cassandra_table_output(account_name: Optional[pulumi.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str table_name: Cosmos DB table name.
     """
-    pulumi.log.warn("""get_cassandra_resource_cassandra_table is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_cassandra_resource_cassandra_table is deprecated: Version 2020-09-01 will be removed in v2 of the provider.""")
     ...

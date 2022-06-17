@@ -16,7 +16,7 @@ __all__ = [
     'get_container_group_output',
 ]
 
-warnings.warn("""Version v20170801preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetContainerGroupResult:
@@ -200,7 +200,7 @@ def get_container_group(container_group_name: Optional[str] = None,
     :param str container_group_name: The name of the container group.
     :param str resource_group_name: The name of the resource group that contains the container group.
     """
-    pulumi.log.warn("""get_container_group is deprecated: Version v20170801preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_container_group is deprecated: Version 2017-08-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['containerGroupName'] = container_group_name
     __args__['resourceGroupName'] = resource_group_name
@@ -237,5 +237,5 @@ def get_container_group_output(container_group_name: Optional[pulumi.Input[str]]
     :param str container_group_name: The name of the container group.
     :param str resource_group_name: The name of the resource group that contains the container group.
     """
-    pulumi.log.warn("""get_container_group is deprecated: Version v20170801preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_container_group is deprecated: Version 2017-08-01-preview will be removed in v2 of the provider.""")
     ...

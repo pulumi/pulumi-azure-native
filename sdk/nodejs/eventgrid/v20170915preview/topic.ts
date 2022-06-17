@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * EventGrid Topic
  *
- * @deprecated Version v20170915preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.
+ * @deprecated Version 2017-09-15-preview will be removed in v2 of the provider.
  */
 export class Topic extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class Topic extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Topic {
-        pulumi.log.warn("Topic is deprecated: Version v20170915preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.")
+        pulumi.log.warn("Topic is deprecated: Version 2017-09-15-preview will be removed in v2 of the provider.")
         return new Topic(name, undefined as any, { ...opts, id: id });
     }
 
@@ -69,9 +69,9 @@ export class Topic extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20170915preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later. */
+    /** @deprecated Version 2017-09-15-preview will be removed in v2 of the provider. */
     constructor(name: string, args: TopicArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Topic is deprecated: Version v20170915preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.")
+        pulumi.log.warn("Topic is deprecated: Version 2017-09-15-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

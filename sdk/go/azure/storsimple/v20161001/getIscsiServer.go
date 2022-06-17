@@ -12,7 +12,7 @@ import (
 
 // The iSCSI server.
 //
-// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
+// Deprecated: Version 2016-10-01 will be removed in v2 of the provider.
 func LookupIscsiServer(ctx *pulumi.Context, args *LookupIscsiServerArgs, opts ...pulumi.InvokeOption) (*LookupIscsiServerResult, error) {
 	var rv LookupIscsiServerResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getIscsiServer", args, &rv, opts...)

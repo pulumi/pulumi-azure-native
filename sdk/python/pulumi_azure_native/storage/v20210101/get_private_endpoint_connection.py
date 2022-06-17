@@ -16,8 +16,6 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
-warnings.warn("""Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
     """
@@ -118,7 +116,6 @@ def get_private_endpoint_connection(account_name: Optional[str] = None,
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
@@ -151,5 +148,4 @@ def get_private_endpoint_connection_output(account_name: Optional[pulumi.Input[s
     :param str private_endpoint_connection_name: The name of the private endpoint connection associated with the Azure resource
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
     ...

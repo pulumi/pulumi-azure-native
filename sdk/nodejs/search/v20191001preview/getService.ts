@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Describes an Azure Cognitive Search service and its current state.
  */
-/** @deprecated Version v20191001preview will be removed in the next major version of the provider. Upgrade to version v20200801 or later. */
+/** @deprecated Version 2019-10-01-preview will be removed in v2 of the provider. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    pulumi.log.warn("getService is deprecated: Version v20191001preview will be removed in the next major version of the provider. Upgrade to version v20200801 or later.")
+    pulumi.log.warn("getService is deprecated: Version 2019-10-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

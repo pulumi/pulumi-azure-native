@@ -13,7 +13,7 @@ import (
 
 // Cloud Endpoint object.
 //
-// Deprecated: Version v20170605preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
+// Deprecated: Version 2017-06-05-preview will be removed in v2 of the provider.
 type CloudEndpoint struct {
 	pulumi.CustomResourceState
 

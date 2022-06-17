@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Security.V20150601Preview
 {
-    [Obsolete(@"Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.")]
+    [Obsolete(@"Version 2015-06-01-preview will be removed in v2 of the provider.")]
     public static class GetJitNetworkAccessPolicy
     {
         public static Task<GetJitNetworkAccessPolicyResult> InvokeAsync(GetJitNetworkAccessPolicyArgs args, InvokeOptions? options = null)

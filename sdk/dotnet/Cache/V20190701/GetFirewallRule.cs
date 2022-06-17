@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cache.V20190701
 {
-    [Obsolete(@"Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")]
+    [Obsolete(@"Version 2019-07-01 will be removed in v2 of the provider.")]
     public static class GetFirewallRule
     {
         /// <summary>

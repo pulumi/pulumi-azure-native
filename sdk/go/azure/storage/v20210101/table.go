@@ -12,8 +12,6 @@ import (
 )
 
 // Properties of the table, including Id, resource name, resource type.
-//
-// Deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 type Table struct {
 	pulumi.CustomResourceState
 

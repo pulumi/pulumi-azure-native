@@ -15,7 +15,7 @@ __all__ = [
     'get_sql_server_output',
 ]
 
-warnings.warn("""Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSqlServerResult:
@@ -131,7 +131,7 @@ def get_sql_server(expand: Optional[str] = None,
     :param str sql_server_name: Name of the SQL Server.
     :param str sql_server_registration_name: Name of the SQL Server registration.
     """
-    pulumi.log.warn("""get_sql_server is deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""")
+    pulumi.log.warn("""get_sql_server is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -168,5 +168,5 @@ def get_sql_server_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str sql_server_name: Name of the SQL Server.
     :param str sql_server_registration_name: Name of the SQL Server registration.
     """
-    pulumi.log.warn("""get_sql_server is deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""")
+    pulumi.log.warn("""get_sql_server is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.""")
     ...

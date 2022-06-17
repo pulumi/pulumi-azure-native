@@ -12,7 +12,7 @@ import (
 
 // Deployment information.
 //
-// Deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.
+// Deprecated: Version 2019-03-01 will be removed in v2 of the provider.
 func LookupDeploymentAtSubscriptionScope(ctx *pulumi.Context, args *LookupDeploymentAtSubscriptionScopeArgs, opts ...pulumi.InvokeOption) (*LookupDeploymentAtSubscriptionScopeResult, error) {
 	var rv LookupDeploymentAtSubscriptionScopeResult
 	err := ctx.Invoke("azure-native:resources/v20190301:getDeploymentAtSubscriptionScope", args, &rv, opts...)

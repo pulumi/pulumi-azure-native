@@ -16,7 +16,7 @@ __all__ = [
     'get_domain_output',
 ]
 
-warnings.warn("""Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDomainResult:
@@ -294,7 +294,7 @@ def get_domain(domain_name: Optional[str] = None,
     :param str domain_name: Name of the domain.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_domain is deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
+    pulumi.log.warn("""get_domain is deprecated: Version 2019-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['resourceGroupName'] = resource_group_name
@@ -339,5 +339,5 @@ def get_domain_output(domain_name: Optional[pulumi.Input[str]] = None,
     :param str domain_name: Name of the domain.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_domain is deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
+    pulumi.log.warn("""get_domain is deprecated: Version 2019-08-01 will be removed in v2 of the provider.""")
     ...

@@ -16,7 +16,7 @@ __all__ = [
     'get_application_output',
 ]
 
-warnings.warn("""Version v20150301preview will be removed in the next major version of the provider. Upgrade to version v20180601preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApplicationResult:
@@ -118,7 +118,7 @@ def get_application(application_name: Optional[str] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_application is deprecated: Version v20150301preview will be removed in the next major version of the provider. Upgrade to version v20180601preview or later.""")
+    pulumi.log.warn("""get_application is deprecated: Version 2015-03-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['clusterName'] = cluster_name
@@ -151,5 +151,5 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str cluster_name: The name of the cluster.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_application is deprecated: Version v20150301preview will be removed in the next major version of the provider. Upgrade to version v20180601preview or later.""")
+    pulumi.log.warn("""get_application is deprecated: Version 2015-03-01-preview will be removed in v2 of the provider.""")
     ...

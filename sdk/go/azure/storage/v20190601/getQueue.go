@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
+// Deprecated: Version 2019-06-01 will be removed in v2 of the provider.
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
 	var rv LookupQueueResult
 	err := ctx.Invoke("azure-native:storage/v20190601:getQueue", args, &rv, opts...)

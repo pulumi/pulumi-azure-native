@@ -16,7 +16,7 @@ __all__ = [
     'get_database_account_output',
 ]
 
-warnings.warn("""Version v20150408 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-04-08 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDatabaseAccountResult:
@@ -296,7 +296,7 @@ def get_database_account(account_name: Optional[str] = None,
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_database_account is deprecated: Version v20150408 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_database_account is deprecated: Version 2015-04-08 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -341,5 +341,5 @@ def get_database_account_output(account_name: Optional[pulumi.Input[str]] = None
     :param str account_name: Cosmos DB database account name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_database_account is deprecated: Version v20150408 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_database_account is deprecated: Version 2015-04-08 will be removed in v2 of the provider.""")
     ...

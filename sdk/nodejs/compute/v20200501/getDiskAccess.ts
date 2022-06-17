@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * disk access resource.
  */
-/** @deprecated Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
+/** @deprecated Version 2020-05-01 will be removed in v2 of the provider. */
 export function getDiskAccess(args: GetDiskAccessArgs, opts?: pulumi.InvokeOptions): Promise<GetDiskAccessResult> {
-    pulumi.log.warn("getDiskAccess is deprecated: Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
+    pulumi.log.warn("getDiskAccess is deprecated: Version 2020-05-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The policy assignment.
  */
-/** @deprecated Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
+/** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
 export function getPolicyAssignment(args: GetPolicyAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetPolicyAssignmentResult> {
-    pulumi.log.warn("getPolicyAssignment is deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+    pulumi.log.warn("getPolicyAssignment is deprecated: Version 2016-12-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

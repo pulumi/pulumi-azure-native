@@ -9,7 +9,7 @@ import (
 
 // Class representing Traffic Manager User Metrics.
 //
-// Deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2018-04-01 will be removed in v2 of the provider.
 func LookupTrafficManagerUserMetricsKey(ctx *pulumi.Context, args *LookupTrafficManagerUserMetricsKeyArgs, opts ...pulumi.InvokeOption) (*LookupTrafficManagerUserMetricsKeyResult, error) {
 	var rv LookupTrafficManagerUserMetricsKeyResult
 	err := ctx.Invoke("azure-native:network/v20180401:getTrafficManagerUserMetricsKey", args, &rv, opts...)

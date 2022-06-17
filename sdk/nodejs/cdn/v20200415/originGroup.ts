@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  *
- * @deprecated Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
+ * @deprecated Version 2020-04-15 will be removed in v2 of the provider.
  */
 export class OriginGroup extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class OriginGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): OriginGroup {
-        pulumi.log.warn("OriginGroup is deprecated: Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
+        pulumi.log.warn("OriginGroup is deprecated: Version 2020-04-15 will be removed in v2 of the provider.")
         return new OriginGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -78,9 +78,9 @@ export class OriginGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
+    /** @deprecated Version 2020-04-15 will be removed in v2 of the provider. */
     constructor(name: string, args: OriginGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("OriginGroup is deprecated: Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
+        pulumi.log.warn("OriginGroup is deprecated: Version 2020-04-15 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

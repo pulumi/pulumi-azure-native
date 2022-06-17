@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deprecated: Version v20190201preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later.
+// Deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.
 func LookupVirtualMachineImageTemplate(ctx *pulumi.Context, args *LookupVirtualMachineImageTemplateArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineImageTemplateResult, error) {
 	var rv LookupVirtualMachineImageTemplateResult
 	err := ctx.Invoke("azure-native:virtualmachineimages/v20190201preview:getVirtualMachineImageTemplate", args, &rv, opts...)

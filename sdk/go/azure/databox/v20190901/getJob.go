@@ -12,7 +12,7 @@ import (
 
 // Job Resource.
 //
-// Deprecated: Version v20190901 will be removed in the next major version of the provider. Upgrade to version v20201101 or later.
+// Deprecated: Version 2019-09-01 will be removed in v2 of the provider.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
 	err := ctx.Invoke("azure-native:databox/v20190901:getJob", args, &rv, opts...)

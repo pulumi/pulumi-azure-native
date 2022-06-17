@@ -16,8 +16,6 @@ __all__ = [
     'get_sql_resource_sql_user_defined_function_output',
 ]
 
-warnings.warn("""Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetSqlResourceSqlUserDefinedFunctionResult:
     """
@@ -119,7 +117,6 @@ def get_sql_resource_sql_user_defined_function(account_name: Optional[str] = Non
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str user_defined_function_name: Cosmos DB userDefinedFunction name.
     """
-    pulumi.log.warn("""get_sql_resource_sql_user_defined_function is deprecated: Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -158,5 +155,4 @@ def get_sql_resource_sql_user_defined_function_output(account_name: Optional[pul
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str user_defined_function_name: Cosmos DB userDefinedFunction name.
     """
-    pulumi.log.warn("""get_sql_resource_sql_user_defined_function is deprecated: Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
     ...

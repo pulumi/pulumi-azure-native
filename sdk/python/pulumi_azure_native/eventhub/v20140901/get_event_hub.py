@@ -15,7 +15,7 @@ __all__ = [
     'get_event_hub_output',
 ]
 
-warnings.warn("""Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEventHubResult:
@@ -165,7 +165,7 @@ def get_event_hub(event_hub_name: Optional[str] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_event_hub is deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+    pulumi.log.warn("""get_event_hub is deprecated: Version 2014-09-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['eventHubName'] = event_hub_name
     __args__['namespaceName'] = namespace_name
@@ -202,5 +202,5 @@ def get_event_hub_output(event_hub_name: Optional[pulumi.Input[str]] = None,
     :param str namespace_name: The Namespace name
     :param str resource_group_name: Name of the resource group within the azure subscription.
     """
-    pulumi.log.warn("""get_event_hub is deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+    pulumi.log.warn("""get_event_hub is deprecated: Version 2014-09-01 will be removed in v2 of the provider.""")
     ...

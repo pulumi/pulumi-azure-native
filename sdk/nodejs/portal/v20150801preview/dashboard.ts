@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * The shared dashboard resource definition.
  *
- * @deprecated Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.
+ * @deprecated Version 2015-08-01-preview will be removed in v2 of the provider.
  */
 export class Dashboard extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Dashboard extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Dashboard {
-        pulumi.log.warn("Dashboard is deprecated: Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.")
+        pulumi.log.warn("Dashboard is deprecated: Version 2015-08-01-preview will be removed in v2 of the provider.")
         return new Dashboard(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,9 +70,9 @@ export class Dashboard extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later. */
+    /** @deprecated Version 2015-08-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: DashboardArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Dashboard is deprecated: Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.")
+        pulumi.log.warn("Dashboard is deprecated: Version 2015-08-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

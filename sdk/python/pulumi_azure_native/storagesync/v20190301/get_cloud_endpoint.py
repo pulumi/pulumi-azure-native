@@ -15,7 +15,7 @@ __all__ = [
     'get_cloud_endpoint_output',
 ]
 
-warnings.warn("""Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCloudEndpointResult:
@@ -191,7 +191,7 @@ def get_cloud_endpoint(cloud_endpoint_name: Optional[str] = None,
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
-    pulumi.log.warn("""get_cloud_endpoint is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_cloud_endpoint is deprecated: Version 2019-03-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['cloudEndpointName'] = cloud_endpoint_name
     __args__['resourceGroupName'] = resource_group_name
@@ -233,5 +233,5 @@ def get_cloud_endpoint_output(cloud_endpoint_name: Optional[pulumi.Input[str]] =
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     :param str sync_group_name: Name of Sync Group resource.
     """
-    pulumi.log.warn("""get_cloud_endpoint is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_cloud_endpoint is deprecated: Version 2019-03-01 will be removed in v2 of the provider.""")
     ...

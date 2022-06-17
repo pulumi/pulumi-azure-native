@@ -225,11 +225,11 @@ class ResourceArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Resource(pulumi.CustomResource):
-    warnings.warn("""Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -306,7 +306,7 @@ class Resource(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Resource is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.""")
+        pulumi.log.warn("""Resource is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -15,7 +15,7 @@ __all__ = [
     'get_storage_sync_service_output',
 ]
 
-warnings.warn("""Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetStorageSyncServiceResult:
@@ -127,7 +127,7 @@ def get_storage_sync_service(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
-    pulumi.log.warn("""get_storage_sync_service is deprecated: Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_storage_sync_service is deprecated: Version 2019-10-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['storageSyncServiceName'] = storage_sync_service_name
@@ -158,5 +158,5 @@ def get_storage_sync_service_output(resource_group_name: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
-    pulumi.log.warn("""get_storage_sync_service is deprecated: Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_storage_sync_service is deprecated: Version 2019-10-01 will be removed in v2 of the provider.""")
     ...

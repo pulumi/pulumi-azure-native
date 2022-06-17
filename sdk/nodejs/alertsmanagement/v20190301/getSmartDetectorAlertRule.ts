@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The alert rule information
  */
-/** @deprecated Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later. */
+/** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
 export function getSmartDetectorAlertRule(args: GetSmartDetectorAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetSmartDetectorAlertRuleResult> {
-    pulumi.log.warn("getSmartDetectorAlertRule is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.")
+    pulumi.log.warn("getSmartDetectorAlertRule is deprecated: Version 2019-03-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

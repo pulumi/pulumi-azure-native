@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Peering.V20201001
     /// <summary>
     /// The customer's ASN that is registered by the peering service provider.
     /// </summary>
-    [Obsolete(@"Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")]
+    [Obsolete(@"Version 2020-10-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:peering/v20201001:RegisteredAsn")]
     public partial class RegisteredAsn : Pulumi.CustomResource
     {

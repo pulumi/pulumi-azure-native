@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
  *
- * @deprecated Version v20170402 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
+ * @deprecated Version 2017-04-02 will be removed in v2 of the provider.
  */
 export class Endpoint extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Endpoint extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Endpoint {
-        pulumi.log.warn("Endpoint is deprecated: Version v20170402 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
+        pulumi.log.warn("Endpoint is deprecated: Version 2017-04-02 will be removed in v2 of the provider.")
         return new Endpoint(name, undefined as any, { ...opts, id: id });
     }
 
@@ -118,9 +118,9 @@ export class Endpoint extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20170402 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
+    /** @deprecated Version 2017-04-02 will be removed in v2 of the provider. */
     constructor(name: string, args: EndpointArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Endpoint is deprecated: Version v20170402 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
+        pulumi.log.warn("Endpoint is deprecated: Version 2017-04-02 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

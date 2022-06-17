@@ -8,9 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * The replication policy between two storage accounts. Multiple rules can be defined in one policy.
  */
-/** @deprecated Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
 export function getObjectReplicationPolicy(args: GetObjectReplicationPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetObjectReplicationPolicyResult> {
-    pulumi.log.warn("getObjectReplicationPolicy is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
     if (!opts) {
         opts = {}
     }

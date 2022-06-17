@@ -16,7 +16,7 @@ __all__ = [
     'get_public_ip_address_output',
 ]
 
-warnings.warn("""Version v20171101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPublicIPAddressResult:
@@ -250,7 +250,7 @@ def get_public_ip_address(expand: Optional[str] = None,
     :param str public_ip_address_name: The name of the subnet.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_public_ip_address is deprecated: Version v20171101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_public_ip_address is deprecated: Version 2017-11-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['publicIpAddressName'] = public_ip_address_name
@@ -294,5 +294,5 @@ def get_public_ip_address_output(expand: Optional[pulumi.Input[Optional[str]]] =
     :param str public_ip_address_name: The name of the subnet.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_public_ip_address is deprecated: Version v20171101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_public_ip_address is deprecated: Version 2017-11-01 will be removed in v2 of the provider.""")
     ...

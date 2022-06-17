@@ -16,7 +16,7 @@ __all__ = [
     'get_cassandra_resource_cassandra_keyspace_output',
 ]
 
-warnings.warn("""Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-12-12 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCassandraResourceCassandraKeyspaceResult:
@@ -115,7 +115,7 @@ def get_cassandra_resource_cassandra_keyspace(account_name: Optional[str] = None
     :param str keyspace_name: Cosmos DB keyspace name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_cassandra_resource_cassandra_keyspace is deprecated: Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_cassandra_resource_cassandra_keyspace is deprecated: Version 2019-12-12 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['keyspaceName'] = keyspace_name
@@ -148,5 +148,5 @@ def get_cassandra_resource_cassandra_keyspace_output(account_name: Optional[pulu
     :param str keyspace_name: Cosmos DB keyspace name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_cassandra_resource_cassandra_keyspace is deprecated: Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_cassandra_resource_cassandra_keyspace is deprecated: Version 2019-12-12 will be removed in v2 of the provider.""")
     ...

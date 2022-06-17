@@ -12,7 +12,7 @@ import (
 
 // Configuration of Azure web site
 //
-// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
+// Deprecated: Version 2015-08-01 will be removed in v2 of the provider.
 func LookupSiteLogsConfig(ctx *pulumi.Context, args *LookupSiteLogsConfigArgs, opts ...pulumi.InvokeOption) (*LookupSiteLogsConfigResult, error) {
 	var rv LookupSiteLogsConfigResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteLogsConfig", args, &rv, opts...)

@@ -12,7 +12,7 @@ import (
 
 // The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
 //
-// Deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
+// Deprecated: Version 2020-06-01 will be removed in v2 of the provider.
 func LookupImage(ctx *pulumi.Context, args *LookupImageArgs, opts ...pulumi.InvokeOption) (*LookupImageResult, error) {
 	var rv LookupImageResult
 	err := ctx.Invoke("azure-native:compute/v20200601:getImage", args, &rv, opts...)

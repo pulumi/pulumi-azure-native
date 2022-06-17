@@ -12,7 +12,7 @@ import (
 
 // The properties of a storage account’s Table service.
 //
-// Deprecated: Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
+// Deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.
 func LookupTableServiceProperties(ctx *pulumi.Context, args *LookupTableServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupTableServicePropertiesResult, error) {
 	var rv LookupTableServicePropertiesResult
 	err := ctx.Invoke("azure-native:storage/v20200801preview:getTableServiceProperties", args, &rv, opts...)

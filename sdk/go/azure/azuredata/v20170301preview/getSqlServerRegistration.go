@@ -12,7 +12,7 @@ import (
 
 // A SQL server registration.
 //
-// Deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.
+// Deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.
 func LookupSqlServerRegistration(ctx *pulumi.Context, args *LookupSqlServerRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupSqlServerRegistrationResult, error) {
 	var rv LookupSqlServerRegistrationResult
 	err := ctx.Invoke("azure-native:azuredata/v20170301preview:getSqlServerRegistration", args, &rv, opts...)

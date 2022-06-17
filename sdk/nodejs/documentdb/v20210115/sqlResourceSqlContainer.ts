@@ -7,8 +7,6 @@ import * as utilities from "../../utilities";
 
 /**
  * An Azure Cosmos DB container.
- *
- * @deprecated Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
  */
 export class SqlResourceSqlContainer extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): SqlResourceSqlContainer {
-        pulumi.log.warn("SqlResourceSqlContainer is deprecated: Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
         return new SqlResourceSqlContainer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -64,9 +61,7 @@ export class SqlResourceSqlContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
     constructor(name: string, args: SqlResourceSqlContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("SqlResourceSqlContainer is deprecated: Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

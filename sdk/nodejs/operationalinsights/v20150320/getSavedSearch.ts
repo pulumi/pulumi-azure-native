@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Value object for saved search results.
  */
-/** @deprecated Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later. */
+/** @deprecated Version 2015-03-20 will be removed in v2 of the provider. */
 export function getSavedSearch(args: GetSavedSearchArgs, opts?: pulumi.InvokeOptions): Promise<GetSavedSearchResult> {
-    pulumi.log.warn("getSavedSearch is deprecated: Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later.")
+    pulumi.log.warn("getSavedSearch is deprecated: Version 2015-03-20 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Class representing a Kusto cluster.
  */
-/** @deprecated Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later. */
+/** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider. */
 export function getCluster(args: GetClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterResult> {
-    pulumi.log.warn("getCluster is deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.")
+    pulumi.log.warn("getCluster is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

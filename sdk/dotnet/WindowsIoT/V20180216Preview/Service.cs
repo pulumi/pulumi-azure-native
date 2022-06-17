@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.WindowsIoT.V20180216Preview
     /// <summary>
     /// The description of the Windows IoT Device Service.
     /// </summary>
-    [Obsolete(@"Version v20180216preview will be removed in the next major version of the provider. Upgrade to version v20190601 or later.")]
+    [Obsolete(@"Version 2018-02-16-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:windowsiot/v20180216preview:Service")]
     public partial class Service : Pulumi.CustomResource
     {

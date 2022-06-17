@@ -13,7 +13,7 @@ import (
 
 // CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
 //
-// Deprecated: Version v20160402 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
+// Deprecated: Version 2016-04-02 will be removed in v2 of the provider.
 type Profile struct {
 	pulumi.CustomResourceState
 

@@ -12,7 +12,7 @@ import (
 
 // Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
 //
-// Deprecated: Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
+// Deprecated: Version 2020-04-15 will be removed in v2 of the provider.
 func LookupOriginGroup(ctx *pulumi.Context, args *LookupOriginGroupArgs, opts ...pulumi.InvokeOption) (*LookupOriginGroupResult, error) {
 	var rv LookupOriginGroupResult
 	err := ctx.Invoke("azure-native:cdn/v20200415:getOriginGroup", args, &rv, opts...)

@@ -13,7 +13,7 @@ import (
 
 // A Data Lake Analytics account object, containing all information associated with the named Data Lake Analytics account.
 //
-// Deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20161101 or later.
+// Deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.
 type Account struct {
 	pulumi.CustomResourceState
 

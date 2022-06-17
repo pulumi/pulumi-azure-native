@@ -82,11 +82,11 @@ class PrivateEndpointConnectionArgs:
         pulumi.set(self, "private_endpoint_connection_name", value)
 
 
-warnings.warn("""Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class PrivateEndpointConnection(pulumi.CustomResource):
-    warnings.warn("""Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -136,7 +136,7 @@ class PrivateEndpointConnection(pulumi.CustomResource):
                  private_link_service_connection_state: Optional[pulumi.Input[pulumi.InputType['PrivateLinkServiceConnectionStateArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""PrivateEndpointConnection is deprecated: Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
+        pulumi.log.warn("""PrivateEndpointConnection is deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

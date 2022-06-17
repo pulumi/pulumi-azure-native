@@ -13,7 +13,7 @@ import (
 
 // Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
 //
-// Deprecated: Version v20160201preview will be removed in the next major version of the provider. Upgrade to version v20170418 or later.
+// Deprecated: Version 2016-02-01-preview will be removed in v2 of the provider.
 type CognitiveServicesAccount struct {
 	pulumi.CustomResourceState
 

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Gremlin graph.
  */
-/** @deprecated Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
+/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountGremlinGraph(args: GetDatabaseAccountGremlinGraphArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountGremlinGraphResult> {
-    pulumi.log.warn("getDatabaseAccountGremlinGraph is deprecated: Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
+    pulumi.log.warn("getDatabaseAccountGremlinGraph is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

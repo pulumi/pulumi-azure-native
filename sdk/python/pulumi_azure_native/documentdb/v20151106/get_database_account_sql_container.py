@@ -16,7 +16,7 @@ __all__ = [
     'get_database_account_sql_container_output',
 ]
 
-warnings.warn("""Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-11-06 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDatabaseAccountSqlContainerResult:
@@ -204,7 +204,7 @@ def get_database_account_sql_container(account_name: Optional[str] = None,
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_database_account_sql_container is deprecated: Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_database_account_sql_container is deprecated: Version 2015-11-06 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -247,5 +247,5 @@ def get_database_account_sql_container_output(account_name: Optional[pulumi.Inpu
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_database_account_sql_container is deprecated: Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_database_account_sql_container is deprecated: Version 2015-11-06 will be removed in v2 of the provider.""")
     ...

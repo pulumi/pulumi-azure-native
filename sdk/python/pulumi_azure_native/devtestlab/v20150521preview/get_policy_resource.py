@@ -15,7 +15,7 @@ __all__ = [
     'get_policy_resource_output',
 ]
 
-warnings.warn("""Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-05-21-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPolicyResourceResult:
@@ -191,7 +191,7 @@ def get_policy_resource(lab_name: Optional[str] = None,
     :param str policy_set_name: The name of the policy set.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_policy_resource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""")
+    pulumi.log.warn("""get_policy_resource is deprecated: Version 2015-05-21-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['labName'] = lab_name
     __args__['name'] = name
@@ -233,5 +233,5 @@ def get_policy_resource_output(lab_name: Optional[pulumi.Input[str]] = None,
     :param str policy_set_name: The name of the policy set.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_policy_resource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""")
+    pulumi.log.warn("""get_policy_resource is deprecated: Version 2015-05-21-preview will be removed in v2 of the provider.""")
     ...

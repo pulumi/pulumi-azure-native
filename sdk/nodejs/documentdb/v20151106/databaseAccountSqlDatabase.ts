@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB SQL database.
  *
- * @deprecated Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
+ * @deprecated Version 2015-11-06 will be removed in v2 of the provider.
  */
 export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DatabaseAccountSqlDatabase {
-        pulumi.log.warn("DatabaseAccountSqlDatabase is deprecated: Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
+        pulumi.log.warn("DatabaseAccountSqlDatabase is deprecated: Version 2015-11-06 will be removed in v2 of the provider.")
         return new DatabaseAccountSqlDatabase(name, undefined as any, { ...opts, id: id });
     }
 
@@ -82,9 +82,9 @@ export class DatabaseAccountSqlDatabase extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
+    /** @deprecated Version 2015-11-06 will be removed in v2 of the provider. */
     constructor(name: string, args: DatabaseAccountSqlDatabaseArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DatabaseAccountSqlDatabase is deprecated: Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
+        pulumi.log.warn("DatabaseAccountSqlDatabase is deprecated: Version 2015-11-06 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

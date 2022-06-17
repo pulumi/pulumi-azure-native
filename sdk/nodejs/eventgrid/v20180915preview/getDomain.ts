@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * EventGrid Domain
  */
-/** @deprecated Version v20180915preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later. */
+/** @deprecated Version 2018-09-15-preview will be removed in v2 of the provider. */
 export function getDomain(args: GetDomainArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainResult> {
-    pulumi.log.warn("getDomain is deprecated: Version v20180915preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.")
+    pulumi.log.warn("getDomain is deprecated: Version 2018-09-15-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

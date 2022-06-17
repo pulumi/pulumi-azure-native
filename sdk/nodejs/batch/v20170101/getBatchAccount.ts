@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Contains information about an Azure Batch account.
  */
-/** @deprecated Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getBatchAccount(args: GetBatchAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBatchAccountResult> {
-    pulumi.log.warn("getBatchAccount is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
+    pulumi.log.warn("getBatchAccount is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

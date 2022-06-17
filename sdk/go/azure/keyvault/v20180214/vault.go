@@ -13,7 +13,7 @@ import (
 
 // Resource information with extended details.
 //
-// Deprecated: Version v20180214 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.
+// Deprecated: Version 2018-02-14 will be removed in v2 of the provider.
 type Vault struct {
 	pulumi.CustomResourceState
 

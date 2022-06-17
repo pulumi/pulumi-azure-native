@@ -256,11 +256,11 @@ class PolicyResourceArgs:
         pulumi.set(self, "type", value)
 
 
-warnings.warn("""Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-05-21-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class PolicyResource(pulumi.CustomResource):
-    warnings.warn("""Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2015-05-21-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -343,7 +343,7 @@ class PolicyResource(pulumi.CustomResource):
                  threshold: Optional[pulumi.Input[str]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""PolicyResource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""")
+        pulumi.log.warn("""PolicyResource is deprecated: Version 2015-05-21-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

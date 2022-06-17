@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Base class for container with backup items. Containers with specific workloads are derived from this class.
  */
-/** @deprecated Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
+/** @deprecated Version 2016-12-01 will be removed in v2 of the provider. */
 export function getProtectionContainer(args: GetProtectionContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetProtectionContainerResult> {
-    pulumi.log.warn("getProtectionContainer is deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
+    pulumi.log.warn("getProtectionContainer is deprecated: Version 2016-12-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

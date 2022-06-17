@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20150408
     /// <summary>
     /// An Azure Cosmos DB database account.
     /// </summary>
-    [Obsolete(@"Version v20150408 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")]
+    [Obsolete(@"Version 2015-04-08 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20150408:DatabaseAccount")]
     public partial class DatabaseAccount : Pulumi.CustomResource
     {

@@ -12,7 +12,6 @@ namespace Pulumi.AzureNative.App.V20220101Preview
     /// <summary>
     /// Dapr Component.
     /// </summary>
-    [Obsolete(@"Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")]
     [AzureNativeResourceType("azure-native:app/v20220101preview:DaprComponent")]
     public partial class DaprComponent : Pulumi.CustomResource
     {

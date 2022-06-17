@@ -12,7 +12,7 @@ import (
 
 // Registration information.
 //
-// Deprecated: Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
+// Deprecated: Version 2016-01-01 will be removed in v2 of the provider.
 func LookupRegistration(ctx *pulumi.Context, args *LookupRegistrationArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationResult, error) {
 	var rv LookupRegistrationResult
 	err := ctx.Invoke("azure-native:azurestack/v20160101:getRegistration", args, &rv, opts...)

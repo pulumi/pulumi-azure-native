@@ -8,9 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * The Private Endpoint Connection resource.
  */
-/** @deprecated Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later. */
 export function getWorkspacePrivateEndpointConnection(args: GetWorkspacePrivateEndpointConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspacePrivateEndpointConnectionResult> {
-    pulumi.log.warn("getWorkspacePrivateEndpointConnection is deprecated: Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")
     if (!opts) {
         opts = {}
     }

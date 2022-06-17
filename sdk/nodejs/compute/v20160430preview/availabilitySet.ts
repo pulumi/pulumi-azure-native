@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the availability set that the virtual machine should be assigned to. Virtual machines specified in the same availability set are allocated to different nodes to maximize availability. For more information about availability sets, see [Manage the availability of virtual machines](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-manage-availability?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json). <br><br> For more information on Azure planned maintenance, see [Planned maintenance for virtual machines in Azure](https://docs.microsoft.com/azure/virtual-machines/virtual-machines-windows-planned-maintenance?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) <br><br> Currently, a VM can only be added to availability set at creation time. An existing VM cannot be added to an availability set.
  *
- * @deprecated Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
+ * @deprecated Version 2016-04-30-preview will be removed in v2 of the provider.
  */
 export class AvailabilitySet extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AvailabilitySet {
-        pulumi.log.warn("AvailabilitySet is deprecated: Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
+        pulumi.log.warn("AvailabilitySet is deprecated: Version 2016-04-30-preview will be removed in v2 of the provider.")
         return new AvailabilitySet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -86,9 +86,9 @@ export class AvailabilitySet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
+    /** @deprecated Version 2016-04-30-preview will be removed in v2 of the provider. */
     constructor(name: string, args: AvailabilitySetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AvailabilitySet is deprecated: Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
+        pulumi.log.warn("AvailabilitySet is deprecated: Version 2016-04-30-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

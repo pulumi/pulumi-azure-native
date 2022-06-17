@@ -16,7 +16,7 @@ __all__ = [
     'get_management_lock_at_subscription_level_output',
 ]
 
-warnings.warn("""Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetManagementLockAtSubscriptionLevelResult:
@@ -114,7 +114,7 @@ def get_management_lock_at_subscription_level(lock_name: Optional[str] = None,
 
     :param str lock_name: The name of the lock to get.
     """
-    pulumi.log.warn("""get_management_lock_at_subscription_level is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+    pulumi.log.warn("""get_management_lock_at_subscription_level is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['lockName'] = lock_name
     if opts is None:
@@ -141,5 +141,5 @@ def get_management_lock_at_subscription_level_output(lock_name: Optional[pulumi.
 
     :param str lock_name: The name of the lock to get.
     """
-    pulumi.log.warn("""get_management_lock_at_subscription_level is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+    pulumi.log.warn("""get_management_lock_at_subscription_level is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
     ...

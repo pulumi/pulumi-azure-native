@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DeploymentManager.V20180901Preview
     /// <summary>
     /// The resource that defines the source location where the artifacts are located.
     /// </summary>
-    [Obsolete(@"Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.")]
+    [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:deploymentmanager/v20180901preview:ArtifactSource")]
     public partial class ArtifactSource : Pulumi.CustomResource
     {

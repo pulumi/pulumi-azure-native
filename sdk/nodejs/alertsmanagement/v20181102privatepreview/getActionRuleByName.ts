@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Action rule object containing target scope, conditions and suppression logic
  */
-/** @deprecated Version v20181102privatepreview will be removed in the next major version of the provider. Upgrade to version v20190505preview or later. */
+/** @deprecated Version 2018-11-02-privatepreview will be removed in v2 of the provider. */
 export function getActionRuleByName(args: GetActionRuleByNameArgs, opts?: pulumi.InvokeOptions): Promise<GetActionRuleByNameResult> {
-    pulumi.log.warn("getActionRuleByName is deprecated: Version v20181102privatepreview will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.")
+    pulumi.log.warn("getActionRuleByName is deprecated: Version 2018-11-02-privatepreview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

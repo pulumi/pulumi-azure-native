@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * CDN endpoint is the entity within a CDN profile containing configuration information such as origin, protocol, content caching and delivery behavior. The CDN endpoint uses the URL format <endpointname>.azureedge.net.
  */
-/** @deprecated Version v20190415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
+/** @deprecated Version 2019-04-15 will be removed in v2 of the provider. */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
-    pulumi.log.warn("getEndpoint is deprecated: Version v20190415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
+    pulumi.log.warn("getEndpoint is deprecated: Version 2019-04-15 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

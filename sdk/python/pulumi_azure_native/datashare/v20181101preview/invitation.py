@@ -131,11 +131,11 @@ class InvitationArgs:
         pulumi.set(self, "target_object_id", value)
 
 
-warnings.warn("""Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-11-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Invitation(pulumi.CustomResource):
-    warnings.warn("""Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2018-11-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -196,7 +196,7 @@ class Invitation(pulumi.CustomResource):
                  target_email: Optional[pulumi.Input[str]] = None,
                  target_object_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Invitation is deprecated: Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+        pulumi.log.warn("""Invitation is deprecated: Version 2018-11-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

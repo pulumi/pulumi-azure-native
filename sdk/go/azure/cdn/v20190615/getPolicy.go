@@ -12,7 +12,7 @@ import (
 
 // Defines web application firewall policy for Azure CDN.
 //
-// Deprecated: Version v20190615 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
+// Deprecated: Version 2019-06-15 will be removed in v2 of the provider.
 func LookupPolicy(ctx *pulumi.Context, args *LookupPolicyArgs, opts ...pulumi.InvokeOption) (*LookupPolicyResult, error) {
 	var rv LookupPolicyResult
 	err := ctx.Invoke("azure-native:cdn/v20190615:getPolicy", args, &rv, opts...)

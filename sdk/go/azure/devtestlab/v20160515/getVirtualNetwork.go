@@ -12,7 +12,7 @@ import (
 
 // A virtual network.
 //
-// Deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
+// Deprecated: Version 2016-05-15 will be removed in v2 of the provider.
 func LookupVirtualNetwork(ctx *pulumi.Context, args *LookupVirtualNetworkArgs, opts ...pulumi.InvokeOption) (*LookupVirtualNetworkResult, error) {
 	var rv LookupVirtualNetworkResult
 	err := ctx.Invoke("azure-native:devtestlab/v20160515:getVirtualNetwork", args, &rv, opts...)

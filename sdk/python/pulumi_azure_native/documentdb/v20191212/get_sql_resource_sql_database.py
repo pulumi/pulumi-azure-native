@@ -16,7 +16,7 @@ __all__ = [
     'get_sql_resource_sql_database_output',
 ]
 
-warnings.warn("""Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-12-12 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSqlResourceSqlDatabaseResult:
@@ -115,7 +115,7 @@ def get_sql_resource_sql_database(account_name: Optional[str] = None,
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_sql_resource_sql_database is deprecated: Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_sql_resource_sql_database is deprecated: Version 2019-12-12 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['databaseName'] = database_name
@@ -148,5 +148,5 @@ def get_sql_resource_sql_database_output(account_name: Optional[pulumi.Input[str
     :param str database_name: Cosmos DB database name.
     :param str resource_group_name: Name of an Azure resource group.
     """
-    pulumi.log.warn("""get_sql_resource_sql_database is deprecated: Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_sql_resource_sql_database is deprecated: Version 2019-12-12 will be removed in v2 of the provider.""")
     ...

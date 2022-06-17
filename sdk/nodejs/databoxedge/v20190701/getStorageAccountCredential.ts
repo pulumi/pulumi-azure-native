@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The storage account credential.
  */
-/** @deprecated Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
+/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
 export function getStorageAccountCredential(args: GetStorageAccountCredentialArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageAccountCredentialResult> {
-    pulumi.log.warn("getStorageAccountCredential is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
+    pulumi.log.warn("getStorageAccountCredential is deprecated: Version 2019-07-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

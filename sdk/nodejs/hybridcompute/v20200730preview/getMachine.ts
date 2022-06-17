@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Describes a hybrid machine.
  */
-/** @deprecated Version v20200730preview will be removed in the next major version of the provider. Upgrade to version v20200802 or later. */
+/** @deprecated Version 2020-07-30-preview will be removed in v2 of the provider. */
 export function getMachine(args: GetMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineResult> {
-    pulumi.log.warn("getMachine is deprecated: Version v20200730preview will be removed in the next major version of the provider. Upgrade to version v20200802 or later.")
+    pulumi.log.warn("getMachine is deprecated: Version 2020-07-30-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

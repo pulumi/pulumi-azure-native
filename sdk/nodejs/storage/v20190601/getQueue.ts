@@ -4,9 +4,9 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../../utilities";
 
-/** @deprecated Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
+/** @deprecated Version 2019-06-01 will be removed in v2 of the provider. */
 export function getQueue(args: GetQueueArgs, opts?: pulumi.InvokeOptions): Promise<GetQueueResult> {
-    pulumi.log.warn("getQueue is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
+    pulumi.log.warn("getQueue is deprecated: Version 2019-06-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

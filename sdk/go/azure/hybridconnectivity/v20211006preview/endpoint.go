@@ -12,8 +12,6 @@ import (
 )
 
 // The endpoint for the target resource.
-//
-// Deprecated: Version v20211006preview will be removed in the next major version of the provider. Upgrade to version v20220501preview or later.
 type Endpoint struct {
 	pulumi.CustomResourceState
 

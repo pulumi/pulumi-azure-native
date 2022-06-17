@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * SSL certificate purchase order.
  */
-/** @deprecated Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201001 or later. */
+/** @deprecated Version 2020-09-01 will be removed in v2 of the provider. */
 export function getAppServiceCertificateOrder(args: GetAppServiceCertificateOrderArgs, opts?: pulumi.InvokeOptions): Promise<GetAppServiceCertificateOrderResult> {
-    pulumi.log.warn("getAppServiceCertificateOrder is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")
+    pulumi.log.warn("getAppServiceCertificateOrder is deprecated: Version 2020-09-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

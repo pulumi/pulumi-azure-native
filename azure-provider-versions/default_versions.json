@@ -935,7 +935,7 @@
         "IoMAMPolicyByName": "2015-01-14-preview"
     },
     "IoTCentral": {
-        "App": "2018-09-01",
+        "App": "2021-06-01",
         "PrivateEndpointConnection": "2021-11-01-preview"
     },
     "IoTSecurity": {

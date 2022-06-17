@@ -16,7 +16,7 @@ __all__ = [
     'get_job_definition_output',
 ]
 
-warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetJobDefinitionResult:
@@ -192,7 +192,7 @@ def get_job_definition(data_manager_name: Optional[str] = None,
     :param str job_definition_name: The job definition name that is being queried.
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("""get_job_definition is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""")
+    pulumi.log.warn("""get_job_definition is deprecated: Version 2016-06-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['dataManagerName'] = data_manager_name
     __args__['dataServiceName'] = data_service_name
@@ -234,5 +234,5 @@ def get_job_definition_output(data_manager_name: Optional[pulumi.Input[str]] = N
     :param str job_definition_name: The job definition name that is being queried.
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("""get_job_definition is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""")
+    pulumi.log.warn("""get_job_definition is deprecated: Version 2016-06-01 will be removed in v2 of the provider.""")
     ...

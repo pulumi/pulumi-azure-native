@@ -144,11 +144,11 @@ class SqlServerArgs:
         pulumi.set(self, "version", value)
 
 
-warnings.warn("""Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class SqlServer(pulumi.CustomResource):
-    warnings.warn("""Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -210,7 +210,7 @@ class SqlServer(pulumi.CustomResource):
                  sql_server_registration_name: Optional[pulumi.Input[str]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SqlServer is deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""")
+        pulumi.log.warn("""SqlServer is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

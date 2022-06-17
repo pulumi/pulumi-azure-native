@@ -16,7 +16,7 @@ __all__ = [
     'get_snapshot_policy_output',
 ]
 
-warnings.warn("""Version v20201101 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSnapshotPolicyResult:
@@ -178,7 +178,7 @@ def get_snapshot_policy(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_policy_name: The name of the snapshot policy
     """
-    pulumi.log.warn("""get_snapshot_policy is deprecated: Version v20201101 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_snapshot_policy is deprecated: Version 2020-11-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -216,5 +216,5 @@ def get_snapshot_policy_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str snapshot_policy_name: The name of the snapshot policy
     """
-    pulumi.log.warn("""get_snapshot_policy is deprecated: Version v20201101 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_snapshot_policy is deprecated: Version 2020-11-01 will be removed in v2 of the provider.""")
     ...

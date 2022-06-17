@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Registration assignment.
  */
-/** @deprecated Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later. */
+/** @deprecated Version 2018-06-01-preview will be removed in v2 of the provider. */
 export function getRegistrationAssignment(args: GetRegistrationAssignmentArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationAssignmentResult> {
-    pulumi.log.warn("getRegistrationAssignment is deprecated: Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.")
+    pulumi.log.warn("getRegistrationAssignment is deprecated: Version 2018-06-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

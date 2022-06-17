@@ -94,11 +94,11 @@ class ShareSubscriptionArgs:
         pulumi.set(self, "share_subscription_name", value)
 
 
-warnings.warn("""Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class ShareSubscription(pulumi.CustomResource):
-    warnings.warn("""Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2019-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -151,7 +151,7 @@ class ShareSubscription(pulumi.CustomResource):
                  share_subscription_name: Optional[pulumi.Input[str]] = None,
                  source_share_location: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ShareSubscription is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+        pulumi.log.warn("""ShareSubscription is deprecated: Version 2019-11-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

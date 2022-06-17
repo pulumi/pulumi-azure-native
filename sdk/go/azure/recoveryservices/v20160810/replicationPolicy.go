@@ -13,7 +13,7 @@ import (
 
 // Protection profile details.
 //
-// Deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
+// Deprecated: Version 2016-08-10 will be removed in v2 of the provider.
 type ReplicationPolicy struct {
 	pulumi.CustomResourceState
 

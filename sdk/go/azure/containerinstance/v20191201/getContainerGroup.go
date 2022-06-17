@@ -12,7 +12,7 @@ import (
 
 // A container group.
 //
-// Deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
+// Deprecated: Version 2019-12-01 will be removed in v2 of the provider.
 func LookupContainerGroup(ctx *pulumi.Context, args *LookupContainerGroupArgs, opts ...pulumi.InvokeOption) (*LookupContainerGroupResult, error) {
 	var rv LookupContainerGroupResult
 	err := ctx.Invoke("azure-native:containerinstance/v20191201:getContainerGroup", args, &rv, opts...)

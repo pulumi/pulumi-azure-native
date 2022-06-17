@@ -257,11 +257,11 @@ class AgentPoolArgs:
         pulumi.set(self, "vnet_subnet_id", value)
 
 
-warnings.warn("""Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class AgentPool(pulumi.CustomResource):
-    warnings.warn("""Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2019-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -344,7 +344,7 @@ class AgentPool(pulumi.CustomResource):
                  vm_size: Optional[pulumi.Input[Union[str, 'ContainerServiceVMSizeTypes']]] = None,
                  vnet_subnet_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""AgentPool is deprecated: Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.""")
+        pulumi.log.warn("""AgentPool is deprecated: Version 2019-04-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

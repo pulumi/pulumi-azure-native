@@ -13,7 +13,7 @@ import (
 
 // Customer provided domain for branding purposes, e.g. www.contoso.com.
 //
-// Deprecated: Version v20161002 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
+// Deprecated: Version 2016-10-02 will be removed in v2 of the provider.
 type CustomDomain struct {
 	pulumi.CustomResourceState
 

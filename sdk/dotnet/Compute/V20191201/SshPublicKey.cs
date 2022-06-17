@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Compute.V20191201
     /// <summary>
     /// Specifies information about the SSH public key.
     /// </summary>
-    [Obsolete(@"Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")]
+    [Obsolete(@"Version 2019-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:compute/v20191201:SshPublicKey")]
     public partial class SshPublicKey : Pulumi.CustomResource
     {

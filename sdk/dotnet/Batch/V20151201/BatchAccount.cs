@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Batch.V20151201
     /// <summary>
     /// Contains information about an Azure Batch account.
     /// </summary>
-    [Obsolete(@"Version v20151201 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")]
+    [Obsolete(@"Version 2015-12-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:batch/v20151201:BatchAccount")]
     public partial class BatchAccount : Pulumi.CustomResource
     {

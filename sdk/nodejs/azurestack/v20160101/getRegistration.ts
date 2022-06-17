@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Registration information.
  */
-/** @deprecated Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20170601 or later. */
+/** @deprecated Version 2016-01-01 will be removed in v2 of the provider. */
 export function getRegistration(args: GetRegistrationArgs, opts?: pulumi.InvokeOptions): Promise<GetRegistrationResult> {
-    pulumi.log.warn("getRegistration is deprecated: Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")
+    pulumi.log.warn("getRegistration is deprecated: Version 2016-01-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

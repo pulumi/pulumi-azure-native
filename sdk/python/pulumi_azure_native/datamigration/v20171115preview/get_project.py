@@ -16,7 +16,7 @@ __all__ = [
     'get_project_output',
 ]
 
-warnings.warn("""Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-15-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetProjectResult:
@@ -190,7 +190,7 @@ def get_project(group_name: Optional[str] = None,
     :param str project_name: Name of the project
     :param str service_name: Name of the service
     """
-    pulumi.log.warn("""get_project is deprecated: Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""")
+    pulumi.log.warn("""get_project is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['groupName'] = group_name
     __args__['projectName'] = project_name
@@ -229,5 +229,5 @@ def get_project_output(group_name: Optional[pulumi.Input[str]] = None,
     :param str project_name: Name of the project
     :param str service_name: Name of the service
     """
-    pulumi.log.warn("""get_project is deprecated: Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""")
+    pulumi.log.warn("""get_project is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.""")
     ...

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.StorageCache.V20191101
     /// <summary>
     /// A storage system being cached by a Cache.
     /// </summary>
-    [Obsolete(@"Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")]
+    [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storagecache/v20191101:StorageTarget")]
     public partial class StorageTarget : Pulumi.CustomResource
     {

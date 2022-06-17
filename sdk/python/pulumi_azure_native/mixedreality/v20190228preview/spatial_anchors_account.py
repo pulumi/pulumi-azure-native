@@ -100,11 +100,11 @@ class SpatialAnchorsAccountArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20190228preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-02-28-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class SpatialAnchorsAccount(pulumi.CustomResource):
-    warnings.warn("""Version v20190228preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2019-02-28-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -157,7 +157,7 @@ class SpatialAnchorsAccount(pulumi.CustomResource):
                  spatial_anchors_account_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""SpatialAnchorsAccount is deprecated: Version v20190228preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
+        pulumi.log.warn("""SpatialAnchorsAccount is deprecated: Version 2019-02-28-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

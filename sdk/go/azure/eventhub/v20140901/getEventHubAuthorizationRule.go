@@ -12,7 +12,7 @@ import (
 
 // Single item in a List or Get AuthorizationRule operation
 //
-// Deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
+// Deprecated: Version 2014-09-01 will be removed in v2 of the provider.
 func LookupEventHubAuthorizationRule(ctx *pulumi.Context, args *LookupEventHubAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupEventHubAuthorizationRuleResult, error) {
 	var rv LookupEventHubAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:eventhub/v20140901:getEventHubAuthorizationRule", args, &rv, opts...)

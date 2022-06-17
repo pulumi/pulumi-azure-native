@@ -13,7 +13,7 @@ import (
 
 // A formula for creating a VM, specifying an image base and other parameters
 //
-// Deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
+// Deprecated: Version 2016-05-15 will be removed in v2 of the provider.
 type Formula struct {
 	pulumi.CustomResourceState
 

@@ -13,8 +13,6 @@ export {
 };
 
 export const AppSku = {
-    F1: "F1",
-    S1: "S1",
     ST0: "ST0",
     ST1: "ST1",
     ST2: "ST2",
@@ -35,3 +33,13 @@ export const PrivateEndpointServiceConnectionStatus = {
  * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
  */
 export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const SystemAssignedServiceIdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * Type of managed service identity (either system assigned, or none).
+ */
+export type SystemAssignedServiceIdentityType = (typeof SystemAssignedServiceIdentityType)[keyof typeof SystemAssignedServiceIdentityType];

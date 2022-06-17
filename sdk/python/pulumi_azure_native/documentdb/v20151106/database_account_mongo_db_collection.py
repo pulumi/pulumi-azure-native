@@ -111,11 +111,11 @@ class DatabaseAccountMongoDBCollectionArgs:
         pulumi.set(self, "collection_name", value)
 
 
-warnings.warn("""Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-11-06 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
-    warnings.warn("""Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2015-11-06 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -171,7 +171,7 @@ class DatabaseAccountMongoDBCollection(pulumi.CustomResource):
                  resource: Optional[pulumi.Input[pulumi.InputType['MongoDBCollectionResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DatabaseAccountMongoDBCollection is deprecated: Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+        pulumi.log.warn("""DatabaseAccountMongoDBCollection is deprecated: Version 2015-11-06 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

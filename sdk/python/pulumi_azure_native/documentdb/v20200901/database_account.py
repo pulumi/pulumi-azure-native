@@ -388,11 +388,11 @@ class DatabaseAccountArgs:
         pulumi.set(self, "virtual_network_rules", value)
 
 
-warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class DatabaseAccount(pulumi.CustomResource):
-    warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -499,7 +499,7 @@ class DatabaseAccount(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  virtual_network_rules: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['VirtualNetworkRuleArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""DatabaseAccount is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+        pulumi.log.warn("""DatabaseAccount is deprecated: Version 2020-09-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

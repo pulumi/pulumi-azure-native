@@ -53,11 +53,11 @@ class SubscriptionAliasArgs:
         pulumi.set(self, "properties", value)
 
 
-warnings.warn("""Version v20191001preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-10-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class SubscriptionAlias(pulumi.CustomResource):
-    warnings.warn("""Version v20191001preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2019-10-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -101,7 +101,7 @@ class SubscriptionAlias(pulumi.CustomResource):
                  alias_name: Optional[pulumi.Input[str]] = None,
                  properties: Optional[pulumi.Input[pulumi.InputType['PutAliasRequestPropertiesArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""SubscriptionAlias is deprecated: Version v20191001preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+        pulumi.log.warn("""SubscriptionAlias is deprecated: Version 2019-10-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

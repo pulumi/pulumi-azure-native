@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Action rule object containing target scope, conditions and suppression logic
  *
- * @deprecated Version v20181102privatepreview will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.
+ * @deprecated Version 2018-11-02-privatepreview will be removed in v2 of the provider.
  */
 export class ActionRuleByName extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class ActionRuleByName extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ActionRuleByName {
-        pulumi.log.warn("ActionRuleByName is deprecated: Version v20181102privatepreview will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.")
+        pulumi.log.warn("ActionRuleByName is deprecated: Version 2018-11-02-privatepreview will be removed in v2 of the provider.")
         return new ActionRuleByName(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,9 +66,9 @@ export class ActionRuleByName extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20181102privatepreview will be removed in the next major version of the provider. Upgrade to version v20190505preview or later. */
+    /** @deprecated Version 2018-11-02-privatepreview will be removed in v2 of the provider. */
     constructor(name: string, args: ActionRuleByNameArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ActionRuleByName is deprecated: Version v20181102privatepreview will be removed in the next major version of the provider. Upgrade to version v20190505preview or later.")
+        pulumi.log.warn("ActionRuleByName is deprecated: Version 2018-11-02-privatepreview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

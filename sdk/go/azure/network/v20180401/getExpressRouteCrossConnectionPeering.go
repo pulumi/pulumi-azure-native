@@ -12,7 +12,7 @@ import (
 
 // Peering in an ExpressRoute Cross Connection resource.
 //
-// Deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2018-04-01 will be removed in v2 of the provider.
 func LookupExpressRouteCrossConnectionPeering(ctx *pulumi.Context, args *LookupExpressRouteCrossConnectionPeeringArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCrossConnectionPeeringResult, error) {
 	var rv LookupExpressRouteCrossConnectionPeeringResult
 	err := ctx.Invoke("azure-native:network/v20180401:getExpressRouteCrossConnectionPeering", args, &rv, opts...)

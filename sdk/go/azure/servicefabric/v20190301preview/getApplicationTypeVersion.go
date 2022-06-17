@@ -12,7 +12,7 @@ import (
 
 // An application type version resource for the specified application type name resource.
 //
-// Deprecated: Version v20190301preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.
+// Deprecated: Version 2019-03-01-preview will be removed in v2 of the provider.
 func LookupApplicationTypeVersion(ctx *pulumi.Context, args *LookupApplicationTypeVersionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationTypeVersionResult, error) {
 	var rv LookupApplicationTypeVersionResult
 	err := ctx.Invoke("azure-native:servicefabric/v20190301preview:getApplicationTypeVersion", args, &rv, opts...)

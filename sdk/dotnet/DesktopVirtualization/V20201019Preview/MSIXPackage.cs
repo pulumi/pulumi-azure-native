@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20201019Preview
     /// <summary>
     /// Schema for MSIX Package properties.
     /// </summary>
-    [Obsolete(@"Version v20201019preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.")]
+    [Obsolete(@"Version 2020-10-19-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20201019preview:MSIXPackage")]
     public partial class MSIXPackage : Pulumi.CustomResource
     {

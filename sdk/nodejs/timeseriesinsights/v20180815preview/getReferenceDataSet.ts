@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A reference data set provides metadata about the events in an environment. Metadata in the reference data set will be joined with events as they are read from event sources. The metadata that makes up the reference data set is uploaded or modified through the Time Series Insights data plane APIs.
  */
-/** @deprecated Version v20180815preview will be removed in the next major version of the provider. Upgrade to version v20200515 or later. */
+/** @deprecated Version 2018-08-15-preview will be removed in v2 of the provider. */
 export function getReferenceDataSet(args: GetReferenceDataSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReferenceDataSetResult> {
-    pulumi.log.warn("getReferenceDataSet is deprecated: Version v20180815preview will be removed in the next major version of the provider. Upgrade to version v20200515 or later.")
+    pulumi.log.warn("getReferenceDataSet is deprecated: Version 2018-08-15-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

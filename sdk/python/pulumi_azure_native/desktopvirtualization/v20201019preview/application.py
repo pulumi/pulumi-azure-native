@@ -240,11 +240,11 @@ class ApplicationArgs:
         pulumi.set(self, "show_in_portal", value)
 
 
-warnings.warn("""Version v20201019preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-10-19-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Application(pulumi.CustomResource):
-    warnings.warn("""Version v20201019preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-10-19-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -324,7 +324,7 @@ class Application(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  show_in_portal: Optional[pulumi.Input[bool]] = None,
                  __props__=None):
-        pulumi.log.warn("""Application is deprecated: Version v20201019preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""")
+        pulumi.log.warn("""Application is deprecated: Version 2020-10-19-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

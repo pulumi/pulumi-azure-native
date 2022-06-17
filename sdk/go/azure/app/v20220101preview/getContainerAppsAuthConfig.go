@@ -11,8 +11,6 @@ import (
 )
 
 // Configuration settings for the Azure ContainerApp Service Authentication / Authorization feature.
-//
-// Deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 func LookupContainerAppsAuthConfig(ctx *pulumi.Context, args *LookupContainerAppsAuthConfigArgs, opts ...pulumi.InvokeOption) (*LookupContainerAppsAuthConfigResult, error) {
 	var rv LookupContainerAppsAuthConfigResult
 	err := ctx.Invoke("azure-native:app/v20220101preview:getContainerAppsAuthConfig", args, &rv, opts...)

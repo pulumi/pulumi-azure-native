@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Deprecated: Version v20140801preview will be removed in the next major version of the provider. Upgrade to version v20160301 or later.
+// Deprecated: Version 2014-08-01-preview will be removed in v2 of the provider.
 func LookupJob(ctx *pulumi.Context, args *LookupJobArgs, opts ...pulumi.InvokeOption) (*LookupJobResult, error) {
 	var rv LookupJobResult
 	err := ctx.Invoke("azure-native:scheduler/v20140801preview:getJob", args, &rv, opts...)

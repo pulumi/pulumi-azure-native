@@ -241,11 +241,11 @@ class RecordSetArgs:
         pulumi.set(self, "ttl", value)
 
 
-warnings.warn("""Version v20150504preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-05-04-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class RecordSet(pulumi.CustomResource):
-    warnings.warn("""Version v20150504preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2015-05-04-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -325,7 +325,7 @@ class RecordSet(pulumi.CustomResource):
                  ttl: Optional[pulumi.Input[float]] = None,
                  zone_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""RecordSet is deprecated: Version v20150504preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+        pulumi.log.warn("""RecordSet is deprecated: Version 2015-05-04-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

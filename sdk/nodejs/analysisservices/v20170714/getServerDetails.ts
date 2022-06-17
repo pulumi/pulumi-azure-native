@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents an instance of an Analysis Services resource.
  */
-/** @deprecated Version v20170714 will be removed in the next major version of the provider. Upgrade to version v20170801 or later. */
+/** @deprecated Version 2017-07-14 will be removed in v2 of the provider. */
 export function getServerDetails(args: GetServerDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetServerDetailsResult> {
-    pulumi.log.warn("getServerDetails is deprecated: Version v20170714 will be removed in the next major version of the provider. Upgrade to version v20170801 or later.")
+    pulumi.log.warn("getServerDetails is deprecated: Version 2017-07-14 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

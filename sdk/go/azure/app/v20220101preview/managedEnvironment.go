@@ -12,8 +12,6 @@ import (
 )
 
 // An environment for hosting container apps
-//
-// Deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 type ManagedEnvironment struct {
 	pulumi.CustomResourceState
 

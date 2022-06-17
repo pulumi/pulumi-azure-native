@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Resources.V20160201
     /// <summary>
     /// Resource information.
     /// </summary>
-    [Obsolete(@"Version v20160201 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.")]
+    [Obsolete(@"Version 2016-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:resources/v20160201:Resource")]
     public partial class Resource : Pulumi.CustomResource
     {

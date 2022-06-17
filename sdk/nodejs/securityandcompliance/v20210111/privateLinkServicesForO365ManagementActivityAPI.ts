@@ -7,8 +7,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The description of the service.
- *
- * @deprecated Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.
  */
 export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.Cust
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateLinkServicesForO365ManagementActivityAPI {
-        pulumi.log.warn("PrivateLinkServicesForO365ManagementActivityAPI is deprecated: Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.")
         return new PrivateLinkServicesForO365ManagementActivityAPI(name, undefined as any, { ...opts, id: id });
     }
 
@@ -82,9 +79,7 @@ export class PrivateLinkServicesForO365ManagementActivityAPI extends pulumi.Cust
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later. */
     constructor(name: string, args: PrivateLinkServicesForO365ManagementActivityAPIArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateLinkServicesForO365ManagementActivityAPI is deprecated: Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

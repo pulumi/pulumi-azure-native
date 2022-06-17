@@ -145,11 +145,11 @@ class GremlinResourceGremlinGraphArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class GremlinResourceGremlinGraph(pulumi.CustomResource):
-    warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -211,7 +211,7 @@ class GremlinResourceGremlinGraph(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""GremlinResourceGremlinGraph is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+        pulumi.log.warn("""GremlinResourceGremlinGraph is deprecated: Version 2020-09-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

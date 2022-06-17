@@ -7,9 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Properties of the table, including Id, resource name, resource type.
  */
-/** @deprecated Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
 export function getTable(args: GetTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResult> {
-    pulumi.log.warn("getTable is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
     if (!opts) {
         opts = {}
     }

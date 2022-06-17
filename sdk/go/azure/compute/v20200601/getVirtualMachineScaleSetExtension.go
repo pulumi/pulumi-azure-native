@@ -12,7 +12,7 @@ import (
 
 // Describes a Virtual Machine Scale Set Extension.
 //
-// Deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
+// Deprecated: Version 2020-06-01 will be removed in v2 of the provider.
 func LookupVirtualMachineScaleSetExtension(ctx *pulumi.Context, args *LookupVirtualMachineScaleSetExtensionArgs, opts ...pulumi.InvokeOption) (*LookupVirtualMachineScaleSetExtensionResult, error) {
 	var rv LookupVirtualMachineScaleSetExtensionResult
 	err := ctx.Invoke("azure-native:compute/v20200601:getVirtualMachineScaleSetExtension", args, &rv, opts...)

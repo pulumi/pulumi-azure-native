@@ -13,7 +13,7 @@ import (
 
 // Description of a Namespace AuthorizationRules.
 //
-// Deprecated: Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
+// Deprecated: Version 2016-03-01 will be removed in v2 of the provider.
 type NotificationHubAuthorizationRule struct {
 	pulumi.CustomResourceState
 

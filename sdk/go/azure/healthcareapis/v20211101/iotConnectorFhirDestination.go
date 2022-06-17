@@ -12,8 +12,6 @@ import (
 )
 
 // IoT Connector FHIR destination definition.
-//
-// Deprecated: Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.
 type IotConnectorFhirDestination struct {
 	pulumi.CustomResourceState
 

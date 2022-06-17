@@ -12,7 +12,7 @@ import (
 
 // Information about appliance.
 //
-// Deprecated: Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.
+// Deprecated: Version 2016-09-01-preview will be removed in v2 of the provider.
 func LookupAppliance(ctx *pulumi.Context, args *LookupApplianceArgs, opts ...pulumi.InvokeOption) (*LookupApplianceResult, error) {
 	var rv LookupApplianceResult
 	err := ctx.Invoke("azure-native:solutions/v20160901preview:getAppliance", args, &rv, opts...)

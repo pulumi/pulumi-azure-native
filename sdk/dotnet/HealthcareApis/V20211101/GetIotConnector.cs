@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HealthcareApis.V20211101
 {
-    [Obsolete(@"Version v20211101 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")]
     public static class GetIotConnector
     {
         /// <summary>

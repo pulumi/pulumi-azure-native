@@ -12,7 +12,7 @@ import (
 )
 
 // The IoT Central application.
-// API Version: 2018-09-01.
+// API Version: 2021-06-01.
 type App struct {
 	pulumi.CustomResourceState
 
@@ -20,12 +20,16 @@ type App struct {
 	ApplicationId pulumi.StringOutput `pulumi:"applicationId"`
 	// The display name of the application.
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
+	// The managed identities for the IoT Central application.
+	Identity SystemAssignedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The resource location.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The ARM resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A valid instance SKU.
 	Sku AppSkuInfoResponseOutput `pulumi:"sku"`
+	// The current state of the application.
+	State pulumi.StringOutput `pulumi:"state"`
 	// The subdomain of the application.
 	Subdomain pulumi.StringPtrOutput `pulumi:"subdomain"`
 	// The resource tags.
@@ -95,6 +99,8 @@ func (AppState) ElementType() reflect.Type {
 type appArgs struct {
 	// The display name of the application.
 	DisplayName *string `pulumi:"displayName"`
+	// The managed identities for the IoT Central application.
+	Identity *SystemAssignedServiceIdentity `pulumi:"identity"`
 	// The resource location.
 	Location *string `pulumi:"location"`
 	// The name of the resource group that contains the IoT Central application.
@@ -115,6 +121,8 @@ type appArgs struct {
 type AppArgs struct {
 	// The display name of the application.
 	DisplayName pulumi.StringPtrInput
+	// The managed identities for the IoT Central application.
+	Identity SystemAssignedServiceIdentityPtrInput
 	// The resource location.
 	Location pulumi.StringPtrInput
 	// The name of the resource group that contains the IoT Central application.
@@ -178,6 +186,11 @@ func (o AppOutput) DisplayName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *App) pulumi.StringPtrOutput { return v.DisplayName }).(pulumi.StringPtrOutput)
 }
 
+// The managed identities for the IoT Central application.
+func (o AppOutput) Identity() SystemAssignedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *App) SystemAssignedServiceIdentityResponsePtrOutput { return v.Identity }).(SystemAssignedServiceIdentityResponsePtrOutput)
+}
+
 // The resource location.
 func (o AppOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
@@ -191,6 +204,11 @@ func (o AppOutput) Name() pulumi.StringOutput {
 // A valid instance SKU.
 func (o AppOutput) Sku() AppSkuInfoResponseOutput {
 	return o.ApplyT(func(v *App) AppSkuInfoResponseOutput { return v.Sku }).(AppSkuInfoResponseOutput)
+}
+
+// The current state of the application.
+func (o AppOutput) State() pulumi.StringOutput {
+	return o.ApplyT(func(v *App) pulumi.StringOutput { return v.State }).(pulumi.StringOutput)
 }
 
 // The subdomain of the application.

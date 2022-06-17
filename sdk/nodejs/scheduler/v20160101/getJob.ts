@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
-/** @deprecated Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20160301 or later. */
+/** @deprecated Version 2016-01-01 will be removed in v2 of the provider. */
 export function getJob(args: GetJobArgs, opts?: pulumi.InvokeOptions): Promise<GetJobResult> {
-    pulumi.log.warn("getJob is deprecated: Version v20160101 will be removed in the next major version of the provider. Upgrade to version v20160301 or later.")
+    pulumi.log.warn("getJob is deprecated: Version 2016-01-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

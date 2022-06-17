@@ -16,7 +16,7 @@ __all__ = [
     'get_vault_output',
 ]
 
-warnings.warn("""Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVaultResult:
@@ -116,7 +116,7 @@ def get_vault(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.
     :param str vault_name: The name of the vault.
     """
-    pulumi.log.warn("""get_vault is deprecated: Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""")
+    pulumi.log.warn("""get_vault is deprecated: Version 2015-06-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['vaultName'] = vault_name
@@ -146,5 +146,5 @@ def get_vault_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the Resource Group to which the vault belongs.
     :param str vault_name: The name of the vault.
     """
-    pulumi.log.warn("""get_vault is deprecated: Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""")
+    pulumi.log.warn("""get_vault is deprecated: Version 2015-06-01 will be removed in v2 of the provider.""")
     ...

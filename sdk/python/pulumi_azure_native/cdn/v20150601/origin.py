@@ -126,11 +126,11 @@ class OriginArgs:
         pulumi.set(self, "origin_name", value)
 
 
-warnings.warn("""Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Origin(pulumi.CustomResource):
-    warnings.warn("""Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2015-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -189,7 +189,7 @@ class Origin(pulumi.CustomResource):
                  profile_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Origin is deprecated: Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+        pulumi.log.warn("""Origin is deprecated: Version 2015-06-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

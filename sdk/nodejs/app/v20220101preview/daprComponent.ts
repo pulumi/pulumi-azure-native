@@ -7,8 +7,6 @@ import * as utilities from "../../utilities";
 
 /**
  * Dapr Component.
- *
- * @deprecated Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
  */
 export class DaprComponent extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class DaprComponent extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DaprComponent {
-        pulumi.log.warn("DaprComponent is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")
         return new DaprComponent(name, undefined as any, { ...opts, id: id });
     }
 
@@ -86,9 +83,7 @@ export class DaprComponent extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later. */
     constructor(name: string, args: DaprComponentArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DaprComponent is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

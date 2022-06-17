@@ -11,8 +11,6 @@ import (
 )
 
 // An Azure Cosmos DB MongoDB database.
-//
-// Deprecated: Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
 func LookupMongoDBResourceMongoDBDatabase(ctx *pulumi.Context, args *LookupMongoDBResourceMongoDBDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupMongoDBResourceMongoDBDatabaseResult, error) {
 	var rv LookupMongoDBResourceMongoDBDatabaseResult
 	err := ctx.Invoke("azure-native:documentdb/v20210115:getMongoDBResourceMongoDBDatabase", args, &rv, opts...)

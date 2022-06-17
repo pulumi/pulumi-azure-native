@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Properties of the file share, including Id, resource name, resource type, Etag.
  */
-/** @deprecated Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
+/** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getFileShare(args: GetFileShareArgs, opts?: pulumi.InvokeOptions): Promise<GetFileShareResult> {
-    pulumi.log.warn("getFileShare is deprecated: Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
+    pulumi.log.warn("getFileShare is deprecated: Version 2019-04-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

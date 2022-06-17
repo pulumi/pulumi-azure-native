@@ -12,8 +12,6 @@ import (
 )
 
 // An Azure Cosmos DB trigger.
-//
-// Deprecated: Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
 type SqlResourceSqlTrigger struct {
 	pulumi.CustomResourceState
 

@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
-/** @deprecated Version v20180201preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later. */
+/** @deprecated Version 2018-02-01-preview will be removed in v2 of the provider. */
 export function getVirtualMachineImageTemplate(args: GetVirtualMachineImageTemplateArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineImageTemplateResult> {
-    pulumi.log.warn("getVirtualMachineImageTemplate is deprecated: Version v20180201preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later.")
+    pulumi.log.warn("getVirtualMachineImageTemplate is deprecated: Version 2018-02-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

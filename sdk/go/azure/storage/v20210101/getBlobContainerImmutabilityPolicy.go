@@ -11,8 +11,6 @@ import (
 )
 
 // The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
-//
-// Deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 func LookupBlobContainerImmutabilityPolicy(ctx *pulumi.Context, args *LookupBlobContainerImmutabilityPolicyArgs, opts ...pulumi.InvokeOption) (*LookupBlobContainerImmutabilityPolicyResult, error) {
 	var rv LookupBlobContainerImmutabilityPolicyResult
 	err := ctx.Invoke("azure-native:storage/v20210101:getBlobContainerImmutabilityPolicy", args, &rv, opts...)

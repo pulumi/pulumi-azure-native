@@ -12,7 +12,7 @@ import (
 
 // An Azure Cosmos DB SQL database.
 //
-// Deprecated: Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
+// Deprecated: Version 2019-12-12 will be removed in v2 of the provider.
 func LookupSqlResourceSqlDatabase(ctx *pulumi.Context, args *LookupSqlResourceSqlDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlDatabaseResult, error) {
 	var rv LookupSqlResourceSqlDatabaseResult
 	err := ctx.Invoke("azure-native:documentdb/v20191212:getSqlResourceSqlDatabase", args, &rv, opts...)

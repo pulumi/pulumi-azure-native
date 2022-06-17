@@ -13,7 +13,7 @@ import (
 
 // A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
 //
-// Deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.
+// Deprecated: Version 2019-07-01 will be removed in v2 of the provider.
 type FirewallRule struct {
 	pulumi.CustomResourceState
 

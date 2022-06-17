@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.GuestConfiguration.V20181120
     /// <summary>
     /// Guest configuration assignment is an association between a machine and guest configuration.
     /// </summary>
-    [Obsolete(@"Version v20181120 will be removed in the next major version of the provider. Upgrade to version v20200625 or later.")]
+    [Obsolete(@"Version 2018-11-20 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:guestconfiguration/v20181120:GuestConfigurationAssignment")]
     public partial class GuestConfigurationAssignment : Pulumi.CustomResource
     {

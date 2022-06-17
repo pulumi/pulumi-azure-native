@@ -211,11 +211,11 @@ class CustomImageArgs:
         pulumi.set(self, "vm", value)
 
 
-warnings.warn("""Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class CustomImage(pulumi.CustomResource):
-    warnings.warn("""Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -289,7 +289,7 @@ class CustomImage(pulumi.CustomResource):
                  vhd: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesCustomArgs']]] = None,
                  vm: Optional[pulumi.Input[pulumi.InputType['CustomImagePropertiesFromVmArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""CustomImage is deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""")
+        pulumi.log.warn("""CustomImage is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

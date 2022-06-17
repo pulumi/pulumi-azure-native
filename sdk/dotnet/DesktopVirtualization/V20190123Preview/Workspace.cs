@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20190123Preview
     /// <summary>
     /// Represents a Workspace definition.
     /// </summary>
-    [Obsolete(@"Version v20190123preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.")]
+    [Obsolete(@"Version 2019-01-23-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:desktopvirtualization/v20190123preview:Workspace")]
     public partial class Workspace : Pulumi.CustomResource
     {

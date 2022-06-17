@@ -229,11 +229,11 @@ class SourceControlConfigurationArgs:
         pulumi.set(self, "source_control_configuration_name", value)
 
 
-warnings.warn("""Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200701preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-11-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class SourceControlConfiguration(pulumi.CustomResource):
-    warnings.warn("""Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200701preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2019-11-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -310,7 +310,7 @@ class SourceControlConfiguration(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  source_control_configuration_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SourceControlConfiguration is deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200701preview or later.""")
+        pulumi.log.warn("""SourceControlConfiguration is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

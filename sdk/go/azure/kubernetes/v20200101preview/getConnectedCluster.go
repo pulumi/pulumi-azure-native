@@ -12,7 +12,7 @@ import (
 
 // Represents a connected cluster.
 //
-// Deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
+// Deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.
 func LookupConnectedCluster(ctx *pulumi.Context, args *LookupConnectedClusterArgs, opts ...pulumi.InvokeOption) (*LookupConnectedClusterResult, error) {
 	var rv LookupConnectedClusterResult
 	err := ctx.Invoke("azure-native:kubernetes/v20200101preview:getConnectedCluster", args, &rv, opts...)

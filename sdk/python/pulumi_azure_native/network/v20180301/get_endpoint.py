@@ -16,7 +16,7 @@ __all__ = [
     'get_endpoint_output',
 ]
 
-warnings.warn("""Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEndpointResult:
@@ -204,7 +204,7 @@ def get_endpoint(endpoint_name: Optional[str] = None,
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager endpoint.
     """
-    pulumi.log.warn("""get_endpoint is deprecated: Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_endpoint is deprecated: Version 2018-03-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['endpointType'] = endpoint_type
@@ -247,5 +247,5 @@ def get_endpoint_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: The name of the Traffic Manager profile.
     :param str resource_group_name: The name of the resource group containing the Traffic Manager endpoint.
     """
-    pulumi.log.warn("""get_endpoint is deprecated: Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_endpoint is deprecated: Version 2018-03-01 will be removed in v2 of the provider.""")
     ...

@@ -16,7 +16,7 @@ __all__ = [
     'get_bandwidth_schedule_output',
 ]
 
-warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBandwidthScheduleResult:
@@ -142,7 +142,7 @@ def get_bandwidth_schedule(device_name: Optional[str] = None,
     :param str name: The bandwidth schedule name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_bandwidth_schedule is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_bandwidth_schedule is deprecated: Version 2020-09-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name
@@ -177,5 +177,5 @@ def get_bandwidth_schedule_output(device_name: Optional[pulumi.Input[str]] = Non
     :param str name: The bandwidth schedule name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_bandwidth_schedule is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_bandwidth_schedule is deprecated: Version 2020-09-01 will be removed in v2 of the provider.""")
     ...

@@ -159,11 +159,11 @@ class SavedSearchArgs:
         pulumi.set(self, "version", value)
 
 
-warnings.warn("""Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-03-20 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class SavedSearch(pulumi.CustomResource):
-    warnings.warn("""Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2015-03-20 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -228,7 +228,7 @@ class SavedSearch(pulumi.CustomResource):
                  version: Optional[pulumi.Input[float]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SavedSearch is deprecated: Version v20150320 will be removed in the next major version of the provider. Upgrade to version v20151101preview or later.""")
+        pulumi.log.warn("""SavedSearch is deprecated: Version 2015-03-20 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

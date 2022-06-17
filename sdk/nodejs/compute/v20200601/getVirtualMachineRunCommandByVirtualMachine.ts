@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Virtual Machine run command.
  */
-/** @deprecated Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
+/** @deprecated Version 2020-06-01 will be removed in v2 of the provider. */
 export function getVirtualMachineRunCommandByVirtualMachine(args: GetVirtualMachineRunCommandByVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineRunCommandByVirtualMachineResult> {
-    pulumi.log.warn("getVirtualMachineRunCommandByVirtualMachine is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
+    pulumi.log.warn("getVirtualMachineRunCommandByVirtualMachine is deprecated: Version 2020-06-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

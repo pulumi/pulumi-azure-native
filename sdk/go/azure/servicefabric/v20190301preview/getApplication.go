@@ -12,7 +12,7 @@ import (
 
 // The application resource.
 //
-// Deprecated: Version v20190301preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.
+// Deprecated: Version 2019-03-01-preview will be removed in v2 of the provider.
 func LookupApplication(ctx *pulumi.Context, args *LookupApplicationArgs, opts ...pulumi.InvokeOption) (*LookupApplicationResult, error) {
 	var rv LookupApplicationResult
 	err := ctx.Invoke("azure-native:servicefabric/v20190301preview:getApplication", args, &rv, opts...)

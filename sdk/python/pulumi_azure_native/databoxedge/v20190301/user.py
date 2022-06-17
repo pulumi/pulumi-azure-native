@@ -99,11 +99,11 @@ class UserArgs:
         pulumi.set(self, "share_access_rights", value)
 
 
-warnings.warn("""Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class User(pulumi.CustomResource):
-    warnings.warn("""Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2019-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -156,7 +156,7 @@ class User(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  share_access_rights: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ShareAccessRightArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""User is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+        pulumi.log.warn("""User is deprecated: Version 2019-03-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

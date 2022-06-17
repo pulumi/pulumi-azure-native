@@ -13,7 +13,7 @@ import (
 
 // A project resource
 //
-// Deprecated: Version v20180315preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.
+// Deprecated: Version 2018-03-15-preview will be removed in v2 of the provider.
 type Project struct {
 	pulumi.CustomResourceState
 

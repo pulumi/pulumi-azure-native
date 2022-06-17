@@ -223,11 +223,11 @@ class CloudEndpointArgs:
         pulumi.set(self, "storage_account_tenant_id", value)
 
 
-warnings.warn("""Version v20170605preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-06-05-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class CloudEndpoint(pulumi.CustomResource):
-    warnings.warn("""Version v20170605preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-06-05-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -304,7 +304,7 @@ class CloudEndpoint(pulumi.CustomResource):
                  storage_sync_service_name: Optional[pulumi.Input[str]] = None,
                  sync_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""CloudEndpoint is deprecated: Version v20170605preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+        pulumi.log.warn("""CloudEndpoint is deprecated: Version 2017-06-05-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

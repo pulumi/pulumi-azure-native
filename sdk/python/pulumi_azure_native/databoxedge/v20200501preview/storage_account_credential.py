@@ -192,11 +192,11 @@ class StorageAccountCredentialArgs:
         pulumi.set(self, "user_name", value)
 
 
-warnings.warn("""Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class StorageAccountCredential(pulumi.CustomResource):
-    warnings.warn("""Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -267,7 +267,7 @@ class StorageAccountCredential(pulumi.CustomResource):
                  storage_account_id: Optional[pulumi.Input[str]] = None,
                  user_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""StorageAccountCredential is deprecated: Version v20200501preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+        pulumi.log.warn("""StorageAccountCredential is deprecated: Version 2020-05-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

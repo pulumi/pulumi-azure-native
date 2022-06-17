@@ -84,11 +84,11 @@ class ManagementGroupArgs:
         pulumi.set(self, "name", value)
 
 
-warnings.warn("""Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class ManagementGroup(pulumi.CustomResource):
-    warnings.warn("""Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -138,7 +138,7 @@ class ManagementGroup(pulumi.CustomResource):
                  group_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ManagementGroup is deprecated: Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""")
+        pulumi.log.warn("""ManagementGroup is deprecated: Version 2020-02-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

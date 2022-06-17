@@ -12,7 +12,7 @@ import (
 
 // Describes a Machine Extension.
 //
-// Deprecated: Version v20190802preview will be removed in the next major version of the provider. Upgrade to version v20200802 or later.
+// Deprecated: Version 2019-08-02-preview will be removed in v2 of the provider.
 func LookupMachineExtension(ctx *pulumi.Context, args *LookupMachineExtensionArgs, opts ...pulumi.InvokeOption) (*LookupMachineExtensionResult, error) {
 	var rv LookupMachineExtensionResult
 	err := ctx.Invoke("azure-native:hybridcompute/v20190802preview:getMachineExtension", args, &rv, opts...)

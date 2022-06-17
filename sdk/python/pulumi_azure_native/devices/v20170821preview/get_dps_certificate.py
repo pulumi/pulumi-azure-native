@@ -16,7 +16,7 @@ __all__ = [
     'get_dps_certificate_output',
 ]
 
-warnings.warn("""Version v20170821preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-08-21-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDpsCertificateResult:
@@ -106,7 +106,7 @@ def get_dps_certificate(certificate_name: Optional[str] = None,
     :param str provisioning_service_name: Name of the provisioning service the certificate is associated with.
     :param str resource_group_name: Resource group identifier.
     """
-    pulumi.log.warn("""get_dps_certificate is deprecated: Version v20170821preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_dps_certificate is deprecated: Version 2017-08-21-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['certificateName'] = certificate_name
     __args__['provisioningServiceName'] = provisioning_service_name
@@ -138,5 +138,5 @@ def get_dps_certificate_output(certificate_name: Optional[pulumi.Input[str]] = N
     :param str provisioning_service_name: Name of the provisioning service the certificate is associated with.
     :param str resource_group_name: Resource group identifier.
     """
-    pulumi.log.warn("""get_dps_certificate is deprecated: Version v20170821preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_dps_certificate is deprecated: Version 2017-08-21-preview will be removed in v2 of the provider.""")
     ...

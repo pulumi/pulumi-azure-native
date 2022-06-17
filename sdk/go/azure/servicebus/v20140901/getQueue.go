@@ -12,7 +12,7 @@ import (
 
 // Description of queue Resource.
 //
-// Deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
+// Deprecated: Version 2014-09-01 will be removed in v2 of the provider.
 func LookupQueue(ctx *pulumi.Context, args *LookupQueueArgs, opts ...pulumi.InvokeOption) (*LookupQueueResult, error) {
 	var rv LookupQueueResult
 	err := ctx.Invoke("azure-native:servicebus/v20140901:getQueue", args, &rv, opts...)

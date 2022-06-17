@@ -12,7 +12,7 @@ import (
 
 // Resource information with extended details.
 //
-// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20190901 or later.
+// Deprecated: Version 2016-10-01 will be removed in v2 of the provider.
 func LookupVault(ctx *pulumi.Context, args *LookupVaultArgs, opts ...pulumi.InvokeOption) (*LookupVaultResult, error) {
 	var rv LookupVaultResult
 	err := ctx.Invoke("azure-native:keyvault/v20161001:getVault", args, &rv, opts...)

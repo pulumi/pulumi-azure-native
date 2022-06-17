@@ -13,7 +13,7 @@ import (
 
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 //
-// Deprecated: Version v20190615 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
+// Deprecated: Version 2019-06-15 will be removed in v2 of the provider.
 type CustomDomain struct {
 	pulumi.CustomResourceState
 

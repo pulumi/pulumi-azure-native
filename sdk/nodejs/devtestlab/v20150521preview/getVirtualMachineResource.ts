@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A virtual machine.
  */
-/** @deprecated Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later. */
+/** @deprecated Version 2015-05-21-preview will be removed in v2 of the provider. */
 export function getVirtualMachineResource(args: GetVirtualMachineResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineResourceResult> {
-    pulumi.log.warn("getVirtualMachineResource is deprecated: Version v20150521preview will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
+    pulumi.log.warn("getVirtualMachineResource is deprecated: Version 2015-05-21-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

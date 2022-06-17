@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Description of a Namespace resource.
  *
- * @deprecated Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
+ * @deprecated Version 2016-03-01 will be removed in v2 of the provider.
  */
 export class Namespace extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Namespace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Namespace {
-        pulumi.log.warn("Namespace is deprecated: Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+        pulumi.log.warn("Namespace is deprecated: Version 2016-03-01 will be removed in v2 of the provider.")
         return new Namespace(name, undefined as any, { ...opts, id: id });
     }
 
@@ -106,9 +106,9 @@ export class Namespace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
+    /** @deprecated Version 2016-03-01 will be removed in v2 of the provider. */
     constructor(name: string, args: NamespaceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Namespace is deprecated: Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+        pulumi.log.warn("Namespace is deprecated: Version 2016-03-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

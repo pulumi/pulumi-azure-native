@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * This type describes a volume resource.
  *
- * @deprecated Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.
+ * @deprecated Version 2018-07-01-preview will be removed in v2 of the provider.
  */
 export class Volume extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Volume extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Volume {
-        pulumi.log.warn("Volume is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.")
+        pulumi.log.warn("Volume is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.")
         return new Volume(name, undefined as any, { ...opts, id: id });
     }
 
@@ -78,9 +78,9 @@ export class Volume extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later. */
+    /** @deprecated Version 2018-07-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: VolumeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Volume is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.")
+        pulumi.log.warn("Volume is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

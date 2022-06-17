@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ContainerService.V20180930Preview
     /// <summary>
     /// OpenShift Managed cluster.
     /// </summary>
-    [Obsolete(@"Version v20180930preview will be removed in the next major version of the provider. Upgrade to version v20190430 or later.")]
+    [Obsolete(@"Version 2018-09-30-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:containerservice/v20180930preview:OpenShiftManagedCluster")]
     public partial class OpenShiftManagedCluster : Pulumi.CustomResource
     {

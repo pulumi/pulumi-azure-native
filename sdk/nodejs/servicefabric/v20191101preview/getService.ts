@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The service resource.
  */
-/** @deprecated Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later. */
+/** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider. */
 export function getService(args: GetServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceResult> {
-    pulumi.log.warn("getService is deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.")
+    pulumi.log.warn("getService is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * The policy definition.
  *
- * @deprecated Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
+ * @deprecated Version 2015-10-01-preview will be removed in v2 of the provider.
  */
 export class PolicyDefinition extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class PolicyDefinition extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PolicyDefinition {
-        pulumi.log.warn("PolicyDefinition is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+        pulumi.log.warn("PolicyDefinition is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.")
         return new PolicyDefinition(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,9 +66,9 @@ export class PolicyDefinition extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
+    /** @deprecated Version 2015-10-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args?: PolicyDefinitionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PolicyDefinition is deprecated: Version v20151001preview will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+        pulumi.log.warn("PolicyDefinition is deprecated: Version 2015-10-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

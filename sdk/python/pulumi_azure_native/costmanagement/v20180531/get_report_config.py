@@ -16,7 +16,7 @@ __all__ = [
     'get_report_config_output',
 ]
 
-warnings.warn("""Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-05-31 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetReportConfigResult:
@@ -138,7 +138,7 @@ def get_report_config(report_config_name: Optional[str] = None,
 
     :param str report_config_name: Report Config Name.
     """
-    pulumi.log.warn("""get_report_config is deprecated: Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.""")
+    pulumi.log.warn("""get_report_config is deprecated: Version 2018-05-31 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['reportConfigName'] = report_config_name
     if opts is None:
@@ -167,5 +167,5 @@ def get_report_config_output(report_config_name: Optional[pulumi.Input[str]] = N
 
     :param str report_config_name: Report Config Name.
     """
-    pulumi.log.warn("""get_report_config is deprecated: Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.""")
+    pulumi.log.warn("""get_report_config is deprecated: Version 2018-05-31 will be removed in v2 of the provider.""")
     ...

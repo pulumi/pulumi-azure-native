@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The description of the provisioning service.
  */
-/** @deprecated Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
+/** @deprecated Version 2020-01-01 will be removed in v2 of the provider. */
 export function getIotDpsResource(args: GetIotDpsResourceArgs, opts?: pulumi.InvokeOptions): Promise<GetIotDpsResourceResult> {
-    pulumi.log.warn("getIotDpsResource is deprecated: Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
+    pulumi.log.warn("getIotDpsResource is deprecated: Version 2020-01-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

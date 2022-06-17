@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The SourceControl Configuration object.
  */
-/** @deprecated Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200701preview or later. */
+/** @deprecated Version 2019-11-01-preview will be removed in v2 of the provider. */
 export function getSourceControlConfiguration(args: GetSourceControlConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlConfigurationResult> {
-    pulumi.log.warn("getSourceControlConfiguration is deprecated: Version v20191101preview will be removed in the next major version of the provider. Upgrade to version v20200701preview or later.")
+    pulumi.log.warn("getSourceControlConfiguration is deprecated: Version 2019-11-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

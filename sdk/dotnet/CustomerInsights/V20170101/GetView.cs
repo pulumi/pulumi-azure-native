@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.CustomerInsights.V20170101
 {
-    [Obsolete(@"Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.")]
+    [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
     public static class GetView
     {
         /// <summary>

@@ -16,7 +16,7 @@ __all__ = [
     'get_virtual_machine_image_template_output',
 ]
 
-warnings.warn("""Version v20180201preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-02-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineImageTemplateResult:
@@ -172,7 +172,7 @@ def get_virtual_machine_image_template(image_template_name: Optional[str] = None
     :param str image_template_name: The name of the image Template
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_virtual_machine_image_template is deprecated: Version v20180201preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later.""")
+    pulumi.log.warn("""get_virtual_machine_image_template is deprecated: Version 2018-02-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['imageTemplateName'] = image_template_name
     __args__['resourceGroupName'] = resource_group_name
@@ -206,5 +206,5 @@ def get_virtual_machine_image_template_output(image_template_name: Optional[pulu
     :param str image_template_name: The name of the image Template
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_virtual_machine_image_template is deprecated: Version v20180201preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later.""")
+    pulumi.log.warn("""get_virtual_machine_image_template is deprecated: Version 2018-02-01-preview will be removed in v2 of the provider.""")
     ...

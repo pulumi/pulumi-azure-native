@@ -12,8 +12,6 @@ import (
 )
 
 // The description of the service.
-//
-// Deprecated: Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.
 type PrivateLinkServicesForM365SecurityCenter struct {
 	pulumi.CustomResourceState
 

@@ -13,7 +13,7 @@ import (
 
 // Sync Group object.
 //
-// Deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
+// Deprecated: Version 2019-03-01 will be removed in v2 of the provider.
 type SyncGroup struct {
 	pulumi.CustomResourceState
 

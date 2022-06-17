@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * OpenShift Managed cluster.
  */
-/** @deprecated Version v20180930preview will be removed in the next major version of the provider. Upgrade to version v20190430 or later. */
+/** @deprecated Version 2018-09-30-preview will be removed in v2 of the provider. */
 export function getOpenShiftManagedCluster(args: GetOpenShiftManagedClusterArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenShiftManagedClusterResult> {
-    pulumi.log.warn("getOpenShiftManagedCluster is deprecated: Version v20180930preview will be removed in the next major version of the provider. Upgrade to version v20190430 or later.")
+    pulumi.log.warn("getOpenShiftManagedCluster is deprecated: Version 2018-09-30-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

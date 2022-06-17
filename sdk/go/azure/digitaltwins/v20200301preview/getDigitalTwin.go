@@ -12,7 +12,7 @@ import (
 
 // The description of the DigitalTwins service.
 //
-// Deprecated: Version v20200301preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
+// Deprecated: Version 2020-03-01-preview will be removed in v2 of the provider.
 func LookupDigitalTwin(ctx *pulumi.Context, args *LookupDigitalTwinArgs, opts ...pulumi.InvokeOption) (*LookupDigitalTwinResult, error) {
 	var rv LookupDigitalTwinResult
 	err := ctx.Invoke("azure-native:digitaltwins/v20200301preview:getDigitalTwin", args, &rv, opts...)

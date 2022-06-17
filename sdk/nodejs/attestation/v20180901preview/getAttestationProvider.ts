@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Attestation service response message.
  */
-/** @deprecated Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later. */
+/** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
 export function getAttestationProvider(args: GetAttestationProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetAttestationProviderResult> {
-    pulumi.log.warn("getAttestationProvider is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")
+    pulumi.log.warn("getAttestationProvider is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

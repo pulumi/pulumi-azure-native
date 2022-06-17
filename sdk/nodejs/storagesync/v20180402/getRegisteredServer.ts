@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Registered Server resource.
  */
-/** @deprecated Version v20180402 will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
+/** @deprecated Version 2018-04-02 will be removed in v2 of the provider. */
 export function getRegisteredServer(args: GetRegisteredServerArgs, opts?: pulumi.InvokeOptions): Promise<GetRegisteredServerResult> {
-    pulumi.log.warn("getRegisteredServer is deprecated: Version v20180402 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
+    pulumi.log.warn("getRegisteredServer is deprecated: Version 2018-04-02 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

@@ -16,7 +16,7 @@ __all__ = [
     'get_replication_recovery_services_provider_output',
 ]
 
-warnings.warn("""Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-01-10 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetReplicationRecoveryServicesProviderResult:
@@ -108,7 +108,7 @@ def get_replication_recovery_services_provider(fabric_name: Optional[str] = None
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("""get_replication_recovery_services_provider is deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
+    pulumi.log.warn("""get_replication_recovery_services_provider is deprecated: Version 2018-01-10 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['providerName'] = provider_name
@@ -143,5 +143,5 @@ def get_replication_recovery_services_provider_output(fabric_name: Optional[pulu
     :param str resource_group_name: The name of the resource group where the recovery services vault is present.
     :param str resource_name: The name of the recovery services vault.
     """
-    pulumi.log.warn("""get_replication_recovery_services_provider is deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
+    pulumi.log.warn("""get_replication_recovery_services_provider is deprecated: Version 2018-01-10 will be removed in v2 of the provider.""")
     ...

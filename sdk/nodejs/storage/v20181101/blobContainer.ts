@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Properties of the blob container, including Id, resource name, resource type, Etag.
  *
- * @deprecated Version v20181101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
+ * @deprecated Version 2018-11-01 will be removed in v2 of the provider.
  */
 export class BlobContainer extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class BlobContainer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): BlobContainer {
-        pulumi.log.warn("BlobContainer is deprecated: Version v20181101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
+        pulumi.log.warn("BlobContainer is deprecated: Version 2018-11-01 will be removed in v2 of the provider.")
         return new BlobContainer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -98,9 +98,9 @@ export class BlobContainer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20181101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
+    /** @deprecated Version 2018-11-01 will be removed in v2 of the provider. */
     constructor(name: string, args: BlobContainerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("BlobContainer is deprecated: Version v20181101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
+        pulumi.log.warn("BlobContainer is deprecated: Version 2018-11-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

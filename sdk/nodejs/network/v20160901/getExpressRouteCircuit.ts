@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * ExpressRouteCircuit resource
  */
-/** @deprecated Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
+/** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
 export function getExpressRouteCircuit(args: GetExpressRouteCircuitArgs, opts?: pulumi.InvokeOptions): Promise<GetExpressRouteCircuitResult> {
-    pulumi.log.warn("getExpressRouteCircuit is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+    pulumi.log.warn("getExpressRouteCircuit is deprecated: Version 2016-09-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

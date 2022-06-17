@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
  *
- * @deprecated Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
+ * @deprecated Version 2018-01-10 will be removed in v2 of the provider.
  */
 export class ReplicationNetworkMapping extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ReplicationNetworkMapping {
-        pulumi.log.warn("ReplicationNetworkMapping is deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
+        pulumi.log.warn("ReplicationNetworkMapping is deprecated: Version 2018-01-10 will be removed in v2 of the provider.")
         return new ReplicationNetworkMapping(name, undefined as any, { ...opts, id: id });
     }
 
@@ -62,9 +62,9 @@ export class ReplicationNetworkMapping extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
+    /** @deprecated Version 2018-01-10 will be removed in v2 of the provider. */
     constructor(name: string, args: ReplicationNetworkMappingArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ReplicationNetworkMapping is deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
+        pulumi.log.warn("ReplicationNetworkMapping is deprecated: Version 2018-01-10 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

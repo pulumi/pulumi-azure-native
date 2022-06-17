@@ -12,7 +12,7 @@ import (
 
 // Recovery plan details.
 //
-// Deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
+// Deprecated: Version 2018-01-10 will be removed in v2 of the provider.
 func LookupReplicationRecoveryPlan(ctx *pulumi.Context, args *LookupReplicationRecoveryPlanArgs, opts ...pulumi.InvokeOption) (*LookupReplicationRecoveryPlanResult, error) {
 	var rv LookupReplicationRecoveryPlanResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20180110:getReplicationRecoveryPlan", args, &rv, opts...)

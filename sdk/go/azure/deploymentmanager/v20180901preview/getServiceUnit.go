@@ -12,7 +12,7 @@ import (
 
 // Represents the response of a service unit resource.
 //
-// Deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.
+// Deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.
 func LookupServiceUnit(ctx *pulumi.Context, args *LookupServiceUnitArgs, opts ...pulumi.InvokeOption) (*LookupServiceUnitResult, error) {
 	var rv LookupServiceUnitResult
 	err := ctx.Invoke("azure-native:deploymentmanager/v20180901preview:getServiceUnit", args, &rv, opts...)

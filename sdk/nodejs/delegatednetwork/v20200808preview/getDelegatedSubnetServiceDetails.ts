@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents an instance of a orchestrator.
  */
-/** @deprecated Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later. */
+/** @deprecated Version 2020-08-08-preview will be removed in v2 of the provider. */
 export function getDelegatedSubnetServiceDetails(args: GetDelegatedSubnetServiceDetailsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedSubnetServiceDetailsResult> {
-    pulumi.log.warn("getDelegatedSubnetServiceDetails is deprecated: Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.")
+    pulumi.log.warn("getDelegatedSubnetServiceDetails is deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

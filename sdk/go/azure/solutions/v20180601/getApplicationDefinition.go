@@ -12,7 +12,7 @@ import (
 
 // Information about managed application definition.
 //
-// Deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20190701 or later.
+// Deprecated: Version 2018-06-01 will be removed in v2 of the provider.
 func LookupApplicationDefinition(ctx *pulumi.Context, args *LookupApplicationDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupApplicationDefinitionResult, error) {
 	var rv LookupApplicationDefinitionResult
 	err := ctx.Invoke("azure-native:solutions/v20180601:getApplicationDefinition", args, &rv, opts...)

@@ -174,11 +174,11 @@ class EventHubConnectionArgs:
         pulumi.set(self, "table_name", value)
 
 
-warnings.warn("""Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-07-privatepreview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class EventHubConnection(pulumi.CustomResource):
-    warnings.warn("""Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-09-07-privatepreview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -246,7 +246,7 @@ class EventHubConnection(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  table_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""EventHubConnection is deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""")
+        pulumi.log.warn("""EventHubConnection is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

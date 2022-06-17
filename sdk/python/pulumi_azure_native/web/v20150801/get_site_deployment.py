@@ -15,7 +15,7 @@ __all__ = [
     'get_site_deployment_output',
 ]
 
-warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSiteDeploymentResult:
@@ -225,7 +225,7 @@ def get_site_deployment(id: Optional[str] = None,
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     """
-    pulumi.log.warn("""get_site_deployment is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
+    pulumi.log.warn("""get_site_deployment is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['id'] = id
     __args__['name'] = name
@@ -267,5 +267,5 @@ def get_site_deployment_output(id: Optional[pulumi.Input[str]] = None,
     :param str name: Name of web app
     :param str resource_group_name: Name of resource group
     """
-    pulumi.log.warn("""get_site_deployment is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
+    pulumi.log.warn("""get_site_deployment is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
     ...

@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * The description of the provisioning service.
  *
- * @deprecated Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
+ * @deprecated Version 2017-11-15 will be removed in v2 of the provider.
  */
 export class IotDpsResource extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class IotDpsResource extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IotDpsResource {
-        pulumi.log.warn("IotDpsResource is deprecated: Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
+        pulumi.log.warn("IotDpsResource is deprecated: Version 2017-11-15 will be removed in v2 of the provider.")
         return new IotDpsResource(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,9 +74,9 @@ export class IotDpsResource extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
+    /** @deprecated Version 2017-11-15 will be removed in v2 of the provider. */
     constructor(name: string, args: IotDpsResourceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IotDpsResource is deprecated: Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
+        pulumi.log.warn("IotDpsResource is deprecated: Version 2017-11-15 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

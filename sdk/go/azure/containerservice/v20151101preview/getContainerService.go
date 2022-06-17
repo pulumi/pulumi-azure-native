@@ -12,7 +12,7 @@ import (
 
 // Container service
 //
-// Deprecated: Version v20151101preview will be removed in the next major version of the provider. Upgrade to version v20190430 or later.
+// Deprecated: Version 2015-11-01-preview will be removed in v2 of the provider.
 func LookupContainerService(ctx *pulumi.Context, args *LookupContainerServiceArgs, opts ...pulumi.InvokeOption) (*LookupContainerServiceResult, error) {
 	var rv LookupContainerServiceResult
 	err := ctx.Invoke("azure-native:containerservice/v20151101preview:getContainerService", args, &rv, opts...)

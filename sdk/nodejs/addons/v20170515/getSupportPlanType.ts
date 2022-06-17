@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The status of the Canonical support plan.
  */
-/** @deprecated Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later. */
+/** @deprecated Version 2017-05-15 will be removed in v2 of the provider. */
 export function getSupportPlanType(args: GetSupportPlanTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportPlanTypeResult> {
-    pulumi.log.warn("getSupportPlanType is deprecated: Version v20170515 will be removed in the next major version of the provider. Upgrade to version v20180301 or later.")
+    pulumi.log.warn("getSupportPlanType is deprecated: Version 2017-05-15 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

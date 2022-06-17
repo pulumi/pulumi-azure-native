@@ -12,7 +12,7 @@ import (
 
 // Registration assignment.
 //
-// Deprecated: Version v20190401preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.
+// Deprecated: Version 2019-04-01-preview will be removed in v2 of the provider.
 func LookupRegistrationAssignment(ctx *pulumi.Context, args *LookupRegistrationAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRegistrationAssignmentResult, error) {
 	var rv LookupRegistrationAssignmentResult
 	err := ctx.Invoke("azure-native:managedservices/v20190401preview:getRegistrationAssignment", args, &rv, opts...)

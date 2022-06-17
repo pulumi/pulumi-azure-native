@@ -15,7 +15,7 @@ __all__ = [
     'get_trigger_output',
 ]
 
-warnings.warn("""Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTriggerResult:
@@ -95,7 +95,7 @@ def get_trigger(account_name: Optional[str] = None,
     :param str share_subscription_name: The name of the shareSubscription.
     :param str trigger_name: The name of the trigger.
     """
-    pulumi.log.warn("""get_trigger is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+    pulumi.log.warn("""get_trigger is deprecated: Version 2019-11-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -129,5 +129,5 @@ def get_trigger_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str share_subscription_name: The name of the shareSubscription.
     :param str trigger_name: The name of the trigger.
     """
-    pulumi.log.warn("""get_trigger is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+    pulumi.log.warn("""get_trigger is deprecated: Version 2019-11-01 will be removed in v2 of the provider.""")
     ...

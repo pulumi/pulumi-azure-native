@@ -16,7 +16,7 @@ __all__ = [
     'get_connector_mapping_output',
 ]
 
-warnings.warn("""Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetConnectorMappingResult:
@@ -264,7 +264,7 @@ def get_connector_mapping(connector_name: Optional[str] = None,
     :param str mapping_name: The name of the connector mapping.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_connector_mapping is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""")
+    pulumi.log.warn("""get_connector_mapping is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['connectorName'] = connector_name
     __args__['hubName'] = hub_name
@@ -312,5 +312,5 @@ def get_connector_mapping_output(connector_name: Optional[pulumi.Input[str]] = N
     :param str mapping_name: The name of the connector mapping.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_connector_mapping is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""")
+    pulumi.log.warn("""get_connector_mapping is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
     ...

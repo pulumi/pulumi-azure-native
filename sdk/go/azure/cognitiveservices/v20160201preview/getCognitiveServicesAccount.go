@@ -12,7 +12,7 @@ import (
 
 // Cognitive Services Account is an Azure resource representing the provisioned account, its type, location and SKU.
 //
-// Deprecated: Version v20160201preview will be removed in the next major version of the provider. Upgrade to version v20170418 or later.
+// Deprecated: Version 2016-02-01-preview will be removed in v2 of the provider.
 func LookupCognitiveServicesAccount(ctx *pulumi.Context, args *LookupCognitiveServicesAccountArgs, opts ...pulumi.InvokeOption) (*LookupCognitiveServicesAccountResult, error) {
 	var rv LookupCognitiveServicesAccountResult
 	err := ctx.Invoke("azure-native:cognitiveservices/v20160201preview:getCognitiveServicesAccount", args, &rv, opts...)

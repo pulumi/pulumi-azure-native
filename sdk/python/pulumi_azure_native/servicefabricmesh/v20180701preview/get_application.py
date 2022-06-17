@@ -16,7 +16,7 @@ __all__ = [
     'get_application_output',
 ]
 
-warnings.warn("""Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-07-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetApplicationResult:
@@ -224,7 +224,7 @@ def get_application(application_name: Optional[str] = None,
     :param str application_name: The identity of the application.
     :param str resource_group_name: Azure resource group name
     """
-    pulumi.log.warn("""get_application is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.""")
+    pulumi.log.warn("""get_application is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['applicationName'] = application_name
     __args__['resourceGroupName'] = resource_group_name
@@ -263,5 +263,5 @@ def get_application_output(application_name: Optional[pulumi.Input[str]] = None,
     :param str application_name: The identity of the application.
     :param str resource_group_name: Azure resource group name
     """
-    pulumi.log.warn("""get_application is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20180901preview or later.""")
+    pulumi.log.warn("""get_application is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.""")
     ...

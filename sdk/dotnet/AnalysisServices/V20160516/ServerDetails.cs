@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.AnalysisServices.V20160516
     /// <summary>
     /// Represents an instance of an Analysis Services resource.
     /// </summary>
-    [Obsolete(@"Version v20160516 will be removed in the next major version of the provider. Upgrade to version v20170801 or later.")]
+    [Obsolete(@"Version 2016-05-16 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:analysisservices/v20160516:ServerDetails")]
     public partial class ServerDetails : Pulumi.CustomResource
     {

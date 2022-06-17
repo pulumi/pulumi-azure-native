@@ -260,11 +260,11 @@ class VirtualMachineArgs:
         pulumi.set(self, "zones", value)
 
 
-warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class VirtualMachine(pulumi.CustomResource):
-    warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -347,7 +347,7 @@ class VirtualMachine(pulumi.CustomResource):
                  vm_name: Optional[pulumi.Input[str]] = None,
                  zones: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualMachine is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+        pulumi.log.warn("""VirtualMachine is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

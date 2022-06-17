@@ -13,7 +13,7 @@ import (
 
 // Information about managed application.
 //
-// Deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20190701 or later.
+// Deprecated: Version 2018-06-01 will be removed in v2 of the provider.
 type Application struct {
 	pulumi.CustomResourceState
 

@@ -8,9 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Table.
  */
-/** @deprecated Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
 export function getTableResourceTable(args: GetTableResourceTableArgs, opts?: pulumi.InvokeOptions): Promise<GetTableResourceTableResult> {
-    pulumi.log.warn("getTableResourceTable is deprecated: Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
     if (!opts) {
         opts = {}
     }

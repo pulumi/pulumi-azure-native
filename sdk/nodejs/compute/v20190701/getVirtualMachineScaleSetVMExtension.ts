@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Virtual Machine Extension.
  */
-/** @deprecated Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
+/** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
 export function getVirtualMachineScaleSetVMExtension(args: GetVirtualMachineScaleSetVMExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualMachineScaleSetVMExtensionResult> {
-    pulumi.log.warn("getVirtualMachineScaleSetVMExtension is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
+    pulumi.log.warn("getVirtualMachineScaleSetVMExtension is deprecated: Version 2019-07-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

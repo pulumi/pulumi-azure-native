@@ -12,7 +12,7 @@ import (
 
 // The policy definition.
 //
-// Deprecated: Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
+// Deprecated: Version 2016-04-01 will be removed in v2 of the provider.
 type PolicyDefinition struct {
 	pulumi.CustomResourceState
 

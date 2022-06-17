@@ -95,11 +95,11 @@ class DatabaseAccountSqlDatabaseArgs:
         pulumi.set(self, "database_name", value)
 
 
-warnings.warn("""Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-11-06 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class DatabaseAccountSqlDatabase(pulumi.CustomResource):
-    warnings.warn("""Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2015-11-06 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -152,7 +152,7 @@ class DatabaseAccountSqlDatabase(pulumi.CustomResource):
                  resource: Optional[pulumi.Input[pulumi.InputType['SqlDatabaseResourceArgs']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DatabaseAccountSqlDatabase is deprecated: Version v20151106 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+        pulumi.log.warn("""DatabaseAccountSqlDatabase is deprecated: Version 2015-11-06 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

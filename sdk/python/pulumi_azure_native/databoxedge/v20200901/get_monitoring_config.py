@@ -16,7 +16,7 @@ __all__ = [
     'get_monitoring_config_output',
 ]
 
-warnings.warn("""Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetMonitoringConfigResult:
@@ -94,7 +94,7 @@ def get_monitoring_config(device_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str role_name: The role name.
     """
-    pulumi.log.warn("""get_monitoring_config is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_monitoring_config is deprecated: Version 2020-09-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['resourceGroupName'] = resource_group_name
@@ -125,5 +125,5 @@ def get_monitoring_config_output(device_name: Optional[pulumi.Input[str]] = None
     :param str resource_group_name: The resource group name.
     :param str role_name: The role name.
     """
-    pulumi.log.warn("""get_monitoring_config is deprecated: Version v20200901 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_monitoring_config is deprecated: Version 2020-09-01 will be removed in v2 of the provider.""")
     ...

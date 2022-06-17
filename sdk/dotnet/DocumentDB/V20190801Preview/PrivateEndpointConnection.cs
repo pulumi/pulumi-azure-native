@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20190801Preview
     /// <summary>
     /// A private endpoint connection
     /// </summary>
-    [Obsolete(@"Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")]
+    [Obsolete(@"Version 2019-08-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20190801preview:PrivateEndpointConnection")]
     public partial class PrivateEndpointConnection : Pulumi.CustomResource
     {

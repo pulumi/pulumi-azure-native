@@ -13,7 +13,7 @@ import (
 
 // Authorization in a ExpressRouteCircuit resource
 //
-// Deprecated: Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.
 type ExpressRouteCircuitAuthorization struct {
 	pulumi.CustomResourceState
 

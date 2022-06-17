@@ -12,7 +12,7 @@ import (
 
 // The Role Assignment resource format.
 //
-// Deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.
+// Deprecated: Version 2017-01-01 will be removed in v2 of the provider.
 func LookupRoleAssignment(ctx *pulumi.Context, args *LookupRoleAssignmentArgs, opts ...pulumi.InvokeOption) (*LookupRoleAssignmentResult, error) {
 	var rv LookupRoleAssignmentResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170101:getRoleAssignment", args, &rv, opts...)

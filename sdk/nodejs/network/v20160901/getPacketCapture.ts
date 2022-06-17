@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Information about packet capture session.
  */
-/** @deprecated Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
+/** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
 export function getPacketCapture(args: GetPacketCaptureArgs, opts?: pulumi.InvokeOptions): Promise<GetPacketCaptureResult> {
-    pulumi.log.warn("getPacketCapture is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+    pulumi.log.warn("getPacketCapture is deprecated: Version 2016-09-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

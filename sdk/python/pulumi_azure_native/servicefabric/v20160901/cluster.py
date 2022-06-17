@@ -305,11 +305,11 @@ class ClusterArgs:
         pulumi.set(self, "vm_image", value)
 
 
-warnings.warn("""Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Cluster(pulumi.CustomResource):
-    warnings.warn("""Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2016-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -401,7 +401,7 @@ class Cluster(pulumi.CustomResource):
                  upgrade_mode: Optional[pulumi.Input[str]] = None,
                  vm_image: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Cluster is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.""")
+        pulumi.log.warn("""Cluster is deprecated: Version 2016-09-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -12,7 +12,7 @@ import (
 
 // Description of a namespace authorization rule.
 //
-// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
+// Deprecated: Version 2015-08-01 will be removed in v2 of the provider.
 func LookupQueueAuthorizationRule(ctx *pulumi.Context, args *LookupQueueAuthorizationRuleArgs, opts ...pulumi.InvokeOption) (*LookupQueueAuthorizationRuleResult, error) {
 	var rv LookupQueueAuthorizationRuleResult
 	err := ctx.Invoke("azure-native:servicebus/v20150801:getQueueAuthorizationRule", args, &rv, opts...)
