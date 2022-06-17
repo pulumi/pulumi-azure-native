@@ -16,12 +16,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
     public partial class SecurityConnectorGovernanceRule : Pulumi.CustomResource
     {
         /// <summary>
-        /// The governance rule conditionSets - see examples
-        /// </summary>
-        [Output("conditionSets")]
-        public Output<ImmutableArray<ImmutableArray<ImmutableArray<Outputs.ConditionResponse>>>> ConditionSets { get; private set; } = null!;
-
-        /// <summary>
         /// description of the governanceRule
         /// </summary>
         [Output("description")]
@@ -138,18 +132,6 @@ namespace Pulumi.AzureNative.Security.V20220101Preview
 
     public sealed class SecurityConnectorGovernanceRuleArgs : Pulumi.ResourceArgs
     {
-        [Input("conditionSets", required: true)]
-        private InputList<ImmutableArray<ImmutableArray<Inputs.ConditionArgs>>>? _conditionSets;
-
-        /// <summary>
-        /// The governance rule conditionSets - see examples
-        /// </summary>
-        public InputList<ImmutableArray<ImmutableArray<Inputs.ConditionArgs>>> ConditionSets
-        {
-            get => _conditionSets ?? (_conditionSets = new InputList<ImmutableArray<ImmutableArray<Inputs.ConditionArgs>>>());
-            set => _conditionSets = value;
-        }
-
         /// <summary>
         /// description of the governanceRule
         /// </summary>

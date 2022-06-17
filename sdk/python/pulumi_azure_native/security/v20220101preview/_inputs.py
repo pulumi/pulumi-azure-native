@@ -10,69 +10,12 @@ from ... import _utilities
 from ._enums import *
 
 __all__ = [
-    'ConditionArgs',
     'GovernanceAssignmentAdditionalDataArgs',
     'GovernanceEmailNotificationArgs',
     'GovernanceRuleEmailNotificationArgs',
     'GovernanceRuleOwnerSourceArgs',
     'RemediationEtaArgs',
 ]
-
-@pulumi.input_type
-class ConditionArgs:
-    def __init__(__self__, *,
-                 operator: Optional[pulumi.Input[Union[str, 'GovernanceRuleConditionOperator']]] = None,
-                 property: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        Governance rule's condition
-        :param pulumi.Input[Union[str, 'GovernanceRuleConditionOperator']] operator: The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
-        :param pulumi.Input[str] property: The governance rule Condition's Property, e.g. Severity or AssessmentKey, see examples
-        :param pulumi.Input[str] value: The governance rule Condition's Value like severity Low, High or assessments keys, see examples
-        """
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-        if property is not None:
-            pulumi.set(__self__, "property", property)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[Union[str, 'GovernanceRuleConditionOperator']]]:
-        """
-        The governance rule Condition's Operator, for example Equals for severity or In for list of assessments, see examples
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[Union[str, 'GovernanceRuleConditionOperator']]]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The governance rule Condition's Value like severity Low, High or assessments keys, see examples
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter
-    def property(self) -> Optional[pulumi.Input[str]]:
-        """
-        The governance rule Condition's Property, e.g. Severity or AssessmentKey, see examples
-        """
-        return pulumi.get(self, "property")
-
-    @property.setter
-    def property(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "property", value)
-
 
 @pulumi.input_type
 class GovernanceAssignmentAdditionalDataArgs:

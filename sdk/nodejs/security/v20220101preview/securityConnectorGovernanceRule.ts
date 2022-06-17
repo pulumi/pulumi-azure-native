@@ -36,10 +36,6 @@ export class SecurityConnectorGovernanceRule extends pulumi.CustomResource {
     }
 
     /**
-     * The governance rule conditionSets - see examples
-     */
-    public readonly conditionSets!: pulumi.Output<outputs.security.v20220101preview.ConditionResponse[][][]>;
-    /**
      * description of the governanceRule
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -99,9 +95,6 @@ export class SecurityConnectorGovernanceRule extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.conditionSets === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'conditionSets'");
-            }
             if ((!args || args.displayName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'displayName'");
             }
@@ -123,7 +116,6 @@ export class SecurityConnectorGovernanceRule extends pulumi.CustomResource {
             if ((!args || args.sourceResourceType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'sourceResourceType'");
             }
-            resourceInputs["conditionSets"] = args ? args.conditionSets : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["governanceEmailNotification"] = args ? args.governanceEmailNotification : undefined;
@@ -140,7 +132,6 @@ export class SecurityConnectorGovernanceRule extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["conditionSets"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["governanceEmailNotification"] = undefined /*out*/;
@@ -163,10 +154,6 @@ export class SecurityConnectorGovernanceRule extends pulumi.CustomResource {
  * The set of arguments for constructing a SecurityConnectorGovernanceRule resource.
  */
 export interface SecurityConnectorGovernanceRuleArgs {
-    /**
-     * The governance rule conditionSets - see examples
-     */
-    conditionSets: pulumi.Input<pulumi.Input<pulumi.Input<pulumi.Input<inputs.security.v20220101preview.ConditionArgs>[]>[]>[]>;
     /**
      * description of the governanceRule
      */

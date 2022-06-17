@@ -21,10 +21,7 @@ class GetGovernanceRuleResult:
     """
     Security GovernanceRule over a given scope
     """
-    def __init__(__self__, condition_sets=None, description=None, display_name=None, governance_email_notification=None, id=None, is_disabled=None, is_grace_period=None, name=None, owner_source=None, remediation_timeframe=None, rule_priority=None, rule_type=None, source_resource_type=None, type=None):
-        if condition_sets and not isinstance(condition_sets, list):
-            raise TypeError("Expected argument 'condition_sets' to be a list")
-        pulumi.set(__self__, "condition_sets", condition_sets)
+    def __init__(__self__, description=None, display_name=None, governance_email_notification=None, id=None, is_disabled=None, is_grace_period=None, name=None, owner_source=None, remediation_timeframe=None, rule_priority=None, rule_type=None, source_resource_type=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -64,14 +61,6 @@ class GetGovernanceRuleResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="conditionSets")
-    def condition_sets(self) -> Sequence[Sequence[Sequence['outputs.ConditionResponse']]]:
-        """
-        The governance rule conditionSets - see examples
-        """
-        return pulumi.get(self, "condition_sets")
 
     @property
     @pulumi.getter
@@ -184,7 +173,6 @@ class AwaitableGetGovernanceRuleResult(GetGovernanceRuleResult):
         if False:
             yield self
         return GetGovernanceRuleResult(
-            condition_sets=self.condition_sets,
             description=self.description,
             display_name=self.display_name,
             governance_email_notification=self.governance_email_notification,
@@ -217,7 +205,6 @@ def get_governance_rule(rule_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security/v20220101preview:getGovernanceRule', __args__, opts=opts, typ=GetGovernanceRuleResult).value
 
     return AwaitableGetGovernanceRuleResult(
-        condition_sets=__ret__.condition_sets,
         description=__ret__.description,
         display_name=__ret__.display_name,
         governance_email_notification=__ret__.governance_email_notification,

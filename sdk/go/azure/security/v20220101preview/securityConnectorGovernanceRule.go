@@ -15,8 +15,6 @@ import (
 type SecurityConnectorGovernanceRule struct {
 	pulumi.CustomResourceState
 
-	// The governance rule conditionSets - see examples
-	ConditionSets ConditionResponseArrayArrayArrayOutput `pulumi:"conditionSets"`
 	// description of the governanceRule
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// display name of the governanceRule
@@ -50,9 +48,6 @@ func NewSecurityConnectorGovernanceRule(ctx *pulumi.Context,
 		return nil, errors.New("missing one or more required arguments")
 	}
 
-	if args.ConditionSets == nil {
-		return nil, errors.New("invalid value for required argument 'ConditionSets'")
-	}
 	if args.DisplayName == nil {
 		return nil, errors.New("invalid value for required argument 'DisplayName'")
 	}
@@ -106,8 +101,6 @@ func (SecurityConnectorGovernanceRuleState) ElementType() reflect.Type {
 }
 
 type securityConnectorGovernanceRuleArgs struct {
-	// The governance rule conditionSets - see examples
-	ConditionSets [][][]Condition `pulumi:"conditionSets"`
 	// description of the governanceRule
 	Description *string `pulumi:"description"`
 	// display name of the governanceRule
@@ -138,8 +131,6 @@ type securityConnectorGovernanceRuleArgs struct {
 
 // The set of arguments for constructing a SecurityConnectorGovernanceRule resource.
 type SecurityConnectorGovernanceRuleArgs struct {
-	// The governance rule conditionSets - see examples
-	ConditionSets ConditionArrayArrayArrayInput
 	// description of the governanceRule
 	Description pulumi.StringPtrInput
 	// display name of the governanceRule
@@ -203,13 +194,6 @@ func (o SecurityConnectorGovernanceRuleOutput) ToSecurityConnectorGovernanceRule
 
 func (o SecurityConnectorGovernanceRuleOutput) ToSecurityConnectorGovernanceRuleOutputWithContext(ctx context.Context) SecurityConnectorGovernanceRuleOutput {
 	return o
-}
-
-// The governance rule conditionSets - see examples
-func (o SecurityConnectorGovernanceRuleOutput) ConditionSets() ConditionResponseArrayArrayArrayOutput {
-	return o.ApplyT(func(v *SecurityConnectorGovernanceRule) ConditionResponseArrayArrayArrayOutput {
-		return v.ConditionSets
-	}).(ConditionResponseArrayArrayArrayOutput)
 }
 
 // description of the governanceRule

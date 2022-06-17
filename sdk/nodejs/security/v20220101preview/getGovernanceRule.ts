@@ -31,10 +31,6 @@ export interface GetGovernanceRuleArgs {
  */
 export interface GetGovernanceRuleResult {
     /**
-     * The governance rule conditionSets - see examples
-     */
-    readonly conditionSets: outputs.security.v20220101preview.ConditionResponse[][][];
-    /**
      * description of the governanceRule
      */
     readonly description?: string;
