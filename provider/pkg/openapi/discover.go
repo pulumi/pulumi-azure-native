@@ -121,7 +121,8 @@ func buildCuratedVersion(versionMap ProviderVersions, curatedResourceVersions ma
 	for resourceName, apiVersion := range curatedResourceVersions {
 		if versionResources, ok := versionMap[ApiToSdkVersion(apiVersion)]; ok {
 			if resource, ok := versionResources.Resources[resourceName]; ok {
-				resources[resourceName] = resource
+				resourceCopy := *resource
+				resources[resourceName] = &resourceCopy
 			} else if invoke, ok := versionResources.Invokes[resourceName]; ok {
 				invokes[resourceName] = invoke
 			}
