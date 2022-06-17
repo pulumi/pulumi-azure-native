@@ -24,6 +24,33 @@ func ReadV1Version() (CuratedVersion, error) {
 	return ReadCuratedVersion(v1Path)
 }
 
+func ReadDeprecated() (ProviderVersionList, error) {
+	dir, err := os.Getwd()
+	if err != nil {
+		return nil, err
+	}
+
+	deprecatedPath := filepath.Join(dir, "versions", "deprecated.json")
+	jsonFile, err := os.Open(deprecatedPath)
+	if err != nil {
+		return nil, err
+	}
+	defer jsonFile.Close()
+
+	byteValue, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		return nil, err
+	}
+
+	var curatedVersion ProviderVersionList
+	err = json.Unmarshal(byteValue, &curatedVersion)
+	if err != nil {
+		return nil, err
+	}
+
+	return curatedVersion, nil
+}
+
 func ReadCuratedVersion(path string) (CuratedVersion, error) {
 	jsonFile, err := os.Open(path)
 	if err != nil {

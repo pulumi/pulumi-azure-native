@@ -29,8 +29,8 @@ func TestFindOlderVersions(t *testing.T) {
 			resourceB: versionB,
 		},
 	}
-	olderVersions := FindOlderVersions(specVersions, curatedVersion)
-	expected := ProviderVersions{
+	olderVersions := findOlderVersions(specVersions, curatedVersion)
+	expected := openapi.ProviderVersionList{
 		providerA: {
 			olderVersion,
 		},
@@ -39,13 +39,13 @@ func TestFindOlderVersions(t *testing.T) {
 }
 
 type FakeApiVersion struct {
-	LessThan ApiVersion
-	GreaterThan ApiVersion
+	LessThan openapi.ApiVersion
+	GreaterThan openapi.ApiVersion
 }
 
 const ApiVersionLayout = "2006-01-02"
 
-func fakeApiVersion(spec FakeApiVersion) ApiVersion {
+func fakeApiVersion(spec FakeApiVersion) openapi.ApiVersion {
 	min, _ := time.Parse(ApiVersionLayout, "2000-01-01")
 	max, _ := time.Parse(ApiVersionLayout, "2100-01-01")
 	if spec.GreaterThan != "" {

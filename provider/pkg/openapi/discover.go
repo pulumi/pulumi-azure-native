@@ -40,6 +40,8 @@ type VersionResources struct {
 	Invokes   map[InvokeName]*ResourceSpec
 }
 
+type ProviderVersionList = map[ProviderName][]ApiVersion
+
 // CuratedVersion is an amalgamation of multiple API versions
 type CuratedVersion = map[ProviderName]map[DefinitionName]ApiVersion
 
@@ -79,6 +81,11 @@ func AllVersions() AzureProviders {
 		panic(err)
 	}
 
+	deprecated, err := ReadDeprecated()
+	if err != nil {
+		panic(err)
+	}
+
 	for providerName, versionMap := range providers {
 		// Add a default version for each resource and invoke.
 		defaultResourceVersions := providerDefaults[providerName]
@@ -98,13 +105,10 @@ func AllVersions() AzureProviders {
 			}
 		}
 
-		minDefaultVersion := findMinDefaultVersion(defaultResourceVersions)
-		for version, items := range versionMap {
-			if version == "" || version >= minDefaultVersion {
-				continue
-			}
-			deprecateAll(items.Resources, version, minDefaultVersion)
-			deprecateAll(items.Invokes, version, minDefaultVersion)
+		for _, apiVersion := range deprecated[providerName] {
+			sdkVersion := ApiToSdkVersion(apiVersion)
+			resources := versionMap[sdkVersion]
+			deprecateAll(resources.All(), apiVersion)
 		}
 	}
 
@@ -150,11 +154,11 @@ func SpecVersions() (AzureProviders, error) {
 	return providers, nil
 }
 
-func deprecateAll(resourceSpecs map[string]*ResourceSpec, version, defaultVersion string) {
+func deprecateAll(resourceSpecs map[string]*ResourceSpec, version string) {
 	for _, resourceSpec := range resourceSpecs {
 		deprecationMessage := fmt.Sprintf(
-			"Version %s will be removed in the next major version of the provider. Upgrade to version %s or later.",
-			version, defaultVersion)
+			"Version %s will be removed in v2 of the provider.",
+			version)
 		resourceSpec.DeprecationMessage = deprecationMessage
 	}
 }

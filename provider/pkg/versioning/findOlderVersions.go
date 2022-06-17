@@ -5,25 +5,8 @@ import (
 	"sort"
 )
 
-type ProviderVersions = map[openapi.ProviderName][]openapi.ApiVersion
-
-func FindDeprecations(specVersions SpecVersions, curatedVersion openapi.CuratedVersion) ProviderVersions {
-	deprecationCutoff := "2021-01-01"
-	olderVersions := findOlderVersions(specVersions, curatedVersion)
-	for name, versions := range olderVersions {
-		filteredVersions := []openapi.ApiVersion{}
-		for _, version := range versions {
-			if version < deprecationCutoff {
-				filteredVersions = append(filteredVersions, version)
-			}
-		}
-		olderVersions[name] = filteredVersions
-	}
-	return olderVersions
-}
-
-func findOlderVersions(specVersions SpecVersions, curatedVersion openapi.CuratedVersion) ProviderVersions {
-	olderProviderVersions := ProviderVersions{}
+func findOlderVersions(specVersions SpecVersions, curatedVersion openapi.CuratedVersion) openapi.ProviderVersionList {
+	olderProviderVersions := openapi.ProviderVersionList{}
 	for providerName, versions := range specVersions {
 		//goland:noinspection GoPreferNilSlice
 		olderVersions := []openapi.ApiVersion{}

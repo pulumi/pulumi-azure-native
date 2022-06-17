@@ -5,8 +5,8 @@ import (
 	"sort"
 )
 
-func FindNewerVersions(specVersions SpecVersions, curatedVersion openapi.CuratedVersion) ProviderVersions {
-	olderProviderVersions := ProviderVersions{}
+func FindNewerVersions(specVersions SpecVersions, curatedVersion openapi.CuratedVersion) openapi.ProviderVersionList {
+	olderProviderVersions := openapi.ProviderVersionList{}
 	for providerName, versions := range specVersions {
 		//goland:noinspection GoPreferNilSlice
 		newerVersions := []openapi.ApiVersion{}
