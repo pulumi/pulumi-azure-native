@@ -73,8 +73,14 @@ codegen::
 provider::
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
-versioner::
+bin/pulumi-versioner-azure-native:
 	(cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/pulumi-versioner-azure-native)
+
+versioner: bin/pulumi-versioner-azure-native
+
+versions: bin/pulumi-versioner-azure-native
+	rm -f version/*
+	bin/pulumi-versioner-azure-native
 
 install_provider::
 	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
@@ -179,4 +185,4 @@ install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 # Required for the codegen action that runs in pulumi/pulumi
 only_build:: build
 
-.PHONY: init_submodules update_submodules ensure generate_schema generate build_provider build arm2pulumi_coverage_report
+.PHONY: init_submodules update_submodules ensure generate_schema generate build_provider build arm2pulumi_coverage_report versions
