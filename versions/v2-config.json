@@ -1,0 +1,2515 @@
+{
+  "ADHybridHealthService": {
+    "NoVersion": true
+  },
+  "AVS": {
+    "SingleVersion": "2021-12-01"
+  },
+  "Aad": {
+    "SingleVersion": "2021-05-01"
+  },
+  "AadIam": {
+    "Rollup": {
+      "2017-04-01": [
+        "DiagnosticSetting"
+      ],
+      "2020-03-01": [
+        "PrivateEndpointConnection",
+        "privateLinkForAzureAd"
+      ],
+      "2020-07-01-preview": [
+        "azureADMetric"
+      ]
+    }
+  },
+  "Addons": {
+    "SingleVersion": "2018-03-01"
+  },
+  "Advisor": {
+    "SingleVersion": "2020-01-01"
+  },
+  "AgFoodPlatform": {
+    "SingleVersion": "2020-05-12-preview"
+  },
+  "AlertsManagement": {
+    "Rollup": {
+      "2019-05-05-preview": [
+        "ActionRuleByName"
+      ],
+      "2021-04-01": [
+        "SmartDetectorAlertRule"
+      ],
+      "2021-08-08": [
+        "AlertProcessingRuleByName"
+      ]
+    }
+  },
+  "AnalysisServices": {
+    "SingleVersion": "2017-08-01"
+  },
+  "ApiManagement": {
+    "Rollup": {
+      "2016-10-10": [
+        "ApiOperationsPolicy",
+        "TenantPolicy"
+      ],
+      "2018-01-01": [
+        "ApiDiagnosticLogger",
+        "DiagnosticLogger",
+        "TagDescription"
+      ],
+      "2019-01-01": [
+        "Property"
+      ],
+      "2019-12-01": [
+        "listTenantAccessGitSecrets"
+      ],
+      "2021-04-01-preview": [
+        "Schema"
+      ],
+      "2021-08-01": [
+        "Api",
+        "ApiDiagnostic",
+        "ApiIssue",
+        "ApiIssueAttachment",
+        "ApiIssueComment",
+        "ApiManagementService",
+        "ApiOperation",
+        "ApiOperationPolicy",
+        "ApiPolicy",
+        "ApiRelease",
+        "ApiSchema",
+        "ApiTagDescription",
+        "ApiVersionSet",
+        "AuthorizationServer",
+        "Backend",
+        "Cache",
+        "Certificate",
+        "ContentItem",
+        "ContentType",
+        "Diagnostic",
+        "EmailTemplate",
+        "Gateway",
+        "GatewayApiEntityTag",
+        "GatewayCertificateAuthority",
+        "GatewayHostnameConfiguration",
+        "GlobalSchema",
+        "Group",
+        "GroupUser",
+        "IdentityProvider",
+        "Logger",
+        "NamedValue",
+        "NotificationRecipientEmail",
+        "NotificationRecipientUser",
+        "OpenIdConnectProvider",
+        "Policy",
+        "PrivateEndpointConnectionByName",
+        "Product",
+        "ProductApi",
+        "ProductGroup",
+        "ProductPolicy",
+        "Subscription",
+        "Tag",
+        "TagByApi",
+        "TagByOperation",
+        "TagByProduct",
+        "User",
+        "getApiManagementServiceDomainOwnershipIdentifier",
+        "getApiManagementServiceSsoToken",
+        "getUserSharedAccessToken",
+        "listAuthorizationServerSecrets",
+        "listDelegationSettingSecrets",
+        "listGatewayKeys",
+        "listIdentityProviderSecrets",
+        "listNamedValue",
+        "listOpenIdConnectProviderSecrets",
+        "listSubscriptionSecrets",
+        "listTenantAccessSecrets"
+      ],
+      "2021-12-01-preview": [
+        "PolicyFragment",
+        "listPolicyFragmentReferences"
+      ]
+    }
+  },
+  "App": {
+    "SingleVersion": "2022-03-01"
+  },
+  "AppConfiguration": {
+    "Rollup": {
+      "2020-06-01": [
+        "listConfigurationStoreKeyValue"
+      ],
+      "2022-05-01": [
+        "ConfigurationStore",
+        "KeyValue",
+        "PrivateEndpointConnection",
+        "listConfigurationStoreKeys"
+      ]
+    }
+  },
+  "AppPlatform": {
+    "Rollup": {
+      "2022-04-01": [
+        "App",
+        "Binding",
+        "BuildServiceBuilder",
+        "BuildpackBinding",
+        "Certificate",
+        "ConfigurationService",
+        "CustomDomain",
+        "Deployment",
+        "Service",
+        "ServiceRegistry",
+        "getAppResourceUploadUrl",
+        "getBuildServiceBuildResultLog",
+        "getBuildServiceResourceUploadUrl",
+        "getDeploymentLogFileUrl",
+        "listServiceTestKeys"
+      ],
+      "2022-05-01-preview": [
+        "ApiPortal",
+        "ApiPortalCustomDomain",
+        "Gateway",
+        "GatewayCustomDomain",
+        "GatewayRouteConfig",
+        "Storage"
+      ]
+    }
+  },
+  "Attestation": {
+    "SingleVersion": "2020-10-01"
+  },
+  "Authorization": {
+    "Rollup": {
+      "2015-01-01": [
+        "ManagementLock"
+      ],
+      "2018-01-01-preview": [
+        "RoleDefinition"
+      ],
+      "2020-05-01": [
+        "ManagementLockAtResourceGroupLevel",
+        "ManagementLockAtResourceLevel",
+        "ManagementLockAtSubscriptionLevel",
+        "ManagementLockByScope",
+        "PrivateLinkAssociation",
+        "ResourceManagementPrivateLink"
+      ],
+      "2020-07-01-preview": [
+        "PolicyExemption"
+      ],
+      "2020-10-01": [
+        "RoleManagementPolicyAssignment"
+      ],
+      "2020-10-01-preview": [
+        "RoleAssignment"
+      ],
+      "2021-06-01": [
+        "PolicyAssignment",
+        "PolicyDefinition",
+        "PolicyDefinitionAtManagementGroup",
+        "PolicySetDefinition",
+        "PolicySetDefinitionAtManagementGroup"
+      ],
+      "2021-11-16-preview": [
+        "AccessReviewHistoryDefinitionById",
+        "AccessReviewScheduleDefinitionById"
+      ]
+    }
+  },
+  "Automanage": {
+    "Rollup": {
+      "2020-06-30-preview": [
+        "Account",
+        "ConfigurationProfilePreference"
+      ],
+      "2022-05-04": [
+        "ConfigurationProfile",
+        "ConfigurationProfileAssignment",
+        "ConfigurationProfileHCIAssignment",
+        "ConfigurationProfileHCRPAssignment",
+        "ConfigurationProfilesVersion"
+      ]
+    }
+  },
+  "Automation": {
+    "Rollup": {
+      "2015-10-31": [
+        "Webhook"
+      ],
+      "2019-06-01": [
+        "Certificate",
+        "Connection",
+        "ConnectionType",
+        "Credential",
+        "DscConfiguration",
+        "DscNodeConfiguration",
+        "JobSchedule",
+        "Module",
+        "Python2Package",
+        "Runbook",
+        "Schedule",
+        "SoftwareUpdateConfigurationByName",
+        "SourceControl",
+        "Variable",
+        "Watcher"
+      ],
+      "2020-01-13-preview": [
+        "PrivateEndpointConnection"
+      ],
+      "2021-06-22": [
+        "AutomationAccount",
+        "HybridRunbookWorker",
+        "HybridRunbookWorkerGroup",
+        "listKeyByAutomationAccount"
+      ]
+    }
+  },
+  "AutonomousDevelopmentPlatform": {
+    "SingleVersion": "2021-11-01-preview"
+  },
+  "AzureActiveDirectory": {
+    "SingleVersion": "2021-04-01"
+  },
+  "AzureArcData": {
+    "Rollup": {
+      "2021-11-01": [
+        "DataController",
+        "SqlManagedInstance",
+        "SqlServerInstance"
+      ],
+      "2022-03-01-preview": [
+        "ActiveDirectoryConnector",
+        "PostgresInstance"
+      ]
+    }
+  },
+  "AzureData": {
+    "SingleVersion": "2019-07-24-preview"
+  },
+  "AzureStack": {
+    "SingleVersion": "2020-06-01-preview"
+  },
+  "AzureStackHCI": {
+    "SingleVersion": "2022-05-01"
+  },
+  "BareMetalInfrastructure": {
+    "NoVersion": true
+  },
+  "Batch": {
+    "SingleVersion": "2022-06-01"
+  },
+  "Billing": {
+    "Rollup": {
+      "2019-10-01-preview": [
+        "BillingRoleAssignmentByBillingAccount",
+        "BillingRoleAssignmentByDepartment",
+        "BillingRoleAssignmentByEnrollmentAccount"
+      ],
+      "2020-05-01": [
+        "listBillingAccountInvoiceSectionsByCreateSubscriptionPermission"
+      ]
+    }
+  },
+  "Blockchain": {
+    "SingleVersion": "2018-06-01-preview"
+  },
+  "Blueprint": {
+    "SingleVersion": "2018-11-01-preview"
+  },
+  "BotService": {
+    "Rollup": {
+      "2018-07-12": [
+        "EnterpriseChannel"
+      ],
+      "2021-03-01": [
+        "Bot",
+        "BotConnection",
+        "Channel",
+        "listBotConnectionServiceProviders",
+        "listBotConnectionWithSecrets",
+        "listChannelWithKeys"
+      ],
+      "2021-05-01-preview": [
+        "PrivateEndpointConnection"
+      ]
+    }
+  },
+  "Cache": {
+    "Rollup": {
+      "2016-04-01": [
+        "RedisFirewallRule"
+      ],
+      "2017-02-01": [
+        "RedisLinkedServer"
+      ],
+      "2021-06-01": [
+        "FirewallRule",
+        "LinkedServer",
+        "PatchSchedule",
+        "Redis",
+        "listRedisKeys"
+      ],
+      "2022-01-01": [
+        "Database",
+        "PrivateEndpointConnection",
+        "RedisEnterprise",
+        "listDatabaseKeys"
+      ]
+    }
+  },
+  "Capacity": {
+    "NoVersion": true
+  },
+  "Cdn": {
+    "SingleVersion": "2021-06-01"
+  },
+  "CertificateRegistration": {
+    "SingleVersion": "2021-03-01"
+  },
+  "ChangeAnalysis": {
+    "SingleVersion": "2020-04-01-preview"
+  },
+  "Chaos": {
+    "SingleVersion": "2021-09-15-preview"
+  },
+  "CognitiveServices": {
+    "Rollup": {
+      "2016-02-01-preview": [
+        "CognitiveServicesAccount",
+        "listCognitiveServicesAccountKeys"
+      ],
+      "2022-03-01": [
+        "Account",
+        "CommitmentPlan",
+        "Deployment",
+        "PrivateEndpointConnection",
+        "listAccountKeys"
+      ]
+    }
+  },
+  "Commerce": {
+    "NoVersion": true
+  },
+  "Communication": {
+    "Rollup": {
+      "2020-08-20": [
+        "CommunicationService",
+        "listCommunicationServiceKeys"
+      ],
+      "2021-10-01-preview": [
+        "Domain",
+        "EmailService",
+        "listEmailServiceVerifiedExchangeOnlineDomains"
+      ]
+    }
+  },
+  "Compute": {
+    "Rollup": {
+      "2021-03-01": [
+        "CloudService"
+      ],
+      "2021-10-01": [
+        "Gallery",
+        "GalleryApplication",
+        "GalleryApplicationVersion",
+        "GalleryImage",
+        "GalleryImageVersion"
+      ],
+      "2021-11-01": [
+        "AvailabilitySet",
+        "CapacityReservation",
+        "CapacityReservationGroup",
+        "DedicatedHost",
+        "DedicatedHostGroup",
+        "Image",
+        "ProximityPlacementGroup",
+        "RestorePoint",
+        "RestorePointCollection",
+        "SshPublicKey",
+        "VirtualMachine",
+        "VirtualMachineExtension",
+        "VirtualMachineRunCommandByVirtualMachine",
+        "VirtualMachineScaleSet",
+        "VirtualMachineScaleSetExtension",
+        "VirtualMachineScaleSetVM",
+        "VirtualMachineScaleSetVMExtension",
+        "VirtualMachineScaleSetVMRunCommand",
+        "getLogAnalyticExportRequestRateByInterval",
+        "getLogAnalyticExportThrottledRequests"
+      ],
+      "2021-12-01": [
+        "Disk",
+        "DiskAccess",
+        "DiskAccessAPrivateEndpointConnection",
+        "DiskEncryptionSet",
+        "Snapshot"
+      ]
+    }
+  },
+  "ConfidentialLedger": {
+    "SingleVersion": "2022-05-13"
+  },
+  "Confluent": {
+    "SingleVersion": "2021-12-01"
+  },
+  "ConnectedVMwarevSphere": {
+    "SingleVersion": "2020-10-01-preview"
+  },
+  "Consumption": {
+    "Rollup": {
+      "2018-10-01": [
+        "BudgetByResourceGroupName"
+      ],
+      "2021-10-01": [
+        "Budget"
+      ]
+    }
+  },
+  "ContainerInstance": {
+    "SingleVersion": "2021-10-01"
+  },
+  "ContainerRegistry": {
+    "Rollup": {
+      "2016-06-27-preview": [
+        "getRegistryCredentials"
+      ],
+      "2018-02-01-preview": [
+        "BuildStep",
+        "BuildTask",
+        "getBuildLogLink",
+        "getRegistryBuildSourceUploadUrl",
+        "listBuildStepBuildArguments",
+        "listBuildTaskSourceRepositoryProperties"
+      ],
+      "2019-04-01": [
+        "Task",
+        "listRegistryBuildSourceUploadUrl",
+        "listRunLogSasUrl",
+        "listTaskDetails"
+      ],
+      "2019-06-01-preview": [
+        "AgentPool",
+        "TaskRun",
+        "listAgentPoolQueueStatus",
+        "listTaskRunDetails"
+      ],
+      "2021-09-01": [
+        "PrivateEndpointConnection",
+        "Registry",
+        "Replication",
+        "Webhook",
+        "getWebhookCallbackConfig",
+        "listRegistryCredentials",
+        "listWebhookEvents"
+      ],
+      "2022-02-01-preview": [
+        "ConnectedRegistry",
+        "ExportPipeline",
+        "ImportPipeline",
+        "PipelineRun",
+        "ScopeMap",
+        "Token"
+      ]
+    }
+  },
+  "ContainerService": {
+    "Rollup": {
+      "2017-01-31": [
+        "ContainerService"
+      ],
+      "2019-04-30": [
+        "OpenShiftManagedCluster"
+      ],
+      "2020-03-01": [
+        "listManagedClusterAccessProfile"
+      ],
+      "2022-04-01": [
+        "AgentPool",
+        "MaintenanceConfiguration",
+        "ManagedCluster",
+        "PrivateEndpointConnection",
+        "Snapshot",
+        "listManagedClusterAdminCredentials",
+        "listManagedClusterMonitoringUserCredentials",
+        "listManagedClusterUserCredentials"
+      ],
+      "2022-05-02-preview": [
+        "ManagedClusterSnapshot",
+        "TrustedAccessRoleBinding"
+      ]
+    }
+  },
+  "CostManagement": {
+    "Rollup": {
+      "2018-05-31": [
+        "ReportConfig",
+        "ReportConfigByResourceGroupName"
+      ],
+      "2018-08-01-preview": [
+        "Connector",
+        "Report",
+        "ReportByBillingAccount",
+        "ReportByDepartment",
+        "ReportByResourceGroupName"
+      ],
+      "2019-03-01-preview": [
+        "CloudConnector"
+      ],
+      "2019-04-01-preview": [
+        "Budget"
+      ],
+      "2019-11-01": [
+        "Setting"
+      ],
+      "2020-03-01-preview": [
+        "CostAllocationRule"
+      ],
+      "2021-10-01": [
+        "Export",
+        "View",
+        "ViewByScope"
+      ],
+      "2022-04-01-preview": [
+        "ScheduledAction",
+        "ScheduledActionByScope"
+      ]
+    }
+  },
+  "CustomProviders": {
+    "SingleVersion": "2018-09-01-preview"
+  },
+  "CustomerInsights": {
+    "SingleVersion": "2017-04-26"
+  },
+  "CustomerLockbox": {
+    "NoVersion": true
+  },
+  "DBforMariaDB": {
+    "Rollup": {
+      "2018-06-01": [
+        "Configuration",
+        "Database",
+        "FirewallRule",
+        "PrivateEndpointConnection",
+        "Server",
+        "VirtualNetworkRule"
+      ],
+      "2020-01-01-privatepreview": [
+        "ServerKey"
+      ]
+    }
+  },
+  "DBforMySQL": {
+    "Rollup": {
+      "2017-12-01": [
+        "Configuration",
+        "ServerAdministrator",
+        "VirtualNetworkRule"
+      ],
+      "2018-06-01": [
+        "PrivateEndpointConnection"
+      ],
+      "2020-01-01": [
+        "ServerKey"
+      ],
+      "2021-05-01": [
+        "Database",
+        "FirewallRule",
+        "Server",
+        "getGetPrivateDnsZoneSuffixExecute"
+      ]
+    }
+  },
+  "DBforPostgreSQL": {
+    "Rollup": {
+      "2017-12-01": [
+        "ServerAdministrator",
+        "ServerSecurityAlertPolicy",
+        "VirtualNetworkRule"
+      ],
+      "2018-06-01": [
+        "PrivateEndpointConnection"
+      ],
+      "2020-01-01": [
+        "ServerKey"
+      ],
+      "2020-10-05-privatepreview": [
+        "ServerGroup"
+      ],
+      "2021-06-01": [
+        "Configuration",
+        "Database",
+        "FirewallRule",
+        "Server",
+        "getGetPrivateDnsZoneSuffixExecute"
+      ],
+      "2021-06-15-privatepreview": [
+        "Migration"
+      ]
+    }
+  },
+  "Dashboard": {
+    "SingleVersion": "2021-09-01-preview"
+  },
+  "DataBox": {
+    "SingleVersion": "2022-02-01"
+  },
+  "DataBoxEdge": {
+    "SingleVersion": "2022-03-01"
+  },
+  "DataCatalog": {
+    "SingleVersion": "2016-03-30"
+  },
+  "DataFactory": {
+    "SingleVersion": "2018-06-01"
+  },
+  "DataLakeAnalytics": {
+    "Rollup": {
+      "2015-10-01-preview": [
+        "AccountDataLakeStoreAccount",
+        "AccountStorageAccount",
+        "listAccountSasTokens"
+      ],
+      "2019-11-01-preview": [
+        "Account",
+        "ComputePolicy",
+        "DataLakeStoreAccount",
+        "FirewallRule",
+        "StorageAccount",
+        "listStorageAccountSasTokens"
+      ]
+    }
+  },
+  "DataLakeStore": {
+    "SingleVersion": "2016-11-01"
+  },
+  "DataMigration": {
+    "Rollup": {
+      "2021-06-30": [
+        "File",
+        "Project",
+        "Service",
+        "ServiceTask",
+        "Task"
+      ],
+      "2022-03-30-preview": [
+        "DatabaseMigrationsSqlDb",
+        "SqlMigrationService",
+        "listSqlMigrationServiceAuthKeys",
+        "listSqlMigrationServiceMonitoringData"
+      ]
+    }
+  },
+  "DataProtection": {
+    "SingleVersion": "2022-04-01"
+  },
+  "DataShare": {
+    "SingleVersion": "2021-08-01"
+  },
+  "Databricks": {
+    "SingleVersion": "2021-04-01-preview"
+  },
+  "Datadog": {
+    "SingleVersion": "2021-03-01"
+  },
+  "DelegatedNetwork": {
+    "SingleVersion": "2021-03-15"
+  },
+  "DeploymentManager": {
+    "SingleVersion": "2019-11-01-preview"
+  },
+  "DesktopVirtualization": {
+    "Rollup": {
+      "2021-07-12": [
+        "Application",
+        "ApplicationGroup",
+        "HostPool",
+        "MSIXPackage",
+        "ScalingPlan",
+        "Workspace"
+      ],
+      "2022-02-10-preview": [
+        "PrivateEndpointConnectionByHostPool",
+        "PrivateEndpointConnectionByWorkspace"
+      ]
+    }
+  },
+  "DevHub": {
+    "SingleVersion": "2022-04-01-preview"
+  },
+  "DevOps": {
+    "SingleVersion": "2020-07-13-preview"
+  },
+  "DevSpaces": {
+    "SingleVersion": "2019-04-01"
+  },
+  "DevTestLab": {
+    "Rollup": {
+      "2015-05-21-preview": [
+        "ArtifactSourceResource",
+        "CustomImageResource",
+        "FormulaResource",
+        "LabResource",
+        "PolicyResource",
+        "ScheduleResource",
+        "VirtualMachineResource",
+        "VirtualNetworkResource"
+      ],
+      "2018-09-15": [
+        "ArtifactSource",
+        "CustomImage",
+        "Disk",
+        "Environment",
+        "Formula",
+        "GlobalSchedule",
+        "Lab",
+        "NotificationChannel",
+        "Policy",
+        "Schedule",
+        "Secret",
+        "ServiceFabric",
+        "ServiceFabricSchedule",
+        "ServiceRunner",
+        "User",
+        "VirtualMachine",
+        "VirtualMachineSchedule",
+        "VirtualNetwork",
+        "getVirtualMachineRdpFileContents",
+        "listLabVhds",
+        "listScheduleApplicable",
+        "listServiceFabricApplicableSchedules",
+        "listVirtualMachineApplicableSchedules"
+      ]
+    }
+  },
+  "DeviceUpdate": {
+    "SingleVersion": "2022-04-01-preview"
+  },
+  "Devices": {
+    "Rollup": {
+      "2021-07-02": [
+        "Certificate",
+        "IotHubResource",
+        "IotHubResourceEventHubConsumerGroup",
+        "PrivateEndpointConnection",
+        "listIotHubResourceKeys",
+        "listIotHubResourceKeysForKeyName"
+      ],
+      "2022-02-05": [
+        "DpsCertificate",
+        "IotDpsResource",
+        "IotDpsResourcePrivateEndpointConnection",
+        "listIotDpsResourceKeys",
+        "listIotDpsResourceKeysForKeyName"
+      ]
+    }
+  },
+  "DigitalTwins": {
+    "SingleVersion": "2022-05-31"
+  },
+  "DocumentDB": {
+    "Rollup": {
+      "2016-03-31": [
+        "DatabaseAccountCassandraKeyspace",
+        "DatabaseAccountCassandraTable",
+        "DatabaseAccountGremlinDatabase",
+        "DatabaseAccountGremlinGraph",
+        "DatabaseAccountMongoDBCollection",
+        "DatabaseAccountMongoDBDatabase",
+        "DatabaseAccountSqlContainer",
+        "DatabaseAccountSqlDatabase",
+        "DatabaseAccountTable"
+      ],
+      "2021-10-15": [
+        "CassandraCluster",
+        "CassandraDataCenter",
+        "CassandraResourceCassandraKeyspace",
+        "CassandraResourceCassandraTable",
+        "DatabaseAccount",
+        "GremlinResourceGremlinDatabase",
+        "GremlinResourceGremlinGraph",
+        "MongoDBResourceMongoDBCollection",
+        "MongoDBResourceMongoDBDatabase",
+        "NotebookWorkspace",
+        "PrivateEndpointConnection",
+        "SqlResourceSqlContainer",
+        "SqlResourceSqlDatabase",
+        "SqlResourceSqlRoleAssignment",
+        "SqlResourceSqlRoleDefinition",
+        "SqlResourceSqlStoredProcedure",
+        "SqlResourceSqlTrigger",
+        "SqlResourceSqlUserDefinedFunction",
+        "TableResourceTable",
+        "listDatabaseAccountConnectionStrings",
+        "listDatabaseAccountKeys",
+        "listNotebookWorkspaceConnectionInfo"
+      ],
+      "2022-02-15-preview": [
+        "CassandraResourceCassandraView",
+        "GraphResourceGraph",
+        "MongoDBResourceMongoRoleDefinition",
+        "MongoDBResourceMongoUserDefinition",
+        "Service"
+      ]
+    }
+  },
+  "DomainRegistration": {
+    "SingleVersion": "2021-03-01"
+  },
+  "Dynamics365Fraudprotection": {
+    "SingleVersion": "2021-02-01-preview"
+  },
+  "DynamicsTelemetry": {
+    "NoVersion": true
+  },
+  "EdgeOrder": {
+    "SingleVersion": "2021-12-01"
+  },
+  "EdgeOrderPartner": {
+    "NoVersion": true
+  },
+  "Education": {
+    "SingleVersion": "2021-12-01-preview"
+  },
+  "Elastic": {
+    "Rollup": {
+      "2020-07-01": [
+        "Monitor",
+        "TagRule",
+        "listDeploymentInfo",
+        "listMonitoredResource",
+        "listVMHost"
+      ],
+      "2021-10-01-preview": [
+        "listUpgradableVersionDetails"
+      ]
+    }
+  },
+  "ElasticSan": {
+    "SingleVersion": "2021-11-20-preview"
+  },
+  "EngagementFabric": {
+    "SingleVersion": "2018-09-01-preview"
+  },
+  "EnterpriseKnowledgeGraph": {
+    "SingleVersion": "2018-12-03"
+  },
+  "EventGrid": {
+    "Rollup": {
+      "2021-10-15-preview": [
+        "EventChannel",
+        "PartnerDestination"
+      ],
+      "2022-06-15": [
+        "Channel",
+        "Domain",
+        "DomainEventSubscription",
+        "DomainTopic",
+        "DomainTopicEventSubscription",
+        "EventSubscription",
+        "PartnerConfiguration",
+        "PartnerNamespace",
+        "PartnerRegistration",
+        "PartnerTopic",
+        "PartnerTopicEventSubscription",
+        "PrivateEndpointConnection",
+        "SystemTopic",
+        "SystemTopicEventSubscription",
+        "Topic",
+        "TopicEventSubscription",
+        "getChannelFullUrl",
+        "getDomainEventSubscriptionDeliveryAttributes",
+        "getDomainEventSubscriptionFullUrl",
+        "getDomainTopicEventSubscriptionDeliveryAttributes",
+        "getDomainTopicEventSubscriptionFullUrl",
+        "getEventSubscriptionDeliveryAttributes",
+        "getEventSubscriptionFullUrl",
+        "getPartnerTopicEventSubscriptionDeliveryAttributes",
+        "getPartnerTopicEventSubscriptionFullUrl",
+        "getSystemTopicEventSubscriptionDeliveryAttributes",
+        "getSystemTopicEventSubscriptionFullUrl",
+        "getTopicEventSubscriptionDeliveryAttributes",
+        "getTopicEventSubscriptionFullUrl",
+        "listDomainSharedAccessKeys",
+        "listPartnerNamespaceSharedAccessKeys",
+        "listTopicSharedAccessKeys"
+      ]
+    }
+  },
+  "EventHub": {
+    "Rollup": {
+      "2018-01-01-preview": [
+        "NamespaceIpFilterRule",
+        "NamespaceVirtualNetworkRule"
+      ],
+      "2021-11-01": [
+        "Cluster",
+        "ConsumerGroup",
+        "DisasterRecoveryConfig",
+        "EventHub",
+        "EventHubAuthorizationRule",
+        "Namespace",
+        "NamespaceAuthorizationRule",
+        "NamespaceNetworkRuleSet",
+        "PrivateEndpointConnection",
+        "SchemaRegistry",
+        "listDisasterRecoveryConfigKeys",
+        "listEventHubKeys",
+        "listNamespaceKeys"
+      ],
+      "2022-01-01-preview": [
+        "ApplicationGroup"
+      ]
+    }
+  },
+  "ExtendedLocation": {
+    "Rollup": {
+      "2021-08-15": [
+        "CustomLocation"
+      ],
+      "2021-08-31-preview": [
+        "ResourceSyncRule"
+      ]
+    }
+  },
+  "Features": {
+    "SingleVersion": "2021-07-01"
+  },
+  "FluidRelay": {
+    "SingleVersion": "2022-05-26"
+  },
+  "GuestConfiguration": {
+    "SingleVersion": "2022-01-25"
+  },
+  "HDInsight": {
+    "SingleVersion": "2021-06-01"
+  },
+  "HanaOnAzure": {
+    "Rollup": {
+      "2017-11-03-preview": [
+        "HanaInstance"
+      ],
+      "2020-02-07-preview": [
+        "ProviderInstance",
+        "SapMonitor"
+      ]
+    }
+  },
+  "HardwareSecurityModules": {
+    "SingleVersion": "2021-11-30"
+  },
+  "HealthBot": {
+    "Rollup": {
+      "2020-10-20": [
+        "getbot"
+      ],
+      "2021-08-24": [
+        "Bot"
+      ]
+    }
+  },
+  "HealthcareApis": {
+    "SingleVersion": "2022-05-15"
+  },
+  "HybridCompute": {
+    "Rollup": {
+      "2020-08-15-preview": [
+        "PrivateLinkScopedResource"
+      ],
+      "2022-03-10": [
+        "Machine",
+        "MachineExtension",
+        "PrivateEndpointConnection",
+        "PrivateLinkScope"
+      ]
+    }
+  },
+  "HybridConnectivity": {
+    "SingleVersion": "2022-05-01-preview"
+  },
+  "HybridData": {
+    "SingleVersion": "2019-06-01"
+  },
+  "HybridNetwork": {
+    "Rollup": {
+      "2021-05-01": [
+        "Device",
+        "NetworkFunction",
+        "Vendor",
+        "VendorSkuPreview",
+        "VendorSkus",
+        "listDeviceRegistrationKey"
+      ],
+      "2022-01-01-preview": [
+        "listVendorSkusCredential"
+      ]
+    }
+  },
+  "ImportExport": {
+    "SingleVersion": "2021-01-01"
+  },
+  "Insights": {
+    "Rollup": {
+      "2015-05-01": [
+        "AnalyticsItem",
+        "ComponentCurrentBillingFeature",
+        "ExportConfiguration",
+        "Favorite"
+      ],
+      "2016-03-01": [
+        "AlertRule",
+        "LogProfile"
+      ],
+      "2017-10-01": [
+        "listEASubscriptionListMigrationDatePost"
+      ],
+      "2018-03-01": [
+        "MetricAlert"
+      ],
+      "2018-05-01-preview": [
+        "ProactiveDetectionConfiguration"
+      ],
+      "2018-06-01-preview": [
+        "GuestDiagnosticsSettingsAssociation",
+        "guestDiagnosticsSetting"
+      ],
+      "2020-02-02": [
+        "Component"
+      ],
+      "2020-02-10-preview": [
+        "getTestResultFile"
+      ],
+      "2020-03-01-preview": [
+        "ComponentLinkedStorageAccount"
+      ],
+      "2020-10-01": [
+        "ActivityLogAlert"
+      ],
+      "2020-10-05-preview": [
+        "WebTest"
+      ],
+      "2020-11-20": [
+        "WorkbookTemplate"
+      ],
+      "2021-03-03-preview": [
+        "getDiagnosticServiceTokenReadOnly",
+        "getDiagnosticServiceTokenReadWrite"
+      ],
+      "2021-03-08": [
+        "MyWorkbook"
+      ],
+      "2021-04-01": [
+        "DataCollectionEndpoint",
+        "DataCollectionRule",
+        "DataCollectionRuleAssociation"
+      ],
+      "2021-05-01-preview": [
+        "AutoscaleSetting",
+        "DiagnosticSetting",
+        "ManagementGroupDiagnosticSetting",
+        "SubscriptionDiagnosticSetting"
+      ],
+      "2021-07-01-preview": [
+        "PrivateEndpointConnection",
+        "PrivateLinkScope",
+        "PrivateLinkScopedResource"
+      ],
+      "2021-08-01": [
+        "ScheduledQueryRule"
+      ],
+      "2021-10-14": [
+        "getLiveToken"
+      ],
+      "2022-04-01": [
+        "Workbook"
+      ],
+      "2022-06-01": [
+        "ActionGroup"
+      ]
+    }
+  },
+  "Intune": {
+    "SingleVersion": "2015-01-14-privatepreview"
+  },
+  "IoTCentral": {
+    "Rollup": {
+      "2021-06-01": [
+        "App"
+      ],
+      "2021-11-01-preview": [
+        "PrivateEndpointConnection"
+      ]
+    }
+  },
+  "IoTSecurity": {
+    "SingleVersion": "2021-02-01-preview"
+  },
+  "KeyVault": {
+    "SingleVersion": "2021-10-01"
+  },
+  "Kubernetes": {
+    "Rollup": {
+      "2021-04-01-preview": [
+        "listConnectedClusterUserCredentials"
+      ],
+      "2021-10-01": [
+        "ConnectedCluster",
+        "listConnectedClusterUserCredential"
+      ]
+    }
+  },
+  "KubernetesConfiguration": {
+    "Rollup": {
+      "2022-04-02-preview": [
+        "PrivateEndpointConnection",
+        "PrivateLinkScope"
+      ],
+      "2022-07-01": [
+        "Extension",
+        "FluxConfiguration",
+        "SourceControlConfiguration"
+      ]
+    }
+  },
+  "Kusto": {
+    "Rollup": {
+      "2018-09-07-preview": [
+        "EventHubConnection"
+      ],
+      "2022-02-01": [
+        "AttachedDatabaseConfiguration",
+        "Cluster",
+        "ClusterPrincipalAssignment",
+        "DataConnection",
+        "Database",
+        "DatabasePrincipalAssignment",
+        "ManagedPrivateEndpoint",
+        "PrivateEndpointConnection",
+        "Script",
+        "listClusterFollowerDatabases",
+        "listClusterLanguageExtensions",
+        "listDatabasePrincipals"
+      ]
+    }
+  },
+  "LabServices": {
+    "Rollup": {
+      "2018-10-15": [
+        "Environment",
+        "EnvironmentSetting",
+        "GalleryImage",
+        "LabAccount",
+        "getGlobalUserEnvironment",
+        "getGlobalUserOperationBatchStatus",
+        "getGlobalUserOperationStatus",
+        "getGlobalUserPersonalPreferences",
+        "getLabAccountRegionalAvailability",
+        "listGlobalUserEnvironments",
+        "listGlobalUserLabs"
+      ],
+      "2021-11-15-preview": [
+        "Lab",
+        "LabPlan",
+        "Schedule",
+        "User"
+      ]
+    }
+  },
+  "LoadTestService": {
+    "SingleVersion": "2022-04-15-preview"
+  },
+  "Logic": {
+    "Rollup": {
+      "2015-02-01-preview": [
+        "WorkflowAccessKey",
+        "listWorkflowAccessKeySecretKeys"
+      ],
+      "2016-06-01": [
+        "Agreement",
+        "Certificate",
+        "Map",
+        "Partner",
+        "RosettaNetProcessConfiguration",
+        "Schema",
+        "Session",
+        "listAgreementContentCallbackUrl",
+        "listMapContentCallbackUrl",
+        "listPartnerContentCallbackUrl",
+        "listSchemaContentCallbackUrl",
+        "listWorkflowVersionCallbackUrl"
+      ],
+      "2019-05-01": [
+        "IntegrationAccount",
+        "IntegrationAccountAgreement",
+        "IntegrationAccountAssembly",
+        "IntegrationAccountBatchConfiguration",
+        "IntegrationAccountCertificate",
+        "IntegrationAccountMap",
+        "IntegrationAccountPartner",
+        "IntegrationAccountSchema",
+        "IntegrationAccountSession",
+        "IntegrationServiceEnvironment",
+        "IntegrationServiceEnvironmentManagedApi",
+        "Workflow",
+        "listIntegrationAccountAgreementContentCallbackUrl",
+        "listIntegrationAccountAssemblyContentCallbackUrl",
+        "listIntegrationAccountCallbackUrl",
+        "listIntegrationAccountKeyVaultKeys",
+        "listIntegrationAccountMapContentCallbackUrl",
+        "listIntegrationAccountPartnerContentCallbackUrl",
+        "listIntegrationAccountSchemaContentCallbackUrl",
+        "listWorkflowCallbackUrl",
+        "listWorkflowRunActionExpressionTraces",
+        "listWorkflowRunActionRepetitionExpressionTraces",
+        "listWorkflowSwagger",
+        "listWorkflowTriggerCallbackUrl",
+        "listWorkflowVersionTriggerCallbackUrl"
+      ]
+    }
+  },
+  "Logz": {
+    "Rollup": {
+      "2020-10-01": [
+        "Monitor",
+        "SubAccount",
+        "SubAccountTagRule",
+        "TagRule",
+        "listMonitorMonitoredResources",
+        "listMonitorUserRoles",
+        "listMonitorVMHosts",
+        "listSubAccountMonitoredResources",
+        "listSubAccountVMHosts"
+      ],
+      "2022-01-01-preview": [
+        "MetricsSource",
+        "MetricsSourceTagRule"
+      ]
+    }
+  },
+  "M365SecurityAndCompliance": {
+    "SingleVersion": "2021-03-25-preview"
+  },
+  "MachineLearning": {
+    "Rollup": {
+      "2016-05-01-preview": [
+        "CommitmentPlan"
+      ],
+      "2017-01-01": [
+        "WebService"
+      ],
+      "2019-10-01": [
+        "Workspace",
+        "listWorkspaceKeys"
+      ]
+    }
+  },
+  "MachineLearningCompute": {
+    "SingleVersion": "2017-08-01-preview"
+  },
+  "MachineLearningExperimentation": {
+    "SingleVersion": "2017-05-01-preview"
+  },
+  "MachineLearningServices": {
+    "Rollup": {
+      "2020-03-01": [
+        "LinkedWorkspace"
+      ],
+      "2020-05-01-preview": [
+        "MachineLearningDataset",
+        "MachineLearningDatastore"
+      ],
+      "2020-09-01-preview": [
+        "LinkedService"
+      ],
+      "2021-03-01-preview": [
+        "EnvironmentSpecificationVersion",
+        "LabelingJob"
+      ],
+      "2021-04-01": [
+        "MachineLearningCompute",
+        "MachineLearningService",
+        "listMachineLearningComputeKeys",
+        "listMachineLearningComputeNodes",
+        "listNotebookKeys",
+        "listStorageAccountKeys"
+      ],
+      "2022-05-01": [
+        "BatchDeployment",
+        "BatchEndpoint",
+        "CodeContainer",
+        "CodeVersion",
+        "ComponentContainer",
+        "ComponentVersion",
+        "Compute",
+        "DataContainer",
+        "DataVersion",
+        "Datastore",
+        "EnvironmentContainer",
+        "EnvironmentVersion",
+        "Job",
+        "ModelContainer",
+        "ModelVersion",
+        "OnlineDeployment",
+        "OnlineEndpoint",
+        "PrivateEndpointConnection",
+        "Workspace",
+        "WorkspaceConnection",
+        "getOnlineDeploymentLogs",
+        "getOnlineEndpointToken",
+        "listBatchEndpointKeys",
+        "listComputeKeys",
+        "listComputeNodes",
+        "listDatastoreSecrets",
+        "listOnlineEndpointKeys",
+        "listWorkspaceKeys",
+        "listWorkspaceNotebookAccessToken",
+        "listWorkspaceNotebookKeys",
+        "listWorkspaceStorageAccountKeys"
+      ]
+    }
+  },
+  "Maintenance": {
+    "Rollup": {
+      "2021-05-01": [
+        "MaintenanceConfiguration"
+      ],
+      "2021-09-01-preview": [
+        "ConfigurationAssignment",
+        "ConfigurationAssignmentParent"
+      ]
+    }
+  },
+  "ManagedIdentity": {
+    "SingleVersion": "2021-09-30-preview"
+  },
+  "ManagedNetwork": {
+    "SingleVersion": "2019-06-01-preview"
+  },
+  "ManagedServices": {
+    "SingleVersion": "2022-01-01-preview"
+  },
+  "Management": {
+    "SingleVersion": "2021-04-01"
+  },
+  "ManagementPartner": {
+    "SingleVersion": "2018-02-01"
+  },
+  "Maps": {
+    "Rollup": {
+      "2020-02-01-preview": [
+        "PrivateAtlase"
+      ],
+      "2021-02-01": [
+        "Account",
+        "Creator",
+        "listAccountKeys"
+      ],
+      "2021-12-01-preview": [
+        "listAccountSas"
+      ]
+    }
+  },
+  "Marketplace": {
+    "Rollup": {
+      "2020-01-01": [
+        "PrivateStoreOffer"
+      ],
+      "2022-03-01": [
+        "PrivateStore",
+        "PrivateStoreCollection",
+        "PrivateStoreCollectionOffer",
+        "listPrivateStoreNewPlansNotifications",
+        "listPrivateStoreStopSellOffersPlansNotifications",
+        "listPrivateStoreSubscriptionsContext"
+      ]
+    }
+  },
+  "MarketplaceNotifications": {
+    "NoVersion": true
+  },
+  "MarketplaceOrdering": {
+    "NoVersion": true
+  },
+  "Media": {
+    "Rollup": {
+      "2015-10-01": [
+        "listMediaServiceKeys"
+      ],
+      "2020-02-01-preview": [
+        "MediaGraph"
+      ],
+      "2021-06-01": [
+        "MediaService",
+        "PrivateEndpointConnection",
+        "listMediaServiceEdgePolicies"
+      ],
+      "2021-11-01": [
+        "AccountFilter",
+        "Asset",
+        "AssetFilter",
+        "ContentKeyPolicy",
+        "Job",
+        "LiveEvent",
+        "LiveOutput",
+        "StreamingEndpoint",
+        "StreamingLocator",
+        "StreamingPolicy",
+        "Track",
+        "Transform",
+        "getAssetEncryptionKey",
+        "getContentKeyPolicyPropertiesWithSecrets",
+        "listAssetContainerSas",
+        "listAssetStreamingLocators",
+        "listStreamingLocatorContentKeys",
+        "listStreamingLocatorPaths"
+      ]
+    }
+  },
+  "Migrate": {
+    "Rollup": {
+      "2018-02-02": [
+        "getProjectKeys"
+      ],
+      "2018-09-01-preview": [
+        "MigrateProject",
+        "Solution",
+        "getSolutionConfig"
+      ],
+      "2019-10-01": [
+        "Assessment",
+        "Group",
+        "HyperVCollector",
+        "ImportCollector",
+        "PrivateEndpointConnection",
+        "Project",
+        "ServerCollector",
+        "VMwareCollector"
+      ],
+      "2020-05-01": [
+        "MigrateProjectsControllerMigrateProject",
+        "PrivateEndpointConnectionControllerPrivateEndpointConnection"
+      ],
+      "2021-08-01": [
+        "MoveCollection",
+        "MoveResource"
+      ]
+    }
+  },
+  "MixedReality": {
+    "Rollup": {
+      "2021-01-01": [
+        "RemoteRenderingAccount",
+        "SpatialAnchorsAccount",
+        "listRemoteRenderingAccountKeys",
+        "listSpatialAnchorsAccountKeys"
+      ],
+      "2021-03-01-preview": [
+        "ObjectAnchorsAccount",
+        "listObjectAnchorsAccountKeys"
+      ]
+    }
+  },
+  "MobileNetwork": {
+    "SingleVersion": "2022-03-01-preview"
+  },
+  "NetApp": {
+    "SingleVersion": "2022-01-01"
+  },
+  "Network": {
+    "Rollup": {
+      "2015-05-01-preview": [
+        "PublicIpAddress"
+      ],
+      "2018-05-01": [
+        "RecordSet",
+        "Zone",
+        "getDnsResourceReferenceByTarResources"
+      ],
+      "2018-07-01": [
+        "VirtualWAN"
+      ],
+      "2018-08-01": [
+        "Endpoint",
+        "Profile",
+        "TrafficManagerUserMetricsKey"
+      ],
+      "2019-02-01": [
+        "InterfaceEndpoint"
+      ],
+      "2019-07-01": [
+        "P2sVpnServerConfiguration"
+      ],
+      "2019-11-01": [
+        "Experiment",
+        "NetworkExperimentProfile"
+      ],
+      "2020-04-01": [
+        "FirewallPolicyRuleGroup"
+      ],
+      "2020-04-01-preview": [
+        "DnsForwardingRuleset",
+        "DnsResolver",
+        "ForwardingRule",
+        "InboundEndpoint",
+        "OutboundEndpoint",
+        "listDnsForwardingRulesetByVirtualNetwork",
+        "listDnsResolverByVirtualNetwork"
+      ],
+      "2020-05-01": [
+        "FrontDoor",
+        "RulesEngine"
+      ],
+      "2020-06-01": [
+        "PrivateRecordSet",
+        "PrivateZone",
+        "VirtualNetworkLink"
+      ],
+      "2020-11-01": [
+        "Policy"
+      ],
+      "2021-02-01-preview": [
+        "NspAccessRule",
+        "NspAssociation",
+        "NspAssociationsProxy",
+        "NspProfile",
+        "listActiveConnectivityConfiguration",
+        "listActiveSecurityAdminRule",
+        "listActiveSecurityUserRule",
+        "listEffectiveConnectivityConfiguration",
+        "listEffectiveVirtualNetworkByNetworkGroup",
+        "listNetworkManagerEffectiveSecurityAdminRule"
+      ],
+      "2021-03-01-preview": [
+        "NetworkSecurityPerimeter"
+      ],
+      "2021-08-01": [
+        "ApplicationGateway",
+        "ApplicationGatewayPrivateEndpointConnection",
+        "ApplicationSecurityGroup",
+        "AzureFirewall",
+        "BastionHost",
+        "ConfigurationPolicyGroup",
+        "ConnectionMonitor",
+        "CustomIPPrefix",
+        "DdosCustomPolicy",
+        "DdosProtectionPlan",
+        "DscpConfiguration",
+        "ExpressRouteCircuit",
+        "ExpressRouteCircuitAuthorization",
+        "ExpressRouteCircuitConnection",
+        "ExpressRouteCircuitPeering",
+        "ExpressRouteConnection",
+        "ExpressRouteCrossConnectionPeering",
+        "ExpressRouteGateway",
+        "ExpressRoutePort",
+        "ExpressRoutePortAuthorization",
+        "FirewallPolicy",
+        "FirewallPolicyRuleCollectionGroup",
+        "FlowLog",
+        "HubRouteTable",
+        "HubVirtualNetworkConnection",
+        "InboundNatRule",
+        "IpAllocation",
+        "IpGroup",
+        "LoadBalancer",
+        "LoadBalancerBackendAddressPool",
+        "LocalNetworkGateway",
+        "NatGateway",
+        "NatRule",
+        "NetworkInterface",
+        "NetworkInterfaceTapConfiguration",
+        "NetworkProfile",
+        "NetworkSecurityGroup",
+        "NetworkVirtualAppliance",
+        "NetworkWatcher",
+        "P2sVpnGateway",
+        "PacketCapture",
+        "PrivateDnsZoneGroup",
+        "PrivateEndpoint",
+        "PrivateLinkService",
+        "PrivateLinkServicePrivateEndpointConnection",
+        "PublicIPAddress",
+        "PublicIPPrefix",
+        "Route",
+        "RouteFilter",
+        "RouteFilterRule",
+        "RouteTable",
+        "RoutingIntent",
+        "SecurityPartnerProvider",
+        "SecurityRule",
+        "ServiceEndpointPolicy",
+        "ServiceEndpointPolicyDefinition",
+        "Subnet",
+        "VirtualApplianceSite",
+        "VirtualHub",
+        "VirtualHubBgpConnection",
+        "VirtualHubIpConfiguration",
+        "VirtualHubRouteTableV2",
+        "VirtualNetwork",
+        "VirtualNetworkGateway",
+        "VirtualNetworkGatewayConnection",
+        "VirtualNetworkGatewayNatRule",
+        "VirtualNetworkPeering",
+        "VirtualNetworkTap",
+        "VirtualRouter",
+        "VirtualRouterPeering",
+        "VirtualWan",
+        "VpnConnection",
+        "VpnGateway",
+        "VpnServerConfiguration",
+        "VpnSite",
+        "WebApplicationFirewallPolicy",
+        "getActiveSessions",
+        "getApplicationGatewayBackendHealthOnDemand",
+        "getBastionShareableLink",
+        "getP2sVpnGatewayP2sVpnConnectionHealth",
+        "getP2sVpnGatewayP2sVpnConnectionHealthDetailed",
+        "getVirtualNetworkGatewayAdvertisedRoutes",
+        "getVirtualNetworkGatewayBgpPeerStatus",
+        "getVirtualNetworkGatewayConnectionIkeSas",
+        "getVirtualNetworkGatewayLearnedRoutes",
+        "getVirtualNetworkGatewayVpnProfilePackageUrl",
+        "getVirtualNetworkGatewayVpnclientConnectionHealth",
+        "getVirtualNetworkGatewayVpnclientIpsecParameters",
+        "getVpnLinkConnectionIkeSas",
+        "listFirewallPolicyIdpsSignature",
+        "listFirewallPolicyIdpsSignaturesFilterValue"
+      ],
+      "2022-04-01-preview": [
+        "AdminRule",
+        "AdminRuleCollection",
+        "ConnectivityConfiguration",
+        "ManagementGroupNetworkManagerConnection",
+        "NetworkGroup",
+        "NetworkManager",
+        "ScopeConnection",
+        "SecurityAdminConfiguration",
+        "SecurityUserConfiguration",
+        "StaticMember",
+        "SubscriptionNetworkManagerConnection",
+        "UserRule",
+        "UserRuleCollection",
+        "listActiveConnectivityConfigurations",
+        "listActiveSecurityAdminRules",
+        "listActiveSecurityUserRules",
+        "listEffectiveVirtualNetworkByNetworkManager",
+        "listListEffectiveVirtualNetworkByNetworkGroup",
+        "listNetworkManagerDeploymentStatus",
+        "listNetworkManagerEffectiveConnectivityConfigurations",
+        "listNetworkManagerEffectiveSecurityAdminRules"
+      ]
+    }
+  },
+  "NetworkFunction": {
+    "SingleVersion": "2022-05-01"
+  },
+  "NotificationHubs": {
+    "SingleVersion": "2017-04-01"
+  },
+  "OffAzure": {
+    "SingleVersion": "2020-07-07"
+  },
+  "OpenEnergyPlatform": {
+    "SingleVersion": "2022-04-04-preview"
+  },
+  "OperationalInsights": {
+    "Rollup": {
+      "2015-03-20": [
+        "StorageInsight",
+        "listWorkspaceKeys"
+      ],
+      "2015-11-01-preview": [
+        "MachineGroup",
+        "getWorkspaceSharedKeys"
+      ],
+      "2019-09-01": [
+        "Query",
+        "QueryPack"
+      ],
+      "2020-08-01": [
+        "DataExport",
+        "DataSource",
+        "LinkedService",
+        "LinkedStorageAccount",
+        "SavedSearch",
+        "StorageInsightConfig",
+        "getSharedKeys"
+      ],
+      "2021-06-01": [
+        "Cluster",
+        "Workspace"
+      ],
+      "2021-12-01-preview": [
+        "Table"
+      ]
+    }
+  },
+  "OperationsManagement": {
+    "SingleVersion": "2015-11-01-preview"
+  },
+  "Orbital": {
+    "SingleVersion": "2022-03-01"
+  },
+  "Peering": {
+    "Rollup": {
+      "2019-08-01-preview": [
+        "PeeringServicePrefix"
+      ],
+      "2022-01-01": [
+        "ConnectionMonitorTest",
+        "PeerAsn",
+        "Peering",
+        "PeeringService",
+        "Prefix",
+        "RegisteredAsn",
+        "RegisteredPrefix"
+      ]
+    }
+  },
+  "PolicyInsights": {
+    "Rollup": {
+      "2021-01-01": [
+        "AttestationAtResource",
+        "AttestationAtResourceGroup",
+        "AttestationAtSubscription"
+      ],
+      "2021-10-01": [
+        "RemediationAtManagementGroup",
+        "RemediationAtResource",
+        "RemediationAtResourceGroup",
+        "RemediationAtSubscription",
+        "listRemediationDeploymentsAtManagementGroup",
+        "listRemediationDeploymentsAtResource",
+        "listRemediationDeploymentsAtResourceGroup",
+        "listRemediationDeploymentsAtSubscription"
+      ]
+    }
+  },
+  "Portal": {
+    "Rollup": {
+      "2018-10-01": [
+        "Console",
+        "ConsoleWithLocation",
+        "UserSettings",
+        "UserSettingsWithLocation"
+      ],
+      "2020-09-01-preview": [
+        "Dashboard",
+        "TenantConfiguration",
+        "listListTenantConfigurationViolation"
+      ]
+    }
+  },
+  "PowerBI": {
+    "Rollup": {
+      "2016-01-29": [
+        "WorkspaceCollection",
+        "listWorkspaceCollectionAccessKeys"
+      ],
+      "2020-06-01": [
+        "PowerBIResource",
+        "PrivateEndpointConnection"
+      ]
+    }
+  },
+  "PowerBIDedicated": {
+    "SingleVersion": "2021-01-01"
+  },
+  "PowerPlatform": {
+    "SingleVersion": "2020-10-30-preview"
+  },
+  "ProviderHub": {
+    "SingleVersion": "2020-11-20"
+  },
+  "Purview": {
+    "SingleVersion": "2021-07-01"
+  },
+  "Quantum": {
+    "SingleVersion": "2022-01-10-preview"
+  },
+  "Quota": {
+    "NoVersion": true
+  },
+  "RecommendationsService": {
+    "SingleVersion": "2022-02-01"
+  },
+  "RecoveryServices": {
+    "Rollup": {
+      "2021-11-15": [
+        "getRecoveryPointAccessToken"
+      ],
+      "2022-03-01": [
+        "PrivateEndpointConnection",
+        "ProtectedItem",
+        "ProtectionContainer",
+        "ProtectionIntent",
+        "ProtectionPolicy",
+        "ReplicationFabric",
+        "ReplicationMigrationItem",
+        "ReplicationNetworkMapping",
+        "ReplicationPolicy",
+        "ReplicationProtectedItem",
+        "ReplicationProtectionContainerMapping",
+        "ReplicationRecoveryPlan",
+        "ReplicationRecoveryServicesProvider",
+        "ReplicationStorageClassificationMapping",
+        "ReplicationvCenter",
+        "ResourceGuardProxy"
+      ],
+      "2022-04-01": [
+        "Vault"
+      ]
+    }
+  },
+  "RedHatOpenShift": {
+    "SingleVersion": "2022-04-01"
+  },
+  "Relay": {
+    "SingleVersion": "2021-11-01"
+  },
+  "ResourceConnector": {
+    "SingleVersion": "2021-10-31-preview"
+  },
+  "ResourceGraph": {
+    "SingleVersion": "2020-04-01-preview"
+  },
+  "ResourceHealth": {
+    "NoVersion": true
+  },
+  "Resources": {
+    "Rollup": {
+      "2020-10-01": [
+        "DeploymentScript"
+      ],
+      "2021-04-01": [
+        "Deployment",
+        "DeploymentAtManagementGroupScope",
+        "DeploymentAtScope",
+        "DeploymentAtSubscriptionScope",
+        "DeploymentAtTenantScope",
+        "Resource",
+        "ResourceGroup",
+        "TagAtScope"
+      ],
+      "2022-02-01": [
+        "TemplateSpec",
+        "TemplateSpecVersion"
+      ]
+    }
+  },
+  "SaaS": {
+    "SingleVersion": "2018-03-01-beta"
+  },
+  "ScVmm": {
+    "SingleVersion": "2020-06-05-preview"
+  },
+  "Scheduler": {
+    "SingleVersion": "2016-03-01"
+  },
+  "Search": {
+    "SingleVersion": "2020-08-01"
+  },
+  "Security": {
+    "Rollup": {
+      "2017-08-01-preview": [
+        "WorkspaceSetting"
+      ],
+      "2019-01-01": [
+        "AdvancedThreatProtection"
+      ],
+      "2019-01-01-preview": [
+        "AlertsSuppressionRule",
+        "AssessmentsMetadataSubscription",
+        "Automation"
+      ],
+      "2019-08-01": [
+        "DeviceSecurityGroup",
+        "IotSecuritySolution"
+      ],
+      "2020-01-01": [
+        "AdaptiveApplicationControl",
+        "JitNetworkAccessPolicy",
+        "ServerVulnerabilityAssessment"
+      ],
+      "2020-01-01-preview": [
+        "Connector",
+        "SecurityContact"
+      ],
+      "2020-07-01-preview": [
+        "SqlVulnerabilityAssessmentBaselineRule"
+      ],
+      "2021-01-15-preview": [
+        "IngestionSetting",
+        "listIngestionSettingConnectionStrings",
+        "listIngestionSettingTokens"
+      ],
+      "2021-06-01": [
+        "Assessment",
+        "AssessmentMetadataInSubscription"
+      ],
+      "2021-07-01-preview": [
+        "CustomAssessmentAutomation",
+        "CustomEntityStoreAssignment"
+      ],
+      "2021-08-01-preview": [
+        "Assignment",
+        "Standard"
+      ],
+      "2021-12-01-preview": [
+        "SecurityConnector"
+      ],
+      "2022-01-01-preview": [
+        "GovernanceAssignment",
+        "GovernanceRule",
+        "SecurityConnectorGovernanceRule"
+      ]
+    }
+  },
+  "SecurityAndCompliance": {
+    "SingleVersion": "2021-03-08"
+  },
+  "SecurityInsights": {
+    "Rollup": {
+      "2021-10-01": [
+        "Action",
+        "AlertRule",
+        "AutomationRule",
+        "Bookmark",
+        "DataConnector",
+        "Incident",
+        "IncidentComment",
+        "IncidentRelation",
+        "SentinelOnboardingState",
+        "ThreatIntelligenceIndicator",
+        "Watchlist",
+        "WatchlistItem"
+      ],
+      "2022-06-01-preview": [
+        "BookmarkRelation",
+        "EntityQuery",
+        "Metadata",
+        "ProductSetting",
+        "SecurityMLAnalyticsSetting",
+        "SourceControl",
+        "getEntitiesGetTimeline",
+        "getEntityInsights",
+        "listSourceControlRepositories"
+      ]
+    }
+  },
+  "SerialConsole": {
+    "SingleVersion": "2018-05-01"
+  },
+  "ServiceBus": {
+    "Rollup": {
+      "2018-01-01-preview": [
+        "NamespaceIpFilterRule",
+        "NamespaceVirtualNetworkRule"
+      ],
+      "2021-11-01": [
+        "DisasterRecoveryConfig",
+        "MigrationConfig",
+        "Namespace",
+        "NamespaceAuthorizationRule",
+        "NamespaceNetworkRuleSet",
+        "PrivateEndpointConnection",
+        "Queue",
+        "QueueAuthorizationRule",
+        "Rule",
+        "Subscription",
+        "Topic",
+        "TopicAuthorizationRule",
+        "listDisasterRecoveryConfigKeys",
+        "listNamespaceKeys",
+        "listQueueKeys",
+        "listTopicKeys"
+      ]
+    }
+  },
+  "ServiceFabric": {
+    "Rollup": {
+      "2020-12-01-preview": [
+        "listListUpgradableVersionPost"
+      ],
+      "2021-06-01": [
+        "Cluster",
+        "listClusterUpgradableVersions"
+      ],
+      "2022-01-01": [
+        "Application",
+        "ApplicationType",
+        "ApplicationTypeVersion",
+        "ManagedCluster",
+        "NodeType",
+        "Service"
+      ],
+      "2022-02-01-preview": [
+        "getmanagedAzResiliencyStatus"
+      ]
+    }
+  },
+  "ServiceFabricMesh": {
+    "SingleVersion": "2018-09-01-preview"
+  },
+  "ServiceLinker": {
+    "SingleVersion": "2022-05-01"
+  },
+  "SignalRService": {
+    "SingleVersion": "2022-02-01"
+  },
+  "SoftwarePlan": {
+    "SingleVersion": "2019-12-01"
+  },
+  "Solutions": {
+    "Rollup": {
+      "2016-09-01-preview": [
+        "Appliance",
+        "ApplianceDefinition"
+      ],
+      "2021-07-01": [
+        "Application",
+        "ApplicationDefinition",
+        "JitRequest",
+        "listApplicationAllowedUpgradePlans"
+      ]
+    }
+  },
+  "Sql": {
+    "Rollup": {
+      "2014-04-01": [
+        "DataMaskingPolicy",
+        "DatabaseThreatDetectionPolicy",
+        "DisasterRecoveryConfiguration",
+        "GeoBackupPolicy",
+        "ServerCommunicationLink"
+      ],
+      "2017-03-01-preview": [
+        "BackupLongTermRetentionPolicy"
+      ],
+      "2021-11-01-preview": [
+        "BackupShortTermRetentionPolicy",
+        "Database",
+        "DatabaseAdvisor",
+        "DatabaseBlobAuditingPolicy",
+        "DatabaseSecurityAlertPolicy",
+        "DatabaseVulnerabilityAssessment",
+        "DatabaseVulnerabilityAssessmentRuleBaseline",
+        "DistributedAvailabilityGroup",
+        "ElasticPool",
+        "EncryptionProtector",
+        "ExtendedDatabaseBlobAuditingPolicy",
+        "ExtendedServerBlobAuditingPolicy",
+        "FailoverGroup",
+        "FirewallRule",
+        "IPv6FirewallRule",
+        "InstanceFailoverGroup",
+        "InstancePool",
+        "Job",
+        "JobAgent",
+        "JobCredential",
+        "JobStep",
+        "JobTargetGroup",
+        "LongTermRetentionPolicy",
+        "ManagedDatabase",
+        "ManagedDatabaseSensitivityLabel",
+        "ManagedDatabaseVulnerabilityAssessment",
+        "ManagedDatabaseVulnerabilityAssessmentRuleBaseline",
+        "ManagedInstance",
+        "ManagedInstanceAdministrator",
+        "ManagedInstanceAzureADOnlyAuthentication",
+        "ManagedInstanceKey",
+        "ManagedInstancePrivateEndpointConnection",
+        "ManagedInstanceVulnerabilityAssessment",
+        "ManagedServerDnsAlias",
+        "OutboundFirewallRule",
+        "PrivateEndpointConnection",
+        "SensitivityLabel",
+        "Server",
+        "ServerAdvisor",
+        "ServerAzureADAdministrator",
+        "ServerAzureADOnlyAuthentication",
+        "ServerBlobAuditingPolicy",
+        "ServerDnsAlias",
+        "ServerKey",
+        "ServerSecurityAlertPolicy",
+        "ServerTrustCertificate",
+        "ServerTrustGroup",
+        "ServerVulnerabilityAssessment",
+        "SyncAgent",
+        "SyncGroup",
+        "SyncMember",
+        "TransparentDataEncryption",
+        "VirtualNetworkRule",
+        "WorkloadClassifier",
+        "WorkloadGroup"
+      ]
+    }
+  },
+  "SqlVirtualMachine": {
+    "SingleVersion": "2021-11-01-preview"
+  },
+  "StorSimple": {
+    "Rollup": {
+      "2016-10-01": [
+        "BackupScheduleGroup",
+        "ChapSetting",
+        "FileServer",
+        "FileShare",
+        "IscsiDisk",
+        "IscsiServer",
+        "StorageDomain",
+        "getManagerEncryptionKey"
+      ],
+      "2017-06-01": [
+        "AccessControlRecord",
+        "BackupPolicy",
+        "BackupSchedule",
+        "BandwidthSetting",
+        "Manager",
+        "ManagerExtendedInfo",
+        "StorageAccountCredential",
+        "Volume",
+        "VolumeContainer",
+        "getManagerDevicePublicEncryptionKey",
+        "listDeviceFailoverSets",
+        "listDeviceFailoverTars",
+        "listManagerActivationKey",
+        "listManagerPublicEncryptionKey"
+      ]
+    }
+  },
+  "Storage": {
+    "Rollup": {
+      "2018-03-01-preview": [
+        "StorageAccountManagementPolicies"
+      ],
+      "2021-09-01": [
+        "BlobContainer",
+        "BlobContainerImmutabilityPolicy",
+        "BlobInventoryPolicy",
+        "BlobServiceProperties",
+        "EncryptionScope",
+        "FileServiceProperties",
+        "FileShare",
+        "LocalUser",
+        "ManagementPolicy",
+        "ObjectReplicationPolicy",
+        "PrivateEndpointConnection",
+        "Queue",
+        "QueueServiceProperties",
+        "StorageAccount",
+        "Table",
+        "TableServiceProperties",
+        "listLocalUserKeys",
+        "listStorageAccountKeys",
+        "listStorageAccountSAS",
+        "listStorageAccountServiceSAS"
+      ]
+    }
+  },
+  "StorageCache": {
+    "SingleVersion": "2022-05-01"
+  },
+  "StoragePool": {
+    "SingleVersion": "2021-08-01"
+  },
+  "StorageSync": {
+    "SingleVersion": "2020-09-01"
+  },
+  "StreamAnalytics": {
+    "SingleVersion": "2020-03-01"
+  },
+  "Subscription": {
+    "Rollup": {
+      "2019-10-01-preview": [
+        "SubscriptionAlias"
+      ],
+      "2021-10-01": [
+        "Alias"
+      ]
+    }
+  },
+  "Support": {
+    "NoVersion": true
+  },
+  "Synapse": {
+    "Rollup": {
+      "2020-04-01-preview": [
+        "SqlDatabase",
+        "SqlPoolsV3"
+      ],
+      "2021-04-01-preview": [
+        "DataConnection",
+        "Database",
+        "DatabasePrincipalAssignment",
+        "kustoPool"
+      ],
+      "2021-06-01": [
+        "BigDataPool",
+        "IntegrationRuntime",
+        "IpFirewallRule",
+        "Key",
+        "PrivateEndpointConnection",
+        "PrivateLinkHub",
+        "SqlPool",
+        "SqlPoolSensitivityLabel",
+        "SqlPoolTransparentDataEncryption",
+        "SqlPoolVulnerabilityAssessment",
+        "SqlPoolVulnerabilityAssessmentRuleBaseline",
+        "SqlPoolWorkloadClassifier",
+        "SqlPoolWorkloadGroup",
+        "Workspace",
+        "WorkspaceAadAdmin",
+        "WorkspaceManagedSqlServerVulnerabilityAssessment",
+        "WorkspaceSqlAadAdmin",
+        "getIntegrationRuntimeConnectionInfo",
+        "getIntegrationRuntimeObjectMetadatum",
+        "getIntegrationRuntimeStatus",
+        "listIntegrationRuntimeAuthKey"
+      ],
+      "2021-06-01-preview": [
+        "KustoPool",
+        "KustoPoolAttachedDatabaseConfiguration",
+        "KustoPoolDataConnection",
+        "KustoPoolDatabase",
+        "KustoPoolDatabasePrincipalAssignment",
+        "KustoPoolPrincipalAssignment",
+        "listKustoPoolFollowerDatabases",
+        "listKustoPoolLanguageExtensions"
+      ]
+    }
+  },
+  "TestBase": {
+    "SingleVersion": "2020-12-16-preview"
+  },
+  "TimeSeriesInsights": {
+    "Rollup": {
+      "2020-05-15": [
+        "AccessPolicy",
+        "Environment",
+        "EventSource",
+        "ReferenceDataSet"
+      ],
+      "2021-03-31-preview": [
+        "PrivateEndpointConnection"
+      ]
+    }
+  },
+  "VMwareCloudSimple": {
+    "SingleVersion": "2019-04-01"
+  },
+  "VideoAnalyzer": {
+    "Rollup": {
+      "2021-05-01-preview": [
+        "listVideoStreamingToken"
+      ],
+      "2021-11-01-preview": [
+        "AccessPolicy",
+        "EdgeModule",
+        "LivePipeline",
+        "PipelineJob",
+        "PipelineTopology",
+        "PrivateEndpointConnection",
+        "Video",
+        "VideoAnalyzer",
+        "listEdgeModuleProvisioningToken",
+        "listVideoContentToken"
+      ]
+    }
+  },
+  "VideoIndexer": {
+    "SingleVersion": "2022-04-13-preview"
+  },
+  "VirtualMachineImages": {
+    "SingleVersion": "2022-02-14"
+  },
+  "VisualStudio": {
+    "SingleVersion": "2017-11-01-preview"
+  },
+  "Web": {
+    "Rollup": {
+      "2015-08-01": [
+        "CertificateCsr",
+        "HostingEnvironment",
+        "ManagedHostingEnvironment",
+        "ServerFarm",
+        "ServerFarmRouteForVnet",
+        "Site",
+        "SiteAppSettings",
+        "SiteAppSettingsSlot",
+        "SiteAuthSettings",
+        "SiteAuthSettingsSlot",
+        "SiteBackupConfiguration",
+        "SiteBackupConfigurationSlot",
+        "SiteConnectionStrings",
+        "SiteConnectionStringsSlot",
+        "SiteDeployment",
+        "SiteDeploymentSlot",
+        "SiteHostNameBinding",
+        "SiteHostNameBindingSlot",
+        "SiteInstanceDeployment",
+        "SiteInstanceDeploymentSlot",
+        "SiteLogsConfig",
+        "SiteMetadata",
+        "SiteMetadataSlot",
+        "SitePremierAddOn",
+        "SitePremierAddOnSlot",
+        "SiteRelayServiceConnection",
+        "SiteRelayServiceConnectionSlot",
+        "SiteSlot",
+        "SiteSlotConfigNames",
+        "SiteSourceControl",
+        "SiteSourceControlSlot",
+        "SiteVNETConnection",
+        "SiteVNETConnectionSlot",
+        "listSiteAppSettings",
+        "listSiteAppSettingsSlot",
+        "listSiteAuthSettings",
+        "listSiteAuthSettingsSlot",
+        "listSiteBackupConfiguration",
+        "listSiteBackupConfigurationSlot",
+        "listSiteBackupStatusSecrets",
+        "listSiteBackupStatusSecretsSlot",
+        "listSiteConnectionStrings",
+        "listSiteConnectionStringsSlot",
+        "listSiteMetadata",
+        "listSiteMetadataSlot",
+        "listSitePublishingCredentials",
+        "listSitePublishingCredentialsSlot"
+      ],
+      "2015-08-01-preview": [
+        "listConnectionKeys"
+      ],
+      "2016-06-01": [
+        "Connection",
+        "ConnectionGateway",
+        "CustomApi",
+        "listConnectionConsentLinks",
+        "listCustomApiWsdlInterfaces"
+      ],
+      "2018-11-01": [
+        "listWebAppHybridConnectionKeys",
+        "listWebAppHybridConnectionKeysSlot"
+      ],
+      "2021-02-01": [
+        "WebAppAuthSettingsV2",
+        "WebAppAuthSettingsV2Slot"
+      ],
+      "2021-03-01": [
+        "AppServiceEnvironment",
+        "AppServiceEnvironmentPrivateEndpointConnection",
+        "AppServicePlan",
+        "AppServicePlanRouteForVnet",
+        "Certificate",
+        "ContainerApp",
+        "KubeEnvironment",
+        "StaticSite",
+        "StaticSiteCustomDomain",
+        "StaticSitePrivateEndpointConnection",
+        "StaticSiteUserProvidedFunctionAppForStaticSite",
+        "StaticSiteUserProvidedFunctionAppForStaticSiteBuild",
+        "WebApp",
+        "WebAppApplicationSettings",
+        "WebAppApplicationSettingsSlot",
+        "WebAppAuthSettings",
+        "WebAppAuthSettingsSlot",
+        "WebAppAzureStorageAccounts",
+        "WebAppAzureStorageAccountsSlot",
+        "WebAppBackupConfiguration",
+        "WebAppBackupConfigurationSlot",
+        "WebAppConnectionStrings",
+        "WebAppConnectionStringsSlot",
+        "WebAppDeployment",
+        "WebAppDeploymentSlot",
+        "WebAppDiagnosticLogsConfiguration",
+        "WebAppDomainOwnershipIdentifier",
+        "WebAppDomainOwnershipIdentifierSlot",
+        "WebAppFunction",
+        "WebAppHostNameBinding",
+        "WebAppHostNameBindingSlot",
+        "WebAppHybridConnection",
+        "WebAppHybridConnectionSlot",
+        "WebAppInstanceFunctionSlot",
+        "WebAppMetadata",
+        "WebAppMetadataSlot",
+        "WebAppPremierAddOn",
+        "WebAppPremierAddOnSlot",
+        "WebAppPrivateEndpointConnection",
+        "WebAppPrivateEndpointConnectionSlot",
+        "WebAppPublicCertificate",
+        "WebAppPublicCertificateSlot",
+        "WebAppRelayServiceConnection",
+        "WebAppRelayServiceConnectionSlot",
+        "WebAppSiteExtension",
+        "WebAppSiteExtensionSlot",
+        "WebAppSitePushSettings",
+        "WebAppSitePushSettingsSlot",
+        "WebAppSlot",
+        "WebAppSlotConfigurationNames",
+        "WebAppSourceControl",
+        "WebAppSourceControlSlot",
+        "WebAppSwiftVirtualNetworkConnection",
+        "WebAppSwiftVirtualNetworkConnectionSlot",
+        "WebAppVnetConnection",
+        "WebAppVnetConnectionSlot",
+        "listAppServicePlanHybridConnectionKeys",
+        "listContainerAppSecrets",
+        "listSiteIdentifiersAssignedToHostName",
+        "listStaticSiteAppSettings",
+        "listStaticSiteBuildAppSettings",
+        "listStaticSiteBuildFunctionAppSettings",
+        "listStaticSiteConfiguredRoles",
+        "listStaticSiteFunctionAppSettings",
+        "listStaticSiteSecrets",
+        "listStaticSiteUsers",
+        "listWebAppApplicationSettings",
+        "listWebAppApplicationSettingsSlot",
+        "listWebAppAuthSettings",
+        "listWebAppAuthSettingsSlot",
+        "listWebAppAzureStorageAccounts",
+        "listWebAppAzureStorageAccountsSlot",
+        "listWebAppBackupConfiguration",
+        "listWebAppBackupConfigurationSlot",
+        "listWebAppBackupStatusSecrets",
+        "listWebAppBackupStatusSecretsSlot",
+        "listWebAppConnectionStrings",
+        "listWebAppConnectionStringsSlot",
+        "listWebAppFunctionKeys",
+        "listWebAppFunctionKeysSlot",
+        "listWebAppFunctionSecrets",
+        "listWebAppFunctionSecretsSlot",
+        "listWebAppHostKeys",
+        "listWebAppHostKeysSlot",
+        "listWebAppMetadata",
+        "listWebAppMetadataSlot",
+        "listWebAppPublishingCredentials",
+        "listWebAppPublishingCredentialsSlot",
+        "listWebAppSiteBackups",
+        "listWebAppSiteBackupsSlot",
+        "listWebAppSitePushSettings",
+        "listWebAppSitePushSettingsSlot",
+        "listWebAppSyncFunctionTriggers",
+        "listWebAppSyncFunctionTriggersSlot",
+        "listWebAppSyncStatus",
+        "listWebAppSyncStatusSlot"
+      ]
+    }
+  },
+  "WebPubSub": {
+    "SingleVersion": "2021-10-01"
+  },
+  "WindowsESU": {
+    "SingleVersion": "2019-09-16-preview"
+  },
+  "WindowsIoT": {
+    "SingleVersion": "2019-06-01"
+  },
+  "WorkloadMonitor": {
+    "NoVersion": true
+  },
+  "Workloads": {
+    "SingleVersion": "2021-12-01-preview"
+  }
+}
