@@ -12,7 +12,7 @@ import (
 
 // Friendly domain name mapping to the endpoint hostname that the customer provides for branding purposes, e.g. www.contoso.com.
 //
-// Deprecated: Version v20190615preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
+// Deprecated: Version 2019-06-15-preview will be removed in v2 of the provider.
 func LookupCustomDomain(ctx *pulumi.Context, args *LookupCustomDomainArgs, opts ...pulumi.InvokeOption) (*LookupCustomDomainResult, error) {
 	var rv LookupCustomDomainResult
 	err := ctx.Invoke("azure-native:cdn/v20190615preview:getCustomDomain", args, &rv, opts...)

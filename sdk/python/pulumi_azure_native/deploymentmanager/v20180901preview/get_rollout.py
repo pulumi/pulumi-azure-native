@@ -16,7 +16,7 @@ __all__ = [
     'get_rollout_output',
 ]
 
-warnings.warn("""Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRolloutResult:
@@ -214,7 +214,7 @@ def get_rollout(resource_group_name: Optional[str] = None,
     :param int retry_attempt: Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.
     :param str rollout_name: The rollout name.
     """
-    pulumi.log.warn("""get_rollout is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""")
+    pulumi.log.warn("""get_rollout is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['retryAttempt'] = retry_attempt
@@ -255,5 +255,5 @@ def get_rollout_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param int retry_attempt: Rollout retry attempt ordinal to get the result of. If not specified, result of the latest attempt will be returned.
     :param str rollout_name: The rollout name.
     """
-    pulumi.log.warn("""get_rollout is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.""")
+    pulumi.log.warn("""get_rollout is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.""")
     ...

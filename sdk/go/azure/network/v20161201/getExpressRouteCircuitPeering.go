@@ -12,7 +12,7 @@ import (
 
 // Peering in an ExpressRouteCircuit resource.
 //
-// Deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2016-12-01 will be removed in v2 of the provider.
 func LookupExpressRouteCircuitPeering(ctx *pulumi.Context, args *LookupExpressRouteCircuitPeeringArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitPeeringResult, error) {
 	var rv LookupExpressRouteCircuitPeeringResult
 	err := ctx.Invoke("azure-native:network/v20161201:getExpressRouteCircuitPeering", args, &rv, opts...)

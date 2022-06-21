@@ -16,7 +16,7 @@ __all__ = [
     'get_virtual_machine_scale_set_vm_output',
 ]
 
-warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineScaleSetVMResult:
@@ -298,7 +298,7 @@ def get_virtual_machine_scale_set_vm(instance_id: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
-    pulumi.log.warn("""get_virtual_machine_scale_set_vm is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_virtual_machine_scale_set_vm is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['instanceId'] = instance_id
     __args__['resourceGroupName'] = resource_group_name
@@ -346,5 +346,5 @@ def get_virtual_machine_scale_set_vm_output(instance_id: Optional[pulumi.Input[s
     :param str resource_group_name: The name of the resource group.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
-    pulumi.log.warn("""get_virtual_machine_scale_set_vm is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_virtual_machine_scale_set_vm is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
     ...

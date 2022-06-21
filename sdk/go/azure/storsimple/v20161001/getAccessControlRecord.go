@@ -12,7 +12,7 @@ import (
 
 // The access control record
 //
-// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
+// Deprecated: Version 2016-10-01 will be removed in v2 of the provider.
 func LookupAccessControlRecord(ctx *pulumi.Context, args *LookupAccessControlRecordArgs, opts ...pulumi.InvokeOption) (*LookupAccessControlRecordResult, error) {
 	var rv LookupAccessControlRecordResult
 	err := ctx.Invoke("azure-native:storsimple/v20161001:getAccessControlRecord", args, &rv, opts...)

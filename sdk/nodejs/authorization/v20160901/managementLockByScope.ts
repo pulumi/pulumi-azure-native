@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * The lock information.
  *
- * @deprecated Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
+ * @deprecated Version 2016-09-01 will be removed in v2 of the provider.
  */
 export class ManagementLockByScope extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class ManagementLockByScope extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ManagementLockByScope {
-        pulumi.log.warn("ManagementLockByScope is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+        pulumi.log.warn("ManagementLockByScope is deprecated: Version 2016-09-01 will be removed in v2 of the provider.")
         return new ManagementLockByScope(name, undefined as any, { ...opts, id: id });
     }
 
@@ -66,9 +66,9 @@ export class ManagementLockByScope extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
+    /** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
     constructor(name: string, args: ManagementLockByScopeArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ManagementLockByScope is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+        pulumi.log.warn("ManagementLockByScope is deprecated: Version 2016-09-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

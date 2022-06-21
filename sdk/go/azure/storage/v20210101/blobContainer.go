@@ -12,8 +12,6 @@ import (
 )
 
 // Properties of the blob container, including Id, resource name, resource type, Etag.
-//
-// Deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 type BlobContainer struct {
 	pulumi.CustomResourceState
 

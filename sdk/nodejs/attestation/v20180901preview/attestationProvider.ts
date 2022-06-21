@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Attestation service response message.
  *
- * @deprecated Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.
+ * @deprecated Version 2018-09-01-preview will be removed in v2 of the provider.
  */
 export class AttestationProvider extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class AttestationProvider extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AttestationProvider {
-        pulumi.log.warn("AttestationProvider is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")
+        pulumi.log.warn("AttestationProvider is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
         return new AttestationProvider(name, undefined as any, { ...opts, id: id });
     }
 
@@ -74,9 +74,9 @@ export class AttestationProvider extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later. */
+    /** @deprecated Version 2018-09-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: AttestationProviderArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AttestationProvider is deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")
+        pulumi.log.warn("AttestationProvider is deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

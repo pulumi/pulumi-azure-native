@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Datadog.V20200201Preview
 {
-    [Obsolete(@"Version v20200201preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")]
+    [Obsolete(@"Version 2020-02-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datadog/v20200201preview:Monitor")]
     public partial class Monitor : Pulumi.CustomResource
     {

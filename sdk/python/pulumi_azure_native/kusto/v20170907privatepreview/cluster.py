@@ -115,11 +115,11 @@ class ClusterArgs:
         pulumi.set(self, "trusted_external_tenants", value)
 
 
-warnings.warn("""Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-07-privatepreview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Cluster(pulumi.CustomResource):
-    warnings.warn("""Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-09-07-privatepreview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -175,7 +175,7 @@ class Cluster(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trusted_external_tenants: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrustedExternalTenantArgs']]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Cluster is deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""")
+        pulumi.log.warn("""Cluster is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

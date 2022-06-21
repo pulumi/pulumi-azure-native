@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * The iSCSI server.
  *
- * @deprecated Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
+ * @deprecated Version 2016-10-01 will be removed in v2 of the provider.
  */
 export class IscsiServer extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class IscsiServer extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): IscsiServer {
-        pulumi.log.warn("IscsiServer is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")
+        pulumi.log.warn("IscsiServer is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
         return new IscsiServer(name, undefined as any, { ...opts, id: id });
     }
 
@@ -73,9 +73,9 @@ export class IscsiServer extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later. */
+    /** @deprecated Version 2016-10-01 will be removed in v2 of the provider. */
     constructor(name: string, args: IscsiServerArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("IscsiServer is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")
+        pulumi.log.warn("IscsiServer is deprecated: Version 2016-10-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

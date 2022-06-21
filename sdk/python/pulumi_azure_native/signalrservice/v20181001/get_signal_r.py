@@ -16,7 +16,7 @@ __all__ = [
     'get_signal_r_output',
 ]
 
-warnings.warn("""Version v20181001 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSignalRResult:
@@ -230,7 +230,7 @@ def get_signal_r(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the SignalR resource.
     """
-    pulumi.log.warn("""get_signal_r is deprecated: Version v20181001 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""")
+    pulumi.log.warn("""get_signal_r is deprecated: Version 2018-10-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -269,5 +269,5 @@ def get_signal_r_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str resource_name: The name of the SignalR resource.
     """
-    pulumi.log.warn("""get_signal_r is deprecated: Version v20181001 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.""")
+    pulumi.log.warn("""get_signal_r is deprecated: Version 2018-10-01 will be removed in v2 of the provider.""")
     ...

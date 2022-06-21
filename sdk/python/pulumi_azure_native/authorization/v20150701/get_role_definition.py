@@ -16,7 +16,7 @@ __all__ = [
     'get_role_definition_output',
 ]
 
-warnings.warn("""Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRoleDefinitionResult:
@@ -140,7 +140,7 @@ def get_role_definition(role_definition_id: Optional[str] = None,
     :param str role_definition_id: The ID of the role definition.
     :param str scope: The scope of the role definition.
     """
-    pulumi.log.warn("""get_role_definition is deprecated: Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+    pulumi.log.warn("""get_role_definition is deprecated: Version 2015-07-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['roleDefinitionId'] = role_definition_id
     __args__['scope'] = scope
@@ -172,5 +172,5 @@ def get_role_definition_output(role_definition_id: Optional[pulumi.Input[str]] =
     :param str role_definition_id: The ID of the role definition.
     :param str scope: The scope of the role definition.
     """
-    pulumi.log.warn("""get_role_definition is deprecated: Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+    pulumi.log.warn("""get_role_definition is deprecated: Version 2015-07-01 will be removed in v2 of the provider.""")
     ...

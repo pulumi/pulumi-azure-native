@@ -12,7 +12,7 @@ import (
 
 // Job Definition.
 //
-// Deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.
+// Deprecated: Version 2016-06-01 will be removed in v2 of the provider.
 func LookupJobDefinition(ctx *pulumi.Context, args *LookupJobDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupJobDefinitionResult, error) {
 	var rv LookupJobDefinitionResult
 	err := ctx.Invoke("azure-native:hybriddata/v20160601:getJobDefinition", args, &rv, opts...)

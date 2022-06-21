@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * A group created in a Migration project.
  */
-/** @deprecated Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later. */
+/** @deprecated Version 2017-11-11-preview will be removed in v2 of the provider. */
 export function getGroup(args: GetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupResult> {
-    pulumi.log.warn("getGroup is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.")
+    pulumi.log.warn("getGroup is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

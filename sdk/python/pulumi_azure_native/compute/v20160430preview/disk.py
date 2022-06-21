@@ -163,11 +163,11 @@ class DiskArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-04-30-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Disk(pulumi.CustomResource):
-    warnings.warn("""Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2016-04-30-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -232,7 +232,7 @@ class Disk(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Disk is deprecated: Version v20160430preview will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+        pulumi.log.warn("""Disk is deprecated: Version 2016-04-30-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

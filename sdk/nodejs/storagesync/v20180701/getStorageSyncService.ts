@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Storage Sync Service object.
  */
-/** @deprecated Version v20180701 will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
+/** @deprecated Version 2018-07-01 will be removed in v2 of the provider. */
 export function getStorageSyncService(args: GetStorageSyncServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetStorageSyncServiceResult> {
-    pulumi.log.warn("getStorageSyncService is deprecated: Version v20180701 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
+    pulumi.log.warn("getStorageSyncService is deprecated: Version 2018-07-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

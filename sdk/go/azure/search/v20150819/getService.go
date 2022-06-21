@@ -12,7 +12,7 @@ import (
 
 // Describes an Azure Cognitive Search service and its current state.
 //
-// Deprecated: Version v20150819 will be removed in the next major version of the provider. Upgrade to version v20200801 or later.
+// Deprecated: Version 2015-08-19 will be removed in v2 of the provider.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:search/v20150819:getService", args, &rv, opts...)

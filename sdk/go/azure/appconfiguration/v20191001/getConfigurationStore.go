@@ -12,7 +12,7 @@ import (
 
 // The configuration store along with all resource properties. The Configuration Store will have all information to begin utilizing it.
 //
-// Deprecated: Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.
+// Deprecated: Version 2019-10-01 will be removed in v2 of the provider.
 func LookupConfigurationStore(ctx *pulumi.Context, args *LookupConfigurationStoreArgs, opts ...pulumi.InvokeOption) (*LookupConfigurationStoreResult, error) {
 	var rv LookupConfigurationStoreResult
 	err := ctx.Invoke("azure-native:appconfiguration/v20191001:getConfigurationStore", args, &rv, opts...)

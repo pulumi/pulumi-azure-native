@@ -12,7 +12,7 @@ import (
 
 // A task resource
 //
-// Deprecated: Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.
+// Deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.
 func LookupTask(ctx *pulumi.Context, args *LookupTaskArgs, opts ...pulumi.InvokeOption) (*LookupTaskResult, error) {
 	var rv LookupTaskResult
 	err := ctx.Invoke("azure-native:datamigration/v20171115preview:getTask", args, &rv, opts...)

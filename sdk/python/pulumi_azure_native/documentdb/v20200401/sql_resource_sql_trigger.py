@@ -159,11 +159,11 @@ class SqlResourceSqlTriggerArgs:
         pulumi.set(self, "trigger_name", value)
 
 
-warnings.warn("""Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class SqlResourceSqlTrigger(pulumi.CustomResource):
-    warnings.warn("""Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -228,7 +228,7 @@ class SqlResourceSqlTrigger(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  trigger_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SqlResourceSqlTrigger is deprecated: Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+        pulumi.log.warn("""SqlResourceSqlTrigger is deprecated: Version 2020-04-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataBox.V20200401
 {
-    [Obsolete(@"Version v20200401 will be removed in the next major version of the provider. Upgrade to version v20201101 or later.")]
+    [Obsolete(@"Version 2020-04-01 will be removed in v2 of the provider.")]
     public static class GetJob
     {
         /// <summary>

@@ -81,11 +81,11 @@ class ConfigurationStoreArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20190201preview will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-02-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class ConfigurationStore(pulumi.CustomResource):
-    warnings.warn("""Version v20190201preview will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2019-02-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -135,7 +135,7 @@ class ConfigurationStore(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""ConfigurationStore is deprecated: Version v20190201preview will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
+        pulumi.log.warn("""ConfigurationStore is deprecated: Version 2019-02-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

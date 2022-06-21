@@ -9,7 +9,6 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.SecurityAndCompliance.V20210111
 {
-    [Obsolete(@"Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.")]
     public static class GetPrivateEndpointConnectionsForSCCPowershell
     {
         /// <summary>

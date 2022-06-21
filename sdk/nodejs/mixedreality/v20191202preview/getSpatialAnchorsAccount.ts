@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * SpatialAnchorsAccount Response.
  */
-/** @deprecated Version v20191202preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
+/** @deprecated Version 2019-12-02-preview will be removed in v2 of the provider. */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
-    pulumi.log.warn("getSpatialAnchorsAccount is deprecated: Version v20191202preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
+    pulumi.log.warn("getSpatialAnchorsAccount is deprecated: Version 2019-12-02-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

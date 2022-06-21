@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Virtual Machine Extension.
  *
- * @deprecated Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
+ * @deprecated Version 2018-06-01 will be removed in v2 of the provider.
  */
 export class VirtualMachineExtension extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualMachineExtension {
-        pulumi.log.warn("VirtualMachineExtension is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
+        pulumi.log.warn("VirtualMachineExtension is deprecated: Version 2018-06-01 will be removed in v2 of the provider.")
         return new VirtualMachineExtension(name, undefined as any, { ...opts, id: id });
     }
 
@@ -94,9 +94,9 @@ export class VirtualMachineExtension extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
+    /** @deprecated Version 2018-06-01 will be removed in v2 of the provider. */
     constructor(name: string, args: VirtualMachineExtensionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualMachineExtension is deprecated: Version v20180601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
+        pulumi.log.warn("VirtualMachineExtension is deprecated: Version 2018-06-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

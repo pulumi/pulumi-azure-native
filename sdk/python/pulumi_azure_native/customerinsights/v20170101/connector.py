@@ -143,11 +143,11 @@ class ConnectorArgs:
         pulumi.set(self, "is_internal", value)
 
 
-warnings.warn("""Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Connector(pulumi.CustomResource):
-    warnings.warn("""Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -209,7 +209,7 @@ class Connector(pulumi.CustomResource):
                  is_internal: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Connector is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""")
+        pulumi.log.warn("""Connector is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

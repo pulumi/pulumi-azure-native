@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Information about the connection monitor.
  */
-/** @deprecated Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
+/** @deprecated Version 2017-10-01 will be removed in v2 of the provider. */
 export function getConnectionMonitor(args: GetConnectionMonitorArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionMonitorResult> {
-    pulumi.log.warn("getConnectionMonitor is deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+    pulumi.log.warn("getConnectionMonitor is deprecated: Version 2017-10-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

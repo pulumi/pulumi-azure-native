@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * disk encryption set resource.
  *
- * @deprecated Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
+ * @deprecated Version 2020-06-30 will be removed in v2 of the provider.
  */
 export class DiskEncryptionSet extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): DiskEncryptionSet {
-        pulumi.log.warn("DiskEncryptionSet is deprecated: Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
+        pulumi.log.warn("DiskEncryptionSet is deprecated: Version 2020-06-30 will be removed in v2 of the provider.")
         return new DiskEncryptionSet(name, undefined as any, { ...opts, id: id });
     }
 
@@ -82,9 +82,9 @@ export class DiskEncryptionSet extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
+    /** @deprecated Version 2020-06-30 will be removed in v2 of the provider. */
     constructor(name: string, args: DiskEncryptionSetArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("DiskEncryptionSet is deprecated: Version v20200630 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
+        pulumi.log.warn("DiskEncryptionSet is deprecated: Version 2020-06-30 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

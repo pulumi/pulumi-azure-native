@@ -16,7 +16,7 @@ __all__ = [
     'get_trigger_output',
 ]
 
-warnings.warn("""Version v20200901preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTriggerResult:
@@ -106,7 +106,7 @@ def get_trigger(device_name: Optional[str] = None,
     :param str name: The trigger name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_trigger is deprecated: Version v20200901preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_trigger is deprecated: Version 2020-09-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name
@@ -138,5 +138,5 @@ def get_trigger_output(device_name: Optional[pulumi.Input[str]] = None,
     :param str name: The trigger name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_trigger is deprecated: Version v20200901preview will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_trigger is deprecated: Version 2020-09-01-preview will be removed in v2 of the provider.""")
     ...

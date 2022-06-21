@@ -12,7 +12,7 @@ import (
 
 // A lab.
 //
-// Deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
+// Deprecated: Version 2016-05-15 will be removed in v2 of the provider.
 func LookupLab(ctx *pulumi.Context, args *LookupLabArgs, opts ...pulumi.InvokeOption) (*LookupLabResult, error) {
 	var rv LookupLabResult
 	err := ctx.Invoke("azure-native:devtestlab/v20160515:getLab", args, &rv, opts...)

@@ -16,7 +16,7 @@ __all__ = [
     'get_address_by_name_output',
 ]
 
-warnings.warn("""Version v20201201preview will be removed in the next major version of the provider. Upgrade to version v20211201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-12-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAddressByNameResult:
@@ -140,7 +140,7 @@ def get_address_by_name(address_name: Optional[str] = None,
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_address_by_name is deprecated: Version v20201201preview will be removed in the next major version of the provider. Upgrade to version v20211201 or later.""")
+    pulumi.log.warn("""get_address_by_name is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['addressName'] = address_name
     __args__['resourceGroupName'] = resource_group_name
@@ -172,5 +172,5 @@ def get_address_by_name_output(address_name: Optional[pulumi.Input[str]] = None,
     :param str address_name: The name of the address Resource within the specified resource group. address names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_address_by_name is deprecated: Version v20201201preview will be removed in the next major version of the provider. Upgrade to version v20211201 or later.""")
+    pulumi.log.warn("""get_address_by_name is deprecated: Version 2020-12-01-preview will be removed in v2 of the provider.""")
     ...

@@ -130,11 +130,11 @@ class ProjectArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Project(pulumi.CustomResource):
-    warnings.warn("""Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -193,7 +193,7 @@ class Project(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[Any] = None,
                  __props__=None):
-        pulumi.log.warn("""Project is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.""")
+        pulumi.log.warn("""Project is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -12,7 +12,7 @@ import (
 
 // An Azure Cosmos DB SQL Role Definition.
 //
-// Deprecated: Version v20200601preview will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
+// Deprecated: Version 2020-06-01-preview will be removed in v2 of the provider.
 func LookupSqlResourceSqlRoleDefinition(ctx *pulumi.Context, args *LookupSqlResourceSqlRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupSqlResourceSqlRoleDefinitionResult, error) {
 	var rv LookupSqlResourceSqlRoleDefinitionResult
 	err := ctx.Invoke("azure-native:documentdb/v20200601preview:getSqlResourceSqlRoleDefinition", args, &rv, opts...)

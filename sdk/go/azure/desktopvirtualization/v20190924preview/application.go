@@ -13,7 +13,7 @@ import (
 
 // Schema for Application properties.
 //
-// Deprecated: Version v20190924preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.
+// Deprecated: Version 2019-09-24-preview will be removed in v2 of the provider.
 type Application struct {
 	pulumi.CustomResourceState
 

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301Preview
     /// <summary>
     /// The service resource.
     /// </summary>
-    [Obsolete(@"Version v20190301preview will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.")]
+    [Obsolete(@"Version 2019-03-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicefabric/v20190301preview:Service")]
     public partial class Service : Pulumi.CustomResource
     {

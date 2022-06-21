@@ -12,7 +12,7 @@ import (
 
 // Defines the PUT rollout request body.
 //
-// Deprecated: Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20191101preview or later.
+// Deprecated: Version 2018-09-01-preview will be removed in v2 of the provider.
 func LookupRollout(ctx *pulumi.Context, args *LookupRolloutArgs, opts ...pulumi.InvokeOption) (*LookupRolloutResult, error) {
 	var rv LookupRolloutResult
 	err := ctx.Invoke("azure-native:deploymentmanager/v20180901preview:getRollout", args, &rv, opts...)

@@ -16,8 +16,6 @@ __all__ = [
     'getprivate_link_services_for_o365_management_activity_api_output',
 ]
 
-warnings.warn("""Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetprivateLinkServicesForO365ManagementActivityAPIResult:
     """
@@ -164,7 +162,6 @@ def getprivate_link_services_for_o365_management_activity_api(resource_group_nam
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str resource_name: The name of the service instance.
     """
-    pulumi.log.warn("""getprivate_link_services_for_o365_management_activity_api is deprecated: Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['resourceName'] = resource_name
@@ -198,5 +195,4 @@ def getprivate_link_services_for_o365_management_activity_api_output(resource_gr
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str resource_name: The name of the service instance.
     """
-    pulumi.log.warn("""getprivate_link_services_for_o365_management_activity_api is deprecated: Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.""")
     ...

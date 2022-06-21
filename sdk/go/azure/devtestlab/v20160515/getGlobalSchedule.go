@@ -12,7 +12,7 @@ import (
 
 // A schedule.
 //
-// Deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
+// Deprecated: Version 2016-05-15 will be removed in v2 of the provider.
 func LookupGlobalSchedule(ctx *pulumi.Context, args *LookupGlobalScheduleArgs, opts ...pulumi.InvokeOption) (*LookupGlobalScheduleResult, error) {
 	var rv LookupGlobalScheduleResult
 	err := ctx.Invoke("azure-native:devtestlab/v20160515:getGlobalSchedule", args, &rv, opts...)

@@ -81,11 +81,11 @@ class DataPoolArgs:
         pulumi.set(self, "data_pool_name", value)
 
 
-warnings.warn("""Version v20200701preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-07-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class DataPool(pulumi.CustomResource):
-    warnings.warn("""Version v20200701preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-07-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -135,7 +135,7 @@ class DataPool(pulumi.CustomResource):
                  locations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['DataPoolLocationArgs']]]]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""DataPool is deprecated: Version v20200701preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.""")
+        pulumi.log.warn("""DataPool is deprecated: Version 2020-07-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

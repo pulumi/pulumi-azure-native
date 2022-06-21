@@ -13,7 +13,7 @@ import (
 
 // A sql database resource.
 //
-// Deprecated: Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
+// Deprecated: Version 2020-04-01-preview will be removed in v2 of the provider.
 type SqlDatabase struct {
 	pulumi.CustomResourceState
 

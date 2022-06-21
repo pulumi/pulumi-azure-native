@@ -16,7 +16,7 @@ __all__ = [
     'get_chap_setting_output',
 ]
 
-warnings.warn("""Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetChapSettingResult:
@@ -96,7 +96,7 @@ def get_chap_setting(chap_user_name: Optional[str] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("""get_chap_setting is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""")
+    pulumi.log.warn("""get_chap_setting is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['chapUserName'] = chap_user_name
     __args__['deviceName'] = device_name
@@ -130,5 +130,5 @@ def get_chap_setting_output(chap_user_name: Optional[pulumi.Input[str]] = None,
     :param str manager_name: The manager name
     :param str resource_group_name: The resource group name
     """
-    pulumi.log.warn("""get_chap_setting is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""")
+    pulumi.log.warn("""get_chap_setting is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     ...

@@ -16,7 +16,7 @@ __all__ = [
     'get_registration_definition_output',
 ]
 
-warnings.warn("""Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-06-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRegistrationDefinitionResult:
@@ -104,7 +104,7 @@ def get_registration_definition(registration_definition_id: Optional[str] = None
     :param str registration_definition_id: Guid of the registration definition.
     :param str scope: Scope of the resource.
     """
-    pulumi.log.warn("""get_registration_definition is deprecated: Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""")
+    pulumi.log.warn("""get_registration_definition is deprecated: Version 2018-06-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['registrationDefinitionId'] = registration_definition_id
     __args__['scope'] = scope
@@ -133,5 +133,5 @@ def get_registration_definition_output(registration_definition_id: Optional[pulu
     :param str registration_definition_id: Guid of the registration definition.
     :param str scope: Scope of the resource.
     """
-    pulumi.log.warn("""get_registration_definition is deprecated: Version v20180601preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""")
+    pulumi.log.warn("""get_registration_definition is deprecated: Version 2018-06-01-preview will be removed in v2 of the provider.""")
     ...

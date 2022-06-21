@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The Get Storage Account ManagementPolicies operation response.
  */
-/** @deprecated Version v20181101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
+/** @deprecated Version 2018-11-01 will be removed in v2 of the provider. */
 export function getManagementPolicy(args: GetManagementPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetManagementPolicyResult> {
-    pulumi.log.warn("getManagementPolicy is deprecated: Version v20181101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
+    pulumi.log.warn("getManagementPolicy is deprecated: Version 2018-11-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

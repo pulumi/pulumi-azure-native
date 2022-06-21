@@ -15,7 +15,7 @@ __all__ = [
     'get_suppression_output',
 ]
 
-warnings.warn("""Version v20170331 will be removed in the next major version of the provider. Upgrade to version v20200101 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-03-31 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSuppressionResult:
@@ -105,7 +105,7 @@ def get_suppression(name: Optional[str] = None,
     :param str recommendation_id: The recommendation ID.
     :param str resource_uri: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
     """
-    pulumi.log.warn("""get_suppression is deprecated: Version v20170331 will be removed in the next major version of the provider. Upgrade to version v20200101 or later.""")
+    pulumi.log.warn("""get_suppression is deprecated: Version 2017-03-31 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['name'] = name
     __args__['recommendationId'] = recommendation_id
@@ -137,5 +137,5 @@ def get_suppression_output(name: Optional[pulumi.Input[str]] = None,
     :param str recommendation_id: The recommendation ID.
     :param str resource_uri: The fully qualified Azure Resource Manager identifier of the resource to which the recommendation applies.
     """
-    pulumi.log.warn("""get_suppression is deprecated: Version v20170331 will be removed in the next major version of the provider. Upgrade to version v20200101 or later.""")
+    pulumi.log.warn("""get_suppression is deprecated: Version 2017-03-31 will be removed in v2 of the provider.""")
     ...

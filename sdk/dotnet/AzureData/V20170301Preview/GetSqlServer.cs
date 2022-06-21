@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.AzureData.V20170301Preview
 {
-    [Obsolete(@"Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.")]
+    [Obsolete(@"Version 2017-03-01-preview will be removed in v2 of the provider.")]
     public static class GetSqlServer
     {
         /// <summary>

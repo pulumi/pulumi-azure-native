@@ -12,7 +12,7 @@ import (
 
 // Route Filter Rule Resource
 //
-// Deprecated: Version v20170301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2017-03-01 will be removed in v2 of the provider.
 func LookupRouteFilterRule(ctx *pulumi.Context, args *LookupRouteFilterRuleArgs, opts ...pulumi.InvokeOption) (*LookupRouteFilterRuleResult, error) {
 	var rv LookupRouteFilterRuleResult
 	err := ctx.Invoke("azure-native:network/v20170301:getRouteFilterRule", args, &rv, opts...)

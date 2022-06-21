@@ -12,7 +12,7 @@ import (
 
 // vCenter definition.
 //
-// Deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
+// Deprecated: Version 2016-08-10 will be removed in v2 of the provider.
 func LookupReplicationvCenter(ctx *pulumi.Context, args *LookupReplicationvCenterArgs, opts ...pulumi.InvokeOption) (*LookupReplicationvCenterResult, error) {
 	var rv LookupReplicationvCenterResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20160810:getReplicationvCenter", args, &rv, opts...)

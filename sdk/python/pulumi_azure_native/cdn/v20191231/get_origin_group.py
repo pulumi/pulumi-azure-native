@@ -16,7 +16,7 @@ __all__ = [
     'get_origin_group_output',
 ]
 
-warnings.warn("""Version v20191231 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-12-31 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetOriginGroupResult:
@@ -156,7 +156,7 @@ def get_origin_group(endpoint_name: Optional[str] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_origin_group is deprecated: Version v20191231 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+    pulumi.log.warn("""get_origin_group is deprecated: Version 2019-12-31 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['endpointName'] = endpoint_name
     __args__['originGroupName'] = origin_group_name
@@ -195,5 +195,5 @@ def get_origin_group_output(endpoint_name: Optional[pulumi.Input[str]] = None,
     :param str profile_name: Name of the CDN profile which is unique within the resource group.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_origin_group is deprecated: Version v20191231 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+    pulumi.log.warn("""get_origin_group is deprecated: Version 2019-12-31 will be removed in v2 of the provider.""")
     ...

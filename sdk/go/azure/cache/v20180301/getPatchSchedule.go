@@ -12,7 +12,7 @@ import (
 
 // Response to put/get patch schedules for Redis cache.
 //
-// Deprecated: Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.
+// Deprecated: Version 2018-03-01 will be removed in v2 of the provider.
 func LookupPatchSchedule(ctx *pulumi.Context, args *LookupPatchScheduleArgs, opts ...pulumi.InvokeOption) (*LookupPatchScheduleResult, error) {
 	var rv LookupPatchScheduleResult
 	err := ctx.Invoke("azure-native:cache/v20180301:getPatchSchedule", args, &rv, opts...)

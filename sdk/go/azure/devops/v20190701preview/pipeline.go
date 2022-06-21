@@ -13,7 +13,7 @@ import (
 
 // Azure DevOps Pipeline used to configure Continuous Integration (CI) & Continuous Delivery (CD) for Azure resources.
 //
-// Deprecated: Version v20190701preview will be removed in the next major version of the provider. Upgrade to version v20200713preview or later.
+// Deprecated: Version 2019-07-01-preview will be removed in v2 of the provider.
 type Pipeline struct {
 	pulumi.CustomResourceState
 

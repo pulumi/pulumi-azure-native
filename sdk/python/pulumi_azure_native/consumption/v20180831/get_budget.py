@@ -16,7 +16,7 @@ __all__ = [
     'get_budget_output',
 ]
 
-warnings.warn("""Version v20180831 will be removed in the next major version of the provider. Upgrade to version v20191001 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-08-31 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBudgetResult:
@@ -174,7 +174,7 @@ def get_budget(budget_name: Optional[str] = None,
 
     :param str budget_name: Budget Name.
     """
-    pulumi.log.warn("""get_budget is deprecated: Version v20180831 will be removed in the next major version of the provider. Upgrade to version v20191001 or later.""")
+    pulumi.log.warn("""get_budget is deprecated: Version 2018-08-31 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['budgetName'] = budget_name
     if opts is None:
@@ -206,5 +206,5 @@ def get_budget_output(budget_name: Optional[pulumi.Input[str]] = None,
 
     :param str budget_name: Budget Name.
     """
-    pulumi.log.warn("""get_budget is deprecated: Version v20180831 will be removed in the next major version of the provider. Upgrade to version v20191001 or later.""")
+    pulumi.log.warn("""get_budget is deprecated: Version 2018-08-31 will be removed in v2 of the provider.""")
     ...

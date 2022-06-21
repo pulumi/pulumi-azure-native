@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Insights.V20140401
     /// <summary>
     /// The autoscale setting resource.
     /// </summary>
-    [Obsolete(@"Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.")]
+    [Obsolete(@"Version 2014-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:insights/v20140401:AutoscaleSetting")]
     public partial class AutoscaleSetting : Pulumi.CustomResource
     {

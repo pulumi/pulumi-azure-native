@@ -12,7 +12,7 @@ import (
 
 // The cluster resource
 //
-// Deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.
+// Deprecated: Version 2018-02-01 will be removed in v2 of the provider.
 func LookupCluster(ctx *pulumi.Context, args *LookupClusterArgs, opts ...pulumi.InvokeOption) (*LookupClusterResult, error) {
 	var rv LookupClusterResult
 	err := ctx.Invoke("azure-native:servicefabric/v20180201:getCluster", args, &rv, opts...)

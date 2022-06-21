@@ -145,11 +145,11 @@ class DataStoreArgs:
         pulumi.set(self, "repository_id", value)
 
 
-warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class DataStore(pulumi.CustomResource):
-    warnings.warn("""Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2016-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -211,7 +211,7 @@ class DataStore(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  state: Optional[pulumi.Input['State']] = None,
                  __props__=None):
-        pulumi.log.warn("""DataStore is deprecated: Version v20160601 will be removed in the next major version of the provider. Upgrade to version v20190601 or later.""")
+        pulumi.log.warn("""DataStore is deprecated: Version 2016-06-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

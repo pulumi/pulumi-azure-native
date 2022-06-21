@@ -16,7 +16,7 @@ __all__ = [
     'get_remediation_at_resource_group_output',
 ]
 
-warnings.warn("""Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-07-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRemediationAtResourceGroupResult:
@@ -164,7 +164,7 @@ def get_remediation_at_resource_group(remediation_name: Optional[str] = None,
     :param str remediation_name: The name of the remediation.
     :param str resource_group_name: Resource group name.
     """
-    pulumi.log.warn("""get_remediation_at_resource_group is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""")
+    pulumi.log.warn("""get_remediation_at_resource_group is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['remediationName'] = remediation_name
     __args__['resourceGroupName'] = resource_group_name
@@ -198,5 +198,5 @@ def get_remediation_at_resource_group_output(remediation_name: Optional[pulumi.I
     :param str remediation_name: The name of the remediation.
     :param str resource_group_name: Resource group name.
     """
-    pulumi.log.warn("""get_remediation_at_resource_group is deprecated: Version v20180701preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""")
+    pulumi.log.warn("""get_remediation_at_resource_group is deprecated: Version 2018-07-01-preview will be removed in v2 of the provider.""")
     ...

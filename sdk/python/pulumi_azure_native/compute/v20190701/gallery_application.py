@@ -192,11 +192,11 @@ class GalleryApplicationArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class GalleryApplication(pulumi.CustomResource):
-    warnings.warn("""Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2019-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -267,7 +267,7 @@ class GalleryApplication(pulumi.CustomResource):
                  supported_os_type: Optional[pulumi.Input['OperatingSystemTypes']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""GalleryApplication is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+        pulumi.log.warn("""GalleryApplication is deprecated: Version 2019-07-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

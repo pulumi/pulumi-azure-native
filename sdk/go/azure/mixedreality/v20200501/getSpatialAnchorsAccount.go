@@ -12,7 +12,7 @@ import (
 
 // SpatialAnchorsAccount Response.
 //
-// Deprecated: Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
+// Deprecated: Version 2020-05-01 will be removed in v2 of the provider.
 func LookupSpatialAnchorsAccount(ctx *pulumi.Context, args *LookupSpatialAnchorsAccountArgs, opts ...pulumi.InvokeOption) (*LookupSpatialAnchorsAccountResult, error) {
 	var rv LookupSpatialAnchorsAccountResult
 	err := ctx.Invoke("azure-native:mixedreality/v20200501:getSpatialAnchorsAccount", args, &rv, opts...)

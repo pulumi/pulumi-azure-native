@@ -112,11 +112,11 @@ class WorkspaceAadAdminArgs:
         pulumi.set(self, "tenant_id", value)
 
 
-warnings.warn("""Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class WorkspaceAadAdmin(pulumi.CustomResource):
-    warnings.warn("""Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -172,7 +172,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
                  tenant_id: Optional[pulumi.Input[str]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""WorkspaceAadAdmin is deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+        pulumi.log.warn("""WorkspaceAadAdmin is deprecated: Version 2020-12-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

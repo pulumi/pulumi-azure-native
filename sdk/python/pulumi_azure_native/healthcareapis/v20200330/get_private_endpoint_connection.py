@@ -16,7 +16,7 @@ __all__ = [
     'get_private_endpoint_connection_output',
 ]
 
-warnings.warn("""Version v20200330 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-03-30 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPrivateEndpointConnectionResult:
@@ -118,7 +118,7 @@ def get_private_endpoint_connection(private_endpoint_connection_name: Optional[s
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str resource_name: The name of the service instance.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version v20200330 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version 2020-03-30 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['privateEndpointConnectionName'] = private_endpoint_connection_name
     __args__['resourceGroupName'] = resource_group_name
@@ -151,5 +151,5 @@ def get_private_endpoint_connection_output(private_endpoint_connection_name: Opt
     :param str resource_group_name: The name of the resource group that contains the service instance.
     :param str resource_name: The name of the service instance.
     """
-    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version v20200330 will be removed in the next major version of the provider. Upgrade to version v20220515 or later.""")
+    pulumi.log.warn("""get_private_endpoint_connection is deprecated: Version 2020-03-30 will be removed in v2 of the provider.""")
     ...

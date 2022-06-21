@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The view resource format.
  */
-/** @deprecated Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later. */
+/** @deprecated Version 2017-01-01 will be removed in v2 of the provider. */
 export function getView(args: GetViewArgs, opts?: pulumi.InvokeOptions): Promise<GetViewResult> {
-    pulumi.log.warn("getView is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.")
+    pulumi.log.warn("getView is deprecated: Version 2017-01-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

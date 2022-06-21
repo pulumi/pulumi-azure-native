@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A virtual network.
  */
-/** @deprecated Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later. */
+/** @deprecated Version 2016-05-15 will be removed in v2 of the provider. */
 export function getVirtualNetwork(args: GetVirtualNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkResult> {
-    pulumi.log.warn("getVirtualNetwork is deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.")
+    pulumi.log.warn("getVirtualNetwork is deprecated: Version 2016-05-15 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

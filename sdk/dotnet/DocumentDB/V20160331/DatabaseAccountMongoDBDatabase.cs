@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20160331
     /// <summary>
     /// An Azure Cosmos DB MongoDB database.
     /// </summary>
-    [Obsolete(@"Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")]
+    [Obsolete(@"Version 2016-03-31 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:documentdb/v20160331:DatabaseAccountMongoDBDatabase")]
     public partial class DatabaseAccountMongoDBDatabase : Pulumi.CustomResource
     {

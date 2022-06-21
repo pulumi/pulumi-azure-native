@@ -16,7 +16,7 @@ __all__ = [
     'get_replicationv_center_output',
 ]
 
-warnings.warn("""Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-08-10 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetReplicationvCenterResult:
@@ -108,7 +108,7 @@ def get_replicationv_center(fabric_name: Optional[str] = None,
     :param str resource_name: The name of the recovery services vault.
     :param str v_center_name: vCenter name.
     """
-    pulumi.log.warn("""get_replicationv_center is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
+    pulumi.log.warn("""get_replicationv_center is deprecated: Version 2016-08-10 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['fabricName'] = fabric_name
     __args__['resourceGroupName'] = resource_group_name
@@ -143,5 +143,5 @@ def get_replicationv_center_output(fabric_name: Optional[pulumi.Input[str]] = No
     :param str resource_name: The name of the recovery services vault.
     :param str v_center_name: vCenter name.
     """
-    pulumi.log.warn("""get_replicationv_center is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.""")
+    pulumi.log.warn("""get_replicationv_center is deprecated: Version 2016-08-10 will be removed in v2 of the provider.""")
     ...

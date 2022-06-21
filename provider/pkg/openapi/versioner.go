@@ -5,6 +5,7 @@ package openapi
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/providerlist"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -14,19 +15,23 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
 )
 
-// versioner checks whether the given combination of a provider, a resource path, and a versions
-// are known in version metadata returned by Azure (retrieved via the Azure CLI, stored in a local JSON file).
-type versioner struct {
-	lookup map[string]map[string]codegen.StringSet
+func ReadV1Version() (CuratedVersion, error) {
+	dir, err := os.Getwd()
+	if err != nil {
+		return nil, err
+	}
+	v1Path := filepath.Join(dir, "versions", "v1.json")
+	return ReadCuratedVersion(v1Path)
 }
 
-func newVersioner() (*versioner, error) {
+func ReadDeprecated() (ProviderVersionList, error) {
 	dir, err := os.Getwd()
 	if err != nil {
 		return nil, err
 	}
 
-	jsonFile, err := os.Open(filepath.Join(dir, "/azure-provider-versions/provider_list.json"))
+	deprecatedPath := filepath.Join(dir, "versions", "deprecated.json")
+	jsonFile, err := os.Open(deprecatedPath)
 	if err != nil {
 		return nil, err
 	}
@@ -37,37 +42,51 @@ func newVersioner() (*versioner, error) {
 		return nil, err
 	}
 
-	var provs []prov
-	err = json.Unmarshal(byteValue, &provs)
+	var curatedVersion ProviderVersionList
+	err = json.Unmarshal(byteValue, &curatedVersion)
 	if err != nil {
 		return nil, err
 	}
 
-	result := map[string]map[string]codegen.StringSet{}
+	return curatedVersion, nil
+}
 
-	for _, prov := range provs {
-		namespace := strings.ToLower(prov.Namespace)
-		if !strings.HasPrefix(namespace, "microsoft.") {
-			continue
-		}
-		providerName := strings.TrimPrefix(namespace, "microsoft.")
+func ReadCuratedVersion(path string) (CuratedVersion, error) {
+	jsonFile, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer jsonFile.Close()
 
-		versions := map[string]codegen.StringSet{}
-		allVersions := codegen.NewStringSet()
-		for _, rt := range prov.ResourceTypes {
-			set := codegen.NewStringSet()
-			for _, v := range rt.ApiVersions {
-				name := "v" + strings.ReplaceAll(v, "-", "")
-				allVersions.Add(name)
-				set.Add(name)
-			}
-			versions[strings.ToLower(rt.ResourceType)] = set
-		}
-		versions[""] = allVersions
-		result[providerName] = versions
+	byteValue, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		return nil, err
 	}
 
-	return &versioner{lookup: result}, nil
+	var curatedVersion CuratedVersion
+	err = json.Unmarshal(byteValue, &curatedVersion)
+	if err != nil {
+		return nil, err
+	}
+
+	return curatedVersion, nil
+}
+
+func CalculateProviderDefaults(activePathVersions providerlist.ProviderPathVersions, providers AzureProviders) CuratedVersion {
+	versionChecker := newVersioner(activePathVersions)
+	providerDefaults := CuratedVersion{}
+
+	for providerName, versionMap := range providers {
+		// Add a default version for each resource and invoke.
+		resources := versionChecker.calculateLatestVersionResources(providerName, versionMap)
+		providerResourceVersions := map[ResourceName]ApiVersion{}
+		for resourceName, resource := range resources.All() {
+			providerResourceVersions[resourceName] = resource.Swagger.Info.Version
+		}
+		providerDefaults[providerName] = providerResourceVersions
+
+	}
+	return providerDefaults
 }
 
 // A manually-maintained list of stable versions that we want to promote a later preview version to be used for
@@ -372,6 +391,45 @@ var deprecatedResources = codegen.NewStringSet(
 	"web:SiteInstanceDeploymentSlot",
 )
 
+// versioner checks whether the given combination of a provider, a resource path, and a versions
+// are known in version metadata returned by Azure (retrieved via the Azure CLI, stored in a local JSON file).
+type versioner struct {
+	lookup map[string]map[string]codegen.StringSet
+}
+
+func newVersioner(providerPathVersions providerlist.ProviderPathVersions) *versioner {
+	result := map[string]map[string]codegen.StringSet{}
+
+	for providerName, provider := range providerPathVersions {
+		versions := map[string]codegen.StringSet{}
+		allVersions := codegen.NewStringSet()
+		for resourceName, apiVersions := range provider {
+			sdkVersions := codegen.NewStringSet()
+			for _, version := range apiVersions.SortedValues() {
+				sdkVersion := ApiToSdkVersion(version)
+				allVersions.Add(sdkVersion)
+				sdkVersions.Add(sdkVersion)
+			}
+			versions[resourceName] = sdkVersions
+		}
+		versions[""] = allVersions
+		result[providerName] = versions
+	}
+
+	return &versioner{lookup: result}
+}
+
+// calculateLatestVersionResources builds maps of the latest versions per API paths from a map of all versions of a resource
+// provider.
+func (c *versioner) calculateLatestVersionResources(provider string, versionMap ProviderVersions) VersionResources {
+	defaultResources := c.calculateLatestVersions(provider, versionMap, false /* invokes */)
+	defaultInvokes := c.calculateLatestVersions(provider, versionMap, true /* invokes */)
+	return VersionResources{
+		Resources: defaultResources,
+		Invokes:   defaultInvokes,
+	}
+}
+
 // calculateLatestVersions builds a map of latest versions per API paths from a map of all versions of a resource
 // provider. The result is a map from a resource type name to resource specs.
 func (c *versioner) calculateLatestVersions(provider string, versionMap ProviderVersions,
@@ -508,8 +566,8 @@ func (c *versioner) armResourceTypes(path string) []string {
 
 // calculatePathVersions builds a map of all versions defined for an API paths from a map of all versions of a resource
 // provider. The result is a map from a normalized path to a set of versions for that path.
-func (c *versioner) calculatePathVersions(versionMap ProviderVersions) (pathVersions map[string]codegen.StringSet) {
-	pathVersions = map[string]codegen.StringSet{}
+func calculatePathVersions(versionMap ProviderVersions) map[string]codegen.StringSet {
+	pathVersions := map[string]codegen.StringSet{}
 	for version, items := range versionMap {
 		for _, r := range items.Resources {
 			normalizedPath := normalizePath(r.Path)
@@ -524,12 +582,19 @@ func (c *versioner) calculatePathVersions(versionMap ProviderVersions) (pathVers
 	return pathVersions
 }
 
-type prov struct {
-	Namespace     string    `json:"namespace"`
-	ResourceTypes []provRes `json:"resourceTypes"`
+func findMinDefaultVersion(versionResources map[string]string) string {
+	minVersion := ""
+	for _, version := range versionResources {
+		if minVersion == "" || version < minVersion {
+			minVersion = version
+		}
+	}
+	if minVersion == "" {
+		return ""
+	}
+	return ApiToSdkVersion(minVersion)
 }
 
-type provRes struct {
-	ResourceType string   `json:"resourceType"`
-	ApiVersions  []string `json:"apiVersions"`
+func ApiToSdkVersion(apiVersion ApiVersion) SdkVersion {
+	return "v" + strings.ReplaceAll(apiVersion, "-", "")
 }

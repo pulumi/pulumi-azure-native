@@ -11,8 +11,6 @@ import (
 )
 
 // Certificate used for Custom Domain bindings of Container Apps in a Managed Environment
-//
-// Deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 func LookupCertificate(ctx *pulumi.Context, args *LookupCertificateArgs, opts ...pulumi.InvokeOption) (*LookupCertificateResult, error) {
 	var rv LookupCertificateResult
 	err := ctx.Invoke("azure-native:app/v20220101preview:getCertificate", args, &rv, opts...)

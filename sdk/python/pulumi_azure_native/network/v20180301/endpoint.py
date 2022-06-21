@@ -290,11 +290,11 @@ class EndpointInitArgs:
         pulumi.set(self, "weight", value)
 
 
-warnings.warn("""Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Endpoint(pulumi.CustomResource):
-    warnings.warn("""Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2018-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -383,7 +383,7 @@ class Endpoint(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  weight: Optional[pulumi.Input[float]] = None,
                  __props__=None):
-        pulumi.log.warn("""Endpoint is deprecated: Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+        pulumi.log.warn("""Endpoint is deprecated: Version 2018-03-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

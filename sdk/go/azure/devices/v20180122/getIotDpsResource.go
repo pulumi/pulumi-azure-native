@@ -12,7 +12,7 @@ import (
 
 // The description of the provisioning service.
 //
-// Deprecated: Version v20180122 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
+// Deprecated: Version 2018-01-22 will be removed in v2 of the provider.
 func LookupIotDpsResource(ctx *pulumi.Context, args *LookupIotDpsResourceArgs, opts ...pulumi.InvokeOption) (*LookupIotDpsResourceResult, error) {
 	var rv LookupIotDpsResourceResult
 	err := ctx.Invoke("azure-native:devices/v20180122:getIotDpsResource", args, &rv, opts...)

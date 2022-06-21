@@ -13,7 +13,7 @@ import (
 
 // Container service.
 //
-// Deprecated: Version v20170131 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.
+// Deprecated: Version 2017-01-31 will be removed in v2 of the provider.
 type ContainerService struct {
 	pulumi.CustomResourceState
 

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.IoTCentral.V20180901
     /// <summary>
     /// The IoT Central application.
     /// </summary>
-    [Obsolete(@"Version v20180901 will be removed in the next major version of the provider. Upgrade to version v20210601 or later.")]
+    [Obsolete(@"Version 2018-09-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:iotcentral/v20180901:App")]
     public partial class App : Pulumi.CustomResource
     {

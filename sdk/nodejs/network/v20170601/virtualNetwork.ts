@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Virtual Network resource.
  *
- * @deprecated Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+ * @deprecated Version 2017-06-01 will be removed in v2 of the provider.
  */
 export class VirtualNetwork extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): VirtualNetwork {
-        pulumi.log.warn("VirtualNetwork is deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+        pulumi.log.warn("VirtualNetwork is deprecated: Version 2017-06-01 will be removed in v2 of the provider.")
         return new VirtualNetwork(name, undefined as any, { ...opts, id: id });
     }
 
@@ -90,9 +90,9 @@ export class VirtualNetwork extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
+    /** @deprecated Version 2017-06-01 will be removed in v2 of the provider. */
     constructor(name: string, args: VirtualNetworkArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("VirtualNetwork is deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+        pulumi.log.warn("VirtualNetwork is deprecated: Version 2017-06-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

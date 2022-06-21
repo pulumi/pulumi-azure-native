@@ -16,7 +16,7 @@ __all__ = [
     'get_express_route_circuit_connection_output',
 ]
 
-warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetExpressRouteCircuitConnectionResult:
@@ -156,7 +156,7 @@ def get_express_route_circuit_connection(circuit_name: Optional[str] = None,
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_express_route_circuit_connection is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_express_route_circuit_connection is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['circuitName'] = circuit_name
     __args__['connectionName'] = connection_name
@@ -195,5 +195,5 @@ def get_express_route_circuit_connection_output(circuit_name: Optional[pulumi.In
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_express_route_circuit_connection is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_express_route_circuit_connection is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
     ...

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Slot Config names azure resource
  */
-/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
+/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteSlotConfigNames(args: GetSiteSlotConfigNamesArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteSlotConfigNamesResult> {
-    pulumi.log.warn("getSiteSlotConfigNames is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
+    pulumi.log.warn("getSiteSlotConfigNames is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

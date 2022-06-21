@@ -13,7 +13,7 @@ import (
 
 // Instance of an Azure ML Operationalization Cluster resource.
 //
-// Deprecated: Version v20170601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.
+// Deprecated: Version 2017-06-01-preview will be removed in v2 of the provider.
 type OperationalizationCluster struct {
 	pulumi.CustomResourceState
 

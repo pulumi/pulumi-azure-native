@@ -16,7 +16,7 @@ __all__ = [
     'get_job_output',
 ]
 
-warnings.warn("""Version v20190901 will be removed in the next major version of the provider. Upgrade to version v20201101 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetJobResult:
@@ -250,7 +250,7 @@ def get_job(expand: Optional[str] = None,
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("""get_job is deprecated: Version v20190901 will be removed in the next major version of the provider. Upgrade to version v20201101 or later.""")
+    pulumi.log.warn("""get_job is deprecated: Version 2019-09-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['jobName'] = job_name
@@ -294,5 +294,5 @@ def get_job_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str job_name: The name of the job Resource within the specified resource group. job names must be between 3 and 24 characters in length and use any alphanumeric and underscore only
     :param str resource_group_name: The Resource Group Name
     """
-    pulumi.log.warn("""get_job is deprecated: Version v20190901 will be removed in the next major version of the provider. Upgrade to version v20201101 or later.""")
+    pulumi.log.warn("""get_job is deprecated: Version 2019-09-01 will be removed in v2 of the provider.""")
     ...

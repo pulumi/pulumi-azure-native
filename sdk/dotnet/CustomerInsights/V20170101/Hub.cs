@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.CustomerInsights.V20170101
     /// <summary>
     /// Hub resource.
     /// </summary>
-    [Obsolete(@"Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.")]
+    [Obsolete(@"Version 2017-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:customerinsights/v20170101:Hub")]
     public partial class Hub : Pulumi.CustomResource
     {

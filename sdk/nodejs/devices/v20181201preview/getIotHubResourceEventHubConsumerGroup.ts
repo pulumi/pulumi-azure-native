@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The properties of the EventHubConsumerGroupInfo object.
  */
-/** @deprecated Version v20181201preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
+/** @deprecated Version 2018-12-01-preview will be removed in v2 of the provider. */
 export function getIotHubResourceEventHubConsumerGroup(args: GetIotHubResourceEventHubConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetIotHubResourceEventHubConsumerGroupResult> {
-    pulumi.log.warn("getIotHubResourceEventHubConsumerGroup is deprecated: Version v20181201preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
+    pulumi.log.warn("getIotHubResourceEventHubConsumerGroup is deprecated: Version 2018-12-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

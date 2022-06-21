@@ -12,7 +12,7 @@ import (
 
 // Represents an instance of a orchestrator.
 //
-// Deprecated: Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.
+// Deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.
 func LookupDelegatedSubnetServiceDetails(ctx *pulumi.Context, args *LookupDelegatedSubnetServiceDetailsArgs, opts ...pulumi.InvokeOption) (*LookupDelegatedSubnetServiceDetailsResult, error) {
 	var rv LookupDelegatedSubnetServiceDetailsResult
 	err := ctx.Invoke("azure-native:delegatednetwork/v20200808preview:getDelegatedSubnetServiceDetails", args, &rv, opts...)

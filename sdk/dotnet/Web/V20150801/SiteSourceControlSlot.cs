@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Web.V20150801
     /// <summary>
     /// Describes the source control configuration for web app
     /// </summary>
-    [Obsolete(@"Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")]
+    [Obsolete(@"Version 2015-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:web/v20150801:SiteSourceControlSlot")]
     public partial class SiteSourceControlSlot : Pulumi.CustomResource
     {

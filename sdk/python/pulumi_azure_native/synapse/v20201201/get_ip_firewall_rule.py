@@ -15,7 +15,7 @@ __all__ = [
     'get_ip_firewall_rule_output',
 ]
 
-warnings.warn("""Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetIpFirewallRuleResult:
@@ -117,7 +117,7 @@ def get_ip_firewall_rule(resource_group_name: Optional[str] = None,
     :param str rule_name: The IP firewall rule name
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("""get_ip_firewall_rule is deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_ip_firewall_rule is deprecated: Version 2020-12-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['ruleName'] = rule_name
@@ -150,5 +150,5 @@ def get_ip_firewall_rule_output(resource_group_name: Optional[pulumi.Input[str]]
     :param str rule_name: The IP firewall rule name
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("""get_ip_firewall_rule is deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_ip_firewall_rule is deprecated: Version 2020-12-01 will be removed in v2 of the provider.""")
     ...

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Container service.
  */
-/** @deprecated Version v20160930 will be removed in the next major version of the provider. Upgrade to version v20190430 or later. */
+/** @deprecated Version 2016-09-30 will be removed in v2 of the provider. */
 export function getContainerService(args: GetContainerServiceArgs, opts?: pulumi.InvokeOptions): Promise<GetContainerServiceResult> {
-    pulumi.log.warn("getContainerService is deprecated: Version v20160930 will be removed in the next major version of the provider. Upgrade to version v20190430 or later.")
+    pulumi.log.warn("getContainerService is deprecated: Version 2016-09-30 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Represents a ApplicationGroup definition.
  */
-/** @deprecated Version v20190924preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later. */
+/** @deprecated Version 2019-09-24-preview will be removed in v2 of the provider. */
 export function getApplicationGroup(args: GetApplicationGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationGroupResult> {
-    pulumi.log.warn("getApplicationGroup is deprecated: Version v20190924preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.")
+    pulumi.log.warn("getApplicationGroup is deprecated: Version 2019-09-24-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

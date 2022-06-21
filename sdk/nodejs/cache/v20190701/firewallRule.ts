@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * A firewall rule on a redis cache has a name, and describes a contiguous range of IP addresses permitted to connect
  *
- * @deprecated Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.
+ * @deprecated Version 2019-07-01 will be removed in v2 of the provider.
  */
 export class FirewallRule extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): FirewallRule {
-        pulumi.log.warn("FirewallRule is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")
+        pulumi.log.warn("FirewallRule is deprecated: Version 2019-07-01 will be removed in v2 of the provider.")
         return new FirewallRule(name, undefined as any, { ...opts, id: id });
     }
 
@@ -61,9 +61,9 @@ export class FirewallRule extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later. */
+    /** @deprecated Version 2019-07-01 will be removed in v2 of the provider. */
     constructor(name: string, args: FirewallRuleArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("FirewallRule is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")
+        pulumi.log.warn("FirewallRule is deprecated: Version 2019-07-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

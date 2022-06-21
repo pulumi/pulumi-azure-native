@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20180101
     /// <summary>
     /// Route table resource.
     /// </summary>
-    [Obsolete(@"Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
+    [Obsolete(@"Version 2018-01-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180101:RouteTable")]
     public partial class RouteTable : Pulumi.CustomResource
     {

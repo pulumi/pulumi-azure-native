@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview
     /// <summary>
     /// Dataset resource type.
     /// </summary>
-    [Obsolete(@"Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.")]
+    [Obsolete(@"Version 2017-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datafactory/v20170901preview:Dataset")]
     public partial class Dataset : Pulumi.CustomResource
     {

@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * App certificate
  *
- * @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
+ * @deprecated Version 2015-08-01 will be removed in v2 of the provider.
  */
 export class Certificate extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Certificate extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Certificate {
-        pulumi.log.warn("Certificate is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
+        pulumi.log.warn("Certificate is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
         return new Certificate(name, undefined as any, { ...opts, id: id });
     }
 
@@ -126,9 +126,9 @@ export class Certificate extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
+    /** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
     constructor(name: string, args: CertificateArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Certificate is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
+        pulumi.log.warn("Certificate is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

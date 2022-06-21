@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Peering.V20200101Preview
     /// <summary>
     /// The customer's prefix that is registered by the peering service provider.
     /// </summary>
-    [Obsolete(@"Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")]
+    [Obsolete(@"Version 2020-01-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:peering/v20200101preview:RegisteredPrefix")]
     public partial class RegisteredPrefix : Pulumi.CustomResource
     {

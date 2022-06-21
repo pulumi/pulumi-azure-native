@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Resource for OuContainer.
  */
-/** @deprecated Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20210301 or later. */
+/** @deprecated Version 2017-06-01 will be removed in v2 of the provider. */
 export function getOuContainer(args: GetOuContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetOuContainerResult> {
-    pulumi.log.warn("getOuContainer is deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.")
+    pulumi.log.warn("getOuContainer is deprecated: Version 2017-06-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

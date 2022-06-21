@@ -13,7 +13,7 @@ import (
 
 // Application gateway resource
 //
-// Deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2017-09-01 will be removed in v2 of the provider.
 type ApplicationGateway struct {
 	pulumi.CustomResourceState
 

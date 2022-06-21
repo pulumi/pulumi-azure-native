@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Route Filter Rule Resource
  */
-/** @deprecated Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
+/** @deprecated Version 2018-01-01 will be removed in v2 of the provider. */
 export function getRouteFilterRule(args: GetRouteFilterRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteFilterRuleResult> {
-    pulumi.log.warn("getRouteFilterRule is deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+    pulumi.log.warn("getRouteFilterRule is deprecated: Version 2018-01-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

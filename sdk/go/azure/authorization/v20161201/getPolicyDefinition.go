@@ -12,7 +12,7 @@ import (
 
 // The policy definition.
 //
-// Deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.
+// Deprecated: Version 2016-12-01 will be removed in v2 of the provider.
 func LookupPolicyDefinition(ctx *pulumi.Context, args *LookupPolicyDefinitionArgs, opts ...pulumi.InvokeOption) (*LookupPolicyDefinitionResult, error) {
 	var rv LookupPolicyDefinitionResult
 	err := ctx.Invoke("azure-native:authorization/v20161201:getPolicyDefinition", args, &rv, opts...)

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * EventGrid Topic
  */
-/** @deprecated Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later. */
+/** @deprecated Version 2020-01-01-preview will be removed in v2 of the provider. */
 export function getTopic(args: GetTopicArgs, opts?: pulumi.InvokeOptions): Promise<GetTopicResult> {
-    pulumi.log.warn("getTopic is deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.")
+    pulumi.log.warn("getTopic is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

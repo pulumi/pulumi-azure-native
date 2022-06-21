@@ -15,7 +15,7 @@ __all__ = [
     'get_view_output',
 ]
 
-warnings.warn("""Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetViewResult:
@@ -167,7 +167,7 @@ def get_view(hub_name: Optional[str] = None,
     :param str user_id: The user ID. Use * to retrieve hub level view.
     :param str view_name: The name of the view.
     """
-    pulumi.log.warn("""get_view is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""")
+    pulumi.log.warn("""get_view is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['resourceGroupName'] = resource_group_name
@@ -207,5 +207,5 @@ def get_view_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str user_id: The user ID. Use * to retrieve hub level view.
     :param str view_name: The name of the view.
     """
-    pulumi.log.warn("""get_view is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""")
+    pulumi.log.warn("""get_view is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
     ...

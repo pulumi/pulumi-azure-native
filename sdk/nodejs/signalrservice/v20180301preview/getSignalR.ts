@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A class represent a SignalR service resource.
  */
-/** @deprecated Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20200501 or later. */
+/** @deprecated Version 2018-03-01-preview will be removed in v2 of the provider. */
 export function getSignalR(args: GetSignalRArgs, opts?: pulumi.InvokeOptions): Promise<GetSignalRResult> {
-    pulumi.log.warn("getSignalR is deprecated: Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20200501 or later.")
+    pulumi.log.warn("getSignalR is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

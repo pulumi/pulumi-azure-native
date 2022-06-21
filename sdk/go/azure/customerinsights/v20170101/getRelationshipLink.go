@@ -12,7 +12,7 @@ import (
 
 // The relationship link resource format.
 //
-// Deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.
+// Deprecated: Version 2017-01-01 will be removed in v2 of the provider.
 func LookupRelationshipLink(ctx *pulumi.Context, args *LookupRelationshipLinkArgs, opts ...pulumi.InvokeOption) (*LookupRelationshipLinkResult, error) {
 	var rv LookupRelationshipLinkResult
 	err := ctx.Invoke("azure-native:customerinsights/v20170101:getRelationshipLink", args, &rv, opts...)

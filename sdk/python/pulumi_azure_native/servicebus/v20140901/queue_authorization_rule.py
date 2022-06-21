@@ -207,11 +207,11 @@ class QueueAuthorizationRuleArgs:
         pulumi.set(self, "secondary_key", value)
 
 
-warnings.warn("""Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class QueueAuthorizationRule(pulumi.CustomResource):
-    warnings.warn("""Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -285,7 +285,7 @@ class QueueAuthorizationRule(pulumi.CustomResource):
                  rights: Optional[pulumi.Input[Sequence[pulumi.Input['AccessRights']]]] = None,
                  secondary_key: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""QueueAuthorizationRule is deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+        pulumi.log.warn("""QueueAuthorizationRule is deprecated: Version 2014-09-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

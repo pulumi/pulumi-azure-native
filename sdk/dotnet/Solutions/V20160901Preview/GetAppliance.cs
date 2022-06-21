@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Solutions.V20160901Preview
 {
-    [Obsolete(@"Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.")]
+    [Obsolete(@"Version 2016-09-01-preview will be removed in v2 of the provider.")]
     public static class GetAppliance
     {
         /// <summary>

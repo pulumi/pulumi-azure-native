@@ -16,7 +16,7 @@ __all__ = [
     'get_policy_output',
 ]
 
-warnings.warn("""Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-04-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPolicyResult:
@@ -209,7 +209,7 @@ def get_policy(policy_name: Optional[str] = None,
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_policy is deprecated: Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+    pulumi.log.warn("""get_policy is deprecated: Version 2020-04-15 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['policyName'] = policy_name
     __args__['resourceGroupName'] = resource_group_name
@@ -247,5 +247,5 @@ def get_policy_output(policy_name: Optional[pulumi.Input[str]] = None,
     :param str policy_name: The name of the CdnWebApplicationFirewallPolicy.
     :param str resource_group_name: Name of the Resource group within the Azure subscription.
     """
-    pulumi.log.warn("""get_policy is deprecated: Version v20200415 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+    pulumi.log.warn("""get_policy is deprecated: Version 2020-04-15 will be removed in v2 of the provider.""")
     ...

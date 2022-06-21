@@ -227,11 +227,11 @@ class ApiManagementServiceArgs:
         pulumi.set(self, "vpnconfiguration", value)
 
 
-warnings.warn("""Version v20160707 will be removed in the next major version of the provider. Upgrade to version v20161010 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-07-07 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class ApiManagementService(pulumi.CustomResource):
-    warnings.warn("""Version v20160707 will be removed in the next major version of the provider. Upgrade to version v20161010 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2016-07-07 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -308,7 +308,7 @@ class ApiManagementService(pulumi.CustomResource):
                  vpn_type: Optional[pulumi.Input['VirtualNetworkType']] = None,
                  vpnconfiguration: Optional[pulumi.Input[pulumi.InputType['VirtualNetworkConfigurationArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ApiManagementService is deprecated: Version v20160707 will be removed in the next major version of the provider. Upgrade to version v20161010 or later.""")
+        pulumi.log.warn("""ApiManagementService is deprecated: Version 2016-07-07 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -13,7 +13,7 @@ import (
 
 // The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
 //
-// Deprecated: Version v20170419 will be removed in the next major version of the provider. Upgrade to version v20200101 or later.
+// Deprecated: Version 2017-04-19 will be removed in v2 of the provider.
 type Suppression struct {
 	pulumi.CustomResourceState
 

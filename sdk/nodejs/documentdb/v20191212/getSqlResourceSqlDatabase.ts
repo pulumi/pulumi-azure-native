@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB SQL database.
  */
-/** @deprecated Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
+/** @deprecated Version 2019-12-12 will be removed in v2 of the provider. */
 export function getSqlResourceSqlDatabase(args: GetSqlResourceSqlDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlDatabaseResult> {
-    pulumi.log.warn("getSqlResourceSqlDatabase is deprecated: Version v20191212 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
+    pulumi.log.warn("getSqlResourceSqlDatabase is deprecated: Version 2019-12-12 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

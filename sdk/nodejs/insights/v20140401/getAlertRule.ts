@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The alert rule resource.
  */
-/** @deprecated Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later. */
+/** @deprecated Version 2014-04-01 will be removed in v2 of the provider. */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
-    pulumi.log.warn("getAlertRule is deprecated: Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.")
+    pulumi.log.warn("getAlertRule is deprecated: Version 2014-04-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

@@ -274,11 +274,11 @@ class VirtualMachineScheduleArgs:
         pulumi.set(self, "weekly_recurrence", value)
 
 
-warnings.warn("""Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class VirtualMachineSchedule(pulumi.CustomResource):
-    warnings.warn("""Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2016-05-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -364,7 +364,7 @@ class VirtualMachineSchedule(pulumi.CustomResource):
                  virtual_machine_name: Optional[pulumi.Input[str]] = None,
                  weekly_recurrence: Optional[pulumi.Input[pulumi.InputType['WeekDetailsArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualMachineSchedule is deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.""")
+        pulumi.log.warn("""VirtualMachineSchedule is deprecated: Version 2016-05-15 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -12,7 +12,7 @@ import (
 
 // Base class for container with backup items. Containers with specific workloads are derived from this class.
 //
-// Deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
+// Deprecated: Version 2016-12-01 will be removed in v2 of the provider.
 func LookupProtectionContainer(ctx *pulumi.Context, args *LookupProtectionContainerArgs, opts ...pulumi.InvokeOption) (*LookupProtectionContainerResult, error) {
 	var rv LookupProtectionContainerResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20161201:getProtectionContainer", args, &rv, opts...)

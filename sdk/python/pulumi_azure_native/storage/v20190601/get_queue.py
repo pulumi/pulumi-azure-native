@@ -15,7 +15,7 @@ __all__ = [
     'get_queue_output',
 ]
 
-warnings.warn("""Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetQueueResult:
@@ -101,7 +101,7 @@ def get_queue(account_name: Optional[str] = None,
     :param str queue_name: A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_queue is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
+    pulumi.log.warn("""get_queue is deprecated: Version 2019-06-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['queueName'] = queue_name
@@ -132,5 +132,5 @@ def get_queue_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str queue_name: A queue name must be unique within a storage account and must be between 3 and 63 characters.The name must comprise of lowercase alphanumeric and dash(-) characters only, it should begin and end with an alphanumeric character and it cannot have two consecutive dash(-) characters.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_queue is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
+    pulumi.log.warn("""get_queue is deprecated: Version 2019-06-01 will be removed in v2 of the provider.""")
     ...

@@ -8,9 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB MongoDB database.
  */
-/** @deprecated Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
 export function getMongoDBResourceMongoDBDatabase(args: GetMongoDBResourceMongoDBDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetMongoDBResourceMongoDBDatabaseResult> {
-    pulumi.log.warn("getMongoDBResourceMongoDBDatabase is deprecated: Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
     if (!opts) {
         opts = {}
     }

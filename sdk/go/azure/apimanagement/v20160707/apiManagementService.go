@@ -13,7 +13,7 @@ import (
 
 // Description of an API Management service resource.
 //
-// Deprecated: Version v20160707 will be removed in the next major version of the provider. Upgrade to version v20161010 or later.
+// Deprecated: Version 2016-07-07 will be removed in v2 of the provider.
 type ApiManagementService struct {
 	pulumi.CustomResourceState
 

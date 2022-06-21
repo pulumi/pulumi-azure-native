@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Specifies information about the gallery Application Definition that you want to create or update.
  */
-/** @deprecated Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later. */
+/** @deprecated Version 2019-12-01 will be removed in v2 of the provider. */
 export function getGalleryApplication(args: GetGalleryApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetGalleryApplicationResult> {
-    pulumi.log.warn("getGalleryApplication is deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")
+    pulumi.log.warn("getGalleryApplication is deprecated: Version 2019-12-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

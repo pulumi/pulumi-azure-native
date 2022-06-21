@@ -12,7 +12,7 @@ import (
 
 // Pipeline resource type.
 //
-// Deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.
+// Deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
 func LookupPipeline(ctx *pulumi.Context, args *LookupPipelineArgs, opts ...pulumi.InvokeOption) (*LookupPipelineResult, error) {
 	var rv LookupPipelineResult
 	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getPipeline", args, &rv, opts...)

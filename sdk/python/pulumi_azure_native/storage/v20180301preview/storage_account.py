@@ -230,11 +230,11 @@ class StorageAccountArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class StorageAccount(pulumi.CustomResource):
-    warnings.warn("""Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2018-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -311,7 +311,7 @@ class StorageAccount(pulumi.CustomResource):
                  sku: Optional[pulumi.Input[pulumi.InputType['SkuArgs']]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""StorageAccount is deprecated: Version v20180301preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
+        pulumi.log.warn("""StorageAccount is deprecated: Version 2018-03-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

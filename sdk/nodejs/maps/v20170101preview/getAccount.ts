@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure resource which represents access to a suite of Maps REST APIs.
  */
-/** @deprecated Version v20170101preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
+/** @deprecated Version 2017-01-01-preview will be removed in v2 of the provider. */
 export function getAccount(args: GetAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountResult> {
-    pulumi.log.warn("getAccount is deprecated: Version v20170101preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+    pulumi.log.warn("getAccount is deprecated: Version 2017-01-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

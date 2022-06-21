@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB Gremlin database.
  */
-/** @deprecated Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
+/** @deprecated Version 2016-03-31 will be removed in v2 of the provider. */
 export function getDatabaseAccountGremlinDatabase(args: GetDatabaseAccountGremlinDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountGremlinDatabaseResult> {
-    pulumi.log.warn("getDatabaseAccountGremlinDatabase is deprecated: Version v20160331 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
+    pulumi.log.warn("getDatabaseAccountGremlinDatabase is deprecated: Version 2016-03-31 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

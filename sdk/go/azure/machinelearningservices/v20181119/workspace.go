@@ -13,7 +13,7 @@ import (
 
 // An object that represents a machine learning workspace.
 //
-// Deprecated: Version v20181119 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
+// Deprecated: Version 2018-11-19 will be removed in v2 of the provider.
 type Workspace struct {
 	pulumi.CustomResourceState
 

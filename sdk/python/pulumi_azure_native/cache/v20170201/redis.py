@@ -195,11 +195,11 @@ class RedisArgs:
         pulumi.set(self, "tenant_settings", value)
 
 
-warnings.warn("""Version v20170201 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Redis(pulumi.CustomResource):
-    warnings.warn("""Version v20170201 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -270,7 +270,7 @@ class Redis(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  tenant_settings: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Redis is deprecated: Version v20170201 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
+        pulumi.log.warn("""Redis is deprecated: Version 2017-02-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

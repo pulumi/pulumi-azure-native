@@ -14,7 +14,7 @@ __all__ = [
     'get_traffic_manager_user_metrics_key',
 ]
 
-warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetTrafficManagerUserMetricsKeyResult:
@@ -84,7 +84,7 @@ def get_traffic_manager_user_metrics_key(opts: Optional[pulumi.InvokeOptions] = 
     """
     Class representing Traffic Manager User Metrics.
     """
-    pulumi.log.warn("""get_traffic_manager_user_metrics_key is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_traffic_manager_user_metrics_key is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     if opts is None:
         opts = pulumi.InvokeOptions()

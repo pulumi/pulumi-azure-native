@@ -16,7 +16,7 @@ __all__ = [
     'get_virtual_network_gateway_connection_output',
 ]
 
-warnings.warn("""Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualNetworkGatewayConnectionResult:
@@ -320,7 +320,7 @@ def get_virtual_network_gateway_connection(resource_group_name: Optional[str] = 
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
     """
-    pulumi.log.warn("""get_virtual_network_gateway_connection is deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_virtual_network_gateway_connection is deprecated: Version 2018-01-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualNetworkGatewayConnectionName'] = virtual_network_gateway_connection_name
@@ -367,5 +367,5 @@ def get_virtual_network_gateway_connection_output(resource_group_name: Optional[
     :param str resource_group_name: The name of the resource group.
     :param str virtual_network_gateway_connection_name: The name of the virtual network gateway connection.
     """
-    pulumi.log.warn("""get_virtual_network_gateway_connection is deprecated: Version v20180101 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_virtual_network_gateway_connection is deprecated: Version 2018-01-01 will be removed in v2 of the provider.""")
     ...

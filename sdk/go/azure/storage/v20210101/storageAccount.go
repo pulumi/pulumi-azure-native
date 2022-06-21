@@ -12,8 +12,6 @@ import (
 )
 
 // The storage account.
-//
-// Deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
 type StorageAccount struct {
 	pulumi.CustomResourceState
 

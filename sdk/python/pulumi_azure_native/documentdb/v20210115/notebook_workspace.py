@@ -64,12 +64,7 @@ class NotebookWorkspaceArgs:
         pulumi.set(self, "notebook_workspace_name", value)
 
 
-warnings.warn("""Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
-
-
 class NotebookWorkspace(pulumi.CustomResource):
-    warnings.warn("""Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -115,7 +110,6 @@ class NotebookWorkspace(pulumi.CustomResource):
                  notebook_workspace_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""NotebookWorkspace is deprecated: Version v20210115 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

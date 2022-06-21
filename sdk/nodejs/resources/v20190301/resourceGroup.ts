@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Resource group information.
  *
- * @deprecated Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.
+ * @deprecated Version 2019-03-01 will be removed in v2 of the provider.
  */
 export class ResourceGroup extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class ResourceGroup extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): ResourceGroup {
-        pulumi.log.warn("ResourceGroup is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.")
+        pulumi.log.warn("ResourceGroup is deprecated: Version 2019-03-01 will be removed in v2 of the provider.")
         return new ResourceGroup(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,9 +70,9 @@ export class ResourceGroup extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190501 or later. */
+    /** @deprecated Version 2019-03-01 will be removed in v2 of the provider. */
     constructor(name: string, args?: ResourceGroupArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("ResourceGroup is deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20190501 or later.")
+        pulumi.log.warn("ResourceGroup is deprecated: Version 2019-03-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

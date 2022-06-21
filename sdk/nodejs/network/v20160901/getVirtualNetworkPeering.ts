@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Peerings in a virtual network resource.
  */
-/** @deprecated Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
+/** @deprecated Version 2016-09-01 will be removed in v2 of the provider. */
 export function getVirtualNetworkPeering(args: GetVirtualNetworkPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNetworkPeeringResult> {
-    pulumi.log.warn("getVirtualNetworkPeering is deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+    pulumi.log.warn("getVirtualNetworkPeering is deprecated: Version 2016-09-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

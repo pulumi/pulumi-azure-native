@@ -13,7 +13,7 @@ import (
 
 // The description of the Windows IoT Device Service.
 //
-// Deprecated: Version v20180216preview will be removed in the next major version of the provider. Upgrade to version v20190601 or later.
+// Deprecated: Version 2018-02-16-preview will be removed in v2 of the provider.
 type Service struct {
 	pulumi.CustomResourceState
 

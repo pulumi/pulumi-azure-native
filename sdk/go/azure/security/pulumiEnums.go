@@ -133,6 +133,34 @@ const (
 	ExportDataRawEvents = ExportData("RawEvents")
 )
 
+// The owner type for the governance rule owner source
+type GovernanceRuleOwnerSourceType string
+
+const (
+	// The rule source type defined using resource tag
+	GovernanceRuleOwnerSourceTypeByTag = GovernanceRuleOwnerSourceType("ByTag")
+	// The rule source type defined manually
+	GovernanceRuleOwnerSourceTypeManually = GovernanceRuleOwnerSourceType("Manually")
+)
+
+// The governance rule source, what the rule affects, e.g. Assessments
+type GovernanceRuleSourceResourceType string
+
+const (
+	// The source of the governance rule is assessments
+	GovernanceRuleSourceResourceTypeAssessments = GovernanceRuleSourceResourceType("Assessments")
+)
+
+// The rule type of the governance rule, defines the source of the rule e.g. Integrated
+type GovernanceRuleType string
+
+const (
+	// The source of the rule type definition is integrated
+	GovernanceRuleTypeIntegrated = GovernanceRuleType("Integrated")
+	// The source of the rule type definition is ServiceNow
+	GovernanceRuleTypeServiceNow = GovernanceRuleType("ServiceNow")
+)
+
 // The implementation effort required to remediate this assessment
 type ImplementationEffort string
 

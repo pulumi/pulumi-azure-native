@@ -8,9 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * IoT Connector definition.
  */
-/** @deprecated Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later. */
 export function getIotConnector(args: GetIotConnectorArgs, opts?: pulumi.InvokeOptions): Promise<GetIotConnectorResult> {
-    pulumi.log.warn("getIotConnector is deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")
     if (!opts) {
         opts = {}
     }

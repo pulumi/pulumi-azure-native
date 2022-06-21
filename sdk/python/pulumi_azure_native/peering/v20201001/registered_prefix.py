@@ -80,11 +80,11 @@ class RegisteredPrefixArgs:
         pulumi.set(self, "registered_prefix_name", value)
 
 
-warnings.warn("""Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class RegisteredPrefix(pulumi.CustomResource):
-    warnings.warn("""Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -134,7 +134,7 @@ class RegisteredPrefix(pulumi.CustomResource):
                  registered_prefix_name: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""RegisteredPrefix is deprecated: Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
+        pulumi.log.warn("""RegisteredPrefix is deprecated: Version 2020-10-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

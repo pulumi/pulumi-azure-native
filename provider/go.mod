@@ -7,6 +7,7 @@ require (
 	github.com/Azure/go-autorest/autorest v0.11.20
 	github.com/Azure/go-autorest/autorest/adal v0.9.15
 	github.com/blang/semver v3.5.1+incompatible
+	github.com/brianvoe/gofakeit/v6 v6.16.0
 	github.com/gedex/inflector v0.0.0-20170307190818-16278e9db813
 	github.com/go-openapi/jsonreference v0.19.2
 	github.com/go-openapi/spec v0.19.7

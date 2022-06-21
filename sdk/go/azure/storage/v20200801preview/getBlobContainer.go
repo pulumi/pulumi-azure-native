@@ -12,7 +12,7 @@ import (
 
 // Properties of the blob container, including Id, resource name, resource type, Etag.
 //
-// Deprecated: Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
+// Deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.
 func LookupBlobContainer(ctx *pulumi.Context, args *LookupBlobContainerArgs, opts ...pulumi.InvokeOption) (*LookupBlobContainerResult, error) {
 	var rv LookupBlobContainerResult
 	err := ctx.Invoke("azure-native:storage/v20200801preview:getBlobContainer", args, &rv, opts...)

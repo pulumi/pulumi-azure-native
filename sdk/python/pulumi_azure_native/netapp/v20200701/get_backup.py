@@ -15,7 +15,7 @@ __all__ = [
     'get_backup_output',
 ]
 
-warnings.warn("""Version v20200701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBackupResult:
@@ -169,7 +169,7 @@ def get_backup(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str volume_name: The name of the volume
     """
-    pulumi.log.warn("""get_backup is deprecated: Version v20200701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_backup is deprecated: Version 2020-07-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['backupName'] = backup_name
@@ -212,5 +212,5 @@ def get_backup_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group.
     :param str volume_name: The name of the volume
     """
-    pulumi.log.warn("""get_backup is deprecated: Version v20200701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_backup is deprecated: Version 2020-07-01 will be removed in v2 of the provider.""")
     ...

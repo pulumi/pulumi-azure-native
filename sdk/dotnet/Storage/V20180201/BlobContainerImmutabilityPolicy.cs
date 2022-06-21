@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Storage.V20180201
     /// <summary>
     /// The ImmutabilityPolicy property of a blob container, including Id, resource name, resource type, Etag.
     /// </summary>
-    [Obsolete(@"Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")]
+    [Obsolete(@"Version 2018-02-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:storage/v20180201:BlobContainerImmutabilityPolicy")]
     public partial class BlobContainerImmutabilityPolicy : Pulumi.CustomResource
     {

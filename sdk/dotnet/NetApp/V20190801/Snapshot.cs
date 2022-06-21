@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.NetApp.V20190801
     /// <summary>
     /// Snapshot of a Volume
     /// </summary>
-    [Obsolete(@"Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")]
+    [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:netapp/v20190801:Snapshot")]
     public partial class Snapshot : Pulumi.CustomResource
     {

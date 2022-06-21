@@ -15,7 +15,7 @@ __all__ = [
     'get_network_watcher_output',
 ]
 
-warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetNetworkWatcherResult:
@@ -127,7 +127,7 @@ def get_network_watcher(network_watcher_name: Optional[str] = None,
     :param str network_watcher_name: The name of the network watcher.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_network_watcher is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_network_watcher is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['networkWatcherName'] = network_watcher_name
     __args__['resourceGroupName'] = resource_group_name
@@ -158,5 +158,5 @@ def get_network_watcher_output(network_watcher_name: Optional[pulumi.Input[str]]
     :param str network_watcher_name: The name of the network watcher.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_network_watcher is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_network_watcher is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
     ...

@@ -13,7 +13,7 @@ import (
 
 // Event Subscription
 //
-// Deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.
+// Deprecated: Version 2019-06-01 will be removed in v2 of the provider.
 type EventSubscription struct {
 	pulumi.CustomResourceState
 

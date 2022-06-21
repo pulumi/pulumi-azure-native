@@ -16,7 +16,7 @@ __all__ = [
     'get_ou_container_output',
 ]
 
-warnings.warn("""Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetOuContainerResult:
@@ -214,7 +214,7 @@ def get_ou_container(domain_service_name: Optional[str] = None,
     :param str ou_container_name: The name of the OuContainer.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_ou_container is deprecated: Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_ou_container is deprecated: Version 2020-01-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['domainServiceName'] = domain_service_name
     __args__['ouContainerName'] = ou_container_name
@@ -255,5 +255,5 @@ def get_ou_container_output(domain_service_name: Optional[pulumi.Input[str]] = N
     :param str ou_container_name: The name of the OuContainer.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_ou_container is deprecated: Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_ou_container is deprecated: Version 2020-01-01 will be removed in v2 of the provider.""")
     ...

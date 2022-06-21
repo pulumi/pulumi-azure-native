@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * A single Redis item in List or Get Operation.
  */
-/** @deprecated Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20200601 or later. */
+/** @deprecated Version 2018-03-01 will be removed in v2 of the provider. */
 export function getRedis(args: GetRedisArgs, opts?: pulumi.InvokeOptions): Promise<GetRedisResult> {
-    pulumi.log.warn("getRedis is deprecated: Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.")
+    pulumi.log.warn("getRedis is deprecated: Version 2018-03-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

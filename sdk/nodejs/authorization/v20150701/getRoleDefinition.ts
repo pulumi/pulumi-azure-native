@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Role definition.
  */
-/** @deprecated Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
+/** @deprecated Version 2015-07-01 will be removed in v2 of the provider. */
 export function getRoleDefinition(args: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
-    pulumi.log.warn("getRoleDefinition is deprecated: Version v20150701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+    pulumi.log.warn("getRoleDefinition is deprecated: Version 2015-07-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

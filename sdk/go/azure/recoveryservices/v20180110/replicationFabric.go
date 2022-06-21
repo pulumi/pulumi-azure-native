@@ -13,7 +13,7 @@ import (
 
 // Fabric definition.
 //
-// Deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
+// Deprecated: Version 2018-01-10 will be removed in v2 of the provider.
 type ReplicationFabric struct {
 	pulumi.CustomResourceState
 

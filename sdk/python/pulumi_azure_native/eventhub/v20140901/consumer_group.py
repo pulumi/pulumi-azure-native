@@ -143,11 +143,11 @@ class ConsumerGroupArgs:
         pulumi.set(self, "user_metadata", value)
 
 
-warnings.warn("""Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class ConsumerGroup(pulumi.CustomResource):
-    warnings.warn("""Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2014-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -209,7 +209,7 @@ class ConsumerGroup(pulumi.CustomResource):
                  type: Optional[pulumi.Input[str]] = None,
                  user_metadata: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""ConsumerGroup is deprecated: Version v20140901 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+        pulumi.log.warn("""ConsumerGroup is deprecated: Version 2014-09-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

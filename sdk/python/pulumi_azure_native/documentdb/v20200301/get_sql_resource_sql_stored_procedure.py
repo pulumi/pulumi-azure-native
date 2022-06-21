@@ -16,7 +16,7 @@ __all__ = [
     'get_sql_resource_sql_stored_procedure_output',
 ]
 
-warnings.warn("""Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-03-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSqlResourceSqlStoredProcedureResult:
@@ -119,7 +119,7 @@ def get_sql_resource_sql_stored_procedure(account_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str stored_procedure_name: Cosmos DB storedProcedure name.
     """
-    pulumi.log.warn("""get_sql_resource_sql_stored_procedure is deprecated: Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_sql_resource_sql_stored_procedure is deprecated: Version 2020-03-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -158,5 +158,5 @@ def get_sql_resource_sql_stored_procedure_output(account_name: Optional[pulumi.I
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str stored_procedure_name: Cosmos DB storedProcedure name.
     """
-    pulumi.log.warn("""get_sql_resource_sql_stored_procedure is deprecated: Version v20200301 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.""")
+    pulumi.log.warn("""get_sql_resource_sql_stored_procedure is deprecated: Version 2020-03-01 will be removed in v2 of the provider.""")
     ...

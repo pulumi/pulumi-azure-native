@@ -12,7 +12,7 @@ import (
 
 // Replication protected item.
 //
-// Deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
+// Deprecated: Version 2016-08-10 will be removed in v2 of the provider.
 func LookupReplicationProtectedItem(ctx *pulumi.Context, args *LookupReplicationProtectedItemArgs, opts ...pulumi.InvokeOption) (*LookupReplicationProtectedItemResult, error) {
 	var rv LookupReplicationProtectedItemResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20160810:getReplicationProtectedItem", args, &rv, opts...)

@@ -115,11 +115,11 @@ class GuestConfigurationAssignmentArgs:
         pulumi.set(self, "properties", value)
 
 
-warnings.warn("""Version v20180630preview will be removed in the next major version of the provider. Upgrade to version v20200625 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-06-30-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class GuestConfigurationAssignment(pulumi.CustomResource):
-    warnings.warn("""Version v20180630preview will be removed in the next major version of the provider. Upgrade to version v20200625 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2018-06-30-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -175,7 +175,7 @@ class GuestConfigurationAssignment(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  vm_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""GuestConfigurationAssignment is deprecated: Version v20180630preview will be removed in the next major version of the provider. Upgrade to version v20200625 or later.""")
+        pulumi.log.warn("""GuestConfigurationAssignment is deprecated: Version 2018-06-30-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

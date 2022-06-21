@@ -12,7 +12,7 @@ import (
 
 // A common class for general resource information
 //
-// Deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2017-09-01 will be removed in v2 of the provider.
 func LookupLocalNetworkGateway(ctx *pulumi.Context, args *LookupLocalNetworkGatewayArgs, opts ...pulumi.InvokeOption) (*LookupLocalNetworkGatewayResult, error) {
 	var rv LookupLocalNetworkGatewayResult
 	err := ctx.Invoke("azure-native:network/v20170901:getLocalNetworkGateway", args, &rv, opts...)

@@ -16,7 +16,7 @@ __all__ = [
     'get_kpi_output',
 ]
 
-warnings.warn("""Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-01-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetKpiResult:
@@ -310,7 +310,7 @@ def get_kpi(hub_name: Optional[str] = None,
     :param str kpi_name: The name of the KPI.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_kpi is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""")
+    pulumi.log.warn("""get_kpi is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['hubName'] = hub_name
     __args__['kpiName'] = kpi_name
@@ -359,5 +359,5 @@ def get_kpi_output(hub_name: Optional[pulumi.Input[str]] = None,
     :param str kpi_name: The name of the KPI.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_kpi is deprecated: Version v20170101 will be removed in the next major version of the provider. Upgrade to version v20170426 or later.""")
+    pulumi.log.warn("""get_kpi is deprecated: Version 2017-01-01 will be removed in v2 of the provider.""")
     ...

@@ -16,8 +16,6 @@ __all__ = [
     'get_collector_policy_output',
 ]
 
-warnings.warn("""Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetCollectorPolicyResult:
     """
@@ -142,7 +140,6 @@ def get_collector_policy(azure_traffic_collector_name: Optional[str] = None,
     :param str collector_policy_name: Collector Policy Name
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_collector_policy is deprecated: Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later.""")
     __args__ = dict()
     __args__['azureTrafficCollectorName'] = azure_traffic_collector_name
     __args__['collectorPolicyName'] = collector_policy_name
@@ -177,5 +174,4 @@ def get_collector_policy_output(azure_traffic_collector_name: Optional[pulumi.In
     :param str collector_policy_name: Collector Policy Name
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_collector_policy is deprecated: Version v20210901preview will be removed in the next major version of the provider. Upgrade to version v20220501 or later.""")
     ...

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Devices.V20180401
     /// <summary>
     /// The properties of the EventHubConsumerGroupInfo object.
     /// </summary>
-    [Obsolete(@"Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")]
+    [Obsolete(@"Version 2018-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:devices/v20180401:IotHubResourceEventHubConsumerGroup")]
     public partial class IotHubResourceEventHubConsumerGroup : Pulumi.CustomResource
     {

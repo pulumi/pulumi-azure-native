@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Class representing an event hub connection.
  */
-/** @deprecated Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later. */
+/** @deprecated Version 2017-09-07-privatepreview will be removed in v2 of the provider. */
 export function getEventHubConnection(args: GetEventHubConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubConnectionResult> {
-    pulumi.log.warn("getEventHubConnection is deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.")
+    pulumi.log.warn("getEventHubConnection is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

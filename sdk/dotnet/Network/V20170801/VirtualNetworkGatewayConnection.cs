@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20170801
     /// <summary>
     /// A common class for general resource information
     /// </summary>
-    [Obsolete(@"Version v20170801 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
+    [Obsolete(@"Version 2017-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20170801:VirtualNetworkGatewayConnection")]
     public partial class VirtualNetworkGatewayConnection : Pulumi.CustomResource
     {

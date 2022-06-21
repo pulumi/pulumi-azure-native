@@ -12,7 +12,7 @@ import (
 
 // The alert rule resource.
 //
-// Deprecated: Version v20140401 will be removed in the next major version of the provider. Upgrade to version v20150401 or later.
+// Deprecated: Version 2014-04-01 will be removed in v2 of the provider.
 func LookupAlertRule(ctx *pulumi.Context, args *LookupAlertRuleArgs, opts ...pulumi.InvokeOption) (*LookupAlertRuleResult, error) {
 	var rv LookupAlertRuleResult
 	err := ctx.Invoke("azure-native:insights/v20140401:getAlertRule", args, &rv, opts...)

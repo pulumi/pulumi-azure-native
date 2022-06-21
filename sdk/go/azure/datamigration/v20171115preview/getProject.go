@@ -12,7 +12,7 @@ import (
 
 // A project resource
 //
-// Deprecated: Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.
+// Deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.
 func LookupProject(ctx *pulumi.Context, args *LookupProjectArgs, opts ...pulumi.InvokeOption) (*LookupProjectResult, error) {
 	var rv LookupProjectResult
 	err := ctx.Invoke("azure-native:datamigration/v20171115preview:getProject", args, &rv, opts...)

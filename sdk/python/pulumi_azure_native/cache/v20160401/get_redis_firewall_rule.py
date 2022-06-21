@@ -15,7 +15,7 @@ __all__ = [
     'get_redis_firewall_rule_output',
 ]
 
-warnings.warn("""Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRedisFirewallRuleResult:
@@ -105,7 +105,7 @@ def get_redis_firewall_rule(cache_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the firewall rule.
     """
-    pulumi.log.warn("""get_redis_firewall_rule is deprecated: Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
+    pulumi.log.warn("""get_redis_firewall_rule is deprecated: Version 2016-04-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['cacheName'] = cache_name
     __args__['resourceGroupName'] = resource_group_name
@@ -137,5 +137,5 @@ def get_redis_firewall_rule_output(cache_name: Optional[pulumi.Input[str]] = Non
     :param str resource_group_name: The name of the resource group.
     :param str rule_name: The name of the firewall rule.
     """
-    pulumi.log.warn("""get_redis_firewall_rule is deprecated: Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20200601 or later.""")
+    pulumi.log.warn("""get_redis_firewall_rule is deprecated: Version 2016-04-01 will be removed in v2 of the provider.""")
     ...

@@ -13,7 +13,7 @@ import (
 
 // Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
 //
-// Deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
+// Deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.
 type Peering struct {
 	pulumi.CustomResourceState
 

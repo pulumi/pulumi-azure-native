@@ -15,7 +15,7 @@ __all__ = [
     'get_policy_assignment_output',
 ]
 
-warnings.warn("""Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPolicyAssignmentResult:
@@ -139,7 +139,7 @@ def get_policy_assignment(policy_assignment_name: Optional[str] = None,
     :param str policy_assignment_name: The name of the policy assignment to get.
     :param str scope: The scope of the policy assignment.
     """
-    pulumi.log.warn("""get_policy_assignment is deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+    pulumi.log.warn("""get_policy_assignment is deprecated: Version 2016-12-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['policyAssignmentName'] = policy_assignment_name
     __args__['scope'] = scope
@@ -171,5 +171,5 @@ def get_policy_assignment_output(policy_assignment_name: Optional[pulumi.Input[s
     :param str policy_assignment_name: The name of the policy assignment to get.
     :param str scope: The scope of the policy assignment.
     """
-    pulumi.log.warn("""get_policy_assignment is deprecated: Version v20161201 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.""")
+    pulumi.log.warn("""get_policy_assignment is deprecated: Version 2016-12-01 will be removed in v2 of the provider.""")
     ...

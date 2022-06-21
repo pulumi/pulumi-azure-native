@@ -16,7 +16,7 @@ __all__ = [
     'get_local_network_gateway_output',
 ]
 
-warnings.warn("""Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetLocalNetworkGatewayResult:
@@ -176,7 +176,7 @@ def get_local_network_gateway(local_network_gateway_name: Optional[str] = None,
     :param str local_network_gateway_name: The name of the local network gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_local_network_gateway is deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_local_network_gateway is deprecated: Version 2017-09-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['localNetworkGatewayName'] = local_network_gateway_name
     __args__['resourceGroupName'] = resource_group_name
@@ -211,5 +211,5 @@ def get_local_network_gateway_output(local_network_gateway_name: Optional[pulumi
     :param str local_network_gateway_name: The name of the local network gateway.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_local_network_gateway is deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_local_network_gateway is deprecated: Version 2017-09-01 will be removed in v2 of the provider.""")
     ...

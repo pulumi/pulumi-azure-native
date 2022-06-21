@@ -16,7 +16,7 @@ __all__ = [
     'get_budget_by_resource_group_name_output',
 ]
 
-warnings.warn("""Version v20180831 will be removed in the next major version of the provider. Upgrade to version v20191001 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-08-31 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBudgetByResourceGroupNameResult:
@@ -176,7 +176,7 @@ def get_budget_by_resource_group_name(budget_name: Optional[str] = None,
     :param str budget_name: Budget Name.
     :param str resource_group_name: Azure Resource Group Name.
     """
-    pulumi.log.warn("""get_budget_by_resource_group_name is deprecated: Version v20180831 will be removed in the next major version of the provider. Upgrade to version v20191001 or later.""")
+    pulumi.log.warn("""get_budget_by_resource_group_name is deprecated: Version 2018-08-31 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['budgetName'] = budget_name
     __args__['resourceGroupName'] = resource_group_name
@@ -211,5 +211,5 @@ def get_budget_by_resource_group_name_output(budget_name: Optional[pulumi.Input[
     :param str budget_name: Budget Name.
     :param str resource_group_name: Azure Resource Group Name.
     """
-    pulumi.log.warn("""get_budget_by_resource_group_name is deprecated: Version v20180831 will be removed in the next major version of the provider. Upgrade to version v20191001 or later.""")
+    pulumi.log.warn("""get_budget_by_resource_group_name is deprecated: Version 2018-08-31 will be removed in v2 of the provider.""")
     ...

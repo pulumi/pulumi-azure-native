@@ -13,7 +13,7 @@ import (
 
 // The X509 Certificate.
 //
-// Deprecated: Version v20180122 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
+// Deprecated: Version 2018-01-22 will be removed in v2 of the provider.
 type Certificate struct {
 	pulumi.CustomResourceState
 

@@ -16,7 +16,7 @@ __all__ = [
     'get_registration_assignment_output',
 ]
 
-warnings.warn("""Version v20190401preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-04-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRegistrationAssignmentResult:
@@ -94,7 +94,7 @@ def get_registration_assignment(expand_registration_definition: Optional[bool] =
     :param str registration_assignment_id: Guid of the registration assignment.
     :param str scope: Scope of the resource.
     """
-    pulumi.log.warn("""get_registration_assignment is deprecated: Version v20190401preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""")
+    pulumi.log.warn("""get_registration_assignment is deprecated: Version 2019-04-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expandRegistrationDefinition'] = expand_registration_definition
     __args__['registrationAssignmentId'] = registration_assignment_id
@@ -125,5 +125,5 @@ def get_registration_assignment_output(expand_registration_definition: Optional[
     :param str registration_assignment_id: Guid of the registration assignment.
     :param str scope: Scope of the resource.
     """
-    pulumi.log.warn("""get_registration_assignment is deprecated: Version v20190401preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.""")
+    pulumi.log.warn("""get_registration_assignment is deprecated: Version 2019-04-01-preview will be removed in v2 of the provider.""")
     ...

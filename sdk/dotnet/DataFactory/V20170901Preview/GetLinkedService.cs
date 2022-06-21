@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataFactory.V20170901Preview
 {
-    [Obsolete(@"Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.")]
+    [Obsolete(@"Version 2017-09-01-preview will be removed in v2 of the provider.")]
     public static class GetLinkedService
     {
         /// <summary>

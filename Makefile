@@ -26,10 +26,11 @@ update_submodules:: init_submodules
 		(cd $$submodule && git checkout main && git pull origin main); \
 	done
 	rm ./azure-provider-versions/provider_list.json
-	az provider list >> ./azure-provider-versions/provider_list.json
+	az provider list | jq 'map({ namespace: .namespace, resourceTypes: .resourceTypes | map({ resourceType: .resourceType, apiVersions: .apiVersions }) | sort_by(.resourceType) }) | sort_by(.namespace)' > ./azure-provider-versions/provider_list.json
 
 ensure:: init_submodules
 	@echo "GO111MODULE=on go mod download"; cd provider; GO111MODULE=on go mod download
+	@jq --version
 
 local_generate_code:: clean
 	$(WORKING_DIR)/bin/$(CODEGEN) schema,nodejs,dotnet,python,go ${VERSION}
@@ -71,6 +72,15 @@ codegen::
 
 provider::
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
+
+bin/pulumi-versioner-azure-native:
+	(cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/pulumi-versioner-azure-native)
+
+versioner: bin/pulumi-versioner-azure-native
+
+versions: bin/pulumi-versioner-azure-native
+	rm -f version/*
+	bin/pulumi-versioner-azure-native
 
 install_provider::
 	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
@@ -175,4 +185,4 @@ install_sdks:: install_dotnet_sdk install_python_sdk install_nodejs_sdk
 # Required for the codegen action that runs in pulumi/pulumi
 only_build:: build
 
-.PHONY: init_submodules update_submodules ensure generate_schema generate build_provider build arm2pulumi_coverage_report
+.PHONY: init_submodules update_submodules ensure generate_schema generate build_provider build arm2pulumi_coverage_report versions

@@ -15,7 +15,7 @@ __all__ = [
     'get_blob_container_immutability_policy_output',
 ]
 
-warnings.warn("""Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-02-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetBlobContainerImmutabilityPolicyResult:
@@ -119,7 +119,7 @@ def get_blob_container_immutability_policy(account_name: Optional[str] = None,
     :param str immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_blob_container_immutability_policy is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
+    pulumi.log.warn("""get_blob_container_immutability_policy is deprecated: Version 2018-02-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -155,5 +155,5 @@ def get_blob_container_immutability_policy_output(account_name: Optional[pulumi.
     :param str immutability_policy_name: The name of the blob container immutabilityPolicy within the specified storage account. ImmutabilityPolicy Name must be 'default'
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_blob_container_immutability_policy is deprecated: Version v20180201 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
+    pulumi.log.warn("""get_blob_container_immutability_policy is deprecated: Version 2018-02-01 will be removed in v2 of the provider.""")
     ...

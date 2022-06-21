@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Route resource
  *
- * @deprecated Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+ * @deprecated Version 2015-05-01-preview will be removed in v2 of the provider.
  */
 export class Route extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Route extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Route {
-        pulumi.log.warn("Route is deprecated: Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+        pulumi.log.warn("Route is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.")
         return new Route(name, undefined as any, { ...opts, id: id });
     }
 
@@ -70,9 +70,9 @@ export class Route extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
+    /** @deprecated Version 2015-05-01-preview will be removed in v2 of the provider. */
     constructor(name: string, args: RouteArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Route is deprecated: Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+        pulumi.log.warn("Route is deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

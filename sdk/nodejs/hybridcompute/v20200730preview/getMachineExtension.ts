@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Describes a Machine Extension.
  */
-/** @deprecated Version v20200730preview will be removed in the next major version of the provider. Upgrade to version v20200802 or later. */
+/** @deprecated Version 2020-07-30-preview will be removed in v2 of the provider. */
 export function getMachineExtension(args: GetMachineExtensionArgs, opts?: pulumi.InvokeOptions): Promise<GetMachineExtensionResult> {
-    pulumi.log.warn("getMachineExtension is deprecated: Version v20200730preview will be removed in the next major version of the provider. Upgrade to version v20200802 or later.")
+    pulumi.log.warn("getMachineExtension is deprecated: Version 2020-07-30-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

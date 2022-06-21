@@ -15,7 +15,7 @@ __all__ = [
     'get_domain_ownership_identifier_output',
 ]
 
-warnings.warn("""Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDomainOwnershipIdentifierResult:
@@ -105,7 +105,7 @@ def get_domain_ownership_identifier(domain_name: Optional[str] = None,
     :param str name: Name of identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
+    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: Version 2020-06-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['domainName'] = domain_name
     __args__['name'] = name
@@ -137,5 +137,5 @@ def get_domain_ownership_identifier_output(domain_name: Optional[pulumi.Input[st
     :param str name: Name of identifier.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
+    pulumi.log.warn("""get_domain_ownership_identifier is deprecated: Version 2020-06-01 will be removed in v2 of the provider.""")
     ...

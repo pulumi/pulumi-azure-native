@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Authorization.V20160401
     /// <summary>
     /// The policy assignment.
     /// </summary>
-    [Obsolete(@"Version v20160401 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")]
+    [Obsolete(@"Version 2016-04-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:authorization/v20160401:PolicyAssignment")]
     public partial class PolicyAssignment : Pulumi.CustomResource
     {

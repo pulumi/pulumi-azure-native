@@ -81,11 +81,11 @@ class TopicArgs:
         pulumi.set(self, "topic_name", value)
 
 
-warnings.warn("""Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Topic(pulumi.CustomResource):
-    warnings.warn("""Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2019-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -135,7 +135,7 @@ class Topic(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  topic_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Topic is deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20200401preview or later.""")
+        pulumi.log.warn("""Topic is deprecated: Version 2019-06-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -12,7 +12,7 @@ import (
 
 // Machine Learning compute object wrapped into ARM resource envelope.
 //
-// Deprecated: Version v20200101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
+// Deprecated: Version 2020-01-01 will be removed in v2 of the provider.
 func LookupMachineLearningCompute(ctx *pulumi.Context, args *LookupMachineLearningComputeArgs, opts ...pulumi.InvokeOption) (*LookupMachineLearningComputeResult, error) {
 	var rv LookupMachineLearningComputeResult
 	err := ctx.Invoke("azure-native:machinelearningservices/v20200101:getMachineLearningCompute", args, &rv, opts...)

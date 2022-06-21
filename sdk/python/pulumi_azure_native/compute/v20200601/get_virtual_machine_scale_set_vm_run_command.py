@@ -16,7 +16,7 @@ __all__ = [
     'get_virtual_machine_scale_set_vm_run_command_output',
 ]
 
-warnings.warn("""Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineScaleSetVMRunCommandResult:
@@ -242,7 +242,7 @@ def get_virtual_machine_scale_set_vm_run_command(expand: Optional[str] = None,
     :param str run_command_name: The name of the virtual machine run command.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
-    pulumi.log.warn("""get_virtual_machine_scale_set_vm_run_command is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_virtual_machine_scale_set_vm_run_command is deprecated: Version 2020-06-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['instanceId'] = instance_id
@@ -291,5 +291,5 @@ def get_virtual_machine_scale_set_vm_run_command_output(expand: Optional[pulumi.
     :param str run_command_name: The name of the virtual machine run command.
     :param str vm_scale_set_name: The name of the VM scale set.
     """
-    pulumi.log.warn("""get_virtual_machine_scale_set_vm_run_command is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_virtual_machine_scale_set_vm_run_command is deprecated: Version 2020-06-01 will be removed in v2 of the provider.""")
     ...

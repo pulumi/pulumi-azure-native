@@ -11,8 +11,6 @@ import (
 )
 
 // IoT Connector FHIR destination definition.
-//
-// Deprecated: Version v20210601preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.
 func LookupIotConnectorFhirDestination(ctx *pulumi.Context, args *LookupIotConnectorFhirDestinationArgs, opts ...pulumi.InvokeOption) (*LookupIotConnectorFhirDestinationResult, error) {
 	var rv LookupIotConnectorFhirDestinationResult
 	err := ctx.Invoke("azure-native:healthcareapis/v20210601preview:getIotConnectorFhirDestination", args, &rv, opts...)

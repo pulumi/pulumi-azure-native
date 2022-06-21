@@ -11,8 +11,6 @@ import (
 )
 
 // An environment for hosting container apps
-//
-// Deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.
 func LookupManagedEnvironment(ctx *pulumi.Context, args *LookupManagedEnvironmentArgs, opts ...pulumi.InvokeOption) (*LookupManagedEnvironmentResult, error) {
 	var rv LookupManagedEnvironmentResult
 	err := ctx.Invoke("azure-native:app/v20220101preview:getManagedEnvironment", args, &rv, opts...)

@@ -16,7 +16,7 @@ __all__ = [
     'get_cognitive_services_account_output',
 ]
 
-warnings.warn("""Version v20160201preview will be removed in the next major version of the provider. Upgrade to version v20170418 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-02-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetCognitiveServicesAccountResult:
@@ -164,7 +164,7 @@ def get_cognitive_services_account(account_name: Optional[str] = None,
     :param str account_name: The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    pulumi.log.warn("""get_cognitive_services_account is deprecated: Version v20160201preview will be removed in the next major version of the provider. Upgrade to version v20170418 or later.""")
+    pulumi.log.warn("""get_cognitive_services_account is deprecated: Version 2016-02-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['resourceGroupName'] = resource_group_name
@@ -198,5 +198,5 @@ def get_cognitive_services_account_output(account_name: Optional[pulumi.Input[st
     :param str account_name: The name of the cognitive services account within the specified resource group. Cognitive Services account names must be between 3 and 24 characters in length and use numbers and lower-case letters only.
     :param str resource_group_name: The name of the resource group within the user's subscription.
     """
-    pulumi.log.warn("""get_cognitive_services_account is deprecated: Version v20160201preview will be removed in the next major version of the provider. Upgrade to version v20170418 or later.""")
+    pulumi.log.warn("""get_cognitive_services_account is deprecated: Version 2016-02-01-preview will be removed in v2 of the provider.""")
     ...

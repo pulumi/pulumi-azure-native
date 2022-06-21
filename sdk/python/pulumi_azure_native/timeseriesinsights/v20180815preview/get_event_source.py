@@ -15,7 +15,7 @@ __all__ = [
     'get_event_source_output',
 ]
 
-warnings.warn("""Version v20180815preview will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-08-15-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetEventSourceResult:
@@ -117,7 +117,7 @@ def get_event_source(environment_name: Optional[str] = None,
     :param str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_event_source is deprecated: Version v20180815preview will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""")
+    pulumi.log.warn("""get_event_source is deprecated: Version 2018-08-15-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['eventSourceName'] = event_source_name
@@ -150,5 +150,5 @@ def get_event_source_output(environment_name: Optional[pulumi.Input[str]] = None
     :param str event_source_name: The name of the Time Series Insights event source associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_event_source is deprecated: Version v20180815preview will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""")
+    pulumi.log.warn("""get_event_source is deprecated: Version 2018-08-15-preview will be removed in v2 of the provider.""")
     ...

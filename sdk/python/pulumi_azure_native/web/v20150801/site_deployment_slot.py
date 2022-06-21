@@ -287,11 +287,11 @@ class SiteDeploymentSlotArgs:
         pulumi.set(self, "type", value)
 
 
-warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class SiteDeploymentSlot(pulumi.CustomResource):
-    warnings.warn("""Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2015-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -380,7 +380,7 @@ class SiteDeploymentSlot(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SiteDeploymentSlot is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.""")
+        pulumi.log.warn("""SiteDeploymentSlot is deprecated: Version 2015-08-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -16,7 +16,7 @@ __all__ = [
     'get_assignment_output',
 ]
 
-warnings.warn("""Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-11-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAssignmentResult:
@@ -200,7 +200,7 @@ def get_assignment(assignment_name: Optional[str] = None,
     :param str assignment_name: name of the assignment.
     :param str subscription_id: azure subscriptionId, which we assign the blueprint to.
     """
-    pulumi.log.warn("""get_assignment is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""")
+    pulumi.log.warn("""get_assignment is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['assignmentName'] = assignment_name
     __args__['subscriptionId'] = subscription_id
@@ -237,5 +237,5 @@ def get_assignment_output(assignment_name: Optional[pulumi.Input[str]] = None,
     :param str assignment_name: name of the assignment.
     :param str subscription_id: azure subscriptionId, which we assign the blueprint to.
     """
-    pulumi.log.warn("""get_assignment is deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20181101preview or later.""")
+    pulumi.log.warn("""get_assignment is deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.""")
     ...

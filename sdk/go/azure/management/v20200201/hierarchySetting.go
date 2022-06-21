@@ -13,7 +13,7 @@ import (
 
 // Settings defined at the Management Group scope.
 //
-// Deprecated: Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.
+// Deprecated: Version 2020-02-01 will be removed in v2 of the provider.
 type HierarchySetting struct {
 	pulumi.CustomResourceState
 

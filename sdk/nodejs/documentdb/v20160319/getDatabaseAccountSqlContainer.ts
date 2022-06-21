@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB container.
  */
-/** @deprecated Version v20160319 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
+/** @deprecated Version 2016-03-19 will be removed in v2 of the provider. */
 export function getDatabaseAccountSqlContainer(args: GetDatabaseAccountSqlContainerArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseAccountSqlContainerResult> {
-    pulumi.log.warn("getDatabaseAccountSqlContainer is deprecated: Version v20160319 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
+    pulumi.log.warn("getDatabaseAccountSqlContainer is deprecated: Version 2016-03-19 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

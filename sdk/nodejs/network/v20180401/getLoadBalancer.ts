@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * LoadBalancer resource
  */
-/** @deprecated Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
+/** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
 export function getLoadBalancer(args: GetLoadBalancerArgs, opts?: pulumi.InvokeOptions): Promise<GetLoadBalancerResult> {
-    pulumi.log.warn("getLoadBalancer is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+    pulumi.log.warn("getLoadBalancer is deprecated: Version 2018-04-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

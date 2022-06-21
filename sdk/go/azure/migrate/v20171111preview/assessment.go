@@ -13,7 +13,7 @@ import (
 
 // An assessment created for a group in the Migration project.
 //
-// Deprecated: Version v20171111preview will be removed in the next major version of the provider. Upgrade to version v20180202 or later.
+// Deprecated: Version 2017-11-11-preview will be removed in v2 of the provider.
 type Assessment struct {
 	pulumi.CustomResourceState
 

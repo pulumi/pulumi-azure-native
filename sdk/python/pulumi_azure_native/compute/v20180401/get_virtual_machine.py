@@ -16,7 +16,7 @@ __all__ = [
     'get_virtual_machine_output',
 ]
 
-warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualMachineResult:
@@ -286,7 +286,7 @@ def get_virtual_machine(expand: Optional[str] = None,
     :param str resource_group_name: The name of the resource group.
     :param str vm_name: The name of the virtual machine.
     """
-    pulumi.log.warn("""get_virtual_machine is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_virtual_machine is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -333,5 +333,5 @@ def get_virtual_machine_output(expand: Optional[pulumi.Input[Optional[str]]] = N
     :param str resource_group_name: The name of the resource group.
     :param str vm_name: The name of the virtual machine.
     """
-    pulumi.log.warn("""get_virtual_machine is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_virtual_machine is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
     ...

@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Relay.V20160701
     /// <summary>
     /// Description of a Namespace AuthorizationRules.
     /// </summary>
-    [Obsolete(@"Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")]
+    [Obsolete(@"Version 2016-07-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:relay/v20160701:WCFRelayAuthorizationRule")]
     public partial class WCFRelayAuthorizationRule : Pulumi.CustomResource
     {

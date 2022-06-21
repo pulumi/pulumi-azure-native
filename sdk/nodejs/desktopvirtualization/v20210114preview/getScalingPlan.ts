@@ -8,9 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Represents a scaling plan definition.
  */
-/** @deprecated Version v20210114preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later. */
 export function getScalingPlan(args: GetScalingPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetScalingPlanResult> {
-    pulumi.log.warn("getScalingPlan is deprecated: Version v20210114preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.")
     if (!opts) {
         opts = {}
     }

@@ -12,7 +12,7 @@ import (
 
 // Represents an instance of a DNC controller.
 //
-// Deprecated: Version v20200808preview will be removed in the next major version of the provider. Upgrade to version v20210315 or later.
+// Deprecated: Version 2020-08-08-preview will be removed in v2 of the provider.
 func LookupControllerDetails(ctx *pulumi.Context, args *LookupControllerDetailsArgs, opts ...pulumi.InvokeOption) (*LookupControllerDetailsResult, error) {
 	var rv LookupControllerDetailsResult
 	err := ctx.Invoke("azure-native:delegatednetwork/v20200808preview:getControllerDetails", args, &rv, opts...)

@@ -7,8 +7,6 @@ import * as utilities from "../../utilities";
 
 /**
  * The properties of a storage account’s Table service.
- *
- * @deprecated Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
  */
 export class TableServiceProperties extends pulumi.CustomResource {
     /**
@@ -20,7 +18,6 @@ export class TableServiceProperties extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TableServiceProperties {
-        pulumi.log.warn("TableServiceProperties is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
         return new TableServiceProperties(name, undefined as any, { ...opts, id: id });
     }
 
@@ -58,9 +55,7 @@ export class TableServiceProperties extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later. */
     constructor(name: string, args: TableServicePropertiesArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("TableServiceProperties is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

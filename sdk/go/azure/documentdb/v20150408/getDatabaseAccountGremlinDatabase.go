@@ -12,7 +12,7 @@ import (
 
 // An Azure Cosmos DB Gremlin database.
 //
-// Deprecated: Version v20150408 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.
+// Deprecated: Version 2015-04-08 will be removed in v2 of the provider.
 func LookupDatabaseAccountGremlinDatabase(ctx *pulumi.Context, args *LookupDatabaseAccountGremlinDatabaseArgs, opts ...pulumi.InvokeOption) (*LookupDatabaseAccountGremlinDatabaseResult, error) {
 	var rv LookupDatabaseAccountGremlinDatabaseResult
 	err := ctx.Invoke("azure-native:documentdb/v20150408:getDatabaseAccountGremlinDatabase", args, &rv, opts...)

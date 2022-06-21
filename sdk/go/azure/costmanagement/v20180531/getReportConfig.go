@@ -12,7 +12,7 @@ import (
 
 // A report config resource.
 //
-// Deprecated: Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.
+// Deprecated: Version 2018-05-31 will be removed in v2 of the provider.
 func LookupReportConfig(ctx *pulumi.Context, args *LookupReportConfigArgs, opts ...pulumi.InvokeOption) (*LookupReportConfigResult, error) {
 	var rv LookupReportConfigResult
 	err := ctx.Invoke("azure-native:costmanagement/v20180531:getReportConfig", args, &rv, opts...)

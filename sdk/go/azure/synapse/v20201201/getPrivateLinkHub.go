@@ -12,7 +12,7 @@ import (
 
 // A privateLinkHub
 //
-// Deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
+// Deprecated: Version 2020-12-01 will be removed in v2 of the provider.
 func LookupPrivateLinkHub(ctx *pulumi.Context, args *LookupPrivateLinkHubArgs, opts ...pulumi.InvokeOption) (*LookupPrivateLinkHubResult, error) {
 	var rv LookupPrivateLinkHubResult
 	err := ctx.Invoke("azure-native:synapse/v20201201:getPrivateLinkHub", args, &rv, opts...)

@@ -15,7 +15,7 @@ __all__ = [
     'get_registered_server_output',
 ]
 
-warnings.warn("""Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRegisteredServerResult:
@@ -309,7 +309,7 @@ def get_registered_server(resource_group_name: Optional[str] = None,
     :param str server_id: GUID identifying the on-premises server.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
-    pulumi.log.warn("""get_registered_server is deprecated: Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_registered_server is deprecated: Version 2019-10-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['serverId'] = server_id
@@ -358,5 +358,5 @@ def get_registered_server_output(resource_group_name: Optional[pulumi.Input[str]
     :param str server_id: GUID identifying the on-premises server.
     :param str storage_sync_service_name: Name of Storage Sync Service resource.
     """
-    pulumi.log.warn("""get_registered_server is deprecated: Version v20191001 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.""")
+    pulumi.log.warn("""get_registered_server is deprecated: Version 2019-10-01 will be removed in v2 of the provider.""")
     ...

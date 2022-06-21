@@ -12,7 +12,7 @@ import (
 
 // Public IP address resource.
 //
-// Deprecated: Version v20160901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2016-09-01 will be removed in v2 of the provider.
 func LookupPublicIPAddress(ctx *pulumi.Context, args *LookupPublicIPAddressArgs, opts ...pulumi.InvokeOption) (*LookupPublicIPAddressResult, error) {
 	var rv LookupPublicIPAddressResult
 	err := ctx.Invoke("azure-native:network/v20160901:getPublicIPAddress", args, &rv, opts...)

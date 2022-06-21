@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * A Data Migration Service resource
  *
- * @deprecated Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.
+ * @deprecated Version 2017-11-15-preview will be removed in v2 of the provider.
  */
 export class Service extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Service extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Service {
-        pulumi.log.warn("Service is deprecated: Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.")
+        pulumi.log.warn("Service is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.")
         return new Service(name, undefined as any, { ...opts, id: id });
     }
 
@@ -86,9 +86,9 @@ export class Service extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later. */
+    /** @deprecated Version 2017-11-15-preview will be removed in v2 of the provider. */
     constructor(name: string, args: ServiceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Service is deprecated: Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.")
+        pulumi.log.warn("Service is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

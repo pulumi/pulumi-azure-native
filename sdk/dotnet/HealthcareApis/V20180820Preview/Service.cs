@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.HealthcareApis.V20180820Preview
     /// <summary>
     /// The description of the service.
     /// </summary>
-    [Obsolete(@"Version v20180820preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.")]
+    [Obsolete(@"Version 2018-08-20-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:healthcareapis/v20180820preview:Service")]
     public partial class Service : Pulumi.CustomResource
     {

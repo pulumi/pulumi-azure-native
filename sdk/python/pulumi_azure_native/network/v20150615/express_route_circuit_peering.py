@@ -307,11 +307,11 @@ class ExpressRouteCircuitPeeringInitArgs:
         pulumi.set(self, "vlan_id", value)
 
 
-warnings.warn("""Version v20150615 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2015-06-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class ExpressRouteCircuitPeering(pulumi.CustomResource):
-    warnings.warn("""Version v20150615 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2015-06-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -403,7 +403,7 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
                  stats: Optional[pulumi.Input[pulumi.InputType['ExpressRouteCircuitStatsArgs']]] = None,
                  vlan_id: Optional[pulumi.Input[int]] = None,
                  __props__=None):
-        pulumi.log.warn("""ExpressRouteCircuitPeering is deprecated: Version v20150615 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+        pulumi.log.warn("""ExpressRouteCircuitPeering is deprecated: Version 2015-06-15 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

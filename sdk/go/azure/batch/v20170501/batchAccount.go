@@ -13,7 +13,7 @@ import (
 
 // Contains information about an Azure Batch account.
 //
-// Deprecated: Version v20170501 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
+// Deprecated: Version 2017-05-01 will be removed in v2 of the provider.
 type BatchAccount struct {
 	pulumi.CustomResourceState
 

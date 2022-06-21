@@ -12,7 +12,7 @@ import (
 
 // The properties of a storage account’s Blob service.
 //
-// Deprecated: Version v20200801preview will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
+// Deprecated: Version 2020-08-01-preview will be removed in v2 of the provider.
 func LookupBlobServiceProperties(ctx *pulumi.Context, args *LookupBlobServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupBlobServicePropertiesResult, error) {
 	var rv LookupBlobServicePropertiesResult
 	err := ctx.Invoke("azure-native:storage/v20200801preview:getBlobServiceProperties", args, &rv, opts...)

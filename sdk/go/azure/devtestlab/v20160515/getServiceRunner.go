@@ -12,7 +12,7 @@ import (
 
 // A container for a managed identity to execute DevTest lab services.
 //
-// Deprecated: Version v20160515 will be removed in the next major version of the provider. Upgrade to version v20180915 or later.
+// Deprecated: Version 2016-05-15 will be removed in v2 of the provider.
 func LookupServiceRunner(ctx *pulumi.Context, args *LookupServiceRunnerArgs, opts ...pulumi.InvokeOption) (*LookupServiceRunnerResult, error) {
 	var rv LookupServiceRunnerResult
 	err := ctx.Invoke("azure-native:devtestlab/v20160515:getServiceRunner", args, &rv, opts...)

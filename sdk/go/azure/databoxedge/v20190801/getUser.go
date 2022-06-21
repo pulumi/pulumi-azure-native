@@ -12,7 +12,7 @@ import (
 
 // Represents a user who has access to one or more shares on the Data Box Edge/Gateway device.
 //
-// Deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
+// Deprecated: Version 2019-08-01 will be removed in v2 of the provider.
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	var rv LookupUserResult
 	err := ctx.Invoke("azure-native:databoxedge/v20190801:getUser", args, &rv, opts...)

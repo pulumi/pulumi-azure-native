@@ -15,7 +15,7 @@ __all__ = [
     'get_sql_server_registration_output',
 ]
 
-warnings.warn("""Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-03-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSqlServerRegistrationResult:
@@ -139,7 +139,7 @@ def get_sql_server_registration(resource_group_name: Optional[str] = None,
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_server_registration_name: Name of the SQL Server registration.
     """
-    pulumi.log.warn("""get_sql_server_registration is deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""")
+    pulumi.log.warn("""get_sql_server_registration is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['sqlServerRegistrationName'] = sql_server_registration_name
@@ -171,5 +171,5 @@ def get_sql_server_registration_output(resource_group_name: Optional[pulumi.Inpu
     :param str resource_group_name: Name of the resource group that contains the resource. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str sql_server_registration_name: Name of the SQL Server registration.
     """
-    pulumi.log.warn("""get_sql_server_registration is deprecated: Version v20170301preview will be removed in the next major version of the provider. Upgrade to version v20190724preview or later.""")
+    pulumi.log.warn("""get_sql_server_registration is deprecated: Version 2017-03-01-preview will be removed in v2 of the provider.""")
     ...

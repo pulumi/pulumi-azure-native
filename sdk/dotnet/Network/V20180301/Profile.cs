@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Network.V20180301
     /// <summary>
     /// Class representing a Traffic Manager profile.
     /// </summary>
-    [Obsolete(@"Version v20180301 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")]
+    [Obsolete(@"Version 2018-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:network/v20180301:Profile")]
     public partial class Profile : Pulumi.CustomResource
     {

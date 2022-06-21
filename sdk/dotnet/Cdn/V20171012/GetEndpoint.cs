@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Cdn.V20171012
 {
-    [Obsolete(@"Version v20171012 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")]
+    [Obsolete(@"Version 2017-10-12 will be removed in v2 of the provider.")]
     public static class GetEndpoint
     {
         /// <summary>

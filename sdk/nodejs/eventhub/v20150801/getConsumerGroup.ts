@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Single item in List or Get Consumer group operation
  */
-/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
+/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getConsumerGroup(args: GetConsumerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetConsumerGroupResult> {
-    pulumi.log.warn("getConsumerGroup is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+    pulumi.log.warn("getConsumerGroup is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

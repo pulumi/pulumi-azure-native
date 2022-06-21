@@ -16,7 +16,7 @@ __all__ = [
     'get_record_set_output',
 ]
 
-warnings.warn("""Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetRecordSetResult:
@@ -252,7 +252,7 @@ def get_record_set(record_type: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
-    pulumi.log.warn("""get_record_set is deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_record_set is deprecated: Version 2017-09-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['recordType'] = record_type
     __args__['relativeRecordSetName'] = relative_record_set_name
@@ -299,5 +299,5 @@ def get_record_set_output(record_type: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str zone_name: The name of the DNS zone (without a terminating dot).
     """
-    pulumi.log.warn("""get_record_set is deprecated: Version v20170901 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_record_set is deprecated: Version 2017-09-01 will be removed in v2 of the provider.""")
     ...

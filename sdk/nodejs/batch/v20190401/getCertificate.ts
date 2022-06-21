@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Contains information about a certificate.
  */
-/** @deprecated Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
+/** @deprecated Version 2019-04-01 will be removed in v2 of the provider. */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
-    pulumi.log.warn("getCertificate is deprecated: Version v20190401 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
+    pulumi.log.warn("getCertificate is deprecated: Version 2019-04-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

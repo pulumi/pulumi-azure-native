@@ -12,7 +12,7 @@ import (
 
 // Information about packet capture session.
 //
-// Deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2018-04-01 will be removed in v2 of the provider.
 func LookupPacketCapture(ctx *pulumi.Context, args *LookupPacketCaptureArgs, opts ...pulumi.InvokeOption) (*LookupPacketCaptureResult, error) {
 	var rv LookupPacketCaptureResult
 	err := ctx.Invoke("azure-native:network/v20180401:getPacketCapture", args, &rv, opts...)

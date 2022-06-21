@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Description of a Namespace AuthorizationRules.
  */
-/** @deprecated Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
+/** @deprecated Version 2016-03-01 will be removed in v2 of the provider. */
 export function getNamespaceAuthorizationRule(args: GetNamespaceAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetNamespaceAuthorizationRuleResult> {
-    pulumi.log.warn("getNamespaceAuthorizationRule is deprecated: Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+    pulumi.log.warn("getNamespaceAuthorizationRule is deprecated: Version 2016-03-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

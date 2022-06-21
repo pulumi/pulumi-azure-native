@@ -16,8 +16,6 @@ __all__ = [
     'get_blob_container_output',
 ]
 
-warnings.warn("""Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
-
 @pulumi.output_type
 class GetBlobContainerResult:
     """
@@ -286,7 +284,6 @@ def get_blob_container(account_name: Optional[str] = None,
     :param str container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_blob_container is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['containerName'] = container_name
@@ -333,5 +330,4 @@ def get_blob_container_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str container_name: The name of the blob container within the specified storage account. Blob container names must be between 3 and 63 characters in length and use numbers, lower-case letters and dash (-) only. Every dash (-) character must be immediately preceded and followed by a letter or number.
     :param str resource_group_name: The name of the resource group within the user's subscription. The name is case insensitive.
     """
-    pulumi.log.warn("""get_blob_container is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
     ...

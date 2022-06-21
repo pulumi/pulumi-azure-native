@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Single item in a List or Get AuthorizationRule operation
  */
-/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
+/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getEventHubAuthorizationRule(args: GetEventHubAuthorizationRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetEventHubAuthorizationRuleResult> {
-    pulumi.log.warn("getEventHubAuthorizationRule is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+    pulumi.log.warn("getEventHubAuthorizationRule is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

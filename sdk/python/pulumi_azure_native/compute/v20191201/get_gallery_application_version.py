@@ -16,7 +16,7 @@ __all__ = [
     'get_gallery_application_version_output',
 ]
 
-warnings.warn("""Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-12-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetGalleryApplicationVersionResult:
@@ -146,7 +146,7 @@ def get_gallery_application_version(expand: Optional[str] = None,
     :param str gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_gallery_application_version is deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_gallery_application_version is deprecated: Version 2019-12-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['galleryApplicationName'] = gallery_application_name
@@ -187,5 +187,5 @@ def get_gallery_application_version_output(expand: Optional[pulumi.Input[Optiona
     :param str gallery_name: The name of the Shared Application Gallery in which the Application Definition resides.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_gallery_application_version is deprecated: Version v20191201 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_gallery_application_version is deprecated: Version 2019-12-01 will be removed in v2 of the provider.""")
     ...

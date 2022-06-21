@@ -98,11 +98,11 @@ class TaskArgs:
         pulumi.set(self, "task_name", value)
 
 
-warnings.warn("""Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-15-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Task(pulumi.CustomResource):
-    warnings.warn("""Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-11-15-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -155,7 +155,7 @@ class Task(pulumi.CustomResource):
                  service_name: Optional[pulumi.Input[str]] = None,
                  task_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Task is deprecated: Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.""")
+        pulumi.log.warn("""Task is deprecated: Version 2017-11-15-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

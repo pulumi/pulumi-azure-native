@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Origin group comprising of origins is used for load balancing to origins when the content cannot be served from CDN.
  */
-/** @deprecated Version v20200331 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
+/** @deprecated Version 2020-03-31 will be removed in v2 of the provider. */
 export function getOriginGroup(args: GetOriginGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginGroupResult> {
-    pulumi.log.warn("getOriginGroup is deprecated: Version v20200331 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
+    pulumi.log.warn("getOriginGroup is deprecated: Version 2020-03-31 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

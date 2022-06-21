@@ -12,7 +12,7 @@ import (
 
 // IP firewall rule
 //
-// Deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
+// Deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.
 func LookupIpFirewallRule(ctx *pulumi.Context, args *LookupIpFirewallRuleArgs, opts ...pulumi.InvokeOption) (*LookupIpFirewallRuleResult, error) {
 	var rv LookupIpFirewallRuleResult
 	err := ctx.Invoke("azure-native:synapse/v20190601preview:getIpFirewallRule", args, &rv, opts...)

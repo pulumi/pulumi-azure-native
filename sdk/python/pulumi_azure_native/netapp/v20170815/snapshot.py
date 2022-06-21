@@ -125,11 +125,11 @@ class SnapshotArgs:
         pulumi.set(self, "snapshot_name", value)
 
 
-warnings.warn("""Version v20170815 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-08-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Snapshot(pulumi.CustomResource):
-    warnings.warn("""Version v20170815 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-08-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -188,7 +188,7 @@ class Snapshot(pulumi.CustomResource):
                  snapshot_name: Optional[pulumi.Input[str]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Snapshot is deprecated: Version v20170815 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+        pulumi.log.warn("""Snapshot is deprecated: Version 2017-08-15 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

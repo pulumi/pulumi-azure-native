@@ -16,7 +16,7 @@ __all__ = [
     'get_pipeline_output',
 ]
 
-warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPipelineResult:
@@ -154,7 +154,7 @@ def get_pipeline(factory_name: Optional[str] = None,
     :param str pipeline_name: The pipeline name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_pipeline is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
+    pulumi.log.warn("""get_pipeline is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['factoryName'] = factory_name
     __args__['pipelineName'] = pipeline_name
@@ -190,5 +190,5 @@ def get_pipeline_output(factory_name: Optional[pulumi.Input[str]] = None,
     :param str pipeline_name: The pipeline name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_pipeline is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
+    pulumi.log.warn("""get_pipeline is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
     ...

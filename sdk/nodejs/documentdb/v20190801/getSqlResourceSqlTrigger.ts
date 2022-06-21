@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * An Azure Cosmos DB trigger.
  */
-/** @deprecated Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later. */
+/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getSqlResourceSqlTrigger(args: GetSqlResourceSqlTriggerArgs, opts?: pulumi.InvokeOptions): Promise<GetSqlResourceSqlTriggerResult> {
-    pulumi.log.warn("getSqlResourceSqlTrigger is deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20210301preview or later.")
+    pulumi.log.warn("getSqlResourceSqlTrigger is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

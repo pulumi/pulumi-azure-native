@@ -13,7 +13,7 @@ import (
 
 // The storage domain.
 //
-// Deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.
+// Deprecated: Version 2016-10-01 will be removed in v2 of the provider.
 type StorageDomain struct {
 	pulumi.CustomResourceState
 

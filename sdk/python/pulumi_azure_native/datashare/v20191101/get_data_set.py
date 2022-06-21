@@ -15,7 +15,7 @@ __all__ = [
     'get_data_set_output',
 ]
 
-warnings.warn("""Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-11-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDataSetResult:
@@ -95,7 +95,7 @@ def get_data_set(account_name: Optional[str] = None,
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
-    pulumi.log.warn("""get_data_set is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+    pulumi.log.warn("""get_data_set is deprecated: Version 2019-11-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['accountName'] = account_name
     __args__['dataSetName'] = data_set_name
@@ -129,5 +129,5 @@ def get_data_set_output(account_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name.
     :param str share_name: The name of the share.
     """
-    pulumi.log.warn("""get_data_set is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.""")
+    pulumi.log.warn("""get_data_set is deprecated: Version 2019-11-01 will be removed in v2 of the provider.""")
     ...

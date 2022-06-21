@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.StorSimple.V20161001
 {
-    [Obsolete(@"Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.")]
+    [Obsolete(@"Version 2016-10-01 will be removed in v2 of the provider.")]
     public static class GetIscsiDisk
     {
         /// <summary>

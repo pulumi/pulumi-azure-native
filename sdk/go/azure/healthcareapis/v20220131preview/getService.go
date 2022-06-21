@@ -11,8 +11,6 @@ import (
 )
 
 // The description of the service.
-//
-// Deprecated: Version v20220131preview will be removed in the next major version of the provider. Upgrade to version v20220515 or later.
 func LookupService(ctx *pulumi.Context, args *LookupServiceArgs, opts ...pulumi.InvokeOption) (*LookupServiceResult, error) {
 	var rv LookupServiceResult
 	err := ctx.Invoke("azure-native:healthcareapis/v20220131preview:getService", args, &rv, opts...)

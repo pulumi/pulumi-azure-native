@@ -12,7 +12,7 @@ import (
 
 // Class that represents a BizTalk Hybrid Connection
 //
-// Deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.
+// Deprecated: Version 2015-08-01 will be removed in v2 of the provider.
 func LookupSiteRelayServiceConnectionSlot(ctx *pulumi.Context, args *LookupSiteRelayServiceConnectionSlotArgs, opts ...pulumi.InvokeOption) (*LookupSiteRelayServiceConnectionSlotResult, error) {
 	var rv LookupSiteRelayServiceConnectionSlotResult
 	err := ctx.Invoke("azure-native:web/v20150801:getSiteRelayServiceConnectionSlot", args, &rv, opts...)

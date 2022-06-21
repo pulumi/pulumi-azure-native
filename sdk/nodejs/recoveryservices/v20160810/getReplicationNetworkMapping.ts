@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Network Mapping model. Ideally it should have been possible to inherit this class from prev version in InheritedModels as long as there is no difference in structure or method signature. Since there were no base Models for certain fields and methods viz NetworkMappingProperties and Load with required return type, the class has been introduced in its entirety with references to base models to facilitate extensions in subsequent versions.
  */
-/** @deprecated Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later. */
+/** @deprecated Version 2016-08-10 will be removed in v2 of the provider. */
 export function getReplicationNetworkMapping(args: GetReplicationNetworkMappingArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationNetworkMappingResult> {
-    pulumi.log.warn("getReplicationNetworkMapping is deprecated: Version v20160810 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.")
+    pulumi.log.warn("getReplicationNetworkMapping is deprecated: Version 2016-08-10 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

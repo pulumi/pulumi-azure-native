@@ -12,7 +12,7 @@ import (
 
 // A data set mapping data transfer object.
 //
-// Deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
+// Deprecated: Version 2019-11-01 will be removed in v2 of the provider.
 func LookupDataSetMapping(ctx *pulumi.Context, args *LookupDataSetMappingArgs, opts ...pulumi.InvokeOption) (*LookupDataSetMappingResult, error) {
 	var rv LookupDataSetMappingResult
 	err := ctx.Invoke("azure-native:datashare/v20191101:getDataSetMapping", args, &rv, opts...)

@@ -12,7 +12,7 @@ import (
 
 // Protection container mapping object.
 //
-// Deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
+// Deprecated: Version 2018-01-10 will be removed in v2 of the provider.
 func LookupReplicationProtectionContainerMapping(ctx *pulumi.Context, args *LookupReplicationProtectionContainerMappingArgs, opts ...pulumi.InvokeOption) (*LookupReplicationProtectionContainerMappingResult, error) {
 	var rv LookupReplicationProtectionContainerMappingResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20180110:getReplicationProtectionContainerMapping", args, &rv, opts...)

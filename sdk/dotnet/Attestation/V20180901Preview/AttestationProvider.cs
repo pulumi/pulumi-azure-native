@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Attestation.V20180901Preview
     /// <summary>
     /// Attestation service response message.
     /// </summary>
-    [Obsolete(@"Version v20180901preview will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")]
+    [Obsolete(@"Version 2018-09-01-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:attestation/v20180901preview:AttestationProvider")]
     public partial class AttestationProvider : Pulumi.CustomResource
     {

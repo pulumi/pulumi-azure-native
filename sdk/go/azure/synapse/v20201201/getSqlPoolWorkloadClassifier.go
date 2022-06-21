@@ -12,7 +12,7 @@ import (
 
 // Workload classifier operations for a data warehouse
 //
-// Deprecated: Version v20201201 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
+// Deprecated: Version 2020-12-01 will be removed in v2 of the provider.
 func LookupSqlPoolWorkloadClassifier(ctx *pulumi.Context, args *LookupSqlPoolWorkloadClassifierArgs, opts ...pulumi.InvokeOption) (*LookupSqlPoolWorkloadClassifierResult, error) {
 	var rv LookupSqlPoolWorkloadClassifierResult
 	err := ctx.Invoke("azure-native:synapse/v20201201:getSqlPoolWorkloadClassifier", args, &rv, opts...)

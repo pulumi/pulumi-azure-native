@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Settings defined at the Management Group scope.
  */
-/** @deprecated Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later. */
+/** @deprecated Version 2020-02-01 will be removed in v2 of the provider. */
 export function getHierarchySetting(args: GetHierarchySettingArgs, opts?: pulumi.InvokeOptions): Promise<GetHierarchySettingResult> {
-    pulumi.log.warn("getHierarchySetting is deprecated: Version v20200201 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.")
+    pulumi.log.warn("getHierarchySetting is deprecated: Version 2020-02-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

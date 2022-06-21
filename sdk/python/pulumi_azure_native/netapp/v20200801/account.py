@@ -99,11 +99,11 @@ class AccountArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20200801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Account(pulumi.CustomResource):
-    warnings.warn("""Version v20200801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-08-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -156,7 +156,7 @@ class Account(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
-        pulumi.log.warn("""Account is deprecated: Version v20200801 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+        pulumi.log.warn("""Account is deprecated: Version 2020-08-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MachineLearningServices.V20190501
 {
-    [Obsolete(@"Version v20190501 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")]
+    [Obsolete(@"Version 2019-05-01 will be removed in v2 of the provider.")]
     public static class GetMachineLearningCompute
     {
         /// <summary>

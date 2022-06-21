@@ -147,11 +147,11 @@ class SqlDatabaseArgs:
         pulumi.set(self, "tags", value)
 
 
-warnings.warn("""Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-04-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class SqlDatabase(pulumi.CustomResource):
-    warnings.warn("""Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2020-04-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -213,7 +213,7 @@ class SqlDatabase(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  workspace_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""SqlDatabase is deprecated: Version v20200401preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+        pulumi.log.warn("""SqlDatabase is deprecated: Version 2020-04-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

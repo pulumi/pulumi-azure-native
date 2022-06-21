@@ -16,7 +16,7 @@ __all__ = [
     'get_storage_domain_output',
 ]
 
-warnings.warn("""Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-10-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetStorageDomainResult:
@@ -118,7 +118,7 @@ def get_storage_domain(manager_name: Optional[str] = None,
     :param str resource_group_name: The resource group name
     :param str storage_domain_name: The storage domain name.
     """
-    pulumi.log.warn("""get_storage_domain is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""")
+    pulumi.log.warn("""get_storage_domain is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['managerName'] = manager_name
     __args__['resourceGroupName'] = resource_group_name
@@ -151,5 +151,5 @@ def get_storage_domain_output(manager_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The resource group name
     :param str storage_domain_name: The storage domain name.
     """
-    pulumi.log.warn("""get_storage_domain is deprecated: Version v20161001 will be removed in the next major version of the provider. Upgrade to version v20170601 or later.""")
+    pulumi.log.warn("""get_storage_domain is deprecated: Version 2016-10-01 will be removed in v2 of the provider.""")
     ...

@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Defines web application firewall policy for Azure CDN.
  *
- * @deprecated Version v20190615 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
+ * @deprecated Version 2019-06-15 will be removed in v2 of the provider.
  */
 export class Policy extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Policy extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Policy {
-        pulumi.log.warn("Policy is deprecated: Version v20190615 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
+        pulumi.log.warn("Policy is deprecated: Version 2019-06-15 will be removed in v2 of the provider.")
         return new Policy(name, undefined as any, { ...opts, id: id });
     }
 
@@ -95,9 +95,9 @@ export class Policy extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20190615 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
+    /** @deprecated Version 2019-06-15 will be removed in v2 of the provider. */
     constructor(name: string, args: PolicyArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Policy is deprecated: Version v20190615 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
+        pulumi.log.warn("Policy is deprecated: Version 2019-06-15 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

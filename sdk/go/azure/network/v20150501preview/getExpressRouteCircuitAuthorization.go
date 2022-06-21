@@ -12,7 +12,7 @@ import (
 
 // Authorization in a ExpressRouteCircuit resource
 //
-// Deprecated: Version v20150501preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2015-05-01-preview will be removed in v2 of the provider.
 func LookupExpressRouteCircuitAuthorization(ctx *pulumi.Context, args *LookupExpressRouteCircuitAuthorizationArgs, opts ...pulumi.InvokeOption) (*LookupExpressRouteCircuitAuthorizationResult, error) {
 	var rv LookupExpressRouteCircuitAuthorizationResult
 	err := ctx.Invoke("azure-native:network/v20150501preview:getExpressRouteCircuitAuthorization", args, &rv, opts...)

@@ -12,7 +12,7 @@ import (
 
 // A storage system being cached by a Cache.
 //
-// Deprecated: Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
+// Deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.
 func LookupStorageTarget(ctx *pulumi.Context, args *LookupStorageTargetArgs, opts ...pulumi.InvokeOption) (*LookupStorageTargetResult, error) {
 	var rv LookupStorageTargetResult
 	err := ctx.Invoke("azure-native:storagecache/v20190801preview:getStorageTarget", args, &rv, opts...)

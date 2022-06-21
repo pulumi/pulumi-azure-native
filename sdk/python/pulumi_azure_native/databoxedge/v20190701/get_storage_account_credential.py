@@ -16,7 +16,7 @@ __all__ = [
     'get_storage_account_credential_output',
 ]
 
-warnings.warn("""Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetStorageAccountCredentialResult:
@@ -178,7 +178,7 @@ def get_storage_account_credential(device_name: Optional[str] = None,
     :param str name: The storage account credential name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_storage_account_credential is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_storage_account_credential is deprecated: Version 2019-07-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['deviceName'] = device_name
     __args__['name'] = name
@@ -216,5 +216,5 @@ def get_storage_account_credential_output(device_name: Optional[pulumi.Input[str
     :param str name: The storage account credential name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_storage_account_credential is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.""")
+    pulumi.log.warn("""get_storage_account_credential is deprecated: Version 2019-07-01 will be removed in v2 of the provider.""")
     ...

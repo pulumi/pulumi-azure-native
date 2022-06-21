@@ -16,7 +16,7 @@ __all__ = [
     'get_virtual_wan_output',
 ]
 
-warnings.warn("""Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-04-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetVirtualWANResult:
@@ -161,7 +161,7 @@ def get_virtual_wan(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The resource group name of the VirtualWan.
     :param str virtual_wan_name: The name of the VirtualWAN being retrieved.
     """
-    pulumi.log.warn("""get_virtual_wan is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_virtual_wan is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['virtualWANName'] = virtual_wan_name
@@ -195,5 +195,5 @@ def get_virtual_wan_output(resource_group_name: Optional[pulumi.Input[str]] = No
     :param str resource_group_name: The resource group name of the VirtualWan.
     :param str virtual_wan_name: The name of the VirtualWAN being retrieved.
     """
-    pulumi.log.warn("""get_virtual_wan is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_virtual_wan is deprecated: Version 2018-04-01 will be removed in v2 of the provider.""")
     ...

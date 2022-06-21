@@ -148,12 +148,7 @@ class ContainerAppArgs:
         pulumi.set(self, "template", value)
 
 
-warnings.warn("""Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
-
-
 class ContainerApp(pulumi.CustomResource):
-    warnings.warn("""Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -214,7 +209,6 @@ class ContainerApp(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  template: Optional[pulumi.Input[pulumi.InputType['TemplateArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ContainerApp is deprecated: Version v20220101preview will be removed in the next major version of the provider. Upgrade to version v20220301 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

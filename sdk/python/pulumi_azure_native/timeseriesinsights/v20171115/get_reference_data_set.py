@@ -16,7 +16,7 @@ __all__ = [
     'get_reference_data_set_output',
 ]
 
-warnings.warn("""Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-11-15 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetReferenceDataSetResult:
@@ -154,7 +154,7 @@ def get_reference_data_set(environment_name: Optional[str] = None,
     :param str reference_data_set_name: The name of the Time Series Insights reference data set associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_reference_data_set is deprecated: Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""")
+    pulumi.log.warn("""get_reference_data_set is deprecated: Version 2017-11-15 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['environmentName'] = environment_name
     __args__['referenceDataSetName'] = reference_data_set_name
@@ -190,5 +190,5 @@ def get_reference_data_set_output(environment_name: Optional[pulumi.Input[str]] 
     :param str reference_data_set_name: The name of the Time Series Insights reference data set associated with the specified environment.
     :param str resource_group_name: Name of an Azure Resource group.
     """
-    pulumi.log.warn("""get_reference_data_set is deprecated: Version v20171115 will be removed in the next major version of the provider. Upgrade to version v20200515 or later.""")
+    pulumi.log.warn("""get_reference_data_set is deprecated: Version 2017-11-15 will be removed in v2 of the provider.""")
     ...

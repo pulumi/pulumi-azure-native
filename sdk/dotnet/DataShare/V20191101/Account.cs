@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DataShare.V20191101
     /// <summary>
     /// An account data transfer object.
     /// </summary>
-    [Obsolete(@"Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")]
+    [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:datashare/v20191101:Account")]
     public partial class Account : Pulumi.CustomResource
     {

@@ -12,7 +12,7 @@ import (
 
 // Network security rule.
 //
-// Deprecated: Version v20171001 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2017-10-01 will be removed in v2 of the provider.
 func LookupSecurityRule(ctx *pulumi.Context, args *LookupSecurityRuleArgs, opts ...pulumi.InvokeOption) (*LookupSecurityRuleResult, error) {
 	var rv LookupSecurityRuleResult
 	err := ctx.Invoke("azure-native:network/v20171001:getSecurityRule", args, &rv, opts...)

@@ -12,7 +12,7 @@ import (
 
 // Peering Service
 //
-// Deprecated: Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.
+// Deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.
 func LookupPeeringService(ctx *pulumi.Context, args *LookupPeeringServiceArgs, opts ...pulumi.InvokeOption) (*LookupPeeringServiceResult, error) {
 	var rv LookupPeeringServiceResult
 	err := ctx.Invoke("azure-native:peering/v20190801preview:getPeeringService", args, &rv, opts...)

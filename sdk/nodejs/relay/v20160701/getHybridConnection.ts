@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Description of HybridConnection Resource.
  */
-/** @deprecated Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later. */
+/** @deprecated Version 2016-07-01 will be removed in v2 of the provider. */
 export function getHybridConnection(args: GetHybridConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridConnectionResult> {
-    pulumi.log.warn("getHybridConnection is deprecated: Version v20160701 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")
+    pulumi.log.warn("getHybridConnection is deprecated: Version 2016-07-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

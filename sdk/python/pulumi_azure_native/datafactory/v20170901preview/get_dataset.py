@@ -16,7 +16,7 @@ __all__ = [
     'get_dataset_output',
 ]
 
-warnings.warn("""Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDatasetResult:
@@ -106,7 +106,7 @@ def get_dataset(dataset_name: Optional[str] = None,
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_dataset is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
+    pulumi.log.warn("""get_dataset is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['datasetName'] = dataset_name
     __args__['factoryName'] = factory_name
@@ -138,5 +138,5 @@ def get_dataset_output(dataset_name: Optional[pulumi.Input[str]] = None,
     :param str factory_name: The factory name.
     :param str resource_group_name: The resource group name.
     """
-    pulumi.log.warn("""get_dataset is deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.""")
+    pulumi.log.warn("""get_dataset is deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.""")
     ...

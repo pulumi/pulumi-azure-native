@@ -13,7 +13,7 @@ import (
 
 // A share subscription data transfer object.
 //
-// Deprecated: Version v20181101preview will be removed in the next major version of the provider. Upgrade to version v20200901 or later.
+// Deprecated: Version 2018-11-01-preview will be removed in v2 of the provider.
 type ShareSubscription struct {
 	pulumi.CustomResourceState
 

@@ -49,6 +49,12 @@ func NewGovernanceAssignment(ctx *pulumi.Context,
 	if args.Scope == nil {
 		return nil, errors.New("invalid value for required argument 'Scope'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:security:GovernanceAssignment"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource GovernanceAssignment
 	err := ctx.RegisterResource("azure-native:security/v20220101preview:GovernanceAssignment", name, args, &resource, opts...)
 	if err != nil {

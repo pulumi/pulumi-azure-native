@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20190801
     /// <summary>
     /// Information about a domain.
     /// </summary>
-    [Obsolete(@"Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.")]
+    [Obsolete(@"Version 2019-08-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:domainregistration/v20190801:Domain")]
     public partial class Domain : Pulumi.CustomResource
     {

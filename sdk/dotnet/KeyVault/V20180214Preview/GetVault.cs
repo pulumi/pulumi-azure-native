@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.KeyVault.V20180214Preview
 {
-    [Obsolete(@"Version v20180214preview will be removed in the next major version of the provider. Upgrade to version v20190901 or later.")]
+    [Obsolete(@"Version 2018-02-14-preview will be removed in v2 of the provider.")]
     public static class GetVault
     {
         /// <summary>

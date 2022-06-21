@@ -211,12 +211,7 @@ class BlobServicePropertiesArgs:
         pulumi.set(self, "restore_policy", value)
 
 
-warnings.warn("""Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
-
-
 class BlobServiceProperties(pulumi.CustomResource):
-    warnings.warn("""Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""", DeprecationWarning)
-
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -289,7 +284,6 @@ class BlobServiceProperties(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  restore_policy: Optional[pulumi.Input[pulumi.InputType['RestorePolicyPropertiesArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""BlobServiceProperties is deprecated: Version v20210101 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

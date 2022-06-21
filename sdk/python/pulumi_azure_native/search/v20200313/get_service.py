@@ -16,7 +16,7 @@ __all__ = [
     'get_service_output',
 ]
 
-warnings.warn("""Version v20200313 will be removed in the next major version of the provider. Upgrade to version v20200801 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-03-13 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetServiceResult:
@@ -236,7 +236,7 @@ def get_service(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
     """
-    pulumi.log.warn("""get_service is deprecated: Version v20200313 will be removed in the next major version of the provider. Upgrade to version v20200801 or later.""")
+    pulumi.log.warn("""get_service is deprecated: Version 2020-03-13 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['searchServiceName'] = search_service_name
@@ -276,5 +276,5 @@ def get_service_output(resource_group_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group within the current subscription. You can obtain this value from the Azure Resource Manager API or the portal.
     :param str search_service_name: The name of the Azure Cognitive Search service associated with the specified resource group.
     """
-    pulumi.log.warn("""get_service is deprecated: Version v20200313 will be removed in the next major version of the provider. Upgrade to version v20200801 or later.""")
+    pulumi.log.warn("""get_service is deprecated: Version 2020-03-13 will be removed in v2 of the provider.""")
     ...

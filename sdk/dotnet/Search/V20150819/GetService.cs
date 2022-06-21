@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Search.V20150819
 {
-    [Obsolete(@"Version v20150819 will be removed in the next major version of the provider. Upgrade to version v20200801 or later.")]
+    [Obsolete(@"Version 2015-08-19 will be removed in v2 of the provider.")]
     public static class GetService
     {
         /// <summary>

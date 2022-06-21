@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.Compute.V20160330
 {
-    [Obsolete(@"Version v20160330 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.")]
+    [Obsolete(@"Version 2016-03-30 will be removed in v2 of the provider.")]
     public static class GetVirtualMachine
     {
         /// <summary>

@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * Contains information about an application in a Batch account.
  */
-/** @deprecated Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
+/** @deprecated Version 2019-08-01 will be removed in v2 of the provider. */
 export function getApplication(args: GetApplicationArgs, opts?: pulumi.InvokeOptions): Promise<GetApplicationResult> {
-    pulumi.log.warn("getApplication is deprecated: Version v20190801 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
+    pulumi.log.warn("getApplication is deprecated: Version 2019-08-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

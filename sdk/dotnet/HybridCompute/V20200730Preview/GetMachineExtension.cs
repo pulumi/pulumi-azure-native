@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.HybridCompute.V20200730Preview
 {
-    [Obsolete(@"Version v20200730preview will be removed in the next major version of the provider. Upgrade to version v20200802 or later.")]
+    [Obsolete(@"Version 2020-07-30-preview will be removed in v2 of the provider.")]
     public static class GetMachineExtension
     {
         /// <summary>

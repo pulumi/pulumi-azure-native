@@ -15,7 +15,7 @@ __all__ = [
     'get_workspace_aad_admin_output',
 ]
 
-warnings.warn("""Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-06-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetWorkspaceAadAdminResult:
@@ -127,7 +127,7 @@ def get_workspace_aad_admin(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("""get_workspace_aad_admin is deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_workspace_aad_admin is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['workspaceName'] = workspace_name
@@ -158,5 +158,5 @@ def get_workspace_aad_admin_output(resource_group_name: Optional[pulumi.Input[st
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     :param str workspace_name: The name of the workspace
     """
-    pulumi.log.warn("""get_workspace_aad_admin is deprecated: Version v20190601preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_workspace_aad_admin is deprecated: Version 2019-06-01-preview will be removed in v2 of the provider.""")
     ...

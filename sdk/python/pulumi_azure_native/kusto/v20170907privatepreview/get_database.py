@@ -16,7 +16,7 @@ __all__ = [
     'get_database_output',
 ]
 
-warnings.warn("""Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-09-07-privatepreview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDatabaseResult:
@@ -166,7 +166,7 @@ def get_database(cluster_name: Optional[str] = None,
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    pulumi.log.warn("""get_database is deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""")
+    pulumi.log.warn("""get_database is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['databaseName'] = database_name
@@ -203,5 +203,5 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
     :param str database_name: The name of the database in the Kusto cluster.
     :param str resource_group_name: The name of the resource group containing the Kusto cluster.
     """
-    pulumi.log.warn("""get_database is deprecated: Version v20170907privatepreview will be removed in the next major version of the provider. Upgrade to version v20180907preview or later.""")
+    pulumi.log.warn("""get_database is deprecated: Version 2017-09-07-privatepreview will be removed in v2 of the provider.""")
     ...

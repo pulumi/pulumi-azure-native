@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Snapshot policy information
  */
-/** @deprecated Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20201201 or later. */
+/** @deprecated Version 2020-05-01 will be removed in v2 of the provider. */
 export function getSnapshotPolicy(args: GetSnapshotPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotPolicyResult> {
-    pulumi.log.warn("getSnapshotPolicy is deprecated: Version v20200501 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.")
+    pulumi.log.warn("getSnapshotPolicy is deprecated: Version 2020-05-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.DataMigration.V20171115Preview
 {
-    [Obsolete(@"Version v20171115preview will be removed in the next major version of the provider. Upgrade to version v20180419 or later.")]
+    [Obsolete(@"Version 2017-11-15-preview will be removed in v2 of the provider.")]
     public static class GetProject
     {
         /// <summary>

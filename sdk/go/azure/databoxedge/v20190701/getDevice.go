@@ -12,7 +12,7 @@ import (
 
 // The Data Box Edge/Gateway device.
 //
-// Deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20201201 or later.
+// Deprecated: Version 2019-07-01 will be removed in v2 of the provider.
 func LookupDevice(ctx *pulumi.Context, args *LookupDeviceArgs, opts ...pulumi.InvokeOption) (*LookupDeviceResult, error) {
 	var rv LookupDeviceResult
 	err := ctx.Invoke("azure-native:databoxedge/v20190701:getDevice", args, &rv, opts...)

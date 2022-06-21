@@ -12,7 +12,7 @@ import (
 
 // Fabric definition.
 //
-// Deprecated: Version v20180110 will be removed in the next major version of the provider. Upgrade to version v20180710 or later.
+// Deprecated: Version 2018-01-10 will be removed in v2 of the provider.
 func LookupReplicationFabric(ctx *pulumi.Context, args *LookupReplicationFabricArgs, opts ...pulumi.InvokeOption) (*LookupReplicationFabricResult, error) {
 	var rv LookupReplicationFabricResult
 	err := ctx.Invoke("azure-native:recoveryservices/v20180110:getReplicationFabric", args, &rv, opts...)

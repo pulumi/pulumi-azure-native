@@ -16,7 +16,7 @@ __all__ = [
     'get_connected_cluster_output',
 ]
 
-warnings.warn("""Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-01-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetConnectedClusterResult:
@@ -272,7 +272,7 @@ def get_connected_cluster(cluster_name: Optional[str] = None,
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_connected_cluster is deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_connected_cluster is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['clusterName'] = cluster_name
     __args__['resourceGroupName'] = resource_group_name
@@ -315,5 +315,5 @@ def get_connected_cluster_output(cluster_name: Optional[pulumi.Input[str]] = Non
     :param str cluster_name: The name of the Kubernetes cluster on which get is called.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
-    pulumi.log.warn("""get_connected_cluster is deprecated: Version v20200101preview will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+    pulumi.log.warn("""get_connected_cluster is deprecated: Version 2020-01-01-preview will be removed in v2 of the provider.""")
     ...

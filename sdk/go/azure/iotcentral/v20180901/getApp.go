@@ -12,7 +12,7 @@ import (
 
 // The IoT Central application.
 //
-// Deprecated: Version v20180901 will be removed in the next major version of the provider. Upgrade to version v20210601 or later.
+// Deprecated: Version 2018-09-01 will be removed in v2 of the provider.
 func LookupApp(ctx *pulumi.Context, args *LookupAppArgs, opts ...pulumi.InvokeOption) (*LookupAppResult, error) {
 	var rv LookupAppResult
 	err := ctx.Invoke("azure-native:iotcentral/v20180901:getApp", args, &rv, opts...)

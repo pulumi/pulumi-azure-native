@@ -5,9 +5,9 @@ import * as pulumi from "@pulumi/pulumi";
 import { input as inputs, output as outputs, enums } from "../../types";
 import * as utilities from "../../utilities";
 
-/** @deprecated Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later. */
+/** @deprecated Version 2015-06-01-preview will be removed in v2 of the provider. */
 export function getAdaptiveApplicationControl(args: GetAdaptiveApplicationControlArgs, opts?: pulumi.InvokeOptions): Promise<GetAdaptiveApplicationControlResult> {
-    pulumi.log.warn("getAdaptiveApplicationControl is deprecated: Version v20150601preview will be removed in the next major version of the provider. Upgrade to version v20170801preview or later.")
+    pulumi.log.warn("getAdaptiveApplicationControl is deprecated: Version 2015-06-01-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

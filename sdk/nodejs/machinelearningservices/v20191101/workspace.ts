@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * An object that represents a machine learning workspace.
  *
- * @deprecated Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
+ * @deprecated Version 2019-11-01 will be removed in v2 of the provider.
  */
 export class Workspace extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class Workspace extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Workspace {
-        pulumi.log.warn("Workspace is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
+        pulumi.log.warn("Workspace is deprecated: Version 2019-11-01 will be removed in v2 of the provider.")
         return new Workspace(name, undefined as any, { ...opts, id: id });
     }
 
@@ -110,9 +110,9 @@ export class Workspace extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
+    /** @deprecated Version 2019-11-01 will be removed in v2 of the provider. */
     constructor(name: string, args: WorkspaceArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("Workspace is deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
+        pulumi.log.warn("Workspace is deprecated: Version 2019-11-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -15,7 +15,7 @@ __all__ = [
     'get_app_service_certificate_order_certificate_output',
 ]
 
-warnings.warn("""Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""", DeprecationWarning)
+warnings.warn("""Version 2020-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetAppServiceCertificateOrderCertificateResult:
@@ -153,7 +153,7 @@ def get_app_service_certificate_order_certificate(certificate_order_name: Option
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_app_service_certificate_order_certificate is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
+    pulumi.log.warn("""get_app_service_certificate_order_certificate is deprecated: Version 2020-06-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['certificateOrderName'] = certificate_order_name
     __args__['name'] = name
@@ -189,5 +189,5 @@ def get_app_service_certificate_order_certificate_output(certificate_order_name:
     :param str name: Name of the certificate.
     :param str resource_group_name: Name of the resource group to which the resource belongs.
     """
-    pulumi.log.warn("""get_app_service_certificate_order_certificate is deprecated: Version v20200601 will be removed in the next major version of the provider. Upgrade to version v20201001 or later.""")
+    pulumi.log.warn("""get_app_service_certificate_order_certificate is deprecated: Version 2020-06-01 will be removed in v2 of the provider.""")
     ...

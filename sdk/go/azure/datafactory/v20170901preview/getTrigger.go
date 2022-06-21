@@ -12,7 +12,7 @@ import (
 
 // Trigger resource type.
 //
-// Deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180601 or later.
+// Deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
 func LookupTrigger(ctx *pulumi.Context, args *LookupTriggerArgs, opts ...pulumi.InvokeOption) (*LookupTriggerResult, error) {
 	var rv LookupTriggerResult
 	err := ctx.Invoke("azure-native:datafactory/v20170901preview:getTrigger", args, &rv, opts...)

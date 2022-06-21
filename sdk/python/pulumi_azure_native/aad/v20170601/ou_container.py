@@ -113,11 +113,11 @@ class OuContainerArgs:
         pulumi.set(self, "spn", value)
 
 
-warnings.warn("""Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+warnings.warn("""Version 2017-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class OuContainer(pulumi.CustomResource):
-    warnings.warn("""Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2017-06-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -173,7 +173,7 @@ class OuContainer(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  spn: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""OuContainer is deprecated: Version v20170601 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.""")
+        pulumi.log.warn("""OuContainer is deprecated: Version 2017-06-01 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

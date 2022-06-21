@@ -12,7 +12,7 @@ import (
 
 // Class representing a Traffic Manager Real User Metrics key response.
 //
-// Deprecated: Version v20170901preview will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+// Deprecated: Version 2017-09-01-preview will be removed in v2 of the provider.
 type TrafficManagerUserMetricsKey struct {
 	pulumi.CustomResourceState
 

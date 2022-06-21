@@ -14,16 +14,46 @@ import (
 	"strings"
 )
 
-// AzureProviders maps provider names (e.g. Compute) to versions in that providers and resources therein.
-type AzureProviders = map[string]ProviderVersions
+// ProviderName e.g. aad
+type ProviderName = string
+// ApiVersion e.g. 2020-01-30
+type ApiVersion = string
+// DefinitionName is the name of either an 'invoke' or a resource (e.g. listBuckets or Bucket)
+type DefinitionName = string
+// ResourceName e.g. Bucket
+type ResourceName = string
+// InvokeName e.g. listBuckets
+type InvokeName = string
 
-// ProviderVersions maps API Versions (e.g. 2020-08-01) to resources and invokes in that version.
-type ProviderVersions = map[string]VersionResources
+// SdkVersion e.g. v20200130
+type SdkVersion = string
+
+// AzureProviders maps provider names (e.g. Compute) to versions in that providers and resources therein.
+type AzureProviders = map[ProviderName]ProviderVersions
+
+// ProviderVersions maps API Versions (e.g. v20200801) to resources and invokes in that version.
+type ProviderVersions = map[SdkVersion]VersionResources
 
 // VersionResources contains all resources and invokes in a given API version.
 type VersionResources struct {
-	Resources map[string]*ResourceSpec
-	Invokes   map[string]*ResourceSpec
+	Resources map[ResourceName]*ResourceSpec
+	Invokes   map[InvokeName]*ResourceSpec
+}
+
+type ProviderVersionList = map[ProviderName][]ApiVersion
+
+// CuratedVersion is an amalgamation of multiple API versions
+type CuratedVersion = map[ProviderName]map[DefinitionName]ApiVersion
+
+func (v VersionResources) All() map[string]*ResourceSpec {
+	specs := map[string]*ResourceSpec{}
+	for s, resourceSpec := range v.Invokes {
+		specs[s] = resourceSpec
+	}
+	for s, resourceSpec := range v.Resources {
+		specs[s] = resourceSpec
+	}
+	return specs
 }
 
 // ResourceSpec contains a pointer in an Open API Spec that defines a resource and related metadata.
@@ -40,40 +70,29 @@ type ResourceSpec struct {
 // AllVersions finds all Azure Open API specs on disk, parses them, and creates in-memory representation of resources,
 // collected per Azure Provider and API Version - for all API versions.
 func AllVersions() AzureProviders {
-	swaggerSpecLocations, err := swaggerLocations()
+	// Collect all versions for each path in the API across all Swagger files.
+	providers, err := SpecVersions()
 	if err != nil {
 		panic(err)
 	}
 
-	// Collect all versions for each path in the API across all Swagger files.
-	providers := AzureProviders{}
-	for _, location := range swaggerSpecLocations {
-		swagger, err := NewSpec(location)
-		if err != nil {
-			panic(errors.Wrapf(err, "failed to parse %q", location))
-		}
-
-		for path := range swagger.Paths.Paths {
-			addAPIPath(providers, location, path, swagger)
-		}
+	providerDefaults, err := ReadV1Version()
+	if err != nil {
+		panic(err)
 	}
 
-	versionChecker, err := newVersioner()
+	deprecated, err := ReadDeprecated()
 	if err != nil {
-		panic(errors.Wrapf(err, "reading provider versions"))
+		panic(err)
 	}
 
 	for providerName, versionMap := range providers {
 		// Add a default version for each resource and invoke.
-		defaultResources := versionChecker.calculateLatestVersions(providerName, versionMap, false /* invokes */)
-		defaultInvokes := versionChecker.calculateLatestVersions(providerName, versionMap, true /* invokes */)
-		versionMap[""] = VersionResources{
-			Resources: defaultResources,
-			Invokes:   defaultInvokes,
-		}
+		defaultResourceVersions := providerDefaults[providerName]
+		versionMap[""] = buildCuratedVersion(versionMap, defaultResourceVersions)
 
 		// Set compatible versions to all other versions of the resource with the same normalized API path.
-		pathVersions := versionChecker.calculatePathVersions(versionMap)
+		pathVersions := calculatePathVersions(versionMap)
 		for version, items := range versionMap {
 			for _, r := range items.Resources {
 				var otherVersions []string
@@ -86,44 +105,61 @@ func AllVersions() AzureProviders {
 			}
 		}
 
-		minDefaultVersion := findMinDefaultVersion(versionMap[""])
-		for version, items := range versionMap {
-			if version == "" || version >= minDefaultVersion {
-				continue
-			}
-			deprecateAll(items.Resources, version, minDefaultVersion)
-			deprecateAll(items.Invokes, version, minDefaultVersion)
+		for _, apiVersion := range deprecated[providerName] {
+			sdkVersion := ApiToSdkVersion(apiVersion)
+			resources := versionMap[sdkVersion]
+			deprecateAll(resources.All(), apiVersion)
 		}
 	}
 
 	return providers
 }
 
-func findMinDefaultVersion(versionResources VersionResources) string {
-	minVersion := ""
-	for _, resource := range versionResources.Resources {
-		version := resource.Swagger.Info.Version
-		if minVersion == "" || version < minVersion {
-			minVersion = version
+func buildCuratedVersion(versionMap ProviderVersions, curatedResourceVersions map[ResourceName]ApiVersion) VersionResources {
+	resources := map[string]*ResourceSpec{}
+	invokes := map[string]*ResourceSpec{}
+	for resourceName, apiVersion := range curatedResourceVersions {
+		if versionResources, ok := versionMap[ApiToSdkVersion(apiVersion)]; ok {
+			if resource, ok := versionResources.Resources[resourceName]; ok {
+				resourceCopy := *resource
+				resources[resourceName] = &resourceCopy
+			} else if invoke, ok := versionResources.Invokes[resourceName]; ok {
+				invokes[resourceName] = invoke
+			}
 		}
 	}
-	for _, invoke := range versionResources.Invokes {
-		version := invoke.Swagger.Info.Version
-		if minVersion == "" || version < minVersion {
-			minVersion = version
-		}
+	return VersionResources{
+		Resources: resources,
+		Invokes:   invokes,
 	}
-	if minVersion == "" {
-		return ""
-	}
-	return "v" + strings.ReplaceAll(minVersion, "-", "")
 }
 
-func deprecateAll(resourceSpecs map[string]*ResourceSpec, version, defaultVersion string) {
+func SpecVersions() (AzureProviders, error) {
+	swaggerSpecLocations, err := swaggerLocations()
+	if err != nil {
+		return nil, err
+	}
+
+	// Collect all versions for each path in the API across all Swagger files.
+	providers := AzureProviders{}
+	for _, location := range swaggerSpecLocations {
+		swagger, err := NewSpec(location)
+		if err != nil {
+			return nil, errors.Wrapf(err, "failed to parse %q", location)
+		}
+
+		for path := range swagger.Paths.Paths {
+			addAPIPath(providers, location, path, swagger)
+		}
+	}
+	return providers, nil
+}
+
+func deprecateAll(resourceSpecs map[string]*ResourceSpec, version string) {
 	for _, resourceSpec := range resourceSpecs {
 		deprecationMessage := fmt.Sprintf(
-			"Version %s will be removed in the next major version of the provider. Upgrade to version %s or later.",
-			version, defaultVersion)
+			"Version %s will be removed in v2 of the provider.",
+			version)
 		resourceSpec.DeprecationMessage = deprecationMessage
 	}
 }
@@ -193,7 +229,7 @@ func addAPIPath(providers AzureProviders, fileLocation, path string, swagger *Sp
 	}
 
 	// Find (or create) the resource map with this name.
-	apiVersion := "v" + strings.ReplaceAll(swagger.Info.Version, "-", "")
+	apiVersion := ApiToSdkVersion(swagger.Info.Version)
 	version, ok := versionMap[apiVersion]
 	if !ok {
 		version = VersionResources{

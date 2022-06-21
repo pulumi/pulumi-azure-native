@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * Azure Firewall resource
  *
- * @deprecated Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.
+ * @deprecated Version 2018-04-01 will be removed in v2 of the provider.
  */
 export class AzureFirewall extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class AzureFirewall extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): AzureFirewall {
-        pulumi.log.warn("AzureFirewall is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+        pulumi.log.warn("AzureFirewall is deprecated: Version 2018-04-01 will be removed in v2 of the provider.")
         return new AzureFirewall(name, undefined as any, { ...opts, id: id });
     }
 
@@ -82,9 +82,9 @@ export class AzureFirewall extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later. */
+    /** @deprecated Version 2018-04-01 will be removed in v2 of the provider. */
     constructor(name: string, args: AzureFirewallArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("AzureFirewall is deprecated: Version v20180401 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.")
+        pulumi.log.warn("AzureFirewall is deprecated: Version 2018-04-01 will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

@@ -16,7 +16,7 @@ __all__ = [
     'get_peering_output',
 ]
 
-warnings.warn("""Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-08-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetPeeringResult:
@@ -176,7 +176,7 @@ def get_peering(peering_name: Optional[str] = None,
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_peering is deprecated: Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
+    pulumi.log.warn("""get_peering is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['peeringName'] = peering_name
     __args__['resourceGroupName'] = resource_group_name
@@ -211,5 +211,5 @@ def get_peering_output(peering_name: Optional[pulumi.Input[str]] = None,
     :param str peering_name: The name of the peering.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_peering is deprecated: Version v20190801preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.""")
+    pulumi.log.warn("""get_peering is deprecated: Version 2019-08-01-preview will be removed in v2 of the provider.""")
     ...

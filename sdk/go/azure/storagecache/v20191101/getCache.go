@@ -12,7 +12,7 @@ import (
 
 // A Cache instance. Follows Azure Resource Manager standards: https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/resource-api-reference.md
 //
-// Deprecated: Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20210301 or later.
+// Deprecated: Version 2019-11-01 will be removed in v2 of the provider.
 func LookupCache(ctx *pulumi.Context, args *LookupCacheArgs, opts ...pulumi.InvokeOption) (*LookupCacheResult, error) {
 	var rv LookupCacheResult
 	err := ctx.Invoke("azure-native:storagecache/v20191101:getCache", args, &rv, opts...)

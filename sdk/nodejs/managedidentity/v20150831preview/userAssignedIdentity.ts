@@ -7,7 +7,7 @@ import * as utilities from "../../utilities";
 /**
  * Describes an identity resource.
  *
- * @deprecated Version v20150831preview will be removed in the next major version of the provider. Upgrade to version v20181130 or later.
+ * @deprecated Version 2015-08-31-preview will be removed in v2 of the provider.
  */
 export class UserAssignedIdentity extends pulumi.CustomResource {
     /**
@@ -19,7 +19,7 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): UserAssignedIdentity {
-        pulumi.log.warn("UserAssignedIdentity is deprecated: Version v20150831preview will be removed in the next major version of the provider. Upgrade to version v20181130 or later.")
+        pulumi.log.warn("UserAssignedIdentity is deprecated: Version 2015-08-31-preview will be removed in v2 of the provider.")
         return new UserAssignedIdentity(name, undefined as any, { ...opts, id: id });
     }
 
@@ -77,9 +77,9 @@ export class UserAssignedIdentity extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20150831preview will be removed in the next major version of the provider. Upgrade to version v20181130 or later. */
+    /** @deprecated Version 2015-08-31-preview will be removed in v2 of the provider. */
     constructor(name: string, args: UserAssignedIdentityArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("UserAssignedIdentity is deprecated: Version v20150831preview will be removed in the next major version of the provider. Upgrade to version v20181130 or later.")
+        pulumi.log.warn("UserAssignedIdentity is deprecated: Version 2015-08-31-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

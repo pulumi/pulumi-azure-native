@@ -12,7 +12,7 @@ import (
 
 // The shared dashboard resource definition.
 //
-// Deprecated: Version v20150801preview will be removed in the next major version of the provider. Upgrade to version v20181001 or later.
+// Deprecated: Version 2015-08-01-preview will be removed in v2 of the provider.
 func LookupDashboard(ctx *pulumi.Context, args *LookupDashboardArgs, opts ...pulumi.InvokeOption) (*LookupDashboardResult, error) {
 	var rv LookupDashboardResult
 	err := ctx.Invoke("azure-native:portal/v20150801preview:getDashboard", args, &rv, opts...)

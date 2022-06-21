@@ -8,7 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * The Private Endpoint Connection resource.
  *
- * @deprecated Version v20200218preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.
+ * @deprecated Version 2020-02-18-preview will be removed in v2 of the provider.
  */
 export class PrivateEndpointConnection extends pulumi.CustomResource {
     /**
@@ -20,7 +20,7 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): PrivateEndpointConnection {
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version v20200218preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version 2020-02-18-preview will be removed in v2 of the provider.")
         return new PrivateEndpointConnection(name, undefined as any, { ...opts, id: id });
     }
 
@@ -82,9 +82,9 @@ export class PrivateEndpointConnection extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    /** @deprecated Version v20200218preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later. */
+    /** @deprecated Version 2020-02-18-preview will be removed in v2 of the provider. */
     constructor(name: string, args: PrivateEndpointConnectionArgs, opts?: pulumi.CustomResourceOptions) {
-        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version v20200218preview will be removed in the next major version of the provider. Upgrade to version v20200301 or later.")
+        pulumi.log.warn("PrivateEndpointConnection is deprecated: Version 2020-02-18-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {

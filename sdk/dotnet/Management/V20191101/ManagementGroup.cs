@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.Management.V20191101
     /// <summary>
     /// The management group details.
     /// </summary>
-    [Obsolete(@"Version v20191101 will be removed in the next major version of the provider. Upgrade to version v20200501 or later.")]
+    [Obsolete(@"Version 2019-11-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:management/v20191101:ManagementGroup")]
     public partial class ManagementGroup : Pulumi.CustomResource
     {

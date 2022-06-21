@@ -16,7 +16,7 @@ __all__ = [
     'get_dedicated_host_output',
 ]
 
-warnings.warn("""Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-07-01 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetDedicatedHostResult:
@@ -216,7 +216,7 @@ def get_dedicated_host(expand: Optional[str] = None,
     :param str host_name: The name of the dedicated host.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_dedicated_host is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_dedicated_host is deprecated: Version 2019-07-01 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['hostGroupName'] = host_group_name
@@ -260,5 +260,5 @@ def get_dedicated_host_output(expand: Optional[pulumi.Input[Optional[str]]] = No
     :param str host_name: The name of the dedicated host.
     :param str resource_group_name: The name of the resource group.
     """
-    pulumi.log.warn("""get_dedicated_host is deprecated: Version v20190701 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.""")
+    pulumi.log.warn("""get_dedicated_host is deprecated: Version 2019-07-01 will be removed in v2 of the provider.""")
     ...

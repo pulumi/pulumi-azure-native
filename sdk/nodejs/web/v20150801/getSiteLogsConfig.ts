@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Configuration of Azure web site
  */
-/** @deprecated Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later. */
+/** @deprecated Version 2015-08-01 will be removed in v2 of the provider. */
 export function getSiteLogsConfig(args: GetSiteLogsConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetSiteLogsConfigResult> {
-    pulumi.log.warn("getSiteLogsConfig is deprecated: Version v20150801 will be removed in the next major version of the provider. Upgrade to version v20150801preview or later.")
+    pulumi.log.warn("getSiteLogsConfig is deprecated: Version 2015-08-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.NotificationHubs.V20160301
 {
-    [Obsolete(@"Version v20160301 will be removed in the next major version of the provider. Upgrade to version v20170401 or later.")]
+    [Obsolete(@"Version 2016-03-01 will be removed in v2 of the provider.")]
     public static class GetNotificationHub
     {
         /// <summary>

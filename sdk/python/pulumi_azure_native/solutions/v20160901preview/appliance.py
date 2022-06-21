@@ -227,11 +227,11 @@ class ApplianceArgs:
         pulumi.set(self, "ui_definition_uri", value)
 
 
-warnings.warn("""Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class Appliance(pulumi.CustomResource):
-    warnings.warn("""Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2016-09-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -308,7 +308,7 @@ class Appliance(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  ui_definition_uri: Optional[pulumi.Input[str]] = None,
                  __props__=None):
-        pulumi.log.warn("""Appliance is deprecated: Version v20160901preview will be removed in the next major version of the provider. Upgrade to version v20190701 or later.""")
+        pulumi.log.warn("""Appliance is deprecated: Version 2016-09-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

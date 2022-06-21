@@ -178,11 +178,11 @@ class VirtualMachineImageTemplateArgs:
         pulumi.set(self, "vm_profile", value)
 
 
-warnings.warn("""Version v20190501preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later.""", DeprecationWarning)
+warnings.warn("""Version 2019-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class VirtualMachineImageTemplate(pulumi.CustomResource):
-    warnings.warn("""Version v20190501preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later.""", DeprecationWarning)
+    warnings.warn("""Version 2019-05-01-preview will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -250,7 +250,7 @@ class VirtualMachineImageTemplate(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  vm_profile: Optional[pulumi.Input[pulumi.InputType['ImageTemplateVmProfileArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""VirtualMachineImageTemplate is deprecated: Version v20190501preview will be removed in the next major version of the provider. Upgrade to version v20200214 or later.""")
+        pulumi.log.warn("""VirtualMachineImageTemplate is deprecated: Version 2019-05-01-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

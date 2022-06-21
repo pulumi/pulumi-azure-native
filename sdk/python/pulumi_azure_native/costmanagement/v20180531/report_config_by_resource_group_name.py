@@ -114,11 +114,11 @@ class ReportConfigByResourceGroupNameArgs:
         pulumi.set(self, "schedule", value)
 
 
-warnings.warn("""Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.""", DeprecationWarning)
+warnings.warn("""Version 2018-05-31 will be removed in v2 of the provider.""", DeprecationWarning)
 
 
 class ReportConfigByResourceGroupName(pulumi.CustomResource):
-    warnings.warn("""Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.""", DeprecationWarning)
+    warnings.warn("""Version 2018-05-31 will be removed in v2 of the provider.""", DeprecationWarning)
 
     @overload
     def __init__(__self__,
@@ -174,7 +174,7 @@ class ReportConfigByResourceGroupName(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  schedule: Optional[pulumi.Input[pulumi.InputType['ReportConfigScheduleArgs']]] = None,
                  __props__=None):
-        pulumi.log.warn("""ReportConfigByResourceGroupName is deprecated: Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.""")
+        pulumi.log.warn("""ReportConfigByResourceGroupName is deprecated: Version 2018-05-31 will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):

@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * Peering is a logical representation of a set of connections to the Microsoft Cloud Edge at a location.
  */
-/** @deprecated Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later. */
+/** @deprecated Version 2020-10-01 will be removed in v2 of the provider. */
 export function getPeering(args: GetPeeringArgs, opts?: pulumi.InvokeOptions): Promise<GetPeeringResult> {
-    pulumi.log.warn("getPeering is deprecated: Version v20201001 will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")
+    pulumi.log.warn("getPeering is deprecated: Version 2020-10-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

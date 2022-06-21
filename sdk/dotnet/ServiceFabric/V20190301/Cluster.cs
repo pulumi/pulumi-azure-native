@@ -12,7 +12,7 @@ namespace Pulumi.AzureNative.ServiceFabric.V20190301
     /// <summary>
     /// The cluster resource
     /// </summary>
-    [Obsolete(@"Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200101preview or later.")]
+    [Obsolete(@"Version 2019-03-01 will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:servicefabric/v20190301:Cluster")]
     public partial class Cluster : Pulumi.CustomResource
     {

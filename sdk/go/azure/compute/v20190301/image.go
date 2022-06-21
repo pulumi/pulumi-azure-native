@@ -13,7 +13,7 @@ import (
 
 // The source user image virtual hard disk. The virtual hard disk will be copied before being attached to the virtual machine. If SourceImage is provided, the destination virtual hard drive must not exist.
 //
-// Deprecated: Version v20190301 will be removed in the next major version of the provider. Upgrade to version v20200930 or later.
+// Deprecated: Version 2019-03-01 will be removed in v2 of the provider.
 type Image struct {
 	pulumi.CustomResourceState
 

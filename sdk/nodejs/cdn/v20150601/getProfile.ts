@@ -8,9 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * CDN profile represents the top level resource and the entry point into the CDN API. This allows users to set up a logical grouping of endpoints in addition to creating shared configuration settings and selecting pricing tiers and providers.
  */
-/** @deprecated Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later. */
+/** @deprecated Version 2015-06-01 will be removed in v2 of the provider. */
 export function getProfile(args: GetProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetProfileResult> {
-    pulumi.log.warn("getProfile is deprecated: Version v20150601 will be removed in the next major version of the provider. Upgrade to version v20200901 or later.")
+    pulumi.log.warn("getProfile is deprecated: Version 2015-06-01 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

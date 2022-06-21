@@ -9,7 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.MixedReality.V20190228Preview
 {
-    [Obsolete(@"Version v20190228preview will be removed in the next major version of the provider. Upgrade to version v20210101 or later.")]
+    [Obsolete(@"Version 2019-02-28-preview will be removed in v2 of the provider.")]
     public static class GetSpatialAnchorsAccount
     {
         /// <summary>

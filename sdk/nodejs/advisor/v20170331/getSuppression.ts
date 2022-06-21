@@ -7,9 +7,9 @@ import * as utilities from "../../utilities";
 /**
  * The details of the snoozed or dismissed rule; for example, the duration, name, and GUID associated with the rule.
  */
-/** @deprecated Version v20170331 will be removed in the next major version of the provider. Upgrade to version v20200101 or later. */
+/** @deprecated Version 2017-03-31 will be removed in v2 of the provider. */
 export function getSuppression(args: GetSuppressionArgs, opts?: pulumi.InvokeOptions): Promise<GetSuppressionResult> {
-    pulumi.log.warn("getSuppression is deprecated: Version v20170331 will be removed in the next major version of the provider. Upgrade to version v20200101 or later.")
+    pulumi.log.warn("getSuppression is deprecated: Version 2017-03-31 will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

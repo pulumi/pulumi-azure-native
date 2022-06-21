@@ -12,7 +12,7 @@ import (
 
 // The properties of File services in storage account.
 //
-// Deprecated: Version v20190601 will be removed in the next major version of the provider. Upgrade to version v20210201 or later.
+// Deprecated: Version 2019-06-01 will be removed in v2 of the provider.
 func LookupFileServiceProperties(ctx *pulumi.Context, args *LookupFileServicePropertiesArgs, opts ...pulumi.InvokeOption) (*LookupFileServicePropertiesResult, error) {
 	var rv LookupFileServicePropertiesResult
 	err := ctx.Invoke("azure-native:storage/v20190601:getFileServiceProperties", args, &rv, opts...)

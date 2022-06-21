@@ -11,8 +11,6 @@ import (
 )
 
 // Schema for MSIX Package properties.
-//
-// Deprecated: Version v20210114preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.
 func LookupMSIXPackage(ctx *pulumi.Context, args *LookupMSIXPackageArgs, opts ...pulumi.InvokeOption) (*LookupMSIXPackageResult, error) {
 	var rv LookupMSIXPackageResult
 	err := ctx.Invoke("azure-native:desktopvirtualization/v20210114preview:getMSIXPackage", args, &rv, opts...)

@@ -16,7 +16,7 @@ __all__ = [
     'get_subnet_output',
 ]
 
-warnings.warn("""Version v20160330 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""", DeprecationWarning)
+warnings.warn("""Version 2016-03-30 will be removed in v2 of the provider.""", DeprecationWarning)
 
 @pulumi.output_type
 class GetSubnetResult:
@@ -144,7 +144,7 @@ def get_subnet(expand: Optional[str] = None,
     :param str subnet_name: The name of the subnet.
     :param str virtual_network_name: The name of the virtual network.
     """
-    pulumi.log.warn("""get_subnet is deprecated: Version v20160330 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_subnet is deprecated: Version 2016-03-30 will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['expand'] = expand
     __args__['resourceGroupName'] = resource_group_name
@@ -182,5 +182,5 @@ def get_subnet_output(expand: Optional[pulumi.Input[Optional[str]]] = None,
     :param str subnet_name: The name of the subnet.
     :param str virtual_network_name: The name of the virtual network.
     """
-    pulumi.log.warn("""get_subnet is deprecated: Version v20160330 will be removed in the next major version of the provider. Upgrade to version v20180501 or later.""")
+    pulumi.log.warn("""get_subnet is deprecated: Version 2016-03-30 will be removed in v2 of the provider.""")
     ...

@@ -13,7 +13,7 @@ import (
 
 // A report config resource.
 //
-// Deprecated: Version v20180531 will be removed in the next major version of the provider. Upgrade to version v20180801preview or later.
+// Deprecated: Version 2018-05-31 will be removed in v2 of the provider.
 type ReportConfigByResourceGroupName struct {
 	pulumi.CustomResourceState
 

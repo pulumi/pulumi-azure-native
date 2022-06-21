@@ -13,7 +13,7 @@ import (
 
 // Schema for MSIX Package properties.
 //
-// Deprecated: Version v20201102preview will be removed in the next major version of the provider. Upgrade to version v20210201preview or later.
+// Deprecated: Version 2020-11-02-preview will be removed in v2 of the provider.
 type MSIXPackage struct {
 	pulumi.CustomResourceState
 

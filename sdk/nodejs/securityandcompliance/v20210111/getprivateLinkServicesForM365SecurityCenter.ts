@@ -8,9 +8,7 @@ import * as utilities from "../../utilities";
 /**
  * The description of the service.
  */
-/** @deprecated Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later. */
 export function getprivateLinkServicesForM365SecurityCenter(args: GetprivateLinkServicesForM365SecurityCenterArgs, opts?: pulumi.InvokeOptions): Promise<GetprivateLinkServicesForM365SecurityCenterResult> {
-    pulumi.log.warn("getprivateLinkServicesForM365SecurityCenter is deprecated: Version v20210111 will be removed in the next major version of the provider. Upgrade to version v20210308 or later.")
     if (!opts) {
         opts = {}
     }
