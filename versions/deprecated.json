@@ -623,7 +623,9 @@
     "2020-04-01-preview",
     "2020-12-01"
   ],
-  "TestBase": [],
+  "TestBase": [
+    "2020-12-16-preview"
+  ],
   "TimeSeriesInsights": [
     "2017-02-28-preview",
     "2017-11-15",

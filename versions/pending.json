@@ -284,7 +284,8 @@
     "2020-07-01-preview",
     "2020-07-01-privatepreview",
     "2021-05-01",
-    "2021-05-01-preview"
+    "2021-05-01-preview",
+    "2021-12-01-preview"
   ],
   "DBforPostgreSQL": [
     "2017-12-01-preview",
@@ -301,7 +302,8 @@
     "2021-06-01",
     "2021-06-01-preview",
     "2021-06-15-privatepreview",
-    "2022-01-20-preview"
+    "2022-01-20-preview",
+    "2022-03-08-privatepreview"
   ],
   "Dashboard": [],
   "DataBox": [
@@ -342,7 +344,8 @@
     "2022-02-01-preview",
     "2022-03-01",
     "2022-03-31-preview",
-    "2022-04-01"
+    "2022-04-01",
+    "2022-05-01"
   ],
   "DataShare": [
     "2020-10-01-preview",
@@ -449,7 +452,8 @@
     "2022-02-15",
     "2022-04-21",
     "2022-05-11",
-    "2022-05-26"
+    "2022-05-26",
+    "2022-06-01"
   ],
   "GuestConfiguration": [
     "2021-01-25",
@@ -619,7 +623,8 @@
     "2021-09-01-preview"
   ],
   "ManagedIdentity": [
-    "2021-09-30-preview"
+    "2021-09-30-preview",
+    "2022-01-31-preview"
   ],
   "ManagedNetwork": [],
   "ManagedServices": [
@@ -715,7 +720,8 @@
     "2021-05-01-preview",
     "2021-08-01",
     "2022-02-01-preview",
-    "2022-04-01-preview"
+    "2022-04-01-preview",
+    "2022-05-01"
   ],
   "NetworkFunction": [],
   "NotificationHubs": [],
@@ -795,7 +801,8 @@
     "2022-01-31-preview",
     "2022-02-01",
     "2022-03-01",
-    "2022-04-01"
+    "2022-04-01",
+    "2022-06-01-preview"
   ],
   "RedHatOpenShift": [
     "2021-09-01-preview",
@@ -915,7 +922,9 @@
     "2021-11-01-preview"
   ],
   "SqlVirtualMachine": [
-    "2021-11-01-preview"
+    "2021-11-01-preview",
+    "2022-02-01",
+    "2022-02-01-preview"
   ],
   "StorSimple": [],
   "Storage": [

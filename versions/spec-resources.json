@@ -1567,6 +1567,10 @@
       "2016-01-01",
       "2017-06-01",
       "2020-06-01-preview"
+    ],
+    "listProducts": [
+      "2016-01-01",
+      "2017-06-01"
     ]
   },
   "AzureStackHCI": {
@@ -3182,7 +3186,8 @@
       "2020-07-01-preview",
       "2020-07-01-privatepreview",
       "2021-05-01",
-      "2021-05-01-preview"
+      "2021-05-01-preview",
+      "2021-12-01-preview"
     ],
     "FirewallRule": [
       "2017-12-01",
@@ -3190,7 +3195,8 @@
       "2020-07-01-preview",
       "2020-07-01-privatepreview",
       "2021-05-01",
-      "2021-05-01-preview"
+      "2021-05-01-preview",
+      "2021-12-01-preview"
     ],
     "PrivateEndpointConnection": [
       "2018-06-01",
@@ -3202,7 +3208,8 @@
       "2020-07-01-preview",
       "2020-07-01-privatepreview",
       "2021-05-01",
-      "2021-05-01-preview"
+      "2021-05-01-preview",
+      "2021-12-01-preview"
     ],
     "ServerAdministrator": [
       "2017-12-01",
@@ -3220,7 +3227,8 @@
     ],
     "getGetPrivateDnsZoneSuffixExecute": [
       "2021-05-01",
-      "2021-05-01-preview"
+      "2021-05-01-preview",
+      "2021-12-01-preview"
     ]
   },
   "DBforPostgreSQL": {
@@ -3293,6 +3301,9 @@
       "2017-12-01",
       "2017-12-01-preview"
     ],
+    "getGetCachedServerNameExecute": [
+      "2022-03-08-privatepreview"
+    ],
     "getGetPrivateDnsZoneSuffixExecute": [
       "2021-03-31-privatepreview",
       "2021-06-01",
@@ -3301,7 +3312,11 @@
   },
   "Dashboard": {
     "Grafana": [
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-05-01-preview"
+    ],
+    "PrivateEndpointConnection": [
+      "2022-05-01-preview"
     ]
   },
   "DataBox": {
@@ -3728,7 +3743,8 @@
       "2022-02-01-preview",
       "2022-03-01",
       "2022-03-31-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ],
     "BackupPolicy": [
       "2021-01-01",
@@ -3741,7 +3757,8 @@
       "2022-02-01-preview",
       "2022-03-01",
       "2022-03-31-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ],
     "BackupVault": [
       "2021-01-01",
@@ -3754,7 +3771,8 @@
       "2022-02-01-preview",
       "2022-03-01",
       "2022-03-31-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ],
     "ResourceGuard": [
       "2021-07-01",
@@ -3764,7 +3782,8 @@
       "2022-02-01-preview",
       "2022-03-01",
       "2022-03-31-preview",
-      "2022-04-01"
+      "2022-04-01",
+      "2022-05-01"
     ]
   },
   "DataShare": {
@@ -5475,7 +5494,8 @@
       "2022-02-15",
       "2022-04-21",
       "2022-05-11",
-      "2022-05-26"
+      "2022-05-26",
+      "2022-06-01"
     ],
     "getFluidRelayServerKeys": [
       "2021-03-12-preview",
@@ -5490,7 +5510,8 @@
     "listFluidRelayServerKeys": [
       "2022-04-21",
       "2022-05-11",
-      "2022-05-26"
+      "2022-05-26",
+      "2022-06-01"
     ]
   },
   "GuestConfiguration": {
@@ -6855,13 +6876,18 @@
     ]
   },
   "ManagedIdentity": {
+    "FederatedIdentityCredential": [
+      "2022-01-31-preview"
+    ],
     "UserAssignedIdentity": [
       "2015-08-31-preview",
       "2018-11-30",
-      "2021-09-30-preview"
+      "2021-09-30-preview",
+      "2022-01-31-preview"
     ],
     "listUserAssignedIdentityAssociatedResources": [
-      "2021-09-30-preview"
+      "2021-09-30-preview",
+      "2022-01-31-preview"
     ]
   },
   "ManagedNetwork": {
@@ -7064,12 +7090,14 @@
       "2018-07-01",
       "2020-05-01",
       "2021-05-01",
-      "2021-06-01"
+      "2021-06-01",
+      "2021-11-01"
     ],
     "PrivateEndpointConnection": [
       "2020-05-01",
       "2021-05-01",
-      "2021-06-01"
+      "2021-06-01",
+      "2021-11-01"
     ],
     "StreamingEndpoint": [
       "2018-03-30-preview",
@@ -7141,7 +7169,8 @@
       "2018-07-01",
       "2020-05-01",
       "2021-05-01",
-      "2021-06-01"
+      "2021-06-01",
+      "2021-11-01"
     ],
     "listMediaServiceKeys": [
       "2015-10-01"
@@ -8598,7 +8627,8 @@
       "2019-03-01",
       "2019-10-01",
       "2020-04-01",
-      "2020-11-01"
+      "2020-11-01",
+      "2022-05-01"
     ],
     "PrivateDnsZoneGroup": [
       "2020-03-01",
@@ -10439,7 +10469,8 @@
       "2021-12-01",
       "2022-01-01",
       "2022-02-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-06-01-preview"
     ],
     "ProtectedItem": [
       "2016-06-01",
@@ -10460,7 +10491,8 @@
       "2021-12-01",
       "2022-01-01",
       "2022-02-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-06-01-preview"
     ],
     "ProtectionContainer": [
       "2016-12-01",
@@ -10479,7 +10511,8 @@
       "2021-12-01",
       "2022-01-01",
       "2022-02-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-06-01-preview"
     ],
     "ProtectionIntent": [
       "2017-07-01",
@@ -10495,7 +10528,8 @@
       "2021-12-01",
       "2022-01-01",
       "2022-02-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-06-01-preview"
     ],
     "ProtectionPolicy": [
       "2016-06-01",
@@ -10514,7 +10548,8 @@
       "2021-12-01",
       "2022-01-01",
       "2022-02-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-06-01-preview"
     ],
     "ReplicationFabric": [
       "2016-08-10",
@@ -10692,7 +10727,8 @@
       "2021-12-01",
       "2022-01-01",
       "2022-02-01",
-      "2022-03-01"
+      "2022-03-01",
+      "2022-06-01-preview"
     ],
     "Vault": [
       "2016-06-01",
@@ -12320,15 +12356,21 @@
   "SqlVirtualMachine": {
     "AvailabilityGroupListener": [
       "2017-03-01-preview",
-      "2021-11-01-preview"
+      "2021-11-01-preview",
+      "2022-02-01",
+      "2022-02-01-preview"
     ],
     "SqlVirtualMachine": [
       "2017-03-01-preview",
-      "2021-11-01-preview"
+      "2021-11-01-preview",
+      "2022-02-01",
+      "2022-02-01-preview"
     ],
     "SqlVirtualMachineGroup": [
       "2017-03-01-preview",
-      "2021-11-01-preview"
+      "2021-11-01-preview",
+      "2022-02-01",
+      "2022-02-01-preview"
     ]
   },
   "StorSimple": {
@@ -13042,28 +13084,45 @@
   },
   "TestBase": {
     "CustomerEvent": [
-      "2020-12-16-preview"
+      "2020-12-16-preview",
+      "2022-04-01-preview"
     ],
     "FavoriteProcess": [
-      "2020-12-16-preview"
+      "2020-12-16-preview",
+      "2022-04-01-preview"
     ],
     "Package": [
-      "2020-12-16-preview"
+      "2020-12-16-preview",
+      "2022-04-01-preview"
     ],
     "TestBaseAccount": [
-      "2020-12-16-preview"
+      "2020-12-16-preview",
+      "2022-04-01-preview"
+    ],
+    "getBillingHubServiceFreeHourBalance": [
+      "2022-04-01-preview"
+    ],
+    "getBillingHubServiceUsage": [
+      "2022-04-01-preview"
     ],
     "getPackageDownloadURL": [
-      "2020-12-16-preview"
+      "2020-12-16-preview",
+      "2022-04-01-preview"
     ],
     "getTestBaseAccountFileUploadUrl": [
-      "2020-12-16-preview"
+      "2020-12-16-preview",
+      "2022-04-01-preview"
+    ],
+    "getTestResultConsoleLogDownloadURL": [
+      "2022-04-01-preview"
     ],
     "getTestResultDownloadURL": [
-      "2020-12-16-preview"
+      "2020-12-16-preview",
+      "2022-04-01-preview"
     ],
     "getTestResultVideoDownloadURL": [
-      "2020-12-16-preview"
+      "2020-12-16-preview",
+      "2022-04-01-preview"
     ]
   },
   "TimeSeriesInsights": {

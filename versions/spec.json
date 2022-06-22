@@ -1395,7 +1395,8 @@
       "getProduct",
       "getProducts",
       "getRegistrationActivationKey",
-      "listProductDetails"
+      "listProductDetails",
+      "listProducts"
     ],
     "2017-06-01": [
       "CustomerSubscription",
@@ -1403,7 +1404,8 @@
       "getProduct",
       "getProducts",
       "getRegistrationActivationKey",
-      "listProductDetails"
+      "listProductDetails",
+      "listProducts"
     ],
     "2020-06-01-preview": [
       "CustomerSubscription",
@@ -3122,6 +3124,12 @@
       "FirewallRule",
       "Server",
       "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2021-12-01-preview": [
+      "Database",
+      "FirewallRule",
+      "Server",
+      "getGetPrivateDnsZoneSuffixExecute"
     ]
   },
   "DBforPostgreSQL": {
@@ -3206,11 +3214,18 @@
       "FirewallRule",
       "Server",
       "getGetPrivateDnsZoneSuffixExecute"
+    ],
+    "2022-03-08-privatepreview": [
+      "getGetCachedServerNameExecute"
     ]
   },
   "Dashboard": {
     "2021-09-01-preview": [
       "Grafana"
+    ],
+    "2022-05-01-preview": [
+      "Grafana",
+      "PrivateEndpointConnection"
     ]
   },
   "DataBox": {
@@ -3645,6 +3660,12 @@
       "ResourceGuard"
     ],
     "2022-04-01": [
+      "BackupInstance",
+      "BackupPolicy",
+      "BackupVault",
+      "ResourceGuard"
+    ],
+    "2022-05-01": [
       "BackupInstance",
       "BackupPolicy",
       "BackupVault",
@@ -5264,6 +5285,10 @@
       "FluidRelayServer",
       "getFluidRelayServerKeys",
       "listFluidRelayServerKeys"
+    ],
+    "2022-06-01": [
+      "FluidRelayServer",
+      "listFluidRelayServerKeys"
     ]
   },
   "GuestConfiguration": {
@@ -6512,6 +6537,11 @@
     "2021-09-30-preview": [
       "UserAssignedIdentity",
       "listUserAssignedIdentityAssociatedResources"
+    ],
+    "2022-01-31-preview": [
+      "FederatedIdentityCredential",
+      "UserAssignedIdentity",
+      "listUserAssignedIdentityAssociatedResources"
     ]
   },
   "ManagedNetwork": {
@@ -6788,6 +6818,8 @@
       "Job",
       "LiveEvent",
       "LiveOutput",
+      "MediaService",
+      "PrivateEndpointConnection",
       "StreamingEndpoint",
       "StreamingLocator",
       "StreamingPolicy",
@@ -6797,6 +6829,7 @@
       "getContentKeyPolicyPropertiesWithSecrets",
       "listAssetContainerSas",
       "listAssetStreamingLocators",
+      "listMediaServiceEdgePolicies",
       "listStreamingLocatorContentKeys",
       "listStreamingLocatorPaths"
     ]
@@ -9424,6 +9457,9 @@
       "listNetworkManagerDeploymentStatus",
       "listNetworkManagerEffectiveConnectivityConfigurations",
       "listNetworkManagerEffectiveSecurityAdminRules"
+    ],
+    "2022-05-01": [
+      "Policy"
     ]
   },
   "NetworkFunction": {
@@ -10118,6 +10154,14 @@
     ],
     "2022-04-01": [
       "Vault"
+    ],
+    "2022-06-01-preview": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
+      "ResourceGuardProxy"
     ]
   },
   "RedHatOpenShift": {
@@ -11573,6 +11617,16 @@
       "AvailabilityGroupListener",
       "SqlVirtualMachine",
       "SqlVirtualMachineGroup"
+    ],
+    "2022-02-01": [
+      "AvailabilityGroupListener",
+      "SqlVirtualMachine",
+      "SqlVirtualMachineGroup"
+    ],
+    "2022-02-01-preview": [
+      "AvailabilityGroupListener",
+      "SqlVirtualMachine",
+      "SqlVirtualMachineGroup"
     ]
   },
   "StorSimple": {
@@ -12221,6 +12275,19 @@
       "TestBaseAccount",
       "getPackageDownloadURL",
       "getTestBaseAccountFileUploadUrl",
+      "getTestResultDownloadURL",
+      "getTestResultVideoDownloadURL"
+    ],
+    "2022-04-01-preview": [
+      "CustomerEvent",
+      "FavoriteProcess",
+      "Package",
+      "TestBaseAccount",
+      "getBillingHubServiceFreeHourBalance",
+      "getBillingHubServiceUsage",
+      "getPackageDownloadURL",
+      "getTestBaseAccountFileUploadUrl",
+      "getTestResultConsoleLogDownloadURL",
       "getTestResultDownloadURL",
       "getTestResultVideoDownloadURL"
     ]
