@@ -11,6 +11,7 @@ PROVIDER_PKGS    := $(shell cd ./provider && go list ./pkg/...)
 WORKING_DIR     := $(shell pwd)
 
 VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pkg/version.Version=${VERSION}"
+GO_SRC          := $(wildcard provder/*/*.go) $(wildcard provider/go.*)
 
 init_submodules::
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
@@ -73,7 +74,7 @@ codegen::
 provider::
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
-bin/pulumi-versioner-azure-native: provder/*/*.go provider/go.*
+bin/pulumi-versioner-azure-native: $(GO_SRC)
 	(cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/pulumi-versioner-azure-native)
 
 versioner: bin/pulumi-versioner-azure-native
