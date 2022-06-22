@@ -11,17 +11,17 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Outputs
 {
 
     /// <summary>
-    /// Authorized groundstation
+    /// Authorized groundstation.
     /// </summary>
     [OutputType]
     public sealed class AuthorizedGroundstationResponse
     {
         /// <summary>
-        /// Date of authorization expiration
+        /// Date of authorization expiration.
         /// </summary>
         public readonly string? ExpirationDate;
         /// <summary>
-        /// Groundstation name
+        /// Groundstation name.
         /// </summary>
         public readonly string? GroundStation;
 

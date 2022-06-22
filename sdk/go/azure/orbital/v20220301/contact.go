@@ -33,13 +33,13 @@ type Contact struct {
 	MaximumElevationDegrees pulumi.Float64Output `pulumi:"maximumElevationDegrees"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Reservation end time of a contact.
+	// Reservation end time of a contact (ISO 8601 UTC standard).
 	ReservationEndTime pulumi.StringOutput `pulumi:"reservationEndTime"`
-	// Reservation start time of a contact.
+	// Reservation start time of a contact (ISO 8601 UTC standard).
 	ReservationStartTime pulumi.StringOutput `pulumi:"reservationStartTime"`
-	// Receive end time of a contact.
+	// Receive end time of a contact (ISO 8601 UTC standard).
 	RxEndTime pulumi.StringOutput `pulumi:"rxEndTime"`
-	// Receive start time of a contact.
+	// Receive start time of a contact (ISO 8601 UTC standard).
 	RxStartTime pulumi.StringOutput `pulumi:"rxStartTime"`
 	// Azimuth of the antenna at the start of the contact in decimal degrees.
 	StartAzimuthDegrees pulumi.Float64Output `pulumi:"startAzimuthDegrees"`
@@ -49,9 +49,9 @@ type Contact struct {
 	Status pulumi.StringOutput `pulumi:"status"`
 	// Azure Resource Manager metadata containing createdBy and modifiedBy information.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
-	// Transmit end time of a contact.
+	// Transmit end time of a contact (ISO 8601 UTC standard).
 	TxEndTime pulumi.StringOutput `pulumi:"txEndTime"`
-	// Transmit start time of a contact.
+	// Transmit start time of a contact (ISO 8601 UTC standard).
 	TxStartTime pulumi.StringOutput `pulumi:"txStartTime"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type pulumi.StringOutput `pulumi:"type"`
@@ -123,37 +123,37 @@ func (ContactState) ElementType() reflect.Type {
 }
 
 type contactArgs struct {
-	// Contact Name
+	// Contact name.
 	ContactName *string `pulumi:"contactName"`
 	// The reference to the contact profile resource.
 	ContactProfile ContactsPropertiesContactProfile `pulumi:"contactProfile"`
 	// Azure Ground Station name.
 	GroundStationName string `pulumi:"groundStationName"`
-	// Reservation end time of a contact.
+	// Reservation end time of a contact (ISO 8601 UTC standard).
 	ReservationEndTime string `pulumi:"reservationEndTime"`
-	// Reservation start time of a contact.
+	// Reservation start time of a contact (ISO 8601 UTC standard).
 	ReservationStartTime string `pulumi:"reservationStartTime"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Spacecraft ID
+	// Spacecraft ID.
 	SpacecraftName string `pulumi:"spacecraftName"`
 }
 
 // The set of arguments for constructing a Contact resource.
 type ContactArgs struct {
-	// Contact Name
+	// Contact name.
 	ContactName pulumi.StringPtrInput
 	// The reference to the contact profile resource.
 	ContactProfile ContactsPropertiesContactProfileInput
 	// Azure Ground Station name.
 	GroundStationName pulumi.StringInput
-	// Reservation end time of a contact.
+	// Reservation end time of a contact (ISO 8601 UTC standard).
 	ReservationEndTime pulumi.StringInput
-	// Reservation start time of a contact.
+	// Reservation start time of a contact (ISO 8601 UTC standard).
 	ReservationStartTime pulumi.StringInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
-	// Spacecraft ID
+	// Spacecraft ID.
 	SpacecraftName pulumi.StringInput
 }
 
@@ -239,22 +239,22 @@ func (o ContactOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Reservation end time of a contact.
+// Reservation end time of a contact (ISO 8601 UTC standard).
 func (o ContactOutput) ReservationEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.ReservationEndTime }).(pulumi.StringOutput)
 }
 
-// Reservation start time of a contact.
+// Reservation start time of a contact (ISO 8601 UTC standard).
 func (o ContactOutput) ReservationStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.ReservationStartTime }).(pulumi.StringOutput)
 }
 
-// Receive end time of a contact.
+// Receive end time of a contact (ISO 8601 UTC standard).
 func (o ContactOutput) RxEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.RxEndTime }).(pulumi.StringOutput)
 }
 
-// Receive start time of a contact.
+// Receive start time of a contact (ISO 8601 UTC standard).
 func (o ContactOutput) RxStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.RxStartTime }).(pulumi.StringOutput)
 }
@@ -279,12 +279,12 @@ func (o ContactOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *Contact) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
 }
 
-// Transmit end time of a contact.
+// Transmit end time of a contact (ISO 8601 UTC standard).
 func (o ContactOutput) TxEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.TxEndTime }).(pulumi.StringOutput)
 }
 
-// Transmit start time of a contact.
+// Transmit start time of a contact (ISO 8601 UTC standard).
 func (o ContactOutput) TxStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *Contact) pulumi.StringOutput { return v.TxStartTime }).(pulumi.StringOutput)
 }

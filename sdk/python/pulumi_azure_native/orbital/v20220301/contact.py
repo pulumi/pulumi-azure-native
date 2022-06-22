@@ -26,11 +26,11 @@ class ContactArgs:
         The set of arguments for constructing a Contact resource.
         :param pulumi.Input['ContactsPropertiesContactProfileArgs'] contact_profile: The reference to the contact profile resource.
         :param pulumi.Input[str] ground_station_name: Azure Ground Station name.
-        :param pulumi.Input[str] reservation_end_time: Reservation end time of a contact.
-        :param pulumi.Input[str] reservation_start_time: Reservation start time of a contact.
+        :param pulumi.Input[str] reservation_end_time: Reservation end time of a contact (ISO 8601 UTC standard).
+        :param pulumi.Input[str] reservation_start_time: Reservation start time of a contact (ISO 8601 UTC standard).
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] spacecraft_name: Spacecraft ID
-        :param pulumi.Input[str] contact_name: Contact Name
+        :param pulumi.Input[str] spacecraft_name: Spacecraft ID.
+        :param pulumi.Input[str] contact_name: Contact name.
         """
         pulumi.set(__self__, "contact_profile", contact_profile)
         pulumi.set(__self__, "ground_station_name", ground_station_name)
@@ -69,7 +69,7 @@ class ContactArgs:
     @pulumi.getter(name="reservationEndTime")
     def reservation_end_time(self) -> pulumi.Input[str]:
         """
-        Reservation end time of a contact.
+        Reservation end time of a contact (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "reservation_end_time")
 
@@ -81,7 +81,7 @@ class ContactArgs:
     @pulumi.getter(name="reservationStartTime")
     def reservation_start_time(self) -> pulumi.Input[str]:
         """
-        Reservation start time of a contact.
+        Reservation start time of a contact (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "reservation_start_time")
 
@@ -105,7 +105,7 @@ class ContactArgs:
     @pulumi.getter(name="spacecraftName")
     def spacecraft_name(self) -> pulumi.Input[str]:
         """
-        Spacecraft ID
+        Spacecraft ID.
         """
         return pulumi.get(self, "spacecraft_name")
 
@@ -117,7 +117,7 @@ class ContactArgs:
     @pulumi.getter(name="contactName")
     def contact_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Contact Name
+        Contact name.
         """
         return pulumi.get(self, "contact_name")
 
@@ -144,13 +144,13 @@ class Contact(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[str] contact_name: Contact Name
+        :param pulumi.Input[str] contact_name: Contact name.
         :param pulumi.Input[pulumi.InputType['ContactsPropertiesContactProfileArgs']] contact_profile: The reference to the contact profile resource.
         :param pulumi.Input[str] ground_station_name: Azure Ground Station name.
-        :param pulumi.Input[str] reservation_end_time: Reservation end time of a contact.
-        :param pulumi.Input[str] reservation_start_time: Reservation start time of a contact.
+        :param pulumi.Input[str] reservation_end_time: Reservation end time of a contact (ISO 8601 UTC standard).
+        :param pulumi.Input[str] reservation_start_time: Reservation start time of a contact (ISO 8601 UTC standard).
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] spacecraft_name: Spacecraft ID
+        :param pulumi.Input[str] spacecraft_name: Spacecraft ID.
         """
         ...
     @overload
@@ -352,7 +352,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter(name="reservationEndTime")
     def reservation_end_time(self) -> pulumi.Output[str]:
         """
-        Reservation end time of a contact.
+        Reservation end time of a contact (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "reservation_end_time")
 
@@ -360,7 +360,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter(name="reservationStartTime")
     def reservation_start_time(self) -> pulumi.Output[str]:
         """
-        Reservation start time of a contact.
+        Reservation start time of a contact (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "reservation_start_time")
 
@@ -368,7 +368,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter(name="rxEndTime")
     def rx_end_time(self) -> pulumi.Output[str]:
         """
-        Receive end time of a contact.
+        Receive end time of a contact (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "rx_end_time")
 
@@ -376,7 +376,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter(name="rxStartTime")
     def rx_start_time(self) -> pulumi.Output[str]:
         """
-        Receive start time of a contact.
+        Receive start time of a contact (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "rx_start_time")
 
@@ -416,7 +416,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter(name="txEndTime")
     def tx_end_time(self) -> pulumi.Output[str]:
         """
-        Transmit end time of a contact.
+        Transmit end time of a contact (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "tx_end_time")
 
@@ -424,7 +424,7 @@ class Contact(pulumi.CustomResource):
     @pulumi.getter(name="txStartTime")
     def tx_start_time(self) -> pulumi.Output[str]:
         """
-        Transmit start time of a contact.
+        Transmit start time of a contact (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "tx_start_time")
 

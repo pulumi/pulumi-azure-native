@@ -23,7 +23,7 @@ export function getContact(args: GetContactArgs, opts?: pulumi.InvokeOptions): P
 
 export interface GetContactArgs {
     /**
-     * Contact Name
+     * Contact name.
      */
     contactName: string;
     /**
@@ -31,7 +31,7 @@ export interface GetContactArgs {
      */
     resourceGroupName: string;
     /**
-     * Spacecraft ID
+     * Spacecraft ID.
      */
     spacecraftName: string;
 }
@@ -81,19 +81,19 @@ export interface GetContactResult {
      */
     readonly name: string;
     /**
-     * Reservation end time of a contact.
+     * Reservation end time of a contact (ISO 8601 UTC standard).
      */
     readonly reservationEndTime: string;
     /**
-     * Reservation start time of a contact.
+     * Reservation start time of a contact (ISO 8601 UTC standard).
      */
     readonly reservationStartTime: string;
     /**
-     * Receive end time of a contact.
+     * Receive end time of a contact (ISO 8601 UTC standard).
      */
     readonly rxEndTime: string;
     /**
-     * Receive start time of a contact.
+     * Receive start time of a contact (ISO 8601 UTC standard).
      */
     readonly rxStartTime: string;
     /**
@@ -113,11 +113,11 @@ export interface GetContactResult {
      */
     readonly systemData: outputs.orbital.v20220301.SystemDataResponse;
     /**
-     * Transmit end time of a contact.
+     * Transmit end time of a contact (ISO 8601 UTC standard).
      */
     readonly txEndTime: string;
     /**
-     * Transmit start time of a contact.
+     * Transmit start time of a contact (ISO 8601 UTC standard).
      */
     readonly txStartTime: string;
     /**
@@ -132,7 +132,7 @@ export function getContactOutput(args: GetContactOutputArgs, opts?: pulumi.Invok
 
 export interface GetContactOutputArgs {
     /**
-     * Contact Name
+     * Contact name.
      */
     contactName: pulumi.Input<string>;
     /**
@@ -140,7 +140,7 @@ export interface GetContactOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Spacecraft ID
+     * Spacecraft ID.
      */
     spacecraftName: pulumi.Input<string>;
 }

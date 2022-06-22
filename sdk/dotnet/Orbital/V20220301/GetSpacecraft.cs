@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public string SpacecraftName { get; set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public Input<string> SpacecraftName { get; set; } = null!;
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Links of the Spacecraft
+        /// Immutable list of Spacecraft links.
         /// </summary>
         public readonly ImmutableArray<Outputs.SpacecraftLinkResponse> Links;
         /// <summary>
@@ -100,15 +100,15 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
         /// <summary>
-        /// Title line of Two Line Element (TLE).
+        /// Title line of the two-line element set (TLE).
         /// </summary>
         public readonly string? TitleLine;
         /// <summary>
-        /// Line 1 of Two Line Element (TLE).
+        /// Line 1 of the two-line element set (TLE).
         /// </summary>
         public readonly string? TleLine1;
         /// <summary>
-        /// Line 2 of Two Line Element (TLE).
+        /// Line 2 of the two-line element set (TLE).
         /// </summary>
         public readonly string? TleLine2;
         /// <summary>

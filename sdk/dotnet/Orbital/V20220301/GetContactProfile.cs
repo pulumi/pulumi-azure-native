@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     public sealed class GetContactProfileArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Contact Profile Name
+        /// Contact Profile name.
         /// </summary>
         [Input("contactProfileName", required: true)]
         public string ContactProfileName { get; set; } = null!;
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     public sealed class GetContactProfileInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Contact Profile Name
+        /// Contact Profile name.
         /// </summary>
         [Input("contactProfileName", required: true)]
         public Input<string> ContactProfileName { get; set; } = null!;
@@ -68,7 +68,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     public sealed class GetContactProfileResult
     {
         /// <summary>
-        /// Auto track configuration.
+        /// Auto-tracking configuration.
         /// </summary>
         public readonly string? AutoTrackingConfiguration;
         /// <summary>
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         /// </summary>
         public readonly string Etag;
         /// <summary>
-        /// The URI of the Event Hub used for telemetry
+        /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         /// </summary>
         public readonly string? EventHubUri;
         /// <summary>
@@ -84,7 +84,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Links of the Contact Profile
+        /// Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         /// </summary>
         public readonly ImmutableArray<Outputs.ContactProfileLinkResponse> Links;
         /// <summary>
@@ -92,11 +92,11 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         /// </summary>
         public readonly string Location;
         /// <summary>
-        /// Minimum viable elevation for the contact in decimal degrees.
+        /// Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         public readonly double? MinimumElevationDegrees;
         /// <summary>
-        /// Minimum viable contact duration in ISO 8601 format.
+        /// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         public readonly string? MinimumViableContactDuration;
         /// <summary>

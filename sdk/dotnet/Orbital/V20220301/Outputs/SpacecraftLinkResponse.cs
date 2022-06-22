@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Outputs
 {
 
     /// <summary>
-    /// Authorized Ground Stations for the link
+    /// List of authorized spacecraft links per ground station and the expiration date of the authorization.
     /// </summary>
     [OutputType]
     public sealed class SpacecraftLinkResponse
@@ -21,23 +21,23 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.AuthorizedGroundstationResponse> Authorizations;
         /// <summary>
-        /// Bandwidth in MHz
+        /// Bandwidth in MHz.
         /// </summary>
         public readonly double BandwidthMHz;
         /// <summary>
-        /// Center Frequency in MHz
+        /// Center Frequency in MHz.
         /// </summary>
         public readonly double CenterFrequencyMHz;
         /// <summary>
-        /// Direction (uplink or downlink)
+        /// Direction (uplink or downlink).
         /// </summary>
         public readonly string Direction;
         /// <summary>
-        /// Link name
+        /// Link name.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// polarization. eg (RHCP, LHCP)
+        /// Polarization. e.g. (RHCP, LHCP).
         /// </summary>
         public readonly string Polarization;
 

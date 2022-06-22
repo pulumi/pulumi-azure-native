@@ -16045,6 +16045,19 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "recoveryservices/v20220601preview",
+  "fqn": "pulumi_azure_native.recoveryservices.v20220601preview",
+  "classes": {
+   "azure-native:recoveryservices/v20220601preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:recoveryservices/v20220601preview:ProtectedItem": "ProtectedItem",
+   "azure-native:recoveryservices/v20220601preview:ProtectionContainer": "ProtectionContainer",
+   "azure-native:recoveryservices/v20220601preview:ProtectionIntent": "ProtectionIntent",
+   "azure-native:recoveryservices/v20220601preview:ProtectionPolicy": "ProtectionPolicy",
+   "azure-native:recoveryservices/v20220601preview:ResourceGuardProxy": "ResourceGuardProxy"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "redhatopenshift",
   "fqn": "pulumi_azure_native.redhatopenshift",
   "classes": {

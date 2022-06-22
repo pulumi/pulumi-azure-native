@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Inputs
     public sealed class ContactProfilesPropertiesNetworkConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Customer subnet ARM resource identifier.
+        /// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
         /// </summary>
         [Input("subnetId", required: true)]
         public Input<string> SubnetId { get; set; } = null!;

@@ -55,15 +55,15 @@ class ContactProfileLinkChannelArgs:
                  encoding_configuration: Optional[pulumi.Input[str]] = None,
                  modulation_configuration: Optional[pulumi.Input[str]] = None):
         """
-        Contact Profile Link Channel
-        :param pulumi.Input[float] bandwidth_m_hz: Bandwidth in MHz
-        :param pulumi.Input[float] center_frequency_m_hz: Center Frequency in MHz
+        Contact Profile Link Channel.
+        :param pulumi.Input[float] bandwidth_m_hz: Bandwidth in MHz.
+        :param pulumi.Input[float] center_frequency_m_hz: Center Frequency in MHz.
         :param pulumi.Input['EndPointArgs'] end_point: Customer End point to store/retrieve data during a contact.
-        :param pulumi.Input[str] name: Channel name
-        :param pulumi.Input[str] decoding_configuration: Configuration for decoding
-        :param pulumi.Input[str] demodulation_configuration: Configuration for demodulation
-        :param pulumi.Input[str] encoding_configuration: Configuration for encoding
-        :param pulumi.Input[str] modulation_configuration: Configuration for modulation
+        :param pulumi.Input[str] name: Channel name.
+        :param pulumi.Input[str] decoding_configuration: Currently unused.
+        :param pulumi.Input[str] demodulation_configuration: Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
+        :param pulumi.Input[str] encoding_configuration: Currently unused.
+        :param pulumi.Input[str] modulation_configuration: Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
         """
         pulumi.set(__self__, "bandwidth_m_hz", bandwidth_m_hz)
         pulumi.set(__self__, "center_frequency_m_hz", center_frequency_m_hz)
@@ -82,7 +82,7 @@ class ContactProfileLinkChannelArgs:
     @pulumi.getter(name="bandwidthMHz")
     def bandwidth_m_hz(self) -> pulumi.Input[float]:
         """
-        Bandwidth in MHz
+        Bandwidth in MHz.
         """
         return pulumi.get(self, "bandwidth_m_hz")
 
@@ -94,7 +94,7 @@ class ContactProfileLinkChannelArgs:
     @pulumi.getter(name="centerFrequencyMHz")
     def center_frequency_m_hz(self) -> pulumi.Input[float]:
         """
-        Center Frequency in MHz
+        Center Frequency in MHz.
         """
         return pulumi.get(self, "center_frequency_m_hz")
 
@@ -118,7 +118,7 @@ class ContactProfileLinkChannelArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Channel name
+        Channel name.
         """
         return pulumi.get(self, "name")
 
@@ -130,7 +130,7 @@ class ContactProfileLinkChannelArgs:
     @pulumi.getter(name="decodingConfiguration")
     def decoding_configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        Configuration for decoding
+        Currently unused.
         """
         return pulumi.get(self, "decoding_configuration")
 
@@ -142,7 +142,7 @@ class ContactProfileLinkChannelArgs:
     @pulumi.getter(name="demodulationConfiguration")
     def demodulation_configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        Configuration for demodulation
+        Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
         """
         return pulumi.get(self, "demodulation_configuration")
 
@@ -154,7 +154,7 @@ class ContactProfileLinkChannelArgs:
     @pulumi.getter(name="encodingConfiguration")
     def encoding_configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        Configuration for encoding
+        Currently unused.
         """
         return pulumi.get(self, "encoding_configuration")
 
@@ -166,7 +166,7 @@ class ContactProfileLinkChannelArgs:
     @pulumi.getter(name="modulationConfiguration")
     def modulation_configuration(self) -> Optional[pulumi.Input[str]]:
         """
-        Configuration for modulation
+        Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
         """
         return pulumi.get(self, "modulation_configuration")
 
@@ -185,13 +185,13 @@ class ContactProfileLinkArgs:
                  eirpd_bw: Optional[pulumi.Input[float]] = None,
                  gain_over_temperature: Optional[pulumi.Input[float]] = None):
         """
-        Contact Profile Link
-        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]] channels: Contact Profile Link Channel
-        :param pulumi.Input[Union[str, 'Direction']] direction: Direction (uplink or downlink)
-        :param pulumi.Input[str] name: Link name
-        :param pulumi.Input[Union[str, 'Polarization']] polarization: polarization. eg (RHCP, LHCP)
-        :param pulumi.Input[float] eirpd_bw: Effective Isotropic Radiated Power (EIRP) in dBW.
-        :param pulumi.Input[float] gain_over_temperature: Gain To Noise Temperature in db/K.
+        Contact Profile Link.
+        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]] channels: Contact Profile Link Channel.
+        :param pulumi.Input[Union[str, 'Direction']] direction: Direction (uplink or downlink).
+        :param pulumi.Input[str] name: Link name.
+        :param pulumi.Input[Union[str, 'Polarization']] polarization: Polarization. e.g. (RHCP, LHCP).
+        :param pulumi.Input[float] eirpd_bw: Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
+        :param pulumi.Input[float] gain_over_temperature: Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
         """
         pulumi.set(__self__, "channels", channels)
         pulumi.set(__self__, "direction", direction)
@@ -206,7 +206,7 @@ class ContactProfileLinkArgs:
     @pulumi.getter
     def channels(self) -> pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkChannelArgs']]]:
         """
-        Contact Profile Link Channel
+        Contact Profile Link Channel.
         """
         return pulumi.get(self, "channels")
 
@@ -218,7 +218,7 @@ class ContactProfileLinkArgs:
     @pulumi.getter
     def direction(self) -> pulumi.Input[Union[str, 'Direction']]:
         """
-        Direction (uplink or downlink)
+        Direction (uplink or downlink).
         """
         return pulumi.get(self, "direction")
 
@@ -230,7 +230,7 @@ class ContactProfileLinkArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Link name
+        Link name.
         """
         return pulumi.get(self, "name")
 
@@ -242,7 +242,7 @@ class ContactProfileLinkArgs:
     @pulumi.getter
     def polarization(self) -> pulumi.Input[Union[str, 'Polarization']]:
         """
-        polarization. eg (RHCP, LHCP)
+        Polarization. e.g. (RHCP, LHCP).
         """
         return pulumi.get(self, "polarization")
 
@@ -254,7 +254,7 @@ class ContactProfileLinkArgs:
     @pulumi.getter(name="eirpdBW")
     def eirpd_bw(self) -> Optional[pulumi.Input[float]]:
         """
-        Effective Isotropic Radiated Power (EIRP) in dBW.
+        Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
         """
         return pulumi.get(self, "eirpd_bw")
 
@@ -266,7 +266,7 @@ class ContactProfileLinkArgs:
     @pulumi.getter(name="gainOverTemperature")
     def gain_over_temperature(self) -> Optional[pulumi.Input[float]]:
         """
-        Gain To Noise Temperature in db/K.
+        Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
         """
         return pulumi.get(self, "gain_over_temperature")
 
@@ -281,7 +281,7 @@ class ContactProfilesPropertiesNetworkConfigurationArgs:
                  subnet_id: pulumi.Input[str]):
         """
         Network configuration of customer virtual network.
-        :param pulumi.Input[str] subnet_id: Customer subnet ARM resource identifier.
+        :param pulumi.Input[str] subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
 
@@ -289,7 +289,7 @@ class ContactProfilesPropertiesNetworkConfigurationArgs:
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Input[str]:
         """
-        Customer subnet ARM resource identifier.
+        ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -399,12 +399,12 @@ class SpacecraftLinkArgs:
                  name: pulumi.Input[str],
                  polarization: pulumi.Input[Union[str, 'Polarization']]):
         """
-        Authorized Ground Stations for the link
-        :param pulumi.Input[float] bandwidth_m_hz: Bandwidth in MHz
-        :param pulumi.Input[float] center_frequency_m_hz: Center Frequency in MHz
-        :param pulumi.Input[Union[str, 'Direction']] direction: Direction (uplink or downlink)
-        :param pulumi.Input[str] name: Link name
-        :param pulumi.Input[Union[str, 'Polarization']] polarization: polarization. eg (RHCP, LHCP)
+        List of authorized spacecraft links per ground station and the expiration date of the authorization.
+        :param pulumi.Input[float] bandwidth_m_hz: Bandwidth in MHz.
+        :param pulumi.Input[float] center_frequency_m_hz: Center Frequency in MHz.
+        :param pulumi.Input[Union[str, 'Direction']] direction: Direction (uplink or downlink).
+        :param pulumi.Input[str] name: Link name.
+        :param pulumi.Input[Union[str, 'Polarization']] polarization: Polarization. e.g. (RHCP, LHCP).
         """
         pulumi.set(__self__, "bandwidth_m_hz", bandwidth_m_hz)
         pulumi.set(__self__, "center_frequency_m_hz", center_frequency_m_hz)
@@ -416,7 +416,7 @@ class SpacecraftLinkArgs:
     @pulumi.getter(name="bandwidthMHz")
     def bandwidth_m_hz(self) -> pulumi.Input[float]:
         """
-        Bandwidth in MHz
+        Bandwidth in MHz.
         """
         return pulumi.get(self, "bandwidth_m_hz")
 
@@ -428,7 +428,7 @@ class SpacecraftLinkArgs:
     @pulumi.getter(name="centerFrequencyMHz")
     def center_frequency_m_hz(self) -> pulumi.Input[float]:
         """
-        Center Frequency in MHz
+        Center Frequency in MHz.
         """
         return pulumi.get(self, "center_frequency_m_hz")
 
@@ -440,7 +440,7 @@ class SpacecraftLinkArgs:
     @pulumi.getter
     def direction(self) -> pulumi.Input[Union[str, 'Direction']]:
         """
-        Direction (uplink or downlink)
+        Direction (uplink or downlink).
         """
         return pulumi.get(self, "direction")
 
@@ -452,7 +452,7 @@ class SpacecraftLinkArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        Link name
+        Link name.
         """
         return pulumi.get(self, "name")
 
@@ -464,7 +464,7 @@ class SpacecraftLinkArgs:
     @pulumi.getter
     def polarization(self) -> pulumi.Input[Union[str, 'Polarization']]:
         """
-        polarization. eg (RHCP, LHCP)
+        Polarization. e.g. (RHCP, LHCP).
         """
         return pulumi.get(self, "polarization")
 

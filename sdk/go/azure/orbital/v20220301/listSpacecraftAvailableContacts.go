@@ -23,15 +23,15 @@ func ListSpacecraftAvailableContacts(ctx *pulumi.Context, args *ListSpacecraftAv
 type ListSpacecraftAvailableContactsArgs struct {
 	// The reference to the contact profile resource.
 	ContactProfile ContactParametersContactProfile `pulumi:"contactProfile"`
-	// End time of a contact.
+	// End time of a contact (ISO 8601 UTC standard).
 	EndTime string `pulumi:"endTime"`
 	// Name of Azure Ground Station.
 	GroundStationName string `pulumi:"groundStationName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Spacecraft ID
+	// Spacecraft ID.
 	SpacecraftName string `pulumi:"spacecraftName"`
-	// Start time of a contact.
+	// Start time of a contact (ISO 8601 UTC standard).
 	StartTime string `pulumi:"startTime"`
 }
 
@@ -39,7 +39,7 @@ type ListSpacecraftAvailableContactsArgs struct {
 type ListSpacecraftAvailableContactsResult struct {
 	// The URL to get the next set of results.
 	NextLink string `pulumi:"nextLink"`
-	// A list of available contacts
+	// A list of available contacts.
 	Value []AvailableContactsResponse `pulumi:"value"`
 }
 
@@ -59,15 +59,15 @@ func ListSpacecraftAvailableContactsOutput(ctx *pulumi.Context, args ListSpacecr
 type ListSpacecraftAvailableContactsOutputArgs struct {
 	// The reference to the contact profile resource.
 	ContactProfile ContactParametersContactProfileInput `pulumi:"contactProfile"`
-	// End time of a contact.
+	// End time of a contact (ISO 8601 UTC standard).
 	EndTime pulumi.StringInput `pulumi:"endTime"`
 	// Name of Azure Ground Station.
 	GroundStationName pulumi.StringInput `pulumi:"groundStationName"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// Spacecraft ID
+	// Spacecraft ID.
 	SpacecraftName pulumi.StringInput `pulumi:"spacecraftName"`
-	// Start time of a contact.
+	// Start time of a contact (ISO 8601 UTC standard).
 	StartTime pulumi.StringInput `pulumi:"startTime"`
 }
 
@@ -95,7 +95,7 @@ func (o ListSpacecraftAvailableContactsResultOutput) NextLink() pulumi.StringOut
 	return o.ApplyT(func(v ListSpacecraftAvailableContactsResult) string { return v.NextLink }).(pulumi.StringOutput)
 }
 
-// A list of available contacts
+// A list of available contacts.
 func (o ListSpacecraftAvailableContactsResultOutput) Value() AvailableContactsResponseArrayOutput {
 	return o.ApplyT(func(v ListSpacecraftAvailableContactsResult) []AvailableContactsResponse { return v.Value }).(AvailableContactsResponseArrayOutput)
 }

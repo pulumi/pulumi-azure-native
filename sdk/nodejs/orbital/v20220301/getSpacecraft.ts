@@ -26,7 +26,7 @@ export interface GetSpacecraftArgs {
      */
     resourceGroupName: string;
     /**
-     * Spacecraft ID
+     * Spacecraft ID.
      */
     spacecraftName: string;
 }
@@ -44,7 +44,7 @@ export interface GetSpacecraftResult {
      */
     readonly id: string;
     /**
-     * Links of the Spacecraft
+     * Immutable list of Spacecraft links.
      */
     readonly links?: outputs.orbital.v20220301.SpacecraftLinkResponse[];
     /**
@@ -68,15 +68,15 @@ export interface GetSpacecraftResult {
      */
     readonly tags?: {[key: string]: string};
     /**
-     * Title line of Two Line Element (TLE).
+     * Title line of the two-line element set (TLE).
      */
     readonly titleLine?: string;
     /**
-     * Line 1 of Two Line Element (TLE).
+     * Line 1 of the two-line element set (TLE).
      */
     readonly tleLine1?: string;
     /**
-     * Line 2 of Two Line Element (TLE).
+     * Line 2 of the two-line element set (TLE).
      */
     readonly tleLine2?: string;
     /**
@@ -95,7 +95,7 @@ export interface GetSpacecraftOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Spacecraft ID
+     * Spacecraft ID.
      */
     spacecraftName: pulumi.Input<string>;
 }

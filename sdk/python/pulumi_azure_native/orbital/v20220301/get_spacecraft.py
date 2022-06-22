@@ -79,7 +79,7 @@ class GetSpacecraftResult:
     @pulumi.getter
     def links(self) -> Optional[Sequence['outputs.SpacecraftLinkResponse']]:
         """
-        Links of the Spacecraft
+        Immutable list of Spacecraft links.
         """
         return pulumi.get(self, "links")
 
@@ -127,7 +127,7 @@ class GetSpacecraftResult:
     @pulumi.getter(name="titleLine")
     def title_line(self) -> Optional[str]:
         """
-        Title line of Two Line Element (TLE).
+        Title line of the two-line element set (TLE).
         """
         return pulumi.get(self, "title_line")
 
@@ -135,7 +135,7 @@ class GetSpacecraftResult:
     @pulumi.getter(name="tleLine1")
     def tle_line1(self) -> Optional[str]:
         """
-        Line 1 of Two Line Element (TLE).
+        Line 1 of the two-line element set (TLE).
         """
         return pulumi.get(self, "tle_line1")
 
@@ -143,7 +143,7 @@ class GetSpacecraftResult:
     @pulumi.getter(name="tleLine2")
     def tle_line2(self) -> Optional[str]:
         """
-        Line 2 of Two Line Element (TLE).
+        Line 2 of the two-line element set (TLE).
         """
         return pulumi.get(self, "tle_line2")
 
@@ -184,7 +184,7 @@ def get_spacecraft(resource_group_name: Optional[str] = None,
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str spacecraft_name: Spacecraft ID
+    :param str spacecraft_name: Spacecraft ID.
     """
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
@@ -219,6 +219,6 @@ def get_spacecraft_output(resource_group_name: Optional[pulumi.Input[str]] = Non
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str spacecraft_name: Spacecraft ID
+    :param str spacecraft_name: Spacecraft ID.
     """
     ...

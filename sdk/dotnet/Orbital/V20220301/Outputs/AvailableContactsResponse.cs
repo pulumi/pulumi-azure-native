@@ -33,11 +33,11 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Outputs
         /// </summary>
         public readonly double MaximumElevationDegrees;
         /// <summary>
-        /// Time to lost receiving a signal.
+        /// Time to lost receiving a signal (ISO 8601 UTC standard).
         /// </summary>
         public readonly string RxEndTime;
         /// <summary>
-        /// Earliest time to receive a signal.
+        /// Earliest time to receive a signal (ISO 8601 UTC standard).
         /// </summary>
         public readonly string RxStartTime;
         /// <summary>
@@ -53,11 +53,11 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Outputs
         /// </summary>
         public readonly double StartElevationDegrees;
         /// <summary>
-        /// Time at which antenna transmit will be disabled.
+        /// Time at which antenna transmit will be disabled (ISO 8601 UTC standard).
         /// </summary>
         public readonly string TxEndTime;
         /// <summary>
-        /// Time at which antenna transmit will be enabled.
+        /// Time at which antenna transmit will be enabled (ISO 8601 UTC standard).
         /// </summary>
         public readonly string TxStartTime;
 

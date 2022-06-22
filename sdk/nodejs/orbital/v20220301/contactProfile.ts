@@ -36,7 +36,7 @@ export class ContactProfile extends pulumi.CustomResource {
     }
 
     /**
-     * Auto track configuration.
+     * Auto-tracking configuration.
      */
     public readonly autoTrackingConfiguration!: pulumi.Output<string | undefined>;
     /**
@@ -44,11 +44,11 @@ export class ContactProfile extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * The URI of the Event Hub used for telemetry
+     * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
     public readonly eventHubUri!: pulumi.Output<string | undefined>;
     /**
-     * Links of the Contact Profile
+     * Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
      */
     public readonly links!: pulumi.Output<outputs.orbital.v20220301.ContactProfileLinkResponse[]>;
     /**
@@ -56,11 +56,11 @@ export class ContactProfile extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * Minimum viable elevation for the contact in decimal degrees.
+     * Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
      */
     public readonly minimumElevationDegrees!: pulumi.Output<number | undefined>;
     /**
-     * Minimum viable contact duration in ISO 8601 format.
+     * Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
      */
     public readonly minimumViableContactDuration!: pulumi.Output<string | undefined>;
     /**
@@ -144,19 +144,19 @@ export class ContactProfile extends pulumi.CustomResource {
  */
 export interface ContactProfileArgs {
     /**
-     * Auto track configuration.
+     * Auto-tracking configuration.
      */
     autoTrackingConfiguration?: pulumi.Input<enums.orbital.v20220301.AutoTrackingConfiguration>;
     /**
-     * Contact Profile Name
+     * Contact Profile name.
      */
     contactProfileName?: pulumi.Input<string>;
     /**
-     * The URI of the Event Hub used for telemetry
+     * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
     eventHubUri?: pulumi.Input<string>;
     /**
-     * Links of the Contact Profile
+     * Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
      */
     links: pulumi.Input<pulumi.Input<inputs.orbital.v20220301.ContactProfileLinkArgs>[]>;
     /**
@@ -164,11 +164,11 @@ export interface ContactProfileArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * Minimum viable elevation for the contact in decimal degrees.
+     * Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
      */
     minimumElevationDegrees?: pulumi.Input<number>;
     /**
-     * Minimum viable contact duration in ISO 8601 format.
+     * Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
      */
     minimumViableContactDuration?: pulumi.Input<string>;
     /**

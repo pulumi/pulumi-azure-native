@@ -23,7 +23,7 @@ func LookupSpacecraft(ctx *pulumi.Context, args *LookupSpacecraftArgs, opts ...p
 type LookupSpacecraftArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Spacecraft ID
+	// Spacecraft ID.
 	SpacecraftName string `pulumi:"spacecraftName"`
 }
 
@@ -33,7 +33,7 @@ type LookupSpacecraftResult struct {
 	Etag string `pulumi:"etag"`
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
-	// Links of the Spacecraft
+	// Immutable list of Spacecraft links.
 	Links []SpacecraftLinkResponse `pulumi:"links"`
 	// The geo-location where the resource lives
 	Location string `pulumi:"location"`
@@ -45,11 +45,11 @@ type LookupSpacecraftResult struct {
 	SystemData SystemDataResponse `pulumi:"systemData"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
-	// Title line of Two Line Element (TLE).
+	// Title line of the two-line element set (TLE).
 	TitleLine *string `pulumi:"titleLine"`
-	// Line 1 of Two Line Element (TLE).
+	// Line 1 of the two-line element set (TLE).
 	TleLine1 *string `pulumi:"tleLine1"`
-	// Line 2 of Two Line Element (TLE).
+	// Line 2 of the two-line element set (TLE).
 	TleLine2 *string `pulumi:"tleLine2"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
 	Type string `pulumi:"type"`
@@ -71,7 +71,7 @@ func LookupSpacecraftOutput(ctx *pulumi.Context, args LookupSpacecraftOutputArgs
 type LookupSpacecraftOutputArgs struct {
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
-	// Spacecraft ID
+	// Spacecraft ID.
 	SpacecraftName pulumi.StringInput `pulumi:"spacecraftName"`
 }
 
@@ -104,7 +104,7 @@ func (o LookupSpacecraftResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupSpacecraftResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Links of the Spacecraft
+// Immutable list of Spacecraft links.
 func (o LookupSpacecraftResultOutput) Links() SpacecraftLinkResponseArrayOutput {
 	return o.ApplyT(func(v LookupSpacecraftResult) []SpacecraftLinkResponse { return v.Links }).(SpacecraftLinkResponseArrayOutput)
 }
@@ -134,17 +134,17 @@ func (o LookupSpacecraftResultOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v LookupSpacecraftResult) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
-// Title line of Two Line Element (TLE).
+// Title line of the two-line element set (TLE).
 func (o LookupSpacecraftResultOutput) TitleLine() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpacecraftResult) *string { return v.TitleLine }).(pulumi.StringPtrOutput)
 }
 
-// Line 1 of Two Line Element (TLE).
+// Line 1 of the two-line element set (TLE).
 func (o LookupSpacecraftResultOutput) TleLine1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpacecraftResult) *string { return v.TleLine1 }).(pulumi.StringPtrOutput)
 }
 
-// Line 2 of Two Line Element (TLE).
+// Line 2 of the two-line element set (TLE).
 func (o LookupSpacecraftResultOutput) TleLine2() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v LookupSpacecraftResult) *string { return v.TleLine2 }).(pulumi.StringPtrOutput)
 }

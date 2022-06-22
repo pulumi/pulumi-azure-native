@@ -11,29 +11,29 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Outputs
 {
 
     /// <summary>
-    /// Contact Profile Link Channel
+    /// Contact Profile Link Channel.
     /// </summary>
     [OutputType]
     public sealed class ContactProfileLinkChannelResponse
     {
         /// <summary>
-        /// Bandwidth in MHz
+        /// Bandwidth in MHz.
         /// </summary>
         public readonly double BandwidthMHz;
         /// <summary>
-        /// Center Frequency in MHz
+        /// Center Frequency in MHz.
         /// </summary>
         public readonly double CenterFrequencyMHz;
         /// <summary>
-        /// Configuration for decoding
+        /// Currently unused.
         /// </summary>
         public readonly string? DecodingConfiguration;
         /// <summary>
-        /// Configuration for demodulation
+        /// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
         /// </summary>
         public readonly string? DemodulationConfiguration;
         /// <summary>
-        /// Configuration for encoding
+        /// Currently unused.
         /// </summary>
         public readonly string? EncodingConfiguration;
         /// <summary>
@@ -41,11 +41,11 @@ namespace Pulumi.AzureNative.Orbital.V20220301.Outputs
         /// </summary>
         public readonly Outputs.EndPointResponse EndPoint;
         /// <summary>
-        /// Configuration for modulation
+        /// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
         /// </summary>
         public readonly string? ModulationConfiguration;
         /// <summary>
-        /// Channel name
+        /// Channel name.
         /// </summary>
         public readonly string Name;
 

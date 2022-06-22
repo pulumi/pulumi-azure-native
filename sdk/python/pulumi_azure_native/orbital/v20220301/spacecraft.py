@@ -29,13 +29,13 @@ class SpacecraftArgs:
         The set of arguments for constructing a Spacecraft resource.
         :param pulumi.Input[str] norad_id: NORAD ID of the spacecraft.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]] links: Links of the Spacecraft
+        :param pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]] links: Immutable list of Spacecraft links.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[str] spacecraft_name: Spacecraft ID
+        :param pulumi.Input[str] spacecraft_name: Spacecraft ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] title_line: Title line of Two Line Element (TLE).
-        :param pulumi.Input[str] tle_line1: Line 1 of Two Line Element (TLE).
-        :param pulumi.Input[str] tle_line2: Line 2 of Two Line Element (TLE).
+        :param pulumi.Input[str] title_line: Title line of the two-line element set (TLE).
+        :param pulumi.Input[str] tle_line1: Line 1 of the two-line element set (TLE).
+        :param pulumi.Input[str] tle_line2: Line 2 of the two-line element set (TLE).
         """
         pulumi.set(__self__, "norad_id", norad_id)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -82,7 +82,7 @@ class SpacecraftArgs:
     @pulumi.getter
     def links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SpacecraftLinkArgs']]]]:
         """
-        Links of the Spacecraft
+        Immutable list of Spacecraft links.
         """
         return pulumi.get(self, "links")
 
@@ -106,7 +106,7 @@ class SpacecraftArgs:
     @pulumi.getter(name="spacecraftName")
     def spacecraft_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Spacecraft ID
+        Spacecraft ID.
         """
         return pulumi.get(self, "spacecraft_name")
 
@@ -130,7 +130,7 @@ class SpacecraftArgs:
     @pulumi.getter(name="titleLine")
     def title_line(self) -> Optional[pulumi.Input[str]]:
         """
-        Title line of Two Line Element (TLE).
+        Title line of the two-line element set (TLE).
         """
         return pulumi.get(self, "title_line")
 
@@ -142,7 +142,7 @@ class SpacecraftArgs:
     @pulumi.getter(name="tleLine1")
     def tle_line1(self) -> Optional[pulumi.Input[str]]:
         """
-        Line 1 of Two Line Element (TLE).
+        Line 1 of the two-line element set (TLE).
         """
         return pulumi.get(self, "tle_line1")
 
@@ -154,7 +154,7 @@ class SpacecraftArgs:
     @pulumi.getter(name="tleLine2")
     def tle_line2(self) -> Optional[pulumi.Input[str]]:
         """
-        Line 2 of Two Line Element (TLE).
+        Line 2 of the two-line element set (TLE).
         """
         return pulumi.get(self, "tle_line2")
 
@@ -183,15 +183,15 @@ class Spacecraft(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArgs']]]] links: Links of the Spacecraft
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['SpacecraftLinkArgs']]]] links: Immutable list of Spacecraft links.
         :param pulumi.Input[str] location: The geo-location where the resource lives
         :param pulumi.Input[str] norad_id: NORAD ID of the spacecraft.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] spacecraft_name: Spacecraft ID
+        :param pulumi.Input[str] spacecraft_name: Spacecraft ID.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
-        :param pulumi.Input[str] title_line: Title line of Two Line Element (TLE).
-        :param pulumi.Input[str] tle_line1: Line 1 of Two Line Element (TLE).
-        :param pulumi.Input[str] tle_line2: Line 2 of Two Line Element (TLE).
+        :param pulumi.Input[str] title_line: Title line of the two-line element set (TLE).
+        :param pulumi.Input[str] tle_line1: Line 1 of the two-line element set (TLE).
+        :param pulumi.Input[str] tle_line2: Line 2 of the two-line element set (TLE).
         """
         ...
     @overload
@@ -304,7 +304,7 @@ class Spacecraft(pulumi.CustomResource):
     @pulumi.getter
     def links(self) -> pulumi.Output[Optional[Sequence['outputs.SpacecraftLinkResponse']]]:
         """
-        Links of the Spacecraft
+        Immutable list of Spacecraft links.
         """
         return pulumi.get(self, "links")
 
@@ -352,7 +352,7 @@ class Spacecraft(pulumi.CustomResource):
     @pulumi.getter(name="titleLine")
     def title_line(self) -> pulumi.Output[Optional[str]]:
         """
-        Title line of Two Line Element (TLE).
+        Title line of the two-line element set (TLE).
         """
         return pulumi.get(self, "title_line")
 
@@ -360,7 +360,7 @@ class Spacecraft(pulumi.CustomResource):
     @pulumi.getter(name="tleLine1")
     def tle_line1(self) -> pulumi.Output[Optional[str]]:
         """
-        Line 1 of Two Line Element (TLE).
+        Line 1 of the two-line element set (TLE).
         """
         return pulumi.get(self, "tle_line1")
 
@@ -368,7 +368,7 @@ class Spacecraft(pulumi.CustomResource):
     @pulumi.getter(name="tleLine2")
     def tle_line2(self) -> pulumi.Output[Optional[str]]:
         """
-        Line 2 of Two Line Element (TLE).
+        Line 2 of the two-line element set (TLE).
         """
         return pulumi.get(self, "tle_line2")
 

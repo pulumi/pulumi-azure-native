@@ -27,7 +27,7 @@ __all__ = [
 @pulumi.output_type
 class AuthorizedGroundstationResponse(dict):
     """
-    Authorized groundstation
+    Authorized groundstation.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -52,9 +52,9 @@ class AuthorizedGroundstationResponse(dict):
                  expiration_date: Optional[str] = None,
                  ground_station: Optional[str] = None):
         """
-        Authorized groundstation
-        :param str expiration_date: Date of authorization expiration
-        :param str ground_station: Groundstation name
+        Authorized groundstation.
+        :param str expiration_date: Date of authorization expiration.
+        :param str ground_station: Groundstation name.
         """
         if expiration_date is not None:
             pulumi.set(__self__, "expiration_date", expiration_date)
@@ -65,7 +65,7 @@ class AuthorizedGroundstationResponse(dict):
     @pulumi.getter(name="expirationDate")
     def expiration_date(self) -> Optional[str]:
         """
-        Date of authorization expiration
+        Date of authorization expiration.
         """
         return pulumi.get(self, "expiration_date")
 
@@ -73,7 +73,7 @@ class AuthorizedGroundstationResponse(dict):
     @pulumi.getter(name="groundStation")
     def ground_station(self) -> Optional[str]:
         """
-        Groundstation name
+        Groundstation name.
         """
         return pulumi.get(self, "ground_station")
 
@@ -101,12 +101,12 @@ class AvailableContactsResponse(dict):
         :param float end_elevation_degrees: Spacecraft elevation above the horizon at contact end.
         :param str ground_station_name: Name of Azure Ground Station.
         :param float maximum_elevation_degrees: Maximum elevation of the antenna during the contact in decimal degrees.
-        :param str rx_end_time: Time to lost receiving a signal.
-        :param str rx_start_time: Earliest time to receive a signal.
+        :param str rx_end_time: Time to lost receiving a signal (ISO 8601 UTC standard).
+        :param str rx_start_time: Earliest time to receive a signal (ISO 8601 UTC standard).
         :param float start_azimuth_degrees: Azimuth of the antenna at the start of the contact in decimal degrees.
         :param float start_elevation_degrees: Spacecraft elevation above the horizon at contact start.
-        :param str tx_end_time: Time at which antenna transmit will be disabled.
-        :param str tx_start_time: Time at which antenna transmit will be enabled.
+        :param str tx_end_time: Time at which antenna transmit will be disabled (ISO 8601 UTC standard).
+        :param str tx_start_time: Time at which antenna transmit will be enabled (ISO 8601 UTC standard).
         :param 'AvailableContactsResponseSpacecraft' spacecraft: The reference to the spacecraft resource.
         """
         pulumi.set(__self__, "end_azimuth_degrees", end_azimuth_degrees)
@@ -158,7 +158,7 @@ class AvailableContactsResponse(dict):
     @pulumi.getter(name="rxEndTime")
     def rx_end_time(self) -> str:
         """
-        Time to lost receiving a signal.
+        Time to lost receiving a signal (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "rx_end_time")
 
@@ -166,7 +166,7 @@ class AvailableContactsResponse(dict):
     @pulumi.getter(name="rxStartTime")
     def rx_start_time(self) -> str:
         """
-        Earliest time to receive a signal.
+        Earliest time to receive a signal (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "rx_start_time")
 
@@ -190,7 +190,7 @@ class AvailableContactsResponse(dict):
     @pulumi.getter(name="txEndTime")
     def tx_end_time(self) -> str:
         """
-        Time at which antenna transmit will be disabled.
+        Time at which antenna transmit will be disabled (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "tx_end_time")
 
@@ -198,7 +198,7 @@ class AvailableContactsResponse(dict):
     @pulumi.getter(name="txStartTime")
     def tx_start_time(self) -> str:
         """
-        Time at which antenna transmit will be enabled.
+        Time at which antenna transmit will be enabled (ISO 8601 UTC standard).
         """
         return pulumi.get(self, "tx_start_time")
 
@@ -237,7 +237,7 @@ class AvailableContactsResponseSpacecraft(dict):
 @pulumi.output_type
 class ContactProfileLinkChannelResponse(dict):
     """
-    Contact Profile Link Channel
+    Contact Profile Link Channel.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -278,15 +278,15 @@ class ContactProfileLinkChannelResponse(dict):
                  encoding_configuration: Optional[str] = None,
                  modulation_configuration: Optional[str] = None):
         """
-        Contact Profile Link Channel
-        :param float bandwidth_m_hz: Bandwidth in MHz
-        :param float center_frequency_m_hz: Center Frequency in MHz
+        Contact Profile Link Channel.
+        :param float bandwidth_m_hz: Bandwidth in MHz.
+        :param float center_frequency_m_hz: Center Frequency in MHz.
         :param 'EndPointResponse' end_point: Customer End point to store/retrieve data during a contact.
-        :param str name: Channel name
-        :param str decoding_configuration: Configuration for decoding
-        :param str demodulation_configuration: Configuration for demodulation
-        :param str encoding_configuration: Configuration for encoding
-        :param str modulation_configuration: Configuration for modulation
+        :param str name: Channel name.
+        :param str decoding_configuration: Currently unused.
+        :param str demodulation_configuration: Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
+        :param str encoding_configuration: Currently unused.
+        :param str modulation_configuration: Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
         """
         pulumi.set(__self__, "bandwidth_m_hz", bandwidth_m_hz)
         pulumi.set(__self__, "center_frequency_m_hz", center_frequency_m_hz)
@@ -305,7 +305,7 @@ class ContactProfileLinkChannelResponse(dict):
     @pulumi.getter(name="bandwidthMHz")
     def bandwidth_m_hz(self) -> float:
         """
-        Bandwidth in MHz
+        Bandwidth in MHz.
         """
         return pulumi.get(self, "bandwidth_m_hz")
 
@@ -313,7 +313,7 @@ class ContactProfileLinkChannelResponse(dict):
     @pulumi.getter(name="centerFrequencyMHz")
     def center_frequency_m_hz(self) -> float:
         """
-        Center Frequency in MHz
+        Center Frequency in MHz.
         """
         return pulumi.get(self, "center_frequency_m_hz")
 
@@ -329,7 +329,7 @@ class ContactProfileLinkChannelResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Channel name
+        Channel name.
         """
         return pulumi.get(self, "name")
 
@@ -337,7 +337,7 @@ class ContactProfileLinkChannelResponse(dict):
     @pulumi.getter(name="decodingConfiguration")
     def decoding_configuration(self) -> Optional[str]:
         """
-        Configuration for decoding
+        Currently unused.
         """
         return pulumi.get(self, "decoding_configuration")
 
@@ -345,7 +345,7 @@ class ContactProfileLinkChannelResponse(dict):
     @pulumi.getter(name="demodulationConfiguration")
     def demodulation_configuration(self) -> Optional[str]:
         """
-        Configuration for demodulation
+        Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
         """
         return pulumi.get(self, "demodulation_configuration")
 
@@ -353,7 +353,7 @@ class ContactProfileLinkChannelResponse(dict):
     @pulumi.getter(name="encodingConfiguration")
     def encoding_configuration(self) -> Optional[str]:
         """
-        Configuration for encoding
+        Currently unused.
         """
         return pulumi.get(self, "encoding_configuration")
 
@@ -361,7 +361,7 @@ class ContactProfileLinkChannelResponse(dict):
     @pulumi.getter(name="modulationConfiguration")
     def modulation_configuration(self) -> Optional[str]:
         """
-        Configuration for modulation
+        Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
         """
         return pulumi.get(self, "modulation_configuration")
 
@@ -369,7 +369,7 @@ class ContactProfileLinkChannelResponse(dict):
 @pulumi.output_type
 class ContactProfileLinkResponse(dict):
     """
-    Contact Profile Link
+    Contact Profile Link.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -398,13 +398,13 @@ class ContactProfileLinkResponse(dict):
                  eirpd_bw: Optional[float] = None,
                  gain_over_temperature: Optional[float] = None):
         """
-        Contact Profile Link
-        :param Sequence['ContactProfileLinkChannelResponse'] channels: Contact Profile Link Channel
-        :param str direction: Direction (uplink or downlink)
-        :param str name: Link name
-        :param str polarization: polarization. eg (RHCP, LHCP)
-        :param float eirpd_bw: Effective Isotropic Radiated Power (EIRP) in dBW.
-        :param float gain_over_temperature: Gain To Noise Temperature in db/K.
+        Contact Profile Link.
+        :param Sequence['ContactProfileLinkChannelResponse'] channels: Contact Profile Link Channel.
+        :param str direction: Direction (uplink or downlink).
+        :param str name: Link name.
+        :param str polarization: Polarization. e.g. (RHCP, LHCP).
+        :param float eirpd_bw: Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
+        :param float gain_over_temperature: Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
         """
         pulumi.set(__self__, "channels", channels)
         pulumi.set(__self__, "direction", direction)
@@ -419,7 +419,7 @@ class ContactProfileLinkResponse(dict):
     @pulumi.getter
     def channels(self) -> Sequence['outputs.ContactProfileLinkChannelResponse']:
         """
-        Contact Profile Link Channel
+        Contact Profile Link Channel.
         """
         return pulumi.get(self, "channels")
 
@@ -427,7 +427,7 @@ class ContactProfileLinkResponse(dict):
     @pulumi.getter
     def direction(self) -> str:
         """
-        Direction (uplink or downlink)
+        Direction (uplink or downlink).
         """
         return pulumi.get(self, "direction")
 
@@ -435,7 +435,7 @@ class ContactProfileLinkResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Link name
+        Link name.
         """
         return pulumi.get(self, "name")
 
@@ -443,7 +443,7 @@ class ContactProfileLinkResponse(dict):
     @pulumi.getter
     def polarization(self) -> str:
         """
-        polarization. eg (RHCP, LHCP)
+        Polarization. e.g. (RHCP, LHCP).
         """
         return pulumi.get(self, "polarization")
 
@@ -451,7 +451,7 @@ class ContactProfileLinkResponse(dict):
     @pulumi.getter(name="eirpdBW")
     def eirpd_bw(self) -> Optional[float]:
         """
-        Effective Isotropic Radiated Power (EIRP) in dBW.
+        Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
         """
         return pulumi.get(self, "eirpd_bw")
 
@@ -459,7 +459,7 @@ class ContactProfileLinkResponse(dict):
     @pulumi.getter(name="gainOverTemperature")
     def gain_over_temperature(self) -> Optional[float]:
         """
-        Gain To Noise Temperature in db/K.
+        Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
         """
         return pulumi.get(self, "gain_over_temperature")
 
@@ -490,7 +490,7 @@ class ContactProfilesPropertiesResponseNetworkConfiguration(dict):
                  subnet_id: str):
         """
         Network configuration of customer virtual network.
-        :param str subnet_id: Customer subnet ARM resource identifier.
+        :param str subnet_id: ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
         """
         pulumi.set(__self__, "subnet_id", subnet_id)
 
@@ -498,7 +498,7 @@ class ContactProfilesPropertiesResponseNetworkConfiguration(dict):
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> str:
         """
-        Customer subnet ARM resource identifier.
+        ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
         """
         return pulumi.get(self, "subnet_id")
 
@@ -657,7 +657,7 @@ class EndPointResponse(dict):
 @pulumi.output_type
 class SpacecraftLinkResponse(dict):
     """
-    Authorized Ground Stations for the link
+    List of authorized spacecraft links per ground station and the expiration date of the authorization.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -686,13 +686,13 @@ class SpacecraftLinkResponse(dict):
                  name: str,
                  polarization: str):
         """
-        Authorized Ground Stations for the link
+        List of authorized spacecraft links per ground station and the expiration date of the authorization.
         :param Sequence['AuthorizedGroundstationResponse'] authorizations: Authorized Ground Stations
-        :param float bandwidth_m_hz: Bandwidth in MHz
-        :param float center_frequency_m_hz: Center Frequency in MHz
-        :param str direction: Direction (uplink or downlink)
-        :param str name: Link name
-        :param str polarization: polarization. eg (RHCP, LHCP)
+        :param float bandwidth_m_hz: Bandwidth in MHz.
+        :param float center_frequency_m_hz: Center Frequency in MHz.
+        :param str direction: Direction (uplink or downlink).
+        :param str name: Link name.
+        :param str polarization: Polarization. e.g. (RHCP, LHCP).
         """
         pulumi.set(__self__, "authorizations", authorizations)
         pulumi.set(__self__, "bandwidth_m_hz", bandwidth_m_hz)
@@ -713,7 +713,7 @@ class SpacecraftLinkResponse(dict):
     @pulumi.getter(name="bandwidthMHz")
     def bandwidth_m_hz(self) -> float:
         """
-        Bandwidth in MHz
+        Bandwidth in MHz.
         """
         return pulumi.get(self, "bandwidth_m_hz")
 
@@ -721,7 +721,7 @@ class SpacecraftLinkResponse(dict):
     @pulumi.getter(name="centerFrequencyMHz")
     def center_frequency_m_hz(self) -> float:
         """
-        Center Frequency in MHz
+        Center Frequency in MHz.
         """
         return pulumi.get(self, "center_frequency_m_hz")
 
@@ -729,7 +729,7 @@ class SpacecraftLinkResponse(dict):
     @pulumi.getter
     def direction(self) -> str:
         """
-        Direction (uplink or downlink)
+        Direction (uplink or downlink).
         """
         return pulumi.get(self, "direction")
 
@@ -737,7 +737,7 @@ class SpacecraftLinkResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        Link name
+        Link name.
         """
         return pulumi.get(self, "name")
 
@@ -745,7 +745,7 @@ class SpacecraftLinkResponse(dict):
     @pulumi.getter
     def polarization(self) -> str:
         """
-        polarization. eg (RHCP, LHCP)
+        Polarization. e.g. (RHCP, LHCP).
         """
         return pulumi.get(self, "polarization")
 

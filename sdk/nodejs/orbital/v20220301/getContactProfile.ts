@@ -22,7 +22,7 @@ export function getContactProfile(args: GetContactProfileArgs, opts?: pulumi.Inv
 
 export interface GetContactProfileArgs {
     /**
-     * Contact Profile Name
+     * Contact Profile name.
      */
     contactProfileName: string;
     /**
@@ -36,7 +36,7 @@ export interface GetContactProfileArgs {
  */
 export interface GetContactProfileResult {
     /**
-     * Auto track configuration.
+     * Auto-tracking configuration.
      */
     readonly autoTrackingConfiguration?: string;
     /**
@@ -44,7 +44,7 @@ export interface GetContactProfileResult {
      */
     readonly etag: string;
     /**
-     * The URI of the Event Hub used for telemetry
+     * ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
      */
     readonly eventHubUri?: string;
     /**
@@ -52,7 +52,7 @@ export interface GetContactProfileResult {
      */
     readonly id: string;
     /**
-     * Links of the Contact Profile
+     * Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
      */
     readonly links: outputs.orbital.v20220301.ContactProfileLinkResponse[];
     /**
@@ -60,11 +60,11 @@ export interface GetContactProfileResult {
      */
     readonly location: string;
     /**
-     * Minimum viable elevation for the contact in decimal degrees.
+     * Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
      */
     readonly minimumElevationDegrees?: number;
     /**
-     * Minimum viable contact duration in ISO 8601 format.
+     * Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
      */
     readonly minimumViableContactDuration?: string;
     /**
@@ -95,7 +95,7 @@ export function getContactProfileOutput(args: GetContactProfileOutputArgs, opts?
 
 export interface GetContactProfileOutputArgs {
     /**
-     * Contact Profile Name
+     * Contact Profile name.
      */
     contactProfileName: pulumi.Input<string>;
     /**

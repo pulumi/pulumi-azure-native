@@ -9,7 +9,7 @@ export const AutoTrackingConfiguration = {
 } as const;
 
 /**
- * Auto track configuration.
+ * Auto-tracking configuration.
  */
 export type AutoTrackingConfiguration = (typeof AutoTrackingConfiguration)[keyof typeof AutoTrackingConfiguration];
 
@@ -19,7 +19,7 @@ export const Direction = {
 } as const;
 
 /**
- * Direction (uplink or downlink)
+ * Direction (uplink or downlink).
  */
 export type Direction = (typeof Direction)[keyof typeof Direction];
 
@@ -31,7 +31,7 @@ export const Polarization = {
 } as const;
 
 /**
- * polarization. eg (RHCP, LHCP)
+ * Polarization. e.g. (RHCP, LHCP).
  */
 export type Polarization = (typeof Polarization)[keyof typeof Polarization];
 

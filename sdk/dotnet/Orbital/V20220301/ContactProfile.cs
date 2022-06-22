@@ -16,7 +16,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     public partial class ContactProfile : Pulumi.CustomResource
     {
         /// <summary>
-        /// Auto track configuration.
+        /// Auto-tracking configuration.
         /// </summary>
         [Output("autoTrackingConfiguration")]
         public Output<string?> AutoTrackingConfiguration { get; private set; } = null!;
@@ -28,13 +28,13 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public Output<string> Etag { get; private set; } = null!;
 
         /// <summary>
-        /// The URI of the Event Hub used for telemetry
+        /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         /// </summary>
         [Output("eventHubUri")]
         public Output<string?> EventHubUri { get; private set; } = null!;
 
         /// <summary>
-        /// Links of the Contact Profile
+        /// Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         /// </summary>
         [Output("links")]
         public Output<ImmutableArray<Outputs.ContactProfileLinkResponse>> Links { get; private set; } = null!;
@@ -46,13 +46,13 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public Output<string> Location { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum viable elevation for the contact in decimal degrees.
+        /// Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         [Output("minimumElevationDegrees")]
         public Output<double?> MinimumElevationDegrees { get; private set; } = null!;
 
         /// <summary>
-        /// Minimum viable contact duration in ISO 8601 format.
+        /// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         [Output("minimumViableContactDuration")]
         public Output<string?> MinimumViableContactDuration { get; private set; } = null!;
@@ -138,19 +138,19 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     public sealed class ContactProfileArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Auto track configuration.
+        /// Auto-tracking configuration.
         /// </summary>
         [Input("autoTrackingConfiguration")]
         public Input<Pulumi.AzureNative.Orbital.V20220301.AutoTrackingConfiguration>? AutoTrackingConfiguration { get; set; }
 
         /// <summary>
-        /// Contact Profile Name
+        /// Contact Profile name.
         /// </summary>
         [Input("contactProfileName")]
         public Input<string>? ContactProfileName { get; set; }
 
         /// <summary>
-        /// The URI of the Event Hub used for telemetry
+        /// ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         /// </summary>
         [Input("eventHubUri")]
         public Input<string>? EventHubUri { get; set; }
@@ -159,7 +159,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         private InputList<Inputs.ContactProfileLinkArgs>? _links;
 
         /// <summary>
-        /// Links of the Contact Profile
+        /// Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         /// </summary>
         public InputList<Inputs.ContactProfileLinkArgs> Links
         {
@@ -174,13 +174,13 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public Input<string>? Location { get; set; }
 
         /// <summary>
-        /// Minimum viable elevation for the contact in decimal degrees.
+        /// Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         [Input("minimumElevationDegrees")]
         public Input<double>? MinimumElevationDegrees { get; set; }
 
         /// <summary>
-        /// Minimum viable contact duration in ISO 8601 format.
+        /// Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         /// </summary>
         [Input("minimumViableContactDuration")]
         public Input<string>? MinimumViableContactDuration { get; set; }

@@ -28,15 +28,15 @@ class ContactProfileArgs:
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
         The set of arguments for constructing a ContactProfile resource.
-        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: Links of the Contact Profile
+        :param pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]] links: Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         :param pulumi.Input['ContactProfilesPropertiesNetworkConfigurationArgs'] network_configuration: Network configuration of customer virtual network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto track configuration.
-        :param pulumi.Input[str] contact_profile_name: Contact Profile Name
-        :param pulumi.Input[str] event_hub_uri: The URI of the Event Hub used for telemetry
+        :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto-tracking configuration.
+        :param pulumi.Input[str] contact_profile_name: Contact Profile name.
+        :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[float] minimum_elevation_degrees: Minimum viable elevation for the contact in decimal degrees.
-        :param pulumi.Input[str] minimum_viable_contact_duration: Minimum viable contact duration in ISO 8601 format.
+        :param pulumi.Input[float] minimum_elevation_degrees: Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
+        :param pulumi.Input[str] minimum_viable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
         """
         pulumi.set(__self__, "links", links)
@@ -61,7 +61,7 @@ class ContactProfileArgs:
     @pulumi.getter
     def links(self) -> pulumi.Input[Sequence[pulumi.Input['ContactProfileLinkArgs']]]:
         """
-        Links of the Contact Profile
+        Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         """
         return pulumi.get(self, "links")
 
@@ -97,7 +97,7 @@ class ContactProfileArgs:
     @pulumi.getter(name="autoTrackingConfiguration")
     def auto_tracking_configuration(self) -> Optional[pulumi.Input['AutoTrackingConfiguration']]:
         """
-        Auto track configuration.
+        Auto-tracking configuration.
         """
         return pulumi.get(self, "auto_tracking_configuration")
 
@@ -109,7 +109,7 @@ class ContactProfileArgs:
     @pulumi.getter(name="contactProfileName")
     def contact_profile_name(self) -> Optional[pulumi.Input[str]]:
         """
-        Contact Profile Name
+        Contact Profile name.
         """
         return pulumi.get(self, "contact_profile_name")
 
@@ -121,7 +121,7 @@ class ContactProfileArgs:
     @pulumi.getter(name="eventHubUri")
     def event_hub_uri(self) -> Optional[pulumi.Input[str]]:
         """
-        The URI of the Event Hub used for telemetry
+        ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         """
         return pulumi.get(self, "event_hub_uri")
 
@@ -145,7 +145,7 @@ class ContactProfileArgs:
     @pulumi.getter(name="minimumElevationDegrees")
     def minimum_elevation_degrees(self) -> Optional[pulumi.Input[float]]:
         """
-        Minimum viable elevation for the contact in decimal degrees.
+        Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
         """
         return pulumi.get(self, "minimum_elevation_degrees")
 
@@ -157,7 +157,7 @@ class ContactProfileArgs:
     @pulumi.getter(name="minimumViableContactDuration")
     def minimum_viable_contact_duration(self) -> Optional[pulumi.Input[str]]:
         """
-        Minimum viable contact duration in ISO 8601 format.
+        Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         """
         return pulumi.get(self, "minimum_viable_contact_duration")
 
@@ -199,13 +199,13 @@ class ContactProfile(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto track configuration.
-        :param pulumi.Input[str] contact_profile_name: Contact Profile Name
-        :param pulumi.Input[str] event_hub_uri: The URI of the Event Hub used for telemetry
-        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: Links of the Contact Profile
+        :param pulumi.Input['AutoTrackingConfiguration'] auto_tracking_configuration: Auto-tracking configuration.
+        :param pulumi.Input[str] contact_profile_name: Contact Profile name.
+        :param pulumi.Input[str] event_hub_uri: ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
+        :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ContactProfileLinkArgs']]]] links: Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         :param pulumi.Input[str] location: The geo-location where the resource lives
-        :param pulumi.Input[float] minimum_elevation_degrees: Minimum viable elevation for the contact in decimal degrees.
-        :param pulumi.Input[str] minimum_viable_contact_duration: Minimum viable contact duration in ISO 8601 format.
+        :param pulumi.Input[float] minimum_elevation_degrees: Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
+        :param pulumi.Input[str] minimum_viable_contact_duration: Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         :param pulumi.Input[pulumi.InputType['ContactProfilesPropertiesNetworkConfigurationArgs']] network_configuration: Network configuration of customer virtual network.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Resource tags.
@@ -318,7 +318,7 @@ class ContactProfile(pulumi.CustomResource):
     @pulumi.getter(name="autoTrackingConfiguration")
     def auto_tracking_configuration(self) -> pulumi.Output[Optional[str]]:
         """
-        Auto track configuration.
+        Auto-tracking configuration.
         """
         return pulumi.get(self, "auto_tracking_configuration")
 
@@ -334,7 +334,7 @@ class ContactProfile(pulumi.CustomResource):
     @pulumi.getter(name="eventHubUri")
     def event_hub_uri(self) -> pulumi.Output[Optional[str]]:
         """
-        The URI of the Event Hub used for telemetry
+        ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         """
         return pulumi.get(self, "event_hub_uri")
 
@@ -342,7 +342,7 @@ class ContactProfile(pulumi.CustomResource):
     @pulumi.getter
     def links(self) -> pulumi.Output[Sequence['outputs.ContactProfileLinkResponse']]:
         """
-        Links of the Contact Profile
+        Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         """
         return pulumi.get(self, "links")
 
@@ -358,7 +358,7 @@ class ContactProfile(pulumi.CustomResource):
     @pulumi.getter(name="minimumElevationDegrees")
     def minimum_elevation_degrees(self) -> pulumi.Output[Optional[float]]:
         """
-        Minimum viable elevation for the contact in decimal degrees.
+        Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
         """
         return pulumi.get(self, "minimum_elevation_degrees")
 
@@ -366,7 +366,7 @@ class ContactProfile(pulumi.CustomResource):
     @pulumi.getter(name="minimumViableContactDuration")
     def minimum_viable_contact_duration(self) -> pulumi.Output[Optional[str]]:
         """
-        Minimum viable contact duration in ISO 8601 format.
+        Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         """
         return pulumi.get(self, "minimum_viable_contact_duration")
 

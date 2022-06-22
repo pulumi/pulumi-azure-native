@@ -72,19 +72,19 @@ export class Contact extends pulumi.CustomResource {
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
     /**
-     * Reservation end time of a contact.
+     * Reservation end time of a contact (ISO 8601 UTC standard).
      */
     public readonly reservationEndTime!: pulumi.Output<string>;
     /**
-     * Reservation start time of a contact.
+     * Reservation start time of a contact (ISO 8601 UTC standard).
      */
     public readonly reservationStartTime!: pulumi.Output<string>;
     /**
-     * Receive end time of a contact.
+     * Receive end time of a contact (ISO 8601 UTC standard).
      */
     public /*out*/ readonly rxEndTime!: pulumi.Output<string>;
     /**
-     * Receive start time of a contact.
+     * Receive start time of a contact (ISO 8601 UTC standard).
      */
     public /*out*/ readonly rxStartTime!: pulumi.Output<string>;
     /**
@@ -104,11 +104,11 @@ export class Contact extends pulumi.CustomResource {
      */
     public /*out*/ readonly systemData!: pulumi.Output<outputs.orbital.v20220301.SystemDataResponse>;
     /**
-     * Transmit end time of a contact.
+     * Transmit end time of a contact (ISO 8601 UTC standard).
      */
     public /*out*/ readonly txEndTime!: pulumi.Output<string>;
     /**
-     * Transmit start time of a contact.
+     * Transmit start time of a contact (ISO 8601 UTC standard).
      */
     public /*out*/ readonly txStartTime!: pulumi.Output<string>;
     /**
@@ -202,7 +202,7 @@ export class Contact extends pulumi.CustomResource {
  */
 export interface ContactArgs {
     /**
-     * Contact Name
+     * Contact name.
      */
     contactName?: pulumi.Input<string>;
     /**
@@ -214,11 +214,11 @@ export interface ContactArgs {
      */
     groundStationName: pulumi.Input<string>;
     /**
-     * Reservation end time of a contact.
+     * Reservation end time of a contact (ISO 8601 UTC standard).
      */
     reservationEndTime: pulumi.Input<string>;
     /**
-     * Reservation start time of a contact.
+     * Reservation start time of a contact (ISO 8601 UTC standard).
      */
     reservationStartTime: pulumi.Input<string>;
     /**
@@ -226,7 +226,7 @@ export interface ContactArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Spacecraft ID
+     * Spacecraft ID.
      */
     spacecraftName: pulumi.Input<string>;
 }

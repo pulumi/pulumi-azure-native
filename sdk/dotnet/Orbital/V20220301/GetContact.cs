@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     public sealed class GetContactArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Contact Name
+        /// Contact name.
         /// </summary>
         [Input("contactName", required: true)]
         public string ContactName { get; set; } = null!;
@@ -40,7 +40,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public string SpacecraftName { get; set; } = null!;
@@ -53,7 +53,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
     public sealed class GetContactInvokeArgs : Pulumi.InvokeArgs
     {
         /// <summary>
-        /// Contact Name
+        /// Contact name.
         /// </summary>
         [Input("contactName", required: true)]
         public Input<string> ContactName { get; set; } = null!;
@@ -65,7 +65,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public Input<string> SpacecraftName { get; set; } = null!;
@@ -120,19 +120,19 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Reservation end time of a contact.
+        /// Reservation end time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string ReservationEndTime;
         /// <summary>
-        /// Reservation start time of a contact.
+        /// Reservation start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string ReservationStartTime;
         /// <summary>
-        /// Receive end time of a contact.
+        /// Receive end time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string RxEndTime;
         /// <summary>
-        /// Receive start time of a contact.
+        /// Receive start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string RxStartTime;
         /// <summary>
@@ -152,11 +152,11 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
-        /// Transmit end time of a contact.
+        /// Transmit end time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string TxEndTime;
         /// <summary>
-        /// Transmit start time of a contact.
+        /// Transmit start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         public readonly string TxStartTime;
         /// <summary>

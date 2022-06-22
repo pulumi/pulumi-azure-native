@@ -42,7 +42,7 @@ class ListSpacecraftAvailableContactsResult:
     @pulumi.getter
     def value(self) -> Optional[Sequence['outputs.AvailableContactsResponse']]:
         """
-        A list of available contacts
+        A list of available contacts.
         """
         return pulumi.get(self, "value")
 
@@ -69,11 +69,11 @@ def list_spacecraft_available_contacts(contact_profile: Optional[pulumi.InputTyp
 
 
     :param pulumi.InputType['ContactParametersContactProfile'] contact_profile: The reference to the contact profile resource.
-    :param str end_time: End time of a contact.
+    :param str end_time: End time of a contact (ISO 8601 UTC standard).
     :param str ground_station_name: Name of Azure Ground Station.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str spacecraft_name: Spacecraft ID
-    :param str start_time: Start time of a contact.
+    :param str spacecraft_name: Spacecraft ID.
+    :param str start_time: Start time of a contact (ISO 8601 UTC standard).
     """
     __args__ = dict()
     __args__['contactProfile'] = contact_profile
@@ -106,10 +106,10 @@ def list_spacecraft_available_contacts_output(contact_profile: Optional[pulumi.I
 
 
     :param pulumi.InputType['ContactParametersContactProfile'] contact_profile: The reference to the contact profile resource.
-    :param str end_time: End time of a contact.
+    :param str end_time: End time of a contact (ISO 8601 UTC standard).
     :param str ground_station_name: Name of Azure Ground Station.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
-    :param str spacecraft_name: Spacecraft ID
-    :param str start_time: Start time of a contact.
+    :param str spacecraft_name: Spacecraft ID.
+    :param str start_time: Start time of a contact (ISO 8601 UTC standard).
     """
     ...

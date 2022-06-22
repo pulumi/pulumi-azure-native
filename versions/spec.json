@@ -10154,6 +10154,14 @@
     ],
     "2022-04-01": [
       "Vault"
+    ],
+    "2022-06-01-preview": [
+      "PrivateEndpointConnection",
+      "ProtectedItem",
+      "ProtectionContainer",
+      "ProtectionIntent",
+      "ProtectionPolicy",
+      "ResourceGuardProxy"
     ]
   },
   "RedHatOpenShift": {

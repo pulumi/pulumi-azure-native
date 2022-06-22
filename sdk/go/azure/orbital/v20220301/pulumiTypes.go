@@ -10,15 +10,15 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Authorized groundstation
+// Authorized groundstation.
 type AuthorizedGroundstationResponse struct {
-	// Date of authorization expiration
+	// Date of authorization expiration.
 	ExpirationDate *string `pulumi:"expirationDate"`
-	// Groundstation name
+	// Groundstation name.
 	GroundStation *string `pulumi:"groundStation"`
 }
 
-// Authorized groundstation
+// Authorized groundstation.
 type AuthorizedGroundstationResponseOutput struct{ *pulumi.OutputState }
 
 func (AuthorizedGroundstationResponseOutput) ElementType() reflect.Type {
@@ -33,12 +33,12 @@ func (o AuthorizedGroundstationResponseOutput) ToAuthorizedGroundstationResponse
 	return o
 }
 
-// Date of authorization expiration
+// Date of authorization expiration.
 func (o AuthorizedGroundstationResponseOutput) ExpirationDate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthorizedGroundstationResponse) *string { return v.ExpirationDate }).(pulumi.StringPtrOutput)
 }
 
-// Groundstation name
+// Groundstation name.
 func (o AuthorizedGroundstationResponseOutput) GroundStation() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AuthorizedGroundstationResponse) *string { return v.GroundStation }).(pulumi.StringPtrOutput)
 }
@@ -73,9 +73,9 @@ type AvailableContactsResponse struct {
 	GroundStationName string `pulumi:"groundStationName"`
 	// Maximum elevation of the antenna during the contact in decimal degrees.
 	MaximumElevationDegrees float64 `pulumi:"maximumElevationDegrees"`
-	// Time to lost receiving a signal.
+	// Time to lost receiving a signal (ISO 8601 UTC standard).
 	RxEndTime string `pulumi:"rxEndTime"`
-	// Earliest time to receive a signal.
+	// Earliest time to receive a signal (ISO 8601 UTC standard).
 	RxStartTime string `pulumi:"rxStartTime"`
 	// The reference to the spacecraft resource.
 	Spacecraft *AvailableContactsResponseSpacecraft `pulumi:"spacecraft"`
@@ -83,9 +83,9 @@ type AvailableContactsResponse struct {
 	StartAzimuthDegrees float64 `pulumi:"startAzimuthDegrees"`
 	// Spacecraft elevation above the horizon at contact start.
 	StartElevationDegrees float64 `pulumi:"startElevationDegrees"`
-	// Time at which antenna transmit will be disabled.
+	// Time at which antenna transmit will be disabled (ISO 8601 UTC standard).
 	TxEndTime string `pulumi:"txEndTime"`
-	// Time at which antenna transmit will be enabled.
+	// Time at which antenna transmit will be enabled (ISO 8601 UTC standard).
 	TxStartTime string `pulumi:"txStartTime"`
 }
 
@@ -124,12 +124,12 @@ func (o AvailableContactsResponseOutput) MaximumElevationDegrees() pulumi.Float6
 	return o.ApplyT(func(v AvailableContactsResponse) float64 { return v.MaximumElevationDegrees }).(pulumi.Float64Output)
 }
 
-// Time to lost receiving a signal.
+// Time to lost receiving a signal (ISO 8601 UTC standard).
 func (o AvailableContactsResponseOutput) RxEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailableContactsResponse) string { return v.RxEndTime }).(pulumi.StringOutput)
 }
 
-// Earliest time to receive a signal.
+// Earliest time to receive a signal (ISO 8601 UTC standard).
 func (o AvailableContactsResponseOutput) RxStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailableContactsResponse) string { return v.RxStartTime }).(pulumi.StringOutput)
 }
@@ -149,12 +149,12 @@ func (o AvailableContactsResponseOutput) StartElevationDegrees() pulumi.Float64O
 	return o.ApplyT(func(v AvailableContactsResponse) float64 { return v.StartElevationDegrees }).(pulumi.Float64Output)
 }
 
-// Time at which antenna transmit will be disabled.
+// Time at which antenna transmit will be disabled (ISO 8601 UTC standard).
 func (o AvailableContactsResponseOutput) TxEndTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailableContactsResponse) string { return v.TxEndTime }).(pulumi.StringOutput)
 }
 
-// Time at which antenna transmit will be enabled.
+// Time at which antenna transmit will be enabled (ISO 8601 UTC standard).
 func (o AvailableContactsResponseOutput) TxStartTime() pulumi.StringOutput {
 	return o.ApplyT(func(v AvailableContactsResponse) string { return v.TxStartTime }).(pulumi.StringOutput)
 }
@@ -294,19 +294,19 @@ func (o ContactParametersContactProfileOutput) Id() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactParametersContactProfile) *string { return v.Id }).(pulumi.StringPtrOutput)
 }
 
-// Contact Profile Link
+// Contact Profile Link.
 type ContactProfileLink struct {
-	// Contact Profile Link Channel
+	// Contact Profile Link Channel.
 	Channels []ContactProfileLinkChannel `pulumi:"channels"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction string `pulumi:"direction"`
-	// Effective Isotropic Radiated Power (EIRP) in dBW.
+	// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
 	EirpdBW *float64 `pulumi:"eirpdBW"`
-	// Gain To Noise Temperature in db/K.
+	// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
 	GainOverTemperature *float64 `pulumi:"gainOverTemperature"`
-	// Link name
+	// Link name.
 	Name string `pulumi:"name"`
-	// polarization. eg (RHCP, LHCP)
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization string `pulumi:"polarization"`
 }
 
@@ -321,19 +321,19 @@ type ContactProfileLinkInput interface {
 	ToContactProfileLinkOutputWithContext(context.Context) ContactProfileLinkOutput
 }
 
-// Contact Profile Link
+// Contact Profile Link.
 type ContactProfileLinkArgs struct {
-	// Contact Profile Link Channel
+	// Contact Profile Link Channel.
 	Channels ContactProfileLinkChannelArrayInput `pulumi:"channels"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction pulumi.StringInput `pulumi:"direction"`
-	// Effective Isotropic Radiated Power (EIRP) in dBW.
+	// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
 	EirpdBW pulumi.Float64PtrInput `pulumi:"eirpdBW"`
-	// Gain To Noise Temperature in db/K.
+	// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
 	GainOverTemperature pulumi.Float64PtrInput `pulumi:"gainOverTemperature"`
-	// Link name
+	// Link name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// polarization. eg (RHCP, LHCP)
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization pulumi.StringInput `pulumi:"polarization"`
 }
 
@@ -374,7 +374,7 @@ func (i ContactProfileLinkArray) ToContactProfileLinkArrayOutputWithContext(ctx 
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkArrayOutput)
 }
 
-// Contact Profile Link
+// Contact Profile Link.
 type ContactProfileLinkOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileLinkOutput) ElementType() reflect.Type {
@@ -389,32 +389,32 @@ func (o ContactProfileLinkOutput) ToContactProfileLinkOutputWithContext(ctx cont
 	return o
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 func (o ContactProfileLinkOutput) Channels() ContactProfileLinkChannelArrayOutput {
 	return o.ApplyT(func(v ContactProfileLink) []ContactProfileLinkChannel { return v.Channels }).(ContactProfileLinkChannelArrayOutput)
 }
 
-// Direction (uplink or downlink)
+// Direction (uplink or downlink).
 func (o ContactProfileLinkOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLink) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// Effective Isotropic Radiated Power (EIRP) in dBW.
+// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
 func (o ContactProfileLinkOutput) EirpdBW() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContactProfileLink) *float64 { return v.EirpdBW }).(pulumi.Float64PtrOutput)
 }
 
-// Gain To Noise Temperature in db/K.
+// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
 func (o ContactProfileLinkOutput) GainOverTemperature() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContactProfileLink) *float64 { return v.GainOverTemperature }).(pulumi.Float64PtrOutput)
 }
 
-// Link name
+// Link name.
 func (o ContactProfileLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLink) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// polarization. eg (RHCP, LHCP)
+// Polarization. e.g. (RHCP, LHCP).
 func (o ContactProfileLinkOutput) Polarization() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLink) string { return v.Polarization }).(pulumi.StringOutput)
 }
@@ -439,23 +439,23 @@ func (o ContactProfileLinkArrayOutput) Index(i pulumi.IntInput) ContactProfileLi
 	}).(ContactProfileLinkOutput)
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 type ContactProfileLinkChannel struct {
-	// Bandwidth in MHz
+	// Bandwidth in MHz.
 	BandwidthMHz float64 `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz float64 `pulumi:"centerFrequencyMHz"`
-	// Configuration for decoding
+	// Currently unused.
 	DecodingConfiguration *string `pulumi:"decodingConfiguration"`
-	// Configuration for demodulation
+	// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 	DemodulationConfiguration *string `pulumi:"demodulationConfiguration"`
-	// Configuration for encoding
+	// Currently unused.
 	EncodingConfiguration *string `pulumi:"encodingConfiguration"`
 	// Customer End point to store/retrieve data during a contact.
 	EndPoint EndPoint `pulumi:"endPoint"`
-	// Configuration for modulation
+	// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
 	ModulationConfiguration *string `pulumi:"modulationConfiguration"`
-	// Channel name
+	// Channel name.
 	Name string `pulumi:"name"`
 }
 
@@ -470,23 +470,23 @@ type ContactProfileLinkChannelInput interface {
 	ToContactProfileLinkChannelOutputWithContext(context.Context) ContactProfileLinkChannelOutput
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 type ContactProfileLinkChannelArgs struct {
-	// Bandwidth in MHz
+	// Bandwidth in MHz.
 	BandwidthMHz pulumi.Float64Input `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz pulumi.Float64Input `pulumi:"centerFrequencyMHz"`
-	// Configuration for decoding
+	// Currently unused.
 	DecodingConfiguration pulumi.StringPtrInput `pulumi:"decodingConfiguration"`
-	// Configuration for demodulation
+	// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 	DemodulationConfiguration pulumi.StringPtrInput `pulumi:"demodulationConfiguration"`
-	// Configuration for encoding
+	// Currently unused.
 	EncodingConfiguration pulumi.StringPtrInput `pulumi:"encodingConfiguration"`
 	// Customer End point to store/retrieve data during a contact.
 	EndPoint EndPointInput `pulumi:"endPoint"`
-	// Configuration for modulation
+	// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
 	ModulationConfiguration pulumi.StringPtrInput `pulumi:"modulationConfiguration"`
-	// Channel name
+	// Channel name.
 	Name pulumi.StringInput `pulumi:"name"`
 }
 
@@ -527,7 +527,7 @@ func (i ContactProfileLinkChannelArray) ToContactProfileLinkChannelArrayOutputWi
 	return pulumi.ToOutputWithContext(ctx, i).(ContactProfileLinkChannelArrayOutput)
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 type ContactProfileLinkChannelOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileLinkChannelOutput) ElementType() reflect.Type {
@@ -542,27 +542,27 @@ func (o ContactProfileLinkChannelOutput) ToContactProfileLinkChannelOutputWithCo
 	return o
 }
 
-// Bandwidth in MHz
+// Bandwidth in MHz.
 func (o ContactProfileLinkChannelOutput) BandwidthMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v ContactProfileLinkChannel) float64 { return v.BandwidthMHz }).(pulumi.Float64Output)
 }
 
-// Center Frequency in MHz
+// Center Frequency in MHz.
 func (o ContactProfileLinkChannelOutput) CenterFrequencyMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v ContactProfileLinkChannel) float64 { return v.CenterFrequencyMHz }).(pulumi.Float64Output)
 }
 
-// Configuration for decoding
+// Currently unused.
 func (o ContactProfileLinkChannelOutput) DecodingConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannel) *string { return v.DecodingConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for demodulation
+// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 func (o ContactProfileLinkChannelOutput) DemodulationConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannel) *string { return v.DemodulationConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for encoding
+// Currently unused.
 func (o ContactProfileLinkChannelOutput) EncodingConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannel) *string { return v.EncodingConfiguration }).(pulumi.StringPtrOutput)
 }
@@ -572,12 +572,12 @@ func (o ContactProfileLinkChannelOutput) EndPoint() EndPointOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannel) EndPoint { return v.EndPoint }).(EndPointOutput)
 }
 
-// Configuration for modulation
+// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
 func (o ContactProfileLinkChannelOutput) ModulationConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannel) *string { return v.ModulationConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Channel name
+// Channel name.
 func (o ContactProfileLinkChannelOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannel) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -602,27 +602,27 @@ func (o ContactProfileLinkChannelArrayOutput) Index(i pulumi.IntInput) ContactPr
 	}).(ContactProfileLinkChannelOutput)
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 type ContactProfileLinkChannelResponse struct {
-	// Bandwidth in MHz
+	// Bandwidth in MHz.
 	BandwidthMHz float64 `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz float64 `pulumi:"centerFrequencyMHz"`
-	// Configuration for decoding
+	// Currently unused.
 	DecodingConfiguration *string `pulumi:"decodingConfiguration"`
-	// Configuration for demodulation
+	// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 	DemodulationConfiguration *string `pulumi:"demodulationConfiguration"`
-	// Configuration for encoding
+	// Currently unused.
 	EncodingConfiguration *string `pulumi:"encodingConfiguration"`
 	// Customer End point to store/retrieve data during a contact.
 	EndPoint EndPointResponse `pulumi:"endPoint"`
-	// Configuration for modulation
+	// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
 	ModulationConfiguration *string `pulumi:"modulationConfiguration"`
-	// Channel name
+	// Channel name.
 	Name string `pulumi:"name"`
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 type ContactProfileLinkChannelResponseOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileLinkChannelResponseOutput) ElementType() reflect.Type {
@@ -637,27 +637,27 @@ func (o ContactProfileLinkChannelResponseOutput) ToContactProfileLinkChannelResp
 	return o
 }
 
-// Bandwidth in MHz
+// Bandwidth in MHz.
 func (o ContactProfileLinkChannelResponseOutput) BandwidthMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) float64 { return v.BandwidthMHz }).(pulumi.Float64Output)
 }
 
-// Center Frequency in MHz
+// Center Frequency in MHz.
 func (o ContactProfileLinkChannelResponseOutput) CenterFrequencyMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) float64 { return v.CenterFrequencyMHz }).(pulumi.Float64Output)
 }
 
-// Configuration for decoding
+// Currently unused.
 func (o ContactProfileLinkChannelResponseOutput) DecodingConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) *string { return v.DecodingConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for demodulation
+// Copy of the modem configuration file such as Kratos QRadio or Kratos QuantumRx. Only valid for downlink directions. If provided, the modem connects to the customer endpoint and sends demodulated data instead of a VITA.49 stream.
 func (o ContactProfileLinkChannelResponseOutput) DemodulationConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) *string { return v.DemodulationConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Configuration for encoding
+// Currently unused.
 func (o ContactProfileLinkChannelResponseOutput) EncodingConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) *string { return v.EncodingConfiguration }).(pulumi.StringPtrOutput)
 }
@@ -667,12 +667,12 @@ func (o ContactProfileLinkChannelResponseOutput) EndPoint() EndPointResponseOutp
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) EndPointResponse { return v.EndPoint }).(EndPointResponseOutput)
 }
 
-// Configuration for modulation
+// Copy of the modem configuration file such as Kratos QRadio. Only valid for uplink directions. If provided, the modem connects to the customer endpoint and accepts commands from the customer instead of a VITA.49 stream.
 func (o ContactProfileLinkChannelResponseOutput) ModulationConfiguration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) *string { return v.ModulationConfiguration }).(pulumi.StringPtrOutput)
 }
 
-// Channel name
+// Channel name.
 func (o ContactProfileLinkChannelResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLinkChannelResponse) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -697,23 +697,23 @@ func (o ContactProfileLinkChannelResponseArrayOutput) Index(i pulumi.IntInput) C
 	}).(ContactProfileLinkChannelResponseOutput)
 }
 
-// Contact Profile Link
+// Contact Profile Link.
 type ContactProfileLinkResponse struct {
-	// Contact Profile Link Channel
+	// Contact Profile Link Channel.
 	Channels []ContactProfileLinkChannelResponse `pulumi:"channels"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction string `pulumi:"direction"`
-	// Effective Isotropic Radiated Power (EIRP) in dBW.
+	// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
 	EirpdBW *float64 `pulumi:"eirpdBW"`
-	// Gain To Noise Temperature in db/K.
+	// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
 	GainOverTemperature *float64 `pulumi:"gainOverTemperature"`
-	// Link name
+	// Link name.
 	Name string `pulumi:"name"`
-	// polarization. eg (RHCP, LHCP)
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization string `pulumi:"polarization"`
 }
 
-// Contact Profile Link
+// Contact Profile Link.
 type ContactProfileLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (ContactProfileLinkResponseOutput) ElementType() reflect.Type {
@@ -728,32 +728,32 @@ func (o ContactProfileLinkResponseOutput) ToContactProfileLinkResponseOutputWith
 	return o
 }
 
-// Contact Profile Link Channel
+// Contact Profile Link Channel.
 func (o ContactProfileLinkResponseOutput) Channels() ContactProfileLinkChannelResponseArrayOutput {
 	return o.ApplyT(func(v ContactProfileLinkResponse) []ContactProfileLinkChannelResponse { return v.Channels }).(ContactProfileLinkChannelResponseArrayOutput)
 }
 
-// Direction (uplink or downlink)
+// Direction (uplink or downlink).
 func (o ContactProfileLinkResponseOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLinkResponse) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// Effective Isotropic Radiated Power (EIRP) in dBW.
+// Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet.
 func (o ContactProfileLinkResponseOutput) EirpdBW() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkResponse) *float64 { return v.EirpdBW }).(pulumi.Float64PtrOutput)
 }
 
-// Gain To Noise Temperature in db/K.
+// Gain To Noise Temperature in db/K. It is the required G/T by the customer. Not used yet.
 func (o ContactProfileLinkResponseOutput) GainOverTemperature() pulumi.Float64PtrOutput {
 	return o.ApplyT(func(v ContactProfileLinkResponse) *float64 { return v.GainOverTemperature }).(pulumi.Float64PtrOutput)
 }
 
-// Link name
+// Link name.
 func (o ContactProfileLinkResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLinkResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// polarization. eg (RHCP, LHCP)
+// Polarization. e.g. (RHCP, LHCP).
 func (o ContactProfileLinkResponseOutput) Polarization() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfileLinkResponse) string { return v.Polarization }).(pulumi.StringOutput)
 }
@@ -780,7 +780,7 @@ func (o ContactProfileLinkResponseArrayOutput) Index(i pulumi.IntInput) ContactP
 
 // Network configuration of customer virtual network.
 type ContactProfilesPropertiesNetworkConfiguration struct {
-	// Customer subnet ARM resource identifier.
+	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -797,7 +797,7 @@ type ContactProfilesPropertiesNetworkConfigurationInput interface {
 
 // Network configuration of customer virtual network.
 type ContactProfilesPropertiesNetworkConfigurationArgs struct {
-	// Customer subnet ARM resource identifier.
+	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
 	SubnetId pulumi.StringInput `pulumi:"subnetId"`
 }
 
@@ -828,14 +828,14 @@ func (o ContactProfilesPropertiesNetworkConfigurationOutput) ToContactProfilesPr
 	return o
 }
 
-// Customer subnet ARM resource identifier.
+// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
 func (o ContactProfilesPropertiesNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfilesPropertiesNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
 
 // Network configuration of customer virtual network.
 type ContactProfilesPropertiesResponseNetworkConfiguration struct {
-	// Customer subnet ARM resource identifier.
+	// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
 	SubnetId string `pulumi:"subnetId"`
 }
 
@@ -854,7 +854,7 @@ func (o ContactProfilesPropertiesResponseNetworkConfigurationOutput) ToContactPr
 	return o
 }
 
-// Customer subnet ARM resource identifier.
+// ARM resource identifier of the subnet delegated to the Microsoft.Orbital/orbitalGateways. Needs to be at least a class C subnet, and should not have any IP created in it.
 func (o ContactProfilesPropertiesResponseNetworkConfigurationOutput) SubnetId() pulumi.StringOutput {
 	return o.ApplyT(func(v ContactProfilesPropertiesResponseNetworkConfiguration) string { return v.SubnetId }).(pulumi.StringOutput)
 }
@@ -1102,17 +1102,17 @@ func (o EndPointResponseOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v EndPointResponse) string { return v.Protocol }).(pulumi.StringOutput)
 }
 
-// Authorized Ground Stations for the link
+// List of authorized spacecraft links per ground station and the expiration date of the authorization.
 type SpacecraftLink struct {
-	// Bandwidth in MHz
+	// Bandwidth in MHz.
 	BandwidthMHz float64 `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz float64 `pulumi:"centerFrequencyMHz"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction string `pulumi:"direction"`
-	// Link name
+	// Link name.
 	Name string `pulumi:"name"`
-	// polarization. eg (RHCP, LHCP)
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization string `pulumi:"polarization"`
 }
 
@@ -1127,17 +1127,17 @@ type SpacecraftLinkInput interface {
 	ToSpacecraftLinkOutputWithContext(context.Context) SpacecraftLinkOutput
 }
 
-// Authorized Ground Stations for the link
+// List of authorized spacecraft links per ground station and the expiration date of the authorization.
 type SpacecraftLinkArgs struct {
-	// Bandwidth in MHz
+	// Bandwidth in MHz.
 	BandwidthMHz pulumi.Float64Input `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz pulumi.Float64Input `pulumi:"centerFrequencyMHz"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction pulumi.StringInput `pulumi:"direction"`
-	// Link name
+	// Link name.
 	Name pulumi.StringInput `pulumi:"name"`
-	// polarization. eg (RHCP, LHCP)
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization pulumi.StringInput `pulumi:"polarization"`
 }
 
@@ -1178,7 +1178,7 @@ func (i SpacecraftLinkArray) ToSpacecraftLinkArrayOutputWithContext(ctx context.
 	return pulumi.ToOutputWithContext(ctx, i).(SpacecraftLinkArrayOutput)
 }
 
-// Authorized Ground Stations for the link
+// List of authorized spacecraft links per ground station and the expiration date of the authorization.
 type SpacecraftLinkOutput struct{ *pulumi.OutputState }
 
 func (SpacecraftLinkOutput) ElementType() reflect.Type {
@@ -1193,27 +1193,27 @@ func (o SpacecraftLinkOutput) ToSpacecraftLinkOutputWithContext(ctx context.Cont
 	return o
 }
 
-// Bandwidth in MHz
+// Bandwidth in MHz.
 func (o SpacecraftLinkOutput) BandwidthMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v SpacecraftLink) float64 { return v.BandwidthMHz }).(pulumi.Float64Output)
 }
 
-// Center Frequency in MHz
+// Center Frequency in MHz.
 func (o SpacecraftLinkOutput) CenterFrequencyMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v SpacecraftLink) float64 { return v.CenterFrequencyMHz }).(pulumi.Float64Output)
 }
 
-// Direction (uplink or downlink)
+// Direction (uplink or downlink).
 func (o SpacecraftLinkOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLink) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// Link name
+// Link name.
 func (o SpacecraftLinkOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLink) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// polarization. eg (RHCP, LHCP)
+// Polarization. e.g. (RHCP, LHCP).
 func (o SpacecraftLinkOutput) Polarization() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLink) string { return v.Polarization }).(pulumi.StringOutput)
 }
@@ -1238,23 +1238,23 @@ func (o SpacecraftLinkArrayOutput) Index(i pulumi.IntInput) SpacecraftLinkOutput
 	}).(SpacecraftLinkOutput)
 }
 
-// Authorized Ground Stations for the link
+// List of authorized spacecraft links per ground station and the expiration date of the authorization.
 type SpacecraftLinkResponse struct {
 	// Authorized Ground Stations
 	Authorizations []AuthorizedGroundstationResponse `pulumi:"authorizations"`
-	// Bandwidth in MHz
+	// Bandwidth in MHz.
 	BandwidthMHz float64 `pulumi:"bandwidthMHz"`
-	// Center Frequency in MHz
+	// Center Frequency in MHz.
 	CenterFrequencyMHz float64 `pulumi:"centerFrequencyMHz"`
-	// Direction (uplink or downlink)
+	// Direction (uplink or downlink).
 	Direction string `pulumi:"direction"`
-	// Link name
+	// Link name.
 	Name string `pulumi:"name"`
-	// polarization. eg (RHCP, LHCP)
+	// Polarization. e.g. (RHCP, LHCP).
 	Polarization string `pulumi:"polarization"`
 }
 
-// Authorized Ground Stations for the link
+// List of authorized spacecraft links per ground station and the expiration date of the authorization.
 type SpacecraftLinkResponseOutput struct{ *pulumi.OutputState }
 
 func (SpacecraftLinkResponseOutput) ElementType() reflect.Type {
@@ -1274,27 +1274,27 @@ func (o SpacecraftLinkResponseOutput) Authorizations() AuthorizedGroundstationRe
 	return o.ApplyT(func(v SpacecraftLinkResponse) []AuthorizedGroundstationResponse { return v.Authorizations }).(AuthorizedGroundstationResponseArrayOutput)
 }
 
-// Bandwidth in MHz
+// Bandwidth in MHz.
 func (o SpacecraftLinkResponseOutput) BandwidthMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v SpacecraftLinkResponse) float64 { return v.BandwidthMHz }).(pulumi.Float64Output)
 }
 
-// Center Frequency in MHz
+// Center Frequency in MHz.
 func (o SpacecraftLinkResponseOutput) CenterFrequencyMHz() pulumi.Float64Output {
 	return o.ApplyT(func(v SpacecraftLinkResponse) float64 { return v.CenterFrequencyMHz }).(pulumi.Float64Output)
 }
 
-// Direction (uplink or downlink)
+// Direction (uplink or downlink).
 func (o SpacecraftLinkResponseOutput) Direction() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLinkResponse) string { return v.Direction }).(pulumi.StringOutput)
 }
 
-// Link name
+// Link name.
 func (o SpacecraftLinkResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLinkResponse) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// polarization. eg (RHCP, LHCP)
+// Polarization. e.g. (RHCP, LHCP).
 func (o SpacecraftLinkResponseOutput) Polarization() pulumi.StringOutput {
 	return o.ApplyT(func(v SpacecraftLinkResponse) string { return v.Polarization }).(pulumi.StringOutput)
 }

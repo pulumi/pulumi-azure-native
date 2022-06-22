@@ -66,7 +66,7 @@ class GetContactProfileResult:
     @pulumi.getter(name="autoTrackingConfiguration")
     def auto_tracking_configuration(self) -> Optional[str]:
         """
-        Auto track configuration.
+        Auto-tracking configuration.
         """
         return pulumi.get(self, "auto_tracking_configuration")
 
@@ -82,7 +82,7 @@ class GetContactProfileResult:
     @pulumi.getter(name="eventHubUri")
     def event_hub_uri(self) -> Optional[str]:
         """
-        The URI of the Event Hub used for telemetry
+        ARM resource identifier of the Event Hub used for telemetry. Requires granting Orbital Resource Provider the rights to send telemetry into the hub.
         """
         return pulumi.get(self, "event_hub_uri")
 
@@ -98,7 +98,7 @@ class GetContactProfileResult:
     @pulumi.getter
     def links(self) -> Sequence['outputs.ContactProfileLinkResponse']:
         """
-        Links of the Contact Profile
+        Links of the Contact Profile. Describes RF links, modem processing, and IP endpoints.
         """
         return pulumi.get(self, "links")
 
@@ -114,7 +114,7 @@ class GetContactProfileResult:
     @pulumi.getter(name="minimumElevationDegrees")
     def minimum_elevation_degrees(self) -> Optional[float]:
         """
-        Minimum viable elevation for the contact in decimal degrees.
+        Minimum viable elevation for the contact in decimal degrees. Used for listing the available contacts with a spacecraft at a given ground station.
         """
         return pulumi.get(self, "minimum_elevation_degrees")
 
@@ -122,7 +122,7 @@ class GetContactProfileResult:
     @pulumi.getter(name="minimumViableContactDuration")
     def minimum_viable_contact_duration(self) -> Optional[str]:
         """
-        Minimum viable contact duration in ISO 8601 format.
+        Minimum viable contact duration in ISO 8601 format. Used for listing the available contacts with a spacecraft at a given ground station.
         """
         return pulumi.get(self, "minimum_viable_contact_duration")
 
@@ -195,7 +195,7 @@ def get_contact_profile(contact_profile_name: Optional[str] = None,
     Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
 
 
-    :param str contact_profile_name: Contact Profile Name
+    :param str contact_profile_name: Contact Profile name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     __args__ = dict()
@@ -231,7 +231,7 @@ def get_contact_profile_output(contact_profile_name: Optional[pulumi.Input[str]]
     Customer creates a Contact Profile Resource, which will contain all of the configurations required for scheduling a contact.
 
 
-    :param str contact_profile_name: Contact Profile Name
+    :param str contact_profile_name: Contact Profile name.
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
     """
     ...

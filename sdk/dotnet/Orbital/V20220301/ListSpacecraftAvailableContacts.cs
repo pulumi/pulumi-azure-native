@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public Inputs.ContactParametersContactProfile ContactProfile { get; set; } = null!;
 
         /// <summary>
-        /// End time of a contact.
+        /// End time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Input("endTime", required: true)]
         public string EndTime { get; set; } = null!;
@@ -52,13 +52,13 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public string ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public string SpacecraftName { get; set; } = null!;
 
         /// <summary>
-        /// Start time of a contact.
+        /// Start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Input("startTime", required: true)]
         public string StartTime { get; set; } = null!;
@@ -77,7 +77,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public Input<Inputs.ContactParametersContactProfileArgs> ContactProfile { get; set; } = null!;
 
         /// <summary>
-        /// End time of a contact.
+        /// End time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Input("endTime", required: true)]
         public Input<string> EndTime { get; set; } = null!;
@@ -95,13 +95,13 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         public Input<string> ResourceGroupName { get; set; } = null!;
 
         /// <summary>
-        /// Spacecraft ID
+        /// Spacecraft ID.
         /// </summary>
         [Input("spacecraftName", required: true)]
         public Input<string> SpacecraftName { get; set; } = null!;
 
         /// <summary>
-        /// Start time of a contact.
+        /// Start time of a contact (ISO 8601 UTC standard).
         /// </summary>
         [Input("startTime", required: true)]
         public Input<string> StartTime { get; set; } = null!;
@@ -120,7 +120,7 @@ namespace Pulumi.AzureNative.Orbital.V20220301
         /// </summary>
         public readonly string NextLink;
         /// <summary>
-        /// A list of available contacts
+        /// A list of available contacts.
         /// </summary>
         public readonly ImmutableArray<Outputs.AvailableContactsResponse> Value;
 

@@ -30,7 +30,7 @@ export interface ListSpacecraftAvailableContactsArgs {
      */
     contactProfile: inputs.orbital.v20220301.ContactParametersContactProfile;
     /**
-     * End time of a contact.
+     * End time of a contact (ISO 8601 UTC standard).
      */
     endTime: string;
     /**
@@ -42,11 +42,11 @@ export interface ListSpacecraftAvailableContactsArgs {
      */
     resourceGroupName: string;
     /**
-     * Spacecraft ID
+     * Spacecraft ID.
      */
     spacecraftName: string;
     /**
-     * Start time of a contact.
+     * Start time of a contact (ISO 8601 UTC standard).
      */
     startTime: string;
 }
@@ -60,7 +60,7 @@ export interface ListSpacecraftAvailableContactsResult {
      */
     readonly nextLink: string;
     /**
-     * A list of available contacts
+     * A list of available contacts.
      */
     readonly value?: outputs.orbital.v20220301.AvailableContactsResponse[];
 }
@@ -75,7 +75,7 @@ export interface ListSpacecraftAvailableContactsOutputArgs {
      */
     contactProfile: pulumi.Input<inputs.orbital.v20220301.ContactParametersContactProfileArgs>;
     /**
-     * End time of a contact.
+     * End time of a contact (ISO 8601 UTC standard).
      */
     endTime: pulumi.Input<string>;
     /**
@@ -87,11 +87,11 @@ export interface ListSpacecraftAvailableContactsOutputArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Spacecraft ID
+     * Spacecraft ID.
      */
     spacecraftName: pulumi.Input<string>;
     /**
-     * Start time of a contact.
+     * Start time of a contact (ISO 8601 UTC standard).
      */
     startTime: pulumi.Input<string>;
 }

@@ -93,6 +93,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220101
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20211201:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220201:PrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220301:PrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:recoveryservices/v20220601preview:PrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

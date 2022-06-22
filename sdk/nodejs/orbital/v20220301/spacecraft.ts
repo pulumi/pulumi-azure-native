@@ -40,7 +40,7 @@ export class Spacecraft extends pulumi.CustomResource {
      */
     public /*out*/ readonly etag!: pulumi.Output<string>;
     /**
-     * Links of the Spacecraft
+     * Immutable list of Spacecraft links.
      */
     public readonly links!: pulumi.Output<outputs.orbital.v20220301.SpacecraftLinkResponse[] | undefined>;
     /**
@@ -64,15 +64,15 @@ export class Spacecraft extends pulumi.CustomResource {
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
-     * Title line of Two Line Element (TLE).
+     * Title line of the two-line element set (TLE).
      */
     public readonly titleLine!: pulumi.Output<string | undefined>;
     /**
-     * Line 1 of Two Line Element (TLE).
+     * Line 1 of the two-line element set (TLE).
      */
     public readonly tleLine1!: pulumi.Output<string | undefined>;
     /**
-     * Line 2 of Two Line Element (TLE).
+     * Line 2 of the two-line element set (TLE).
      */
     public readonly tleLine2!: pulumi.Output<string | undefined>;
     /**
@@ -135,7 +135,7 @@ export class Spacecraft extends pulumi.CustomResource {
  */
 export interface SpacecraftArgs {
     /**
-     * Links of the Spacecraft
+     * Immutable list of Spacecraft links.
      */
     links?: pulumi.Input<pulumi.Input<inputs.orbital.v20220301.SpacecraftLinkArgs>[]>;
     /**
@@ -151,7 +151,7 @@ export interface SpacecraftArgs {
      */
     resourceGroupName: pulumi.Input<string>;
     /**
-     * Spacecraft ID
+     * Spacecraft ID.
      */
     spacecraftName?: pulumi.Input<string>;
     /**
@@ -159,15 +159,15 @@ export interface SpacecraftArgs {
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
-     * Title line of Two Line Element (TLE).
+     * Title line of the two-line element set (TLE).
      */
     titleLine?: pulumi.Input<string>;
     /**
-     * Line 1 of Two Line Element (TLE).
+     * Line 1 of the two-line element set (TLE).
      */
     tleLine1?: pulumi.Input<string>;
     /**
-     * Line 2 of Two Line Element (TLE).
+     * Line 2 of the two-line element set (TLE).
      */
     tleLine2?: pulumi.Input<string>;
 }
