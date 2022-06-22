@@ -10,6 +10,499 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type BillingHubExecutionUsageDetailResponse struct {
+	ApplicationName    *string  `pulumi:"applicationName"`
+	ApplicationVersion *string  `pulumi:"applicationVersion"`
+	BilledCharges      *float64 `pulumi:"billedCharges"`
+	EndTimeStamp       *string  `pulumi:"endTimeStamp"`
+	ExecutionRequestId *string  `pulumi:"executionRequestId"`
+	MeterId            *string  `pulumi:"meterId"`
+	OsBuild            *string  `pulumi:"osBuild"`
+	Release            *string  `pulumi:"release"`
+	Sku                *string  `pulumi:"sku"`
+	StartTimeStamp     *string  `pulumi:"startTimeStamp"`
+	TestType           *string  `pulumi:"testType"`
+	UpdateType         *string  `pulumi:"updateType"`
+	UsedBillableHours  *float64 `pulumi:"usedBillableHours"`
+	UsedFreeHours      *float64 `pulumi:"usedFreeHours"`
+}
+
+type BillingHubExecutionUsageDetailResponseOutput struct{ *pulumi.OutputState }
+
+func (BillingHubExecutionUsageDetailResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingHubExecutionUsageDetailResponse)(nil)).Elem()
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) ToBillingHubExecutionUsageDetailResponseOutput() BillingHubExecutionUsageDetailResponseOutput {
+	return o
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) ToBillingHubExecutionUsageDetailResponseOutputWithContext(ctx context.Context) BillingHubExecutionUsageDetailResponseOutput {
+	return o
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *string { return v.ApplicationName }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) ApplicationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *string { return v.ApplicationVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) BilledCharges() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *float64 { return v.BilledCharges }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) EndTimeStamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *string { return v.EndTimeStamp }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) ExecutionRequestId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *string { return v.ExecutionRequestId }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) MeterId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *string { return v.MeterId }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) OsBuild() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *string { return v.OsBuild }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) Release() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *string { return v.Release }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) Sku() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *string { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) StartTimeStamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *string { return v.StartTimeStamp }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) TestType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *string { return v.TestType }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) UpdateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *string { return v.UpdateType }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) UsedBillableHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *float64 { return v.UsedBillableHours }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubExecutionUsageDetailResponseOutput) UsedFreeHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubExecutionUsageDetailResponse) *float64 { return v.UsedFreeHours }).(pulumi.Float64PtrOutput)
+}
+
+type BillingHubExecutionUsageDetailResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BillingHubExecutionUsageDetailResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingHubExecutionUsageDetailResponse)(nil)).Elem()
+}
+
+func (o BillingHubExecutionUsageDetailResponseArrayOutput) ToBillingHubExecutionUsageDetailResponseArrayOutput() BillingHubExecutionUsageDetailResponseArrayOutput {
+	return o
+}
+
+func (o BillingHubExecutionUsageDetailResponseArrayOutput) ToBillingHubExecutionUsageDetailResponseArrayOutputWithContext(ctx context.Context) BillingHubExecutionUsageDetailResponseArrayOutput {
+	return o
+}
+
+func (o BillingHubExecutionUsageDetailResponseArrayOutput) Index(i pulumi.IntInput) BillingHubExecutionUsageDetailResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BillingHubExecutionUsageDetailResponse {
+		return vs[0].([]BillingHubExecutionUsageDetailResponse)[vs[1].(int)]
+	}).(BillingHubExecutionUsageDetailResponseOutput)
+}
+
+type BillingHubFreeHourIncrementEntryResponse struct {
+	CreateTimeStamp      *string  `pulumi:"createTimeStamp"`
+	ExpirationTimeStamp  *string  `pulumi:"expirationTimeStamp"`
+	IncrementalFreeHours *float64 `pulumi:"incrementalFreeHours"`
+	RemainingFreeHours   *float64 `pulumi:"remainingFreeHours"`
+}
+
+type BillingHubFreeHourIncrementEntryResponseOutput struct{ *pulumi.OutputState }
+
+func (BillingHubFreeHourIncrementEntryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingHubFreeHourIncrementEntryResponse)(nil)).Elem()
+}
+
+func (o BillingHubFreeHourIncrementEntryResponseOutput) ToBillingHubFreeHourIncrementEntryResponseOutput() BillingHubFreeHourIncrementEntryResponseOutput {
+	return o
+}
+
+func (o BillingHubFreeHourIncrementEntryResponseOutput) ToBillingHubFreeHourIncrementEntryResponseOutputWithContext(ctx context.Context) BillingHubFreeHourIncrementEntryResponseOutput {
+	return o
+}
+
+func (o BillingHubFreeHourIncrementEntryResponseOutput) CreateTimeStamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubFreeHourIncrementEntryResponse) *string { return v.CreateTimeStamp }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubFreeHourIncrementEntryResponseOutput) ExpirationTimeStamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubFreeHourIncrementEntryResponse) *string { return v.ExpirationTimeStamp }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubFreeHourIncrementEntryResponseOutput) IncrementalFreeHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubFreeHourIncrementEntryResponse) *float64 { return v.IncrementalFreeHours }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubFreeHourIncrementEntryResponseOutput) RemainingFreeHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubFreeHourIncrementEntryResponse) *float64 { return v.RemainingFreeHours }).(pulumi.Float64PtrOutput)
+}
+
+type BillingHubFreeHourIncrementEntryResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BillingHubFreeHourIncrementEntryResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingHubFreeHourIncrementEntryResponse)(nil)).Elem()
+}
+
+func (o BillingHubFreeHourIncrementEntryResponseArrayOutput) ToBillingHubFreeHourIncrementEntryResponseArrayOutput() BillingHubFreeHourIncrementEntryResponseArrayOutput {
+	return o
+}
+
+func (o BillingHubFreeHourIncrementEntryResponseArrayOutput) ToBillingHubFreeHourIncrementEntryResponseArrayOutputWithContext(ctx context.Context) BillingHubFreeHourIncrementEntryResponseArrayOutput {
+	return o
+}
+
+func (o BillingHubFreeHourIncrementEntryResponseArrayOutput) Index(i pulumi.IntInput) BillingHubFreeHourIncrementEntryResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BillingHubFreeHourIncrementEntryResponse {
+		return vs[0].([]BillingHubFreeHourIncrementEntryResponse)[vs[1].(int)]
+	}).(BillingHubFreeHourIncrementEntryResponseOutput)
+}
+
+type BillingHubGetUsageRequestResponse struct {
+	EndTimeStamp   string `pulumi:"endTimeStamp"`
+	PageIndex      *int   `pulumi:"pageIndex"`
+	PageSize       *int   `pulumi:"pageSize"`
+	StartTimeStamp string `pulumi:"startTimeStamp"`
+}
+
+type BillingHubGetUsageRequestResponseOutput struct{ *pulumi.OutputState }
+
+func (BillingHubGetUsageRequestResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingHubGetUsageRequestResponse)(nil)).Elem()
+}
+
+func (o BillingHubGetUsageRequestResponseOutput) ToBillingHubGetUsageRequestResponseOutput() BillingHubGetUsageRequestResponseOutput {
+	return o
+}
+
+func (o BillingHubGetUsageRequestResponseOutput) ToBillingHubGetUsageRequestResponseOutputWithContext(ctx context.Context) BillingHubGetUsageRequestResponseOutput {
+	return o
+}
+
+func (o BillingHubGetUsageRequestResponseOutput) EndTimeStamp() pulumi.StringOutput {
+	return o.ApplyT(func(v BillingHubGetUsageRequestResponse) string { return v.EndTimeStamp }).(pulumi.StringOutput)
+}
+
+func (o BillingHubGetUsageRequestResponseOutput) PageIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BillingHubGetUsageRequestResponse) *int { return v.PageIndex }).(pulumi.IntPtrOutput)
+}
+
+func (o BillingHubGetUsageRequestResponseOutput) PageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v BillingHubGetUsageRequestResponse) *int { return v.PageSize }).(pulumi.IntPtrOutput)
+}
+
+func (o BillingHubGetUsageRequestResponseOutput) StartTimeStamp() pulumi.StringOutput {
+	return o.ApplyT(func(v BillingHubGetUsageRequestResponse) string { return v.StartTimeStamp }).(pulumi.StringOutput)
+}
+
+type BillingHubGetUsageRequestResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (BillingHubGetUsageRequestResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BillingHubGetUsageRequestResponse)(nil)).Elem()
+}
+
+func (o BillingHubGetUsageRequestResponsePtrOutput) ToBillingHubGetUsageRequestResponsePtrOutput() BillingHubGetUsageRequestResponsePtrOutput {
+	return o
+}
+
+func (o BillingHubGetUsageRequestResponsePtrOutput) ToBillingHubGetUsageRequestResponsePtrOutputWithContext(ctx context.Context) BillingHubGetUsageRequestResponsePtrOutput {
+	return o
+}
+
+func (o BillingHubGetUsageRequestResponsePtrOutput) Elem() BillingHubGetUsageRequestResponseOutput {
+	return o.ApplyT(func(v *BillingHubGetUsageRequestResponse) BillingHubGetUsageRequestResponse {
+		if v != nil {
+			return *v
+		}
+		var ret BillingHubGetUsageRequestResponse
+		return ret
+	}).(BillingHubGetUsageRequestResponseOutput)
+}
+
+func (o BillingHubGetUsageRequestResponsePtrOutput) EndTimeStamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingHubGetUsageRequestResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.EndTimeStamp
+	}).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubGetUsageRequestResponsePtrOutput) PageIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BillingHubGetUsageRequestResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PageIndex
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o BillingHubGetUsageRequestResponsePtrOutput) PageSize() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *BillingHubGetUsageRequestResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PageSize
+	}).(pulumi.IntPtrOutput)
+}
+
+func (o BillingHubGetUsageRequestResponsePtrOutput) StartTimeStamp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *BillingHubGetUsageRequestResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTimeStamp
+	}).(pulumi.StringPtrOutput)
+}
+
+type BillingHubPackageUsageResponse struct {
+	ApplicationName                 *string                                      `pulumi:"applicationName"`
+	ApplicationVersion              *string                                      `pulumi:"applicationVersion"`
+	AzureResourceUri                *string                                      `pulumi:"azureResourceUri"`
+	TotalCharges                    *float64                                     `pulumi:"totalCharges"`
+	TotalUsedBillableHours          *float64                                     `pulumi:"totalUsedBillableHours"`
+	TotalUsedFreeHours              *float64                                     `pulumi:"totalUsedFreeHours"`
+	UsageEntriesGroupedByUpdateType []BillingHubUsageGroupedByUpdateTypeResponse `pulumi:"usageEntriesGroupedByUpdateType"`
+}
+
+type BillingHubPackageUsageResponseOutput struct{ *pulumi.OutputState }
+
+func (BillingHubPackageUsageResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingHubPackageUsageResponse)(nil)).Elem()
+}
+
+func (o BillingHubPackageUsageResponseOutput) ToBillingHubPackageUsageResponseOutput() BillingHubPackageUsageResponseOutput {
+	return o
+}
+
+func (o BillingHubPackageUsageResponseOutput) ToBillingHubPackageUsageResponseOutputWithContext(ctx context.Context) BillingHubPackageUsageResponseOutput {
+	return o
+}
+
+func (o BillingHubPackageUsageResponseOutput) ApplicationName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubPackageUsageResponse) *string { return v.ApplicationName }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubPackageUsageResponseOutput) ApplicationVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubPackageUsageResponse) *string { return v.ApplicationVersion }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubPackageUsageResponseOutput) AzureResourceUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubPackageUsageResponse) *string { return v.AzureResourceUri }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubPackageUsageResponseOutput) TotalCharges() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubPackageUsageResponse) *float64 { return v.TotalCharges }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubPackageUsageResponseOutput) TotalUsedBillableHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubPackageUsageResponse) *float64 { return v.TotalUsedBillableHours }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubPackageUsageResponseOutput) TotalUsedFreeHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubPackageUsageResponse) *float64 { return v.TotalUsedFreeHours }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubPackageUsageResponseOutput) UsageEntriesGroupedByUpdateType() BillingHubUsageGroupedByUpdateTypeResponseArrayOutput {
+	return o.ApplyT(func(v BillingHubPackageUsageResponse) []BillingHubUsageGroupedByUpdateTypeResponse {
+		return v.UsageEntriesGroupedByUpdateType
+	}).(BillingHubUsageGroupedByUpdateTypeResponseArrayOutput)
+}
+
+type BillingHubPackageUsageResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BillingHubPackageUsageResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingHubPackageUsageResponse)(nil)).Elem()
+}
+
+func (o BillingHubPackageUsageResponseArrayOutput) ToBillingHubPackageUsageResponseArrayOutput() BillingHubPackageUsageResponseArrayOutput {
+	return o
+}
+
+func (o BillingHubPackageUsageResponseArrayOutput) ToBillingHubPackageUsageResponseArrayOutputWithContext(ctx context.Context) BillingHubPackageUsageResponseArrayOutput {
+	return o
+}
+
+func (o BillingHubPackageUsageResponseArrayOutput) Index(i pulumi.IntInput) BillingHubPackageUsageResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BillingHubPackageUsageResponse {
+		return vs[0].([]BillingHubPackageUsageResponse)[vs[1].(int)]
+	}).(BillingHubPackageUsageResponseOutput)
+}
+
+type BillingHubUsageGroupResponse struct {
+	ExecutionUsageDetails  []BillingHubExecutionUsageDetailResponse `pulumi:"executionUsageDetails"`
+	OsBuild                *string                                  `pulumi:"osBuild"`
+	ProductFamily          *string                                  `pulumi:"productFamily"`
+	Release                *string                                  `pulumi:"release"`
+	ReleaseBuildDate       *string                                  `pulumi:"releaseBuildDate"`
+	ReleaseBuildNumber     *float64                                 `pulumi:"releaseBuildNumber"`
+	ReleaseBuildRevision   *float64                                 `pulumi:"releaseBuildRevision"`
+	TestType               *string                                  `pulumi:"testType"`
+	TotalCharges           *float64                                 `pulumi:"totalCharges"`
+	TotalUsedBillableHours *float64                                 `pulumi:"totalUsedBillableHours"`
+	TotalUsedFreeHours     *float64                                 `pulumi:"totalUsedFreeHours"`
+}
+
+type BillingHubUsageGroupResponseOutput struct{ *pulumi.OutputState }
+
+func (BillingHubUsageGroupResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingHubUsageGroupResponse)(nil)).Elem()
+}
+
+func (o BillingHubUsageGroupResponseOutput) ToBillingHubUsageGroupResponseOutput() BillingHubUsageGroupResponseOutput {
+	return o
+}
+
+func (o BillingHubUsageGroupResponseOutput) ToBillingHubUsageGroupResponseOutputWithContext(ctx context.Context) BillingHubUsageGroupResponseOutput {
+	return o
+}
+
+func (o BillingHubUsageGroupResponseOutput) ExecutionUsageDetails() BillingHubExecutionUsageDetailResponseArrayOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupResponse) []BillingHubExecutionUsageDetailResponse {
+		return v.ExecutionUsageDetails
+	}).(BillingHubExecutionUsageDetailResponseArrayOutput)
+}
+
+func (o BillingHubUsageGroupResponseOutput) OsBuild() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupResponse) *string { return v.OsBuild }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubUsageGroupResponseOutput) ProductFamily() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupResponse) *string { return v.ProductFamily }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubUsageGroupResponseOutput) Release() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupResponse) *string { return v.Release }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubUsageGroupResponseOutput) ReleaseBuildDate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupResponse) *string { return v.ReleaseBuildDate }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubUsageGroupResponseOutput) ReleaseBuildNumber() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupResponse) *float64 { return v.ReleaseBuildNumber }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubUsageGroupResponseOutput) ReleaseBuildRevision() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupResponse) *float64 { return v.ReleaseBuildRevision }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubUsageGroupResponseOutput) TestType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupResponse) *string { return v.TestType }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubUsageGroupResponseOutput) TotalCharges() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupResponse) *float64 { return v.TotalCharges }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubUsageGroupResponseOutput) TotalUsedBillableHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupResponse) *float64 { return v.TotalUsedBillableHours }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubUsageGroupResponseOutput) TotalUsedFreeHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupResponse) *float64 { return v.TotalUsedFreeHours }).(pulumi.Float64PtrOutput)
+}
+
+type BillingHubUsageGroupResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BillingHubUsageGroupResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingHubUsageGroupResponse)(nil)).Elem()
+}
+
+func (o BillingHubUsageGroupResponseArrayOutput) ToBillingHubUsageGroupResponseArrayOutput() BillingHubUsageGroupResponseArrayOutput {
+	return o
+}
+
+func (o BillingHubUsageGroupResponseArrayOutput) ToBillingHubUsageGroupResponseArrayOutputWithContext(ctx context.Context) BillingHubUsageGroupResponseArrayOutput {
+	return o
+}
+
+func (o BillingHubUsageGroupResponseArrayOutput) Index(i pulumi.IntInput) BillingHubUsageGroupResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BillingHubUsageGroupResponse {
+		return vs[0].([]BillingHubUsageGroupResponse)[vs[1].(int)]
+	}).(BillingHubUsageGroupResponseOutput)
+}
+
+type BillingHubUsageGroupedByUpdateTypeResponse struct {
+	TotalCharges           *float64                       `pulumi:"totalCharges"`
+	TotalUsedBillableHours *float64                       `pulumi:"totalUsedBillableHours"`
+	TotalUsedFreeHours     *float64                       `pulumi:"totalUsedFreeHours"`
+	UpdateType             *string                        `pulumi:"updateType"`
+	UsageGroups            []BillingHubUsageGroupResponse `pulumi:"usageGroups"`
+}
+
+type BillingHubUsageGroupedByUpdateTypeResponseOutput struct{ *pulumi.OutputState }
+
+func (BillingHubUsageGroupedByUpdateTypeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BillingHubUsageGroupedByUpdateTypeResponse)(nil)).Elem()
+}
+
+func (o BillingHubUsageGroupedByUpdateTypeResponseOutput) ToBillingHubUsageGroupedByUpdateTypeResponseOutput() BillingHubUsageGroupedByUpdateTypeResponseOutput {
+	return o
+}
+
+func (o BillingHubUsageGroupedByUpdateTypeResponseOutput) ToBillingHubUsageGroupedByUpdateTypeResponseOutputWithContext(ctx context.Context) BillingHubUsageGroupedByUpdateTypeResponseOutput {
+	return o
+}
+
+func (o BillingHubUsageGroupedByUpdateTypeResponseOutput) TotalCharges() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupedByUpdateTypeResponse) *float64 { return v.TotalCharges }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubUsageGroupedByUpdateTypeResponseOutput) TotalUsedBillableHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupedByUpdateTypeResponse) *float64 { return v.TotalUsedBillableHours }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubUsageGroupedByUpdateTypeResponseOutput) TotalUsedFreeHours() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupedByUpdateTypeResponse) *float64 { return v.TotalUsedFreeHours }).(pulumi.Float64PtrOutput)
+}
+
+func (o BillingHubUsageGroupedByUpdateTypeResponseOutput) UpdateType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupedByUpdateTypeResponse) *string { return v.UpdateType }).(pulumi.StringPtrOutput)
+}
+
+func (o BillingHubUsageGroupedByUpdateTypeResponseOutput) UsageGroups() BillingHubUsageGroupResponseArrayOutput {
+	return o.ApplyT(func(v BillingHubUsageGroupedByUpdateTypeResponse) []BillingHubUsageGroupResponse {
+		return v.UsageGroups
+	}).(BillingHubUsageGroupResponseArrayOutput)
+}
+
+type BillingHubUsageGroupedByUpdateTypeResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (BillingHubUsageGroupedByUpdateTypeResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BillingHubUsageGroupedByUpdateTypeResponse)(nil)).Elem()
+}
+
+func (o BillingHubUsageGroupedByUpdateTypeResponseArrayOutput) ToBillingHubUsageGroupedByUpdateTypeResponseArrayOutput() BillingHubUsageGroupedByUpdateTypeResponseArrayOutput {
+	return o
+}
+
+func (o BillingHubUsageGroupedByUpdateTypeResponseArrayOutput) ToBillingHubUsageGroupedByUpdateTypeResponseArrayOutputWithContext(ctx context.Context) BillingHubUsageGroupedByUpdateTypeResponseArrayOutput {
+	return o
+}
+
+func (o BillingHubUsageGroupedByUpdateTypeResponseArrayOutput) Index(i pulumi.IntInput) BillingHubUsageGroupedByUpdateTypeResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BillingHubUsageGroupedByUpdateTypeResponse {
+		return vs[0].([]BillingHubUsageGroupedByUpdateTypeResponse)[vs[1].(int)]
+	}).(BillingHubUsageGroupedByUpdateTypeResponseOutput)
+}
+
 // The command used in the test
 type Command struct {
 	// The action of the command.
@@ -1337,6 +1830,8 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 
 // The information of the target OS to be tested.
 type TargetOSInfo struct {
+	// Specifies the baseline OSs to be tested.
+	BaselineOSs []string `pulumi:"baselineOSs"`
 	// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
 	OsUpdateType string `pulumi:"osUpdateType"`
 	// Specifies the target OSs to be tested.
@@ -1356,6 +1851,8 @@ type TargetOSInfoInput interface {
 
 // The information of the target OS to be tested.
 type TargetOSInfoArgs struct {
+	// Specifies the baseline OSs to be tested.
+	BaselineOSs pulumi.StringArrayInput `pulumi:"baselineOSs"`
 	// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
 	OsUpdateType pulumi.StringInput `pulumi:"osUpdateType"`
 	// Specifies the target OSs to be tested.
@@ -1414,6 +1911,11 @@ func (o TargetOSInfoOutput) ToTargetOSInfoOutputWithContext(ctx context.Context)
 	return o
 }
 
+// Specifies the baseline OSs to be tested.
+func (o TargetOSInfoOutput) BaselineOSs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TargetOSInfo) []string { return v.BaselineOSs }).(pulumi.StringArrayOutput)
+}
+
 // Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
 func (o TargetOSInfoOutput) OsUpdateType() pulumi.StringOutput {
 	return o.ApplyT(func(v TargetOSInfo) string { return v.OsUpdateType }).(pulumi.StringOutput)
@@ -1446,6 +1948,8 @@ func (o TargetOSInfoArrayOutput) Index(i pulumi.IntInput) TargetOSInfoOutput {
 
 // The information of the target OS to be tested.
 type TargetOSInfoResponse struct {
+	// Specifies the baseline OSs to be tested.
+	BaselineOSs []string `pulumi:"baselineOSs"`
 	// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
 	OsUpdateType string `pulumi:"osUpdateType"`
 	// Specifies the target OSs to be tested.
@@ -1465,6 +1969,11 @@ func (o TargetOSInfoResponseOutput) ToTargetOSInfoResponseOutput() TargetOSInfoR
 
 func (o TargetOSInfoResponseOutput) ToTargetOSInfoResponseOutputWithContext(ctx context.Context) TargetOSInfoResponseOutput {
 	return o
+}
+
+// Specifies the baseline OSs to be tested.
+func (o TargetOSInfoResponseOutput) BaselineOSs() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v TargetOSInfoResponse) []string { return v.BaselineOSs }).(pulumi.StringArrayOutput)
 }
 
 // Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
@@ -1812,6 +2321,8 @@ type TestResponse struct {
 	IsActive *bool `pulumi:"isActive"`
 	// The type of the test.
 	TestType string `pulumi:"testType"`
+	// Resource identifier of the validation test result.
+	ValidationResultId string `pulumi:"validationResultId"`
 	// The status of the validation run of the package.
 	ValidationRunStatus string `pulumi:"validationRunStatus"`
 }
@@ -1844,6 +2355,11 @@ func (o TestResponseOutput) IsActive() pulumi.BoolPtrOutput {
 // The type of the test.
 func (o TestResponseOutput) TestType() pulumi.StringOutput {
 	return o.ApplyT(func(v TestResponse) string { return v.TestType }).(pulumi.StringOutput)
+}
+
+// Resource identifier of the validation test result.
+func (o TestResponseOutput) ValidationResultId() pulumi.StringOutput {
+	return o.ApplyT(func(v TestResponse) string { return v.ValidationResultId }).(pulumi.StringOutput)
 }
 
 // The status of the validation run of the package.
@@ -2072,6 +2588,18 @@ func (o UserObjectReceiverValueResponsePtrOutput) UserObjectIds() pulumi.StringA
 }
 
 func init() {
+	pulumi.RegisterOutputType(BillingHubExecutionUsageDetailResponseOutput{})
+	pulumi.RegisterOutputType(BillingHubExecutionUsageDetailResponseArrayOutput{})
+	pulumi.RegisterOutputType(BillingHubFreeHourIncrementEntryResponseOutput{})
+	pulumi.RegisterOutputType(BillingHubFreeHourIncrementEntryResponseArrayOutput{})
+	pulumi.RegisterOutputType(BillingHubGetUsageRequestResponseOutput{})
+	pulumi.RegisterOutputType(BillingHubGetUsageRequestResponsePtrOutput{})
+	pulumi.RegisterOutputType(BillingHubPackageUsageResponseOutput{})
+	pulumi.RegisterOutputType(BillingHubPackageUsageResponseArrayOutput{})
+	pulumi.RegisterOutputType(BillingHubUsageGroupResponseOutput{})
+	pulumi.RegisterOutputType(BillingHubUsageGroupResponseArrayOutput{})
+	pulumi.RegisterOutputType(BillingHubUsageGroupedByUpdateTypeResponseOutput{})
+	pulumi.RegisterOutputType(BillingHubUsageGroupedByUpdateTypeResponseArrayOutput{})
 	pulumi.RegisterOutputType(CommandOutput{})
 	pulumi.RegisterOutputType(CommandArrayOutput{})
 	pulumi.RegisterOutputType(CommandResponseOutput{})

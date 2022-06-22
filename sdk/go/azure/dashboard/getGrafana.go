@@ -11,7 +11,7 @@ import (
 )
 
 // The grafana resource type.
-// API Version: 2021-09-01-preview.
+// API Version: 2022-05-01-preview.
 func LookupGrafana(ctx *pulumi.Context, args *LookupGrafanaArgs, opts ...pulumi.InvokeOption) (*LookupGrafanaResult, error) {
 	var rv LookupGrafanaResult
 	err := ctx.Invoke("azure-native:dashboard:getGrafana", args, &rv, opts...)
@@ -33,7 +33,7 @@ type LookupGrafanaResult struct {
 	// ARM id of the grafana resource
 	Id string `pulumi:"id"`
 	// The managed identity of the grafana resource.
-	Identity *ManagedIdentityResponse `pulumi:"identity"`
+	Identity *ManagedServiceIdentityResponse `pulumi:"identity"`
 	// The geo-location where the grafana resource lives
 	Location *string `pulumi:"location"`
 	// Name of the grafana resource.
@@ -95,8 +95,8 @@ func (o LookupGrafanaResultOutput) Id() pulumi.StringOutput {
 }
 
 // The managed identity of the grafana resource.
-func (o LookupGrafanaResultOutput) Identity() ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v LookupGrafanaResult) *ManagedIdentityResponse { return v.Identity }).(ManagedIdentityResponsePtrOutput)
+func (o LookupGrafanaResultOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v LookupGrafanaResult) *ManagedServiceIdentityResponse { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // The geo-location where the grafana resource lives

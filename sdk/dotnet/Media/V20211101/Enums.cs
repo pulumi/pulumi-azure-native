@@ -49,6 +49,43 @@ namespace Pulumi.AzureNative.Media.V20211101
     }
 
     /// <summary>
+    /// The type of key used to encrypt the Account Key.
+    /// </summary>
+    [EnumType]
+    public readonly struct AccountEncryptionKeyType : IEquatable<AccountEncryptionKeyType>
+    {
+        private readonly string _value;
+
+        private AccountEncryptionKeyType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The Account Key is encrypted with a System Key.
+        /// </summary>
+        public static AccountEncryptionKeyType SystemKey { get; } = new AccountEncryptionKeyType("SystemKey");
+        /// <summary>
+        /// The Account Key is encrypted with a Customer Key.
+        /// </summary>
+        public static AccountEncryptionKeyType CustomerKey { get; } = new AccountEncryptionKeyType("CustomerKey");
+
+        public static bool operator ==(AccountEncryptionKeyType left, AccountEncryptionKeyType right) => left.Equals(right);
+        public static bool operator !=(AccountEncryptionKeyType left, AccountEncryptionKeyType right) => !left.Equals(right);
+
+        public static explicit operator string(AccountEncryptionKeyType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is AccountEncryptionKeyType other && Equals(other);
+        public bool Equals(AccountEncryptionKeyType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
     /// </summary>
     [EnumType]
@@ -567,6 +604,43 @@ namespace Pulumi.AzureNative.Media.V20211101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is ContentKeyPolicyRestrictionTokenType other && Equals(other);
         public bool Equals(ContentKeyPolicyRestrictionTokenType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The behavior for IP access control in Key Delivery.
+    /// </summary>
+    [EnumType]
+    public readonly struct DefaultAction : IEquatable<DefaultAction>
+    {
+        private readonly string _value;
+
+        private DefaultAction(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// All public IP addresses are allowed.
+        /// </summary>
+        public static DefaultAction Allow { get; } = new DefaultAction("Allow");
+        /// <summary>
+        /// Public IP addresses are blocked.
+        /// </summary>
+        public static DefaultAction Deny { get; } = new DefaultAction("Deny");
+
+        public static bool operator ==(DefaultAction left, DefaultAction right) => left.Equals(right);
+        public static bool operator !=(DefaultAction left, DefaultAction right) => !left.Equals(right);
+
+        public static explicit operator string(DefaultAction value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is DefaultAction other && Equals(other);
+        public bool Equals(DefaultAction other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;
@@ -1373,6 +1447,75 @@ namespace Pulumi.AzureNative.Media.V20211101
     }
 
     /// <summary>
+    /// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    /// </summary>
+    [EnumType]
+    public readonly struct PrivateEndpointServiceConnectionStatus : IEquatable<PrivateEndpointServiceConnectionStatus>
+    {
+        private readonly string _value;
+
+        private PrivateEndpointServiceConnectionStatus(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static PrivateEndpointServiceConnectionStatus Pending { get; } = new PrivateEndpointServiceConnectionStatus("Pending");
+        public static PrivateEndpointServiceConnectionStatus Approved { get; } = new PrivateEndpointServiceConnectionStatus("Approved");
+        public static PrivateEndpointServiceConnectionStatus Rejected { get; } = new PrivateEndpointServiceConnectionStatus("Rejected");
+
+        public static bool operator ==(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => left.Equals(right);
+        public static bool operator !=(PrivateEndpointServiceConnectionStatus left, PrivateEndpointServiceConnectionStatus right) => !left.Equals(right);
+
+        public static explicit operator string(PrivateEndpointServiceConnectionStatus value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PrivateEndpointServiceConnectionStatus other && Equals(other);
+        public bool Equals(PrivateEndpointServiceConnectionStatus other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// Whether or not public network access is allowed for resources under the Media Services account.
+    /// </summary>
+    [EnumType]
+    public readonly struct PublicNetworkAccess : IEquatable<PublicNetworkAccess>
+    {
+        private readonly string _value;
+
+        private PublicNetworkAccess(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// Public network access is enabled.
+        /// </summary>
+        public static PublicNetworkAccess Enabled { get; } = new PublicNetworkAccess("Enabled");
+        /// <summary>
+        /// Public network access is disabled.
+        /// </summary>
+        public static PublicNetworkAccess Disabled { get; } = new PublicNetworkAccess("Disabled");
+
+        public static bool operator ==(PublicNetworkAccess left, PublicNetworkAccess right) => left.Equals(right);
+        public static bool operator !=(PublicNetworkAccess left, PublicNetworkAccess right) => !left.Equals(right);
+
+        public static explicit operator string(PublicNetworkAccess value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is PublicNetworkAccess other && Equals(other);
+        public bool Equals(PublicNetworkAccess other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
     /// </summary>
     [EnumType]
@@ -1418,6 +1561,77 @@ namespace Pulumi.AzureNative.Media.V20211101
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override bool Equals(object? obj) => obj is Rotation other && Equals(other);
         public bool Equals(Rotation other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
+    /// The type of the storage account.
+    /// </summary>
+    [EnumType]
+    public readonly struct StorageAccountType : IEquatable<StorageAccountType>
+    {
+        private readonly string _value;
+
+        private StorageAccountType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// The primary storage account for the Media Services account.
+        /// </summary>
+        public static StorageAccountType Primary { get; } = new StorageAccountType("Primary");
+        /// <summary>
+        /// A secondary storage account for the Media Services account.
+        /// </summary>
+        public static StorageAccountType Secondary { get; } = new StorageAccountType("Secondary");
+
+        public static bool operator ==(StorageAccountType left, StorageAccountType right) => left.Equals(right);
+        public static bool operator !=(StorageAccountType left, StorageAccountType right) => !left.Equals(right);
+
+        public static explicit operator string(StorageAccountType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageAccountType other && Equals(other);
+        public bool Equals(StorageAccountType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    [EnumType]
+    public readonly struct StorageAuthentication : IEquatable<StorageAuthentication>
+    {
+        private readonly string _value;
+
+        private StorageAuthentication(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        /// <summary>
+        /// System authentication.
+        /// </summary>
+        public static StorageAuthentication System { get; } = new StorageAuthentication("System");
+        /// <summary>
+        /// Managed Identity authentication.
+        /// </summary>
+        public static StorageAuthentication ManagedIdentity { get; } = new StorageAuthentication("ManagedIdentity");
+
+        public static bool operator ==(StorageAuthentication left, StorageAuthentication right) => left.Equals(right);
+        public static bool operator !=(StorageAuthentication left, StorageAuthentication right) => !left.Equals(right);
+
+        public static explicit operator string(StorageAuthentication value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is StorageAuthentication other && Equals(other);
+        public bool Equals(StorageAuthentication other) => string.Equals(_value, other._value, StringComparison.Ordinal);
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public override int GetHashCode() => _value?.GetHashCode() ?? 0;

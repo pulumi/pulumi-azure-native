@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Test Base Package resource.
- * API Version: 2020-12-16-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class Package extends pulumi.CustomResource {
     /**
@@ -186,7 +186,7 @@ export class Package extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:Package" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:Package" }, { type: "azure-native:testbase/v20220401preview:Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Package.__pulumiType, name, resourceInputs, opts);
     }

@@ -56,6 +56,9 @@ func NewFirewallRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:dbformysql/v20210501preview:FirewallRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:dbformysql/v20211201preview:FirewallRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource FirewallRule

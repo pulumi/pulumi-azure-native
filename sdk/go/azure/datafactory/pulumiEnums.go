@@ -589,6 +589,13 @@ const (
 	TumblingWindowFrequencyMonth  = TumblingWindowFrequency("Month")
 )
 
+// Linked service reference type.
+type Type string
+
+const (
+	TypeLinkedServiceReference = Type("LinkedServiceReference")
+)
+
 // Variable type.
 type VariableType string
 

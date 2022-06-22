@@ -718,6 +718,15 @@ export const TumblingWindowFrequency = {
  */
 export type TumblingWindowFrequency = (typeof TumblingWindowFrequency)[keyof typeof TumblingWindowFrequency];
 
+export const Type = {
+    LinkedServiceReference: "LinkedServiceReference",
+} as const;
+
+/**
+ * Linked service reference type.
+ */
+export type Type = (typeof Type)[keyof typeof Type];
+
 export const VariableType = {
     String: "String",
     Bool: "Bool",

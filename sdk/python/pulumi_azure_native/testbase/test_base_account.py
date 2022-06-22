@@ -129,7 +129,7 @@ class TestBaseAccount(pulumi.CustomResource):
                  __props__=None):
         """
         The Test Base Account resource.
-        API Version: 2020-12-16-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -148,7 +148,7 @@ class TestBaseAccount(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Test Base Account resource.
-        API Version: 2020-12-16-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param TestBaseAccountArgs args: The arguments to use to populate this resource's properties.
@@ -199,7 +199,7 @@ class TestBaseAccount(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20201216preview:TestBaseAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20201216preview:TestBaseAccount"), pulumi.Alias(type_="azure-native:testbase/v20220401preview:TestBaseAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TestBaseAccount, __self__).__init__(
             'azure-native:testbase:TestBaseAccount',

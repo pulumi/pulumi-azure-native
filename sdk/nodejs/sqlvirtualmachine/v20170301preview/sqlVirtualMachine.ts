@@ -163,7 +163,7 @@ export class SqlVirtualMachine extends pulumi.CustomResource {
             resourceInputs["wsfcDomainCredentials"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:sqlvirtualmachine:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20211101preview:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine" }, { type: "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(SqlVirtualMachine.__pulumiType, name, resourceInputs, opts);
     }

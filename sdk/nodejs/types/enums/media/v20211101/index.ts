@@ -22,6 +22,22 @@ export const AacAudioProfile = {
  */
 export type AacAudioProfile = (typeof AacAudioProfile)[keyof typeof AacAudioProfile];
 
+export const AccountEncryptionKeyType = {
+    /**
+     * The Account Key is encrypted with a System Key.
+     */
+    SystemKey: "SystemKey",
+    /**
+     * The Account Key is encrypted with a Customer Key.
+     */
+    CustomerKey: "CustomerKey",
+} as const;
+
+/**
+ * The type of key used to encrypt the Account Key.
+ */
+export type AccountEncryptionKeyType = (typeof AccountEncryptionKeyType)[keyof typeof AccountEncryptionKeyType];
+
 export const AnalysisResolution = {
     SourceResolution: "SourceResolution",
     StandardDefinition: "StandardDefinition",
@@ -295,6 +311,22 @@ export const ContentKeyPolicyRestrictionTokenType = {
  * The type of token.
  */
 export type ContentKeyPolicyRestrictionTokenType = (typeof ContentKeyPolicyRestrictionTokenType)[keyof typeof ContentKeyPolicyRestrictionTokenType];
+
+export const DefaultAction = {
+    /**
+     * All public IP addresses are allowed.
+     */
+    Allow: "Allow",
+    /**
+     * Public IP addresses are blocked.
+     */
+    Deny: "Deny",
+} as const;
+
+/**
+ * The behavior for IP access control in Key Delivery.
+ */
+export type DefaultAction = (typeof DefaultAction)[keyof typeof DefaultAction];
 
 export const DeinterlaceMode = {
     /**
@@ -716,6 +748,33 @@ export const Priority = {
  */
 export type Priority = (typeof Priority)[keyof typeof Priority];
 
+export const PrivateEndpointServiceConnectionStatus = {
+    Pending: "Pending",
+    Approved: "Approved",
+    Rejected: "Rejected",
+} as const;
+
+/**
+ * Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+ */
+export type PrivateEndpointServiceConnectionStatus = (typeof PrivateEndpointServiceConnectionStatus)[keyof typeof PrivateEndpointServiceConnectionStatus];
+
+export const PublicNetworkAccess = {
+    /**
+     * Public network access is enabled.
+     */
+    Enabled: "Enabled",
+    /**
+     * Public network access is disabled.
+     */
+    Disabled: "Disabled",
+} as const;
+
+/**
+ * Whether or not public network access is allowed for resources under the Media Services account.
+ */
+export type PublicNetworkAccess = (typeof PublicNetworkAccess)[keyof typeof PublicNetworkAccess];
+
 export const Rotation = {
     /**
      * Automatically detect and rotate as needed.
@@ -747,6 +806,35 @@ export const Rotation = {
  * The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
  */
 export type Rotation = (typeof Rotation)[keyof typeof Rotation];
+
+export const StorageAccountType = {
+    /**
+     * The primary storage account for the Media Services account.
+     */
+    Primary: "Primary",
+    /**
+     * A secondary storage account for the Media Services account.
+     */
+    Secondary: "Secondary",
+} as const;
+
+/**
+ * The type of the storage account.
+ */
+export type StorageAccountType = (typeof StorageAccountType)[keyof typeof StorageAccountType];
+
+export const StorageAuthentication = {
+    /**
+     * System authentication.
+     */
+    System: "System",
+    /**
+     * Managed Identity authentication.
+     */
+    ManagedIdentity: "ManagedIdentity",
+} as const;
+
+export type StorageAuthentication = (typeof StorageAuthentication)[keyof typeof StorageAuthentication];
 
 export const StreamOptionsFlag = {
     /**

@@ -11,6 +11,8 @@ import (
 )
 
 // The Test Base Package resource.
+//
+// Deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.
 func LookupPackage(ctx *pulumi.Context, args *LookupPackageArgs, opts ...pulumi.InvokeOption) (*LookupPackageResult, error) {
 	var rv LookupPackageResult
 	err := ctx.Invoke("azure-native:testbase/v20201216preview:getPackage", args, &rv, opts...)

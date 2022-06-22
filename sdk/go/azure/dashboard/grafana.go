@@ -12,12 +12,12 @@ import (
 )
 
 // The grafana resource type.
-// API Version: 2021-09-01-preview.
+// API Version: 2022-05-01-preview.
 type Grafana struct {
 	pulumi.CustomResourceState
 
 	// The managed identity of the grafana resource.
-	Identity ManagedIdentityResponsePtrOutput `pulumi:"identity"`
+	Identity ManagedServiceIdentityResponsePtrOutput `pulumi:"identity"`
 	// The geo-location where the grafana resource lives
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Name of the grafana resource.
@@ -47,6 +47,9 @@ func NewGrafana(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:dashboard/v20210901preview:Grafana"),
+		},
+		{
+			Type: pulumi.String("azure-native:dashboard/v20220501preview:Grafana"),
 		},
 	})
 	opts = append(opts, aliases)
@@ -83,7 +86,7 @@ func (GrafanaState) ElementType() reflect.Type {
 
 type grafanaArgs struct {
 	// The managed identity of the grafana resource.
-	Identity *ManagedIdentity `pulumi:"identity"`
+	Identity *ManagedServiceIdentity `pulumi:"identity"`
 	// The geo-location where the grafana resource lives
 	Location *string `pulumi:"location"`
 	// Properties specific to the grafana resource.
@@ -101,7 +104,7 @@ type grafanaArgs struct {
 // The set of arguments for constructing a Grafana resource.
 type GrafanaArgs struct {
 	// The managed identity of the grafana resource.
-	Identity ManagedIdentityPtrInput
+	Identity ManagedServiceIdentityPtrInput
 	// The geo-location where the grafana resource lives
 	Location pulumi.StringPtrInput
 	// Properties specific to the grafana resource.
@@ -154,8 +157,8 @@ func (o GrafanaOutput) ToGrafanaOutputWithContext(ctx context.Context) GrafanaOu
 }
 
 // The managed identity of the grafana resource.
-func (o GrafanaOutput) Identity() ManagedIdentityResponsePtrOutput {
-	return o.ApplyT(func(v *Grafana) ManagedIdentityResponsePtrOutput { return v.Identity }).(ManagedIdentityResponsePtrOutput)
+func (o GrafanaOutput) Identity() ManagedServiceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *Grafana) ManagedServiceIdentityResponsePtrOutput { return v.Identity }).(ManagedServiceIdentityResponsePtrOutput)
 }
 
 // The geo-location where the grafana resource lives

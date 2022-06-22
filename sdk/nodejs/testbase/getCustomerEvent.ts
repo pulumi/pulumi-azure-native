@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Customer Notification Event resource.
- * API Version: 2020-12-16-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getCustomerEvent(args: GetCustomerEventArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerEventResult> {
     if (!opts) {

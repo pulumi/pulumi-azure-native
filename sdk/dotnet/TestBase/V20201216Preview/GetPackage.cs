@@ -9,6 +9,7 @@ using Pulumi.Serialization;
 
 namespace Pulumi.AzureNative.TestBase.V20201216Preview
 {
+    [Obsolete(@"Version 2020-12-16-preview will be removed in v2 of the provider.")]
     public static class GetPackage
     {
         /// <summary>

@@ -12,6 +12,8 @@ import (
 )
 
 // The Test Base Package resource.
+//
+// Deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.
 type Package struct {
 	pulumi.CustomResourceState
 
@@ -87,6 +89,9 @@ func NewPackage(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:testbase:Package"),
+		},
+		{
+			Type: pulumi.String("azure-native:testbase/v20220401preview:Package"),
 		},
 	})
 	opts = append(opts, aliases)

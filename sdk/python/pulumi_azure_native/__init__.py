@@ -5398,7 +5398,8 @@ _utilities.register(
   "mod": "dashboard",
   "fqn": "pulumi_azure_native.dashboard",
   "classes": {
-   "azure-native:dashboard:Grafana": "Grafana"
+   "azure-native:dashboard:Grafana": "Grafana",
+   "azure-native:dashboard:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -5407,6 +5408,15 @@ _utilities.register(
   "fqn": "pulumi_azure_native.dashboard.v20210901preview",
   "classes": {
    "azure-native:dashboard/v20210901preview:Grafana": "Grafana"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dashboard/v20220501preview",
+  "fqn": "pulumi_azure_native.dashboard.v20220501preview",
+  "classes": {
+   "azure-native:dashboard/v20220501preview:Grafana": "Grafana",
+   "azure-native:dashboard/v20220501preview:PrivateEndpointConnection": "PrivateEndpointConnection"
   }
  },
  {
@@ -6260,6 +6270,17 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "dataprotection/v20220501",
+  "fqn": "pulumi_azure_native.dataprotection.v20220501",
+  "classes": {
+   "azure-native:dataprotection/v20220501:BackupInstance": "BackupInstance",
+   "azure-native:dataprotection/v20220501:BackupPolicy": "BackupPolicy",
+   "azure-native:dataprotection/v20220501:BackupVault": "BackupVault",
+   "azure-native:dataprotection/v20220501:ResourceGuard": "ResourceGuard"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "datashare",
   "fqn": "pulumi_azure_native.datashare",
   "classes": {
@@ -6673,6 +6694,16 @@ _utilities.register(
    "azure-native:dbformysql/v20210501preview:Database": "Database",
    "azure-native:dbformysql/v20210501preview:FirewallRule": "FirewallRule",
    "azure-native:dbformysql/v20210501preview:Server": "Server"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "dbformysql/v20211201preview",
+  "fqn": "pulumi_azure_native.dbformysql.v20211201preview",
+  "classes": {
+   "azure-native:dbformysql/v20211201preview:Database": "Database",
+   "azure-native:dbformysql/v20211201preview:FirewallRule": "FirewallRule",
+   "azure-native:dbformysql/v20211201preview:Server": "Server"
   }
  },
  {
@@ -9016,6 +9047,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "fluidrelay/v20220601",
+  "fqn": "pulumi_azure_native.fluidrelay.v20220601",
+  "classes": {
+   "azure-native:fluidrelay/v20220601:FluidRelayServer": "FluidRelayServer"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "guestconfiguration",
   "fqn": "pulumi_azure_native.guestconfiguration",
   "classes": {
@@ -11287,6 +11326,7 @@ _utilities.register(
   "mod": "managedidentity",
   "fqn": "pulumi_azure_native.managedidentity",
   "classes": {
+   "azure-native:managedidentity:FederatedIdentityCredential": "FederatedIdentityCredential",
    "azure-native:managedidentity:UserAssignedIdentity": "UserAssignedIdentity"
   }
  },
@@ -11312,6 +11352,15 @@ _utilities.register(
   "fqn": "pulumi_azure_native.managedidentity.v20210930preview",
   "classes": {
    "azure-native:managedidentity/v20210930preview:UserAssignedIdentity": "UserAssignedIdentity"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "managedidentity/v20220131preview",
+  "fqn": "pulumi_azure_native.managedidentity.v20220131preview",
+  "classes": {
+   "azure-native:managedidentity/v20220131preview:FederatedIdentityCredential": "FederatedIdentityCredential",
+   "azure-native:managedidentity/v20220131preview:UserAssignedIdentity": "UserAssignedIdentity"
   }
  },
  {
@@ -11774,6 +11823,8 @@ _utilities.register(
    "azure-native:media/v20211101:Job": "Job",
    "azure-native:media/v20211101:LiveEvent": "LiveEvent",
    "azure-native:media/v20211101:LiveOutput": "LiveOutput",
+   "azure-native:media/v20211101:MediaService": "MediaService",
+   "azure-native:media/v20211101:PrivateEndpointConnection": "PrivateEndpointConnection",
    "azure-native:media/v20211101:StreamingEndpoint": "StreamingEndpoint",
    "azure-native:media/v20211101:StreamingLocator": "StreamingLocator",
    "azure-native:media/v20211101:StreamingPolicy": "StreamingPolicy",
@@ -14752,6 +14803,14 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "network/v20220501",
+  "fqn": "pulumi_azure_native.network.v20220501",
+  "classes": {
+   "azure-native:network/v20220501:Policy": "Policy"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "networkfunction",
   "fqn": "pulumi_azure_native.networkfunction",
   "classes": {
@@ -16574,13 +16633,10 @@ _utilities.register(
    "azure-native:security:CustomAssessmentAutomation": "CustomAssessmentAutomation",
    "azure-native:security:CustomEntityStoreAssignment": "CustomEntityStoreAssignment",
    "azure-native:security:DeviceSecurityGroup": "DeviceSecurityGroup",
-   "azure-native:security:GovernanceAssignment": "GovernanceAssignment",
-   "azure-native:security:GovernanceRule": "GovernanceRule",
    "azure-native:security:IngestionSetting": "IngestionSetting",
    "azure-native:security:IotSecuritySolution": "IotSecuritySolution",
    "azure-native:security:JitNetworkAccessPolicy": "JitNetworkAccessPolicy",
    "azure-native:security:SecurityConnector": "SecurityConnector",
-   "azure-native:security:SecurityConnectorGovernanceRule": "SecurityConnectorGovernanceRule",
    "azure-native:security:SecurityContact": "SecurityContact",
    "azure-native:security:ServerVulnerabilityAssessment": "ServerVulnerabilityAssessment",
    "azure-native:security:SqlVulnerabilityAssessmentBaselineRule": "SqlVulnerabilityAssessmentBaselineRule",
@@ -18583,6 +18639,26 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "sqlvirtualmachine/v20220201",
+  "fqn": "pulumi_azure_native.sqlvirtualmachine.v20220201",
+  "classes": {
+   "azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener": "AvailabilityGroupListener",
+   "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachine": "SqlVirtualMachine",
+   "azure-native:sqlvirtualmachine/v20220201:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "sqlvirtualmachine/v20220201preview",
+  "fqn": "pulumi_azure_native.sqlvirtualmachine.v20220201preview",
+  "classes": {
+   "azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener": "AvailabilityGroupListener",
+   "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachine": "SqlVirtualMachine",
+   "azure-native:sqlvirtualmachine/v20220201preview:SqlVirtualMachineGroup": "SqlVirtualMachineGroup"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "storage",
   "fqn": "pulumi_azure_native.storage",
   "classes": {
@@ -19561,6 +19637,17 @@ _utilities.register(
    "azure-native:testbase/v20201216preview:FavoriteProcess": "FavoriteProcess",
    "azure-native:testbase/v20201216preview:Package": "Package",
    "azure-native:testbase/v20201216preview:TestBaseAccount": "TestBaseAccount"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "testbase/v20220401preview",
+  "fqn": "pulumi_azure_native.testbase.v20220401preview",
+  "classes": {
+   "azure-native:testbase/v20220401preview:CustomerEvent": "CustomerEvent",
+   "azure-native:testbase/v20220401preview:FavoriteProcess": "FavoriteProcess",
+   "azure-native:testbase/v20220401preview:Package": "Package",
+   "azure-native:testbase/v20220401preview:TestBaseAccount": "TestBaseAccount"
   }
  },
  {

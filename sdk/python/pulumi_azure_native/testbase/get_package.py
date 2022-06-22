@@ -266,7 +266,7 @@ def get_package(package_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetPackageResult:
     """
     The Test Base Package resource.
-    API Version: 2020-12-16-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.
@@ -312,7 +312,7 @@ def get_package_output(package_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetPackageResult]:
     """
     The Test Base Package resource.
-    API Version: 2020-12-16-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.

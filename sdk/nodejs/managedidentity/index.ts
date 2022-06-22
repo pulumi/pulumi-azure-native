@@ -5,6 +5,8 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export * from "./federatedIdentityCredential";
+export * from "./getFederatedIdentityCredential";
 export * from "./getUserAssignedIdentity";
 export * from "./listUserAssignedIdentityAssociatedResources";
 export * from "./userAssignedIdentity";
@@ -13,20 +15,25 @@ export * from "./userAssignedIdentity";
 import * as v20150831preview from "./v20150831preview";
 import * as v20181130 from "./v20181130";
 import * as v20210930preview from "./v20210930preview";
+import * as v20220131preview from "./v20220131preview";
 
 export {
     v20150831preview,
     v20181130,
     v20210930preview,
+    v20220131preview,
 };
 
 // Import resources to register:
+import { FederatedIdentityCredential } from "./federatedIdentityCredential";
 import { UserAssignedIdentity } from "./userAssignedIdentity";
 
 const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure-native:managedidentity:FederatedIdentityCredential":
+                return new FederatedIdentityCredential(name, <any>undefined, { urn })
             case "azure-native:managedidentity:UserAssignedIdentity":
                 return new UserAssignedIdentity(name, <any>undefined, { urn })
             default:

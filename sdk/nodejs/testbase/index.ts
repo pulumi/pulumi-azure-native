@@ -7,12 +7,15 @@ import * as utilities from "../utilities";
 // Export members:
 export * from "./customerEvent";
 export * from "./favoriteProcess";
+export * from "./getBillingHubServiceFreeHourBalance";
+export * from "./getBillingHubServiceUsage";
 export * from "./getCustomerEvent";
 export * from "./getFavoriteProcess";
 export * from "./getPackage";
 export * from "./getPackageDownloadURL";
 export * from "./getTestBaseAccount";
 export * from "./getTestBaseAccountFileUploadUrl";
+export * from "./getTestResultConsoleLogDownloadURL";
 export * from "./getTestResultDownloadURL";
 export * from "./getTestResultVideoDownloadURL";
 export * from "./package";
@@ -23,9 +26,11 @@ export * from "../types/enums/testbase";
 
 // Export sub-modules:
 import * as v20201216preview from "./v20201216preview";
+import * as v20220401preview from "./v20220401preview";
 
 export {
     v20201216preview,
+    v20220401preview,
 };
 
 // Import resources to register:

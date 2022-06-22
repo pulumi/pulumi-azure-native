@@ -7,7 +7,9 @@ import typing
 # Export this package's modules as members:
 from ._enums import *
 from .get_grafana import *
+from .get_private_endpoint_connection import *
 from .grafana import *
+from .private_endpoint_connection import *
 from ._inputs import *
 from . import outputs
 
@@ -15,6 +17,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.dashboard.v20210901preview as __v20210901preview
     v20210901preview = __v20210901preview
+    import pulumi_azure_native.dashboard.v20220501preview as __v20220501preview
+    v20220501preview = __v20220501preview
 else:
     v20210901preview = _utilities.lazy_import('pulumi_azure_native.dashboard.v20210901preview')
+    v20220501preview = _utilities.lazy_import('pulumi_azure_native.dashboard.v20220501preview')
 

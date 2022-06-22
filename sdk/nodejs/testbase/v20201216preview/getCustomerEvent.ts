@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The Customer Notification Event resource.
  */
+/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
 export function getCustomerEvent(args: GetCustomerEventArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomerEventResult> {
+    pulumi.log.warn("getCustomerEvent is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

@@ -16,6 +16,8 @@ __all__ = [
     'get_package_output',
 ]
 
+warnings.warn("""Version 2020-12-16-preview will be removed in v2 of the provider.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetPackageResult:
     """
@@ -272,6 +274,7 @@ def get_package(package_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
+    pulumi.log.warn("""get_package is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['packageName'] = package_name
     __args__['resourceGroupName'] = resource_group_name
@@ -317,4 +320,5 @@ def get_package_output(package_name: Optional[pulumi.Input[str]] = None,
     :param str resource_group_name: The name of the resource group that contains the resource.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
+    pulumi.log.warn("""get_package is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.""")
     ...

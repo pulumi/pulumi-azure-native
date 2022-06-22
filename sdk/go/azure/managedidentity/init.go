@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:managedidentity:FederatedIdentityCredential":
+		r = &FederatedIdentityCredential{}
 	case "azure-native:managedidentity:UserAssignedIdentity":
 		r = &UserAssignedIdentity{}
 	default:

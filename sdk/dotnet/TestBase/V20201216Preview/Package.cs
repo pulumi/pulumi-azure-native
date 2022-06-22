@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
     /// <summary>
     /// The Test Base Package resource.
     /// </summary>
+    [Obsolete(@"Version 2020-12-16-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:testbase/v20201216preview:Package")]
     public partial class Package : Pulumi.CustomResource
     {
@@ -149,6 +150,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:testbase:Package"},
+                    new Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:Package"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

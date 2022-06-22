@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.TestBase.Outputs
         /// </summary>
         public readonly string TestType;
         /// <summary>
+        /// Resource identifier of the validation test result.
+        /// </summary>
+        public readonly string ValidationResultId;
+        /// <summary>
         /// The status of the validation run of the package.
         /// </summary>
         public readonly string ValidationRunStatus;
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.TestBase.Outputs
 
             string testType,
 
+            string validationResultId,
+
             string validationRunStatus)
         {
             Commands = commands;
             IsActive = isActive;
             TestType = testType;
+            ValidationResultId = validationResultId;
             ValidationRunStatus = validationRunStatus;
         }
     }

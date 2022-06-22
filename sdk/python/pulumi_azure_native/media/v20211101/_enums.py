@@ -6,6 +6,7 @@ from enum import Enum
 
 __all__ = [
     'AacAudioProfile',
+    'AccountEncryptionKeyType',
     'AnalysisResolution',
     'AssetContainerPermission',
     'AttributeFilter',
@@ -18,6 +19,7 @@ __all__ = [
     'ContentKeyPolicyPlayReadyLicenseType',
     'ContentKeyPolicyPlayReadyUnknownOutputPassingOption',
     'ContentKeyPolicyRestrictionTokenType',
+    'DefaultAction',
     'DeinterlaceMode',
     'DeinterlaceParity',
     'EncoderNamedPreset',
@@ -36,7 +38,11 @@ __all__ = [
     'LiveEventInputProtocol',
     'OnErrorType',
     'Priority',
+    'PrivateEndpointServiceConnectionStatus',
+    'PublicNetworkAccess',
     'Rotation',
+    'StorageAccountType',
+    'StorageAuthentication',
     'StreamOptionsFlag',
     'StretchMode',
     'TrackAttribute',
@@ -62,6 +68,20 @@ class AacAudioProfile(str, Enum):
     HE_AAC_V2 = "HeAacV2"
     """
     Specifies that the output audio is to be encoded into HE-AAC v2 profile.
+    """
+
+
+class AccountEncryptionKeyType(str, Enum):
+    """
+    The type of key used to encrypt the Account Key.
+    """
+    SYSTEM_KEY = "SystemKey"
+    """
+    The Account Key is encrypted with a System Key.
+    """
+    CUSTOMER_KEY = "CustomerKey"
+    """
+    The Account Key is encrypted with a Customer Key.
     """
 
 
@@ -312,6 +332,20 @@ class ContentKeyPolicyRestrictionTokenType(str, Enum):
     JWT = "Jwt"
     """
     JSON Web Token.
+    """
+
+
+class DefaultAction(str, Enum):
+    """
+    The behavior for IP access control in Key Delivery.
+    """
+    ALLOW = "Allow"
+    """
+    All public IP addresses are allowed.
+    """
+    DENY = "Deny"
+    """
+    Public IP addresses are blocked.
     """
 
 
@@ -699,6 +733,29 @@ class Priority(str, Enum):
     """
 
 
+class PrivateEndpointServiceConnectionStatus(str, Enum):
+    """
+    Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+    """
+    PENDING = "Pending"
+    APPROVED = "Approved"
+    REJECTED = "Rejected"
+
+
+class PublicNetworkAccess(str, Enum):
+    """
+    Whether or not public network access is allowed for resources under the Media Services account.
+    """
+    ENABLED = "Enabled"
+    """
+    Public network access is enabled.
+    """
+    DISABLED = "Disabled"
+    """
+    Public network access is disabled.
+    """
+
+
 class Rotation(str, Enum):
     """
     The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
@@ -726,6 +783,31 @@ class Rotation(str, Enum):
     ROTATE270 = "Rotate270"
     """
     Rotate 270 degrees clockwise.
+    """
+
+
+class StorageAccountType(str, Enum):
+    """
+    The type of the storage account.
+    """
+    PRIMARY = "Primary"
+    """
+    The primary storage account for the Media Services account.
+    """
+    SECONDARY = "Secondary"
+    """
+    A secondary storage account for the Media Services account.
+    """
+
+
+class StorageAuthentication(str, Enum):
+    SYSTEM = "System"
+    """
+    System authentication.
+    """
+    MANAGED_IDENTITY = "ManagedIdentity"
+    """
+    Managed Identity authentication.
     """
 
 

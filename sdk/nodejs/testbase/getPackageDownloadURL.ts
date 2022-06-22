@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The response of getting a download URL.
- * API Version: 2020-12-16-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getPackageDownloadURL(args: GetPackageDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageDownloadURLResult> {
     if (!opts) {

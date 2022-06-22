@@ -115,7 +115,12 @@ class TestBaseAccountArgs:
         pulumi.set(self, "test_base_account_name", value)
 
 
+warnings.warn("""Version 2020-12-16-preview will be removed in v2 of the provider.""", DeprecationWarning)
+
+
 class TestBaseAccount(pulumi.CustomResource):
+    warnings.warn("""Version 2020-12-16-preview will be removed in v2 of the provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -170,6 +175,7 @@ class TestBaseAccount(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  test_base_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""TestBaseAccount is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -197,7 +203,7 @@ class TestBaseAccount(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase:TestBaseAccount")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase:TestBaseAccount"), pulumi.Alias(type_="azure-native:testbase/v20220401preview:TestBaseAccount")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(TestBaseAccount, __self__).__init__(
             'azure-native:testbase/v20201216preview:TestBaseAccount',

@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// The URL response
-        /// API Version: 2020-12-16-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetTestBaseAccountFileUploadUrlResult> InvokeAsync(GetTestBaseAccountFileUploadUrlArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlArgs(), options.WithDefaults());
 
         /// <summary>
         /// The URL response
-        /// API Version: 2020-12-16-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetTestBaseAccountFileUploadUrlResult> Invoke(GetTestBaseAccountFileUploadUrlInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTestBaseAccountFileUploadUrlResult>("azure-native:testbase:getTestBaseAccountFileUploadUrl", args ?? new GetTestBaseAccountFileUploadUrlInvokeArgs(), options.WithDefaults());

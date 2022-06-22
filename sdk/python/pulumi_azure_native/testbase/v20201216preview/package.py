@@ -189,7 +189,12 @@ class PackageArgs:
         pulumi.set(self, "tags", value)
 
 
+warnings.warn("""Version 2020-12-16-preview will be removed in v2 of the provider.""", DeprecationWarning)
+
+
 class Package(pulumi.CustomResource):
+    warnings.warn("""Version 2020-12-16-preview will be removed in v2 of the provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -259,6 +264,7 @@ class Package(pulumi.CustomResource):
                  tests: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TestArgs']]]]] = None,
                  version: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""Package is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -307,7 +313,7 @@ class Package(pulumi.CustomResource):
             __props__.__dict__["test_types"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_results"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase:Package")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase:Package"), pulumi.Alias(type_="azure-native:testbase/v20220401preview:Package")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Package, __self__).__init__(
             'azure-native:testbase/v20201216preview:Package',

@@ -116,6 +116,7 @@ namespace Pulumi.AzureNative.Media.V20210601
                     new Pulumi.Alias { Type = "azure-native:media/v20180701:MediaService"},
                     new Pulumi.Alias { Type = "azure-native:media/v20200501:MediaService"},
                     new Pulumi.Alias { Type = "azure-native:media/v20210501:MediaService"},
+                    new Pulumi.Alias { Type = "azure-native:media/v20211101:MediaService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

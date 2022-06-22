@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         /// Linked service reference type.
         /// </summary>
         [Input("type", required: true)]
-        public Input<string> Type { get; set; } = null!;
+        public InputUnion<string, Pulumi.AzureNative.DataFactory.V20180601.Type> Type { get; set; } = null!;
 
         public LinkedServiceReferenceArgs()
         {

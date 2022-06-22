@@ -35,6 +35,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &LiveEvent{}
 	case "azure-native:media/v20211101:LiveOutput":
 		r = &LiveOutput{}
+	case "azure-native:media/v20211101:MediaService":
+		r = &MediaService{}
+	case "azure-native:media/v20211101:PrivateEndpointConnection":
+		r = &PrivateEndpointConnection{}
 	case "azure-native:media/v20211101:StreamingEndpoint":
 		r = &StreamingEndpoint{}
 	case "azure-native:media/v20211101:StreamingLocator":

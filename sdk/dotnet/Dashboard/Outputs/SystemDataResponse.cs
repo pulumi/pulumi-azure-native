@@ -10,17 +10,35 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Dashboard.Outputs
 {
 
+    /// <summary>
+    /// Metadata pertaining to creation and last modification of the resource.
+    /// </summary>
     [OutputType]
     public sealed class SystemDataResponse
     {
+        /// <summary>
+        /// The timestamp of resource creation (UTC).
+        /// </summary>
         public readonly string? CreatedAt;
+        /// <summary>
+        /// The identity that created the resource.
+        /// </summary>
         public readonly string? CreatedBy;
         /// <summary>
         /// The type of identity that created the resource.
         /// </summary>
         public readonly string? CreatedByType;
+        /// <summary>
+        /// The timestamp of resource last modification (UTC)
+        /// </summary>
         public readonly string? LastModifiedAt;
+        /// <summary>
+        /// The identity that last modified the resource.
+        /// </summary>
         public readonly string? LastModifiedBy;
+        /// <summary>
+        /// The type of identity that last modified the resource.
+        /// </summary>
         public readonly string? LastModifiedByType;
 
         [OutputConstructor]

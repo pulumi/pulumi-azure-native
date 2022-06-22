@@ -11,7 +11,7 @@ import (
 )
 
 // A favorite process identifier.
-// API Version: 2020-12-16-preview.
+// API Version: 2022-04-01-preview.
 func LookupFavoriteProcess(ctx *pulumi.Context, args *LookupFavoriteProcessArgs, opts ...pulumi.InvokeOption) (*LookupFavoriteProcessResult, error) {
 	var rv LookupFavoriteProcessResult
 	err := ctx.Invoke("azure-native:testbase:getFavoriteProcess", args, &rv, opts...)

@@ -60,7 +60,7 @@ class GetGrafanaResult:
 
     @property
     @pulumi.getter
-    def identity(self) -> Optional['outputs.ManagedIdentityResponse']:
+    def identity(self) -> Optional['outputs.ManagedServiceIdentityResponse']:
         """
         The managed identity of the grafana resource.
         """
@@ -145,7 +145,7 @@ def get_grafana(resource_group_name: Optional[str] = None,
                 opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetGrafanaResult:
     """
     The grafana resource type.
-    API Version: 2021-09-01-preview.
+    API Version: 2022-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.
@@ -178,7 +178,7 @@ def get_grafana_output(resource_group_name: Optional[pulumi.Input[str]] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGrafanaResult]:
     """
     The grafana resource type.
-    API Version: 2021-09-01-preview.
+    API Version: 2022-05-01-preview.
 
 
     :param str resource_group_name: The name of the resource group. The name is case insensitive.

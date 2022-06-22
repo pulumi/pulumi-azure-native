@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.TestBase
 {
     /// <summary>
     /// The Customer Notification Event resource.
-    /// API Version: 2020-12-16-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:CustomerEvent")]
     public partial class CustomerEvent : Pulumi.CustomResource
@@ -72,6 +72,7 @@ namespace Pulumi.AzureNative.TestBase
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:CustomerEvent"},
+                    new Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:CustomerEvent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

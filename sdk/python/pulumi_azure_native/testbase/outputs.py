@@ -11,6 +11,12 @@ from . import outputs
 from ._enums import *
 
 __all__ = [
+    'BillingHubExecutionUsageDetailResponse',
+    'BillingHubFreeHourIncrementEntryResponse',
+    'BillingHubGetUsageRequestResponse',
+    'BillingHubPackageUsageResponse',
+    'BillingHubUsageGroupResponse',
+    'BillingHubUsageGroupedByUpdateTypeResponse',
     'CommandResponse',
     'DistributionGroupListReceiverValueResponse',
     'NotificationEventReceiverResponse',
@@ -24,6 +30,394 @@ __all__ = [
     'TestResponse',
     'UserObjectReceiverValueResponse',
 ]
+
+@pulumi.output_type
+class BillingHubExecutionUsageDetailResponse(dict):
+    def __init__(__self__, *,
+                 application_name: Optional[str] = None,
+                 application_version: Optional[str] = None,
+                 billed_charges: Optional[float] = None,
+                 end_time_stamp: Optional[str] = None,
+                 execution_request_id: Optional[str] = None,
+                 meter_id: Optional[str] = None,
+                 os_build: Optional[str] = None,
+                 release: Optional[str] = None,
+                 sku: Optional[str] = None,
+                 start_time_stamp: Optional[str] = None,
+                 test_type: Optional[str] = None,
+                 update_type: Optional[str] = None,
+                 used_billable_hours: Optional[float] = None,
+                 used_free_hours: Optional[float] = None):
+        if application_name is not None:
+            pulumi.set(__self__, "application_name", application_name)
+        if application_version is not None:
+            pulumi.set(__self__, "application_version", application_version)
+        if billed_charges is not None:
+            pulumi.set(__self__, "billed_charges", billed_charges)
+        if end_time_stamp is not None:
+            pulumi.set(__self__, "end_time_stamp", end_time_stamp)
+        if execution_request_id is not None:
+            pulumi.set(__self__, "execution_request_id", execution_request_id)
+        if meter_id is not None:
+            pulumi.set(__self__, "meter_id", meter_id)
+        if os_build is not None:
+            pulumi.set(__self__, "os_build", os_build)
+        if release is not None:
+            pulumi.set(__self__, "release", release)
+        if sku is not None:
+            pulumi.set(__self__, "sku", sku)
+        if start_time_stamp is not None:
+            pulumi.set(__self__, "start_time_stamp", start_time_stamp)
+        if test_type is not None:
+            pulumi.set(__self__, "test_type", test_type)
+        if update_type is not None:
+            pulumi.set(__self__, "update_type", update_type)
+        if used_billable_hours is not None:
+            pulumi.set(__self__, "used_billable_hours", used_billable_hours)
+        if used_free_hours is not None:
+            pulumi.set(__self__, "used_free_hours", used_free_hours)
+
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> Optional[str]:
+        return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="applicationVersion")
+    def application_version(self) -> Optional[str]:
+        return pulumi.get(self, "application_version")
+
+    @property
+    @pulumi.getter(name="billedCharges")
+    def billed_charges(self) -> Optional[float]:
+        return pulumi.get(self, "billed_charges")
+
+    @property
+    @pulumi.getter(name="endTimeStamp")
+    def end_time_stamp(self) -> Optional[str]:
+        return pulumi.get(self, "end_time_stamp")
+
+    @property
+    @pulumi.getter(name="executionRequestId")
+    def execution_request_id(self) -> Optional[str]:
+        return pulumi.get(self, "execution_request_id")
+
+    @property
+    @pulumi.getter(name="meterId")
+    def meter_id(self) -> Optional[str]:
+        return pulumi.get(self, "meter_id")
+
+    @property
+    @pulumi.getter(name="osBuild")
+    def os_build(self) -> Optional[str]:
+        return pulumi.get(self, "os_build")
+
+    @property
+    @pulumi.getter
+    def release(self) -> Optional[str]:
+        return pulumi.get(self, "release")
+
+    @property
+    @pulumi.getter
+    def sku(self) -> Optional[str]:
+        return pulumi.get(self, "sku")
+
+    @property
+    @pulumi.getter(name="startTimeStamp")
+    def start_time_stamp(self) -> Optional[str]:
+        return pulumi.get(self, "start_time_stamp")
+
+    @property
+    @pulumi.getter(name="testType")
+    def test_type(self) -> Optional[str]:
+        return pulumi.get(self, "test_type")
+
+    @property
+    @pulumi.getter(name="updateType")
+    def update_type(self) -> Optional[str]:
+        return pulumi.get(self, "update_type")
+
+    @property
+    @pulumi.getter(name="usedBillableHours")
+    def used_billable_hours(self) -> Optional[float]:
+        return pulumi.get(self, "used_billable_hours")
+
+    @property
+    @pulumi.getter(name="usedFreeHours")
+    def used_free_hours(self) -> Optional[float]:
+        return pulumi.get(self, "used_free_hours")
+
+
+@pulumi.output_type
+class BillingHubFreeHourIncrementEntryResponse(dict):
+    def __init__(__self__, *,
+                 create_time_stamp: Optional[str] = None,
+                 expiration_time_stamp: Optional[str] = None,
+                 incremental_free_hours: Optional[float] = None,
+                 remaining_free_hours: Optional[float] = None):
+        if create_time_stamp is not None:
+            pulumi.set(__self__, "create_time_stamp", create_time_stamp)
+        if expiration_time_stamp is not None:
+            pulumi.set(__self__, "expiration_time_stamp", expiration_time_stamp)
+        if incremental_free_hours is not None:
+            pulumi.set(__self__, "incremental_free_hours", incremental_free_hours)
+        if remaining_free_hours is not None:
+            pulumi.set(__self__, "remaining_free_hours", remaining_free_hours)
+
+    @property
+    @pulumi.getter(name="createTimeStamp")
+    def create_time_stamp(self) -> Optional[str]:
+        return pulumi.get(self, "create_time_stamp")
+
+    @property
+    @pulumi.getter(name="expirationTimeStamp")
+    def expiration_time_stamp(self) -> Optional[str]:
+        return pulumi.get(self, "expiration_time_stamp")
+
+    @property
+    @pulumi.getter(name="incrementalFreeHours")
+    def incremental_free_hours(self) -> Optional[float]:
+        return pulumi.get(self, "incremental_free_hours")
+
+    @property
+    @pulumi.getter(name="remainingFreeHours")
+    def remaining_free_hours(self) -> Optional[float]:
+        return pulumi.get(self, "remaining_free_hours")
+
+
+@pulumi.output_type
+class BillingHubGetUsageRequestResponse(dict):
+    def __init__(__self__, *,
+                 end_time_stamp: str,
+                 start_time_stamp: str,
+                 page_index: Optional[int] = None,
+                 page_size: Optional[int] = None):
+        pulumi.set(__self__, "end_time_stamp", end_time_stamp)
+        pulumi.set(__self__, "start_time_stamp", start_time_stamp)
+        if page_index is not None:
+            pulumi.set(__self__, "page_index", page_index)
+        if page_size is not None:
+            pulumi.set(__self__, "page_size", page_size)
+
+    @property
+    @pulumi.getter(name="endTimeStamp")
+    def end_time_stamp(self) -> str:
+        return pulumi.get(self, "end_time_stamp")
+
+    @property
+    @pulumi.getter(name="startTimeStamp")
+    def start_time_stamp(self) -> str:
+        return pulumi.get(self, "start_time_stamp")
+
+    @property
+    @pulumi.getter(name="pageIndex")
+    def page_index(self) -> Optional[int]:
+        return pulumi.get(self, "page_index")
+
+    @property
+    @pulumi.getter(name="pageSize")
+    def page_size(self) -> Optional[int]:
+        return pulumi.get(self, "page_size")
+
+
+@pulumi.output_type
+class BillingHubPackageUsageResponse(dict):
+    def __init__(__self__, *,
+                 application_name: Optional[str] = None,
+                 application_version: Optional[str] = None,
+                 azure_resource_uri: Optional[str] = None,
+                 total_charges: Optional[float] = None,
+                 total_used_billable_hours: Optional[float] = None,
+                 total_used_free_hours: Optional[float] = None,
+                 usage_entries_grouped_by_update_type: Optional[Sequence['outputs.BillingHubUsageGroupedByUpdateTypeResponse']] = None):
+        if application_name is not None:
+            pulumi.set(__self__, "application_name", application_name)
+        if application_version is not None:
+            pulumi.set(__self__, "application_version", application_version)
+        if azure_resource_uri is not None:
+            pulumi.set(__self__, "azure_resource_uri", azure_resource_uri)
+        if total_charges is not None:
+            pulumi.set(__self__, "total_charges", total_charges)
+        if total_used_billable_hours is not None:
+            pulumi.set(__self__, "total_used_billable_hours", total_used_billable_hours)
+        if total_used_free_hours is not None:
+            pulumi.set(__self__, "total_used_free_hours", total_used_free_hours)
+        if usage_entries_grouped_by_update_type is not None:
+            pulumi.set(__self__, "usage_entries_grouped_by_update_type", usage_entries_grouped_by_update_type)
+
+    @property
+    @pulumi.getter(name="applicationName")
+    def application_name(self) -> Optional[str]:
+        return pulumi.get(self, "application_name")
+
+    @property
+    @pulumi.getter(name="applicationVersion")
+    def application_version(self) -> Optional[str]:
+        return pulumi.get(self, "application_version")
+
+    @property
+    @pulumi.getter(name="azureResourceUri")
+    def azure_resource_uri(self) -> Optional[str]:
+        return pulumi.get(self, "azure_resource_uri")
+
+    @property
+    @pulumi.getter(name="totalCharges")
+    def total_charges(self) -> Optional[float]:
+        return pulumi.get(self, "total_charges")
+
+    @property
+    @pulumi.getter(name="totalUsedBillableHours")
+    def total_used_billable_hours(self) -> Optional[float]:
+        return pulumi.get(self, "total_used_billable_hours")
+
+    @property
+    @pulumi.getter(name="totalUsedFreeHours")
+    def total_used_free_hours(self) -> Optional[float]:
+        return pulumi.get(self, "total_used_free_hours")
+
+    @property
+    @pulumi.getter(name="usageEntriesGroupedByUpdateType")
+    def usage_entries_grouped_by_update_type(self) -> Optional[Sequence['outputs.BillingHubUsageGroupedByUpdateTypeResponse']]:
+        return pulumi.get(self, "usage_entries_grouped_by_update_type")
+
+
+@pulumi.output_type
+class BillingHubUsageGroupResponse(dict):
+    def __init__(__self__, *,
+                 execution_usage_details: Optional[Sequence['outputs.BillingHubExecutionUsageDetailResponse']] = None,
+                 os_build: Optional[str] = None,
+                 product_family: Optional[str] = None,
+                 release: Optional[str] = None,
+                 release_build_date: Optional[str] = None,
+                 release_build_number: Optional[float] = None,
+                 release_build_revision: Optional[float] = None,
+                 test_type: Optional[str] = None,
+                 total_charges: Optional[float] = None,
+                 total_used_billable_hours: Optional[float] = None,
+                 total_used_free_hours: Optional[float] = None):
+        if execution_usage_details is not None:
+            pulumi.set(__self__, "execution_usage_details", execution_usage_details)
+        if os_build is not None:
+            pulumi.set(__self__, "os_build", os_build)
+        if product_family is not None:
+            pulumi.set(__self__, "product_family", product_family)
+        if release is not None:
+            pulumi.set(__self__, "release", release)
+        if release_build_date is not None:
+            pulumi.set(__self__, "release_build_date", release_build_date)
+        if release_build_number is not None:
+            pulumi.set(__self__, "release_build_number", release_build_number)
+        if release_build_revision is not None:
+            pulumi.set(__self__, "release_build_revision", release_build_revision)
+        if test_type is not None:
+            pulumi.set(__self__, "test_type", test_type)
+        if total_charges is not None:
+            pulumi.set(__self__, "total_charges", total_charges)
+        if total_used_billable_hours is not None:
+            pulumi.set(__self__, "total_used_billable_hours", total_used_billable_hours)
+        if total_used_free_hours is not None:
+            pulumi.set(__self__, "total_used_free_hours", total_used_free_hours)
+
+    @property
+    @pulumi.getter(name="executionUsageDetails")
+    def execution_usage_details(self) -> Optional[Sequence['outputs.BillingHubExecutionUsageDetailResponse']]:
+        return pulumi.get(self, "execution_usage_details")
+
+    @property
+    @pulumi.getter(name="osBuild")
+    def os_build(self) -> Optional[str]:
+        return pulumi.get(self, "os_build")
+
+    @property
+    @pulumi.getter(name="productFamily")
+    def product_family(self) -> Optional[str]:
+        return pulumi.get(self, "product_family")
+
+    @property
+    @pulumi.getter
+    def release(self) -> Optional[str]:
+        return pulumi.get(self, "release")
+
+    @property
+    @pulumi.getter(name="releaseBuildDate")
+    def release_build_date(self) -> Optional[str]:
+        return pulumi.get(self, "release_build_date")
+
+    @property
+    @pulumi.getter(name="releaseBuildNumber")
+    def release_build_number(self) -> Optional[float]:
+        return pulumi.get(self, "release_build_number")
+
+    @property
+    @pulumi.getter(name="releaseBuildRevision")
+    def release_build_revision(self) -> Optional[float]:
+        return pulumi.get(self, "release_build_revision")
+
+    @property
+    @pulumi.getter(name="testType")
+    def test_type(self) -> Optional[str]:
+        return pulumi.get(self, "test_type")
+
+    @property
+    @pulumi.getter(name="totalCharges")
+    def total_charges(self) -> Optional[float]:
+        return pulumi.get(self, "total_charges")
+
+    @property
+    @pulumi.getter(name="totalUsedBillableHours")
+    def total_used_billable_hours(self) -> Optional[float]:
+        return pulumi.get(self, "total_used_billable_hours")
+
+    @property
+    @pulumi.getter(name="totalUsedFreeHours")
+    def total_used_free_hours(self) -> Optional[float]:
+        return pulumi.get(self, "total_used_free_hours")
+
+
+@pulumi.output_type
+class BillingHubUsageGroupedByUpdateTypeResponse(dict):
+    def __init__(__self__, *,
+                 total_charges: Optional[float] = None,
+                 total_used_billable_hours: Optional[float] = None,
+                 total_used_free_hours: Optional[float] = None,
+                 update_type: Optional[str] = None,
+                 usage_groups: Optional[Sequence['outputs.BillingHubUsageGroupResponse']] = None):
+        if total_charges is not None:
+            pulumi.set(__self__, "total_charges", total_charges)
+        if total_used_billable_hours is not None:
+            pulumi.set(__self__, "total_used_billable_hours", total_used_billable_hours)
+        if total_used_free_hours is not None:
+            pulumi.set(__self__, "total_used_free_hours", total_used_free_hours)
+        if update_type is not None:
+            pulumi.set(__self__, "update_type", update_type)
+        if usage_groups is not None:
+            pulumi.set(__self__, "usage_groups", usage_groups)
+
+    @property
+    @pulumi.getter(name="totalCharges")
+    def total_charges(self) -> Optional[float]:
+        return pulumi.get(self, "total_charges")
+
+    @property
+    @pulumi.getter(name="totalUsedBillableHours")
+    def total_used_billable_hours(self) -> Optional[float]:
+        return pulumi.get(self, "total_used_billable_hours")
+
+    @property
+    @pulumi.getter(name="totalUsedFreeHours")
+    def total_used_free_hours(self) -> Optional[float]:
+        return pulumi.get(self, "total_used_free_hours")
+
+    @property
+    @pulumi.getter(name="updateType")
+    def update_type(self) -> Optional[str]:
+        return pulumi.get(self, "update_type")
+
+    @property
+    @pulumi.getter(name="usageGroups")
+    def usage_groups(self) -> Optional[Sequence['outputs.BillingHubUsageGroupResponse']]:
+        return pulumi.get(self, "usage_groups")
+
 
 @pulumi.output_type
 class CommandResponse(dict):
@@ -594,6 +988,8 @@ class TargetOSInfoResponse(dict):
             suggest = "os_update_type"
         elif key == "targetOSs":
             suggest = "target_oss"
+        elif key == "baselineOSs":
+            suggest = "baseline_oss"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in TargetOSInfoResponse. Access the value via the '{suggest}' property getter instead.")
@@ -608,14 +1004,18 @@ class TargetOSInfoResponse(dict):
 
     def __init__(__self__, *,
                  os_update_type: str,
-                 target_oss: Sequence[str]):
+                 target_oss: Sequence[str],
+                 baseline_oss: Optional[Sequence[str]] = None):
         """
         The information of the target OS to be tested.
         :param str os_update_type: Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
         :param Sequence[str] target_oss: Specifies the target OSs to be tested.
+        :param Sequence[str] baseline_oss: Specifies the baseline OSs to be tested.
         """
         pulumi.set(__self__, "os_update_type", os_update_type)
         pulumi.set(__self__, "target_oss", target_oss)
+        if baseline_oss is not None:
+            pulumi.set(__self__, "baseline_oss", baseline_oss)
 
     @property
     @pulumi.getter(name="osUpdateType")
@@ -632,6 +1032,14 @@ class TargetOSInfoResponse(dict):
         Specifies the target OSs to be tested.
         """
         return pulumi.get(self, "target_oss")
+
+    @property
+    @pulumi.getter(name="baselineOSs")
+    def baseline_oss(self) -> Optional[Sequence[str]]:
+        """
+        Specifies the baseline OSs to be tested.
+        """
+        return pulumi.get(self, "baseline_oss")
 
 
 @pulumi.output_type
@@ -762,6 +1170,8 @@ class TestResponse(dict):
         suggest = None
         if key == "testType":
             suggest = "test_type"
+        elif key == "validationResultId":
+            suggest = "validation_result_id"
         elif key == "validationRunStatus":
             suggest = "validation_run_status"
         elif key == "isActive":
@@ -781,17 +1191,20 @@ class TestResponse(dict):
     def __init__(__self__, *,
                  commands: Sequence['outputs.CommandResponse'],
                  test_type: str,
+                 validation_result_id: str,
                  validation_run_status: str,
                  is_active: Optional[bool] = None):
         """
         The definition of a Test.
         :param Sequence['CommandResponse'] commands: The commands used in the test.
         :param str test_type: The type of the test.
+        :param str validation_result_id: Resource identifier of the validation test result.
         :param str validation_run_status: The status of the validation run of the package.
         :param bool is_active: Indicates if this test is active.It doesn't schedule test for not active Test.
         """
         pulumi.set(__self__, "commands", commands)
         pulumi.set(__self__, "test_type", test_type)
+        pulumi.set(__self__, "validation_result_id", validation_result_id)
         pulumi.set(__self__, "validation_run_status", validation_run_status)
         if is_active is not None:
             pulumi.set(__self__, "is_active", is_active)
@@ -811,6 +1224,14 @@ class TestResponse(dict):
         The type of the test.
         """
         return pulumi.get(self, "test_type")
+
+    @property
+    @pulumi.getter(name="validationResultId")
+    def validation_result_id(self) -> str:
+        """
+        Resource identifier of the validation test result.
+        """
+        return pulumi.get(self, "validation_result_id")
 
     @property
     @pulumi.getter(name="validationRunStatus")

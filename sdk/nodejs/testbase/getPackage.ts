@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Test Base Package resource.
- * API Version: 2020-12-16-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
     if (!opts) {

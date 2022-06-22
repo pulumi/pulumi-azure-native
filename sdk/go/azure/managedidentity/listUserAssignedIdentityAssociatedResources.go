@@ -11,7 +11,7 @@ import (
 )
 
 // Azure resources returned by the resource action to get a list of assigned resources.
-// API Version: 2021-09-30-preview.
+// API Version: 2022-01-31-preview.
 func ListUserAssignedIdentityAssociatedResources(ctx *pulumi.Context, args *ListUserAssignedIdentityAssociatedResourcesArgs, opts ...pulumi.InvokeOption) (*ListUserAssignedIdentityAssociatedResourcesResult, error) {
 	var rv ListUserAssignedIdentityAssociatedResourcesResult
 	err := ctx.Invoke("azure-native:managedidentity:listUserAssignedIdentityAssociatedResources", args, &rv, opts...)

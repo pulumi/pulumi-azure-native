@@ -62,6 +62,521 @@ type AbsoluteClipTimeResponse struct {
 	Time string `pulumi:"time"`
 }
 
+type AccessControl struct {
+	// The behavior for IP access control in Key Delivery.
+	DefaultAction *string `pulumi:"defaultAction"`
+	// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+	IpAllowList []string `pulumi:"ipAllowList"`
+}
+
+// AccessControlInput is an input type that accepts AccessControlArgs and AccessControlOutput values.
+// You can construct a concrete instance of `AccessControlInput` via:
+//
+//          AccessControlArgs{...}
+type AccessControlInput interface {
+	pulumi.Input
+
+	ToAccessControlOutput() AccessControlOutput
+	ToAccessControlOutputWithContext(context.Context) AccessControlOutput
+}
+
+type AccessControlArgs struct {
+	// The behavior for IP access control in Key Delivery.
+	DefaultAction pulumi.StringPtrInput `pulumi:"defaultAction"`
+	// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+	IpAllowList pulumi.StringArrayInput `pulumi:"ipAllowList"`
+}
+
+func (AccessControlArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessControl)(nil)).Elem()
+}
+
+func (i AccessControlArgs) ToAccessControlOutput() AccessControlOutput {
+	return i.ToAccessControlOutputWithContext(context.Background())
+}
+
+func (i AccessControlArgs) ToAccessControlOutputWithContext(ctx context.Context) AccessControlOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessControlOutput)
+}
+
+func (i AccessControlArgs) ToAccessControlPtrOutput() AccessControlPtrOutput {
+	return i.ToAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i AccessControlArgs) ToAccessControlPtrOutputWithContext(ctx context.Context) AccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessControlOutput).ToAccessControlPtrOutputWithContext(ctx)
+}
+
+// AccessControlPtrInput is an input type that accepts AccessControlArgs, AccessControlPtr and AccessControlPtrOutput values.
+// You can construct a concrete instance of `AccessControlPtrInput` via:
+//
+//          AccessControlArgs{...}
+//
+//  or:
+//
+//          nil
+type AccessControlPtrInput interface {
+	pulumi.Input
+
+	ToAccessControlPtrOutput() AccessControlPtrOutput
+	ToAccessControlPtrOutputWithContext(context.Context) AccessControlPtrOutput
+}
+
+type accessControlPtrType AccessControlArgs
+
+func AccessControlPtr(v *AccessControlArgs) AccessControlPtrInput {
+	return (*accessControlPtrType)(v)
+}
+
+func (*accessControlPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessControl)(nil)).Elem()
+}
+
+func (i *accessControlPtrType) ToAccessControlPtrOutput() AccessControlPtrOutput {
+	return i.ToAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (i *accessControlPtrType) ToAccessControlPtrOutputWithContext(ctx context.Context) AccessControlPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccessControlPtrOutput)
+}
+
+type AccessControlOutput struct{ *pulumi.OutputState }
+
+func (AccessControlOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessControl)(nil)).Elem()
+}
+
+func (o AccessControlOutput) ToAccessControlOutput() AccessControlOutput {
+	return o
+}
+
+func (o AccessControlOutput) ToAccessControlOutputWithContext(ctx context.Context) AccessControlOutput {
+	return o
+}
+
+func (o AccessControlOutput) ToAccessControlPtrOutput() AccessControlPtrOutput {
+	return o.ToAccessControlPtrOutputWithContext(context.Background())
+}
+
+func (o AccessControlOutput) ToAccessControlPtrOutputWithContext(ctx context.Context) AccessControlPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccessControl) *AccessControl {
+		return &v
+	}).(AccessControlPtrOutput)
+}
+
+// The behavior for IP access control in Key Delivery.
+func (o AccessControlOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessControl) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+func (o AccessControlOutput) IpAllowList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessControl) []string { return v.IpAllowList }).(pulumi.StringArrayOutput)
+}
+
+type AccessControlPtrOutput struct{ *pulumi.OutputState }
+
+func (AccessControlPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessControl)(nil)).Elem()
+}
+
+func (o AccessControlPtrOutput) ToAccessControlPtrOutput() AccessControlPtrOutput {
+	return o
+}
+
+func (o AccessControlPtrOutput) ToAccessControlPtrOutputWithContext(ctx context.Context) AccessControlPtrOutput {
+	return o
+}
+
+func (o AccessControlPtrOutput) Elem() AccessControlOutput {
+	return o.ApplyT(func(v *AccessControl) AccessControl {
+		if v != nil {
+			return *v
+		}
+		var ret AccessControl
+		return ret
+	}).(AccessControlOutput)
+}
+
+// The behavior for IP access control in Key Delivery.
+func (o AccessControlPtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessControl) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+func (o AccessControlPtrOutput) IpAllowList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccessControl) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAllowList
+	}).(pulumi.StringArrayOutput)
+}
+
+type AccessControlResponse struct {
+	// The behavior for IP access control in Key Delivery.
+	DefaultAction *string `pulumi:"defaultAction"`
+	// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+	IpAllowList []string `pulumi:"ipAllowList"`
+}
+
+type AccessControlResponseOutput struct{ *pulumi.OutputState }
+
+func (AccessControlResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessControlResponse)(nil)).Elem()
+}
+
+func (o AccessControlResponseOutput) ToAccessControlResponseOutput() AccessControlResponseOutput {
+	return o
+}
+
+func (o AccessControlResponseOutput) ToAccessControlResponseOutputWithContext(ctx context.Context) AccessControlResponseOutput {
+	return o
+}
+
+// The behavior for IP access control in Key Delivery.
+func (o AccessControlResponseOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessControlResponse) *string { return v.DefaultAction }).(pulumi.StringPtrOutput)
+}
+
+// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+func (o AccessControlResponseOutput) IpAllowList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AccessControlResponse) []string { return v.IpAllowList }).(pulumi.StringArrayOutput)
+}
+
+type AccessControlResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AccessControlResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccessControlResponse)(nil)).Elem()
+}
+
+func (o AccessControlResponsePtrOutput) ToAccessControlResponsePtrOutput() AccessControlResponsePtrOutput {
+	return o
+}
+
+func (o AccessControlResponsePtrOutput) ToAccessControlResponsePtrOutputWithContext(ctx context.Context) AccessControlResponsePtrOutput {
+	return o
+}
+
+func (o AccessControlResponsePtrOutput) Elem() AccessControlResponseOutput {
+	return o.ApplyT(func(v *AccessControlResponse) AccessControlResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccessControlResponse
+		return ret
+	}).(AccessControlResponseOutput)
+}
+
+// The behavior for IP access control in Key Delivery.
+func (o AccessControlResponsePtrOutput) DefaultAction() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccessControlResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DefaultAction
+	}).(pulumi.StringPtrOutput)
+}
+
+// The IP allow list for access control in Key Delivery. If the default action is set to 'Allow', the IP allow list must be empty.
+func (o AccessControlResponsePtrOutput) IpAllowList() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AccessControlResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.IpAllowList
+	}).(pulumi.StringArrayOutput)
+}
+
+type AccountEncryption struct {
+	// The Key Vault identity.
+	Identity *ResourceIdentity `pulumi:"identity"`
+	// The properties of the key used to encrypt the account.
+	KeyVaultProperties *KeyVaultProperties `pulumi:"keyVaultProperties"`
+	// The type of key used to encrypt the Account Key.
+	Type string `pulumi:"type"`
+}
+
+// AccountEncryptionInput is an input type that accepts AccountEncryptionArgs and AccountEncryptionOutput values.
+// You can construct a concrete instance of `AccountEncryptionInput` via:
+//
+//          AccountEncryptionArgs{...}
+type AccountEncryptionInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionOutput() AccountEncryptionOutput
+	ToAccountEncryptionOutputWithContext(context.Context) AccountEncryptionOutput
+}
+
+type AccountEncryptionArgs struct {
+	// The Key Vault identity.
+	Identity ResourceIdentityPtrInput `pulumi:"identity"`
+	// The properties of the key used to encrypt the account.
+	KeyVaultProperties KeyVaultPropertiesPtrInput `pulumi:"keyVaultProperties"`
+	// The type of key used to encrypt the Account Key.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (AccountEncryptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryption)(nil)).Elem()
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionOutput() AccountEncryptionOutput {
+	return i.ToAccountEncryptionOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput)
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return i.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i AccountEncryptionArgs) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionOutput).ToAccountEncryptionPtrOutputWithContext(ctx)
+}
+
+// AccountEncryptionPtrInput is an input type that accepts AccountEncryptionArgs, AccountEncryptionPtr and AccountEncryptionPtrOutput values.
+// You can construct a concrete instance of `AccountEncryptionPtrInput` via:
+//
+//          AccountEncryptionArgs{...}
+//
+//  or:
+//
+//          nil
+type AccountEncryptionPtrInput interface {
+	pulumi.Input
+
+	ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput
+	ToAccountEncryptionPtrOutputWithContext(context.Context) AccountEncryptionPtrOutput
+}
+
+type accountEncryptionPtrType AccountEncryptionArgs
+
+func AccountEncryptionPtr(v *AccountEncryptionArgs) AccountEncryptionPtrInput {
+	return (*accountEncryptionPtrType)(v)
+}
+
+func (*accountEncryptionPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryption)(nil)).Elem()
+}
+
+func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return i.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (i *accountEncryptionPtrType) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AccountEncryptionPtrOutput)
+}
+
+type AccountEncryptionOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryption)(nil)).Elem()
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionOutput() AccountEncryptionOutput {
+	return o
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionOutputWithContext(ctx context.Context) AccountEncryptionOutput {
+	return o
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return o.ToAccountEncryptionPtrOutputWithContext(context.Background())
+}
+
+func (o AccountEncryptionOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AccountEncryption) *AccountEncryption {
+		return &v
+	}).(AccountEncryptionPtrOutput)
+}
+
+// The Key Vault identity.
+func (o AccountEncryptionOutput) Identity() ResourceIdentityPtrOutput {
+	return o.ApplyT(func(v AccountEncryption) *ResourceIdentity { return v.Identity }).(ResourceIdentityPtrOutput)
+}
+
+// The properties of the key used to encrypt the account.
+func (o AccountEncryptionOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v AccountEncryption) *KeyVaultProperties { return v.KeyVaultProperties }).(KeyVaultPropertiesPtrOutput)
+}
+
+// The type of key used to encrypt the Account Key.
+func (o AccountEncryptionOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountEncryption) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccountEncryptionPtrOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryption)(nil)).Elem()
+}
+
+func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutput() AccountEncryptionPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionPtrOutput) ToAccountEncryptionPtrOutputWithContext(ctx context.Context) AccountEncryptionPtrOutput {
+	return o
+}
+
+func (o AccountEncryptionPtrOutput) Elem() AccountEncryptionOutput {
+	return o.ApplyT(func(v *AccountEncryption) AccountEncryption {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryption
+		return ret
+	}).(AccountEncryptionOutput)
+}
+
+// The Key Vault identity.
+func (o AccountEncryptionPtrOutput) Identity() ResourceIdentityPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *ResourceIdentity {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(ResourceIdentityPtrOutput)
+}
+
+// The properties of the key used to encrypt the account.
+func (o AccountEncryptionPtrOutput) KeyVaultProperties() KeyVaultPropertiesPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *KeyVaultProperties {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesPtrOutput)
+}
+
+// The type of key used to encrypt the Account Key.
+func (o AccountEncryptionPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryption) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+type AccountEncryptionResponse struct {
+	// The Key Vault identity.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// The properties of the key used to encrypt the account.
+	KeyVaultProperties *KeyVaultPropertiesResponse `pulumi:"keyVaultProperties"`
+	// The current status of the Key Vault mapping.
+	Status string `pulumi:"status"`
+	// The type of key used to encrypt the Account Key.
+	Type string `pulumi:"type"`
+}
+
+type AccountEncryptionResponseOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccountEncryptionResponse)(nil)).Elem()
+}
+
+func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponseOutput() AccountEncryptionResponseOutput {
+	return o
+}
+
+func (o AccountEncryptionResponseOutput) ToAccountEncryptionResponseOutputWithContext(ctx context.Context) AccountEncryptionResponseOutput {
+	return o
+}
+
+// The Key Vault identity.
+func (o AccountEncryptionResponseOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v AccountEncryptionResponse) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// The properties of the key used to encrypt the account.
+func (o AccountEncryptionResponseOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v AccountEncryptionResponse) *KeyVaultPropertiesResponse { return v.KeyVaultProperties }).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The current status of the Key Vault mapping.
+func (o AccountEncryptionResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountEncryptionResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The type of key used to encrypt the Account Key.
+func (o AccountEncryptionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v AccountEncryptionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type AccountEncryptionResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AccountEncryptionResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AccountEncryptionResponse)(nil)).Elem()
+}
+
+func (o AccountEncryptionResponsePtrOutput) ToAccountEncryptionResponsePtrOutput() AccountEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o AccountEncryptionResponsePtrOutput) ToAccountEncryptionResponsePtrOutputWithContext(ctx context.Context) AccountEncryptionResponsePtrOutput {
+	return o
+}
+
+func (o AccountEncryptionResponsePtrOutput) Elem() AccountEncryptionResponseOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) AccountEncryptionResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AccountEncryptionResponse
+		return ret
+	}).(AccountEncryptionResponseOutput)
+}
+
+// The Key Vault identity.
+func (o AccountEncryptionResponsePtrOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) *ResourceIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Identity
+	}).(ResourceIdentityResponsePtrOutput)
+}
+
+// The properties of the key used to encrypt the account.
+func (o AccountEncryptionResponsePtrOutput) KeyVaultProperties() KeyVaultPropertiesResponsePtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) *KeyVaultPropertiesResponse {
+		if v == nil {
+			return nil
+		}
+		return v.KeyVaultProperties
+	}).(KeyVaultPropertiesResponsePtrOutput)
+}
+
+// The current status of the Key Vault mapping.
+func (o AccountEncryptionResponsePtrOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Status
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of key used to encrypt the Account Key.
+func (o AccountEncryptionResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AccountEncryptionResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
 // Akamai access control
 type AkamaiAccessControl struct {
 	// authentication key list
@@ -3221,6 +3736,207 @@ type DeinterlaceResponse struct {
 	Parity *string `pulumi:"parity"`
 }
 
+type EdgeUsageDataCollectionPolicyResponse struct {
+	// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+	DataCollectionFrequency *string `pulumi:"dataCollectionFrequency"`
+	// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+	DataReportingFrequency *string `pulumi:"dataReportingFrequency"`
+	// Details of Event Hub where the usage will be reported.
+	EventHubDetails *EdgeUsageDataEventHubResponse `pulumi:"eventHubDetails"`
+	// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
+	MaxAllowedUnreportedUsageDuration *string `pulumi:"maxAllowedUnreportedUsageDuration"`
+}
+
+type EdgeUsageDataCollectionPolicyResponseOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataCollectionPolicyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataCollectionPolicyResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPolicyResponseOutput() EdgeUsageDataCollectionPolicyResponseOutput {
+	return o
+}
+
+func (o EdgeUsageDataCollectionPolicyResponseOutput) ToEdgeUsageDataCollectionPolicyResponseOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponseOutput {
+	return o
+}
+
+// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) DataCollectionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.DataCollectionFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) DataReportingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.DataReportingFrequency }).(pulumi.StringPtrOutput)
+}
+
+// Details of Event Hub where the usage will be reported.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) EventHubDetails() EdgeUsageDataEventHubResponsePtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *EdgeUsageDataEventHubResponse { return v.EventHubDetails }).(EdgeUsageDataEventHubResponsePtrOutput)
+}
+
+// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
+func (o EdgeUsageDataCollectionPolicyResponseOutput) MaxAllowedUnreportedUsageDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataCollectionPolicyResponse) *string { return v.MaxAllowedUnreportedUsageDuration }).(pulumi.StringPtrOutput)
+}
+
+type EdgeUsageDataCollectionPolicyResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataCollectionPolicyResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeUsageDataCollectionPolicyResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) ToEdgeUsageDataCollectionPolicyResponsePtrOutput() EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) ToEdgeUsageDataCollectionPolicyResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataCollectionPolicyResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) Elem() EdgeUsageDataCollectionPolicyResponseOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) EdgeUsageDataCollectionPolicyResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdgeUsageDataCollectionPolicyResponse
+		return ret
+	}).(EdgeUsageDataCollectionPolicyResponseOutput)
+}
+
+// Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) DataCollectionFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataCollectionFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H.
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) DataReportingFrequency() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DataReportingFrequency
+	}).(pulumi.StringPtrOutput)
+}
+
+// Details of Event Hub where the usage will be reported.
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) EventHubDetails() EdgeUsageDataEventHubResponsePtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *EdgeUsageDataEventHubResponse {
+		if v == nil {
+			return nil
+		}
+		return v.EventHubDetails
+	}).(EdgeUsageDataEventHubResponsePtrOutput)
+}
+
+// Maximum time for which the functionality of the device will not be hampered for not reporting the usage data.
+func (o EdgeUsageDataCollectionPolicyResponsePtrOutput) MaxAllowedUnreportedUsageDuration() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataCollectionPolicyResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.MaxAllowedUnreportedUsageDuration
+	}).(pulumi.StringPtrOutput)
+}
+
+type EdgeUsageDataEventHubResponse struct {
+	// Name of the Event Hub where usage will be reported.
+	Name *string `pulumi:"name"`
+	// Namespace of the Event Hub where usage will be reported.
+	Namespace *string `pulumi:"namespace"`
+	// SAS token needed to interact with Event Hub.
+	Token *string `pulumi:"token"`
+}
+
+type EdgeUsageDataEventHubResponseOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataEventHubResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*EdgeUsageDataEventHubResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponseOutput() EdgeUsageDataEventHubResponseOutput {
+	return o
+}
+
+func (o EdgeUsageDataEventHubResponseOutput) ToEdgeUsageDataEventHubResponseOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponseOutput {
+	return o
+}
+
+// Name of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Namespace of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponseOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Namespace }).(pulumi.StringPtrOutput)
+}
+
+// SAS token needed to interact with Event Hub.
+func (o EdgeUsageDataEventHubResponseOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v EdgeUsageDataEventHubResponse) *string { return v.Token }).(pulumi.StringPtrOutput)
+}
+
+type EdgeUsageDataEventHubResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (EdgeUsageDataEventHubResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**EdgeUsageDataEventHubResponse)(nil)).Elem()
+}
+
+func (o EdgeUsageDataEventHubResponsePtrOutput) ToEdgeUsageDataEventHubResponsePtrOutput() EdgeUsageDataEventHubResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataEventHubResponsePtrOutput) ToEdgeUsageDataEventHubResponsePtrOutputWithContext(ctx context.Context) EdgeUsageDataEventHubResponsePtrOutput {
+	return o
+}
+
+func (o EdgeUsageDataEventHubResponsePtrOutput) Elem() EdgeUsageDataEventHubResponseOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) EdgeUsageDataEventHubResponse {
+		if v != nil {
+			return *v
+		}
+		var ret EdgeUsageDataEventHubResponse
+		return ret
+	}).(EdgeUsageDataEventHubResponseOutput)
+}
+
+// Name of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Namespace of the Event Hub where usage will be reported.
+func (o EdgeUsageDataEventHubResponsePtrOutput) Namespace() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Namespace
+	}).(pulumi.StringPtrOutput)
+}
+
+// SAS token needed to interact with Event Hub.
+func (o EdgeUsageDataEventHubResponsePtrOutput) Token() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *EdgeUsageDataEventHubResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Token
+	}).(pulumi.StringPtrOutput)
+}
+
 // Class to specify which protocols are enabled
 type EnabledProtocols struct {
 	// Enable DASH protocol or not
@@ -5930,6 +6646,413 @@ type JpgLayerResponse struct {
 	Width *string `pulumi:"width"`
 }
 
+type KeyDelivery struct {
+	// The access control properties for Key Delivery.
+	AccessControl *AccessControl `pulumi:"accessControl"`
+}
+
+// KeyDeliveryInput is an input type that accepts KeyDeliveryArgs and KeyDeliveryOutput values.
+// You can construct a concrete instance of `KeyDeliveryInput` via:
+//
+//          KeyDeliveryArgs{...}
+type KeyDeliveryInput interface {
+	pulumi.Input
+
+	ToKeyDeliveryOutput() KeyDeliveryOutput
+	ToKeyDeliveryOutputWithContext(context.Context) KeyDeliveryOutput
+}
+
+type KeyDeliveryArgs struct {
+	// The access control properties for Key Delivery.
+	AccessControl AccessControlPtrInput `pulumi:"accessControl"`
+}
+
+func (KeyDeliveryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDelivery)(nil)).Elem()
+}
+
+func (i KeyDeliveryArgs) ToKeyDeliveryOutput() KeyDeliveryOutput {
+	return i.ToKeyDeliveryOutputWithContext(context.Background())
+}
+
+func (i KeyDeliveryArgs) ToKeyDeliveryOutputWithContext(ctx context.Context) KeyDeliveryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyDeliveryOutput)
+}
+
+func (i KeyDeliveryArgs) ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput {
+	return i.ToKeyDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i KeyDeliveryArgs) ToKeyDeliveryPtrOutputWithContext(ctx context.Context) KeyDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyDeliveryOutput).ToKeyDeliveryPtrOutputWithContext(ctx)
+}
+
+// KeyDeliveryPtrInput is an input type that accepts KeyDeliveryArgs, KeyDeliveryPtr and KeyDeliveryPtrOutput values.
+// You can construct a concrete instance of `KeyDeliveryPtrInput` via:
+//
+//          KeyDeliveryArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyDeliveryPtrInput interface {
+	pulumi.Input
+
+	ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput
+	ToKeyDeliveryPtrOutputWithContext(context.Context) KeyDeliveryPtrOutput
+}
+
+type keyDeliveryPtrType KeyDeliveryArgs
+
+func KeyDeliveryPtr(v *KeyDeliveryArgs) KeyDeliveryPtrInput {
+	return (*keyDeliveryPtrType)(v)
+}
+
+func (*keyDeliveryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyDelivery)(nil)).Elem()
+}
+
+func (i *keyDeliveryPtrType) ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput {
+	return i.ToKeyDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (i *keyDeliveryPtrType) ToKeyDeliveryPtrOutputWithContext(ctx context.Context) KeyDeliveryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyDeliveryPtrOutput)
+}
+
+type KeyDeliveryOutput struct{ *pulumi.OutputState }
+
+func (KeyDeliveryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDelivery)(nil)).Elem()
+}
+
+func (o KeyDeliveryOutput) ToKeyDeliveryOutput() KeyDeliveryOutput {
+	return o
+}
+
+func (o KeyDeliveryOutput) ToKeyDeliveryOutputWithContext(ctx context.Context) KeyDeliveryOutput {
+	return o
+}
+
+func (o KeyDeliveryOutput) ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput {
+	return o.ToKeyDeliveryPtrOutputWithContext(context.Background())
+}
+
+func (o KeyDeliveryOutput) ToKeyDeliveryPtrOutputWithContext(ctx context.Context) KeyDeliveryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyDelivery) *KeyDelivery {
+		return &v
+	}).(KeyDeliveryPtrOutput)
+}
+
+// The access control properties for Key Delivery.
+func (o KeyDeliveryOutput) AccessControl() AccessControlPtrOutput {
+	return o.ApplyT(func(v KeyDelivery) *AccessControl { return v.AccessControl }).(AccessControlPtrOutput)
+}
+
+type KeyDeliveryPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyDeliveryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyDelivery)(nil)).Elem()
+}
+
+func (o KeyDeliveryPtrOutput) ToKeyDeliveryPtrOutput() KeyDeliveryPtrOutput {
+	return o
+}
+
+func (o KeyDeliveryPtrOutput) ToKeyDeliveryPtrOutputWithContext(ctx context.Context) KeyDeliveryPtrOutput {
+	return o
+}
+
+func (o KeyDeliveryPtrOutput) Elem() KeyDeliveryOutput {
+	return o.ApplyT(func(v *KeyDelivery) KeyDelivery {
+		if v != nil {
+			return *v
+		}
+		var ret KeyDelivery
+		return ret
+	}).(KeyDeliveryOutput)
+}
+
+// The access control properties for Key Delivery.
+func (o KeyDeliveryPtrOutput) AccessControl() AccessControlPtrOutput {
+	return o.ApplyT(func(v *KeyDelivery) *AccessControl {
+		if v == nil {
+			return nil
+		}
+		return v.AccessControl
+	}).(AccessControlPtrOutput)
+}
+
+type KeyDeliveryResponse struct {
+	// The access control properties for Key Delivery.
+	AccessControl *AccessControlResponse `pulumi:"accessControl"`
+}
+
+type KeyDeliveryResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyDeliveryResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyDeliveryResponse)(nil)).Elem()
+}
+
+func (o KeyDeliveryResponseOutput) ToKeyDeliveryResponseOutput() KeyDeliveryResponseOutput {
+	return o
+}
+
+func (o KeyDeliveryResponseOutput) ToKeyDeliveryResponseOutputWithContext(ctx context.Context) KeyDeliveryResponseOutput {
+	return o
+}
+
+// The access control properties for Key Delivery.
+func (o KeyDeliveryResponseOutput) AccessControl() AccessControlResponsePtrOutput {
+	return o.ApplyT(func(v KeyDeliveryResponse) *AccessControlResponse { return v.AccessControl }).(AccessControlResponsePtrOutput)
+}
+
+type KeyDeliveryResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyDeliveryResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyDeliveryResponse)(nil)).Elem()
+}
+
+func (o KeyDeliveryResponsePtrOutput) ToKeyDeliveryResponsePtrOutput() KeyDeliveryResponsePtrOutput {
+	return o
+}
+
+func (o KeyDeliveryResponsePtrOutput) ToKeyDeliveryResponsePtrOutputWithContext(ctx context.Context) KeyDeliveryResponsePtrOutput {
+	return o
+}
+
+func (o KeyDeliveryResponsePtrOutput) Elem() KeyDeliveryResponseOutput {
+	return o.ApplyT(func(v *KeyDeliveryResponse) KeyDeliveryResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyDeliveryResponse
+		return ret
+	}).(KeyDeliveryResponseOutput)
+}
+
+// The access control properties for Key Delivery.
+func (o KeyDeliveryResponsePtrOutput) AccessControl() AccessControlResponsePtrOutput {
+	return o.ApplyT(func(v *KeyDeliveryResponse) *AccessControlResponse {
+		if v == nil {
+			return nil
+		}
+		return v.AccessControl
+	}).(AccessControlResponsePtrOutput)
+}
+
+type KeyVaultProperties struct {
+	// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+	KeyIdentifier *string `pulumi:"keyIdentifier"`
+}
+
+// KeyVaultPropertiesInput is an input type that accepts KeyVaultPropertiesArgs and KeyVaultPropertiesOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesInput` via:
+//
+//          KeyVaultPropertiesArgs{...}
+type KeyVaultPropertiesInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput
+	ToKeyVaultPropertiesOutputWithContext(context.Context) KeyVaultPropertiesOutput
+}
+
+type KeyVaultPropertiesArgs struct {
+	// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+	KeyIdentifier pulumi.StringPtrInput `pulumi:"keyIdentifier"`
+}
+
+func (KeyVaultPropertiesArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
+	return i.ToKeyVaultPropertiesOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput)
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i KeyVaultPropertiesArgs) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesOutput).ToKeyVaultPropertiesPtrOutputWithContext(ctx)
+}
+
+// KeyVaultPropertiesPtrInput is an input type that accepts KeyVaultPropertiesArgs, KeyVaultPropertiesPtr and KeyVaultPropertiesPtrOutput values.
+// You can construct a concrete instance of `KeyVaultPropertiesPtrInput` via:
+//
+//          KeyVaultPropertiesArgs{...}
+//
+//  or:
+//
+//          nil
+type KeyVaultPropertiesPtrInput interface {
+	pulumi.Input
+
+	ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput
+	ToKeyVaultPropertiesPtrOutputWithContext(context.Context) KeyVaultPropertiesPtrOutput
+}
+
+type keyVaultPropertiesPtrType KeyVaultPropertiesArgs
+
+func KeyVaultPropertiesPtr(v *KeyVaultPropertiesArgs) KeyVaultPropertiesPtrInput {
+	return (*keyVaultPropertiesPtrType)(v)
+}
+
+func (*keyVaultPropertiesPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
+}
+
+func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return i.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (i *keyVaultPropertiesPtrType) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KeyVaultPropertiesPtrOutput)
+}
+
+type KeyVaultPropertiesOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultProperties)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutput() KeyVaultPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesOutputWithContext(ctx context.Context) KeyVaultPropertiesOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return o.ToKeyVaultPropertiesPtrOutputWithContext(context.Background())
+}
+
+func (o KeyVaultPropertiesOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v KeyVaultProperties) *KeyVaultProperties {
+		return &v
+	}).(KeyVaultPropertiesPtrOutput)
+}
+
+// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+func (o KeyVaultPropertiesOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultProperties) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultPropertiesPtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultProperties)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutput() KeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesPtrOutput) ToKeyVaultPropertiesPtrOutputWithContext(ctx context.Context) KeyVaultPropertiesPtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesPtrOutput) Elem() KeyVaultPropertiesOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) KeyVaultProperties {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultProperties
+		return ret
+	}).(KeyVaultPropertiesOutput)
+}
+
+// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+func (o KeyVaultPropertiesPtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultProperties) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultPropertiesResponse struct {
+	// The current key used to encrypt the Media Services account, including the key version.
+	CurrentKeyIdentifier string `pulumi:"currentKeyIdentifier"`
+	// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+	KeyIdentifier *string `pulumi:"keyIdentifier"`
+}
+
+type KeyVaultPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutput() KeyVaultPropertiesResponseOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponseOutput) ToKeyVaultPropertiesResponseOutputWithContext(ctx context.Context) KeyVaultPropertiesResponseOutput {
+	return o
+}
+
+// The current key used to encrypt the Media Services account, including the key version.
+func (o KeyVaultPropertiesResponseOutput) CurrentKeyIdentifier() pulumi.StringOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) string { return v.CurrentKeyIdentifier }).(pulumi.StringOutput)
+}
+
+// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+func (o KeyVaultPropertiesResponseOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KeyVaultPropertiesResponse) *string { return v.KeyIdentifier }).(pulumi.StringPtrOutput)
+}
+
+type KeyVaultPropertiesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (KeyVaultPropertiesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**KeyVaultPropertiesResponse)(nil)).Elem()
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutput() KeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) ToKeyVaultPropertiesResponsePtrOutputWithContext(ctx context.Context) KeyVaultPropertiesResponsePtrOutput {
+	return o
+}
+
+func (o KeyVaultPropertiesResponsePtrOutput) Elem() KeyVaultPropertiesResponseOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) KeyVaultPropertiesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret KeyVaultPropertiesResponse
+		return ret
+	}).(KeyVaultPropertiesResponseOutput)
+}
+
+// The current key used to encrypt the Media Services account, including the key version.
+func (o KeyVaultPropertiesResponsePtrOutput) CurrentKeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CurrentKeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
+// The URL of the Key Vault key used to encrypt the account. The key may either be versioned (for example https://vault/keys/mykey/version1) or reference a key without a version (for example https://vault/keys/mykey).
+func (o KeyVaultPropertiesResponsePtrOutput) KeyIdentifier() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *KeyVaultPropertiesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyIdentifier
+	}).(pulumi.StringPtrOutput)
+}
+
 // Specifies the live event type and optional encoding settings for encoding live events.
 type LiveEventEncoding struct {
 	// Live event type. When encodingType is set to PassthroughBasic or PassthroughStandard, the service simply passes through the incoming video and audio layer(s) to the output. When encodingType is set to Standard or Premium1080p, a live encoder transcodes the incoming stream into multiple bitrates or layers. See https://go.microsoft.com/fwlink/?linkid=2095101 for more information. This property cannot be modified after the live event is created.
@@ -7849,6 +8972,273 @@ func (o LiveEventTranscriptionResponseArrayOutput) Index(i pulumi.IntInput) Live
 	}).(LiveEventTranscriptionResponseOutput)
 }
 
+type MediaServiceIdentity struct {
+	// The identity type.
+	Type string `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities map[string]interface{} `pulumi:"userAssignedIdentities"`
+}
+
+// MediaServiceIdentityInput is an input type that accepts MediaServiceIdentityArgs and MediaServiceIdentityOutput values.
+// You can construct a concrete instance of `MediaServiceIdentityInput` via:
+//
+//          MediaServiceIdentityArgs{...}
+type MediaServiceIdentityInput interface {
+	pulumi.Input
+
+	ToMediaServiceIdentityOutput() MediaServiceIdentityOutput
+	ToMediaServiceIdentityOutputWithContext(context.Context) MediaServiceIdentityOutput
+}
+
+type MediaServiceIdentityArgs struct {
+	// The identity type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities pulumi.MapInput `pulumi:"userAssignedIdentities"`
+}
+
+func (MediaServiceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaServiceIdentity)(nil)).Elem()
+}
+
+func (i MediaServiceIdentityArgs) ToMediaServiceIdentityOutput() MediaServiceIdentityOutput {
+	return i.ToMediaServiceIdentityOutputWithContext(context.Background())
+}
+
+func (i MediaServiceIdentityArgs) ToMediaServiceIdentityOutputWithContext(ctx context.Context) MediaServiceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceIdentityOutput)
+}
+
+func (i MediaServiceIdentityArgs) ToMediaServiceIdentityPtrOutput() MediaServiceIdentityPtrOutput {
+	return i.ToMediaServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i MediaServiceIdentityArgs) ToMediaServiceIdentityPtrOutputWithContext(ctx context.Context) MediaServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceIdentityOutput).ToMediaServiceIdentityPtrOutputWithContext(ctx)
+}
+
+// MediaServiceIdentityPtrInput is an input type that accepts MediaServiceIdentityArgs, MediaServiceIdentityPtr and MediaServiceIdentityPtrOutput values.
+// You can construct a concrete instance of `MediaServiceIdentityPtrInput` via:
+//
+//          MediaServiceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type MediaServiceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToMediaServiceIdentityPtrOutput() MediaServiceIdentityPtrOutput
+	ToMediaServiceIdentityPtrOutputWithContext(context.Context) MediaServiceIdentityPtrOutput
+}
+
+type mediaServiceIdentityPtrType MediaServiceIdentityArgs
+
+func MediaServiceIdentityPtr(v *MediaServiceIdentityArgs) MediaServiceIdentityPtrInput {
+	return (*mediaServiceIdentityPtrType)(v)
+}
+
+func (*mediaServiceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaServiceIdentity)(nil)).Elem()
+}
+
+func (i *mediaServiceIdentityPtrType) ToMediaServiceIdentityPtrOutput() MediaServiceIdentityPtrOutput {
+	return i.ToMediaServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *mediaServiceIdentityPtrType) ToMediaServiceIdentityPtrOutputWithContext(ctx context.Context) MediaServiceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MediaServiceIdentityPtrOutput)
+}
+
+type MediaServiceIdentityOutput struct{ *pulumi.OutputState }
+
+func (MediaServiceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaServiceIdentity)(nil)).Elem()
+}
+
+func (o MediaServiceIdentityOutput) ToMediaServiceIdentityOutput() MediaServiceIdentityOutput {
+	return o
+}
+
+func (o MediaServiceIdentityOutput) ToMediaServiceIdentityOutputWithContext(ctx context.Context) MediaServiceIdentityOutput {
+	return o
+}
+
+func (o MediaServiceIdentityOutput) ToMediaServiceIdentityPtrOutput() MediaServiceIdentityPtrOutput {
+	return o.ToMediaServiceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o MediaServiceIdentityOutput) ToMediaServiceIdentityPtrOutputWithContext(ctx context.Context) MediaServiceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MediaServiceIdentity) *MediaServiceIdentity {
+		return &v
+	}).(MediaServiceIdentityPtrOutput)
+}
+
+// The identity type.
+func (o MediaServiceIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaServiceIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user assigned managed identities.
+func (o MediaServiceIdentityOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v MediaServiceIdentity) map[string]interface{} { return v.UserAssignedIdentities }).(pulumi.MapOutput)
+}
+
+type MediaServiceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (MediaServiceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaServiceIdentity)(nil)).Elem()
+}
+
+func (o MediaServiceIdentityPtrOutput) ToMediaServiceIdentityPtrOutput() MediaServiceIdentityPtrOutput {
+	return o
+}
+
+func (o MediaServiceIdentityPtrOutput) ToMediaServiceIdentityPtrOutputWithContext(ctx context.Context) MediaServiceIdentityPtrOutput {
+	return o
+}
+
+func (o MediaServiceIdentityPtrOutput) Elem() MediaServiceIdentityOutput {
+	return o.ApplyT(func(v *MediaServiceIdentity) MediaServiceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret MediaServiceIdentity
+		return ret
+	}).(MediaServiceIdentityOutput)
+}
+
+// The identity type.
+func (o MediaServiceIdentityPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaServiceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user assigned managed identities.
+func (o MediaServiceIdentityPtrOutput) UserAssignedIdentities() pulumi.MapOutput {
+	return o.ApplyT(func(v *MediaServiceIdentity) map[string]interface{} {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(pulumi.MapOutput)
+}
+
+type MediaServiceIdentityResponse struct {
+	// The Principal ID of the identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The Tenant ID of the identity.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type string `pulumi:"type"`
+	// The user assigned managed identities.
+	UserAssignedIdentities map[string]UserAssignedManagedIdentityResponse `pulumi:"userAssignedIdentities"`
+}
+
+type MediaServiceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (MediaServiceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MediaServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o MediaServiceIdentityResponseOutput) ToMediaServiceIdentityResponseOutput() MediaServiceIdentityResponseOutput {
+	return o
+}
+
+func (o MediaServiceIdentityResponseOutput) ToMediaServiceIdentityResponseOutputWithContext(ctx context.Context) MediaServiceIdentityResponseOutput {
+	return o
+}
+
+// The Principal ID of the identity.
+func (o MediaServiceIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaServiceIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The Tenant ID of the identity.
+func (o MediaServiceIdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaServiceIdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o MediaServiceIdentityResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v MediaServiceIdentityResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The user assigned managed identities.
+func (o MediaServiceIdentityResponseOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
+	return o.ApplyT(func(v MediaServiceIdentityResponse) map[string]UserAssignedManagedIdentityResponse {
+		return v.UserAssignedIdentities
+	}).(UserAssignedManagedIdentityResponseMapOutput)
+}
+
+type MediaServiceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (MediaServiceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MediaServiceIdentityResponse)(nil)).Elem()
+}
+
+func (o MediaServiceIdentityResponsePtrOutput) ToMediaServiceIdentityResponsePtrOutput() MediaServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o MediaServiceIdentityResponsePtrOutput) ToMediaServiceIdentityResponsePtrOutputWithContext(ctx context.Context) MediaServiceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o MediaServiceIdentityResponsePtrOutput) Elem() MediaServiceIdentityResponseOutput {
+	return o.ApplyT(func(v *MediaServiceIdentityResponse) MediaServiceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret MediaServiceIdentityResponse
+		return ret
+	}).(MediaServiceIdentityResponseOutput)
+}
+
+// The Principal ID of the identity.
+func (o MediaServiceIdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Tenant ID of the identity.
+func (o MediaServiceIdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity type.
+func (o MediaServiceIdentityResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MediaServiceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// The user assigned managed identities.
+func (o MediaServiceIdentityResponsePtrOutput) UserAssignedIdentities() UserAssignedManagedIdentityResponseMapOutput {
+	return o.ApplyT(func(v *MediaServiceIdentityResponse) map[string]UserAssignedManagedIdentityResponse {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentities
+	}).(UserAssignedManagedIdentityResponseMapOutput)
+}
+
 // Describes the properties for an output ISO MP4 file.
 type Mp4Format struct {
 	// The pattern of the file names for the generated output files. The following macros are supported in the file name: {Basename} - An expansion macro that will use the name of the input video file. If the base name(the file suffix is not included) of the input video file is less than 32 characters long, the base name of input video files will be used. If the length of base name of the input video file exceeds 32 characters, the base name is truncated to the first 32 characters in total length. {Extension} - The appropriate extension for this format. {Label} - The label assigned to the codec/layer. {Index} - A unique index for thumbnails. Only applicable to thumbnails. {Bitrate} - The audio/video bitrate. Not applicable to thumbnails. {Codec} - The type of the audio/video codec. {Resolution} - The video resolution. Any unsubstituted macros will be collapsed and removed from the filename.
@@ -8609,6 +9999,262 @@ type PresetConfigurationsResponse struct {
 	MinHeight *int `pulumi:"minHeight"`
 }
 
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionResponse struct {
+	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+	Id string `pulumi:"id"`
+	// The name of the resource
+	Name string `pulumi:"name"`
+	// The resource of private end point.
+	PrivateEndpoint *PrivateEndpointResponse `pulumi:"privateEndpoint"`
+	// A collection of information about the state of the connection between service consumer and provider.
+	PrivateLinkServiceConnectionState PrivateLinkServiceConnectionStateResponse `pulumi:"privateLinkServiceConnectionState"`
+	// The provisioning state of the private endpoint connection resource.
+	ProvisioningState string `pulumi:"provisioningState"`
+	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+	Type string `pulumi:"type"`
+}
+
+// The Private Endpoint Connection resource.
+type PrivateEndpointConnectionResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutput() PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseOutput) ToPrivateEndpointConnectionResponseOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseOutput {
+	return o
+}
+
+// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
+func (o PrivateEndpointConnectionResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The name of the resource
+func (o PrivateEndpointConnectionResponseOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The resource of private end point.
+func (o PrivateEndpointConnectionResponseOutput) PrivateEndpoint() PrivateEndpointResponsePtrOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) *PrivateEndpointResponse { return v.PrivateEndpoint }).(PrivateEndpointResponsePtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+func (o PrivateEndpointConnectionResponseOutput) PrivateLinkServiceConnectionState() PrivateLinkServiceConnectionStateResponseOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) PrivateLinkServiceConnectionStateResponse {
+		return v.PrivateLinkServiceConnectionState
+	}).(PrivateLinkServiceConnectionStateResponseOutput)
+}
+
+// The provisioning state of the private endpoint connection resource.
+func (o PrivateEndpointConnectionResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
+// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
+func (o PrivateEndpointConnectionResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointConnectionResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointConnectionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointConnectionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PrivateEndpointConnectionResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutput() PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) ToPrivateEndpointConnectionResponseArrayOutputWithContext(ctx context.Context) PrivateEndpointConnectionResponseArrayOutput {
+	return o
+}
+
+func (o PrivateEndpointConnectionResponseArrayOutput) Index(i pulumi.IntInput) PrivateEndpointConnectionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PrivateEndpointConnectionResponse {
+		return vs[0].([]PrivateEndpointConnectionResponse)[vs[1].(int)]
+	}).(PrivateEndpointConnectionResponseOutput)
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointResponse struct {
+	// The ARM identifier for Private Endpoint
+	Id string `pulumi:"id"`
+}
+
+// The Private Endpoint resource.
+type PrivateEndpointResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutput() PrivateEndpointResponseOutput {
+	return o
+}
+
+func (o PrivateEndpointResponseOutput) ToPrivateEndpointResponseOutputWithContext(ctx context.Context) PrivateEndpointResponseOutput {
+	return o
+}
+
+// The ARM identifier for Private Endpoint
+func (o PrivateEndpointResponseOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v PrivateEndpointResponse) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type PrivateEndpointResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (PrivateEndpointResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PrivateEndpointResponse)(nil)).Elem()
+}
+
+func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutput() PrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointResponsePtrOutput) ToPrivateEndpointResponsePtrOutputWithContext(ctx context.Context) PrivateEndpointResponsePtrOutput {
+	return o
+}
+
+func (o PrivateEndpointResponsePtrOutput) Elem() PrivateEndpointResponseOutput {
+	return o.ApplyT(func(v *PrivateEndpointResponse) PrivateEndpointResponse {
+		if v != nil {
+			return *v
+		}
+		var ret PrivateEndpointResponse
+		return ret
+	}).(PrivateEndpointResponseOutput)
+}
+
+// The ARM identifier for Private Endpoint
+func (o PrivateEndpointResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PrivateEndpointResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionState struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status *string `pulumi:"status"`
+}
+
+// PrivateLinkServiceConnectionStateInput is an input type that accepts PrivateLinkServiceConnectionStateArgs and PrivateLinkServiceConnectionStateOutput values.
+// You can construct a concrete instance of `PrivateLinkServiceConnectionStateInput` via:
+//
+//          PrivateLinkServiceConnectionStateArgs{...}
+type PrivateLinkServiceConnectionStateInput interface {
+	pulumi.Input
+
+	ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput
+	ToPrivateLinkServiceConnectionStateOutputWithContext(context.Context) PrivateLinkServiceConnectionStateOutput
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateArgs struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired pulumi.StringPtrInput `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description pulumi.StringPtrInput `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status pulumi.StringPtrInput `pulumi:"status"`
+}
+
+func (PrivateLinkServiceConnectionStateArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
+	return i.ToPrivateLinkServiceConnectionStateOutputWithContext(context.Background())
+}
+
+func (i PrivateLinkServiceConnectionStateArgs) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PrivateLinkServiceConnectionStateOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionState)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutput() PrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateOutput) ToPrivateLinkServiceConnectionStateOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateOutput {
+	return o
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionState) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateResponse struct {
+	// A message indicating if changes on the service provider require any updates on the consumer.
+	ActionsRequired *string `pulumi:"actionsRequired"`
+	// The reason for approval/rejection of the connection.
+	Description *string `pulumi:"description"`
+	// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+	Status *string `pulumi:"status"`
+}
+
+// A collection of information about the state of the connection between service consumer and provider.
+type PrivateLinkServiceConnectionStateResponseOutput struct{ *pulumi.OutputState }
+
+func (PrivateLinkServiceConnectionStateResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PrivateLinkServiceConnectionStateResponse)(nil)).Elem()
+}
+
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponseOutput() PrivateLinkServiceConnectionStateResponseOutput {
+	return o
+}
+
+func (o PrivateLinkServiceConnectionStateResponseOutput) ToPrivateLinkServiceConnectionStateResponseOutputWithContext(ctx context.Context) PrivateLinkServiceConnectionStateResponseOutput {
+	return o
+}
+
+// A message indicating if changes on the service provider require any updates on the consumer.
+func (o PrivateLinkServiceConnectionStateResponseOutput) ActionsRequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.ActionsRequired }).(pulumi.StringPtrOutput)
+}
+
+// The reason for approval/rejection of the connection.
+func (o PrivateLinkServiceConnectionStateResponseOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+func (o PrivateLinkServiceConnectionStateResponseOutput) Status() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PrivateLinkServiceConnectionStateResponse) *string { return v.Status }).(pulumi.StringPtrOutput)
+}
+
 // Describes the properties of a rectangular window applied to the input media before processing it.
 type Rectangle struct {
 	// The height of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
@@ -8631,6 +10277,237 @@ type RectangleResponse struct {
 	Top *string `pulumi:"top"`
 	// The width of the rectangular region in pixels. This can be absolute pixel value (e.g 100), or relative to the size of the video (For example, 50%).
 	Width *string `pulumi:"width"`
+}
+
+type ResourceIdentity struct {
+	// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+	UseSystemAssignedIdentity bool `pulumi:"useSystemAssignedIdentity"`
+	// The user assigned managed identity's ARM ID to use when accessing a resource.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+// ResourceIdentityInput is an input type that accepts ResourceIdentityArgs and ResourceIdentityOutput values.
+// You can construct a concrete instance of `ResourceIdentityInput` via:
+//
+//          ResourceIdentityArgs{...}
+type ResourceIdentityInput interface {
+	pulumi.Input
+
+	ToResourceIdentityOutput() ResourceIdentityOutput
+	ToResourceIdentityOutputWithContext(context.Context) ResourceIdentityOutput
+}
+
+type ResourceIdentityArgs struct {
+	// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+	UseSystemAssignedIdentity pulumi.BoolInput `pulumi:"useSystemAssignedIdentity"`
+	// The user assigned managed identity's ARM ID to use when accessing a resource.
+	UserAssignedIdentity pulumi.StringPtrInput `pulumi:"userAssignedIdentity"`
+}
+
+func (ResourceIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityOutput() ResourceIdentityOutput {
+	return i.ToResourceIdentityOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput)
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i ResourceIdentityArgs) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityOutput).ToResourceIdentityPtrOutputWithContext(ctx)
+}
+
+// ResourceIdentityPtrInput is an input type that accepts ResourceIdentityArgs, ResourceIdentityPtr and ResourceIdentityPtrOutput values.
+// You can construct a concrete instance of `ResourceIdentityPtrInput` via:
+//
+//          ResourceIdentityArgs{...}
+//
+//  or:
+//
+//          nil
+type ResourceIdentityPtrInput interface {
+	pulumi.Input
+
+	ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput
+	ToResourceIdentityPtrOutputWithContext(context.Context) ResourceIdentityPtrOutput
+}
+
+type resourceIdentityPtrType ResourceIdentityArgs
+
+func ResourceIdentityPtr(v *ResourceIdentityArgs) ResourceIdentityPtrInput {
+	return (*resourceIdentityPtrType)(v)
+}
+
+func (*resourceIdentityPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
+}
+
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return i.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (i *resourceIdentityPtrType) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ResourceIdentityPtrOutput)
+}
+
+type ResourceIdentityOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentity)(nil)).Elem()
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityOutput() ResourceIdentityOutput {
+	return o
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityOutputWithContext(ctx context.Context) ResourceIdentityOutput {
+	return o
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return o.ToResourceIdentityPtrOutputWithContext(context.Background())
+}
+
+func (o ResourceIdentityOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ResourceIdentity) *ResourceIdentity {
+		return &v
+	}).(ResourceIdentityPtrOutput)
+}
+
+// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+func (o ResourceIdentityOutput) UseSystemAssignedIdentity() pulumi.BoolOutput {
+	return o.ApplyT(func(v ResourceIdentity) bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolOutput)
+}
+
+// The user assigned managed identity's ARM ID to use when accessing a resource.
+func (o ResourceIdentityOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentity) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityPtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentity)(nil)).Elem()
+}
+
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutput() ResourceIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceIdentityPtrOutput) ToResourceIdentityPtrOutputWithContext(ctx context.Context) ResourceIdentityPtrOutput {
+	return o
+}
+
+func (o ResourceIdentityPtrOutput) Elem() ResourceIdentityOutput {
+	return o.ApplyT(func(v *ResourceIdentity) ResourceIdentity {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentity
+		return ret
+	}).(ResourceIdentityOutput)
+}
+
+// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+func (o ResourceIdentityPtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentity) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UseSystemAssignedIdentity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The user assigned managed identity's ARM ID to use when accessing a resource.
+func (o ResourceIdentityPtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentity) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityResponse struct {
+	// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+	UseSystemAssignedIdentity bool `pulumi:"useSystemAssignedIdentity"`
+	// The user assigned managed identity's ARM ID to use when accessing a resource.
+	UserAssignedIdentity *string `pulumi:"userAssignedIdentity"`
+}
+
+type ResourceIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutput() ResourceIdentityResponseOutput {
+	return o
+}
+
+func (o ResourceIdentityResponseOutput) ToResourceIdentityResponseOutputWithContext(ctx context.Context) ResourceIdentityResponseOutput {
+	return o
+}
+
+// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+func (o ResourceIdentityResponseOutput) UseSystemAssignedIdentity() pulumi.BoolOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) bool { return v.UseSystemAssignedIdentity }).(pulumi.BoolOutput)
+}
+
+// The user assigned managed identity's ARM ID to use when accessing a resource.
+func (o ResourceIdentityResponseOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ResourceIdentityResponse) *string { return v.UserAssignedIdentity }).(pulumi.StringPtrOutput)
+}
+
+type ResourceIdentityResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ResourceIdentityResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ResourceIdentityResponse)(nil)).Elem()
+}
+
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutput() ResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityResponsePtrOutput) ToResourceIdentityResponsePtrOutputWithContext(ctx context.Context) ResourceIdentityResponsePtrOutput {
+	return o
+}
+
+func (o ResourceIdentityResponsePtrOutput) Elem() ResourceIdentityResponseOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) ResourceIdentityResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ResourceIdentityResponse
+		return ret
+	}).(ResourceIdentityResponseOutput)
+}
+
+// Indicates whether to use System Assigned Managed Identity. Mutual exclusive with User Assigned Managed Identity.
+func (o ResourceIdentityResponsePtrOutput) UseSystemAssignedIdentity() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.UseSystemAssignedIdentity
+	}).(pulumi.BoolPtrOutput)
+}
+
+// The user assigned managed identity's ARM ID to use when accessing a resource.
+func (o ResourceIdentityResponsePtrOutput) UserAssignedIdentity() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ResourceIdentityResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.UserAssignedIdentity
+	}).(pulumi.StringPtrOutput)
 }
 
 // Select audio tracks from the input by specifying an attribute and an attribute filter.
@@ -8753,6 +10630,191 @@ type StandardEncoderPresetResponse struct {
 	// The discriminator for derived types.
 	// Expected value is '#Microsoft.Media.StandardEncoderPreset'.
 	OdataType string `pulumi:"odataType"`
+}
+
+// The storage account details.
+type StorageAccount struct {
+	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+	Id *string `pulumi:"id"`
+	// The storage account identity.
+	Identity *ResourceIdentity `pulumi:"identity"`
+	// The type of the storage account.
+	Type string `pulumi:"type"`
+}
+
+// StorageAccountInput is an input type that accepts StorageAccountArgs and StorageAccountOutput values.
+// You can construct a concrete instance of `StorageAccountInput` via:
+//
+//          StorageAccountArgs{...}
+type StorageAccountInput interface {
+	pulumi.Input
+
+	ToStorageAccountOutput() StorageAccountOutput
+	ToStorageAccountOutputWithContext(context.Context) StorageAccountOutput
+}
+
+// The storage account details.
+type StorageAccountArgs struct {
+	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+	Id pulumi.StringPtrInput `pulumi:"id"`
+	// The storage account identity.
+	Identity ResourceIdentityPtrInput `pulumi:"identity"`
+	// The type of the storage account.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (StorageAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccount)(nil)).Elem()
+}
+
+func (i StorageAccountArgs) ToStorageAccountOutput() StorageAccountOutput {
+	return i.ToStorageAccountOutputWithContext(context.Background())
+}
+
+func (i StorageAccountArgs) ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountOutput)
+}
+
+// StorageAccountArrayInput is an input type that accepts StorageAccountArray and StorageAccountArrayOutput values.
+// You can construct a concrete instance of `StorageAccountArrayInput` via:
+//
+//          StorageAccountArray{ StorageAccountArgs{...} }
+type StorageAccountArrayInput interface {
+	pulumi.Input
+
+	ToStorageAccountArrayOutput() StorageAccountArrayOutput
+	ToStorageAccountArrayOutputWithContext(context.Context) StorageAccountArrayOutput
+}
+
+type StorageAccountArray []StorageAccountInput
+
+func (StorageAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccount)(nil)).Elem()
+}
+
+func (i StorageAccountArray) ToStorageAccountArrayOutput() StorageAccountArrayOutput {
+	return i.ToStorageAccountArrayOutputWithContext(context.Background())
+}
+
+func (i StorageAccountArray) ToStorageAccountArrayOutputWithContext(ctx context.Context) StorageAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(StorageAccountArrayOutput)
+}
+
+// The storage account details.
+type StorageAccountOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccount)(nil)).Elem()
+}
+
+func (o StorageAccountOutput) ToStorageAccountOutput() StorageAccountOutput {
+	return o
+}
+
+func (o StorageAccountOutput) ToStorageAccountOutputWithContext(ctx context.Context) StorageAccountOutput {
+	return o
+}
+
+// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+func (o StorageAccountOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccount) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The storage account identity.
+func (o StorageAccountOutput) Identity() ResourceIdentityPtrOutput {
+	return o.ApplyT(func(v StorageAccount) *ResourceIdentity { return v.Identity }).(ResourceIdentityPtrOutput)
+}
+
+// The type of the storage account.
+func (o StorageAccountOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccount) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type StorageAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccount)(nil)).Elem()
+}
+
+func (o StorageAccountArrayOutput) ToStorageAccountArrayOutput() StorageAccountArrayOutput {
+	return o
+}
+
+func (o StorageAccountArrayOutput) ToStorageAccountArrayOutputWithContext(ctx context.Context) StorageAccountArrayOutput {
+	return o
+}
+
+func (o StorageAccountArrayOutput) Index(i pulumi.IntInput) StorageAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccount {
+		return vs[0].([]StorageAccount)[vs[1].(int)]
+	}).(StorageAccountOutput)
+}
+
+// The storage account details.
+type StorageAccountResponse struct {
+	// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+	Id *string `pulumi:"id"`
+	// The storage account identity.
+	Identity *ResourceIdentityResponse `pulumi:"identity"`
+	// The current status of the storage account mapping.
+	Status string `pulumi:"status"`
+	// The type of the storage account.
+	Type string `pulumi:"type"`
+}
+
+// The storage account details.
+type StorageAccountResponseOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*StorageAccountResponse)(nil)).Elem()
+}
+
+func (o StorageAccountResponseOutput) ToStorageAccountResponseOutput() StorageAccountResponseOutput {
+	return o
+}
+
+func (o StorageAccountResponseOutput) ToStorageAccountResponseOutputWithContext(ctx context.Context) StorageAccountResponseOutput {
+	return o
+}
+
+// The ID of the storage account resource. Media Services relies on tables and queues as well as blobs, so the primary storage account must be a Standard Storage account (either Microsoft.ClassicStorage or Microsoft.Storage). Blob only storage accounts can be added as secondary storage accounts.
+func (o StorageAccountResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The storage account identity.
+func (o StorageAccountResponseOutput) Identity() ResourceIdentityResponsePtrOutput {
+	return o.ApplyT(func(v StorageAccountResponse) *ResourceIdentityResponse { return v.Identity }).(ResourceIdentityResponsePtrOutput)
+}
+
+// The current status of the storage account mapping.
+func (o StorageAccountResponseOutput) Status() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountResponse) string { return v.Status }).(pulumi.StringOutput)
+}
+
+// The type of the storage account.
+func (o StorageAccountResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v StorageAccountResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type StorageAccountResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (StorageAccountResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]StorageAccountResponse)(nil)).Elem()
+}
+
+func (o StorageAccountResponseArrayOutput) ToStorageAccountResponseArrayOutput() StorageAccountResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountResponseArrayOutput) ToStorageAccountResponseArrayOutputWithContext(ctx context.Context) StorageAccountResponseArrayOutput {
+	return o
+}
+
+func (o StorageAccountResponseArrayOutput) Index(i pulumi.IntInput) StorageAccountResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) StorageAccountResponse {
+		return vs[0].([]StorageAccountResponse)[vs[1].(int)]
+	}).(StorageAccountResponseOutput)
 }
 
 // Streaming endpoint access control definition.
@@ -10961,6 +13023,57 @@ type TransportStreamFormatResponse struct {
 	OutputFiles []OutputFileResponse `pulumi:"outputFiles"`
 }
 
+type UserAssignedManagedIdentityResponse struct {
+	// The client ID.
+	ClientId string `pulumi:"clientId"`
+	// The principal ID.
+	PrincipalId string `pulumi:"principalId"`
+}
+
+type UserAssignedManagedIdentityResponseOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedManagedIdentityResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserAssignedManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedManagedIdentityResponseOutput) ToUserAssignedManagedIdentityResponseOutput() UserAssignedManagedIdentityResponseOutput {
+	return o
+}
+
+func (o UserAssignedManagedIdentityResponseOutput) ToUserAssignedManagedIdentityResponseOutputWithContext(ctx context.Context) UserAssignedManagedIdentityResponseOutput {
+	return o
+}
+
+// The client ID.
+func (o UserAssignedManagedIdentityResponseOutput) ClientId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.ClientId }).(pulumi.StringOutput)
+}
+
+// The principal ID.
+func (o UserAssignedManagedIdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v UserAssignedManagedIdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+type UserAssignedManagedIdentityResponseMapOutput struct{ *pulumi.OutputState }
+
+func (UserAssignedManagedIdentityResponseMapOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*map[string]UserAssignedManagedIdentityResponse)(nil)).Elem()
+}
+
+func (o UserAssignedManagedIdentityResponseMapOutput) ToUserAssignedManagedIdentityResponseMapOutput() UserAssignedManagedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedManagedIdentityResponseMapOutput) ToUserAssignedManagedIdentityResponseMapOutputWithContext(ctx context.Context) UserAssignedManagedIdentityResponseMapOutput {
+	return o
+}
+
+func (o UserAssignedManagedIdentityResponseMapOutput) MapIndex(k pulumi.StringInput) UserAssignedManagedIdentityResponseOutput {
+	return pulumi.All(o, k).ApplyT(func(vs []interface{}) UserAssignedManagedIdentityResponse {
+		return vs[0].(map[string]UserAssignedManagedIdentityResponse)[vs[1].(string)]
+	}).(UserAssignedManagedIdentityResponseOutput)
+}
+
 // Specifies the clip time as a Utc time position in the media file.  The Utc time can point to a different position depending on whether the media file starts from a timestamp of zero or not.
 type UtcClipTime struct {
 	// The discriminator for derived types.
@@ -11118,6 +13231,14 @@ type VideoTrackResponse struct {
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccessControlOutput{})
+	pulumi.RegisterOutputType(AccessControlPtrOutput{})
+	pulumi.RegisterOutputType(AccessControlResponseOutput{})
+	pulumi.RegisterOutputType(AccessControlResponsePtrOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionResponseOutput{})
+	pulumi.RegisterOutputType(AccountEncryptionResponsePtrOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(AkamaiAccessControlResponseOutput{})
@@ -11162,6 +13283,10 @@ func init() {
 	pulumi.RegisterOutputType(DefaultKeyPtrOutput{})
 	pulumi.RegisterOutputType(DefaultKeyResponseOutput{})
 	pulumi.RegisterOutputType(DefaultKeyResponsePtrOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataCollectionPolicyResponseOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataCollectionPolicyResponsePtrOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataEventHubResponseOutput{})
+	pulumi.RegisterOutputType(EdgeUsageDataEventHubResponsePtrOutput{})
 	pulumi.RegisterOutputType(EnabledProtocolsOutput{})
 	pulumi.RegisterOutputType(EnabledProtocolsPtrOutput{})
 	pulumi.RegisterOutputType(EnabledProtocolsResponseOutput{})
@@ -11201,6 +13326,14 @@ func init() {
 	pulumi.RegisterOutputType(JobOutputAssetArrayOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetResponseOutput{})
 	pulumi.RegisterOutputType(JobOutputAssetResponseArrayOutput{})
+	pulumi.RegisterOutputType(KeyDeliveryOutput{})
+	pulumi.RegisterOutputType(KeyDeliveryPtrOutput{})
+	pulumi.RegisterOutputType(KeyDeliveryResponseOutput{})
+	pulumi.RegisterOutputType(KeyDeliveryResponsePtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesPtrOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesResponseOutput{})
+	pulumi.RegisterOutputType(KeyVaultPropertiesResponsePtrOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingPtrOutput{})
 	pulumi.RegisterOutputType(LiveEventEncodingResponseOutput{})
@@ -11235,6 +13368,10 @@ func init() {
 	pulumi.RegisterOutputType(LiveEventTranscriptionArrayOutput{})
 	pulumi.RegisterOutputType(LiveEventTranscriptionResponseOutput{})
 	pulumi.RegisterOutputType(LiveEventTranscriptionResponseArrayOutput{})
+	pulumi.RegisterOutputType(MediaServiceIdentityOutput{})
+	pulumi.RegisterOutputType(MediaServiceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(MediaServiceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(MediaServiceIdentityResponsePtrOutput{})
 	pulumi.RegisterOutputType(NoEncryptionOutput{})
 	pulumi.RegisterOutputType(NoEncryptionPtrOutput{})
 	pulumi.RegisterOutputType(NoEncryptionResponseOutput{})
@@ -11243,6 +13380,20 @@ func init() {
 	pulumi.RegisterOutputType(PresentationTimeRangePtrOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangeResponseOutput{})
 	pulumi.RegisterOutputType(PresentationTimeRangeResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointConnectionResponseArrayOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointResponseOutput{})
+	pulumi.RegisterOutputType(PrivateEndpointResponsePtrOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateOutput{})
+	pulumi.RegisterOutputType(PrivateLinkServiceConnectionStateResponseOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityPtrOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityResponseOutput{})
+	pulumi.RegisterOutputType(ResourceIdentityResponsePtrOutput{})
+	pulumi.RegisterOutputType(StorageAccountOutput{})
+	pulumi.RegisterOutputType(StorageAccountArrayOutput{})
+	pulumi.RegisterOutputType(StorageAccountResponseOutput{})
+	pulumi.RegisterOutputType(StorageAccountResponseArrayOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlPtrOutput{})
 	pulumi.RegisterOutputType(StreamingEndpointAccessControlResponseOutput{})
@@ -11286,4 +13437,6 @@ func init() {
 	pulumi.RegisterOutputType(TransformOutputTypeArrayOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseOutput{})
 	pulumi.RegisterOutputType(TransformOutputResponseArrayOutput{})
+	pulumi.RegisterOutputType(UserAssignedManagedIdentityResponseOutput{})
+	pulumi.RegisterOutputType(UserAssignedManagedIdentityResponseMapOutput{})
 }

@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The response of getting a download URL.
- * API Version: 2020-12-16-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getTestResultDownloadURL(args: GetTestResultDownloadURLArgs, opts?: pulumi.InvokeOptions): Promise<GetTestResultDownloadURLResult> {
     if (!opts) {
@@ -36,7 +36,7 @@ export interface GetTestResultDownloadURLArgs {
      */
     testBaseAccountName: string;
     /**
-     * The Test Result Name. It equals to {osName}-{TestResultId} string.
+     * The Test Result Name. It equals to TestResult-{TestResultId} string.
      */
     testResultName: string;
 }
@@ -73,7 +73,7 @@ export interface GetTestResultDownloadURLOutputArgs {
      */
     testBaseAccountName: pulumi.Input<string>;
     /**
-     * The Test Result Name. It equals to {osName}-{TestResultId} string.
+     * The Test Result Name. It equals to TestResult-{TestResultId} string.
      */
     testResultName: pulumi.Input<string>;
 }

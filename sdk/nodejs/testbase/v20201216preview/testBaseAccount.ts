@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The Test Base Account resource.
+ *
+ * @deprecated Version 2020-12-16-preview will be removed in v2 of the provider.
  */
 export class TestBaseAccount extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class TestBaseAccount extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): TestBaseAccount {
+        pulumi.log.warn("TestBaseAccount is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.")
         return new TestBaseAccount(name, undefined as any, { ...opts, id: id });
     }
 
@@ -79,7 +82,9 @@ export class TestBaseAccount extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
     constructor(name: string, args: TestBaseAccountArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("TestBaseAccount is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -113,7 +118,7 @@ export class TestBaseAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase:TestBaseAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase:TestBaseAccount" }, { type: "azure-native:testbase/v20220401preview:TestBaseAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TestBaseAccount.__pulumiType, name, resourceInputs, opts);
     }

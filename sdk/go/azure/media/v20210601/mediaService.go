@@ -72,6 +72,9 @@ func NewMediaService(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:media/v20210501:MediaService"),
 		},
+		{
+			Type: pulumi.String("azure-native:media/v20211101:MediaService"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MediaService

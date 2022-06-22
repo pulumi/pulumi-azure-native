@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The Customer Notification Event resource.
+ *
+ * @deprecated Version 2020-12-16-preview will be removed in v2 of the provider.
  */
 export class CustomerEvent extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class CustomerEvent extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): CustomerEvent {
+        pulumi.log.warn("CustomerEvent is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.")
         return new CustomerEvent(name, undefined as any, { ...opts, id: id });
     }
 
@@ -63,7 +66,9 @@ export class CustomerEvent extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
     constructor(name: string, args: CustomerEventArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("CustomerEvent is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -95,7 +100,7 @@ export class CustomerEvent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase:CustomerEvent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase:CustomerEvent" }, { type: "azure-native:testbase/v20220401preview:CustomerEvent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomerEvent.__pulumiType, name, resourceInputs, opts);
     }

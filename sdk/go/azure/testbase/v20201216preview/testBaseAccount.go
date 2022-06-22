@@ -12,6 +12,8 @@ import (
 )
 
 // The Test Base Account resource.
+//
+// Deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.
 type TestBaseAccount struct {
 	pulumi.CustomResourceState
 
@@ -51,6 +53,9 @@ func NewTestBaseAccount(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:testbase:TestBaseAccount"),
+		},
+		{
+			Type: pulumi.String("azure-native:testbase/v20220401preview:TestBaseAccount"),
 		},
 	})
 	opts = append(opts, aliases)

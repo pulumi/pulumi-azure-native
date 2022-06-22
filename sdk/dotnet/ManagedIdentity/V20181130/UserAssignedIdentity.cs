@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.ManagedIdentity.V20181130
                     new Pulumi.Alias { Type = "azure-native:managedidentity:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azure-native:managedidentity/v20150831preview:UserAssignedIdentity"},
                     new Pulumi.Alias { Type = "azure-native:managedidentity/v20210930preview:UserAssignedIdentity"},
+                    new Pulumi.Alias { Type = "azure-native:managedidentity/v20220131preview:UserAssignedIdentity"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

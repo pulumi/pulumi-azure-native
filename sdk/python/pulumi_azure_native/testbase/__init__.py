@@ -8,12 +8,15 @@ import typing
 from ._enums import *
 from .customer_event import *
 from .favorite_process import *
+from .get_billing_hub_service_free_hour_balance import *
+from .get_billing_hub_service_usage import *
 from .get_customer_event import *
 from .get_favorite_process import *
 from .get_package import *
 from .get_package_download_url import *
 from .get_test_base_account import *
 from .get_test_base_account_file_upload_url import *
+from .get_test_result_console_log_download_url import *
 from .get_test_result_download_url import *
 from .get_test_result_video_download_url import *
 from .package import *
@@ -25,6 +28,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.testbase.v20201216preview as __v20201216preview
     v20201216preview = __v20201216preview
+    import pulumi_azure_native.testbase.v20220401preview as __v20220401preview
+    v20220401preview = __v20220401preview
 else:
     v20201216preview = _utilities.lazy_import('pulumi_azure_native.testbase.v20201216preview')
+    v20220401preview = _utilities.lazy_import('pulumi_azure_native.testbase.v20220401preview')
 

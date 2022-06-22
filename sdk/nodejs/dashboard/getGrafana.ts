@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The grafana resource type.
- * API Version: 2021-09-01-preview.
+ * API Version: 2022-05-01-preview.
  */
 export function getGrafana(args: GetGrafanaArgs, opts?: pulumi.InvokeOptions): Promise<GetGrafanaResult> {
     if (!opts) {
@@ -43,7 +43,7 @@ export interface GetGrafanaResult {
     /**
      * The managed identity of the grafana resource.
      */
-    readonly identity?: outputs.dashboard.ManagedIdentityResponse;
+    readonly identity?: outputs.dashboard.ManagedServiceIdentityResponse;
     /**
      * The geo-location where the grafana resource lives
      */

@@ -10,15 +10,18 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Dashboard.Outputs
 {
 
+    /// <summary>
+    /// User assigned identity properties
+    /// </summary>
     [OutputType]
     public sealed class UserAssignedIdentityResponse
     {
         /// <summary>
-        /// The client id of user assigned identity.
+        /// The client ID of the assigned identity.
         /// </summary>
         public readonly string ClientId;
         /// <summary>
-        /// The principal id of user assigned identity.
+        /// The principal ID of the assigned identity.
         /// </summary>
         public readonly string PrincipalId;
 

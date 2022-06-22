@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// A favorite process identifier.
-        /// API Version: 2020-12-16-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetFavoriteProcessResult> InvokeAsync(GetFavoriteProcessArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetFavoriteProcessResult>("azure-native:testbase:getFavoriteProcess", args ?? new GetFavoriteProcessArgs(), options.WithDefaults());
 
         /// <summary>
         /// A favorite process identifier.
-        /// API Version: 2020-12-16-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetFavoriteProcessResult> Invoke(GetFavoriteProcessInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetFavoriteProcessResult>("azure-native:testbase:getFavoriteProcess", args ?? new GetFavoriteProcessInvokeArgs(), options.WithDefaults());

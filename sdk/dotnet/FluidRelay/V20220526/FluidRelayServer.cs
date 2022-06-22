@@ -114,6 +114,7 @@ namespace Pulumi.AzureNative.FluidRelay.V20220526
                     new Pulumi.Alias { Type = "azure-native:fluidrelay/v20220215:FluidRelayServer"},
                     new Pulumi.Alias { Type = "azure-native:fluidrelay/v20220421:FluidRelayServer"},
                     new Pulumi.Alias { Type = "azure-native:fluidrelay/v20220511:FluidRelayServer"},
+                    new Pulumi.Alias { Type = "azure-native:fluidrelay/v20220601:FluidRelayServer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

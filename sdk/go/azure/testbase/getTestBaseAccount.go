@@ -11,7 +11,7 @@ import (
 )
 
 // The Test Base Account resource.
-// API Version: 2020-12-16-preview.
+// API Version: 2022-04-01-preview.
 func LookupTestBaseAccount(ctx *pulumi.Context, args *LookupTestBaseAccountArgs, opts ...pulumi.InvokeOption) (*LookupTestBaseAccountResult, error) {
 	var rv LookupTestBaseAccountResult
 	err := ctx.Invoke("azure-native:testbase:getTestBaseAccount", args, &rv, opts...)

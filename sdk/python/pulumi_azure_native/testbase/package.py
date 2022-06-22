@@ -208,7 +208,7 @@ class Package(pulumi.CustomResource):
                  __props__=None):
         """
         The Test Base Package resource.
-        API Version: 2020-12-16-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -232,7 +232,7 @@ class Package(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Test Base Package resource.
-        API Version: 2020-12-16-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param PackageArgs args: The arguments to use to populate this resource's properties.
@@ -309,7 +309,7 @@ class Package(pulumi.CustomResource):
             __props__.__dict__["test_types"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["validation_results"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20201216preview:Package")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20201216preview:Package"), pulumi.Alias(type_="azure-native:testbase/v20220401preview:Package")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Package, __self__).__init__(
             'azure-native:testbase:Package',

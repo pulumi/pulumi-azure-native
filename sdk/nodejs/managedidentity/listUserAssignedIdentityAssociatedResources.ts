@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Azure resources returned by the resource action to get a list of assigned resources.
- * API Version: 2021-09-30-preview.
+ * API Version: 2022-01-31-preview.
  */
 export function listUserAssignedIdentityAssociatedResources(args: ListUserAssignedIdentityAssociatedResourcesArgs, opts?: pulumi.InvokeOptions): Promise<ListUserAssignedIdentityAssociatedResourcesResult> {
     if (!opts) {

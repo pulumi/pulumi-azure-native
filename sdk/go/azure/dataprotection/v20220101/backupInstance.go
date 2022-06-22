@@ -72,6 +72,9 @@ func NewBackupInstance(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:dataprotection/v20220401:BackupInstance"),
 		},
+		{
+			Type: pulumi.String("azure-native:dataprotection/v20220501:BackupInstance"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource BackupInstance

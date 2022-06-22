@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.TestBase
 {
     /// <summary>
     /// A favorite process identifier.
-    /// API Version: 2020-12-16-preview.
+    /// API Version: 2022-04-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:testbase:FavoriteProcess")]
     public partial class FavoriteProcess : Pulumi.CustomResource
@@ -66,6 +66,7 @@ namespace Pulumi.AzureNative.TestBase
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:testbase/v20201216preview:FavoriteProcess"},
+                    new Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:FavoriteProcess"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

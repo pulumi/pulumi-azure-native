@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The Test Base Account resource.
  */
+/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
 export function getTestBaseAccount(args: GetTestBaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountResult> {
+    pulumi.log.warn("getTestBaseAccount is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

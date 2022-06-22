@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Test Base Account resource.
- * API Version: 2020-12-16-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class TestBaseAccount extends pulumi.CustomResource {
     /**
@@ -114,7 +114,7 @@ export class TestBaseAccount extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:TestBaseAccount" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:TestBaseAccount" }, { type: "azure-native:testbase/v20220401preview:TestBaseAccount" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(TestBaseAccount.__pulumiType, name, resourceInputs, opts);
     }

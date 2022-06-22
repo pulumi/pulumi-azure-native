@@ -15,6 +15,16 @@ const (
 	AacAudioProfileHeAacV2 = AacAudioProfile("HeAacV2")
 )
 
+// The type of key used to encrypt the Account Key.
+type AccountEncryptionKeyType string
+
+const (
+	// The Account Key is encrypted with a System Key.
+	AccountEncryptionKeyTypeSystemKey = AccountEncryptionKeyType("SystemKey")
+	// The Account Key is encrypted with a Customer Key.
+	AccountEncryptionKeyTypeCustomerKey = AccountEncryptionKeyType("CustomerKey")
+)
+
 // Specifies the maximum resolution at which your video is analyzed. The default behavior is "SourceResolution," which will keep the input video at its original resolution when analyzed. Using "StandardDefinition" will resize input videos to standard definition while preserving the appropriate aspect ratio. It will only resize if the video is of higher resolution. For example, a 1920x1080 input would be scaled to 640x360 before processing. Switching to "StandardDefinition" will reduce the time it takes to process high resolution video. It may also reduce the cost of using this component (see https://azure.microsoft.com/en-us/pricing/details/media-services/#analytics for details). However, faces that end up being too small in the resized video may not be detected.
 type AnalysisResolution string
 
@@ -175,6 +185,16 @@ const (
 	ContentKeyPolicyRestrictionTokenTypeSwt = ContentKeyPolicyRestrictionTokenType("Swt")
 	// JSON Web Token.
 	ContentKeyPolicyRestrictionTokenTypeJwt = ContentKeyPolicyRestrictionTokenType("Jwt")
+)
+
+// The behavior for IP access control in Key Delivery.
+type DefaultAction string
+
+const (
+	// All public IP addresses are allowed.
+	DefaultActionAllow = DefaultAction("Allow")
+	// Public IP addresses are blocked.
+	DefaultActionDeny = DefaultAction("Deny")
 )
 
 // The deinterlacing mode. Defaults to AutoPixelAdaptive.
@@ -423,6 +443,25 @@ const (
 	PriorityHigh = Priority("High")
 )
 
+// Indicates whether the connection has been Approved/Rejected/Removed by the owner of the service.
+type PrivateEndpointServiceConnectionStatus string
+
+const (
+	PrivateEndpointServiceConnectionStatusPending  = PrivateEndpointServiceConnectionStatus("Pending")
+	PrivateEndpointServiceConnectionStatusApproved = PrivateEndpointServiceConnectionStatus("Approved")
+	PrivateEndpointServiceConnectionStatusRejected = PrivateEndpointServiceConnectionStatus("Rejected")
+)
+
+// Whether or not public network access is allowed for resources under the Media Services account.
+type PublicNetworkAccess string
+
+const (
+	// Public network access is enabled.
+	PublicNetworkAccessEnabled = PublicNetworkAccess("Enabled")
+	// Public network access is disabled.
+	PublicNetworkAccessDisabled = PublicNetworkAccess("Disabled")
+)
+
 // The rotation, if any, to be applied to the input video, before it is encoded. Default is Auto
 type Rotation string
 
@@ -439,6 +478,25 @@ const (
 	RotationRotate180 = Rotation("Rotate180")
 	// Rotate 270 degrees clockwise.
 	RotationRotate270 = Rotation("Rotate270")
+)
+
+// The type of the storage account.
+type StorageAccountType string
+
+const (
+	// The primary storage account for the Media Services account.
+	StorageAccountTypePrimary = StorageAccountType("Primary")
+	// A secondary storage account for the Media Services account.
+	StorageAccountTypeSecondary = StorageAccountType("Secondary")
+)
+
+type StorageAuthentication string
+
+const (
+	// System authentication.
+	StorageAuthenticationSystem = StorageAuthentication("System")
+	// Managed Identity authentication.
+	StorageAuthenticationManagedIdentity = StorageAuthentication("ManagedIdentity")
 )
 
 type StreamOptionsFlag string

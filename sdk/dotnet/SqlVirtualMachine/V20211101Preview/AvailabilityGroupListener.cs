@@ -96,6 +96,8 @@ namespace Pulumi.AzureNative.SqlVirtualMachine.V20211101Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine:AvailabilityGroupListener"},
                     new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20170301preview:AvailabilityGroupListener"},
+                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201:AvailabilityGroupListener"},
+                    new Pulumi.Alias { Type = "azure-native:sqlvirtualmachine/v20220201preview:AvailabilityGroupListener"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

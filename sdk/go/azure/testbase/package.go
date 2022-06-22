@@ -12,7 +12,7 @@ import (
 )
 
 // The Test Base Package resource.
-// API Version: 2020-12-16-preview.
+// API Version: 2022-04-01-preview.
 type Package struct {
 	pulumi.CustomResourceState
 
@@ -88,6 +88,9 @@ func NewPackage(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:testbase/v20201216preview:Package"),
+		},
+		{
+			Type: pulumi.String("azure-native:testbase/v20220401preview:Package"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -365,14 +365,18 @@ class SubscriptionReceiverValueArgs:
 class TargetOSInfoArgs:
     def __init__(__self__, *,
                  os_update_type: pulumi.Input[str],
-                 target_oss: pulumi.Input[Sequence[pulumi.Input[str]]]):
+                 target_oss: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 baseline_oss: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
         """
         The information of the target OS to be tested.
         :param pulumi.Input[str] os_update_type: Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] target_oss: Specifies the target OSs to be tested.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] baseline_oss: Specifies the baseline OSs to be tested.
         """
         pulumi.set(__self__, "os_update_type", os_update_type)
         pulumi.set(__self__, "target_oss", target_oss)
+        if baseline_oss is not None:
+            pulumi.set(__self__, "baseline_oss", baseline_oss)
 
     @property
     @pulumi.getter(name="osUpdateType")
@@ -397,6 +401,18 @@ class TargetOSInfoArgs:
     @target_oss.setter
     def target_oss(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
         pulumi.set(self, "target_oss", value)
+
+    @property
+    @pulumi.getter(name="baselineOSs")
+    def baseline_oss(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies the baseline OSs to be tested.
+        """
+        return pulumi.get(self, "baseline_oss")
+
+    @baseline_oss.setter
+    def baseline_oss(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "baseline_oss", value)
 
 
 @pulumi.input_type

@@ -16,6 +16,8 @@ __all__ = [
     'get_test_base_account_output',
 ]
 
+warnings.warn("""Version 2020-12-16-preview will be removed in v2 of the provider.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetTestBaseAccountResult:
     """
@@ -162,6 +164,7 @@ def get_test_base_account(resource_group_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
+    pulumi.log.warn("""get_test_base_account is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['resourceGroupName'] = resource_group_name
     __args__['testBaseAccountName'] = test_base_account_name
@@ -195,4 +198,5 @@ def get_test_base_account_output(resource_group_name: Optional[pulumi.Input[str]
     :param str resource_group_name: The name of the resource group that contains the resource.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
+    pulumi.log.warn("""get_test_base_account is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.""")
     ...

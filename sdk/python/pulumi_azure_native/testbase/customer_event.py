@@ -109,7 +109,7 @@ class CustomerEvent(pulumi.CustomResource):
                  __props__=None):
         """
         The Customer Notification Event resource.
-        API Version: 2020-12-16-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,7 +127,7 @@ class CustomerEvent(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         The Customer Notification Event resource.
-        API Version: 2020-12-16-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param CustomerEventArgs args: The arguments to use to populate this resource's properties.
@@ -177,7 +177,7 @@ class CustomerEvent(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20201216preview:CustomerEvent")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20201216preview:CustomerEvent"), pulumi.Alias(type_="azure-native:testbase/v20220401preview:CustomerEvent")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(CustomerEvent, __self__).__init__(
             'azure-native:testbase:CustomerEvent',

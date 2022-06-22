@@ -11,6 +11,8 @@ import (
 )
 
 // The Customer Notification Event resource.
+//
+// Deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.
 func LookupCustomerEvent(ctx *pulumi.Context, args *LookupCustomerEventArgs, opts ...pulumi.InvokeOption) (*LookupCustomerEventResult, error) {
 	var rv LookupCustomerEventResult
 	err := ctx.Invoke("azure-native:testbase/v20201216preview:getCustomerEvent", args, &rv, opts...)

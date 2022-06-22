@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Dashboard
 {
     /// <summary>
     /// The grafana resource type.
-    /// API Version: 2021-09-01-preview.
+    /// API Version: 2022-05-01-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:dashboard:Grafana")]
     public partial class Grafana : Pulumi.CustomResource
@@ -20,7 +20,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// The managed identity of the grafana resource.
         /// </summary>
         [Output("identity")]
-        public Output<Outputs.ManagedIdentityResponse?> Identity { get; private set; } = null!;
+        public Output<Outputs.ManagedServiceIdentityResponse?> Identity { get; private set; } = null!;
 
         /// <summary>
         /// The geo-location where the grafana resource lives
@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Dashboard
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:dashboard/v20210901preview:Grafana"},
+                    new Pulumi.Alias { Type = "azure-native:dashboard/v20220501preview:Grafana"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
@@ -117,7 +118,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// The managed identity of the grafana resource.
         /// </summary>
         [Input("identity")]
-        public Input<Inputs.ManagedIdentityArgs>? Identity { get; set; }
+        public Input<Inputs.ManagedServiceIdentityArgs>? Identity { get; set; }
 
         /// <summary>
         /// The geo-location where the grafana resource lives

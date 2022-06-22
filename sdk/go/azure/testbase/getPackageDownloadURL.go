@@ -11,7 +11,7 @@ import (
 )
 
 // The response of getting a download URL.
-// API Version: 2020-12-16-preview.
+// API Version: 2022-04-01-preview.
 func GetPackageDownloadURL(ctx *pulumi.Context, args *GetPackageDownloadURLArgs, opts ...pulumi.InvokeOption) (*GetPackageDownloadURLResult, error) {
 	var rv GetPackageDownloadURLResult
 	err := ctx.Invoke("azure-native:testbase:getPackageDownloadURL", args, &rv, opts...)

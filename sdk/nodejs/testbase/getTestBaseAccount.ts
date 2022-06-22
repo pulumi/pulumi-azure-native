@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Test Base Account resource.
- * API Version: 2020-12-16-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getTestBaseAccount(args: GetTestBaseAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountResult> {
     if (!opts) {

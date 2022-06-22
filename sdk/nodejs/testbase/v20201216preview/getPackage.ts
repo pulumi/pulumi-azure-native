@@ -8,7 +8,9 @@ import * as utilities from "../../utilities";
 /**
  * The Test Base Package resource.
  */
+/** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
 export function getPackage(args: GetPackageArgs, opts?: pulumi.InvokeOptions): Promise<GetPackageResult> {
+    pulumi.log.warn("getPackage is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.")
     if (!opts) {
         opts = {}
     }

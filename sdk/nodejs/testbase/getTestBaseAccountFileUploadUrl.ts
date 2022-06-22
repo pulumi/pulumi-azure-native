@@ -6,7 +6,7 @@ import * as utilities from "../utilities";
 
 /**
  * The URL response
- * API Version: 2020-12-16-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getTestBaseAccountFileUploadUrl(args: GetTestBaseAccountFileUploadUrlArgs, opts?: pulumi.InvokeOptions): Promise<GetTestBaseAccountFileUploadUrlResult> {
     if (!opts) {

@@ -69,6 +69,7 @@ __all__ = [
     'TeradataAuthenticationType',
     'TriggerReferenceType',
     'TumblingWindowFrequency',
+    'Type',
     'VariableType',
     'WebActivityMethod',
     'WebAuthenticationType',
@@ -655,6 +656,13 @@ class TumblingWindowFrequency(str, Enum):
     MINUTE = "Minute"
     HOUR = "Hour"
     MONTH = "Month"
+
+
+class Type(str, Enum):
+    """
+    Linked service reference type.
+    """
+    LINKED_SERVICE_REFERENCE = "LinkedServiceReference"
 
 
 class VariableType(str, Enum):

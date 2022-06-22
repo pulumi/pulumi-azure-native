@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The Customer Notification Event resource.
- * API Version: 2020-12-16-preview.
+ * API Version: 2022-04-01-preview.
  */
 export class CustomerEvent extends pulumi.CustomResource {
     /**
@@ -96,7 +96,7 @@ export class CustomerEvent extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:CustomerEvent" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase/v20201216preview:CustomerEvent" }, { type: "azure-native:testbase/v20220401preview:CustomerEvent" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(CustomerEvent.__pulumiType, name, resourceInputs, opts);
     }

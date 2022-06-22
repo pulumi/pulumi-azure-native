@@ -14,6 +14,7 @@ export * from "./getRegistration";
 export * from "./getRegistrationActivationKey";
 export * from "./linkedSubscription";
 export * from "./listProductDetails";
+export * from "./listProducts";
 export * from "./registration";
 
 // Export enums:

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * A favorite process identifier.
- * API Version: 2020-12-16-preview.
+ * API Version: 2022-04-01-preview.
  */
 export function getFavoriteProcess(args: GetFavoriteProcessArgs, opts?: pulumi.InvokeOptions): Promise<GetFavoriteProcessResult> {
     if (!opts) {

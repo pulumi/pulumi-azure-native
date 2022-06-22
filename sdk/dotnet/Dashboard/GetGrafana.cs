@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Dashboard
     {
         /// <summary>
         /// The grafana resource type.
-        /// API Version: 2021-09-01-preview.
+        /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Task<GetGrafanaResult> InvokeAsync(GetGrafanaArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetGrafanaResult>("azure-native:dashboard:getGrafana", args ?? new GetGrafanaArgs(), options.WithDefaults());
 
         /// <summary>
         /// The grafana resource type.
-        /// API Version: 2021-09-01-preview.
+        /// API Version: 2022-05-01-preview.
         /// </summary>
         public static Output<GetGrafanaResult> Invoke(GetGrafanaInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetGrafanaResult>("azure-native:dashboard:getGrafana", args ?? new GetGrafanaInvokeArgs(), options.WithDefaults());
@@ -76,7 +76,7 @@ namespace Pulumi.AzureNative.Dashboard
         /// <summary>
         /// The managed identity of the grafana resource.
         /// </summary>
-        public readonly Outputs.ManagedIdentityResponse? Identity;
+        public readonly Outputs.ManagedServiceIdentityResponse? Identity;
         /// <summary>
         /// The geo-location where the grafana resource lives
         /// </summary>
@@ -110,7 +110,7 @@ namespace Pulumi.AzureNative.Dashboard
         private GetGrafanaResult(
             string id,
 
-            Outputs.ManagedIdentityResponse? identity,
+            Outputs.ManagedServiceIdentityResponse? identity,
 
             string? location,
 

@@ -16,6 +16,8 @@ __all__ = [
     'get_favorite_process_output',
 ]
 
+warnings.warn("""Version 2020-12-16-preview will be removed in v2 of the provider.""", DeprecationWarning)
+
 @pulumi.output_type
 class GetFavoriteProcessResult:
     """
@@ -106,6 +108,7 @@ def get_favorite_process(favorite_process_resource_name: Optional[str] = None,
     :param str resource_group_name: The name of the resource group that contains the resource.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
+    pulumi.log.warn("""get_favorite_process is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.""")
     __args__ = dict()
     __args__['favoriteProcessResourceName'] = favorite_process_resource_name
     __args__['packageName'] = package_name
@@ -140,4 +143,5 @@ def get_favorite_process_output(favorite_process_resource_name: Optional[pulumi.
     :param str resource_group_name: The name of the resource group that contains the resource.
     :param str test_base_account_name: The resource name of the Test Base Account.
     """
+    pulumi.log.warn("""get_favorite_process is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.""")
     ...

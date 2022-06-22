@@ -18,6 +18,8 @@ export * from "./getContentKeyPolicyPropertiesWithSecrets";
 export * from "./getJob";
 export * from "./getLiveEvent";
 export * from "./getLiveOutput";
+export * from "./getMediaService";
+export * from "./getPrivateEndpointConnection";
 export * from "./getStreamingEndpoint";
 export * from "./getStreamingLocator";
 export * from "./getStreamingPolicy";
@@ -26,10 +28,13 @@ export * from "./getTransform";
 export * from "./job";
 export * from "./listAssetContainerSas";
 export * from "./listAssetStreamingLocators";
+export * from "./listMediaServiceEdgePolicies";
 export * from "./listStreamingLocatorContentKeys";
 export * from "./listStreamingLocatorPaths";
 export * from "./liveEvent";
 export * from "./liveOutput";
+export * from "./mediaService";
+export * from "./privateEndpointConnection";
 export * from "./streamingEndpoint";
 export * from "./streamingLocator";
 export * from "./streamingPolicy";
@@ -47,6 +52,8 @@ import { ContentKeyPolicy } from "./contentKeyPolicy";
 import { Job } from "./job";
 import { LiveEvent } from "./liveEvent";
 import { LiveOutput } from "./liveOutput";
+import { MediaService } from "./mediaService";
+import { PrivateEndpointConnection } from "./privateEndpointConnection";
 import { StreamingEndpoint } from "./streamingEndpoint";
 import { StreamingLocator } from "./streamingLocator";
 import { StreamingPolicy } from "./streamingPolicy";
@@ -71,6 +78,10 @@ const _module = {
                 return new LiveEvent(name, <any>undefined, { urn })
             case "azure-native:media/v20211101:LiveOutput":
                 return new LiveOutput(name, <any>undefined, { urn })
+            case "azure-native:media/v20211101:MediaService":
+                return new MediaService(name, <any>undefined, { urn })
+            case "azure-native:media/v20211101:PrivateEndpointConnection":
+                return new PrivateEndpointConnection(name, <any>undefined, { urn })
             case "azure-native:media/v20211101:StreamingEndpoint":
                 return new StreamingEndpoint(name, <any>undefined, { urn })
             case "azure-native:media/v20211101:StreamingLocator":

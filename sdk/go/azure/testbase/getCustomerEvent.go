@@ -11,7 +11,7 @@ import (
 )
 
 // The Customer Notification Event resource.
-// API Version: 2020-12-16-preview.
+// API Version: 2022-04-01-preview.
 func LookupCustomerEvent(ctx *pulumi.Context, args *LookupCustomerEventArgs, opts ...pulumi.InvokeOption) (*LookupCustomerEventResult, error) {
 	var rv LookupCustomerEventResult
 	err := ctx.Invoke("azure-native:testbase:getCustomerEvent", args, &rv, opts...)

@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * The grafana resource type.
- * API Version: 2021-09-01-preview.
+ * API Version: 2022-05-01-preview.
  */
 export class Grafana extends pulumi.CustomResource {
     /**
@@ -39,7 +39,7 @@ export class Grafana extends pulumi.CustomResource {
     /**
      * The managed identity of the grafana resource.
      */
-    public readonly identity!: pulumi.Output<outputs.dashboard.ManagedIdentityResponse | undefined>;
+    public readonly identity!: pulumi.Output<outputs.dashboard.ManagedServiceIdentityResponse | undefined>;
     /**
      * The geo-location where the grafana resource lives
      */
@@ -104,7 +104,7 @@ export class Grafana extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:dashboard/v20210901preview:Grafana" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:dashboard/v20210901preview:Grafana" }, { type: "azure-native:dashboard/v20220501preview:Grafana" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Grafana.__pulumiType, name, resourceInputs, opts);
     }
@@ -117,7 +117,7 @@ export interface GrafanaArgs {
     /**
      * The managed identity of the grafana resource.
      */
-    identity?: pulumi.Input<inputs.dashboard.ManagedIdentityArgs>;
+    identity?: pulumi.Input<inputs.dashboard.ManagedServiceIdentityArgs>;
     /**
      * The geo-location where the grafana resource lives
      */

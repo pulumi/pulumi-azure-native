@@ -11,7 +11,7 @@ import (
 )
 
 // The URL response
-// API Version: 2020-12-16-preview.
+// API Version: 2022-04-01-preview.
 func GetTestBaseAccountFileUploadUrl(ctx *pulumi.Context, args *GetTestBaseAccountFileUploadUrlArgs, opts ...pulumi.InvokeOption) (*GetTestBaseAccountFileUploadUrlResult, error) {
 	var rv GetTestBaseAccountFileUploadUrlResult
 	err := ctx.Invoke("azure-native:testbase:getTestBaseAccountFileUploadUrl", args, &rv, opts...)

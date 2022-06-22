@@ -44437,12 +44437,12 @@ class LinkedIntegrationRuntimeRbacAuthorizationArgs:
 class LinkedServiceReferenceArgs:
     def __init__(__self__, *,
                  reference_name: pulumi.Input[str],
-                 type: pulumi.Input[str],
+                 type: pulumi.Input[Union[str, 'Type']],
                  parameters: Optional[pulumi.Input[Mapping[str, Any]]] = None):
         """
         Linked service reference type.
         :param pulumi.Input[str] reference_name: Reference LinkedService name.
-        :param pulumi.Input[str] type: Linked service reference type.
+        :param pulumi.Input[Union[str, 'Type']] type: Linked service reference type.
         :param pulumi.Input[Mapping[str, Any]] parameters: Arguments for LinkedService.
         """
         pulumi.set(__self__, "reference_name", reference_name)
@@ -44464,14 +44464,14 @@ class LinkedServiceReferenceArgs:
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Input[str]:
+    def type(self) -> pulumi.Input[Union[str, 'Type']]:
         """
         Linked service reference type.
         """
         return pulumi.get(self, "type")
 
     @type.setter
-    def type(self, value: pulumi.Input[str]):
+    def type(self, value: pulumi.Input[Union[str, 'Type']]):
         pulumi.set(self, "type", value)
 
     @property

@@ -2060,6 +2060,36 @@ namespace Pulumi.AzureNative.DataFactory.V20180601
     }
 
     /// <summary>
+    /// Linked service reference type.
+    /// </summary>
+    [EnumType]
+    public readonly struct Type : IEquatable<Type>
+    {
+        private readonly string _value;
+
+        private Type(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static Type LinkedServiceReference { get; } = new Type("LinkedServiceReference");
+
+        public static bool operator ==(Type left, Type right) => left.Equals(right);
+        public static bool operator !=(Type left, Type right) => !left.Equals(right);
+
+        public static explicit operator string(Type value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is Type other && Equals(other);
+        public bool Equals(Type other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Variable type.
     /// </summary>
     [EnumType]

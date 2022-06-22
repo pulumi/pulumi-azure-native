@@ -7,6 +7,8 @@ import * as utilities from "../../utilities";
 
 /**
  * The Test Base Package resource.
+ *
+ * @deprecated Version 2020-12-16-preview will be removed in v2 of the provider.
  */
 export class Package extends pulumi.CustomResource {
     /**
@@ -18,6 +20,7 @@ export class Package extends pulumi.CustomResource {
      * @param opts Optional settings to control the behavior of the CustomResource.
      */
     public static get(name: string, id: pulumi.Input<pulumi.ID>, opts?: pulumi.CustomResourceOptions): Package {
+        pulumi.log.warn("Package is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.")
         return new Package(name, undefined as any, { ...opts, id: id });
     }
 
@@ -115,7 +118,9 @@ export class Package extends pulumi.CustomResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
+    /** @deprecated Version 2020-12-16-preview will be removed in v2 of the provider. */
     constructor(name: string, args: PackageArgs, opts?: pulumi.CustomResourceOptions) {
+        pulumi.log.warn("Package is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.")
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
@@ -185,7 +190,7 @@ export class Package extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:testbase:Package" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:testbase:Package" }, { type: "azure-native:testbase/v20220401preview:Package" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(Package.__pulumiType, name, resourceInputs, opts);
     }

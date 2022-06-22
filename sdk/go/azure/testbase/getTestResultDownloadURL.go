@@ -11,7 +11,7 @@ import (
 )
 
 // The response of getting a download URL.
-// API Version: 2020-12-16-preview.
+// API Version: 2022-04-01-preview.
 func GetTestResultDownloadURL(ctx *pulumi.Context, args *GetTestResultDownloadURLArgs, opts ...pulumi.InvokeOption) (*GetTestResultDownloadURLResult, error) {
 	var rv GetTestResultDownloadURLResult
 	err := ctx.Invoke("azure-native:testbase:getTestResultDownloadURL", args, &rv, opts...)
@@ -28,7 +28,7 @@ type GetTestResultDownloadURLArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The resource name of the Test Base Account.
 	TestBaseAccountName string `pulumi:"testBaseAccountName"`
-	// The Test Result Name. It equals to {osName}-{TestResultId} string.
+	// The Test Result Name. It equals to TestResult-{TestResultId} string.
 	TestResultName string `pulumi:"testResultName"`
 }
 
@@ -60,7 +60,7 @@ type GetTestResultDownloadURLOutputArgs struct {
 	ResourceGroupName pulumi.StringInput `pulumi:"resourceGroupName"`
 	// The resource name of the Test Base Account.
 	TestBaseAccountName pulumi.StringInput `pulumi:"testBaseAccountName"`
-	// The Test Result Name. It equals to {osName}-{TestResultId} string.
+	// The Test Result Name. It equals to TestResult-{TestResultId} string.
 	TestResultName pulumi.StringInput `pulumi:"testResultName"`
 }
 

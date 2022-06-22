@@ -108,7 +108,7 @@ class FavoriteProcess(pulumi.CustomResource):
                  __props__=None):
         """
         A favorite process identifier.
-        API Version: 2020-12-16-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -126,7 +126,7 @@ class FavoriteProcess(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         A favorite process identifier.
-        API Version: 2020-12-16-preview.
+        API Version: 2022-04-01-preview.
 
         :param str resource_name: The name of the resource.
         :param FavoriteProcessArgs args: The arguments to use to populate this resource's properties.
@@ -176,7 +176,7 @@ class FavoriteProcess(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20201216preview:FavoriteProcess")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase/v20201216preview:FavoriteProcess"), pulumi.Alias(type_="azure-native:testbase/v20220401preview:FavoriteProcess")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FavoriteProcess, __self__).__init__(
             'azure-native:testbase:FavoriteProcess',

@@ -95,7 +95,12 @@ class FavoriteProcessArgs:
         pulumi.set(self, "favorite_process_resource_name", value)
 
 
+warnings.warn("""Version 2020-12-16-preview will be removed in v2 of the provider.""", DeprecationWarning)
+
+
 class FavoriteProcess(pulumi.CustomResource):
+    warnings.warn("""Version 2020-12-16-preview will be removed in v2 of the provider.""", DeprecationWarning)
+
     @overload
     def __init__(__self__,
                  resource_name: str,
@@ -147,6 +152,7 @@ class FavoriteProcess(pulumi.CustomResource):
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  test_base_account_name: Optional[pulumi.Input[str]] = None,
                  __props__=None):
+        pulumi.log.warn("""FavoriteProcess is deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.""")
         if opts is None:
             opts = pulumi.ResourceOptions()
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -174,7 +180,7 @@ class FavoriteProcess(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase:FavoriteProcess")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:testbase:FavoriteProcess"), pulumi.Alias(type_="azure-native:testbase/v20220401preview:FavoriteProcess")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FavoriteProcess, __self__).__init__(
             'azure-native:testbase/v20201216preview:FavoriteProcess',

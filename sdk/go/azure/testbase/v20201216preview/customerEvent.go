@@ -12,6 +12,8 @@ import (
 )
 
 // The Customer Notification Event resource.
+//
+// Deprecated: Version 2020-12-16-preview will be removed in v2 of the provider.
 type CustomerEvent struct {
 	pulumi.CustomResourceState
 
@@ -49,6 +51,9 @@ func NewCustomerEvent(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:testbase:CustomerEvent"),
+		},
+		{
+			Type: pulumi.String("azure-native:testbase/v20220401preview:CustomerEvent"),
 		},
 	})
 	opts = append(opts, aliases)

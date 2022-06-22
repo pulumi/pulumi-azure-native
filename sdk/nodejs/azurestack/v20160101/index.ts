@@ -10,6 +10,7 @@ export * from "./getProducts";
 export * from "./getRegistration";
 export * from "./getRegistrationActivationKey";
 export * from "./listProductDetails";
+export * from "./listProducts";
 export * from "./registration";
 
 // Export enums:

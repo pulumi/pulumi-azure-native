@@ -62,13 +62,13 @@ def get_test_result_video_download_url(package_name: Optional[str] = None,
                                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetTestResultVideoDownloadURLResult:
     """
     The response of getting a download URL.
-    API Version: 2020-12-16-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.
     :param str resource_group_name: The name of the resource group that contains the resource.
     :param str test_base_account_name: The resource name of the Test Base Account.
-    :param str test_result_name: The Test Result Name. It equals to {osName}-{TestResultId} string.
+    :param str test_result_name: The Test Result Name. It equals to TestResult-{TestResultId} string.
     """
     __args__ = dict()
     __args__['packageName'] = package_name
@@ -94,12 +94,12 @@ def get_test_result_video_download_url_output(package_name: Optional[pulumi.Inpu
                                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetTestResultVideoDownloadURLResult]:
     """
     The response of getting a download URL.
-    API Version: 2020-12-16-preview.
+    API Version: 2022-04-01-preview.
 
 
     :param str package_name: The resource name of the Test Base Package.
     :param str resource_group_name: The name of the resource group that contains the resource.
     :param str test_base_account_name: The resource name of the Test Base Account.
-    :param str test_result_name: The Test Result Name. It equals to {osName}-{TestResultId} string.
+    :param str test_result_name: The Test Result Name. It equals to TestResult-{TestResultId} string.
     """
     ...

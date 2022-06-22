@@ -15,6 +15,18 @@ namespace Pulumi.AzureNative.TestBase.Inputs
     /// </summary>
     public sealed class TargetOSInfoArgs : Pulumi.ResourceArgs
     {
+        [Input("baselineOSs")]
+        private InputList<string>? _baselineOSs;
+
+        /// <summary>
+        /// Specifies the baseline OSs to be tested.
+        /// </summary>
+        public InputList<string> BaselineOSs
+        {
+            get => _baselineOSs ?? (_baselineOSs = new InputList<string>());
+            set => _baselineOSs = value;
+        }
+
         /// <summary>
         /// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
         /// </summary>

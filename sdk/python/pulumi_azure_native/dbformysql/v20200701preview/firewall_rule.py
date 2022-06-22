@@ -172,7 +172,7 @@ class FirewallRule(pulumi.CustomResource):
             __props__.__dict__["start_ip_address"] = start_ip_address
             __props__.__dict__["name"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:FirewallRule")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:dbformysql/v20200701privatepreview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20210501:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20210501preview:FirewallRule"), pulumi.Alias(type_="azure-native:dbformysql/v20211201preview:FirewallRule")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(FirewallRule, __self__).__init__(
             'azure-native:dbformysql/v20200701preview:FirewallRule',

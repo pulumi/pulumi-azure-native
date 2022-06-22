@@ -216,7 +216,7 @@ class Policy(pulumi.CustomResource):
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["resource_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:Policy"), pulumi.Alias(type_="azure-native:network/v20191001:Policy"), pulumi.Alias(type_="azure-native:network/v20200401:Policy"), pulumi.Alias(type_="azure-native:network/v20201101:Policy")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network:Policy"), pulumi.Alias(type_="azure-native:network/v20191001:Policy"), pulumi.Alias(type_="azure-native:network/v20200401:Policy"), pulumi.Alias(type_="azure-native:network/v20201101:Policy"), pulumi.Alias(type_="azure-native:network/v20220501:Policy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(Policy, __self__).__init__(
             'azure-native:network/v20190301:Policy',

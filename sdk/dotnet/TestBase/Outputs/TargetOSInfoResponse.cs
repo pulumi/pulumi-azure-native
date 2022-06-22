@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.TestBase.Outputs
     public sealed class TargetOSInfoResponse
     {
         /// <summary>
+        /// Specifies the baseline OSs to be tested.
+        /// </summary>
+        public readonly ImmutableArray<string> BaselineOSs;
+        /// <summary>
         /// Specifies the OS update type to test against, e.g., 'Security updates' or 'Feature updates'.
         /// </summary>
         public readonly string OsUpdateType;
@@ -27,10 +31,13 @@ namespace Pulumi.AzureNative.TestBase.Outputs
 
         [OutputConstructor]
         private TargetOSInfoResponse(
+            ImmutableArray<string> baselineOSs,
+
             string osUpdateType,
 
             ImmutableArray<string> targetOSs)
         {
+            BaselineOSs = baselineOSs;
             OsUpdateType = osUpdateType;
             TargetOSs = targetOSs;
         }

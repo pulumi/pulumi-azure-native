@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.TestBase
     {
         /// <summary>
         /// The response of getting a download URL.
-        /// API Version: 2020-12-16-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Task<GetTestResultDownloadURLResult> InvokeAsync(GetTestResultDownloadURLArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetTestResultDownloadURLResult>("azure-native:testbase:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLArgs(), options.WithDefaults());
 
         /// <summary>
         /// The response of getting a download URL.
-        /// API Version: 2020-12-16-preview.
+        /// API Version: 2022-04-01-preview.
         /// </summary>
         public static Output<GetTestResultDownloadURLResult> Invoke(GetTestResultDownloadURLInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetTestResultDownloadURLResult>("azure-native:testbase:getTestResultDownloadURL", args ?? new GetTestResultDownloadURLInvokeArgs(), options.WithDefaults());
@@ -48,7 +48,7 @@ namespace Pulumi.AzureNative.TestBase
         public string TestBaseAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The Test Result Name. It equals to {osName}-{TestResultId} string.
+        /// The Test Result Name. It equals to TestResult-{TestResultId} string.
         /// </summary>
         [Input("testResultName", required: true)]
         public string TestResultName { get; set; } = null!;
@@ -79,7 +79,7 @@ namespace Pulumi.AzureNative.TestBase
         public Input<string> TestBaseAccountName { get; set; } = null!;
 
         /// <summary>
-        /// The Test Result Name. It equals to {osName}-{TestResultId} string.
+        /// The Test Result Name. It equals to TestResult-{TestResultId} string.
         /// </summary>
         [Input("testResultName", required: true)]
         public Input<string> TestResultName { get; set; } = null!;

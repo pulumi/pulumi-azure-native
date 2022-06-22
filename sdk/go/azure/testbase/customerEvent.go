@@ -12,7 +12,7 @@ import (
 )
 
 // The Customer Notification Event resource.
-// API Version: 2020-12-16-preview.
+// API Version: 2022-04-01-preview.
 type CustomerEvent struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +50,9 @@ func NewCustomerEvent(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:testbase/v20201216preview:CustomerEvent"),
+		},
+		{
+			Type: pulumi.String("azure-native:testbase/v20220401preview:CustomerEvent"),
 		},
 	})
 	opts = append(opts, aliases)

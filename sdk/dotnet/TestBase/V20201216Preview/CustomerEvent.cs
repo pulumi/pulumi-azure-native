@@ -12,6 +12,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
     /// <summary>
     /// The Customer Notification Event resource.
     /// </summary>
+    [Obsolete(@"Version 2020-12-16-preview will be removed in v2 of the provider.")]
     [AzureNativeResourceType("azure-native:testbase/v20201216preview:CustomerEvent")]
     public partial class CustomerEvent : Pulumi.CustomResource
     {
@@ -71,6 +72,7 @@ namespace Pulumi.AzureNative.TestBase.V20201216Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:testbase:CustomerEvent"},
+                    new Pulumi.Alias { Type = "azure-native:testbase/v20220401preview:CustomerEvent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
