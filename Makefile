@@ -73,7 +73,7 @@ codegen::
 provider::
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
-bin/pulumi-versioner-azure-native:
+bin/pulumi-versioner-azure-native: provder/*/*.go provider/go.*
 	(cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/pulumi-versioner-azure-native)
 
 versioner: bin/pulumi-versioner-azure-native
