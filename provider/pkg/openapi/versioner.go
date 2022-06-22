@@ -106,7 +106,7 @@ var ignoredProviderVersions = map[string][]string{
 	"Migrate":    {"v20200501"},                     // Conflict in property types with the previous version.
 	"NetApp":     {"v20210801"},                     // Conflict in property counts with the previous version.
 	"StorSimple": {"v20161001"},
-	"Security":   {"v20220101preview"},
+	"Security":   {"v20220101preview", "20220501preview"},
 }
 
 // A manually-maintained list of versions that we want to use for the top-level resource. The primary goal is to
