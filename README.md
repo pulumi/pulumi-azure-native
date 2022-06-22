@@ -96,4 +96,4 @@ $ pulumi up
 ## Reference
 
 For further information, visit [Azure Native in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/)
-or for detailed API reference documentation, visit [Azure Native API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/api-docs/).  
+or for detailed API reference documentation, visit [Azure Native API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/api-docs/).
