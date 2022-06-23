@@ -2,6 +2,487 @@
 
 ## HEAD (Unreleased)
 
+## 1.66.0 (2022-06-23)
+
+Resource "azure-native:iotcentral:App" changed from 2018-09-01 to 2021-06-01
+Resource "azure-native:iotcentral:getApp" changed from 2018-09-01 to 2021-06-01
+
+#### New resources:
+
+- `azure-native:devhub:Workflow`
+- `azure-native:security:GovernanceAssignment`
+- `azure-native:security:GovernanceRule`
+- `azure-native:security:SecurityConnectorGovernanceRule`
+
+
+#### New functions:
+
+- `azure-native:devhub:getGitHubOAuth`
+- `azure-native:devhub:getWorkflow`
+- `azure-native:security:getGovernanceAssignment`
+- `azure-native:security:getGovernanceRule`
+- `azure-native:security:getSecurityConnectorGovernanceRule`
+
+#### Found API changes:
+
+```
+New resource "azure-native:devhub:Workflow"
+New resource "azure-native:devhub/v20220401preview:Workflow"
+New resource "azure-native:eventgrid/v20220615:TopicEventSubscription"
+New resource "azure-native:eventgrid/v20220615:Channel"
+New resource "azure-native:eventgrid/v20220615:DomainEventSubscription"
+New resource "azure-native:security/v20220101preview:GovernanceRule"
+New resource "azure-native:eventgrid/v20220615:EventSubscription"
+New resource "azure-native:eventgrid/v20220615:PartnerRegistration"
+New resource "azure-native:eventgrid/v20220615:PrivateEndpointConnection"
+New resource "azure-native:security:GovernanceAssignment"
+New resource "azure-native:security/v20220101preview:GovernanceAssignment"
+New resource "azure-native:security:GovernanceRule"
+New resource "azure-native:eventgrid/v20220615:PartnerNamespace"
+New resource "azure-native:eventgrid/v20220615:Topic"
+New resource "azure-native:eventgrid/v20220615:PartnerTopicEventSubscription"
+New resource "azure-native:security/v20220101preview:SecurityConnectorGovernanceRule"
+New resource "azure-native:eventgrid/v20220615:PartnerTopic"
+New resource "azure-native:security:SecurityConnectorGovernanceRule"
+New resource "azure-native:fluidrelay/v20220526:FluidRelayServer"
+New resource "azure-native:eventgrid/v20220615:DomainTopic"
+New resource "azure-native:eventgrid/v20220615:PartnerConfiguration"
+New resource "azure-native:eventgrid/v20220615:DomainTopicEventSubscription"
+New resource "azure-native:eventgrid/v20220615:SystemTopicEventSubscription"
+New resource "azure-native:eventgrid/v20220615:SystemTopic"
+New resource "azure-native:eventgrid/v20220615:Domain"
+New resource "azure-native:kubernetesconfiguration/v20220701:SourceControlConfiguration"
+New resource "azure-native:kubernetesconfiguration/v20220701:FluxConfiguration"
+New resource "azure-native:kubernetesconfiguration/v20220701:Extension"
+New resource "azure-native:recoveryservices/v20220601preview:PrivateEndpointConnection"
+New resource "azure-native:recoveryservices/v20220601preview:ProtectionPolicy"
+New resource "azure-native:recoveryservices/v20220601preview:ResourceGuardProxy"
+New resource "azure-native:recoveryservices/v20220601preview:ProtectionIntent"
+New resource "azure-native:recoveryservices/v20220601preview:ProtectedItem"
+New resource "azure-native:recoveryservices/v20220601preview:ProtectionContainer"
+```
+
+## 1.65.0 (2022-06-08)
+
+Upstream breaking changes:
+
+- app
+- containerinstance
+- education
+- providerhub
+- relay
+
+```
+Resource "azure-native:healthcareapis:Workspace" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:education:GetLab" missing
+Resource "azure-native:hybridconnectivity:Endpoint" changed from 2021-10-06-preview to 2022-05-01-preview
+Resource "azure-native:healthcareapis:PrivateEndpointConnection" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:healthcareapis:DicomService" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:education/v20211201preview:GetLab" missing
+Resource "azure-native:healthcareapis:IotConnectorFhirDestination" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:education:GetStudent" missing
+Resource "azure-native:healthcareapis:FhirService" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:healthcareapis:WorkspacePrivateEndpointConnection" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:healthcareapis:Service" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:eventhub:SchemaRegistry" changed from 2021-11-01 to 2022-01-01-preview
+Resource "azure-native:healthcareapis:IotConnector" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:education/v20211201preview:GetStudent" missing
+Resource "azure-native:healthcareapis:getFhirService" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:kubernetes:listConnectedClusterUserCredential" changed from 2021-10-01 to 2022-05-01-preview
+Resource "azure-native:healthcareapis:getIotConnector" changed from 2021-11-01 to 2022-05-15
+Function "azure-native:education/v20211201preview:getGetStudent" missing
+Resource "azure-native:hybridconnectivity:getEndpoint" changed from 2021-10-06-preview to 2022-05-01-preview
+Resource "azure-native:healthcareapis:getService" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:healthcareapis:getIotConnectorFhirDestination" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:healthcareapis:getDicomService" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:hybridconnectivity:listEndpointCredentials" changed from 2021-10-06-preview to 2022-05-01-preview
+Function "azure-native:education:getGetStudent" missing
+Function "azure-native:education:getGetLab" missing
+Resource "azure-native:healthcareapis:getWorkspacePrivateEndpointConnection" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:healthcareapis:getWorkspace" changed from 2021-11-01 to 2022-05-15
+Function "azure-native:education/v20211201preview:getGetLab" missing
+Resource "azure-native:healthcareapis:getPrivateEndpointConnection" changed from 2021-11-01 to 2022-05-15
+Resource "azure-native:eventhub:getSchemaRegistry" changed from 2021-11-01 to 2022-01-01-preview
+New resource "azure-native:workloads/v20211201preview:monitor"
+New resource "azure-native:azurestackhci/v20220501:ArcSetting"
+New resource "azure-native:machinelearningservices/v20220501:Job"
+New resource "azure-native:machinelearningservices:ComponentContainer"
+New resource "azure-native:education:Lab"
+New resource "azure-native:securityinsights/v20220501preview:SentinelOnboardingState"
+New resource "azure-native:containerregistry/v20220201preview:Replication"
+New resource "azure-native:azurestackhci/v20220501:Cluster"
+New resource "azure-native:guestconfiguration/v20220125:GuestConfigurationAssignment"
+New resource "azure-native:recoveryservices/v20220301:PrivateEndpointConnection"
+New resource "azure-native:databox/v20220201:Job"
+New resource "azure-native:securityinsights/v20220501preview:ProductSetting"
+New resource "azure-native:machinelearningservices/v20220201preview:BatchEndpoint"
+New resource "azure-native:containerservice/v20220402preview:ManagedClusterSnapshot"
+New resource "azure-native:eventhub/v20220101preview:PrivateEndpointConnection"
+New resource "azure-native:machinelearningservices/v20220501:EnvironmentContainer"
+New resource "azure-native:network/v20220401preview:DefaultUserRule"
+New resource "azure-native:appplatform/v20220501preview:Deployment"
+New resource "azure-native:netapp/v20220101:Volume"
+New resource "azure-native:servicebus/v20220101preview:Queue"
+New resource "azure-native:containerservice/v20220402preview:MaintenanceConfiguration"
+New resource "azure-native:containerservice/v20220502preview:ManagedCluster"
+New resource "azure-native:machinelearningservices/v20220201preview:DataContainer"
+New resource "azure-native:appplatform/v20220501preview:App"
+New resource "azure-native:securityinsights/v20220501preview:AnomalySecurityMLAnalyticsSettings"
+New resource "azure-native:securityinsights/v20220501preview:DataConnector"
+New resource "azure-native:recoveryservices/v20220131preview:Vault"
+New resource "azure-native:securityinsights/v20220501preview:MicrosoftSecurityIncidentCreationAlertRule"
+New resource "azure-native:servicebus/v20220101preview:DisasterRecoveryConfig"
+New resource "azure-native:securityinsights/v20220501preview:AwsS3DataConnector"
+New resource "azure-native:recoveryservices/v20220301:ProtectionPolicy"
+New resource "azure-native:securityinsights/v20220501preview:BookmarkRelation"
+New resource "azure-native:servicebus/v20220101preview:Rule"
+New resource "azure-native:securityinsights/v20220501preview:Watchlist"
+New resource "azure-native:healthcareapis/v20220515:DicomService"
+New resource "azure-native:machinelearningservices/v20220501:DataContainer"
+New resource "azure-native:eventhub/v20220101preview:Cluster"
+New resource "azure-native:machinelearningservices/v20220201preview:Job"
+New resource "azure-native:securityinsights/v20220501preview:MSTIDataConnector"
+New resource "azure-native:appplatform/v20220501preview:Storage"
+New resource "azure-native:networkfunction/v20210901preview:AzureTrafficCollector"
+New resource "azure-native:appplatform/v20220501preview:BuildpackBinding"
+New resource "azure-native:securityinsights/v20220501preview:ASCDataConnector"
+New resource "azure-native:networkfunction/v20210901preview:CollectorPolicy"
+New resource "azure-native:healthcareapis/v20220515:IotConnector"
+New resource "azure-native:servicebus/v20220101preview:Topic"
+New resource "azure-native:healthcareapis/v20220515:PrivateEndpointConnection"
+New resource "azure-native:appconfiguration/v20220501:ConfigurationStore"
+New resource "azure-native:workloads/v20211201preview:SAPVirtualInstance"
+New resource "azure-native:machinelearningservices/v20220201preview:DataVersion"
+New resource "azure-native:appplatform/v20220401:ConfigurationService"
+New resource "azure-native:workloads:ProviderInstance"
+New resource "azure-native:machinelearningservices/v20220501:DataVersion"
+New resource "azure-native:securityinsights/v20220501preview:ThreatIntelligenceAlertRule"
+New resource "azure-native:securityinsights/v20220501preview:IoTDataConnector"
+New resource "azure-native:netapp/v20220101:VolumeGroup"
+New resource "azure-native:machinelearningservices/v20220501:WorkspaceConnection"
+New resource "azure-native:recoveryservices/v20220301:ReplicationFabric"
+New resource "azure-native:batch/v20220601:Pool"
+New resource "azure-native:appplatform/v20220501preview:Gateway"
+New resource "azure-native:recoveryservices/v20220301:ReplicationMigrationItem"
+New resource "azure-native:automanage/v20220504:ConfigurationProfileHCIAssignment"
+New resource "azure-native:network/v20220401preview:UserRuleCollection"
+New resource "azure-native:networkfunction/v20220501:AzureTrafficCollector"
+New resource "azure-native:network/v20220401preview:StaticMember"
+New resource "azure-native:healthcareapis/v20220515:FhirService"
+New resource "azure-native:recoveryservices/v20220301:ProtectionIntent"
+New resource "azure-native:workloads/v20211201preview:PhpWorkload"
+New resource "azure-native:securityinsights/v20220501preview:AADDataConnector"
+New resource "azure-native:appplatform/v20220501preview:GatewayCustomDomain"
+New resource "azure-native:containerservice/v20220402preview:ManagedCluster"
+New resource "azure-native:network/v20220401preview:UserRule"
+New resource "azure-native:containerservice/v20220402preview:PrivateEndpointConnection"
+New resource "azure-native:securityinsights/v20220501preview:OfficeDataConnector"
+New resource "azure-native:education/v20211201preview:Student"
+New resource "azure-native:recoveryservices/v20220301:ResourceGuardProxy"
+New resource "azure-native:automanage/v20220504:ConfigurationProfile"
+New resource "azure-native:appplatform/v20220501preview:ServiceRegistry"
+New resource "azure-native:deviceupdate/v20220401preview:Instance"
+New resource "azure-native:containerregistry/v20220201preview:Webhook"
+New resource "azure-native:appplatform/v20220501preview:GatewayRouteConfig"
+New resource "azure-native:recoveryservices/v20220301:ReplicationRecoveryServicesProvider"
+New resource "azure-native:automanage/v20220504:ConfigurationProfileAssignment"
+New resource "azure-native:appplatform/v20220401:Certificate"
+New resource "azure-native:workloads:SAPCentralInstance"
+New resource "azure-native:dataprotection/v20220331preview:ResourceGuard"
+New resource "azure-native:securityinsights/v20220501preview:OfficeATPDataConnector"
+New resource "azure-native:recoveryservices/v20220301:ReplicationStorageClassificationMapping"
+New resource "azure-native:securityinsights:SecurityMLAnalyticsSetting"
+New resource "azure-native:securityinsights/v20220501preview:MLBehaviorAnalyticsAlertRule"
+New resource "azure-native:healthcareapis/v20220515:WorkspacePrivateEndpointConnection"
+New resource "azure-native:securityinsights/v20220501preview:Ueba"
+New resource "azure-native:securityinsights/v20220501preview:EyesOn"
+New resource "azure-native:netapp:VolumeQuotaRule"
+New resource "azure-native:fluidrelay/v20220511:FluidRelayServer"
+New resource "azure-native:machinelearningservices/v20220501:CodeVersion"
+New resource "azure-native:batch/v20220601:Application"
+New resource "azure-native:machinelearningservices/v20220501:OnlineDeployment"
+New resource "azure-native:eventhub/v20220101preview:DisasterRecoveryConfig"
+New resource "azure-native:network/v20210201preview:NspAssociationsProxy"
+New resource "azure-native:machinelearningservices/v20220201preview:ModelVersion"
+New resource "azure-native:eventhub/v20220101preview:EventHubAuthorizationRule"
+New resource "azure-native:containerservice:TrustedAccessRoleBinding"
+New resource "azure-native:batch/v20220601:ApplicationPackage"
+New resource "azure-native:securityinsights/v20220501preview:MCASDataConnector"
+New resource "azure-native:containerservice/v20220402preview:TrustedAccessRoleBinding"
+New resource "azure-native:eventhub/v20220101preview:NamespaceNetworkRuleSet"
+New resource "azure-native:netapp/v20220101:Backup"
+New resource "azure-native:appplatform/v20220401:CustomDomain"
+New resource "azure-native:network/v20220401preview:NetworkManager"
+New resource "azure-native:workloads/v20211201preview:ProviderInstance"
+New resource "azure-native:orbital/v20220301:Spacecraft"
+New resource "azure-native:network/v20220401preview:AdminRuleCollection"
+New resource "azure-native:confidentialledger/v20220513:Ledger"
+New resource "azure-native:machinelearningservices/v20220201preview:PrivateEndpointConnection"
+New resource "azure-native:dbforpostgresql/v20210601preview:Database"
+New resource "azure-native:network/v20220401preview:ManagementGroupNetworkManagerConnection"
+New resource "azure-native:securityinsights/v20220501preview:CodelessApiPollingDataConnector"
+New resource "azure-native:netapp/v20220101:Account"
+New resource "azure-native:machinelearningservices/v20220201preview:EnvironmentContainer"
+New resource "azure-native:eventhub/v20220101preview:NamespaceAuthorizationRule"
+New resource "azure-native:containerservice/v20220502preview:ManagedClusterSnapshot"
+New resource "azure-native:workloads/v20211201preview:SAPDatabaseInstance"
+New resource "azure-native:network/v20220401preview:ScopeConnection"
+New resource "azure-native:fluidrelay/v20220421:FluidRelayServer"
+New resource "azure-native:dataprotection/v20220401:BackupVault"
+New resource "azure-native:virtualmachineimages/v20220214:VirtualMachineImageTemplate"
+New resource "azure-native:appplatform/v20220401:Service"
+New resource "azure-native:containerregistry/v20220201preview:PrivateEndpointConnection"
+New resource "azure-native:containerservice/v20220502preview:MaintenanceConfiguration"
+New resource "azure-native:automanage/v20210430preview:ConfigurationProfileHCRPAssignment"
+New resource "azure-native:machinelearningservices/v20220201preview:Workspace"
+New resource "azure-native:machinelearningservices/v20220201preview:OnlineDeployment"
+New resource "azure-native:kubernetes/v20220501preview:ConnectedCluster"
+New resource "azure-native:containerregistry/v20220201preview:ImportPipeline"
+New resource "azure-native:appplatform/v20220501preview:Binding"
+New resource "azure-native:containerservice/v20220402preview:Snapshot"
+New resource "azure-native:insights/v20220401:Workbook"
+New resource "azure-native:machinelearningservices/v20220501:ModelContainer"
+New resource "azure-native:containerregistry/v20220201preview:Token"
+New resource "azure-native:automanage/v20210430preview:ConfigurationProfileHCIAssignment"
+New resource "azure-native:network/v20220401preview:AdminRule"
+New resource "azure-native:appplatform/v20220501preview:BuildServiceBuilder"
+New resource "azure-native:containerregistry/v20220201preview:ScopeMap"
+New resource "azure-native:securityinsights/v20220501preview:IncidentRelation"
+New resource "azure-native:securityinsights/v20220501preview:ScheduledAlertRule"
+New resource "azure-native:appplatform/v20220401:BuildServiceBuilder"
+New resource "azure-native:network:NspAssociationsProxy"
+New resource "azure-native:dataprotection/v20220331preview:BackupVault"
+New resource "azure-native:securityinsights/v20220501preview:AlertRule"
+New resource "azure-native:securityinsights/v20220501preview:Action"
+New resource "azure-native:network/v20220401preview:SubscriptionNetworkManagerConnection"
+New resource "azure-native:machinelearningservices/v20220201preview:EnvironmentVersion"
+New resource "azure-native:workloads/v20211201preview:WordpressInstance"
+New resource "azure-native:servicebus/v20220101preview:Subscription"
+New resource "azure-native:securityinsights/v20220501preview:ActivityCustomEntityQuery"
+New resource "azure-native:workloads:SAPVirtualInstance"
+New resource "azure-native:securityinsights/v20220501preview:ThreatIntelligenceIndicator"
+New resource "azure-native:appplatform/v20220501preview:ApiPortalCustomDomain"
+New resource "azure-native:workloads/v20211201preview:SAPApplicationServerInstance"
+New resource "azure-native:containerregistry/v20220201preview:PipelineRun"
+New resource "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnection"
+New resource "azure-native:containerregistry/v20220201preview:ConnectedRegistry"
+New resource "azure-native:workloads:SAPDatabaseInstance"
+New resource "azure-native:recoveryservices/v20220301:ProtectionContainer"
+New resource "azure-native:securityinsights/v20220501preview:IncidentComment"
+New resource "azure-native:networkfunction:AzureTrafficCollector"
+New resource "azure-native:networkfunction:CollectorPolicy"
+New resource "azure-native:securityinsights/v20220501preview:WatchlistItem"
+New resource "azure-native:machinelearningservices/v20220501:PrivateEndpointConnection"
+New resource "azure-native:appplatform/v20220501preview:Service"
+New resource "azure-native:machinelearningservices/v20220201preview:CodeVersion"
+New resource "azure-native:appplatform/v20220501preview:Certificate"
+New resource "azure-native:securityinsights/v20220501preview:TiTaxiiDataConnector"
+New resource "azure-native:recoveryservices/v20220301:ProtectedItem"
+New resource "azure-native:appplatform/v20220401:Deployment"
+New resource "azure-native:machinelearningservices/v20220501:Workspace"
+New resource "azure-native:eventhub/v20220101preview:EventHub"
+New resource "azure-native:datafactory/v20180601:GlobalParameter"
+New resource "azure-native:containerservice/v20220401:PrivateEndpointConnection"
+New resource "azure-native:servicebus/v20220101preview:QueueAuthorizationRule"
+New resource "azure-native:containerservice/v20220401:AgentPool"
+New resource "azure-native:servicebus/v20220101preview:MigrationConfig"
+New resource "azure-native:servicebus/v20220101preview:TopicAuthorizationRule"
+New resource "azure-native:netapp/v20220101:BackupPolicy"
+New resource "azure-native:machinelearningservices/v20220201preview:ComponentVersion"
+New resource "azure-native:securityinsights/v20220501preview:AutomationRule"
+New resource "azure-native:appconfiguration/v20220501:KeyValue"
+New resource "azure-native:appplatform/v20220501preview:ApiPortal"
+New resource "azure-native:machinelearningservices/v20220201preview:BatchDeployment"
+New resource "azure-native:deviceupdate/v20220401preview:PrivateEndpointConnectionProxy"
+New resource "azure-native:containerservice/v20220401:ManagedCluster"
+New resource "azure-native:securityinsights/v20220501preview:SourceControl"
+New resource "azure-native:securityinsights/v20220501preview:AwsCloudTrailDataConnector"
+New resource "azure-native:machinelearningservices/v20220501:ComponentContainer"
+New resource "azure-native:securityinsights/v20220501preview:Metadata"
+New resource "azure-native:machinelearningservices:ComponentVersion"
+New resource "azure-native:securityinsights:AnomalySecurityMLAnalyticsSettings"
+New resource "azure-native:insights/v20220601:ActionGroup"
+New resource "azure-native:servicebus/v20220101preview:PrivateEndpointConnection"
+New resource "azure-native:securityinsights/v20220501preview:FusionAlertRule"
+New resource "azure-native:azurestackhci/v20220501:Extension"
+New resource "azure-native:networkfunction/v20220501:CollectorPolicy"
+New resource "azure-native:machinelearningservices/v20220501:Compute"
+New resource "azure-native:machinelearningservices/v20220501:Datastore"
+New resource "azure-native:redhatopenshift/v20220401:OpenShiftCluster"
+New resource "azure-native:recoveryservices/v20220301:ReplicationProtectionContainerMapping"
+New resource "azure-native:workloads/v20211201preview:SAPCentralInstance"
+New resource "azure-native:machinelearningservices/v20220501:ModelVersion"
+New resource "azure-native:appplatform/v20220401:ServiceRegistry"
+New resource "azure-native:network/v20220401preview:DefaultAdminRule"
+New resource "azure-native:videoindexer/v20220413preview:Account"
+New resource "azure-native:servicebus/v20220101preview:NamespaceAuthorizationRule"
+New resource "azure-native:appplatform/v20220401:App"
+New resource "azure-native:workloads:SAPApplicationServerInstance"
+New resource "azure-native:netapp/v20220101:SnapshotPolicy"
+New resource "azure-native:servicebus/v20220101preview:Namespace"
+New resource "azure-native:machinelearningservices/v20220201preview:ModelContainer"
+New resource "azure-native:securityinsights/v20220501preview:TIDataConnector"
+New resource "azure-native:network/v20220401preview:SecurityUserConfiguration"
+New resource "azure-native:netapp/v20220101:VolumeQuotaRule"
+New resource "azure-native:machinelearningservices/v20220501:EnvironmentVersion"
+New resource "azure-native:securityinsights/v20220501preview:NrtAlertRule"
+New resource "azure-native:servicebus/v20220101preview:NamespaceNetworkRuleSet"
+New resource "azure-native:securityinsights/v20220501preview:MTPDataConnector"
+New resource "azure-native:appplatform/v20220501preview:CustomDomain"
+New resource "azure-native:workloads:monitor"
+New resource "azure-native:eventhub/v20220101preview:Namespace"
+New resource "azure-native:containerregistry/v20220201preview:Registry"
+New resource "azure-native:automanage/v20220504:ConfigurationProfilesVersion"
+New resource "azure-native:securityinsights/v20220501preview:Dynamics365DataConnector"
+New resource "azure-native:appplatform/v20220501preview:ConfigurationService"
+New resource "azure-native:eventhub/v20220101preview:ConsumerGroup"
+New resource "azure-native:orbital/v20220301:Contact"
+New resource "azure-native:recoveryservices/v20220301:ReplicationRecoveryPlan"
+New resource "azure-native:dataprotection/v20220401:BackupInstance"
+New resource "azure-native:orbital/v20220301:ContactProfile"
+New resource "azure-native:securityinsights/v20220501preview:SecurityMLAnalyticsSetting"
+New resource "azure-native:eventhub/v20220101preview:ApplicationGroup"
+New resource "azure-native:machinelearningservices/v20220201preview:OnlineEndpoint"
+New resource "azure-native:containerservice/v20220502preview:Snapshot"
+New resource "azure-native:communication:Domain"
+New resource "azure-native:netapp/v20220101:Snapshot"
+New resource "azure-native:dataprotection/v20220401:ResourceGuard"
+New resource "azure-native:network/v20220401preview:ConnectivityConfiguration"
+New resource "azure-native:healthcareapis/v20220515:Workspace"
+New resource "azure-native:securityinsights/v20220501preview:EntityAnalytics"
+New resource "azure-native:dataprotection/v20220401:BackupPolicy"
+New resource "azure-native:dataprotection/v20220331preview:BackupInstance"
+New resource "azure-native:recoveryservices/v20220301:ReplicationPolicy"
+New resource "azure-native:machinelearningservices/v20220201preview:Compute"
+New resource "azure-native:netapp/v20220101:Subvolume"
+New resource "azure-native:machinelearningservices/v20220201preview:ComponentContainer"
+New resource "azure-native:eventhub:ApplicationGroup"
+New resource "azure-native:netapp/v20220101:Pool"
+New resource "azure-native:securityinsights/v20220501preview:EntityQuery"
+New resource "azure-native:education:Student"
+New resource "azure-native:eventhub/v20220101preview:SchemaRegistry"
+New resource "azure-native:deviceupdate/v20220401preview:Account"
+New resource "azure-native:securityinsights/v20220501preview:Anomalies"
+New resource "azure-native:communication/v20211001preview:CommunicationService"
+New resource "azure-native:recoveryservices/v20220301:ReplicationProtectedItem"
+New resource "azure-native:batch/v20220601:BatchAccount"
+New resource "azure-native:education/v20211201preview:Lab"
+New resource "azure-native:appconfiguration/v20220501:PrivateEndpointConnection"
+New resource "azure-native:workloads:WordpressInstance"
+New resource "azure-native:automanage/v20220504:ConfigurationProfileHCRPAssignment"
+New resource "azure-native:communication/v20211001preview:EmailService"
+New resource "azure-native:machinelearningservices/v20220501:BatchDeployment"
+New resource "azure-native:workloads:PhpWorkload"
+New resource "azure-native:network/v20220401preview:SecurityAdminConfiguration"
+New resource "azure-native:securityinsights/v20220501preview:CodelessUiDataConnector"
+New resource "azure-native:containerservice/v20220401:Snapshot"
+New resource "azure-native:appplatform/v20220401:BuildpackBinding"
+New resource "azure-native:securityinsights/v20220501preview:Office365ProjectDataConnector"
+New resource "azure-native:recoveryservices/v20220301:ReplicationvCenter"
+New resource "azure-native:communication:EmailService"
+New resource "azure-native:machinelearningservices/v20220201preview:WorkspaceConnection"
+New resource "azure-native:securityinsights/v20220501preview:Bookmark"
+New resource "azure-native:machinelearningservices/v20220501:BatchEndpoint"
+New resource "azure-native:openenergyplatform/v20220404preview:EnergyService"
+New resource "azure-native:containerservice/v20220502preview:TrustedAccessRoleBinding"
+New resource "azure-native:containerservice/v20220401:MaintenanceConfiguration"
+New resource "azure-native:appplatform/v20220401:Binding"
+New resource "azure-native:containerservice/v20220502preview:AgentPool"
+New resource "azure-native:machinelearningservices/v20220501:CodeContainer"
+New resource "azure-native:dataprotection/v20220331preview:BackupPolicy"
+New resource "azure-native:guestconfiguration/v20220125:GuestConfigurationHCRPAssignment"
+New resource "azure-native:containerservice/v20220402preview:AgentPool"
+New resource "azure-native:healthcareapis/v20220515:Service"
+New resource "azure-native:machinelearningservices/v20220201preview:CodeContainer"
+New resource "azure-native:recoveryservices/v20220301:ReplicationNetworkMapping"
+New resource "azure-native:containerregistry/v20220201preview:ExportPipeline"
+New resource "azure-native:network/v20220401preview:NetworkGroup"
+New resource "azure-native:batch/v20220601:Certificate"
+New resource "azure-native:securityinsights/v20220501preview:Incident"
+New resource "azure-native:machinelearningservices/v20220201preview:Datastore"
+New resource "azure-native:securityinsights/v20220501preview:MDATPDataConnector"
+New resource "azure-native:communication/v20211001preview:Domain"
+New resource "azure-native:machinelearningservices/v20220501:ComponentVersion"
+New resource "azure-native:recoveryservices/v20220301:Vault"
+New resource "azure-native:datafactory:GlobalParameter"
+New resource "azure-native:securityinsights/v20220501preview:OfficeIRMDataConnector"
+New resource "azure-native:healthcareapis/v20220515:IotConnectorFhirDestination"
+New resource "azure-native:containerservice/v20220502preview:PrivateEndpointConnection"
+New resource "azure-native:machinelearningservices/v20220501:OnlineEndpoint"
+New resource "azure-native:securityinsights/v20220501preview:OfficePowerBIDataConnector"
+New resource "azure-native:securityinsights/v20220501preview:AATPDataConnector"
+```
+
+## 1.64.1 (2022-05-19)
+
+```
+New resource "azure-native:devices/v20220205:IotDpsResource"
+New resource "azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection"
+New resource "azure-native:devices/v20220205:DpsCertificate"
+New resource "azure-native:relay/v20211101:HybridConnectionAuthorizationRule"
+New resource "azure-native:healthcareapis/v20220131preview:IotConnectorFhirDestination"
+New resource "azure-native:healthcareapis/v20220131preview:IotConnector"
+New resource "azure-native:healthcareapis/v20220131preview:FhirService"
+New resource "azure-native:relay/v20211101:NamespaceAuthorizationRule"
+New resource "azure-native:relay/v20211101:HybridConnection"
+New resource "azure-native:healthcareapis/v20220131preview:PrivateEndpointConnection"
+New resource "azure-native:relay/v20211101:Namespace"
+New resource "azure-native:healthcareapis/v20220131preview:DicomService"
+New resource "azure-native:healthcareapis/v20220131preview:Workspace"
+New resource "azure-native:healthcareapis/v20220131preview:WorkspacePrivateEndpointConnection"
+New resource "azure-native:relay/v20211101:PrivateEndpointConnection"
+New resource "azure-native:healthcareapis/v20220131preview:Service"
+New resource "azure-native:relay/v20211101:WCFRelay"
+New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
+```
+
+## 1.63.0 (2022-04-22)
+
+## Breaking changes from Microsoft
+- Notebooks namespace removed in https://github.com/Azure/azure-rest-api-specs/pull/18482. Service is still in private preview.
+- Type "azure-native:app:GithubActionConfiguration" missing property "dockerfilePath"
+- Type "azure-native:app:GithubActionConfigurationResponse" missing property "dockerfilePath"
+- Type "azure-native:network:OrderBy" input "order" type changed from "string" to "object"
+
+#### New resources:
+
+- `azure-native:costmanagement:ScheduledAction`
+- `azure-native:costmanagement:ScheduledActionByScope`
+- `azure-native:education:GetLab`
+- `azure-native:education:GetStudent`
+- `azure-native:elasticsan:ElasticSan`
+- `azure-native:elasticsan:Volume`
+- `azure-native:elasticsan:VolumeGroup`
+- `azure-native:network:ConfigurationPolicyGroup`
+- `azure-native:network:ExpressRoutePortAuthorization`
+- `azure-native:scvmm:AvailabilitySet`
+- `azure-native:scvmm:Cloud`
+- `azure-native:scvmm:InventoryItem`
+- `azure-native:scvmm:VirtualMachine`
+- `azure-native:scvmm:VirtualMachineTemplate`
+- `azure-native:scvmm:VirtualNetwork`
+- `azure-native:scvmm:VmmServer`
+
+#### New functions:
+
+- `azure-native:costmanagement:getScheduledAction`
+- `azure-native:costmanagement:getScheduledActionByScope`
+- `azure-native:education:getGetLab`
+- `azure-native:education:getGetStudent`
+- `azure-native:elasticsan:getElasticSan`
+- `azure-native:elasticsan:getVolume`
+- `azure-native:elasticsan:getVolumeGroup`
+- `azure-native:hybridconnectivity:listEndpointManagedProxyDetails`
+- `azure-native:network:getConfigurationPolicyGroup`
+- `azure-native:network:getExpressRoutePortAuthorization`
+- `azure-native:scvmm:getAvailabilitySet`
+- `azure-native:scvmm:getCloud`
+- `azure-native:scvmm:getInventoryItem`
+- `azure-native:scvmm:getVirtualMachine`
+- `azure-native:scvmm:getVirtualMachineTemplate`
+- `azure-native:scvmm:getVirtualNetwork`
+- `azure-native:scvmm:getVmmServer`
+
 ## 1.62.0 (2022-04-04)
 
 - Deprecate older explicit API versions [#1547](https://github.com/pulumi/pulumi-azure-native/issues/1547)
