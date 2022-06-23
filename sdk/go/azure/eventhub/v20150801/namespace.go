@@ -129,7 +129,7 @@ type namespaceArgs struct {
 	// SKU parameters supplied to the create Namespace operation
 	Sku *Sku `pulumi:"sku"`
 	// State of the Namespace.
-	Status *NamespaceStateEnum `pulumi:"status"`
+	Status *NamespaceState `pulumi:"status"`
 	// Namespace tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The time the Namespace was updated.
@@ -155,7 +155,7 @@ type NamespaceArgs struct {
 	// SKU parameters supplied to the create Namespace operation
 	Sku SkuPtrInput
 	// State of the Namespace.
-	Status NamespaceStateEnumPtrInput
+	Status NamespaceStatePtrInput
 	// Namespace tags.
 	Tags pulumi.StringMapInput
 	// The time the Namespace was updated.
