@@ -25,6 +25,7 @@ Resource "azure-native:iotcentral:getApp" changed from 2018-09-01 to 2021-06-01
 
 #### Found API changes:
 
+```
 New resource "azure-native:devhub:Workflow"
 New resource "azure-native:devhub/v20220401preview:Workflow"
 New resource "azure-native:eventgrid/v20220615:TopicEventSubscription"
@@ -59,6 +60,7 @@ New resource "azure-native:recoveryservices/v20220601preview:ResourceGuardProxy"
 New resource "azure-native:recoveryservices/v20220601preview:ProtectionIntent"
 New resource "azure-native:recoveryservices/v20220601preview:ProtectedItem"
 New resource "azure-native:recoveryservices/v20220601preview:ProtectionContainer"
+```
 
 ## 1.65.0 (2022-06-08)
 
@@ -70,6 +72,7 @@ Upstream breaking changes:
 - providerhub
 - relay
 
+```
 Resource "azure-native:healthcareapis:Workspace" changed from 2021-11-01 to 2022-05-15
 Resource "azure-native:education:GetLab" missing
 Resource "azure-native:hybridconnectivity:Endpoint" changed from 2021-10-06-preview to 2022-05-01-preview
@@ -408,9 +411,11 @@ New resource "azure-native:containerservice/v20220502preview:PrivateEndpointConn
 New resource "azure-native:machinelearningservices/v20220501:OnlineEndpoint"
 New resource "azure-native:securityinsights/v20220501preview:OfficePowerBIDataConnector"
 New resource "azure-native:securityinsights/v20220501preview:AATPDataConnector"
+```
 
 ## 1.64.1 (2022-05-19)
 
+```
 New resource "azure-native:devices/v20220205:IotDpsResource"
 New resource "azure-native:devices/v20220205:IotDpsResourcePrivateEndpointConnection"
 New resource "azure-native:devices/v20220205:DpsCertificate"
@@ -429,6 +434,7 @@ New resource "azure-native:relay/v20211101:PrivateEndpointConnection"
 New resource "azure-native:healthcareapis/v20220131preview:Service"
 New resource "azure-native:relay/v20211101:WCFRelay"
 New resource "azure-native:relay/v20211101:WCFRelayAuthorizationRule"
+```
 
 ## 1.63.0 (2022-04-22)
 
