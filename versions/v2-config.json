@@ -289,7 +289,20 @@
     "SingleVersion": "2019-07-24-preview"
   },
   "AzureStack": {
-    "SingleVersion": "2020-06-01-preview"
+    "Rollup": {
+      "2017-06-01": [
+        "listProducts"
+      ],
+      "2020-06-01-preview": [
+        "CustomerSubscription",
+        "LinkedSubscription",
+        "Registration",
+        "getProduct",
+        "getProducts",
+        "getRegistrationActivationKey",
+        "listProductDetails"
+      ]
+    }
   },
   "AzureStackHCI": {
     "SingleVersion": "2022-05-01"
@@ -647,11 +660,14 @@
       ],
       "2021-06-15-privatepreview": [
         "Migration"
+      ],
+      "2022-03-08-privatepreview": [
+        "getGetCachedServerNameExecute"
       ]
     }
   },
   "Dashboard": {
-    "SingleVersion": "2021-09-01-preview"
+    "SingleVersion": "2022-05-01-preview"
   },
   "DataBox": {
     "SingleVersion": "2022-02-01"
@@ -703,7 +719,7 @@
     }
   },
   "DataProtection": {
-    "SingleVersion": "2022-04-01"
+    "SingleVersion": "2022-05-01"
   },
   "DataShare": {
     "SingleVersion": "2021-08-01"
@@ -978,7 +994,15 @@
     "SingleVersion": "2021-07-01"
   },
   "FluidRelay": {
-    "SingleVersion": "2022-05-26"
+    "Rollup": {
+      "2022-05-26": [
+        "getFluidRelayServerKeys"
+      ],
+      "2022-06-01": [
+        "FluidRelayServer",
+        "listFluidRelayServerKeys"
+      ]
+    }
   },
   "GuestConfiguration": {
     "SingleVersion": "2022-01-25"
@@ -1382,7 +1406,7 @@
     }
   },
   "ManagedIdentity": {
-    "SingleVersion": "2021-09-30-preview"
+    "SingleVersion": "2022-01-31-preview"
   },
   "ManagedNetwork": {
     "SingleVersion": "2019-06-01-preview"
@@ -1440,11 +1464,6 @@
       "2020-02-01-preview": [
         "MediaGraph"
       ],
-      "2021-06-01": [
-        "MediaService",
-        "PrivateEndpointConnection",
-        "listMediaServiceEdgePolicies"
-      ],
       "2021-11-01": [
         "AccountFilter",
         "Asset",
@@ -1453,6 +1472,8 @@
         "Job",
         "LiveEvent",
         "LiveOutput",
+        "MediaService",
+        "PrivateEndpointConnection",
         "StreamingEndpoint",
         "StreamingLocator",
         "StreamingPolicy",
@@ -1462,6 +1483,7 @@
         "getContentKeyPolicyPropertiesWithSecrets",
         "listAssetContainerSas",
         "listAssetStreamingLocators",
+        "listMediaServiceEdgePolicies",
         "listStreamingLocatorContentKeys",
         "listStreamingLocatorPaths"
       ]
@@ -1565,9 +1587,6 @@
         "PrivateRecordSet",
         "PrivateZone",
         "VirtualNetworkLink"
-      ],
-      "2020-11-01": [
-        "Policy"
       ],
       "2021-02-01-preview": [
         "NspAccessRule",
@@ -1699,6 +1718,9 @@
         "listNetworkManagerDeploymentStatus",
         "listNetworkManagerEffectiveConnectivityConfigurations",
         "listNetworkManagerEffectiveSecurityAdminRules"
+      ],
+      "2022-05-01": [
+        "Policy"
       ]
     }
   },
@@ -2148,7 +2170,7 @@
     }
   },
   "SqlVirtualMachine": {
-    "SingleVersion": "2021-11-01-preview"
+    "SingleVersion": "2022-02-01"
   },
   "StorSimple": {
     "Rollup": {
@@ -2282,7 +2304,7 @@
     }
   },
   "TestBase": {
-    "SingleVersion": "2020-12-16-preview"
+    "SingleVersion": "2022-04-01-preview"
   },
   "TimeSeriesInsights": {
     "Rollup": {
