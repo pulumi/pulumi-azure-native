@@ -3,7 +3,7 @@ module github.com/pulumi/pulumi-azure-native/examples
 go 1.17
 
 require (
-	github.com/pulumi/pulumi/pkg/v3 v3.0.0
+	github.com/pulumi/pulumi/pkg/v3 v3.35.0
 	github.com/stretchr/testify v1.7.0
 )
 
