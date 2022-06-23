@@ -15,9 +15,11 @@ type ProviderSpec struct {
 	Rollup        *map[openapi.ApiVersion][]openapi.ResourceName `json:"Rollup,omitempty"`
 }
 
+type DefaultConfig map[openapi.ProviderName]ProviderSpec
+
 // BuildDefaultConfig calculates a config from available API versions
-func BuildDefaultConfig(spec SpecVersions) map[openapi.ProviderName]ProviderSpec {
-	specs := map[openapi.ProviderName]ProviderSpec{}
+func BuildDefaultConfig(spec SpecVersions) DefaultConfig {
+	specs := DefaultConfig{}
 	for providerName, versionResources := range spec {
 		specs[providerName] = buildSpec(versionResources)
 	}
@@ -25,7 +27,7 @@ func BuildDefaultConfig(spec SpecVersions) map[openapi.ProviderName]ProviderSpec
 }
 
 // ReadDefaultConfig parses a default config from a JSON file
-func ReadDefaultConfig(path string) (map[openapi.ProviderName]ProviderSpec, error) {
+func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	jsonFile, err := os.Open(path)
 	if err != nil {
 		return nil, err
@@ -37,9 +39,48 @@ func ReadDefaultConfig(path string) (map[openapi.ProviderName]ProviderSpec, erro
 		return nil, err
 	}
 
-	var curatedVersion map[openapi.ProviderName]ProviderSpec
+	var curatedVersion DefaultConfig
 	err = json.Unmarshal(byteValue, &curatedVersion)
 	return curatedVersion, err
+}
+
+func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig) openapi.CuratedVersion {
+	curatedVersion := openapi.CuratedVersion{}
+	for providerName, providerSpec := range defaultConfig {
+		if providerSpec.NoVersion != nil {
+			continue
+		}
+		definitions := map[openapi.DefinitionName]openapi.ApiVersion{}
+		if providerSpec.SingleVersion != nil {
+			for _, resourceName := range spec[providerName][*providerSpec.SingleVersion] {
+				definitions[resourceName] = *providerSpec.SingleVersion
+			}
+		} else if providerSpec.Rollup != nil {
+			maxVersion := ""
+			for apiVersion := range *providerSpec.Rollup {
+				if apiVersion > maxVersion {
+					maxVersion = apiVersion
+				}
+			}
+			for apiVersion, resourceNames := range *providerSpec.Rollup {
+				if apiVersion == maxVersion {
+					// Use all resource from the latest version
+					for _, resourceName := range spec[providerName][apiVersion] {
+						definitions[resourceName] = apiVersion
+					}
+				} else {
+					for _, resourceName := range resourceNames {
+						// Don't overwrite if resource is now included in latest version
+						if _, ok := definitions[resourceName]; !ok {
+							definitions[resourceName] = apiVersion
+						}
+					}
+				}
+			}
+		}
+		curatedVersion[providerName] = definitions
+	}
+	return curatedVersion
 }
 
 func buildSpec(versions VersionResources) ProviderSpec {
