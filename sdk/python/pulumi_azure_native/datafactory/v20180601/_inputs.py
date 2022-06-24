@@ -40135,7 +40135,7 @@ class HttpLinkedServiceArgs:
         Linked service for an HTTP source.
         :param pulumi.Input[str] type: Type of linked service.
                Expected value is 'HttpServer'.
-        :param Any url: The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
+        :param Any url: The base URL of the HTTP endpoint, e.g. https://www.microsoft.com. Type: string (or Expression with resultType string).
         :param pulumi.Input[Sequence[Any]] annotations: List of tags that can be used for describing the linked service.
         :param Any auth_headers: The additional HTTP headers in the request to RESTful API used for authorization. Type: object (or Expression with resultType object).
         :param pulumi.Input[Union[str, 'HttpAuthenticationType']] authentication_type: The authentication type to be used to connect to the HTTP server.
@@ -40193,7 +40193,7 @@ class HttpLinkedServiceArgs:
     @pulumi.getter
     def url(self) -> Any:
         """
-        The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
+        The base URL of the HTTP endpoint, e.g. https://www.microsoft.com. Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
@@ -77964,7 +77964,7 @@ class WebAnonymousAuthenticationArgs:
         A WebLinkedService that uses anonymous authentication to communicate with an HTTP endpoint.
         :param pulumi.Input[str] authentication_type: Type of authentication used to connect to the web table source.
                Expected value is 'Anonymous'.
-        :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        :param Any url: The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'Anonymous')
         pulumi.set(__self__, "url", url)
@@ -77986,7 +77986,7 @@ class WebAnonymousAuthenticationArgs:
     @pulumi.getter
     def url(self) -> Any:
         """
-        The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
@@ -78007,7 +78007,7 @@ class WebBasicAuthenticationArgs:
         :param pulumi.Input[str] authentication_type: Type of authentication used to connect to the web table source.
                Expected value is 'Basic'.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: The password for Basic authentication.
-        :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        :param Any url: The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
         :param Any username: User name for Basic authentication. Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'Basic')
@@ -78044,7 +78044,7 @@ class WebBasicAuthenticationArgs:
     @pulumi.getter
     def url(self) -> Any:
         """
-        The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 
@@ -78078,7 +78078,7 @@ class WebClientCertificateAuthenticationArgs:
                Expected value is 'ClientCertificate'.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] password: Password for the PFX file.
         :param pulumi.Input[Union['AzureKeyVaultSecretReferenceArgs', 'SecureStringArgs']] pfx: Base64-encoded contents of a PFX file.
-        :param Any url: The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        :param Any url: The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         pulumi.set(__self__, "authentication_type", 'ClientCertificate')
         pulumi.set(__self__, "password", password)
@@ -78126,7 +78126,7 @@ class WebClientCertificateAuthenticationArgs:
     @pulumi.getter
     def url(self) -> Any:
         """
-        The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
         """
         return pulumi.get(self, "url")
 

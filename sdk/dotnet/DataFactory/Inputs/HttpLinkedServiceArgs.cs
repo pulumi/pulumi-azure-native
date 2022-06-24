@@ -101,7 +101,7 @@ namespace Pulumi.AzureNative.DataFactory.Inputs
         public Input<string> Type { get; set; } = null!;
 
         /// <summary>
-        /// The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
+        /// The base URL of the HTTP endpoint, e.g. https://www.microsoft.com. Type: string (or Expression with resultType string).
         /// </summary>
         [Input("url", required: true)]
         public Input<object> Url { get; set; } = null!;

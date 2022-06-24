@@ -85,6 +85,9 @@ func NewWebAppRelayServiceConnection(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210301:WebAppRelayServiceConnection"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20220301:WebAppRelayServiceConnection"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource WebAppRelayServiceConnection

@@ -49,6 +49,9 @@ func NewScopeConnection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network:ScopeConnection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20220101:ScopeConnection"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/v20220201preview:ScopeConnection"),
 		},
 		{

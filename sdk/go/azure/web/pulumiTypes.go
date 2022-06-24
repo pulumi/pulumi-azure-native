@@ -7697,6 +7697,120 @@ func (o AzureBlobStorageHttpLogsConfigResponsePtrOutput) SasUrl() pulumi.StringP
 	}).(pulumi.StringPtrOutput)
 }
 
+// The azure resource error info.
+type AzureResourceErrorInfoResponse struct {
+	// The error code.
+	Code string `pulumi:"code"`
+	// The error details.
+	Details []AzureResourceErrorInfoResponse `pulumi:"details"`
+	// The error message.
+	Message string `pulumi:"message"`
+}
+
+// The azure resource error info.
+type AzureResourceErrorInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (AzureResourceErrorInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AzureResourceErrorInfoResponse)(nil)).Elem()
+}
+
+func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponseOutput() AzureResourceErrorInfoResponseOutput {
+	return o
+}
+
+func (o AzureResourceErrorInfoResponseOutput) ToAzureResourceErrorInfoResponseOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponseOutput {
+	return o
+}
+
+// The error code.
+func (o AzureResourceErrorInfoResponseOutput) Code() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureResourceErrorInfoResponse) string { return v.Code }).(pulumi.StringOutput)
+}
+
+// The error details.
+func (o AzureResourceErrorInfoResponseOutput) Details() AzureResourceErrorInfoResponseArrayOutput {
+	return o.ApplyT(func(v AzureResourceErrorInfoResponse) []AzureResourceErrorInfoResponse { return v.Details }).(AzureResourceErrorInfoResponseArrayOutput)
+}
+
+// The error message.
+func (o AzureResourceErrorInfoResponseOutput) Message() pulumi.StringOutput {
+	return o.ApplyT(func(v AzureResourceErrorInfoResponse) string { return v.Message }).(pulumi.StringOutput)
+}
+
+type AzureResourceErrorInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (AzureResourceErrorInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AzureResourceErrorInfoResponse)(nil)).Elem()
+}
+
+func (o AzureResourceErrorInfoResponsePtrOutput) ToAzureResourceErrorInfoResponsePtrOutput() AzureResourceErrorInfoResponsePtrOutput {
+	return o
+}
+
+func (o AzureResourceErrorInfoResponsePtrOutput) ToAzureResourceErrorInfoResponsePtrOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponsePtrOutput {
+	return o
+}
+
+func (o AzureResourceErrorInfoResponsePtrOutput) Elem() AzureResourceErrorInfoResponseOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) AzureResourceErrorInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret AzureResourceErrorInfoResponse
+		return ret
+	}).(AzureResourceErrorInfoResponseOutput)
+}
+
+// The error code.
+func (o AzureResourceErrorInfoResponsePtrOutput) Code() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Code
+	}).(pulumi.StringPtrOutput)
+}
+
+// The error details.
+func (o AzureResourceErrorInfoResponsePtrOutput) Details() AzureResourceErrorInfoResponseArrayOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) []AzureResourceErrorInfoResponse {
+		if v == nil {
+			return nil
+		}
+		return v.Details
+	}).(AzureResourceErrorInfoResponseArrayOutput)
+}
+
+// The error message.
+func (o AzureResourceErrorInfoResponsePtrOutput) Message() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AzureResourceErrorInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Message
+	}).(pulumi.StringPtrOutput)
+}
+
+type AzureResourceErrorInfoResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (AzureResourceErrorInfoResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AzureResourceErrorInfoResponse)(nil)).Elem()
+}
+
+func (o AzureResourceErrorInfoResponseArrayOutput) ToAzureResourceErrorInfoResponseArrayOutput() AzureResourceErrorInfoResponseArrayOutput {
+	return o
+}
+
+func (o AzureResourceErrorInfoResponseArrayOutput) ToAzureResourceErrorInfoResponseArrayOutputWithContext(ctx context.Context) AzureResourceErrorInfoResponseArrayOutput {
+	return o
+}
+
+func (o AzureResourceErrorInfoResponseArrayOutput) Index(i pulumi.IntInput) AzureResourceErrorInfoResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AzureResourceErrorInfoResponse {
+		return vs[0].([]AzureResourceErrorInfoResponse)[vs[1].(int)]
+	}).(AzureResourceErrorInfoResponseOutput)
+}
+
 // The configuration settings of the Azure Static Web Apps provider.
 type AzureStaticWebApps struct {
 	// <code>false</code> if the Azure Static Web Apps provider should not be enabled despite the set registration; otherwise, <code>true</code>.
@@ -15911,6 +16025,143 @@ func (o ExperimentsResponsePtrOutput) RampUpRules() RampUpRuleResponseArrayOutpu
 		}
 		return v.RampUpRules
 	}).(RampUpRuleResponseArrayOutput)
+}
+
+// The expression.
+type ExpressionResponse struct {
+	// The azure resource error info.
+	Error *AzureResourceErrorInfoResponse `pulumi:"error"`
+	// The sub expressions.
+	Subexpressions []ExpressionResponse `pulumi:"subexpressions"`
+	// The text.
+	Text  *string     `pulumi:"text"`
+	Value interface{} `pulumi:"value"`
+}
+
+// The expression.
+type ExpressionResponseOutput struct{ *pulumi.OutputState }
+
+func (ExpressionResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressionResponse)(nil)).Elem()
+}
+
+func (o ExpressionResponseOutput) ToExpressionResponseOutput() ExpressionResponseOutput {
+	return o
+}
+
+func (o ExpressionResponseOutput) ToExpressionResponseOutputWithContext(ctx context.Context) ExpressionResponseOutput {
+	return o
+}
+
+// The azure resource error info.
+func (o ExpressionResponseOutput) Error() AzureResourceErrorInfoResponsePtrOutput {
+	return o.ApplyT(func(v ExpressionResponse) *AzureResourceErrorInfoResponse { return v.Error }).(AzureResourceErrorInfoResponsePtrOutput)
+}
+
+// The sub expressions.
+func (o ExpressionResponseOutput) Subexpressions() ExpressionResponseArrayOutput {
+	return o.ApplyT(func(v ExpressionResponse) []ExpressionResponse { return v.Subexpressions }).(ExpressionResponseArrayOutput)
+}
+
+// The text.
+func (o ExpressionResponseOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressionResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressionResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ExpressionResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
+type ExpressionResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressionResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressionResponse)(nil)).Elem()
+}
+
+func (o ExpressionResponseArrayOutput) ToExpressionResponseArrayOutput() ExpressionResponseArrayOutput {
+	return o
+}
+
+func (o ExpressionResponseArrayOutput) ToExpressionResponseArrayOutputWithContext(ctx context.Context) ExpressionResponseArrayOutput {
+	return o
+}
+
+func (o ExpressionResponseArrayOutput) Index(i pulumi.IntInput) ExpressionResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressionResponse {
+		return vs[0].([]ExpressionResponse)[vs[1].(int)]
+	}).(ExpressionResponseOutput)
+}
+
+// The expression root.
+type ExpressionRootResponse struct {
+	// The azure resource error info.
+	Error *AzureResourceErrorInfoResponse `pulumi:"error"`
+	// The path.
+	Path *string `pulumi:"path"`
+	// The sub expressions.
+	Subexpressions []ExpressionResponse `pulumi:"subexpressions"`
+	// The text.
+	Text  *string     `pulumi:"text"`
+	Value interface{} `pulumi:"value"`
+}
+
+// The expression root.
+type ExpressionRootResponseOutput struct{ *pulumi.OutputState }
+
+func (ExpressionRootResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ExpressionRootResponse)(nil)).Elem()
+}
+
+func (o ExpressionRootResponseOutput) ToExpressionRootResponseOutput() ExpressionRootResponseOutput {
+	return o
+}
+
+func (o ExpressionRootResponseOutput) ToExpressionRootResponseOutputWithContext(ctx context.Context) ExpressionRootResponseOutput {
+	return o
+}
+
+// The azure resource error info.
+func (o ExpressionRootResponseOutput) Error() AzureResourceErrorInfoResponsePtrOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) *AzureResourceErrorInfoResponse { return v.Error }).(AzureResourceErrorInfoResponsePtrOutput)
+}
+
+// The path.
+func (o ExpressionRootResponseOutput) Path() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) *string { return v.Path }).(pulumi.StringPtrOutput)
+}
+
+// The sub expressions.
+func (o ExpressionRootResponseOutput) Subexpressions() ExpressionResponseArrayOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) []ExpressionResponse { return v.Subexpressions }).(ExpressionResponseArrayOutput)
+}
+
+// The text.
+func (o ExpressionRootResponseOutput) Text() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) *string { return v.Text }).(pulumi.StringPtrOutput)
+}
+
+func (o ExpressionRootResponseOutput) Value() pulumi.AnyOutput {
+	return o.ApplyT(func(v ExpressionRootResponse) interface{} { return v.Value }).(pulumi.AnyOutput)
+}
+
+type ExpressionRootResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (ExpressionRootResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ExpressionRootResponse)(nil)).Elem()
+}
+
+func (o ExpressionRootResponseArrayOutput) ToExpressionRootResponseArrayOutput() ExpressionRootResponseArrayOutput {
+	return o
+}
+
+func (o ExpressionRootResponseArrayOutput) ToExpressionRootResponseArrayOutputWithContext(ctx context.Context) ExpressionRootResponseArrayOutput {
+	return o
+}
+
+func (o ExpressionRootResponseArrayOutput) Index(i pulumi.IntInput) ExpressionRootResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ExpressionRootResponse {
+		return vs[0].([]ExpressionRootResponse)[vs[1].(int)]
+	}).(ExpressionRootResponseOutput)
 }
 
 // Extended Location.
@@ -36284,6 +36535,134 @@ func (o VnetRouteResponseArrayOutput) Index(i pulumi.IntInput) VnetRouteResponse
 	}).(VnetRouteResponseOutput)
 }
 
+// Gets the workflow trigger callback URL query parameters.
+type WorkflowTriggerListCallbackUrlQueriesResponse struct {
+	// The api version.
+	ApiVersion *string `pulumi:"apiVersion"`
+	// The SAS timestamp.
+	Se *string `pulumi:"se"`
+	// The SAS signature.
+	Sig *string `pulumi:"sig"`
+	// The SAS permissions.
+	Sp *string `pulumi:"sp"`
+	// The SAS version.
+	Sv *string `pulumi:"sv"`
+}
+
+// Gets the workflow trigger callback URL query parameters.
+type WorkflowTriggerListCallbackUrlQueriesResponseOutput struct{ *pulumi.OutputState }
+
+func (WorkflowTriggerListCallbackUrlQueriesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkflowTriggerListCallbackUrlQueriesResponse)(nil)).Elem()
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesResponseOutput() WorkflowTriggerListCallbackUrlQueriesResponseOutput {
+	return o
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ToWorkflowTriggerListCallbackUrlQueriesResponseOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponseOutput {
+	return o
+}
+
+// The api version.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) ApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.ApiVersion }).(pulumi.StringPtrOutput)
+}
+
+// The SAS timestamp.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Se() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Se }).(pulumi.StringPtrOutput)
+}
+
+// The SAS signature.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sig }).(pulumi.StringPtrOutput)
+}
+
+// The SAS permissions.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sp }).(pulumi.StringPtrOutput)
+}
+
+// The SAS version.
+func (o WorkflowTriggerListCallbackUrlQueriesResponseOutput) Sv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkflowTriggerListCallbackUrlQueriesResponse) *string { return v.Sv }).(pulumi.StringPtrOutput)
+}
+
+type WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkflowTriggerListCallbackUrlQueriesResponse)(nil)).Elem()
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutput() WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ToWorkflowTriggerListCallbackUrlQueriesResponsePtrOutputWithContext(ctx context.Context) WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput {
+	return o
+}
+
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Elem() WorkflowTriggerListCallbackUrlQueriesResponseOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) WorkflowTriggerListCallbackUrlQueriesResponse {
+		if v != nil {
+			return *v
+		}
+		var ret WorkflowTriggerListCallbackUrlQueriesResponse
+		return ret
+	}).(WorkflowTriggerListCallbackUrlQueriesResponseOutput)
+}
+
+// The api version.
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) ApiVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ApiVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS timestamp.
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Se() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Se
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS signature.
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Sig() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sig
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS permissions.
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Sp() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sp
+	}).(pulumi.StringPtrOutput)
+}
+
+// The SAS version.
+func (o WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput) Sv() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkflowTriggerListCallbackUrlQueriesResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Sv
+	}).(pulumi.StringPtrOutput)
+}
+
 // The WSDL definition
 type WsdlDefinition struct {
 	// The WSDL content
@@ -36960,6 +37339,9 @@ func init() {
 	pulumi.RegisterOutputType(AzureBlobStorageHttpLogsConfigPtrOutput{})
 	pulumi.RegisterOutputType(AzureBlobStorageHttpLogsConfigResponseOutput{})
 	pulumi.RegisterOutputType(AzureBlobStorageHttpLogsConfigResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureResourceErrorInfoResponseOutput{})
+	pulumi.RegisterOutputType(AzureResourceErrorInfoResponsePtrOutput{})
+	pulumi.RegisterOutputType(AzureResourceErrorInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(AzureStaticWebAppsOutput{})
 	pulumi.RegisterOutputType(AzureStaticWebAppsPtrOutput{})
 	pulumi.RegisterOutputType(AzureStaticWebAppsRegistrationOutput{})
@@ -37091,6 +37473,10 @@ func init() {
 	pulumi.RegisterOutputType(ExperimentsPtrOutput{})
 	pulumi.RegisterOutputType(ExperimentsResponseOutput{})
 	pulumi.RegisterOutputType(ExperimentsResponsePtrOutput{})
+	pulumi.RegisterOutputType(ExpressionResponseOutput{})
+	pulumi.RegisterOutputType(ExpressionResponseArrayOutput{})
+	pulumi.RegisterOutputType(ExpressionRootResponseOutput{})
+	pulumi.RegisterOutputType(ExpressionRootResponseArrayOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationPtrOutput{})
 	pulumi.RegisterOutputType(ExtendedLocationResponseOutput{})
@@ -37365,6 +37751,8 @@ func init() {
 	pulumi.RegisterOutputType(VirtualNetworkProfileResponseOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponseOutput{})
 	pulumi.RegisterOutputType(VnetRouteResponseArrayOutput{})
+	pulumi.RegisterOutputType(WorkflowTriggerListCallbackUrlQueriesResponseOutput{})
+	pulumi.RegisterOutputType(WorkflowTriggerListCallbackUrlQueriesResponsePtrOutput{})
 	pulumi.RegisterOutputType(WsdlDefinitionOutput{})
 	pulumi.RegisterOutputType(WsdlDefinitionPtrOutput{})
 	pulumi.RegisterOutputType(WsdlDefinitionResponseOutput{})

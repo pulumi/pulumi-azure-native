@@ -91,6 +91,7 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:StaticSiteCustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:StaticSiteCustomDomain"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:StaticSiteCustomDomain"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:StaticSiteCustomDomain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

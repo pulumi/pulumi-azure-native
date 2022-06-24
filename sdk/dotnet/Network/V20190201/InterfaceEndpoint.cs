@@ -129,6 +129,7 @@ namespace Pulumi.AzureNative.Network.V20190201
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:InterfaceEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210801:InterfaceEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:InterfaceEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

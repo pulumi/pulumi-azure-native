@@ -154,6 +154,7 @@ namespace Pulumi.AzureNative.Network.V20200801
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:PrivateLinkService"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210801:PrivateLinkService"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:PrivateLinkService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

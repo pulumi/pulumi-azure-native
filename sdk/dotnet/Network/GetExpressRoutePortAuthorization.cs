@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// ExpressRoutePort Authorization resource definition.
-        /// API Version: 2021-08-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetExpressRoutePortAuthorizationResult> InvokeAsync(GetExpressRoutePortAuthorizationArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetExpressRoutePortAuthorizationResult>("azure-native:network:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationArgs(), options.WithDefaults());
 
         /// <summary>
         /// ExpressRoutePort Authorization resource definition.
-        /// API Version: 2021-08-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetExpressRoutePortAuthorizationResult> Invoke(GetExpressRoutePortAuthorizationInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetExpressRoutePortAuthorizationResult>("azure-native:network:getExpressRoutePortAuthorization", args ?? new GetExpressRoutePortAuthorizationInvokeArgs(), options.WithDefaults());

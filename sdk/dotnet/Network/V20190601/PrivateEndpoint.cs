@@ -123,6 +123,7 @@ namespace Pulumi.AzureNative.Network.V20190601
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:PrivateEndpoint"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210801:PrivateEndpoint"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:PrivateEndpoint"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

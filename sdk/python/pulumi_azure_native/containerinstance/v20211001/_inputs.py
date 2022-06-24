@@ -913,26 +913,27 @@ class HttpHeaderArgs:
 class ImageRegistryCredentialArgs:
     def __init__(__self__, *,
                  server: pulumi.Input[str],
-                 username: pulumi.Input[str],
                  identity: Optional[pulumi.Input[str]] = None,
                  identity_url: Optional[pulumi.Input[str]] = None,
-                 password: Optional[pulumi.Input[str]] = None):
+                 password: Optional[pulumi.Input[str]] = None,
+                 username: Optional[pulumi.Input[str]] = None):
         """
         Image registry credential.
         :param pulumi.Input[str] server: The Docker image registry server without a protocol such as "http" and "https".
-        :param pulumi.Input[str] username: The username for the private registry.
         :param pulumi.Input[str] identity: The identity for the private registry.
         :param pulumi.Input[str] identity_url: The identity URL for the private registry.
         :param pulumi.Input[str] password: The password for the private registry.
+        :param pulumi.Input[str] username: The username for the private registry.
         """
         pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if identity_url is not None:
             pulumi.set(__self__, "identity_url", identity_url)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -945,18 +946,6 @@ class ImageRegistryCredentialArgs:
     @server.setter
     def server(self, value: pulumi.Input[str]):
         pulumi.set(self, "server", value)
-
-    @property
-    @pulumi.getter
-    def username(self) -> pulumi.Input[str]:
-        """
-        The username for the private registry.
-        """
-        return pulumi.get(self, "username")
-
-    @username.setter
-    def username(self, value: pulumi.Input[str]):
-        pulumi.set(self, "username", value)
 
     @property
     @pulumi.getter
@@ -993,6 +982,18 @@ class ImageRegistryCredentialArgs:
     @password.setter
     def password(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[pulumi.Input[str]]:
+        """
+        The username for the private registry.
+        """
+        return pulumi.get(self, "username")
+
+    @username.setter
+    def username(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "username", value)
 
 
 @pulumi.input_type

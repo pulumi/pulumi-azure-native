@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure-native:web:AppServiceEnvironment":
 		r = &AppServiceEnvironment{}
+	case "azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration":
+		r = &AppServiceEnvironmentAseCustomDnsSuffixConfiguration{}
 	case "azure-native:web:AppServiceEnvironmentPrivateEndpointConnection":
 		r = &AppServiceEnvironmentPrivateEndpointConnection{}
 	case "azure-native:web:AppServicePlan":
@@ -45,6 +47,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StaticSite{}
 	case "azure-native:web:StaticSiteCustomDomain":
 		r = &StaticSiteCustomDomain{}
+	case "azure-native:web:StaticSiteLinkedBackend":
+		r = &StaticSiteLinkedBackend{}
+	case "azure-native:web:StaticSiteLinkedBackendForBuild":
+		r = &StaticSiteLinkedBackendForBuild{}
 	case "azure-native:web:StaticSitePrivateEndpointConnection":
 		r = &StaticSitePrivateEndpointConnection{}
 	case "azure-native:web:StaticSiteUserProvidedFunctionAppForStaticSite":

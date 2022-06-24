@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.Web.V20210201
                     new Pulumi.Alias { Type = "azure-native:web/v20201001:WebAppSwiftVirtualNetworkConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

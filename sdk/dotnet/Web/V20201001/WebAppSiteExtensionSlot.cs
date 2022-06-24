@@ -193,6 +193,7 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSiteExtensionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSiteExtensionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSiteExtensionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -29,7 +29,7 @@ namespace Pulumi.AzureNative.DataFactory.V20180601.Inputs
         public InputUnion<Inputs.AzureKeyVaultSecretReferenceArgs, Inputs.SecureStringArgs> Password { get; set; } = null!;
 
         /// <summary>
-        /// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        /// The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
         /// </summary>
         [Input("url", required: true)]
         public Input<object> Url { get; set; } = null!;

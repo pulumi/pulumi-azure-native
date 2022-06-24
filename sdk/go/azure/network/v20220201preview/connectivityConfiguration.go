@@ -69,6 +69,9 @@ func NewConnectivityConfiguration(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network/v20210501preview:ConnectivityConfiguration"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20220101:ConnectivityConfiguration"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/v20220401preview:ConnectivityConfiguration"),
 		},
 	})

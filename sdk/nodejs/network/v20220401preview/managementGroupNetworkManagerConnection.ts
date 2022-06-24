@@ -91,7 +91,7 @@ export class ManagementGroupNetworkManagerConnection extends pulumi.CustomResour
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network/v20220101:ManagementGroupNetworkManagerConnection" }, { type: "azure-native:network/v20220201preview:ManagementGroupNetworkManagerConnection" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(ManagementGroupNetworkManagerConnection.__pulumiType, name, resourceInputs, opts);
     }

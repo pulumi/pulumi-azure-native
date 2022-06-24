@@ -108,7 +108,7 @@ export class VirtualHubIpConfiguration extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200801:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20201101:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210201:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210301:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210801:VirtualHubIpConfiguration" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:network:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200601:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20200801:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20201101:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210201:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210301:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210501:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20210801:VirtualHubIpConfiguration" }, { type: "azure-native:network/v20220101:VirtualHubIpConfiguration" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VirtualHubIpConfiguration.__pulumiType, name, resourceInputs, opts);
     }

@@ -143,7 +143,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
                  __props__=None):
         """
         Virtual Router Peering resource.
-        API Version: 2021-08-01.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -163,7 +163,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Virtual Router Peering resource.
-        API Version: 2021-08-01.
+        API Version: 2022-01-01.
 
         :param str resource_name: The name of the resource.
         :param VirtualRouterPeeringArgs args: The arguments to use to populate this resource's properties.
@@ -213,7 +213,7 @@ class VirtualRouterPeering(pulumi.CustomResource):
             __props__.__dict__["etag"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20190701:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualRouterPeering")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:network/v20190701:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20190801:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20190901:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20191101:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20191201:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200301:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200401:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200501:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200601:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200701:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20200801:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20201101:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20210201:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20210301:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20210501:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20210801:VirtualRouterPeering"), pulumi.Alias(type_="azure-native:network/v20220101:VirtualRouterPeering")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(VirtualRouterPeering, __self__).__init__(
             'azure-native:network:VirtualRouterPeering',

@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.Network
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:ApplicationGatewayPrivateEndpointConnection"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210801:ApplicationGatewayPrivateEndpointConnection"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ApplicationGatewayPrivateEndpointConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

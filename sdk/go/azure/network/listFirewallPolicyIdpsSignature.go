@@ -11,7 +11,7 @@ import (
 )
 
 // Query result
-// API Version: 2021-08-01.
+// API Version: 2022-01-01.
 func ListFirewallPolicyIdpsSignature(ctx *pulumi.Context, args *ListFirewallPolicyIdpsSignatureArgs, opts ...pulumi.InvokeOption) (*ListFirewallPolicyIdpsSignatureResult, error) {
 	var rv ListFirewallPolicyIdpsSignatureResult
 	err := ctx.Invoke("azure-native:network:listFirewallPolicyIdpsSignature", args, &rv, opts...)

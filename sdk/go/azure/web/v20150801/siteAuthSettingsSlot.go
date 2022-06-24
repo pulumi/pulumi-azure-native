@@ -165,6 +165,9 @@ func NewSiteAuthSettingsSlot(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210301:SiteAuthSettingsSlot"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20220301:SiteAuthSettingsSlot"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteAuthSettingsSlot

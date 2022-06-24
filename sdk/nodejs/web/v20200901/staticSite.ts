@@ -132,7 +132,7 @@ export class StaticSite extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web:StaticSite" }, { type: "azure-native:web/v20190801:StaticSite" }, { type: "azure-native:web/v20200601:StaticSite" }, { type: "azure-native:web/v20201001:StaticSite" }, { type: "azure-native:web/v20201201:StaticSite" }, { type: "azure-native:web/v20210101:StaticSite" }, { type: "azure-native:web/v20210115:StaticSite" }, { type: "azure-native:web/v20210201:StaticSite" }, { type: "azure-native:web/v20210301:StaticSite" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web:StaticSite" }, { type: "azure-native:web/v20190801:StaticSite" }, { type: "azure-native:web/v20200601:StaticSite" }, { type: "azure-native:web/v20201001:StaticSite" }, { type: "azure-native:web/v20201201:StaticSite" }, { type: "azure-native:web/v20210101:StaticSite" }, { type: "azure-native:web/v20210115:StaticSite" }, { type: "azure-native:web/v20210201:StaticSite" }, { type: "azure-native:web/v20210301:StaticSite" }, { type: "azure-native:web/v20220301:StaticSite" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(StaticSite.__pulumiType, name, resourceInputs, opts);
     }

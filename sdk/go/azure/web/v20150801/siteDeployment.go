@@ -100,6 +100,9 @@ func NewSiteDeployment(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210301:SiteDeployment"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20220301:SiteDeployment"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteDeployment

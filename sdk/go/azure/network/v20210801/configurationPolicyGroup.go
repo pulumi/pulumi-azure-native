@@ -50,6 +50,9 @@ func NewConfigurationPolicyGroup(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network:ConfigurationPolicyGroup"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20220101:ConfigurationPolicyGroup"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ConfigurationPolicyGroup

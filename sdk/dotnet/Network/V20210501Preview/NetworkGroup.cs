@@ -90,6 +90,7 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
                 {
                     new Pulumi.Alias { Type = "azure-native:network:NetworkGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:NetworkGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220201preview:NetworkGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220401preview:NetworkGroup"},
                 },

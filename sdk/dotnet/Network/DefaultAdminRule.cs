@@ -153,6 +153,7 @@ namespace Pulumi.AzureNative.Network
                 {
                     new Pulumi.Alias { Type = "azure-native:network/v20210201preview:DefaultAdminRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501preview:DefaultAdminRule"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:DefaultAdminRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220201preview:DefaultAdminRule"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220401preview:DefaultAdminRule"},
                 },

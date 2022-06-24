@@ -12,7 +12,7 @@ import (
 )
 
 // ExpressRoutePort Authorization resource definition.
-// API Version: 2021-08-01.
+// API Version: 2022-01-01.
 type ExpressRoutePortAuthorization struct {
 	pulumi.CustomResourceState
 
@@ -48,6 +48,9 @@ func NewExpressRoutePortAuthorization(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:network/v20210801:ExpressRoutePortAuthorization"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20220101:ExpressRoutePortAuthorization"),
 		},
 	})
 	opts = append(opts, aliases)

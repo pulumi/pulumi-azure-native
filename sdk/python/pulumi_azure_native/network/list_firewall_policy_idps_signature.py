@@ -68,7 +68,7 @@ def list_firewall_policy_idps_signature(filters: Optional[Sequence[pulumi.InputT
                                         opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableListFirewallPolicyIdpsSignatureResult:
     """
     Query result
-    API Version: 2021-08-01.
+    API Version: 2022-01-01.
 
 
     :param Sequence[pulumi.InputType['FilterItems']] filters: Contain all filters names and values
@@ -109,7 +109,7 @@ def list_firewall_policy_idps_signature_output(filters: Optional[pulumi.Input[Op
                                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[ListFirewallPolicyIdpsSignatureResult]:
     """
     Query result
-    API Version: 2021-08-01.
+    API Version: 2022-01-01.
 
 
     :param Sequence[pulumi.InputType['FilterItems']] filters: Contain all filters names and values

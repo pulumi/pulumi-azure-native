@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.Web.V20210101
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHybridConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHybridConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHybridConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHybridConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

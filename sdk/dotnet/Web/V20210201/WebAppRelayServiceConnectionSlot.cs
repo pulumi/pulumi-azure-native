@@ -92,6 +92,7 @@ namespace Pulumi.AzureNative.Web.V20210201
                     new Pulumi.Alias { Type = "azure-native:web/v20210101:WebAppRelayServiceConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppRelayServiceConnectionSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppRelayServiceConnectionSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppRelayServiceConnectionSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

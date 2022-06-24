@@ -87,6 +87,7 @@ namespace Pulumi.AzureNative.Web.V20201001
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppSwiftVirtualNetworkConnection"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppSwiftVirtualNetworkConnection"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppSwiftVirtualNetworkConnection"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

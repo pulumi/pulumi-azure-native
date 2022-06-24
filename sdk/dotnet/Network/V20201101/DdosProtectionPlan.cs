@@ -115,6 +115,7 @@ namespace Pulumi.AzureNative.Network.V20201101
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:DdosProtectionPlan"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210801:DdosProtectionPlan"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:DdosProtectionPlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

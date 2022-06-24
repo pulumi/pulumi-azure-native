@@ -5627,7 +5627,7 @@ type HttpLinkedService struct {
 	// Type of linked service.
 	// Expected value is 'HttpServer'.
 	Type string `pulumi:"type"`
-	// The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
+	// The base URL of the HTTP endpoint, e.g. https://www.microsoft.com. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
 	// User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -5658,7 +5658,7 @@ type HttpLinkedServiceResponse struct {
 	// Type of linked service.
 	// Expected value is 'HttpServer'.
 	Type string `pulumi:"type"`
-	// The base URL of the HTTP endpoint, e.g. http://www.microsoft.com. Type: string (or Expression with resultType string).
+	// The base URL of the HTTP endpoint, e.g. https://www.microsoft.com. Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
 	// User name for Basic, Digest, or Windows authentication. Type: string (or Expression with resultType string).
 	UserName interface{} `pulumi:"userName"`
@@ -10859,7 +10859,7 @@ type WebAnonymousAuthentication struct {
 	// Type of authentication used to connect to the web table source.
 	// Expected value is 'Anonymous'.
 	AuthenticationType string `pulumi:"authenticationType"`
-	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+	// The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
 }
 
@@ -10868,7 +10868,7 @@ type WebAnonymousAuthenticationResponse struct {
 	// Type of authentication used to connect to the web table source.
 	// Expected value is 'Anonymous'.
 	AuthenticationType string `pulumi:"authenticationType"`
-	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+	// The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
 }
 
@@ -10879,7 +10879,7 @@ type WebBasicAuthentication struct {
 	AuthenticationType string `pulumi:"authenticationType"`
 	// The password for Basic authentication.
 	Password interface{} `pulumi:"password"`
-	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+	// The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -10892,7 +10892,7 @@ type WebBasicAuthenticationResponse struct {
 	AuthenticationType string `pulumi:"authenticationType"`
 	// The password for Basic authentication.
 	Password interface{} `pulumi:"password"`
-	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+	// The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
 	// User name for Basic authentication. Type: string (or Expression with resultType string).
 	Username interface{} `pulumi:"username"`
@@ -10907,7 +10907,7 @@ type WebClientCertificateAuthentication struct {
 	Password interface{} `pulumi:"password"`
 	// Base64-encoded contents of a PFX file.
 	Pfx interface{} `pulumi:"pfx"`
-	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+	// The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
 }
 
@@ -10920,7 +10920,7 @@ type WebClientCertificateAuthenticationResponse struct {
 	Password interface{} `pulumi:"password"`
 	// Base64-encoded contents of a PFX file.
 	Pfx interface{} `pulumi:"pfx"`
-	// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+	// The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
 	Url interface{} `pulumi:"url"`
 }
 

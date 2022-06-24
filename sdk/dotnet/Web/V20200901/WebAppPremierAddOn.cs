@@ -119,6 +119,7 @@ namespace Pulumi.AzureNative.Web.V20200901
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPremierAddOn"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPremierAddOn"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPremierAddOn"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

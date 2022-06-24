@@ -35,7 +35,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20211001.Outputs
         /// <summary>
         /// The username for the private registry.
         /// </summary>
-        public readonly string Username;
+        public readonly string? Username;
 
         [OutputConstructor]
         private ImageRegistryCredentialResponse(
@@ -47,7 +47,7 @@ namespace Pulumi.AzureNative.ContainerInstance.V20211001.Outputs
 
             string server,
 
-            string username)
+            string? username)
         {
             Identity = identity;
             IdentityUrl = identityUrl;

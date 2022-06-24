@@ -138,6 +138,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:SiteDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:SiteDeploymentSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:SiteDeploymentSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:SiteDeploymentSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

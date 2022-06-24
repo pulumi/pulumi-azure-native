@@ -107,6 +107,7 @@ namespace Pulumi.AzureNative.Web.V20150801
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:ServerFarmRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:ServerFarmRouteForVnet"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:ServerFarmRouteForVnet"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:ServerFarmRouteForVnet"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -215,6 +215,7 @@ namespace Pulumi.AzureNative.Web.V20210101
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:AppServicePlan"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:AppServicePlan"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:AppServicePlan"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

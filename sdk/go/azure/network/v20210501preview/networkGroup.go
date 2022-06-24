@@ -57,6 +57,9 @@ func NewNetworkGroup(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network/v20210201preview:NetworkGroup"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20220101:NetworkGroup"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/v20220201preview:NetworkGroup"),
 		},
 		{

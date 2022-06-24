@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.Network
 {
     /// <summary>
     /// ExpressRoutePort Authorization resource definition.
-    /// API Version: 2021-08-01.
+    /// API Version: 2022-01-01.
     /// </summary>
     [AzureNativeResourceType("azure-native:network:ExpressRoutePortAuthorization")]
     public partial class ExpressRoutePortAuthorization : Pulumi.CustomResource
@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network/v20210801:ExpressRoutePortAuthorization"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:ExpressRoutePortAuthorization"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

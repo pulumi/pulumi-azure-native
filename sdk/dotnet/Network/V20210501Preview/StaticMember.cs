@@ -71,6 +71,7 @@ namespace Pulumi.AzureNative.Network.V20210501Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network:StaticMember"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:StaticMember"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220201preview:StaticMember"},
                     new Pulumi.Alias { Type = "azure-native:network/v20220401preview:StaticMember"},
                 },

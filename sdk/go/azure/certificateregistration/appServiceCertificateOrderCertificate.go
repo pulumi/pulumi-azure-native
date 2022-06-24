@@ -83,6 +83,9 @@ func NewAppServiceCertificateOrderCertificate(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:certificateregistration/v20210301:AppServiceCertificateOrderCertificate"),
 		},
+		{
+			Type: pulumi.String("azure-native:certificateregistration/v20220301:AppServiceCertificateOrderCertificate"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AppServiceCertificateOrderCertificate

@@ -3988,7 +3988,7 @@ type ImageRegistryCredential struct {
 	// The Docker image registry server without a protocol such as "http" and "https".
 	Server string `pulumi:"server"`
 	// The username for the private registry.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // ImageRegistryCredentialInput is an input type that accepts ImageRegistryCredentialArgs and ImageRegistryCredentialOutput values.
@@ -4013,7 +4013,7 @@ type ImageRegistryCredentialArgs struct {
 	// The Docker image registry server without a protocol such as "http" and "https".
 	Server pulumi.StringInput `pulumi:"server"`
 	// The username for the private registry.
-	Username pulumi.StringInput `pulumi:"username"`
+	Username pulumi.StringPtrInput `pulumi:"username"`
 }
 
 func (ImageRegistryCredentialArgs) ElementType() reflect.Type {
@@ -4089,8 +4089,8 @@ func (o ImageRegistryCredentialOutput) Server() pulumi.StringOutput {
 }
 
 // The username for the private registry.
-func (o ImageRegistryCredentialOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageRegistryCredential) string { return v.Username }).(pulumi.StringOutput)
+func (o ImageRegistryCredentialOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRegistryCredential) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ImageRegistryCredentialArrayOutput struct{ *pulumi.OutputState }
@@ -4124,7 +4124,7 @@ type ImageRegistryCredentialResponse struct {
 	// The Docker image registry server without a protocol such as "http" and "https".
 	Server string `pulumi:"server"`
 	// The username for the private registry.
-	Username string `pulumi:"username"`
+	Username *string `pulumi:"username"`
 }
 
 // Image registry credential.
@@ -4163,8 +4163,8 @@ func (o ImageRegistryCredentialResponseOutput) Server() pulumi.StringOutput {
 }
 
 // The username for the private registry.
-func (o ImageRegistryCredentialResponseOutput) Username() pulumi.StringOutput {
-	return o.ApplyT(func(v ImageRegistryCredentialResponse) string { return v.Username }).(pulumi.StringOutput)
+func (o ImageRegistryCredentialResponseOutput) Username() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ImageRegistryCredentialResponse) *string { return v.Username }).(pulumi.StringPtrOutput)
 }
 
 type ImageRegistryCredentialResponseArrayOutput struct{ *pulumi.OutputState }

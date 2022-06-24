@@ -1357,26 +1357,27 @@ class ImageRegistryCredentialResponse(dict):
 
     def __init__(__self__, *,
                  server: str,
-                 username: str,
                  identity: Optional[str] = None,
                  identity_url: Optional[str] = None,
-                 password: Optional[str] = None):
+                 password: Optional[str] = None,
+                 username: Optional[str] = None):
         """
         Image registry credential.
         :param str server: The Docker image registry server without a protocol such as "http" and "https".
-        :param str username: The username for the private registry.
         :param str identity: The identity for the private registry.
         :param str identity_url: The identity URL for the private registry.
         :param str password: The password for the private registry.
+        :param str username: The username for the private registry.
         """
         pulumi.set(__self__, "server", server)
-        pulumi.set(__self__, "username", username)
         if identity is not None:
             pulumi.set(__self__, "identity", identity)
         if identity_url is not None:
             pulumi.set(__self__, "identity_url", identity_url)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if username is not None:
+            pulumi.set(__self__, "username", username)
 
     @property
     @pulumi.getter
@@ -1385,14 +1386,6 @@ class ImageRegistryCredentialResponse(dict):
         The Docker image registry server without a protocol such as "http" and "https".
         """
         return pulumi.get(self, "server")
-
-    @property
-    @pulumi.getter
-    def username(self) -> str:
-        """
-        The username for the private registry.
-        """
-        return pulumi.get(self, "username")
 
     @property
     @pulumi.getter
@@ -1417,6 +1410,14 @@ class ImageRegistryCredentialResponse(dict):
         The password for the private registry.
         """
         return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter
+    def username(self) -> Optional[str]:
+        """
+        The username for the private registry.
+        """
+        return pulumi.get(self, "username")
 
 
 @pulumi.output_type

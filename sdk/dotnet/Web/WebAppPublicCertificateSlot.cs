@@ -89,6 +89,7 @@ namespace Pulumi.AzureNative.Web
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppPublicCertificateSlot"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppPublicCertificateSlot"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppPublicCertificateSlot"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

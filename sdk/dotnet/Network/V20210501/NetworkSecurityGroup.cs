@@ -152,6 +152,7 @@ namespace Pulumi.AzureNative.Network.V20210501
                     new Pulumi.Alias { Type = "azure-native:network/v20210201:NetworkSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:NetworkSecurityGroup"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210801:NetworkSecurityGroup"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:NetworkSecurityGroup"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -120,6 +120,7 @@ namespace Pulumi.AzureNative.Network.V20190201
                     new Pulumi.Alias { Type = "azure-native:network/v20210301:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210501:WebApplicationFirewallPolicy"},
                     new Pulumi.Alias { Type = "azure-native:network/v20210801:WebApplicationFirewallPolicy"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220101:WebApplicationFirewallPolicy"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

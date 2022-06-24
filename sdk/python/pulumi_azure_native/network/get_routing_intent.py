@@ -110,7 +110,7 @@ def get_routing_intent(resource_group_name: Optional[str] = None,
                        opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetRoutingIntentResult:
     """
     The routing intent child resource of a Virtual hub.
-    API Version: 2021-08-01.
+    API Version: 2022-01-01.
 
 
     :param str resource_group_name: The resource group name of the RoutingIntent.
@@ -143,7 +143,7 @@ def get_routing_intent_output(resource_group_name: Optional[pulumi.Input[str]] =
                               opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetRoutingIntentResult]:
     """
     The routing intent child resource of a Virtual hub.
-    API Version: 2021-08-01.
+    API Version: 2022-01-01.
 
 
     :param str resource_group_name: The resource group name of the RoutingIntent.

@@ -60,6 +60,9 @@ func NewAdminRuleCollection(ctx *pulumi.Context,
 			Type: pulumi.String("azure-native:network/v20210201preview:AdminRuleCollection"),
 		},
 		{
+			Type: pulumi.String("azure-native:network/v20220101:AdminRuleCollection"),
+		},
+		{
 			Type: pulumi.String("azure-native:network/v20220201preview:AdminRuleCollection"),
 		},
 		{

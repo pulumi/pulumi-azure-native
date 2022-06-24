@@ -202,6 +202,7 @@ namespace Pulumi.AzureNative.CertificateRegistration
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210115:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210201:AppServiceCertificateOrder"},
                     new Pulumi.Alias { Type = "azure-native:certificateregistration/v20210301:AppServiceCertificateOrder"},
+                    new Pulumi.Alias { Type = "azure-native:certificateregistration/v20220301:AppServiceCertificateOrder"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

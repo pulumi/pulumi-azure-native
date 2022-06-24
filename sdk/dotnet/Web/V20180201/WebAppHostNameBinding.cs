@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.Web.V20180201
                     new Pulumi.Alias { Type = "azure-native:web/v20210115:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210201:WebAppHostNameBinding"},
                     new Pulumi.Alias { Type = "azure-native:web/v20210301:WebAppHostNameBinding"},
+                    new Pulumi.Alias { Type = "azure-native:web/v20220301:WebAppHostNameBinding"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

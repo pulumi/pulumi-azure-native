@@ -26,7 +26,7 @@ namespace Pulumi.AzureNative.DataFactory.V20170901Preview.Outputs
         /// </summary>
         public readonly Union<Outputs.AzureKeyVaultSecretReferenceResponse, Outputs.SecureStringResponse> Password;
         /// <summary>
-        /// The URL of the web service endpoint, e.g. http://www.microsoft.com . Type: string (or Expression with resultType string).
+        /// The URL of the web service endpoint, e.g. https://www.microsoft.com . Type: string (or Expression with resultType string).
         /// </summary>
         public readonly object Url;
         /// <summary>

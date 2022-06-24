@@ -84,6 +84,9 @@ func NewSiteMetadata(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:web/v20210301:SiteMetadata"),
 		},
+		{
+			Type: pulumi.String("azure-native:web/v20220301:SiteMetadata"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource SiteMetadata

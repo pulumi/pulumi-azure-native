@@ -78,6 +78,9 @@ func NewHubRouteTable(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20210801:HubRouteTable"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20220101:HubRouteTable"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource HubRouteTable

@@ -12,7 +12,7 @@ import (
 )
 
 // VpnServerConfigurationPolicyGroup Resource.
-// API Version: 2021-08-01.
+// API Version: 2022-01-01.
 type ConfigurationPolicyGroup struct {
 	pulumi.CustomResourceState
 
@@ -50,6 +50,9 @@ func NewConfigurationPolicyGroup(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:network/v20210801:ConfigurationPolicyGroup"),
+		},
+		{
+			Type: pulumi.String("azure-native:network/v20220101:ConfigurationPolicyGroup"),
 		},
 	})
 	opts = append(opts, aliases)

@@ -75,6 +75,7 @@ namespace Pulumi.AzureNative.DomainRegistration.V20210115
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20210101:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20210201:DomainOwnershipIdentifier"},
                     new Pulumi.Alias { Type = "azure-native:domainregistration/v20210301:DomainOwnershipIdentifier"},
+                    new Pulumi.Alias { Type = "azure-native:domainregistration/v20220301:DomainOwnershipIdentifier"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

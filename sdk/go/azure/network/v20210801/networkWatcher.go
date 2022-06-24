@@ -148,6 +148,9 @@ func NewNetworkWatcher(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network/v20210501:NetworkWatcher"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20220101:NetworkWatcher"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource NetworkWatcher

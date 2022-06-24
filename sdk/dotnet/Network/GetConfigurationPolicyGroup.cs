@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Network
     {
         /// <summary>
         /// VpnServerConfigurationPolicyGroup Resource.
-        /// API Version: 2021-08-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Task<GetConfigurationPolicyGroupResult> InvokeAsync(GetConfigurationPolicyGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationPolicyGroupResult>("azure-native:network:getConfigurationPolicyGroup", args ?? new GetConfigurationPolicyGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// VpnServerConfigurationPolicyGroup Resource.
-        /// API Version: 2021-08-01.
+        /// API Version: 2022-01-01.
         /// </summary>
         public static Output<GetConfigurationPolicyGroupResult> Invoke(GetConfigurationPolicyGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetConfigurationPolicyGroupResult>("azure-native:network:getConfigurationPolicyGroup", args ?? new GetConfigurationPolicyGroupInvokeArgs(), options.WithDefaults());

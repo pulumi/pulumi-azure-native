@@ -340,7 +340,7 @@ export class WebApp extends pulumi.CustomResource {
             resourceInputs["virtualNetworkSubnetId"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebApp" }, { type: "azure-native:web/v20160801:WebApp" }, { type: "azure-native:web/v20180201:WebApp" }, { type: "azure-native:web/v20181101:WebApp" }, { type: "azure-native:web/v20190801:WebApp" }, { type: "azure-native:web/v20200601:WebApp" }, { type: "azure-native:web/v20200901:WebApp" }, { type: "azure-native:web/v20201001:WebApp" }, { type: "azure-native:web/v20201201:WebApp" }, { type: "azure-native:web/v20210101:WebApp" }, { type: "azure-native:web/v20210115:WebApp" }, { type: "azure-native:web/v20210201:WebApp" }, { type: "azure-native:web/v20210301:WebApp" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:web/v20150801:WebApp" }, { type: "azure-native:web/v20160801:WebApp" }, { type: "azure-native:web/v20180201:WebApp" }, { type: "azure-native:web/v20181101:WebApp" }, { type: "azure-native:web/v20190801:WebApp" }, { type: "azure-native:web/v20200601:WebApp" }, { type: "azure-native:web/v20200901:WebApp" }, { type: "azure-native:web/v20201001:WebApp" }, { type: "azure-native:web/v20201201:WebApp" }, { type: "azure-native:web/v20210101:WebApp" }, { type: "azure-native:web/v20210115:WebApp" }, { type: "azure-native:web/v20210201:WebApp" }, { type: "azure-native:web/v20210301:WebApp" }, { type: "azure-native:web/v20220301:WebApp" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(WebApp.__pulumiType, name, resourceInputs, opts);
     }
