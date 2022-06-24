@@ -1,8 +1,8 @@
 package versioning
 
 import (
-	"encoding/json"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"gopkg.in/yaml.v3"
 	"io/ioutil"
 	"os"
 	"sort"
@@ -10,9 +10,9 @@ import (
 )
 
 type ProviderSpec struct {
-	NoVersion     *bool                                          `json:"NoVersion,omitempty"`
-	SingleVersion *openapi.ApiVersion                            `json:"SingleVersion,omitempty"`
-	Rollup        *map[openapi.ApiVersion][]openapi.ResourceName `json:"Rollup,omitempty"`
+	NoVersion     *bool                                          `yaml:"NoVersion,omitempty"`
+	SingleVersion *openapi.ApiVersion                            `yaml:"SingleVersion,omitempty"`
+	Rollup        *map[openapi.ApiVersion][]openapi.ResourceName `yaml:"Rollup,omitempty"`
 }
 
 type DefaultConfig map[openapi.ProviderName]ProviderSpec
@@ -40,7 +40,7 @@ func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	}
 
 	var curatedVersion DefaultConfig
-	err = json.Unmarshal(byteValue, &curatedVersion)
+	err = yaml.Unmarshal(byteValue, &curatedVersion)
 	return curatedVersion, err
 }
 
@@ -137,6 +137,7 @@ func findLatestResourceVersions(versions VersionResources) map[openapi.ResourceN
 
 			isToStable := !openapi.IsPreview(version)
 			isFromPreview := openapi.IsPreview(latestVersion)
+			// perhaps time since last stable?
 			timeSinceLastVersion, err := timeBetweenVersions(latestVersion, version)
 			if err != nil {
 				println("unable to parse version as time", latestVersion, version, err)

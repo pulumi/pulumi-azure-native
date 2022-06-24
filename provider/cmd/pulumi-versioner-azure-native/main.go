@@ -10,8 +10,10 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/versioning"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	"gopkg.in/yaml.v3"
 	"os"
 	"path"
+	"strings"
 )
 
 func main() {
@@ -53,7 +55,7 @@ func writeAll(outputDir string) error {
 		"deprecated.json":     deprecated,
 		"active.json":         activePathVersionsJson,
 		"pending.json":        pending,
-		"v2-config.json":      v2Config,
+		"v2-config.yaml":      v2Config,
 		"v2.json":             v2,
 	})
 }
@@ -73,7 +75,13 @@ func emitJsonFiles(outDir string, files map[Filename]Json) error {
 }
 
 func emitJson(outputPath string, data Json) error {
-	formatted, err := json.MarshalIndent(data, "", "  ")
+	var formatted []byte
+	var err error
+	if strings.HasSuffix(outputPath, ".yaml") {
+		formatted, err = yaml.Marshal(data)
+	} else {
+		formatted, err = json.MarshalIndent(data, "", "  ")
+	}
 	if err != nil {
 		return errors.Wrap(err, "marshaling JSON")
 	}
