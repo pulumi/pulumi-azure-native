@@ -2,6 +2,7 @@ package versioning
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-multierror"
 	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
 	"github.com/pulumi/pulumi/pkg/v3/codegen"
@@ -49,6 +50,7 @@ func ReadDefaultConfig(path string) (DefaultConfig, error) {
 }
 
 func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig) (openapi.CuratedVersion, error) {
+	var err error
 	curatedVersion := openapi.CuratedVersion{}
 	for providerName, providerSpec := range defaultConfig {
 		definitions := map[openapi.DefinitionName]openapi.ApiVersion{}
@@ -60,14 +62,14 @@ func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfi
 		if providerSpec.Additions != nil {
 			for resourceName, apiVersion := range *providerSpec.Additions {
 				if existingVersion, ok := definitions[resourceName]; ok {
-					fmt.Printf("duplicate resource %s from %s and %s\n", resourceName, apiVersion, existingVersion)
+					err = multierror.Append(fmt.Errorf("duplicate resource %s from %s and %s\n", resourceName, apiVersion, existingVersion))
 				}
 				definitions[resourceName] = apiVersion
 			}
 		}
 		curatedVersion[providerName] = definitions
 	}
-	return curatedVersion, nil
+	return curatedVersion, err
 }
 
 func buildSpec(versions VersionResources) ProviderSpec {
