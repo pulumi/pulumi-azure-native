@@ -46,7 +46,10 @@ func writeAll(outputDir string) error {
 	deprecated := versioning.FindDeprecations(specVersions, v1)
 	pending := versioning.FindNewerVersions(specVersions, v1)
 	v2Config := versioning.BuildDefaultConfig(specVersions)
-	v2 := versioning.DefaultConfigToCuratedVersion(specVersions, v2Config)
+	v2, err := versioning.DefaultConfigToCuratedVersion(specVersions, v2Config)
+	if err != nil {
+		return err
+	}
 
 	return emitJsonFiles(outputDir, map[Filename]Json{
 		"spec.json":           specVersions,

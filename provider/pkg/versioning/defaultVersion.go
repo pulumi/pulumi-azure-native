@@ -1,7 +1,10 @@
 package versioning
 
 import (
+	"fmt"
+	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"github.com/pulumi/pulumi/pkg/v3/codegen"
 	"gopkg.in/yaml.v3"
 	"io/ioutil"
 	"os"
@@ -10,9 +13,10 @@ import (
 )
 
 type ProviderSpec struct {
-	NoVersion     *bool                                          `yaml:"NoVersion,omitempty"`
-	SingleVersion *openapi.ApiVersion                            `yaml:"SingleVersion,omitempty"`
-	Rollup        *map[openapi.ApiVersion][]openapi.ResourceName `yaml:"Rollup,omitempty"`
+	// Tracking is a single API version from which updates will be included
+	Tracking *openapi.ApiVersion `yaml:"Tracking,omitempty"`
+	// Additions are specific resource versions to be included. These *must not* overlap with any resources from the tracking version
+	Additions *map[openapi.ResourceName]openapi.ApiVersion `yaml:"Additions,omitempty"`
 }
 
 type DefaultConfig map[openapi.ProviderName]ProviderSpec
@@ -44,62 +48,61 @@ func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	return curatedVersion, err
 }
 
-func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig) openapi.CuratedVersion {
+func DefaultConfigToCuratedVersion(spec SpecVersions, defaultConfig DefaultConfig) (openapi.CuratedVersion, error) {
 	curatedVersion := openapi.CuratedVersion{}
 	for providerName, providerSpec := range defaultConfig {
-		if providerSpec.NoVersion != nil {
-			continue
-		}
 		definitions := map[openapi.DefinitionName]openapi.ApiVersion{}
-		if providerSpec.SingleVersion != nil {
-			for _, resourceName := range spec[providerName][*providerSpec.SingleVersion] {
-				definitions[resourceName] = *providerSpec.SingleVersion
+		if providerSpec.Tracking != nil {
+			for _, resourceName := range spec[providerName][*providerSpec.Tracking] {
+				definitions[resourceName] = *providerSpec.Tracking
 			}
-		} else if providerSpec.Rollup != nil {
-			maxVersion := ""
-			for apiVersion := range *providerSpec.Rollup {
-				if apiVersion > maxVersion {
-					maxVersion = apiVersion
+		}
+		if providerSpec.Additions != nil {
+			for resourceName, apiVersion := range *providerSpec.Additions {
+				if existingVersion, ok := definitions[resourceName]; ok {
+					fmt.Printf("duplicate resource %s from %s and %s\n", resourceName, apiVersion, existingVersion)
 				}
-			}
-			for apiVersion, resourceNames := range *providerSpec.Rollup {
-				if apiVersion == maxVersion {
-					// Use all resource from the latest version
-					for _, resourceName := range spec[providerName][apiVersion] {
-						definitions[resourceName] = apiVersion
-					}
-				} else {
-					for _, resourceName := range resourceNames {
-						// Don't overwrite if resource is now included in latest version
-						if _, ok := definitions[resourceName]; !ok {
-							definitions[resourceName] = apiVersion
-						}
-					}
-				}
+				definitions[resourceName] = apiVersion
 			}
 		}
 		curatedVersion[providerName] = definitions
 	}
-	return curatedVersion
+	return curatedVersion, nil
 }
 
 func buildSpec(versions VersionResources) ProviderSpec {
-	noVersion := true
 	latestVersions := findLatestVersions(versions)
 	switch len(latestVersions) {
 	case 0:
-		return ProviderSpec{
-			NoVersion: &noVersion,
-		}
+		return ProviderSpec{}
 	case 1:
+		// If single apiVersion includes all resources, track it.
 		for apiVersion := range latestVersions {
 			return ProviderSpec{
-				SingleVersion: &apiVersion,
+				Tracking: &apiVersion,
 			}
 		}
 	}
+	// If multiple versions required, track the latest and include additional resources from previous versions
+	additions := map[openapi.ResourceName]openapi.ApiVersion{}
+	maxVersion := ""
+	for apiVersion := range latestVersions {
+		if apiVersion > maxVersion {
+			maxVersion = apiVersion
+		}
+	}
+	for apiVersion, resources := range latestVersions {
+		if apiVersion == maxVersion {
+			continue
+		}
+		for _, resourceName := range resources {
+			additions[resourceName] = apiVersion
+		}
+	}
+
 	return ProviderSpec{
-		Rollup: &latestVersions,
+		Tracking:  &maxVersion,
+		Additions: &additions,
 	}
 }
 
@@ -116,6 +119,95 @@ func findLatestVersions(versions VersionResources) map[openapi.ApiVersion][]open
 }
 
 func findLatestResourceVersions(versions VersionResources) map[openapi.ResourceName]openapi.ApiVersion {
+	candidateVersions := filterCandidateVersions(versions)
+	candidates := filterVersionResources(versions, candidateVersions)
+	minimalVersionSet := findMinimalVersionSet(candidates)
+	minimalVersions := filterVersionResources(candidates, minimalVersionSet)
+
+	var orderedVersions []openapi.ApiVersion
+	for apiVersion := range minimalVersions {
+		orderedVersions = append(orderedVersions, apiVersion)
+	}
+	sort.Strings(orderedVersions)
+
+	latestResourceVersions := map[openapi.ResourceName]openapi.ApiVersion{}
+	// Descending order - newest first
+	for i := len(orderedVersions) - 1; i >= 0; i-- {
+		version := orderedVersions[i]
+		resources := minimalVersions[version]
+		for _, resourceName := range resources {
+			// Only add if not already exists
+			if _, ok := latestResourceVersions[resourceName]; !ok {
+				latestResourceVersions[resourceName] = version
+			}
+		}
+	}
+
+	return latestResourceVersions
+}
+
+func filterVersionResources(versions VersionResources, filter []openapi.ApiVersion) VersionResources {
+	filtered := VersionResources{}
+	filterSet := codegen.NewStringSet(filter...)
+	for apiVersion, resourceNames := range versions {
+		if filterSet.Has(apiVersion) {
+			filtered[apiVersion] = resourceNames
+		}
+	}
+	return filtered
+}
+
+func filterCandidateVersions(versions VersionResources) []openapi.ApiVersion {
+	orderedVersions := make([]openapi.ApiVersion, 0, len(versions))
+	for version := range versions {
+		if version != "" {
+			orderedVersions = append(orderedVersions, version)
+		}
+	}
+	sort.Strings(orderedVersions)
+
+	candidateVersions := codegen.NewStringSet()
+	hasFutureStableVersion := false
+	// Start with newest and work backwards
+	for i := len(orderedVersions) - 1; i >= 0; i-- {
+		version := orderedVersions[i]
+		if !openapi.IsPreview(version) {
+			candidateVersions.Add(version)
+			hasFutureStableVersion = true
+			continue
+		}
+		if hasFutureStableVersion {
+			continue
+		}
+		// If no more to iterate through, just add
+		if i == 0 {
+			candidateVersions.Add(version)
+		}
+		// Iterate through versions earlier than this one, descending
+		for j := i - 1; j >= 0; j-- {
+			previousVersion := orderedVersions[j]
+			// Only looking for recent stable versions
+			if openapi.IsPreview(previousVersion) {
+				continue
+			}
+			timeDiff, err := timeBetweenVersions(previousVersion, version)
+			if err != nil {
+				panic(errors.Wrapf(err, "failed parsing version as date: %s or %s", version, previousVersion))
+			}
+			const maxRecentVersionTimeInHours = 24 * 366
+			if timeDiff.Hours() > maxRecentVersionTimeInHours {
+				// Last stable is too long ago, so we'll use this preview
+				candidateVersions.Add(version)
+			}
+			break
+		}
+	}
+
+	return candidateVersions.SortedValues()
+}
+
+// findMinimalVersionSet returns the minimum set of versions required to produce all resources
+func findMinimalVersionSet(versions VersionResources) []openapi.ApiVersion {
 	orderedVersions := make([]openapi.ApiVersion, 0, len(versions))
 	for version := range versions {
 		orderedVersions = append(orderedVersions, version)
@@ -127,32 +219,24 @@ func findLatestResourceVersions(versions VersionResources) map[openapi.ResourceN
 		resourceNames := versions[version]
 		for _, resourceName := range resourceNames {
 			latestVersion := latestResourceVersions[resourceName]
-			if latestVersion > version {
-				continue
-			}
-			if latestVersion == "" {
-				latestResourceVersions[resourceName] = version
-				continue
-			}
-
-			isToStable := !openapi.IsPreview(version)
-			isFromPreview := openapi.IsPreview(latestVersion)
-			// perhaps time since last stable?
-			timeSinceLastVersion, err := timeBetweenVersions(latestVersion, version)
-			if err != nil {
-				println("unable to parse version as time", latestVersion, version, err)
-				continue
-			}
-			isLatestOld := timeSinceLastVersion.Hours() > (2 * 365 * 24)
-			if isToStable || isFromPreview || isLatestOld {
+			if version > latestVersion {
 				latestResourceVersions[resourceName] = version
 			}
 		}
 	}
-	return latestResourceVersions
+
+	minimalVersions := codegen.NewStringSet()
+	for _, apiVersion := range latestResourceVersions {
+		minimalVersions.Add(apiVersion)
+	}
+
+	return minimalVersions.SortedValues()
 }
 
 func timeBetweenVersions(from, to openapi.ApiVersion) (diff time.Duration, err error) {
+	if len(from) < 10 || len(to) < 10 {
+		return diff, fmt.Errorf("invalid version string")
+	}
 	fromTime, err := time.Parse("2006-01-02", from[:10])
 	if err != nil {
 		return diff, err
