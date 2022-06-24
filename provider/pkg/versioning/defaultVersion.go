@@ -171,6 +171,9 @@ func filterCandidateVersions(versions VersionResources) []openapi.ApiVersion {
 	// Start with newest and work backwards
 	for i := len(orderedVersions) - 1; i >= 0; i-- {
 		version := orderedVersions[i]
+		if openapi.IsPrivate(version) {
+			continue
+		}
 		if !openapi.IsPreview(version) {
 			candidateVersions.Add(version)
 			hasFutureStableVersion = true
@@ -180,30 +183,31 @@ func filterCandidateVersions(versions VersionResources) []openapi.ApiVersion {
 			continue
 		}
 		// If no more to iterate through, just add
-		if i == 0 {
+		if i == 0 || !containsRecentStable(orderedVersions[:i], version) {
 			candidateVersions.Add(version)
-		}
-		// Iterate through versions earlier than this one, descending
-		for j := i - 1; j >= 0; j-- {
-			previousVersion := orderedVersions[j]
-			// Only looking for recent stable versions
-			if openapi.IsPreview(previousVersion) {
-				continue
-			}
-			timeDiff, err := timeBetweenVersions(previousVersion, version)
-			if err != nil {
-				panic(errors.Wrapf(err, "failed parsing version as date: %s or %s", version, previousVersion))
-			}
-			const maxRecentVersionTimeInHours = 24 * 366
-			if timeDiff.Hours() > maxRecentVersionTimeInHours {
-				// Last stable is too long ago, so we'll use this preview
-				candidateVersions.Add(version)
-			}
-			break
 		}
 	}
 
 	return candidateVersions.SortedValues()
+}
+
+func containsRecentStable(orderedVersions []openapi.ApiVersion, comparisonVersion openapi.ApiVersion) bool {
+	for i := len(orderedVersions) - 1; i >= 0; i-- {
+		previousVersion := orderedVersions[i]
+		// Only looking for recent stable versions
+		if openapi.IsPreview(previousVersion) {
+			continue
+		}
+		// Check if stable version is also recent
+		timeDiff, err := timeBetweenVersions(previousVersion, comparisonVersion)
+		if err != nil {
+			panic(errors.Wrapf(err, "failed parsing version as date: %s or %s", comparisonVersion, previousVersion))
+		}
+		const maxRecentVersionTimeInHours = 24 * 366
+		isRecent := timeDiff.Hours() <= maxRecentVersionTimeInHours
+		return isRecent
+	}
+	return false
 }
 
 // findMinimalVersionSet returns the minimum set of versions required to produce all resources

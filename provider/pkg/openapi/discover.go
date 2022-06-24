@@ -16,12 +16,16 @@ import (
 
 // ProviderName e.g. aad
 type ProviderName = string
+
 // ApiVersion e.g. 2020-01-30
 type ApiVersion = string
+
 // DefinitionName is the name of either an 'invoke' or a resource (e.g. listBuckets or Bucket)
 type DefinitionName = string
+
 // ResourceName e.g. Bucket
 type ResourceName = string
+
 // InvokeName e.g. listBuckets
 type InvokeName = string
 
@@ -180,6 +184,11 @@ func SingleVersion(providers AzureProviders) AzureProviders {
 func IsPreview(apiVersion string) bool {
 	lower := strings.ToLower(apiVersion)
 	return strings.Contains(lower, "preview") || strings.Contains(lower, "beta")
+}
+
+func IsPrivate(apiVersion string) bool {
+	lower := strings.ToLower(apiVersion)
+	return strings.Contains(lower, "private")
 }
 
 // swaggerLocations returns a slice of URLs of all known Azure Resource Manager swagger files.

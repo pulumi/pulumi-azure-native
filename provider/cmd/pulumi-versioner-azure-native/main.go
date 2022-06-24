@@ -45,8 +45,9 @@ func writeAll(outputDir string) error {
 	v1 := openapi.CalculateProviderDefaults(activePathVersions, providers)
 	deprecated := versioning.FindDeprecations(specVersions, v1)
 	pending := versioning.FindNewerVersions(specVersions, v1)
-	v2Config := versioning.BuildDefaultConfig(specVersions)
-	v2, err := versioning.DefaultConfigToCuratedVersion(specVersions, v2Config)
+	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
+	v2Config := versioning.BuildDefaultConfig(specAfterRemovals)
+	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
 	if err != nil {
 		return err
 	}

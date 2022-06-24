@@ -42,15 +42,12 @@ Attestation:
 Authorization:
     Tracking: "2021-06-01"
     Additions:
-        ManagementLock: "2015-01-01"
         ManagementLockAtResourceGroupLevel: "2020-05-01"
         ManagementLockAtResourceLevel: "2020-05-01"
         ManagementLockAtSubscriptionLevel: "2020-05-01"
         ManagementLockByScope: "2020-05-01"
         PrivateLinkAssociation: "2020-05-01"
         ResourceManagementPrivateLink: "2020-05-01"
-        RoleAssignment: "2015-07-01"
-        RoleDefinition: "2015-07-01"
         RoleManagementPolicyAssignment: "2020-10-01"
 Automanage:
     Tracking: "2022-05-04"
@@ -74,13 +71,13 @@ Automation:
         Watcher: "2019-06-01"
         Webhook: "2015-10-31"
 AutonomousDevelopmentPlatform:
-    Tracking: 2020-07-01-preview
+    Tracking: 2021-11-01-preview
 AzureActiveDirectory:
     Tracking: "2021-04-01"
 AzureArcData:
     Tracking: "2021-11-01"
 AzureData:
-    Tracking: 2017-03-01-preview
+    Tracking: 2019-07-24-preview
 AzureStack:
     Tracking: 2020-06-01-preview
     Additions:
@@ -95,7 +92,7 @@ Billing:
 Blockchain:
     Tracking: 2018-06-01-preview
 Blueprint:
-    Tracking: 2017-11-11-preview
+    Tracking: 2018-11-01-preview
 BotService:
     Tracking: "2021-03-01"
     Additions:
@@ -107,8 +104,6 @@ Cache:
         LinkedServer: "2021-06-01"
         PatchSchedule: "2021-06-01"
         Redis: "2021-06-01"
-        RedisFirewallRule: "2016-04-01"
-        RedisLinkedServer: "2017-02-01"
         listRedisKeys: "2021-06-01"
 Capacity: {}
 Cdn:
@@ -161,8 +156,6 @@ ConnectedVMwarevSphere:
     Tracking: 2020-10-01-preview
 Consumption:
     Tracking: "2021-10-01"
-    Additions:
-        BudgetByResourceGroupName: "2018-10-01"
 ContainerInstance:
     Tracking: "2021-10-01"
 ContainerRegistry:
@@ -175,14 +168,11 @@ ContainerRegistry:
 ContainerService:
     Tracking: "2022-04-01"
     Additions:
-        ContainerService: "2017-01-31"
         OpenShiftManagedCluster: "2019-04-30"
         listManagedClusterAccessProfile: "2020-03-01"
 CostManagement:
     Tracking: "2021-10-01"
     Additions:
-        ReportConfig: "2018-05-31"
-        ReportConfigByResourceGroupName: "2018-05-31"
         Setting: "2019-11-01"
 CustomProviders:
     Tracking: 2018-09-01-preview
@@ -190,14 +180,7 @@ CustomerInsights:
     Tracking: "2017-04-26"
 CustomerLockbox: {}
 DBforMariaDB:
-    Tracking: 2020-01-01-privatepreview
-    Additions:
-        Configuration: "2018-06-01"
-        Database: "2018-06-01"
-        FirewallRule: "2018-06-01"
-        PrivateEndpointConnection: "2018-06-01"
-        Server: "2018-06-01"
-        VirtualNetworkRule: "2018-06-01"
+    Tracking: "2018-06-01"
 DBforMySQL:
     Tracking: "2021-05-01"
     Additions:
@@ -215,7 +198,7 @@ DBforPostgreSQL:
         ServerSecurityAlertPolicy: "2017-12-01"
         VirtualNetworkRule: "2017-12-01"
 Dashboard:
-    Tracking: 2021-09-01-preview
+    Tracking: 2022-05-01-preview
 DataBox:
     Tracking: "2022-02-01"
 DataBoxEdge:
@@ -241,19 +224,19 @@ Datadog:
 DelegatedNetwork:
     Tracking: "2021-03-15"
 DeploymentManager:
-    Tracking: 2018-09-01-preview
+    Tracking: 2019-11-01-preview
 DesktopVirtualization:
     Tracking: "2021-07-12"
 DevHub:
     Tracking: 2022-04-01-preview
 DevOps:
-    Tracking: 2019-07-01-preview
+    Tracking: 2020-07-13-preview
 DevSpaces:
     Tracking: "2019-04-01"
 DevTestLab:
     Tracking: "2018-09-15"
 DeviceUpdate:
-    Tracking: 2020-03-01-preview
+    Tracking: 2022-04-01-preview
 Devices:
     Tracking: "2022-02-05"
     Additions:
@@ -267,16 +250,6 @@ DigitalTwins:
     Tracking: "2022-05-31"
 DocumentDB:
     Tracking: "2021-10-15"
-    Additions:
-        DatabaseAccountCassandraKeyspace: "2016-03-31"
-        DatabaseAccountCassandraTable: "2016-03-31"
-        DatabaseAccountGremlinDatabase: "2016-03-31"
-        DatabaseAccountGremlinGraph: "2016-03-31"
-        DatabaseAccountMongoDBCollection: "2016-03-31"
-        DatabaseAccountMongoDBDatabase: "2016-03-31"
-        DatabaseAccountSqlContainer: "2016-03-31"
-        DatabaseAccountSqlDatabase: "2016-03-31"
-        DatabaseAccountTable: "2016-03-31"
 DomainRegistration:
     Tracking: "2021-03-01"
 Dynamics365Fraudprotection:
@@ -312,19 +285,19 @@ GuestConfiguration:
 HDInsight:
     Tracking: "2021-06-01"
 HanaOnAzure:
-    Tracking: 2017-11-03-preview
+    Tracking: 2020-02-07-preview
+    Additions:
+        HanaInstance: 2017-11-03-preview
 HardwareSecurityModules:
     Tracking: "2021-11-30"
 HealthBot:
     Tracking: "2021-08-24"
-    Additions:
-        getbot: "2020-10-20"
 HealthcareApis:
     Tracking: "2022-05-15"
 HybridCompute:
     Tracking: "2022-03-10"
 HybridConnectivity:
-    Tracking: 2021-10-06-preview
+    Tracking: 2022-05-01-preview
 HybridData:
     Tracking: "2019-06-01"
 HybridNetwork:
@@ -384,7 +357,7 @@ LabServices:
         listGlobalUserEnvironments: "2018-10-15"
         listGlobalUserLabs: "2018-10-15"
 LoadTestService:
-    Tracking: 2021-12-01-preview
+    Tracking: 2022-04-15-preview
 Logic:
     Tracking: "2019-05-01"
     Additions:
@@ -409,7 +382,7 @@ MachineLearning:
     Additions:
         WebService: "2017-01-01"
 MachineLearningCompute:
-    Tracking: 2017-06-01-preview
+    Tracking: 2017-08-01-preview
 MachineLearningExperimentation:
     Tracking: 2017-05-01-preview
 MachineLearningServices:
@@ -463,7 +436,7 @@ Migrate:
 MixedReality:
     Tracking: "2021-01-01"
 MobileNetwork:
-    Tracking: 2022-01-01-preview
+    Tracking: 2022-03-01-preview
 NetApp:
     Tracking: "2022-01-01"
 Network:
@@ -584,7 +557,7 @@ NotificationHubs:
 OffAzure:
     Tracking: "2020-07-07"
 OpenEnergyPlatform:
-    Tracking: 2021-06-01-preview
+    Tracking: 2022-04-04-preview
 OperationalInsights:
     Tracking: "2021-06-01"
     Additions:
@@ -595,10 +568,8 @@ OperationalInsights:
         Query: "2019-09-01"
         QueryPack: "2019-09-01"
         SavedSearch: "2020-08-01"
-        StorageInsight: "2015-03-20"
         StorageInsightConfig: "2020-08-01"
         getSharedKeys: "2020-08-01"
-        listWorkspaceKeys: "2015-03-20"
 OperationsManagement:
     Tracking: 2015-11-01-preview
 Orbital:
@@ -632,7 +603,7 @@ ProviderHub:
 Purview:
     Tracking: "2021-07-01"
 Quantum:
-    Tracking: 2019-11-04-preview
+    Tracking: 2022-01-10-preview
 Quota: {}
 RecommendationsService:
     Tracking: "2022-02-01"
@@ -663,7 +634,7 @@ Relay:
 ResourceConnector:
     Tracking: 2021-10-31-preview
 ResourceGraph:
-    Tracking: 2018-09-01-preview
+    Tracking: 2020-04-01-preview
 ResourceHealth: {}
 Resources:
     Tracking: "2022-02-01"
@@ -708,7 +679,7 @@ ServiceFabric:
         Cluster: "2021-06-01"
         listClusterUpgradableVersions: "2021-06-01"
 ServiceFabricMesh:
-    Tracking: 2018-07-01-preview
+    Tracking: 2018-09-01-preview
 ServiceLinker:
     Tracking: "2022-05-01"
 SignalRService:
@@ -730,15 +701,6 @@ SqlVirtualMachine:
     Tracking: "2022-02-01"
 StorSimple:
     Tracking: "2017-06-01"
-    Additions:
-        BackupScheduleGroup: "2016-10-01"
-        ChapSetting: "2016-10-01"
-        FileServer: "2016-10-01"
-        FileShare: "2016-10-01"
-        IscsiDisk: "2016-10-01"
-        IscsiServer: "2016-10-01"
-        StorageDomain: "2016-10-01"
-        getManagerEncryptionKey: "2016-10-01"
 Storage:
     Tracking: "2021-09-01"
 StorageCache:
@@ -759,76 +721,31 @@ Support: {}
 Synapse:
     Tracking: "2021-06-01"
 TestBase:
-    Tracking: 2020-12-16-preview
+    Tracking: 2022-04-01-preview
 TimeSeriesInsights:
     Tracking: 2021-06-30-preview
 VMwareCloudSimple:
     Tracking: "2019-04-01"
 VideoAnalyzer:
-    Tracking: 2021-05-01-preview
+    Tracking: 2021-11-01-preview
+    Additions:
+        listVideoStreamingToken: 2021-05-01-preview
 VideoIndexer:
-    Tracking: 2021-10-18-preview
+    Tracking: 2022-04-13-preview
 VirtualMachineImages:
     Tracking: "2022-02-14"
 VisualStudio:
-    Tracking: 2014-04-01-preview
+    Tracking: 2017-11-01-preview
 Web:
     Tracking: "2021-03-01"
     Additions:
-        CertificateCsr: "2015-08-01"
         Connection: "2016-06-01"
         ConnectionGateway: "2016-06-01"
         CustomApi: "2016-06-01"
-        HostingEnvironment: "2015-08-01"
-        ManagedHostingEnvironment: "2015-08-01"
-        ServerFarm: "2015-08-01"
-        ServerFarmRouteForVnet: "2015-08-01"
-        Site: "2015-08-01"
-        SiteAppSettings: "2015-08-01"
-        SiteAppSettingsSlot: "2015-08-01"
-        SiteAuthSettings: "2015-08-01"
-        SiteAuthSettingsSlot: "2015-08-01"
-        SiteBackupConfiguration: "2015-08-01"
-        SiteBackupConfigurationSlot: "2015-08-01"
-        SiteConnectionStrings: "2015-08-01"
-        SiteConnectionStringsSlot: "2015-08-01"
-        SiteDeployment: "2015-08-01"
-        SiteDeploymentSlot: "2015-08-01"
-        SiteHostNameBinding: "2015-08-01"
-        SiteHostNameBindingSlot: "2015-08-01"
-        SiteInstanceDeployment: "2015-08-01"
-        SiteInstanceDeploymentSlot: "2015-08-01"
-        SiteLogsConfig: "2015-08-01"
-        SiteMetadata: "2015-08-01"
-        SiteMetadataSlot: "2015-08-01"
-        SitePremierAddOn: "2015-08-01"
-        SitePremierAddOnSlot: "2015-08-01"
-        SiteRelayServiceConnection: "2015-08-01"
-        SiteRelayServiceConnectionSlot: "2015-08-01"
-        SiteSlot: "2015-08-01"
-        SiteSlotConfigNames: "2015-08-01"
-        SiteSourceControl: "2015-08-01"
-        SiteSourceControlSlot: "2015-08-01"
-        SiteVNETConnection: "2015-08-01"
-        SiteVNETConnectionSlot: "2015-08-01"
         WebAppAuthSettingsV2: "2021-02-01"
         WebAppAuthSettingsV2Slot: "2021-02-01"
         listConnectionConsentLinks: "2016-06-01"
         listCustomApiWsdlInterfaces: "2016-06-01"
-        listSiteAppSettings: "2015-08-01"
-        listSiteAppSettingsSlot: "2015-08-01"
-        listSiteAuthSettings: "2015-08-01"
-        listSiteAuthSettingsSlot: "2015-08-01"
-        listSiteBackupConfiguration: "2015-08-01"
-        listSiteBackupConfigurationSlot: "2015-08-01"
-        listSiteBackupStatusSecrets: "2015-08-01"
-        listSiteBackupStatusSecretsSlot: "2015-08-01"
-        listSiteConnectionStrings: "2015-08-01"
-        listSiteConnectionStringsSlot: "2015-08-01"
-        listSiteMetadata: "2015-08-01"
-        listSiteMetadataSlot: "2015-08-01"
-        listSitePublishingCredentials: "2015-08-01"
-        listSitePublishingCredentialsSlot: "2015-08-01"
         listWebAppHybridConnectionKeys: "2018-11-01"
         listWebAppHybridConnectionKeysSlot: "2018-11-01"
 WebPubSub:
