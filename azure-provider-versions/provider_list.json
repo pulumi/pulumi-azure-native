@@ -13028,18 +13028,6 @@
         "apiVersions": [
           "2022-04-01-preview"
         ]
-      },
-      {
-        "resourceType": "workspaces",
-        "apiVersions": [
-          "2022-04-01-preview"
-        ]
-      },
-      {
-        "resourceType": "workspaces/labels",
-        "apiVersions": [
-          "2022-04-01-preview"
-        ]
       }
     ]
   },
@@ -17808,6 +17796,7 @@
       {
         "resourceType": "Locations",
         "apiVersions": [
+          "2022-04-01-preview",
           "2022-03-01-preview",
           "2021-04-01-preview",
           "2020-06-01-preview"
@@ -17816,6 +17805,7 @@
       {
         "resourceType": "Locations/OperationStatuses",
         "apiVersions": [
+          "2022-04-01-preview",
           "2022-03-01-preview",
           "2021-04-01-preview"
         ]
@@ -17823,14 +17813,9 @@
       {
         "resourceType": "Operations",
         "apiVersions": [
+          "2022-04-01-preview",
           "2022-03-01-preview",
           "2021-04-01-preview",
-          "2020-06-01-preview"
-        ]
-      },
-      {
-        "resourceType": "packetCores",
-        "apiVersions": [
           "2020-06-01-preview"
         ]
       }
@@ -23389,6 +23374,7 @@
       {
         "resourceType": "operationStatuses",
         "apiVersions": [
+          "2022-07-01-preview",
           "2021-09-01-preview",
           "2021-06-01-preview",
           "2021-05-01-preview",
@@ -23403,6 +23389,7 @@
       {
         "resourceType": "providerRegistrations",
         "apiVersions": [
+          "2022-07-01-preview",
           "2021-09-01-preview",
           "2021-06-01-preview",
           "2021-05-01-preview",
@@ -23416,6 +23403,7 @@
       {
         "resourceType": "providerRegistrations/checkinmanifest",
         "apiVersions": [
+          "2022-07-01-preview",
           "2021-09-01-preview",
           "2021-06-01-preview",
           "2021-05-01-preview",
@@ -23429,6 +23417,7 @@
       {
         "resourceType": "providerRegistrations/customRollouts",
         "apiVersions": [
+          "2022-07-01-preview",
           "2021-09-01-preview",
           "2021-06-01-preview",
           "2021-05-01-preview",
@@ -23442,6 +23431,7 @@
       {
         "resourceType": "providerRegistrations/defaultRollouts",
         "apiVersions": [
+          "2022-07-01-preview",
           "2021-09-01-preview",
           "2021-06-01-preview",
           "2021-05-01-preview",
@@ -23469,6 +23459,7 @@
       {
         "resourceType": "providerRegistrations/resourceTypeRegistrations",
         "apiVersions": [
+          "2022-07-01-preview",
           "2021-09-01-preview",
           "2021-06-01-preview",
           "2021-05-01-preview",
@@ -25826,6 +25817,7 @@
       {
         "resourceType": "automationRules",
         "apiVersions": [
+          "2022-09-01-preview",
           "2022-07-01-preview",
           "2022-06-01-preview",
           "2022-05-01-preview",
