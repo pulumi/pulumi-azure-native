@@ -10038,12 +10038,6 @@
     ],
     "operations": [
       "2022-04-01-preview"
-    ],
-    "workspaces": [
-      "2022-04-01-preview"
-    ],
-    "workspaces/labels": [
-      "2022-04-01-preview"
     ]
   },
   "edgeorder": {
@@ -14266,24 +14260,25 @@
     "": [
       "2020-06-01-preview",
       "2021-04-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "locations": [
       "2020-06-01-preview",
       "2021-04-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "locations/operationstatuses": [
       "2021-04-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "operations": [
       "2020-06-01-preview",
       "2021-04-01-preview",
-      "2022-03-01-preview"
-    ],
-    "packetcores": [
-      "2020-06-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ]
   },
   "monitor": {
@@ -19119,7 +19114,8 @@
       "2021-01-01",
       "2021-05-01-preview",
       "2021-06-01-preview",
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-07-01-preview"
     ],
     "availableaccounts": [
       "2019-02-01-preview",
@@ -19140,7 +19136,8 @@
       "2020-11-20",
       "2021-05-01-preview",
       "2021-06-01-preview",
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-07-01-preview"
     ],
     "providerregistrations": [
       "2019-02-01-preview",
@@ -19150,7 +19147,8 @@
       "2020-11-20",
       "2021-05-01-preview",
       "2021-06-01-preview",
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-07-01-preview"
     ],
     "providerregistrations/checkinmanifest": [
       "2019-02-01-preview",
@@ -19160,7 +19158,8 @@
       "2020-11-20",
       "2021-05-01-preview",
       "2021-06-01-preview",
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-07-01-preview"
     ],
     "providerregistrations/customrollouts": [
       "2019-02-01-preview",
@@ -19170,7 +19169,8 @@
       "2020-11-20",
       "2021-05-01-preview",
       "2021-06-01-preview",
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-07-01-preview"
     ],
     "providerregistrations/defaultrollouts": [
       "2019-02-01-preview",
@@ -19180,7 +19180,8 @@
       "2020-11-20",
       "2021-05-01-preview",
       "2021-06-01-preview",
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-07-01-preview"
     ],
     "providerregistrations/resourceactions": [
       "2019-02-01-preview",
@@ -19201,7 +19202,8 @@
       "2020-11-20",
       "2021-05-01-preview",
       "2021-06-01-preview",
-      "2021-09-01-preview"
+      "2021-09-01-preview",
+      "2022-07-01-preview"
     ]
   },
   "purview": {
@@ -21053,7 +21055,8 @@
       "2022-04-01-preview",
       "2022-05-01-preview",
       "2022-06-01-preview",
-      "2022-07-01-preview"
+      "2022-07-01-preview",
+      "2022-09-01-preview"
     ],
     "bookmarks": [
       "2019-01-01-preview",
