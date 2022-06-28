@@ -28,10 +28,10 @@ namespace Pulumi.AzureNative.Management.V20210401
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The ID of the parent management group.
+        /// The ID, name and displayName of the parent management group.
         /// </summary>
         [Output("parent")]
-        public Output<Outputs.DescendantParentGroupInfoResponse?> Parent { get; private set; } = null!;
+        public Output<Outputs.ParentGroupBagInfoResponse?> Parent { get; private set; } = null!;
 
         /// <summary>
         /// The state of the subscription.

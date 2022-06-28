@@ -266,7 +266,8 @@
     "2020-12-01-preview",
     "2021-01-01",
     "2021-10-01",
-    "2022-04-01-preview"
+    "2022-04-01-preview",
+    "2022-06-01-preview"
   ],
   "CustomProviders": [],
   "CustomerInsights": [],
@@ -404,7 +405,9 @@
     "2021-10-15",
     "2021-10-15-preview",
     "2021-11-15-preview",
-    "2022-02-15-preview"
+    "2022-02-15-preview",
+    "2022-05-15",
+    "2022-05-15-preview"
   ],
   "DomainRegistration": [
     "2020-12-01",
@@ -815,7 +818,9 @@
     "2018-01-01-preview",
     "2021-11-01"
   ],
-  "ResourceConnector": [],
+  "ResourceConnector": [
+    "2022-04-15-preview"
+  ],
   "ResourceGraph": [
     "2020-04-01-preview"
   ],

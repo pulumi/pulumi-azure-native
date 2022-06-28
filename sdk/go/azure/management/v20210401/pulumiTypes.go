@@ -290,66 +290,6 @@ func (o CreateParentGroupInfoPtrOutput) Id() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The ID of the parent management group.
-type DescendantParentGroupInfoResponse struct {
-	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-	Id *string `pulumi:"id"`
-}
-
-// The ID of the parent management group.
-type DescendantParentGroupInfoResponseOutput struct{ *pulumi.OutputState }
-
-func (DescendantParentGroupInfoResponseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DescendantParentGroupInfoResponse)(nil)).Elem()
-}
-
-func (o DescendantParentGroupInfoResponseOutput) ToDescendantParentGroupInfoResponseOutput() DescendantParentGroupInfoResponseOutput {
-	return o
-}
-
-func (o DescendantParentGroupInfoResponseOutput) ToDescendantParentGroupInfoResponseOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponseOutput {
-	return o
-}
-
-// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-func (o DescendantParentGroupInfoResponseOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DescendantParentGroupInfoResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
-}
-
-type DescendantParentGroupInfoResponsePtrOutput struct{ *pulumi.OutputState }
-
-func (DescendantParentGroupInfoResponsePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DescendantParentGroupInfoResponse)(nil)).Elem()
-}
-
-func (o DescendantParentGroupInfoResponsePtrOutput) ToDescendantParentGroupInfoResponsePtrOutput() DescendantParentGroupInfoResponsePtrOutput {
-	return o
-}
-
-func (o DescendantParentGroupInfoResponsePtrOutput) ToDescendantParentGroupInfoResponsePtrOutputWithContext(ctx context.Context) DescendantParentGroupInfoResponsePtrOutput {
-	return o
-}
-
-func (o DescendantParentGroupInfoResponsePtrOutput) Elem() DescendantParentGroupInfoResponseOutput {
-	return o.ApplyT(func(v *DescendantParentGroupInfoResponse) DescendantParentGroupInfoResponse {
-		if v != nil {
-			return *v
-		}
-		var ret DescendantParentGroupInfoResponse
-		return ret
-	}).(DescendantParentGroupInfoResponseOutput)
-}
-
-// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
-func (o DescendantParentGroupInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DescendantParentGroupInfoResponse) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Id
-	}).(pulumi.StringPtrOutput)
-}
-
 // The entity.
 type EntityInfoResponse struct {
 	// The friendly name of the management group.
@@ -829,6 +769,100 @@ func (o ManagementGroupPathElementResponseArrayOutput) Index(i pulumi.IntInput) 
 	}).(ManagementGroupPathElementResponseOutput)
 }
 
+// The ID, name and displayName of the parent management group.
+type ParentGroupBagInfoResponse struct {
+	// The friendly name of the parent management group.
+	DisplayName *string `pulumi:"displayName"`
+	// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+	Id *string `pulumi:"id"`
+	// The name of the parent management group. For example, 00000000-0000-0000-0000-000000000000
+	Name *string `pulumi:"name"`
+}
+
+// The ID, name and displayName of the parent management group.
+type ParentGroupBagInfoResponseOutput struct{ *pulumi.OutputState }
+
+func (ParentGroupBagInfoResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ParentGroupBagInfoResponse)(nil)).Elem()
+}
+
+func (o ParentGroupBagInfoResponseOutput) ToParentGroupBagInfoResponseOutput() ParentGroupBagInfoResponseOutput {
+	return o
+}
+
+func (o ParentGroupBagInfoResponseOutput) ToParentGroupBagInfoResponseOutputWithContext(ctx context.Context) ParentGroupBagInfoResponseOutput {
+	return o
+}
+
+// The friendly name of the parent management group.
+func (o ParentGroupBagInfoResponseOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParentGroupBagInfoResponse) *string { return v.DisplayName }).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+func (o ParentGroupBagInfoResponseOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParentGroupBagInfoResponse) *string { return v.Id }).(pulumi.StringPtrOutput)
+}
+
+// The name of the parent management group. For example, 00000000-0000-0000-0000-000000000000
+func (o ParentGroupBagInfoResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ParentGroupBagInfoResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+type ParentGroupBagInfoResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (ParentGroupBagInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ParentGroupBagInfoResponse)(nil)).Elem()
+}
+
+func (o ParentGroupBagInfoResponsePtrOutput) ToParentGroupBagInfoResponsePtrOutput() ParentGroupBagInfoResponsePtrOutput {
+	return o
+}
+
+func (o ParentGroupBagInfoResponsePtrOutput) ToParentGroupBagInfoResponsePtrOutputWithContext(ctx context.Context) ParentGroupBagInfoResponsePtrOutput {
+	return o
+}
+
+func (o ParentGroupBagInfoResponsePtrOutput) Elem() ParentGroupBagInfoResponseOutput {
+	return o.ApplyT(func(v *ParentGroupBagInfoResponse) ParentGroupBagInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret ParentGroupBagInfoResponse
+		return ret
+	}).(ParentGroupBagInfoResponseOutput)
+}
+
+// The friendly name of the parent management group.
+func (o ParentGroupBagInfoResponsePtrOutput) DisplayName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParentGroupBagInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DisplayName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The fully qualified ID for the parent management group.  For example, /providers/Microsoft.Management/managementGroups/0000000-0000-0000-0000-000000000000
+func (o ParentGroupBagInfoResponsePtrOutput) Id() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParentGroupBagInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Id
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of the parent management group. For example, 00000000-0000-0000-0000-000000000000
+func (o ParentGroupBagInfoResponsePtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ParentGroupBagInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
 // (Optional) The ID of the parent management group.
 type ParentGroupInfoResponse struct {
 	// The friendly name of the parent management group.
@@ -928,8 +962,6 @@ func init() {
 	pulumi.RegisterOutputType(CreateManagementGroupDetailsPtrOutput{})
 	pulumi.RegisterOutputType(CreateParentGroupInfoOutput{})
 	pulumi.RegisterOutputType(CreateParentGroupInfoPtrOutput{})
-	pulumi.RegisterOutputType(DescendantParentGroupInfoResponseOutput{})
-	pulumi.RegisterOutputType(DescendantParentGroupInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(EntityInfoResponseOutput{})
 	pulumi.RegisterOutputType(EntityInfoResponseArrayOutput{})
 	pulumi.RegisterOutputType(EntityParentGroupInfoResponseOutput{})
@@ -940,6 +972,8 @@ func init() {
 	pulumi.RegisterOutputType(ManagementGroupDetailsResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagementGroupPathElementResponseOutput{})
 	pulumi.RegisterOutputType(ManagementGroupPathElementResponseArrayOutput{})
+	pulumi.RegisterOutputType(ParentGroupBagInfoResponseOutput{})
+	pulumi.RegisterOutputType(ParentGroupBagInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(ParentGroupInfoResponseOutput{})
 	pulumi.RegisterOutputType(ParentGroupInfoResponsePtrOutput{})
 }

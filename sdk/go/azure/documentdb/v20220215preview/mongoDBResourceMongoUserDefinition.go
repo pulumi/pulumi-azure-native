@@ -56,6 +56,9 @@ func NewMongoDBResourceMongoUserDefinition(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:documentdb/v20211115preview:MongoDBResourceMongoUserDefinition"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource MongoDBResourceMongoUserDefinition

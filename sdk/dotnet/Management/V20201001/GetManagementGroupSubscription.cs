@@ -80,9 +80,9 @@ namespace Pulumi.AzureNative.Management.V20201001
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// The ID of the parent management group.
+        /// The ID, name and displayName of the parent management group.
         /// </summary>
-        public readonly Outputs.DescendantParentGroupInfoResponse? Parent;
+        public readonly Outputs.ParentGroupBagInfoResponse? Parent;
         /// <summary>
         /// The state of the subscription.
         /// </summary>
@@ -104,7 +104,7 @@ namespace Pulumi.AzureNative.Management.V20201001
 
             string name,
 
-            Outputs.DescendantParentGroupInfoResponse? parent,
+            Outputs.ParentGroupBagInfoResponse? parent,
 
             string? state,
 

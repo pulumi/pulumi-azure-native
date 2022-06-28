@@ -58,6 +58,9 @@ func NewAppliance(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:resourceconnector:Appliance"),
 		},
+		{
+			Type: pulumi.String("azure-native:resourceconnector/v20220415preview:Appliance"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Appliance

@@ -3,9 +3,11 @@
 
 // Export sub-modules:
 import * as v20211031preview from "./v20211031preview";
+import * as v20220415preview from "./v20220415preview";
 
 export {
     v20211031preview,
+    v20220415preview,
 };
 
 export const Distro = {

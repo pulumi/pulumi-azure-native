@@ -19,8 +19,8 @@ type ManagementGroupSubscription struct {
 	DisplayName pulumi.StringPtrOutput `pulumi:"displayName"`
 	// The stringified id of the subscription. For example, 00000000-0000-0000-0000-000000000000
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The ID of the parent management group.
-	Parent DescendantParentGroupInfoResponsePtrOutput `pulumi:"parent"`
+	// The ID, name and displayName of the parent management group.
+	Parent ParentGroupBagInfoResponsePtrOutput `pulumi:"parent"`
 	// The state of the subscription.
 	State pulumi.StringPtrOutput `pulumi:"state"`
 	// The AAD Tenant ID associated with the subscription. For example, 00000000-0000-0000-0000-000000000000
@@ -144,9 +144,9 @@ func (o ManagementGroupSubscriptionOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagementGroupSubscription) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The ID of the parent management group.
-func (o ManagementGroupSubscriptionOutput) Parent() DescendantParentGroupInfoResponsePtrOutput {
-	return o.ApplyT(func(v *ManagementGroupSubscription) DescendantParentGroupInfoResponsePtrOutput { return v.Parent }).(DescendantParentGroupInfoResponsePtrOutput)
+// The ID, name and displayName of the parent management group.
+func (o ManagementGroupSubscriptionOutput) Parent() ParentGroupBagInfoResponsePtrOutput {
+	return o.ApplyT(func(v *ManagementGroupSubscription) ParentGroupBagInfoResponsePtrOutput { return v.Parent }).(ParentGroupBagInfoResponsePtrOutput)
 }
 
 // The state of the subscription.

@@ -8,6 +8,7 @@ import typing
 from ._enums import *
 from .appliance import *
 from .get_appliance import *
+from .list_appliance_cluster_customer_user_credential import *
 from .list_appliance_cluster_user_credential import *
 from ._inputs import *
 from . import outputs
@@ -16,6 +17,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.resourceconnector.v20211031preview as __v20211031preview
     v20211031preview = __v20211031preview
+    import pulumi_azure_native.resourceconnector.v20220415preview as __v20220415preview
+    v20220415preview = __v20220415preview
 else:
     v20211031preview = _utilities.lazy_import('pulumi_azure_native.resourceconnector.v20211031preview')
+    v20220415preview = _utilities.lazy_import('pulumi_azure_native.resourceconnector.v20220415preview')
 

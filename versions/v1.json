@@ -1541,6 +1541,7 @@
   },
   "ResourceConnector": {
     "Appliance": "2021-10-31-preview",
+    "listApplianceClusterCustomerUserCredential": "2022-04-15-preview",
     "listApplianceClusterUserCredential": "2021-10-31-preview"
   },
   "ResourceGraph": {

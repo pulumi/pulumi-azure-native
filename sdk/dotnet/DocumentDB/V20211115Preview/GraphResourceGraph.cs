@@ -80,6 +80,7 @@ namespace Pulumi.AzureNative.DocumentDB.V20211115Preview
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20210701preview:GraphResourceGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20211015preview:GraphResourceGraph"},
                     new Pulumi.Alias { Type = "azure-native:documentdb/v20220215preview:GraphResourceGraph"},
+                    new Pulumi.Alias { Type = "azure-native:documentdb/v20220515preview:GraphResourceGraph"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

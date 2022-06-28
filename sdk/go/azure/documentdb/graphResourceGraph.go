@@ -59,6 +59,9 @@ func NewGraphResourceGraph(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:documentdb/v20220215preview:GraphResourceGraph"),
 		},
+		{
+			Type: pulumi.String("azure-native:documentdb/v20220515preview:GraphResourceGraph"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource GraphResourceGraph

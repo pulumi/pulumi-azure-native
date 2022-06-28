@@ -3055,10 +3055,12 @@
       "2018-05-31"
     ],
     "ScheduledAction": [
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-06-01-preview"
     ],
     "ScheduledActionByScope": [
-      "2022-04-01-preview"
+      "2022-04-01-preview",
+      "2022-06-01-preview"
     ],
     "Setting": [
       "2019-11-01"
@@ -4439,7 +4441,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "CassandraDataCenter": [
       "2021-03-01-preview",
@@ -4448,7 +4452,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "CassandraResourceCassandraKeyspace": [
       "2019-08-01",
@@ -4468,7 +4474,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "CassandraResourceCassandraTable": [
       "2019-08-01",
@@ -4488,13 +4496,16 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "CassandraResourceCassandraView": [
       "2021-07-01-preview",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15-preview"
     ],
     "DatabaseAccount": [
       "2015-04-01",
@@ -4519,7 +4530,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "DatabaseAccountCassandraKeyspace": [
       "2015-04-01",
@@ -4588,7 +4601,8 @@
       "2021-07-01-preview",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15-preview"
     ],
     "GremlinResourceGremlinDatabase": [
       "2019-08-01",
@@ -4608,7 +4622,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "GremlinResourceGremlinGraph": [
       "2019-08-01",
@@ -4628,7 +4644,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "MongoDBResourceMongoDBCollection": [
       "2019-08-01",
@@ -4648,7 +4666,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "MongoDBResourceMongoDBDatabase": [
       "2019-08-01",
@@ -4668,17 +4688,21 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "MongoDBResourceMongoRoleDefinition": [
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15-preview"
     ],
     "MongoDBResourceMongoUserDefinition": [
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15-preview"
     ],
     "NotebookWorkspace": [
       "2019-08-01",
@@ -4698,7 +4722,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "PrivateEndpointConnection": [
       "2019-08-01-preview",
@@ -4713,14 +4739,18 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "Service": [
       "2021-04-01-preview",
       "2021-07-01-preview",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "SqlResourceSqlContainer": [
       "2019-08-01",
@@ -4740,7 +4770,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "SqlResourceSqlDatabase": [
       "2019-08-01",
@@ -4760,7 +4792,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "SqlResourceSqlRoleAssignment": [
       "2020-06-01-preview",
@@ -4773,7 +4807,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "SqlResourceSqlRoleDefinition": [
       "2020-06-01-preview",
@@ -4786,7 +4822,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "SqlResourceSqlStoredProcedure": [
       "2019-08-01",
@@ -4806,7 +4844,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "SqlResourceSqlTrigger": [
       "2019-08-01",
@@ -4826,7 +4866,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "SqlResourceSqlUserDefinedFunction": [
       "2019-08-01",
@@ -4846,7 +4888,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "TableResourceTable": [
       "2019-08-01",
@@ -4866,7 +4910,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "listDatabaseAccountConnectionStrings": [
       "2015-04-01",
@@ -4891,7 +4937,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "listDatabaseAccountKeys": [
       "2015-04-01",
@@ -4916,7 +4964,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ],
     "listNotebookWorkspaceConnectionInfo": [
       "2019-08-01",
@@ -4936,7 +4986,9 @@
       "2021-10-15",
       "2021-10-15-preview",
       "2021-11-15-preview",
-      "2022-02-15-preview"
+      "2022-02-15-preview",
+      "2022-05-15",
+      "2022-05-15-preview"
     ]
   },
   "DomainRegistration": {
@@ -10936,10 +10988,15 @@
   },
   "ResourceConnector": {
     "Appliance": [
-      "2021-10-31-preview"
+      "2021-10-31-preview",
+      "2022-04-15-preview"
+    ],
+    "listApplianceClusterCustomerUserCredential": [
+      "2022-04-15-preview"
     ],
     "listApplianceClusterUserCredential": [
-      "2021-10-31-preview"
+      "2021-10-31-preview",
+      "2022-04-15-preview"
     ]
   },
   "ResourceGraph": {

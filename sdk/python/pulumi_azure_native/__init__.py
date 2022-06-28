@@ -5333,6 +5333,15 @@ _utilities.register(
  },
  {
   "pkg": "azure-native",
+  "mod": "costmanagement/v20220601preview",
+  "fqn": "pulumi_azure_native.costmanagement.v20220601preview",
+  "classes": {
+   "azure-native:costmanagement/v20220601preview:ScheduledAction": "ScheduledAction",
+   "azure-native:costmanagement/v20220601preview:ScheduledActionByScope": "ScheduledActionByScope"
+  }
+ },
+ {
+  "pkg": "azure-native",
   "mod": "customerinsights",
   "fqn": "pulumi_azure_native.customerinsights",
   "classes": {
@@ -8279,6 +8288,64 @@ _utilities.register(
    "azure-native:documentdb/v20220215preview:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
    "azure-native:documentdb/v20220215preview:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
    "azure-native:documentdb/v20220215preview:TableResourceTable": "TableResourceTable"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "documentdb/v20220515",
+  "fqn": "pulumi_azure_native.documentdb.v20220515",
+  "classes": {
+   "azure-native:documentdb/v20220515:CassandraCluster": "CassandraCluster",
+   "azure-native:documentdb/v20220515:CassandraDataCenter": "CassandraDataCenter",
+   "azure-native:documentdb/v20220515:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20220515:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20220515:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20220515:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20220515:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20220515:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20220515:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20220515:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20220515:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20220515:Service": "Service",
+   "azure-native:documentdb/v20220515:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20220515:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20220515:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20220515:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20220515:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20220515:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20220515:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20220515:TableResourceTable": "TableResourceTable"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "documentdb/v20220515preview",
+  "fqn": "pulumi_azure_native.documentdb.v20220515preview",
+  "classes": {
+   "azure-native:documentdb/v20220515preview:CassandraCluster": "CassandraCluster",
+   "azure-native:documentdb/v20220515preview:CassandraDataCenter": "CassandraDataCenter",
+   "azure-native:documentdb/v20220515preview:CassandraResourceCassandraKeyspace": "CassandraResourceCassandraKeyspace",
+   "azure-native:documentdb/v20220515preview:CassandraResourceCassandraTable": "CassandraResourceCassandraTable",
+   "azure-native:documentdb/v20220515preview:CassandraResourceCassandraView": "CassandraResourceCassandraView",
+   "azure-native:documentdb/v20220515preview:DatabaseAccount": "DatabaseAccount",
+   "azure-native:documentdb/v20220515preview:GraphResourceGraph": "GraphResourceGraph",
+   "azure-native:documentdb/v20220515preview:GremlinResourceGremlinDatabase": "GremlinResourceGremlinDatabase",
+   "azure-native:documentdb/v20220515preview:GremlinResourceGremlinGraph": "GremlinResourceGremlinGraph",
+   "azure-native:documentdb/v20220515preview:MongoDBResourceMongoDBCollection": "MongoDBResourceMongoDBCollection",
+   "azure-native:documentdb/v20220515preview:MongoDBResourceMongoDBDatabase": "MongoDBResourceMongoDBDatabase",
+   "azure-native:documentdb/v20220515preview:MongoDBResourceMongoRoleDefinition": "MongoDBResourceMongoRoleDefinition",
+   "azure-native:documentdb/v20220515preview:MongoDBResourceMongoUserDefinition": "MongoDBResourceMongoUserDefinition",
+   "azure-native:documentdb/v20220515preview:NotebookWorkspace": "NotebookWorkspace",
+   "azure-native:documentdb/v20220515preview:PrivateEndpointConnection": "PrivateEndpointConnection",
+   "azure-native:documentdb/v20220515preview:Service": "Service",
+   "azure-native:documentdb/v20220515preview:SqlResourceSqlContainer": "SqlResourceSqlContainer",
+   "azure-native:documentdb/v20220515preview:SqlResourceSqlDatabase": "SqlResourceSqlDatabase",
+   "azure-native:documentdb/v20220515preview:SqlResourceSqlRoleAssignment": "SqlResourceSqlRoleAssignment",
+   "azure-native:documentdb/v20220515preview:SqlResourceSqlRoleDefinition": "SqlResourceSqlRoleDefinition",
+   "azure-native:documentdb/v20220515preview:SqlResourceSqlStoredProcedure": "SqlResourceSqlStoredProcedure",
+   "azure-native:documentdb/v20220515preview:SqlResourceSqlTrigger": "SqlResourceSqlTrigger",
+   "azure-native:documentdb/v20220515preview:SqlResourceSqlUserDefinedFunction": "SqlResourceSqlUserDefinedFunction",
+   "azure-native:documentdb/v20220515preview:TableResourceTable": "TableResourceTable"
   }
  },
  {
@@ -16277,6 +16344,14 @@ _utilities.register(
   "fqn": "pulumi_azure_native.resourceconnector.v20211031preview",
   "classes": {
    "azure-native:resourceconnector/v20211031preview:Appliance": "Appliance"
+  }
+ },
+ {
+  "pkg": "azure-native",
+  "mod": "resourceconnector/v20220415preview",
+  "fqn": "pulumi_azure_native.resourceconnector.v20220415preview",
+  "classes": {
+   "azure-native:resourceconnector/v20220415preview:Appliance": "Appliance"
   }
  },
  {
