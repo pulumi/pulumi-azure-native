@@ -3006,6 +3006,10 @@
     "2022-04-01-preview": [
       "ScheduledAction",
       "ScheduledActionByScope"
+    ],
+    "2022-06-01-preview": [
+      "ScheduledAction",
+      "ScheduledActionByScope"
     ]
   },
   "CustomProviders": {
@@ -4728,6 +4732,60 @@
       "listNotebookWorkspaceConnectionInfo"
     ],
     "2022-02-15-preview": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "CassandraResourceCassandraView",
+      "DatabaseAccount",
+      "GraphResourceGraph",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "MongoDBResourceMongoRoleDefinition",
+      "MongoDBResourceMongoUserDefinition",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2022-05-15": [
+      "CassandraCluster",
+      "CassandraDataCenter",
+      "CassandraResourceCassandraKeyspace",
+      "CassandraResourceCassandraTable",
+      "DatabaseAccount",
+      "GremlinResourceGremlinDatabase",
+      "GremlinResourceGremlinGraph",
+      "MongoDBResourceMongoDBCollection",
+      "MongoDBResourceMongoDBDatabase",
+      "NotebookWorkspace",
+      "PrivateEndpointConnection",
+      "Service",
+      "SqlResourceSqlContainer",
+      "SqlResourceSqlDatabase",
+      "SqlResourceSqlRoleAssignment",
+      "SqlResourceSqlRoleDefinition",
+      "SqlResourceSqlStoredProcedure",
+      "SqlResourceSqlTrigger",
+      "SqlResourceSqlUserDefinedFunction",
+      "TableResourceTable",
+      "listDatabaseAccountConnectionStrings",
+      "listDatabaseAccountKeys",
+      "listNotebookWorkspaceConnectionInfo"
+    ],
+    "2022-05-15-preview": [
       "CassandraCluster",
       "CassandraDataCenter",
       "CassandraResourceCassandraKeyspace",
@@ -10341,6 +10399,11 @@
   "ResourceConnector": {
     "2021-10-31-preview": [
       "Appliance",
+      "listApplianceClusterUserCredential"
+    ],
+    "2022-04-15-preview": [
+      "Appliance",
+      "listApplianceClusterCustomerUserCredential",
       "listApplianceClusterUserCredential"
     ]
   },
