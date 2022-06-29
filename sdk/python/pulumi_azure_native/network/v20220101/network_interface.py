@@ -37,7 +37,7 @@ class NetworkInterfaceArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group.
         :param pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']] auxiliary_mode: Auxiliary mode of Network Interface resource.
         :param pulumi.Input['NetworkInterfaceDnsSettingsArgs'] dns_settings: The DNS settings in network interface.
-        :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is accelerated networking enabled.
+        :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         :param pulumi.Input[bool] enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
         :param pulumi.Input['ExtendedLocationArgs'] extended_location: The extended location of the network interface.
         :param pulumi.Input[str] id: Resource ID.
@@ -123,7 +123,7 @@ class NetworkInterfaceArgs:
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> Optional[pulumi.Input[bool]]:
         """
-        If the network interface is accelerated networking enabled.
+        If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 
@@ -305,7 +305,7 @@ class NetworkInterface(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Union[str, 'NetworkInterfaceAuxiliaryMode']] auxiliary_mode: Auxiliary mode of Network Interface resource.
         :param pulumi.Input[pulumi.InputType['NetworkInterfaceDnsSettingsArgs']] dns_settings: The DNS settings in network interface.
-        :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is accelerated networking enabled.
+        :param pulumi.Input[bool] enable_accelerated_networking: If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         :param pulumi.Input[bool] enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
         :param pulumi.Input[pulumi.InputType['ExtendedLocationArgs']] extended_location: The extended location of the network interface.
         :param pulumi.Input[str] id: Resource ID.
@@ -483,7 +483,7 @@ class NetworkInterface(pulumi.CustomResource):
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> pulumi.Output[Optional[bool]]:
         """
-        If the network interface is accelerated networking enabled.
+        If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 

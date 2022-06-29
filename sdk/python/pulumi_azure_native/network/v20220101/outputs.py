@@ -17784,7 +17784,7 @@ class NetworkInterfaceResponse(dict):
         :param bool vnet_encryption_supported: Whether the virtual machine this nic is attached to supports encryption.
         :param str auxiliary_mode: Auxiliary mode of Network Interface resource.
         :param 'NetworkInterfaceDnsSettingsResponse' dns_settings: The DNS settings in network interface.
-        :param bool enable_accelerated_networking: If the network interface is accelerated networking enabled.
+        :param bool enable_accelerated_networking: If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         :param bool enable_ip_forwarding: Indicates whether IP forwarding is enabled on this network interface.
         :param 'ExtendedLocationResponse' extended_location: The extended location of the network interface.
         :param str id: Resource ID.
@@ -17963,7 +17963,7 @@ class NetworkInterfaceResponse(dict):
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> Optional[bool]:
         """
-        If the network interface is accelerated networking enabled.
+        If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 

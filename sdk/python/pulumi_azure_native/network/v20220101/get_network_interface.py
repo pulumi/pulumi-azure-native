@@ -132,7 +132,7 @@ class GetNetworkInterfaceResult:
     @pulumi.getter(name="enableAcceleratedNetworking")
     def enable_accelerated_networking(self) -> Optional[bool]:
         """
-        If the network interface is accelerated networking enabled.
+        If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         """
         return pulumi.get(self, "enable_accelerated_networking")
 

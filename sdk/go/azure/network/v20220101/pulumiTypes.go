@@ -39952,7 +39952,7 @@ type NetworkInterfaceResponse struct {
 	DnsSettings *NetworkInterfaceDnsSettingsResponse `pulumi:"dnsSettings"`
 	// A reference to the dscp configuration to which the network interface is linked.
 	DscpConfiguration SubResourceResponse `pulumi:"dscpConfiguration"`
-	// If the network interface is accelerated networking enabled.
+	// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
 	// Indicates whether IP forwarding is enabled on this network interface.
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
@@ -40043,7 +40043,7 @@ func (o NetworkInterfaceResponseOutput) DscpConfiguration() SubResourceResponseO
 	return o.ApplyT(func(v NetworkInterfaceResponse) SubResourceResponse { return v.DscpConfiguration }).(SubResourceResponseOutput)
 }
 
-// If the network interface is accelerated networking enabled.
+// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
 func (o NetworkInterfaceResponseOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v NetworkInterfaceResponse) *bool { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
 }

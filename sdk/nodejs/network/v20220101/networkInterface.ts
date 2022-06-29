@@ -48,7 +48,7 @@ export class NetworkInterface extends pulumi.CustomResource {
      */
     public /*out*/ readonly dscpConfiguration!: pulumi.Output<outputs.network.v20220101.SubResourceResponse>;
     /**
-     * If the network interface is accelerated networking enabled.
+     * If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
      */
     public readonly enableAcceleratedNetworking!: pulumi.Output<boolean | undefined>;
     /**
@@ -231,7 +231,7 @@ export interface NetworkInterfaceArgs {
      */
     dnsSettings?: pulumi.Input<inputs.network.v20220101.NetworkInterfaceDnsSettingsArgs>;
     /**
-     * If the network interface is accelerated networking enabled.
+     * If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
      */
     enableAcceleratedNetworking?: pulumi.Input<boolean>;
     /**

@@ -34,7 +34,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         public Output<Outputs.SubResourceResponse> DscpConfiguration { get; private set; } = null!;
 
         /// <summary>
-        /// If the network interface is accelerated networking enabled.
+        /// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         /// </summary>
         [Output("enableAcceleratedNetworking")]
         public Output<bool?> EnableAcceleratedNetworking { get; private set; } = null!;
@@ -273,7 +273,7 @@ namespace Pulumi.AzureNative.Network.V20220101
         public Input<Inputs.NetworkInterfaceDnsSettingsArgs>? DnsSettings { get; set; }
 
         /// <summary>
-        /// If the network interface is accelerated networking enabled.
+        /// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
         /// </summary>
         [Input("enableAcceleratedNetworking")]
         public Input<bool>? EnableAcceleratedNetworking { get; set; }

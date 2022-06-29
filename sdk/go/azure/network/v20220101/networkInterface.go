@@ -21,7 +21,7 @@ type NetworkInterface struct {
 	DnsSettings NetworkInterfaceDnsSettingsResponsePtrOutput `pulumi:"dnsSettings"`
 	// A reference to the dscp configuration to which the network interface is linked.
 	DscpConfiguration SubResourceResponseOutput `pulumi:"dscpConfiguration"`
-	// If the network interface is accelerated networking enabled.
+	// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
 	EnableAcceleratedNetworking pulumi.BoolPtrOutput `pulumi:"enableAcceleratedNetworking"`
 	// Indicates whether IP forwarding is enabled on this network interface.
 	EnableIPForwarding pulumi.BoolPtrOutput `pulumi:"enableIPForwarding"`
@@ -241,7 +241,7 @@ type networkInterfaceArgs struct {
 	AuxiliaryMode *string `pulumi:"auxiliaryMode"`
 	// The DNS settings in network interface.
 	DnsSettings *NetworkInterfaceDnsSettings `pulumi:"dnsSettings"`
-	// If the network interface is accelerated networking enabled.
+	// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
 	EnableAcceleratedNetworking *bool `pulumi:"enableAcceleratedNetworking"`
 	// Indicates whether IP forwarding is enabled on this network interface.
 	EnableIPForwarding *bool `pulumi:"enableIPForwarding"`
@@ -277,7 +277,7 @@ type NetworkInterfaceArgs struct {
 	AuxiliaryMode pulumi.StringPtrInput
 	// The DNS settings in network interface.
 	DnsSettings NetworkInterfaceDnsSettingsPtrInput
-	// If the network interface is accelerated networking enabled.
+	// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
 	EnableAcceleratedNetworking pulumi.BoolPtrInput
 	// Indicates whether IP forwarding is enabled on this network interface.
 	EnableIPForwarding pulumi.BoolPtrInput
@@ -359,7 +359,7 @@ func (o NetworkInterfaceOutput) DscpConfiguration() SubResourceResponseOutput {
 	return o.ApplyT(func(v *NetworkInterface) SubResourceResponseOutput { return v.DscpConfiguration }).(SubResourceResponseOutput)
 }
 
-// If the network interface is accelerated networking enabled.
+// If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking.
 func (o NetworkInterfaceOutput) EnableAcceleratedNetworking() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *NetworkInterface) pulumi.BoolPtrOutput { return v.EnableAcceleratedNetworking }).(pulumi.BoolPtrOutput)
 }
