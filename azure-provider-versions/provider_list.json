@@ -2350,6 +2350,41 @@
     ]
   },
   {
+    "namespace": "Microsoft.AzureSphereGen2",
+    "resourceTypes": [
+      {
+        "resourceType": "catalogs",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      },
+      {
+        "resourceType": "catalogs/provisioningPackages",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      },
+      {
+        "resourceType": "locations",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      },
+      {
+        "resourceType": "locations/operationStatuses",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      },
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2022-09-01-privatepreview"
+        ]
+      }
+    ]
+  },
+  {
     "namespace": "Microsoft.AzureStack",
     "resourceTypes": [
       {
@@ -13844,6 +13879,7 @@
       {
         "resourceType": "customLocations",
         "apiVersions": [
+          "2021-08-31-preview",
           "2021-08-15",
           "2021-03-15-preview"
         ]
@@ -13851,6 +13887,7 @@
       {
         "resourceType": "customLocations/enabledResourceTypes",
         "apiVersions": [
+          "2021-08-31-preview",
           "2021-08-15",
           "2021-03-15-preview"
         ]
@@ -14065,6 +14102,13 @@
     "resourceTypes": [
       {
         "resourceType": "Operations",
+        "apiVersions": [
+          "2022-04-18-preview",
+          "2021-07-19-preview"
+        ]
+      },
+      {
+        "resourceType": "registeredSubscriptions",
         "apiVersions": [
           "2022-04-18-preview",
           "2021-07-19-preview"
@@ -24960,36 +25004,6 @@
         ]
       },
       {
-        "resourceType": "tagNamespaceOperationResults",
-        "apiVersions": [
-          "2021-09-01-preview"
-        ]
-      },
-      {
-        "resourceType": "tagnamespaces",
-        "apiVersions": [
-          "2021-09-01-preview"
-        ]
-      },
-      {
-        "resourceType": "tagnamespaces/cancelOperation",
-        "apiVersions": [
-          "2021-09-01-preview"
-        ]
-      },
-      {
-        "resourceType": "tagnamespaces/tagnames",
-        "apiVersions": [
-          "2021-09-01-preview"
-        ]
-      },
-      {
-        "resourceType": "tagnamespaces/tags",
-        "apiVersions": [
-          "2021-09-01-preview"
-        ]
-      },
-      {
         "resourceType": "tags",
         "apiVersions": [
           "2019-10-01",
@@ -35123,6 +35137,18 @@
           "2019-05-01-preview",
           "2015-07-01-Preview",
           "2015-03-01"
+        ]
+      }
+    ]
+  },
+  {
+    "namespace": "microsoft.syntex",
+    "resourceTypes": [
+      {
+        "resourceType": "operations",
+        "apiVersions": [
+          "2022-06-15-preview",
+          "2021-10-20-preview"
         ]
       }
     ]
