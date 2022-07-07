@@ -22,29 +22,29 @@ This package is available in many languages in the standard packaging formats.
 
 To use from JavaScript or TypeScript in Node.js, install using either `npm`:
 
-    $ npm install @pulumi/azure-native
+    npm install @pulumi/azure-native
 
 or `yarn`:
 
-    $ yarn add @pulumi/azure-native
+    yarn add @pulumi/azure-native
 
 ### Python
 
 To use from Python, install using `pip`:
 
-    $ pip install pulumi_azure_native
+    pip install pulumi_azure_native
 
 ### Go
 
 To use from Go, use `go get` to grab the latest version of the library
 
-    $ go get github.com/pulumi/pulumi-azure-native/sdk
+    go get github.com/pulumi/pulumi-azure-native/sdk
 
 ### .NET
 
 To use from .NET, install using `dotnet add package`:
 
-    $ dotnet add package Pulumi.AzureNative
+    dotnet add package Pulumi.AzureNative
 
 ## Concepts
 
@@ -62,38 +62,9 @@ To learn how to configure credentials refer to the [Azure configuration options]
 
 ## Building
 
-### Dependencies
-
-- Go 1.15
-- NodeJS 10.X.X or later
-- Python 3.6 or later
-- .NET Core 3.1
-
-Please refer to [Contributing to Pulumi](https://github.com/pulumi/pulumi/blob/master/CONTRIBUTING.md) for installation
-guidance.
-
-### Building locally
-
-Run the following commands to install Go modules, generate all SDKs, and build the provider: 
-
-```
-$ make ensure
-$ make build
-```
-
-Add the `bin` folder to your `$PATH` or copy the `bin/pulumi-resource-azurerm` file to another location in your `$PATH`.
-
-### Running an example
-
-Navigate to one of the `examples` and run Pulumi:
-
-```
-$ cd ./exampes/simple
-$ yarn link @pulumi/azure-native
-$ pulumi up
-``` 
+See [contributing](CONTRIBUTING.md) for details on how to build and contribute to this provider.
 
 ## Reference
 
 For further information, visit [Azure Native in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/)
-or for detailed API reference documentation, visit [Azure Native API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/api-docs/).
+or for detailed API reference documentation, visit [Azure Native API Docs in the Pulumi Registry](https://www.pulumi.com/registry/packages/azure-native/api-docs/).  

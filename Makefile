@@ -11,7 +11,7 @@ PROVIDER_PKGS    := $(shell cd ./provider && go list ./pkg/...)
 WORKING_DIR     := $(shell pwd)
 
 VERSION_FLAGS   := -ldflags "-X github.com/pulumi/pulumi-azure-native/provider/pkg/version.Version=${VERSION}"
-GO_SRC          := $(wildcard provder/*/*.go) $(wildcard provider/go.*)
+GO_SRC          := $(wildcard provider/go.*) $(wildcard provider/*/*/*.go)
 
 init_submodules::
 	@for submodule in $$(git submodule status | awk {'print $$2'}); do \
@@ -75,13 +75,34 @@ provider::
 	(cd provider && go build -o $(WORKING_DIR)/bin/$(PROVIDER) $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))
 
 bin/pulumi-versioner-azure-native: $(GO_SRC)
-	(cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/pulumi-versioner-azure-native)
+	cd provider && go build -o $(WORKING_DIR)/bin/pulumi-versioner-azure-native $(VERSION_FLAGS) $(PROJECT)/provider/cmd/pulumi-versioner-azure-native
+
+versions/spec.json: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD
+	bin/pulumi-versioner-azure-native spec
+
+versions/spec-resources.json: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD
+	bin/pulumi-versioner-azure-native spec
+
+versions/active.json: bin/pulumi-versioner-azure-native azure-provider-versions/provider_list.json
+	bin/pulumi-versioner-azure-native active
+
+versions/v1.json: bin/pulumi-versioner-azure-native .git/modules/azure-rest-api-specs/HEAD azure-provider-versions/provider_list.json
+	bin/pulumi-versioner-azure-native v1
+
+versions/deprecated.json: bin/pulumi-versioner-azure-native versions/spec.json versions/v1.json
+	bin/pulumi-versioner-azure-native deprecated -version=v1.json
+
+versions/pending.json: bin/pulumi-versioner-azure-native versions/spec.json versions/v1.json
+	bin/pulumi-versioner-azure-native pending -version=v1.json
+
+V2CONFIG := $(wildcard versions/v2-config.json)
+versions/v2.json: bin/pulumi-versioner-azure-native versions/spec.json versions/deprecated.json $(V2CONFIG)
+	bin/pulumi-versioner-azure-native v2
 
 versioner: bin/pulumi-versioner-azure-native
 
 versions: bin/pulumi-versioner-azure-native
-	rm -f version/*
-	bin/pulumi-versioner-azure-native
+	bin/pulumi-versioner-azure-native all
 
 install_provider::
 	(cd provider && go install $(VERSION_FLAGS) $(PROJECT)/provider/cmd/$(PROVIDER))

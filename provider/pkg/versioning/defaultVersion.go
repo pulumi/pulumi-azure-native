@@ -31,7 +31,7 @@ func BuildDefaultConfig(spec SpecVersions) DefaultConfig {
 	return specs
 }
 
-// ReadDefaultConfig parses a default config from a JSON file
+// ReadDefaultConfig parses a default config from a YAML file
 func ReadDefaultConfig(path string) (DefaultConfig, error) {
 	jsonFile, err := os.Open(path)
 	if err != nil {

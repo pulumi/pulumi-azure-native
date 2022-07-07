@@ -1,13 +1,34 @@
 package versioning
 
 import (
+	"encoding/json"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/openapi"
+	"io/ioutil"
+	"os"
 	"sort"
 )
 
 type VersionResources = map[openapi.ApiVersion][]openapi.ResourceName
 
 type SpecVersions = map[openapi.ProviderName]VersionResources
+
+// ReadSpecVersions parses spec versions from a JSON file
+func ReadSpecVersions(path string) (SpecVersions, error) {
+	jsonFile, err := os.Open(path)
+	if err != nil {
+		return nil, err
+	}
+	defer jsonFile.Close()
+
+	byteValue, err := ioutil.ReadAll(jsonFile)
+	if err != nil {
+		return nil, err
+	}
+
+	var specVersions SpecVersions
+	err = json.Unmarshal(byteValue, &specVersions)
+	return specVersions, err
+}
 
 func FindSpecVersions(providerVersions openapi.AzureProviders) SpecVersions {
 	formatted := SpecVersions{}
