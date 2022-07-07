@@ -107,7 +107,7 @@ type serverSecurityAlertPolicyArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// Specifies the state of the policy, whether it is enabled or disabled.
-	State ServerSecurityAlertPolicyStateEnum `pulumi:"state"`
+	State ServerSecurityAlertPolicyState `pulumi:"state"`
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey *string `pulumi:"storageAccountAccessKey"`
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.
@@ -131,7 +131,7 @@ type ServerSecurityAlertPolicyArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// Specifies the state of the policy, whether it is enabled or disabled.
-	State ServerSecurityAlertPolicyStateEnumInput
+	State ServerSecurityAlertPolicyStateInput
 	// Specifies the identifier key of the Threat Detection audit storage account.
 	StorageAccountAccessKey pulumi.StringPtrInput
 	// Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs.

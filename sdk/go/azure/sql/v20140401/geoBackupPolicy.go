@@ -95,7 +95,7 @@ type geoBackupPolicyArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// The state of the geo backup policy.
-	State GeoBackupPolicyStateEnum `pulumi:"state"`
+	State GeoBackupPolicyState `pulumi:"state"`
 }
 
 // The set of arguments for constructing a GeoBackupPolicy resource.
@@ -109,7 +109,7 @@ type GeoBackupPolicyArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// The state of the geo backup policy.
-	State GeoBackupPolicyStateEnumInput
+	State GeoBackupPolicyStateInput
 }
 
 func (GeoBackupPolicyArgs) ElementType() reflect.Type {

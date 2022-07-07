@@ -818,7 +818,7 @@ type JobCollectionProperties struct {
 	// Gets or sets the SKU.
 	Sku *Sku `pulumi:"sku"`
 	// Gets or sets the state.
-	State *JobCollectionStateEnum `pulumi:"state"`
+	State *JobCollectionState `pulumi:"state"`
 }
 
 // JobCollectionPropertiesInput is an input type that accepts JobCollectionPropertiesArgs and JobCollectionPropertiesOutput values.
@@ -838,7 +838,7 @@ type JobCollectionPropertiesArgs struct {
 	// Gets or sets the SKU.
 	Sku SkuPtrInput `pulumi:"sku"`
 	// Gets or sets the state.
-	State JobCollectionStateEnumPtrInput `pulumi:"state"`
+	State JobCollectionStatePtrInput `pulumi:"state"`
 }
 
 func (JobCollectionPropertiesArgs) ElementType() reflect.Type {
@@ -929,8 +929,8 @@ func (o JobCollectionPropertiesOutput) Sku() SkuPtrOutput {
 }
 
 // Gets or sets the state.
-func (o JobCollectionPropertiesOutput) State() JobCollectionStateEnumPtrOutput {
-	return o.ApplyT(func(v JobCollectionProperties) *JobCollectionStateEnum { return v.State }).(JobCollectionStateEnumPtrOutput)
+func (o JobCollectionPropertiesOutput) State() JobCollectionStatePtrOutput {
+	return o.ApplyT(func(v JobCollectionProperties) *JobCollectionState { return v.State }).(JobCollectionStatePtrOutput)
 }
 
 type JobCollectionPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -978,13 +978,13 @@ func (o JobCollectionPropertiesPtrOutput) Sku() SkuPtrOutput {
 }
 
 // Gets or sets the state.
-func (o JobCollectionPropertiesPtrOutput) State() JobCollectionStateEnumPtrOutput {
-	return o.ApplyT(func(v *JobCollectionProperties) *JobCollectionStateEnum {
+func (o JobCollectionPropertiesPtrOutput) State() JobCollectionStatePtrOutput {
+	return o.ApplyT(func(v *JobCollectionProperties) *JobCollectionState {
 		if v == nil {
 			return nil
 		}
 		return v.State
-	}).(JobCollectionStateEnumPtrOutput)
+	}).(JobCollectionStatePtrOutput)
 }
 
 type JobCollectionPropertiesResponse struct {
@@ -1906,7 +1906,7 @@ type JobProperties struct {
 	// Gets or sets the job start time.
 	StartTime *string `pulumi:"startTime"`
 	// Gets or set the job state.
-	State *JobStateEnum `pulumi:"state"`
+	State *JobState `pulumi:"state"`
 }
 
 // JobPropertiesInput is an input type that accepts JobPropertiesArgs and JobPropertiesOutput values.
@@ -1928,7 +1928,7 @@ type JobPropertiesArgs struct {
 	// Gets or sets the job start time.
 	StartTime pulumi.StringPtrInput `pulumi:"startTime"`
 	// Gets or set the job state.
-	State JobStateEnumPtrInput `pulumi:"state"`
+	State JobStatePtrInput `pulumi:"state"`
 }
 
 func (JobPropertiesArgs) ElementType() reflect.Type {
@@ -2024,8 +2024,8 @@ func (o JobPropertiesOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // Gets or set the job state.
-func (o JobPropertiesOutput) State() JobStateEnumPtrOutput {
-	return o.ApplyT(func(v JobProperties) *JobStateEnum { return v.State }).(JobStateEnumPtrOutput)
+func (o JobPropertiesOutput) State() JobStatePtrOutput {
+	return o.ApplyT(func(v JobProperties) *JobState { return v.State }).(JobStatePtrOutput)
 }
 
 type JobPropertiesPtrOutput struct{ *pulumi.OutputState }
@@ -2083,13 +2083,13 @@ func (o JobPropertiesPtrOutput) StartTime() pulumi.StringPtrOutput {
 }
 
 // Gets or set the job state.
-func (o JobPropertiesPtrOutput) State() JobStateEnumPtrOutput {
-	return o.ApplyT(func(v *JobProperties) *JobStateEnum {
+func (o JobPropertiesPtrOutput) State() JobStatePtrOutput {
+	return o.ApplyT(func(v *JobProperties) *JobState {
 		if v == nil {
 			return nil
 		}
 		return v.State
-	}).(JobStateEnumPtrOutput)
+	}).(JobStatePtrOutput)
 }
 
 type JobPropertiesResponse struct {

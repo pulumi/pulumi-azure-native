@@ -113,7 +113,7 @@ type workflowArgs struct {
 	// The sku.
 	Sku *Sku `pulumi:"sku"`
 	// The state.
-	State *WorkflowStateEnum `pulumi:"state"`
+	State *WorkflowState `pulumi:"state"`
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The workflow name.
@@ -133,7 +133,7 @@ type WorkflowArgs struct {
 	// The sku.
 	Sku SkuPtrInput
 	// The state.
-	State WorkflowStateEnumPtrInput
+	State WorkflowStatePtrInput
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The workflow name.

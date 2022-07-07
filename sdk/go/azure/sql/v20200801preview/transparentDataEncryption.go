@@ -108,7 +108,7 @@ type transparentDataEncryptionArgs struct {
 	// The name of the server.
 	ServerName string `pulumi:"serverName"`
 	// Specifies the state of the transparent data encryption.
-	State TransparentDataEncryptionStateEnum `pulumi:"state"`
+	State TransparentDataEncryptionState `pulumi:"state"`
 	// The name of the transparent data encryption configuration.
 	TdeName *string `pulumi:"tdeName"`
 }
@@ -122,7 +122,7 @@ type TransparentDataEncryptionArgs struct {
 	// The name of the server.
 	ServerName pulumi.StringInput
 	// Specifies the state of the transparent data encryption.
-	State TransparentDataEncryptionStateEnumInput
+	State TransparentDataEncryptionStateInput
 	// The name of the transparent data encryption configuration.
 	TdeName pulumi.StringPtrInput
 }
