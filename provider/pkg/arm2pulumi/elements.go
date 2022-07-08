@@ -3,14 +3,15 @@
 package arm2pulumi
 
 import (
-	"encoding/json"
 	"errors"
 	"fmt"
+	"reflect"
+	"strings"
+
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/gen"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/tle"
 	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
-	"reflect"
-	"strings"
+	"github.com/segmentio/encoding/json"
 
 	"github.com/gedex/inflector"
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/pcl"

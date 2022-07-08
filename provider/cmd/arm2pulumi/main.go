@@ -3,21 +3,31 @@
 package main
 
 import (
-	"bytes"
-	"compress/gzip"
-	"encoding/json"
+	_ "embed"
+	"reflect"
+	"unsafe"
+
 	"fmt"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/provider"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
-	"github.com/pulumi/pulumi-azure-native/provider/pkg/version"
-	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 	"io"
 	"log"
 	"os"
 	"strings"
 	"time"
+
+	"github.com/segmentio/encoding/json"
+
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/arm2pulumi"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/provider"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
+	"github.com/pulumi/pulumi-azure-native/provider/pkg/version"
+	"github.com/pulumi/pulumi/pkg/v3/codegen/schema"
 )
+
+//go:embed metadata-compact.json
+var azureApiResources string
+
+//go:embed schema-full.json
+var pulumiSchema string
 
 func main() {
 	var readFrom io.Reader
@@ -93,7 +103,7 @@ func main() {
 // loadMetadata loads the serialized/compressed metadata generated during
 // schema generation from metadata.go
 func loadMetadata() (*resources.AzureAPIMetadata, error) {
-	metadata, err := provider.LoadMetadata(azureApiResources)
+	metadata, err := provider.LoadMetadata([]byte(azureApiResources))
 	if err != nil {
 		return nil, fmt.Errorf("loading metadata: %w", err)
 	}
@@ -104,20 +114,22 @@ func loadMetadata() (*resources.AzureAPIMetadata, error) {
 // generation from schema.go
 func loadSchema() (*schema.PackageSpec, error) {
 	var pkgSpec schema.PackageSpec
-	uncompressed, err := gzip.NewReader(bytes.NewReader(pulumiSchema))
-	if err != nil {
-		return nil, fmt.Errorf("loading schema: %w", err)
-	}
-
-	if err = json.NewDecoder(uncompressed).Decode(&pkgSpec); err != nil {
+	if err := decodeString(pulumiSchema, &pkgSpec); err != nil {
 		return nil, fmt.Errorf("deserializing schema: %w", err)
-	}
-	if err = uncompressed.Close(); err != nil {
-		return nil, fmt.Errorf("closing uncompress stream for schema: %w", err)
 	}
 	// embed version because go codegen is particularly sensitive to this.
 	if pkgSpec.Version == "" {
 		pkgSpec.Version = version.Version
 	}
 	return &pkgSpec, nil
+}
+
+func decodeString(data string, v interface{}) error {
+	hdr := (*reflect.StringHeader)(unsafe.Pointer(&data))
+
+	var rawBytes []byte
+	rawBytes = unsafe.Slice((*byte)(unsafe.Pointer(hdr.Data)), hdr.Len)
+
+	_, err := json.Parse(rawBytes, &v, json.ZeroCopy)
+	return err
 }

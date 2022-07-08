@@ -2,6 +2,8 @@
 
 ## HEAD (Unreleased)
 
+- Memory usage for most programs is greatly reduced [#1689](https://github.com/pulumi/pulumi-azure-native/pull/1689)
+
 ## 1.66.0 (2022-06-23)
 
 Resource "azure-native:iotcentral:App" changed from 2018-09-01 to 2021-06-01

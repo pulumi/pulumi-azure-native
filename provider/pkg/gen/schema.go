@@ -15,7 +15,6 @@
 package gen
 
 import (
-	"encoding/json"
 	"fmt"
 	"log"
 	"net/url"
@@ -23,6 +22,8 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/segmentio/encoding/json"
 
 	"github.com/blang/semver"
 	"github.com/go-openapi/spec"
@@ -1516,7 +1517,7 @@ func (m *moduleGenerator) genTypeSpec(propertyName string, schema *spec.Schema, 
 			if v, has := m.pkg.Types[tok]; has {
 				// TODO: @stack72 handle this as part of https://github.com/pulumi/pulumi-azure-native/issues/1606
 				if strings.HasPrefix(tok, "azure-native:eventgrid:") ||
-				    tok == "azure-native:authorization:PrincipalResponse" && len(v.Properties) == 2 ||
+					tok == "azure-native:authorization:PrincipalResponse" && len(v.Properties) == 2 ||
 					tok == "azure-native:netapp:ExportPolicyRuleResponse" && len(v.Properties) == 14 ||
 					tok == "azure-native:netapp:ReplicationObject" && len(v.Properties) == 5 ||
 					tok == "azure-native:netapp:ExportPolicyRule" && len(v.Properties) == 14 ||

@@ -3,11 +3,14 @@
 package provider
 
 import (
+	"encoding/json"
+	"testing"
+
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/resources"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/resource"
 	rpc "github.com/pulumi/pulumi/sdk/v3/proto/go"
 	"github.com/stretchr/testify/assert"
-	"testing"
+	"github.com/stretchr/testify/require"
 )
 
 func TestCalculateDiffBodyProperties(t *testing.T) {
@@ -108,7 +111,8 @@ func TestCalculateDiffBodyProperties(t *testing.T) {
 			"p3": {V: true},
 		},
 	}
-	actual := calculateDetailedDiff(&res, nil, &diff)
+	emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
+	actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":          {Kind: rpc.PropertyDiff_UPDATE},
 		"p2":          {Kind: rpc.PropertyDiff_ADD},
@@ -170,7 +174,8 @@ func TestCalculateDiffReplacesPathParameters(t *testing.T) {
 			},
 		},
 	}
-	actual := calculateDetailedDiff(&res, nil, &diff)
+	emptyTypes := resources.NewPartialMap[resources.AzureAPIType]()
+	actual := calculateDetailedDiff(&res, &emptyTypes, &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":    {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
 		"Prop2": {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
@@ -202,7 +207,8 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 			},
 		},
 	}
-	types := map[string]resources.AzureAPIType{
+	fooTypeName := "azure-native:foobar/v20200101:FooType"
+	fullTypes := map[string]resources.AzureAPIType{
 		"azure-native:foobar/v20200101:FooType": {
 			Properties: map[string]resources.AzureAPIProperty{
 				"ps1": {},
@@ -210,6 +216,17 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 			},
 		},
 	}
+	typeData, err := json.Marshal(fullTypes)
+	require.NoError(t, err)
+	var types resources.PartialMap[resources.AzureAPIType]
+	err = json.Unmarshal(typeData, &types)
+	require.NoError(t, err)
+
+	testType, ok, err := types.Get(fooTypeName)
+	require.NoError(t, err)
+	require.True(t, ok)
+	assert.Equal(t, testType, fullTypes[fooTypeName])
+
 	diff := resource.ObjectDiff{
 		Updates: map[resource.PropertyKey]resource.ValueDiff{
 			"p1": {
@@ -266,7 +283,7 @@ func TestCalculateDiffReplacesBodyProperties(t *testing.T) {
 			},
 		},
 	}
-	actual := calculateDetailedDiff(&res, types, &diff)
+	actual := calculateDetailedDiff(&res, resources.GoMap[resources.AzureAPIType](fullTypes), &diff)
 	expected := map[string]*rpc.PropertyDiff{
 		"p1":        {Kind: rpc.PropertyDiff_UPDATE},
 		"p2":        {Kind: rpc.PropertyDiff_UPDATE_REPLACE},
