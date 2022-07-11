@@ -1098,6 +1098,8 @@ class IncidentOwnerInfoResponse(dict):
             suggest = "assigned_to"
         elif key == "objectId":
             suggest = "object_id"
+        elif key == "ownerType":
+            suggest = "owner_type"
         elif key == "userPrincipalName":
             suggest = "user_principal_name"
 
@@ -1116,12 +1118,14 @@ class IncidentOwnerInfoResponse(dict):
                  assigned_to: Optional[str] = None,
                  email: Optional[str] = None,
                  object_id: Optional[str] = None,
+                 owner_type: Optional[str] = None,
                  user_principal_name: Optional[str] = None):
         """
         Information on the user an incident is assigned to
         :param str assigned_to: The name of the user the incident is assigned to.
         :param str email: The email of the user the incident is assigned to.
         :param str object_id: The object id of the user the incident is assigned to.
+        :param str owner_type: The type of the owner the incident is assigned to.
         :param str user_principal_name: The user principal name of the user the incident is assigned to.
         """
         if assigned_to is not None:
@@ -1130,6 +1134,8 @@ class IncidentOwnerInfoResponse(dict):
             pulumi.set(__self__, "email", email)
         if object_id is not None:
             pulumi.set(__self__, "object_id", object_id)
+        if owner_type is not None:
+            pulumi.set(__self__, "owner_type", owner_type)
         if user_principal_name is not None:
             pulumi.set(__self__, "user_principal_name", user_principal_name)
 
@@ -1156,6 +1162,14 @@ class IncidentOwnerInfoResponse(dict):
         The object id of the user the incident is assigned to.
         """
         return pulumi.get(self, "object_id")
+
+    @property
+    @pulumi.getter(name="ownerType")
+    def owner_type(self) -> Optional[str]:
+        """
+        The type of the owner the incident is assigned to.
+        """
+        return pulumi.get(self, "owner_type")
 
     @property
     @pulumi.getter(name="userPrincipalName")

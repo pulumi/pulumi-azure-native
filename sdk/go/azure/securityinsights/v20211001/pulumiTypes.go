@@ -3292,6 +3292,8 @@ type IncidentOwnerInfo struct {
 	Email *string `pulumi:"email"`
 	// The object id of the user the incident is assigned to.
 	ObjectId *string `pulumi:"objectId"`
+	// The type of the owner the incident is assigned to.
+	OwnerType *string `pulumi:"ownerType"`
 	// The user principal name of the user the incident is assigned to.
 	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
@@ -3315,6 +3317,8 @@ type IncidentOwnerInfoArgs struct {
 	Email pulumi.StringPtrInput `pulumi:"email"`
 	// The object id of the user the incident is assigned to.
 	ObjectId pulumi.StringPtrInput `pulumi:"objectId"`
+	// The type of the owner the incident is assigned to.
+	OwnerType pulumi.StringPtrInput `pulumi:"ownerType"`
 	// The user principal name of the user the incident is assigned to.
 	UserPrincipalName pulumi.StringPtrInput `pulumi:"userPrincipalName"`
 }
@@ -3412,6 +3416,11 @@ func (o IncidentOwnerInfoOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
 }
 
+// The type of the owner the incident is assigned to.
+func (o IncidentOwnerInfoOutput) OwnerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.OwnerType }).(pulumi.StringPtrOutput)
+}
+
 // The user principal name of the user the incident is assigned to.
 func (o IncidentOwnerInfoOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfo) *string { return v.UserPrincipalName }).(pulumi.StringPtrOutput)
@@ -3471,6 +3480,16 @@ func (o IncidentOwnerInfoPtrOutput) ObjectId() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+// The type of the owner the incident is assigned to.
+func (o IncidentOwnerInfoPtrOutput) OwnerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OwnerType
+	}).(pulumi.StringPtrOutput)
+}
+
 // The user principal name of the user the incident is assigned to.
 func (o IncidentOwnerInfoPtrOutput) UserPrincipalName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *IncidentOwnerInfo) *string {
@@ -3489,6 +3508,8 @@ type IncidentOwnerInfoResponse struct {
 	Email *string `pulumi:"email"`
 	// The object id of the user the incident is assigned to.
 	ObjectId *string `pulumi:"objectId"`
+	// The type of the owner the incident is assigned to.
+	OwnerType *string `pulumi:"ownerType"`
 	// The user principal name of the user the incident is assigned to.
 	UserPrincipalName *string `pulumi:"userPrincipalName"`
 }
@@ -3521,6 +3542,11 @@ func (o IncidentOwnerInfoResponseOutput) Email() pulumi.StringPtrOutput {
 // The object id of the user the incident is assigned to.
 func (o IncidentOwnerInfoResponseOutput) ObjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.ObjectId }).(pulumi.StringPtrOutput)
+}
+
+// The type of the owner the incident is assigned to.
+func (o IncidentOwnerInfoResponseOutput) OwnerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IncidentOwnerInfoResponse) *string { return v.OwnerType }).(pulumi.StringPtrOutput)
 }
 
 // The user principal name of the user the incident is assigned to.
@@ -3579,6 +3605,16 @@ func (o IncidentOwnerInfoResponsePtrOutput) ObjectId() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.ObjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The type of the owner the incident is assigned to.
+func (o IncidentOwnerInfoResponsePtrOutput) OwnerType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IncidentOwnerInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OwnerType
 	}).(pulumi.StringPtrOutput)
 }
 

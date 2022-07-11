@@ -29,6 +29,10 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001.Outputs
         /// </summary>
         public readonly string? ObjectId;
         /// <summary>
+        /// The type of the owner the incident is assigned to.
+        /// </summary>
+        public readonly string? OwnerType;
+        /// <summary>
         /// The user principal name of the user the incident is assigned to.
         /// </summary>
         public readonly string? UserPrincipalName;
@@ -41,11 +45,14 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001.Outputs
 
             string? objectId,
 
+            string? ownerType,
+
             string? userPrincipalName)
         {
             AssignedTo = assignedTo;
             Email = email;
             ObjectId = objectId;
+            OwnerType = ownerType;
             UserPrincipalName = userPrincipalName;
         }
     }
