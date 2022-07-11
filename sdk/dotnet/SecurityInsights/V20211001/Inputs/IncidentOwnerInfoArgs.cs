@@ -34,6 +34,12 @@ namespace Pulumi.AzureNative.SecurityInsights.V20211001.Inputs
         public Input<string>? ObjectId { get; set; }
 
         /// <summary>
+        /// The type of the owner the incident is assigned to.
+        /// </summary>
+        [Input("ownerType")]
+        public InputUnion<string, Pulumi.AzureNative.SecurityInsights.V20211001.OwnerType>? OwnerType { get; set; }
+
+        /// <summary>
         /// The user principal name of the user the incident is assigned to.
         /// </summary>
         [Input("userPrincipalName")]

@@ -794,12 +794,14 @@ class IncidentOwnerInfoArgs:
                  assigned_to: Optional[pulumi.Input[str]] = None,
                  email: Optional[pulumi.Input[str]] = None,
                  object_id: Optional[pulumi.Input[str]] = None,
+                 owner_type: Optional[pulumi.Input[Union[str, 'OwnerType']]] = None,
                  user_principal_name: Optional[pulumi.Input[str]] = None):
         """
         Information on the user an incident is assigned to
         :param pulumi.Input[str] assigned_to: The name of the user the incident is assigned to.
         :param pulumi.Input[str] email: The email of the user the incident is assigned to.
         :param pulumi.Input[str] object_id: The object id of the user the incident is assigned to.
+        :param pulumi.Input[Union[str, 'OwnerType']] owner_type: The type of the owner the incident is assigned to.
         :param pulumi.Input[str] user_principal_name: The user principal name of the user the incident is assigned to.
         """
         if assigned_to is not None:
@@ -808,6 +810,8 @@ class IncidentOwnerInfoArgs:
             pulumi.set(__self__, "email", email)
         if object_id is not None:
             pulumi.set(__self__, "object_id", object_id)
+        if owner_type is not None:
+            pulumi.set(__self__, "owner_type", owner_type)
         if user_principal_name is not None:
             pulumi.set(__self__, "user_principal_name", user_principal_name)
 
@@ -846,6 +850,18 @@ class IncidentOwnerInfoArgs:
     @object_id.setter
     def object_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "object_id", value)
+
+    @property
+    @pulumi.getter(name="ownerType")
+    def owner_type(self) -> Optional[pulumi.Input[Union[str, 'OwnerType']]]:
+        """
+        The type of the owner the incident is assigned to.
+        """
+        return pulumi.get(self, "owner_type")
+
+    @owner_type.setter
+    def owner_type(self, value: Optional[pulumi.Input[Union[str, 'OwnerType']]]):
+        pulumi.set(self, "owner_type", value)
 
     @property
     @pulumi.getter(name="userPrincipalName")
