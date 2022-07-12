@@ -36,10 +36,6 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
     }
 
     /**
-     * The application conditionSets - see examples
-     */
-    public readonly conditionSets!: pulumi.Output<outputs.security.v20220701preview.ApplicationConditionResponse[][][]>;
-    /**
      * description of the application
      */
     public readonly description!: pulumi.Output<string | undefined>;
@@ -71,9 +67,6 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         if (!opts.id) {
-            if ((!args || args.conditionSets === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'conditionSets'");
-            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -84,7 +77,6 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
                 throw new Error("Missing required property 'sourceResourceType'");
             }
             resourceInputs["applicationId"] = args ? args.applicationId : undefined;
-            resourceInputs["conditionSets"] = args ? args.conditionSets : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["displayName"] = args ? args.displayName : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -93,7 +85,6 @@ export class SecurityConnectorApplication extends pulumi.CustomResource {
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
-            resourceInputs["conditionSets"] = undefined /*out*/;
             resourceInputs["description"] = undefined /*out*/;
             resourceInputs["displayName"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
@@ -115,10 +106,6 @@ export interface SecurityConnectorApplicationArgs {
      * The security Application key - unique key for the standard application
      */
     applicationId?: pulumi.Input<string>;
-    /**
-     * The application conditionSets - see examples
-     */
-    conditionSets: pulumi.Input<pulumi.Input<pulumi.Input<pulumi.Input<inputs.security.v20220701preview.ApplicationConditionArgs>[]>[]>[]>;
     /**
      * description of the application
      */

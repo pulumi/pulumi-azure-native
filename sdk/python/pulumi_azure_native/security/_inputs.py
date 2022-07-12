@@ -12,7 +12,6 @@ from ._enums import *
 __all__ = [
     'AdditionalWorkspacesPropertiesArgs',
     'AllowlistCustomAlertRuleArgs',
-    'ApplicationConditionArgs',
     'AssessmentStatusArgs',
     'AssignedComponentItemArgs',
     'AssignedStandardItemArgs',
@@ -183,62 +182,6 @@ class AllowlistCustomAlertRuleArgs:
     @rule_type.setter
     def rule_type(self, value: pulumi.Input[str]):
         pulumi.set(self, "rule_type", value)
-
-
-@pulumi.input_type
-class ApplicationConditionArgs:
-    def __init__(__self__, *,
-                 operator: Optional[pulumi.Input[Union[str, 'ApplicationConditionOperator']]] = None,
-                 property: Optional[pulumi.Input[str]] = None,
-                 value: Optional[pulumi.Input[str]] = None):
-        """
-        Application's condition
-        :param pulumi.Input[Union[str, 'ApplicationConditionOperator']] operator: The application Condition's Operator, for example Contains for id or In for list of possible IDs, see examples
-        :param pulumi.Input[str] property: The application Condition's Property, e.g. ID, see examples
-        :param pulumi.Input[str] value: The application Condition's Value like IDs that contain some string, see examples
-        """
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-        if property is not None:
-            pulumi.set(__self__, "property", property)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[pulumi.Input[Union[str, 'ApplicationConditionOperator']]]:
-        """
-        The application Condition's Operator, for example Contains for id or In for list of possible IDs, see examples
-        """
-        return pulumi.get(self, "operator")
-
-    @operator.setter
-    def operator(self, value: Optional[pulumi.Input[Union[str, 'ApplicationConditionOperator']]]):
-        pulumi.set(self, "operator", value)
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[pulumi.Input[str]]:
-        """
-        The application Condition's Value like IDs that contain some string, see examples
-        """
-        return pulumi.get(self, "value")
-
-    @value.setter
-    def value(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "value", value)
-
-    @property
-    @pulumi.getter
-    def property(self) -> Optional[pulumi.Input[str]]:
-        """
-        The application Condition's Property, e.g. ID, see examples
-        """
-        return pulumi.get(self, "property")
-
-    @property.setter
-    def property(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "property", value)
 
 
 @pulumi.input_type

@@ -31,8 +31,6 @@ type LookupSecurityConnectorApplicationArgs struct {
 
 // Security Application over a given scope
 type LookupSecurityConnectorApplicationResult struct {
-	// The application conditionSets - see examples
-	ConditionSets [][][]ApplicationConditionResponse `pulumi:"conditionSets"`
 	// description of the application
 	Description *string `pulumi:"description"`
 	// display name of the application
@@ -86,13 +84,6 @@ func (o LookupSecurityConnectorApplicationResultOutput) ToLookupSecurityConnecto
 
 func (o LookupSecurityConnectorApplicationResultOutput) ToLookupSecurityConnectorApplicationResultOutputWithContext(ctx context.Context) LookupSecurityConnectorApplicationResultOutput {
 	return o
-}
-
-// The application conditionSets - see examples
-func (o LookupSecurityConnectorApplicationResultOutput) ConditionSets() ApplicationConditionResponseArrayArrayArrayOutput {
-	return o.ApplyT(func(v LookupSecurityConnectorApplicationResult) [][][]ApplicationConditionResponse {
-		return v.ConditionSets
-	}).(ApplicationConditionResponseArrayArrayArrayOutput)
 }
 
 // description of the application

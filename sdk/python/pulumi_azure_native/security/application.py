@@ -7,29 +7,24 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 from ._enums import *
-from ._inputs import *
 
 __all__ = ['ApplicationArgs', 'Application']
 
 @pulumi.input_type
 class ApplicationArgs:
     def __init__(__self__, *,
-                 condition_sets: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['ApplicationConditionArgs']]]]]]],
                  source_resource_type: pulumi.Input[Union[str, 'ApplicationSourceResourceType']],
                  application_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a Application resource.
-        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['ApplicationConditionArgs']]]]]]] condition_sets: The application conditionSets - see examples
         :param pulumi.Input[Union[str, 'ApplicationSourceResourceType']] source_resource_type: The application source, what it affects, e.g. Assessments
         :param pulumi.Input[str] application_id: The security Application key - unique key for the standard application
         :param pulumi.Input[str] description: description of the application
         :param pulumi.Input[str] display_name: display name of the application
         """
-        pulumi.set(__self__, "condition_sets", condition_sets)
         pulumi.set(__self__, "source_resource_type", source_resource_type)
         if application_id is not None:
             pulumi.set(__self__, "application_id", application_id)
@@ -37,18 +32,6 @@ class ApplicationArgs:
             pulumi.set(__self__, "description", description)
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
-
-    @property
-    @pulumi.getter(name="conditionSets")
-    def condition_sets(self) -> pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['ApplicationConditionArgs']]]]]]]:
-        """
-        The application conditionSets - see examples
-        """
-        return pulumi.get(self, "condition_sets")
-
-    @condition_sets.setter
-    def condition_sets(self, value: pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input['ApplicationConditionArgs']]]]]]]):
-        pulumi.set(self, "condition_sets", value)
 
     @property
     @pulumi.getter(name="sourceResourceType")
@@ -105,7 +88,6 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
-                 condition_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConditionArgs']]]]]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  source_resource_type: Optional[pulumi.Input[Union[str, 'ApplicationSourceResourceType']]] = None,
@@ -117,7 +99,6 @@ class Application(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] application_id: The security Application key - unique key for the standard application
-        :param pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConditionArgs']]]]]]]] condition_sets: The application conditionSets - see examples
         :param pulumi.Input[str] description: description of the application
         :param pulumi.Input[str] display_name: display name of the application
         :param pulumi.Input[Union[str, 'ApplicationSourceResourceType']] source_resource_type: The application source, what it affects, e.g. Assessments
@@ -148,7 +129,6 @@ class Application(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  application_id: Optional[pulumi.Input[str]] = None,
-                 condition_sets: Optional[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['ApplicationConditionArgs']]]]]]]]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  display_name: Optional[pulumi.Input[str]] = None,
                  source_resource_type: Optional[pulumi.Input[Union[str, 'ApplicationSourceResourceType']]] = None,
@@ -165,9 +145,6 @@ class Application(pulumi.CustomResource):
             __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
             __props__.__dict__["application_id"] = application_id
-            if condition_sets is None and not opts.urn:
-                raise TypeError("Missing required property 'condition_sets'")
-            __props__.__dict__["condition_sets"] = condition_sets
             __props__.__dict__["description"] = description
             __props__.__dict__["display_name"] = display_name
             if source_resource_type is None and not opts.urn:
@@ -199,21 +176,12 @@ class Application(pulumi.CustomResource):
 
         __props__ = ApplicationArgs.__new__(ApplicationArgs)
 
-        __props__.__dict__["condition_sets"] = None
         __props__.__dict__["description"] = None
         __props__.__dict__["display_name"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["source_resource_type"] = None
         __props__.__dict__["type"] = None
         return Application(resource_name, opts=opts, __props__=__props__)
-
-    @property
-    @pulumi.getter(name="conditionSets")
-    def condition_sets(self) -> pulumi.Output[Sequence[Sequence[Sequence['outputs.ApplicationConditionResponse']]]]:
-        """
-        The application conditionSets - see examples
-        """
-        return pulumi.get(self, "condition_sets")
 
     @property
     @pulumi.getter

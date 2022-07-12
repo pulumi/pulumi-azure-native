@@ -62,22 +62,6 @@ export const AdditionalWorkspaceType = {
  */
 export type AdditionalWorkspaceType = (typeof AdditionalWorkspaceType)[keyof typeof AdditionalWorkspaceType];
 
-export const ApplicationConditionOperator = {
-    /**
-     * Checks that the string value of the data defined in Property contains the given value
-     */
-    Contains: "Contains",
-    /**
-     * Checks that the string value of the data defined in Property equals any of the given values (exact fit)
-     */
-    In: "In",
-} as const;
-
-/**
- * The application Condition's Operator, for example Contains for id or In for list of possible IDs, see examples
- */
-export type ApplicationConditionOperator = (typeof ApplicationConditionOperator)[keyof typeof ApplicationConditionOperator];
-
 export const ApplicationSourceResourceType = {
     /**
      * The source of the application is assessments

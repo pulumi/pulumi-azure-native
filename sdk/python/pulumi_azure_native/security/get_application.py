@@ -7,7 +7,6 @@ import pulumi
 import pulumi.runtime
 from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
-from . import outputs
 
 __all__ = [
     'GetApplicationResult',
@@ -21,10 +20,7 @@ class GetApplicationResult:
     """
     Security Application over a given scope
     """
-    def __init__(__self__, condition_sets=None, description=None, display_name=None, id=None, name=None, source_resource_type=None, type=None):
-        if condition_sets and not isinstance(condition_sets, list):
-            raise TypeError("Expected argument 'condition_sets' to be a list")
-        pulumi.set(__self__, "condition_sets", condition_sets)
+    def __init__(__self__, description=None, display_name=None, id=None, name=None, source_resource_type=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -43,14 +39,6 @@ class GetApplicationResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
-
-    @property
-    @pulumi.getter(name="conditionSets")
-    def condition_sets(self) -> Sequence[Sequence[Sequence['outputs.ApplicationConditionResponse']]]:
-        """
-        The application conditionSets - see examples
-        """
-        return pulumi.get(self, "condition_sets")
 
     @property
     @pulumi.getter
@@ -107,7 +95,6 @@ class AwaitableGetApplicationResult(GetApplicationResult):
         if False:
             yield self
         return GetApplicationResult(
-            condition_sets=self.condition_sets,
             description=self.description,
             display_name=self.display_name,
             id=self.id,
@@ -134,7 +121,6 @@ def get_application(application_id: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('azure-native:security:getApplication', __args__, opts=opts, typ=GetApplicationResult).value
 
     return AwaitableGetApplicationResult(
-        condition_sets=__ret__.condition_sets,
         description=__ret__.description,
         display_name=__ret__.display_name,
         id=__ret__.id,

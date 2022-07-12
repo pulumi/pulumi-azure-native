@@ -14,7 +14,6 @@ __all__ = [
     'AdaptiveApplicationControlIssueSummaryResponse',
     'AdditionalWorkspacesPropertiesResponse',
     'AllowlistCustomAlertRuleResponse',
-    'ApplicationConditionResponse',
     'AssessmentLinksResponse',
     'AssessmentStatusResponse',
     'AssignedComponentItemResponse',
@@ -298,53 +297,6 @@ class AllowlistCustomAlertRuleResponse(dict):
         The value type of the items in the list.
         """
         return pulumi.get(self, "value_type")
-
-
-@pulumi.output_type
-class ApplicationConditionResponse(dict):
-    """
-    Application's condition
-    """
-    def __init__(__self__, *,
-                 operator: Optional[str] = None,
-                 property: Optional[str] = None,
-                 value: Optional[str] = None):
-        """
-        Application's condition
-        :param str operator: The application Condition's Operator, for example Contains for id or In for list of possible IDs, see examples
-        :param str property: The application Condition's Property, e.g. ID, see examples
-        :param str value: The application Condition's Value like IDs that contain some string, see examples
-        """
-        if operator is not None:
-            pulumi.set(__self__, "operator", operator)
-        if property is not None:
-            pulumi.set(__self__, "property", property)
-        if value is not None:
-            pulumi.set(__self__, "value", value)
-
-    @property
-    @pulumi.getter
-    def operator(self) -> Optional[str]:
-        """
-        The application Condition's Operator, for example Contains for id or In for list of possible IDs, see examples
-        """
-        return pulumi.get(self, "operator")
-
-    @property
-    @pulumi.getter
-    def value(self) -> Optional[str]:
-        """
-        The application Condition's Value like IDs that contain some string, see examples
-        """
-        return pulumi.get(self, "value")
-
-    @property
-    @pulumi.getter
-    def property(self) -> Optional[str]:
-        """
-        The application Condition's Property, e.g. ID, see examples
-        """
-        return pulumi.get(self, "property")
 
 
 @pulumi.output_type

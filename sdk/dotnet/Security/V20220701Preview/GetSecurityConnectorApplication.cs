@@ -80,10 +80,6 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
     public sealed class GetSecurityConnectorApplicationResult
     {
         /// <summary>
-        /// The application conditionSets - see examples
-        /// </summary>
-        public readonly ImmutableArray<ImmutableArray<ImmutableArray<Outputs.ApplicationConditionResponse>>> ConditionSets;
-        /// <summary>
         /// description of the application
         /// </summary>
         public readonly string? Description;
@@ -110,8 +106,6 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
 
         [OutputConstructor]
         private GetSecurityConnectorApplicationResult(
-            ImmutableArray<ImmutableArray<ImmutableArray<Outputs.ApplicationConditionResponse>>> conditionSets,
-
             string? description,
 
             string? displayName,
@@ -124,7 +118,6 @@ namespace Pulumi.AzureNative.Security.V20220701Preview
 
             string type)
         {
-            ConditionSets = conditionSets;
             Description = description;
             DisplayName = displayName;
             Id = id;

@@ -3,16 +3,6 @@
 
 package v20220701preview
 
-// The application Condition's Operator, for example Contains for id or In for list of possible IDs, see examples
-type ApplicationConditionOperator string
-
-const (
-	// Checks that the string value of the data defined in Property contains the given value
-	ApplicationConditionOperatorContains = ApplicationConditionOperator("Contains")
-	// Checks that the string value of the data defined in Property equals any of the given values (exact fit)
-	ApplicationConditionOperatorIn = ApplicationConditionOperator("In")
-)
-
 // The application source, what it affects, e.g. Assessments
 type ApplicationSourceResourceType string
 

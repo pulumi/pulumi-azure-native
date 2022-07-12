@@ -10,5 +10,3 @@ from .application import *
 from .get_application import *
 from .get_security_connector_application import *
 from .security_connector_application import *
-from ._inputs import *
-from . import outputs
