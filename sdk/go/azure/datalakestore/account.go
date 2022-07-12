@@ -137,7 +137,7 @@ type accountArgs struct {
 	// The resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The current state of the trusted identity provider feature for this Data Lake Store account.
-	TrustedIdProviderState *TrustedIdProviderStateEnum `pulumi:"trustedIdProviderState"`
+	TrustedIdProviderState *TrustedIdProviderState `pulumi:"trustedIdProviderState"`
 	// The list of trusted identity providers associated with this Data Lake Store account.
 	TrustedIdProviders []CreateTrustedIdProviderWithAccountParameters `pulumi:"trustedIdProviders"`
 	// The list of virtual network rules associated with this Data Lake Store account.
@@ -171,7 +171,7 @@ type AccountArgs struct {
 	// The resource tags.
 	Tags pulumi.StringMapInput
 	// The current state of the trusted identity provider feature for this Data Lake Store account.
-	TrustedIdProviderState TrustedIdProviderStateEnumPtrInput
+	TrustedIdProviderState TrustedIdProviderStatePtrInput
 	// The list of trusted identity providers associated with this Data Lake Store account.
 	TrustedIdProviders CreateTrustedIdProviderWithAccountParametersArrayInput
 	// The list of virtual network rules associated with this Data Lake Store account.
