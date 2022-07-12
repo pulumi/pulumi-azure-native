@@ -1226,6 +1226,12 @@
     "2021-11-16-preview": [
       "AccessReviewHistoryDefinitionById",
       "AccessReviewScheduleDefinitionById"
+    ],
+    "2021-12-01-preview": [
+      "AccessReviewHistoryDefinitionById",
+      "AccessReviewScheduleDefinitionById",
+      "ScopeAccessReviewHistoryDefinitionById",
+      "ScopeAccessReviewScheduleDefinitionById"
     ]
   },
   "Automanage": {
@@ -1320,6 +1326,9 @@
       "HybridRunbookWorker",
       "HybridRunbookWorkerGroup",
       "listKeyByAutomationAccount"
+    ],
+    "2022-02-22": [
+      "HybridRunbookWorkerGroup"
     ]
   },
   "AutonomousDevelopmentPlatform": {
@@ -1962,6 +1971,13 @@
       "EmailService",
       "listCommunicationServiceKeys",
       "listEmailServiceVerifiedExchangeOnlineDomains"
+    ],
+    "2022-07-01-preview": [
+      "CommunicationService",
+      "Domain",
+      "EmailService",
+      "listCommunicationServiceKeys",
+      "listEmailServiceVerifiedExchangeOnlineDomains"
     ]
   },
   "Compute": {
@@ -2342,6 +2358,20 @@
   },
   "ConnectedVMwarevSphere": {
     "2020-10-01-preview": [
+      "Cluster",
+      "Datastore",
+      "GuestAgent",
+      "Host",
+      "HybridIdentityMetadatum",
+      "InventoryItem",
+      "MachineExtension",
+      "ResourcePool",
+      "VCenter",
+      "VirtualMachine",
+      "VirtualMachineTemplate",
+      "VirtualNetwork"
+    ],
+    "2022-01-10-preview": [
       "Cluster",
       "Datastore",
       "GuestAgent",
@@ -3766,6 +3796,12 @@
       "PrivateEndpointConnection",
       "Workspace",
       "vNetPeering"
+    ],
+    "2022-04-01-preview": [
+      "AccessConnector",
+      "PrivateEndpointConnection",
+      "Workspace",
+      "vNetPeering"
     ]
   },
   "Datadog": {
@@ -3924,6 +3960,17 @@
       "PrivateEndpointConnectionByHostPool",
       "PrivateEndpointConnectionByWorkspace",
       "ScalingPlan",
+      "Workspace"
+    ],
+    "2022-04-01-preview": [
+      "Application",
+      "ApplicationGroup",
+      "HostPool",
+      "MSIXPackage",
+      "PrivateEndpointConnectionByHostPool",
+      "PrivateEndpointConnectionByWorkspace",
+      "ScalingPlan",
+      "ScalingPlanPooledSchedule",
       "Workspace"
     ]
   },
@@ -5580,6 +5627,12 @@
       "MachineExtension",
       "PrivateEndpointConnection",
       "PrivateLinkScope"
+    ],
+    "2022-05-10-preview": [
+      "Machine",
+      "MachineExtension",
+      "PrivateEndpointConnection",
+      "PrivateLinkScope"
     ]
   },
   "HybridConnectivity": {
@@ -5801,6 +5854,9 @@
     ],
     "2022-06-01": [
       "ActionGroup"
+    ],
+    "2022-06-15": [
+      "WebTest"
     ]
   },
   "Intune": {
@@ -5889,6 +5945,14 @@
       "Vault"
     ],
     "2021-11-01-preview": [
+      "Key",
+      "MHSMPrivateEndpointConnection",
+      "ManagedHsm",
+      "PrivateEndpointConnection",
+      "Secret",
+      "Vault"
+    ],
+    "2022-07-01": [
       "Key",
       "MHSMPrivateEndpointConnection",
       "ManagedHsm",
@@ -6590,6 +6654,11 @@
       "MaintenanceConfiguration"
     ],
     "2021-09-01-preview": [
+      "ConfigurationAssignment",
+      "ConfigurationAssignmentParent",
+      "MaintenanceConfiguration"
+    ],
+    "2022-07-01-preview": [
       "ConfigurationAssignment",
       "ConfigurationAssignmentParent",
       "MaintenanceConfiguration"
@@ -9636,6 +9705,16 @@
     ],
     "2022-05-01": [
       "Policy"
+    ],
+    "2022-07-01": [
+      "DnsForwardingRuleset",
+      "DnsResolver",
+      "ForwardingRule",
+      "InboundEndpoint",
+      "OutboundEndpoint",
+      "VirtualNetworkLink",
+      "listDnsForwardingRulesetByVirtualNetwork",
+      "listDnsResolverByVirtualNetwork"
     ]
   },
   "NetworkFunction": {
@@ -10719,6 +10798,10 @@
     ],
     "2022-05-01-preview": [
       "SecurityConnector"
+    ],
+    "2022-07-01-preview": [
+      "Application",
+      "SecurityConnectorApplication"
     ]
   },
   "SecurityAndCompliance": {
@@ -10924,6 +11007,29 @@
       "listSourceControlRepositories"
     ],
     "2022-06-01-preview": [
+      "Action",
+      "AlertRule",
+      "AutomationRule",
+      "Bookmark",
+      "BookmarkRelation",
+      "DataConnector",
+      "EntityQuery",
+      "Incident",
+      "IncidentComment",
+      "IncidentRelation",
+      "Metadata",
+      "ProductSetting",
+      "SecurityMLAnalyticsSetting",
+      "SentinelOnboardingState",
+      "SourceControl",
+      "ThreatIntelligenceIndicator",
+      "Watchlist",
+      "WatchlistItem",
+      "getEntitiesGetTimeline",
+      "getEntityInsights",
+      "listSourceControlRepositories"
+    ],
+    "2022-07-01-preview": [
       "Action",
       "AlertRule",
       "AutomationRule",
