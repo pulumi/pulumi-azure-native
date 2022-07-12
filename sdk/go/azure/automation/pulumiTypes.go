@@ -2635,6 +2635,73 @@ func (o FieldDefinitionResponseMapOutput) MapIndex(k pulumi.StringInput) FieldDe
 	}).(FieldDefinitionResponseOutput)
 }
 
+// Definition of hybrid runbook worker Legacy.
+type HybridRunbookWorkerLegacyResponse struct {
+	// Gets or sets the assigned machine IP address.
+	Ip *string `pulumi:"ip"`
+	// Last Heartbeat from the Worker
+	LastSeenDateTime *string `pulumi:"lastSeenDateTime"`
+	// Gets or sets the worker machine name.
+	Name *string `pulumi:"name"`
+	// Gets or sets the registration time of the worker machine.
+	RegistrationTime *string `pulumi:"registrationTime"`
+}
+
+// Definition of hybrid runbook worker Legacy.
+type HybridRunbookWorkerLegacyResponseOutput struct{ *pulumi.OutputState }
+
+func (HybridRunbookWorkerLegacyResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*HybridRunbookWorkerLegacyResponse)(nil)).Elem()
+}
+
+func (o HybridRunbookWorkerLegacyResponseOutput) ToHybridRunbookWorkerLegacyResponseOutput() HybridRunbookWorkerLegacyResponseOutput {
+	return o
+}
+
+func (o HybridRunbookWorkerLegacyResponseOutput) ToHybridRunbookWorkerLegacyResponseOutputWithContext(ctx context.Context) HybridRunbookWorkerLegacyResponseOutput {
+	return o
+}
+
+// Gets or sets the assigned machine IP address.
+func (o HybridRunbookWorkerLegacyResponseOutput) Ip() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridRunbookWorkerLegacyResponse) *string { return v.Ip }).(pulumi.StringPtrOutput)
+}
+
+// Last Heartbeat from the Worker
+func (o HybridRunbookWorkerLegacyResponseOutput) LastSeenDateTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridRunbookWorkerLegacyResponse) *string { return v.LastSeenDateTime }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the worker machine name.
+func (o HybridRunbookWorkerLegacyResponseOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridRunbookWorkerLegacyResponse) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// Gets or sets the registration time of the worker machine.
+func (o HybridRunbookWorkerLegacyResponseOutput) RegistrationTime() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v HybridRunbookWorkerLegacyResponse) *string { return v.RegistrationTime }).(pulumi.StringPtrOutput)
+}
+
+type HybridRunbookWorkerLegacyResponseArrayOutput struct{ *pulumi.OutputState }
+
+func (HybridRunbookWorkerLegacyResponseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]HybridRunbookWorkerLegacyResponse)(nil)).Elem()
+}
+
+func (o HybridRunbookWorkerLegacyResponseArrayOutput) ToHybridRunbookWorkerLegacyResponseArrayOutput() HybridRunbookWorkerLegacyResponseArrayOutput {
+	return o
+}
+
+func (o HybridRunbookWorkerLegacyResponseArrayOutput) ToHybridRunbookWorkerLegacyResponseArrayOutputWithContext(ctx context.Context) HybridRunbookWorkerLegacyResponseArrayOutput {
+	return o
+}
+
+func (o HybridRunbookWorkerLegacyResponseArrayOutput) Index(i pulumi.IntInput) HybridRunbookWorkerLegacyResponseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) HybridRunbookWorkerLegacyResponse {
+		return vs[0].([]HybridRunbookWorkerLegacyResponse)[vs[1].(int)]
+	}).(HybridRunbookWorkerLegacyResponseOutput)
+}
+
 // Identity for the resource.
 type Identity struct {
 	// The identity type.
@@ -7761,6 +7828,8 @@ func init() {
 	pulumi.RegisterOutputType(FieldDefinitionMapOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionResponseOutput{})
 	pulumi.RegisterOutputType(FieldDefinitionResponseMapOutput{})
+	pulumi.RegisterOutputType(HybridRunbookWorkerLegacyResponseOutput{})
+	pulumi.RegisterOutputType(HybridRunbookWorkerLegacyResponseArrayOutput{})
 	pulumi.RegisterOutputType(IdentityOutput{})
 	pulumi.RegisterOutputType(IdentityPtrOutput{})
 	pulumi.RegisterOutputType(IdentityResponseOutput{})

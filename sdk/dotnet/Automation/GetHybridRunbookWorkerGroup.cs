@@ -13,14 +13,14 @@ namespace Pulumi.AzureNative.Automation
     {
         /// <summary>
         /// Definition of hybrid runbook worker group.
-        /// API Version: 2022-02-22.
+        /// API Version: 2021-06-22.
         /// </summary>
         public static Task<GetHybridRunbookWorkerGroupResult> InvokeAsync(GetHybridRunbookWorkerGroupArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.InvokeAsync<GetHybridRunbookWorkerGroupResult>("azure-native:automation:getHybridRunbookWorkerGroup", args ?? new GetHybridRunbookWorkerGroupArgs(), options.WithDefaults());
 
         /// <summary>
         /// Definition of hybrid runbook worker group.
-        /// API Version: 2022-02-22.
+        /// API Version: 2021-06-22.
         /// </summary>
         public static Output<GetHybridRunbookWorkerGroupResult> Invoke(GetHybridRunbookWorkerGroupInvokeArgs args, InvokeOptions? options = null)
             => Pulumi.Deployment.Instance.Invoke<GetHybridRunbookWorkerGroupResult>("azure-native:automation:getHybridRunbookWorkerGroup", args ?? new GetHybridRunbookWorkerGroupInvokeArgs(), options.WithDefaults());
@@ -90,13 +90,17 @@ namespace Pulumi.AzureNative.Automation
         /// </summary>
         public readonly string? GroupType;
         /// <summary>
-        /// Fully qualified resource Id for the resource
+        /// Gets or sets the list of hybrid runbook workers.
         /// </summary>
-        public readonly string Id;
+        public readonly ImmutableArray<Outputs.HybridRunbookWorkerLegacyResponse> HybridRunbookWorkers;
         /// <summary>
-        /// The name of the resource
+        /// Gets or sets the id of the resource.
         /// </summary>
-        public readonly string Name;
+        public readonly string? Id;
+        /// <summary>
+        /// Gets or sets the name of the group.
+        /// </summary>
+        public readonly string? Name;
         /// <summary>
         /// Resource system metadata.
         /// </summary>
@@ -112,9 +116,11 @@ namespace Pulumi.AzureNative.Automation
 
             string? groupType,
 
-            string id,
+            ImmutableArray<Outputs.HybridRunbookWorkerLegacyResponse> hybridRunbookWorkers,
 
-            string name,
+            string? id,
+
+            string? name,
 
             Outputs.SystemDataResponse systemData,
 
@@ -122,6 +128,7 @@ namespace Pulumi.AzureNative.Automation
         {
             Credential = credential;
             GroupType = groupType;
+            HybridRunbookWorkers = hybridRunbookWorkers;
             Id = id;
             Name = name;
             SystemData = systemData;

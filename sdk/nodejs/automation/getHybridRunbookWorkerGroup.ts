@@ -7,7 +7,7 @@ import * as utilities from "../utilities";
 
 /**
  * Definition of hybrid runbook worker group.
- * API Version: 2022-02-22.
+ * API Version: 2021-06-22.
  */
 export function getHybridRunbookWorkerGroup(args: GetHybridRunbookWorkerGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetHybridRunbookWorkerGroupResult> {
     if (!opts) {
@@ -50,13 +50,17 @@ export interface GetHybridRunbookWorkerGroupResult {
      */
     readonly groupType?: string;
     /**
-     * Fully qualified resource Id for the resource
+     * Gets or sets the list of hybrid runbook workers.
      */
-    readonly id: string;
+    readonly hybridRunbookWorkers?: outputs.automation.HybridRunbookWorkerLegacyResponse[];
     /**
-     * The name of the resource
+     * Gets or sets the id of the resource.
      */
-    readonly name: string;
+    readonly id?: string;
+    /**
+     * Gets or sets the name of the group.
+     */
+    readonly name?: string;
     /**
      * Resource system metadata.
      */

@@ -24,6 +24,7 @@ __all__ = [
     'EncryptionPropertiesResponseIdentity',
     'ErrorResponseResponse',
     'FieldDefinitionResponse',
+    'HybridRunbookWorkerLegacyResponse',
     'IdentityResponse',
     'IdentityResponseUserAssignedIdentities',
     'KeyResponse',
@@ -701,6 +702,84 @@ class FieldDefinitionResponse(dict):
         Gets or sets the isOptional flag of the connection field definition.
         """
         return pulumi.get(self, "is_optional")
+
+
+@pulumi.output_type
+class HybridRunbookWorkerLegacyResponse(dict):
+    """
+    Definition of hybrid runbook worker Legacy.
+    """
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "lastSeenDateTime":
+            suggest = "last_seen_date_time"
+        elif key == "registrationTime":
+            suggest = "registration_time"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in HybridRunbookWorkerLegacyResponse. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        HybridRunbookWorkerLegacyResponse.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        HybridRunbookWorkerLegacyResponse.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 ip: Optional[str] = None,
+                 last_seen_date_time: Optional[str] = None,
+                 name: Optional[str] = None,
+                 registration_time: Optional[str] = None):
+        """
+        Definition of hybrid runbook worker Legacy.
+        :param str ip: Gets or sets the assigned machine IP address.
+        :param str last_seen_date_time: Last Heartbeat from the Worker
+        :param str name: Gets or sets the worker machine name.
+        :param str registration_time: Gets or sets the registration time of the worker machine.
+        """
+        if ip is not None:
+            pulumi.set(__self__, "ip", ip)
+        if last_seen_date_time is not None:
+            pulumi.set(__self__, "last_seen_date_time", last_seen_date_time)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
+        if registration_time is not None:
+            pulumi.set(__self__, "registration_time", registration_time)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> Optional[str]:
+        """
+        Gets or sets the assigned machine IP address.
+        """
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter(name="lastSeenDateTime")
+    def last_seen_date_time(self) -> Optional[str]:
+        """
+        Last Heartbeat from the Worker
+        """
+        return pulumi.get(self, "last_seen_date_time")
+
+    @property
+    @pulumi.getter
+    def name(self) -> Optional[str]:
+        """
+        Gets or sets the worker machine name.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="registrationTime")
+    def registration_time(self) -> Optional[str]:
+        """
+        Gets or sets the registration time of the worker machine.
+        """
+        return pulumi.get(self, "registration_time")
 
 
 @pulumi.output_type
