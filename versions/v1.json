@@ -197,7 +197,7 @@
     "DscConfiguration": "2019-06-01",
     "DscNodeConfiguration": "2019-06-01",
     "HybridRunbookWorker": "2021-06-22",
-    "HybridRunbookWorkerGroup": "2022-02-22",
+    "HybridRunbookWorkerGroup": "2021-06-22",
     "JobSchedule": "2019-06-01",
     "Module": "2019-06-01",
     "PrivateEndpointConnection": "2020-01-13-preview",
