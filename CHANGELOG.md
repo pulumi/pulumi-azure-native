@@ -4,6 +4,50 @@
 
 - Memory usage for most programs is greatly reduced [#1689](https://github.com/pulumi/pulumi-azure-native/pull/1689)
 
+## 1.67.0 (2022-07-12)
+
+### Upstream breaking changes
+
+- Resource "azure-native:elasticsan:Volume" missing input "location"
+- Resource "azure-native:elasticsan:Volume" missing output "location"
+- Resource "azure-native:elasticsan:ElasticSan" missing output "provisionedMBps"
+- Resource "azure-native:elasticsan:VolumeGroup" missing input "location"
+- Resource "azure-native:elasticsan:VolumeGroup" missing output "location"
+- Resource "azure-native:automation:HybridRunbookWorkerGroup" missing output "hybridRunbookWorkers"
+- Function "azure-native:elasticsan:getVolume" missing output "location"
+- Function "azure-native:automation:getHybridRunbookWorkerGroup" missing output "hybridRunbookWorkers"
+- Function "azure-native:elasticsan:getElasticSan" missing output "provisionedMBps"
+- Function "azure-native:elasticsan:getVolumeGroup" missing output "location"
+- Type "azure-native:automation:HybridRunbookWorkerLegacyResponse" missing
+
+#### New resources:
+
+- `azure-native:authorization:ScopeAccessReviewHistoryDefinitionById`
+- `azure-native:authorization:ScopeAccessReviewScheduleDefinitionById`
+- `azure-native:databricks:AccessConnector`
+- `azure-native:desktopvirtualization:ScalingPlanPooledSchedule`
+- `azure-native:security:Application`
+- `azure-native:security:SecurityConnectorApplication`
+- `azure-native:web:AppServiceEnvironmentAseCustomDnsSuffixConfiguration`
+- `azure-native:web:StaticSiteLinkedBackend`
+- `azure-native:web:StaticSiteLinkedBackendForBuild`
+
+#### New functions:
+
+- `azure-native:authorization:getScopeAccessReviewHistoryDefinitionById`
+- `azure-native:authorization:getScopeAccessReviewScheduleDefinitionById`
+- `azure-native:databricks:getAccessConnector`
+- `azure-native:desktopvirtualization:getScalingPlanPooledSchedule`
+- `azure-native:security:getApplication`
+- `azure-native:security:getSecurityConnectorApplication`
+- `azure-native:resourceconnector:listApplianceClusterCustomerUserCredential`
+- `azure-native:web:getAppServiceEnvironmentAseCustomDnsSuffixConfiguration`
+- `azure-native:web:getStaticSiteLinkedBackend`
+- `azure-native:web:getStaticSiteLinkedBackendForBuild`
+- `azure-native:web:listWorkflowRunActionExpressionTraces`
+- `azure-native:web:listWorkflowRunActionRepetitionExpressionTraces`
+- `azure-native:web:listWorkflowTriggerCallbackUrl`
+
 ## 1.66.0 (2022-06-23)
 
 Resource "azure-native:iotcentral:App" changed from 2018-09-01 to 2021-06-01
