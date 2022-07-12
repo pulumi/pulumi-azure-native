@@ -136,6 +136,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20220601Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220101preview:ThreatIntelligenceAlertRule"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:ThreatIntelligenceAlertRule"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:ThreatIntelligenceAlertRule"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:ThreatIntelligenceAlertRule"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

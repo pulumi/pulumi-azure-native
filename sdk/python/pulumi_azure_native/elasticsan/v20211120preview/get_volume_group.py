@@ -21,16 +21,13 @@ class GetVolumeGroupResult:
     """
     Response for Volume Group request.
     """
-    def __init__(__self__, encryption=None, id=None, location=None, name=None, network_acls=None, protocol_type=None, provisioning_state=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, id=None, name=None, network_acls=None, protocol_type=None, provisioning_state=None, system_data=None, tags=None, type=None):
         if encryption and not isinstance(encryption, str):
             raise TypeError("Expected argument 'encryption' to be a str")
         pulumi.set(__self__, "encryption", encryption)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -68,14 +65,6 @@ class GetVolumeGroupResult:
         Azure resource identifier.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        The geo-location where the resource lives.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -142,7 +131,6 @@ class AwaitableGetVolumeGroupResult(GetVolumeGroupResult):
         return GetVolumeGroupResult(
             encryption=self.encryption,
             id=self.id,
-            location=self.location,
             name=self.name,
             network_acls=self.network_acls,
             protocol_type=self.protocol_type,
@@ -177,7 +165,6 @@ def get_volume_group(elastic_san_name: Optional[str] = None,
     return AwaitableGetVolumeGroupResult(
         encryption=__ret__.encryption,
         id=__ret__.id,
-        location=__ret__.location,
         name=__ret__.name,
         network_acls=__ret__.network_acls,
         protocol_type=__ret__.protocol_type,

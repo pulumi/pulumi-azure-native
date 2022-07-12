@@ -234,11 +234,11 @@ class ElasticSan(pulumi.CustomResource):
             __props__.__dict__["sku"] = sku
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
-            __props__.__dict__["provisioned_m_bps"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["total_iops"] = None
             __props__.__dict__["total_m_bps"] = None
+            __props__.__dict__["total_size_ti_b"] = None
             __props__.__dict__["total_volume_size_gi_b"] = None
             __props__.__dict__["type"] = None
             __props__.__dict__["volume_group_count"] = None
@@ -271,13 +271,13 @@ class ElasticSan(pulumi.CustomResource):
         __props__.__dict__["extended_capacity_size_ti_b"] = None
         __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
-        __props__.__dict__["provisioned_m_bps"] = None
         __props__.__dict__["provisioning_state"] = None
         __props__.__dict__["sku"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["total_iops"] = None
         __props__.__dict__["total_m_bps"] = None
+        __props__.__dict__["total_size_ti_b"] = None
         __props__.__dict__["total_volume_size_gi_b"] = None
         __props__.__dict__["type"] = None
         __props__.__dict__["volume_group_count"] = None
@@ -322,14 +322,6 @@ class ElasticSan(pulumi.CustomResource):
         Azure resource name.
         """
         return pulumi.get(self, "name")
-
-    @property
-    @pulumi.getter(name="provisionedMBps")
-    def provisioned_m_bps(self) -> pulumi.Output[float]:
-        """
-        Provisioned MBps Elastic San appliance.
-        """
-        return pulumi.get(self, "provisioned_m_bps")
 
     @property
     @pulumi.getter(name="provisioningState")
@@ -378,6 +370,14 @@ class ElasticSan(pulumi.CustomResource):
         Total Provisioned MBps Elastic San appliance.
         """
         return pulumi.get(self, "total_m_bps")
+
+    @property
+    @pulumi.getter(name="totalSizeTiB")
+    def total_size_ti_b(self) -> pulumi.Output[float]:
+        """
+        Total size of the Elastic San appliance in TB.
+        """
+        return pulumi.get(self, "total_size_ti_b")
 
     @property
     @pulumi.getter(name="totalVolumeSizeGiB")

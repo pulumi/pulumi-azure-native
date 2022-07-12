@@ -106,6 +106,10 @@ namespace Pulumi.AzureNative.PowerPlatform
         /// </summary>
         public readonly Outputs.SystemDataResponse SystemData;
         /// <summary>
+        /// The internally assigned unique identifier of the resource.
+        /// </summary>
+        public readonly string SystemId;
+        /// <summary>
         /// Resource tags.
         /// </summary>
         public readonly ImmutableDictionary<string, string>? Tags;
@@ -134,6 +138,8 @@ namespace Pulumi.AzureNative.PowerPlatform
 
             Outputs.SystemDataResponse systemData,
 
+            string systemId,
+
             ImmutableDictionary<string, string>? tags,
 
             string type)
@@ -147,6 +153,7 @@ namespace Pulumi.AzureNative.PowerPlatform
             Name = name;
             NetworkInjection = networkInjection;
             SystemData = systemData;
+            SystemId = systemId;
             Tags = tags;
             Type = type;
         }

@@ -28,7 +28,7 @@ namespace Pulumi.AzureNative.RecoveryServices.V20220401.Inputs
         public Input<string>? Family { get; set; }
 
         /// <summary>
-        /// The Sku name.
+        /// Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
         /// </summary>
         [Input("name", required: true)]
         public InputUnion<string, Pulumi.AzureNative.RecoveryServices.V20220401.SkuName> Name { get; set; } = null!;

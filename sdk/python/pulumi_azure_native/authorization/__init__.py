@@ -27,6 +27,8 @@ from .get_resource_management_private_link import *
 from .get_role_assignment import *
 from .get_role_definition import *
 from .get_role_management_policy_assignment import *
+from .get_scope_access_review_history_definition_by_id import *
+from .get_scope_access_review_schedule_definition_by_id import *
 from .management_lock_at_resource_group_level import *
 from .management_lock_at_resource_level import *
 from .management_lock_at_subscription_level import *
@@ -42,6 +44,8 @@ from .resource_management_private_link import *
 from .role_assignment import *
 from .role_definition import *
 from .role_management_policy_assignment import *
+from .scope_access_review_history_definition_by_id import *
+from .scope_access_review_schedule_definition_by_id import *
 from ._inputs import *
 from . import outputs
 
@@ -107,6 +111,8 @@ if typing.TYPE_CHECKING:
     v20210701preview = __v20210701preview
     import pulumi_azure_native.authorization.v20211116preview as __v20211116preview
     v20211116preview = __v20211116preview
+    import pulumi_azure_native.authorization.v20211201preview as __v20211201preview
+    v20211201preview = __v20211201preview
 else:
     v20150101 = _utilities.lazy_import('pulumi_azure_native.authorization.v20150101')
     v20150701 = _utilities.lazy_import('pulumi_azure_native.authorization.v20150701')
@@ -138,4 +144,5 @@ else:
     v20210601 = _utilities.lazy_import('pulumi_azure_native.authorization.v20210601')
     v20210701preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20210701preview')
     v20211116preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20211116preview')
+    v20211201preview = _utilities.lazy_import('pulumi_azure_native.authorization.v20211201preview')
 

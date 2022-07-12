@@ -20,7 +20,6 @@ class VolumeArgs:
                  resource_group_name: pulumi.Input[str],
                  volume_group_name: pulumi.Input[str],
                  creation_data: Optional[pulumi.Input['SourceCreationDataArgs']] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  size_gi_b: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_name: Optional[pulumi.Input[str]] = None):
@@ -30,7 +29,6 @@ class VolumeArgs:
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[str] volume_group_name: The name of the VolumeGroup.
         :param pulumi.Input['SourceCreationDataArgs'] creation_data: State of the operation on the resource.
-        :param pulumi.Input[str] location: The geo-location where the resource lives.
         :param pulumi.Input[float] size_gi_b: Volume size.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] volume_name: The name of the Volume.
@@ -40,8 +38,6 @@ class VolumeArgs:
         pulumi.set(__self__, "volume_group_name", volume_group_name)
         if creation_data is not None:
             pulumi.set(__self__, "creation_data", creation_data)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if size_gi_b is not None:
             pulumi.set(__self__, "size_gi_b", size_gi_b)
         if tags is not None:
@@ -98,18 +94,6 @@ class VolumeArgs:
         pulumi.set(self, "creation_data", value)
 
     @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The geo-location where the resource lives.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
     @pulumi.getter(name="sizeGiB")
     def size_gi_b(self) -> Optional[pulumi.Input[float]]:
         """
@@ -153,7 +137,6 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['SourceCreationDataArgs']]] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  size_gi_b: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -167,7 +150,6 @@ class Volume(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SourceCreationDataArgs']] creation_data: State of the operation on the resource.
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
-        :param pulumi.Input[str] location: The geo-location where the resource lives.
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
         :param pulumi.Input[float] size_gi_b: Volume size.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
@@ -200,7 +182,6 @@ class Volume(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  creation_data: Optional[pulumi.Input[pulumi.InputType['SourceCreationDataArgs']]] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  size_gi_b: Optional[pulumi.Input[float]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -222,7 +203,6 @@ class Volume(pulumi.CustomResource):
             if elastic_san_name is None and not opts.urn:
                 raise TypeError("Missing required property 'elastic_san_name'")
             __props__.__dict__["elastic_san_name"] = elastic_san_name
-            __props__.__dict__["location"] = location
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -262,7 +242,6 @@ class Volume(pulumi.CustomResource):
         __props__ = VolumeArgs.__new__(VolumeArgs)
 
         __props__.__dict__["creation_data"] = None
-        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["size_gi_b"] = None
         __props__.__dict__["storage_target"] = None
@@ -279,14 +258,6 @@ class Volume(pulumi.CustomResource):
         State of the operation on the resource.
         """
         return pulumi.get(self, "creation_data")
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
-        """
-        The geo-location where the resource lives.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter

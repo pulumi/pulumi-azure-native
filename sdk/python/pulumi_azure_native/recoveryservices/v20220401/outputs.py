@@ -429,7 +429,7 @@ class SkuResponse(dict):
                  tier: Optional[str] = None):
         """
         Identifies the unique system identifier for each Azure resource.
-        :param str name: The Sku name.
+        :param str name: Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
         :param str capacity: The sku capacity
         :param str family: The sku family
         :param str size: The sku size
@@ -449,7 +449,7 @@ class SkuResponse(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The Sku name.
+        Name of SKU is RS0 (Recovery Services 0th version) and the tier is standard tier. They do not have affect on backend storage redundancy or any other vault settings. To manage storage redundancy, use the backupstorageconfig
         """
         return pulumi.get(self, "name")
 

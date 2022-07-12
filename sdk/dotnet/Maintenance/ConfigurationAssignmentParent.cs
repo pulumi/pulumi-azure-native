@@ -79,6 +79,7 @@ namespace Pulumi.AzureNative.Maintenance
                 {
                     new Pulumi.Alias { Type = "azure-native:maintenance/v20210401preview:ConfigurationAssignmentParent"},
                     new Pulumi.Alias { Type = "azure-native:maintenance/v20210901preview:ConfigurationAssignmentParent"},
+                    new Pulumi.Alias { Type = "azure-native:maintenance/v20220701preview:ConfigurationAssignmentParent"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

@@ -26,6 +26,8 @@ export * from "./getResourceManagementPrivateLink";
 export * from "./getRoleAssignment";
 export * from "./getRoleDefinition";
 export * from "./getRoleManagementPolicyAssignment";
+export * from "./getScopeAccessReviewHistoryDefinitionById";
+export * from "./getScopeAccessReviewScheduleDefinitionById";
 export * from "./managementLockAtResourceGroupLevel";
 export * from "./managementLockAtResourceLevel";
 export * from "./managementLockAtSubscriptionLevel";
@@ -41,6 +43,8 @@ export * from "./resourceManagementPrivateLink";
 export * from "./roleAssignment";
 export * from "./roleDefinition";
 export * from "./roleManagementPolicyAssignment";
+export * from "./scopeAccessReviewHistoryDefinitionById";
+export * from "./scopeAccessReviewScheduleDefinitionById";
 
 // Export enums:
 export * from "../types/enums/authorization";
@@ -76,6 +80,7 @@ import * as v20210301preview from "./v20210301preview";
 import * as v20210601 from "./v20210601";
 import * as v20210701preview from "./v20210701preview";
 import * as v20211116preview from "./v20211116preview";
+import * as v20211201preview from "./v20211201preview";
 
 export {
     v20150101,
@@ -108,6 +113,7 @@ export {
     v20210601,
     v20210701preview,
     v20211116preview,
+    v20211201preview,
 };
 
 // Import resources to register:
@@ -128,6 +134,8 @@ import { ResourceManagementPrivateLink } from "./resourceManagementPrivateLink";
 import { RoleAssignment } from "./roleAssignment";
 import { RoleDefinition } from "./roleDefinition";
 import { RoleManagementPolicyAssignment } from "./roleManagementPolicyAssignment";
+import { ScopeAccessReviewHistoryDefinitionById } from "./scopeAccessReviewHistoryDefinitionById";
+import { ScopeAccessReviewScheduleDefinitionById } from "./scopeAccessReviewScheduleDefinitionById";
 
 const _module = {
     version: utilities.getVersion(),
@@ -167,6 +175,10 @@ const _module = {
                 return new RoleDefinition(name, <any>undefined, { urn })
             case "azure-native:authorization:RoleManagementPolicyAssignment":
                 return new RoleManagementPolicyAssignment(name, <any>undefined, { urn })
+            case "azure-native:authorization:ScopeAccessReviewHistoryDefinitionById":
+                return new ScopeAccessReviewHistoryDefinitionById(name, <any>undefined, { urn })
+            case "azure-native:authorization:ScopeAccessReviewScheduleDefinitionById":
+                return new ScopeAccessReviewScheduleDefinitionById(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }

@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ElasticSan.Outputs
 {
 
     /// <summary>
-    /// Data used when creating a disk.
+    /// Data source used when creating the volume.
     /// </summary>
     [OutputType]
     public sealed class SourceCreationDataResponse

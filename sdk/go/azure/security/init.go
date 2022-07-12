@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AdvancedThreatProtection{}
 	case "azure-native:security:AlertsSuppressionRule":
 		r = &AlertsSuppressionRule{}
+	case "azure-native:security:Application":
+		r = &Application{}
 	case "azure-native:security:Assessment":
 		r = &Assessment{}
 	case "azure-native:security:AssessmentMetadataInSubscription":
@@ -51,6 +53,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &JitNetworkAccessPolicy{}
 	case "azure-native:security:SecurityConnector":
 		r = &SecurityConnector{}
+	case "azure-native:security:SecurityConnectorApplication":
+		r = &SecurityConnectorApplication{}
 	case "azure-native:security:SecurityContact":
 		r = &SecurityContact{}
 	case "azure-native:security:ServerVulnerabilityAssessment":

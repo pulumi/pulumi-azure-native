@@ -25,8 +25,6 @@ type ElasticSan struct {
 	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Azure resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
-	// Provisioned MBps Elastic San appliance.
-	ProvisionedMBps pulumi.Float64Output `pulumi:"provisionedMBps"`
 	// State of the operation on the resource.
 	ProvisioningState pulumi.StringOutput `pulumi:"provisioningState"`
 	// resource sku
@@ -39,6 +37,8 @@ type ElasticSan struct {
 	TotalIops pulumi.Float64Output `pulumi:"totalIops"`
 	// Total Provisioned MBps Elastic San appliance.
 	TotalMBps pulumi.Float64Output `pulumi:"totalMBps"`
+	// Total size of the Elastic San appliance in TB.
+	TotalSizeTiB pulumi.Float64Output `pulumi:"totalSizeTiB"`
 	// Total size of the provisioned Volumes in GiB.
 	TotalVolumeSizeGiB pulumi.Float64Output `pulumi:"totalVolumeSizeGiB"`
 	// Azure resource type.
@@ -204,11 +204,6 @@ func (o ElasticSanOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticSan) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// Provisioned MBps Elastic San appliance.
-func (o ElasticSanOutput) ProvisionedMBps() pulumi.Float64Output {
-	return o.ApplyT(func(v *ElasticSan) pulumi.Float64Output { return v.ProvisionedMBps }).(pulumi.Float64Output)
-}
-
 // State of the operation on the resource.
 func (o ElasticSanOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElasticSan) pulumi.StringOutput { return v.ProvisioningState }).(pulumi.StringOutput)
@@ -237,6 +232,11 @@ func (o ElasticSanOutput) TotalIops() pulumi.Float64Output {
 // Total Provisioned MBps Elastic San appliance.
 func (o ElasticSanOutput) TotalMBps() pulumi.Float64Output {
 	return o.ApplyT(func(v *ElasticSan) pulumi.Float64Output { return v.TotalMBps }).(pulumi.Float64Output)
+}
+
+// Total size of the Elastic San appliance in TB.
+func (o ElasticSanOutput) TotalSizeTiB() pulumi.Float64Output {
+	return o.ApplyT(func(v *ElasticSan) pulumi.Float64Output { return v.TotalSizeTiB }).(pulumi.Float64Output)
 }
 
 // Total size of the provisioned Volumes in GiB.

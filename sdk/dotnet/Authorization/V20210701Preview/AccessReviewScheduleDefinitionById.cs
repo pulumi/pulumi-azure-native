@@ -236,6 +236,7 @@ namespace Pulumi.AzureNative.Authorization.V20210701Preview
                     new Pulumi.Alias { Type = "azure-native:authorization/v20180501preview:AccessReviewScheduleDefinitionById"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20210301preview:AccessReviewScheduleDefinitionById"},
                     new Pulumi.Alias { Type = "azure-native:authorization/v20211116preview:AccessReviewScheduleDefinitionById"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20211201preview:AccessReviewScheduleDefinitionById"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

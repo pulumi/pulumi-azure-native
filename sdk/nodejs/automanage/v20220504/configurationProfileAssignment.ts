@@ -36,6 +36,10 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
     }
 
     /**
+     * Azure resource id. Indicates if this resource is managed by another Azure resource.
+     */
+    public /*out*/ readonly managedBy!: pulumi.Output<string>;
+    /**
      * The name of the resource
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -73,10 +77,12 @@ export class ConfigurationProfileAssignment extends pulumi.CustomResource {
             resourceInputs["properties"] = args ? args.properties : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["vmName"] = args ? args.vmName : undefined;
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;
             resourceInputs["type"] = undefined /*out*/;
         } else {
+            resourceInputs["managedBy"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["properties"] = undefined /*out*/;
             resourceInputs["systemData"] = undefined /*out*/;

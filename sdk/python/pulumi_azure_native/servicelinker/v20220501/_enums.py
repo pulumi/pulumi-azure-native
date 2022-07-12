@@ -46,6 +46,7 @@ class ClientType(str, Enum):
     DJANGO = "django"
     NODEJS = "nodejs"
     SPRING_BOOT = "springBoot"
+    KAFKA_SPRING_BOOT = "kafka-springBoot"
 
 
 class SecretType(str, Enum):

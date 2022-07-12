@@ -58,6 +58,9 @@ func NewForwardingRule(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:network:ForwardingRule"),
 		},
+		{
+			Type: pulumi.String("azure-native:network/v20220701:ForwardingRule"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource ForwardingRule

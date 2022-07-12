@@ -75,7 +75,7 @@ func NewSubnet(ctx *pulumi.Context,
 		return nil, errors.New("invalid value for required argument 'VirtualNetworkName'")
 	}
 	if isZero(args.PrivateEndpointNetworkPolicies) {
-		args.PrivateEndpointNetworkPolicies = pulumi.StringPtr("Enabled")
+		args.PrivateEndpointNetworkPolicies = pulumi.StringPtr("Disabled")
 	}
 	if isZero(args.PrivateLinkServiceNetworkPolicies) {
 		args.PrivateLinkServiceNetworkPolicies = pulumi.StringPtr("Enabled")

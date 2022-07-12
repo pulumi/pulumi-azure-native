@@ -1120,11 +1120,11 @@ class ResourceRangeArgs:
 @pulumi.input_type
 class SharingProfileArgs:
     def __init__(__self__, *,
-                 community_gallery_info: Optional[pulumi.Input[Sequence[pulumi.Input['CommunityGalleryInfoArgs']]]] = None,
+                 community_gallery_info: Optional[pulumi.Input['CommunityGalleryInfoArgs']] = None,
                  permissions: Optional[pulumi.Input[Union[str, 'GallerySharingPermissionTypes']]] = None):
         """
         Profile for gallery sharing to subscription or tenant
-        :param pulumi.Input[Sequence[pulumi.Input['CommunityGalleryInfoArgs']]] community_gallery_info: Information of community gallery if current gallery is shared to community.
+        :param pulumi.Input['CommunityGalleryInfoArgs'] community_gallery_info: Information of community gallery if current gallery is shared to community.
         :param pulumi.Input[Union[str, 'GallerySharingPermissionTypes']] permissions: This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
         """
         if community_gallery_info is not None:
@@ -1134,14 +1134,14 @@ class SharingProfileArgs:
 
     @property
     @pulumi.getter(name="communityGalleryInfo")
-    def community_gallery_info(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CommunityGalleryInfoArgs']]]]:
+    def community_gallery_info(self) -> Optional[pulumi.Input['CommunityGalleryInfoArgs']]:
         """
         Information of community gallery if current gallery is shared to community.
         """
         return pulumi.get(self, "community_gallery_info")
 
     @community_gallery_info.setter
-    def community_gallery_info(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CommunityGalleryInfoArgs']]]]):
+    def community_gallery_info(self, value: Optional[pulumi.Input['CommunityGalleryInfoArgs']]):
         pulumi.set(self, "community_gallery_info", value)
 
     @property

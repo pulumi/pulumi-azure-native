@@ -12,6 +12,7 @@ from ._enums import *
 __all__ = [
     'AddressSpaceArgs',
     'EncryptionArgs',
+    'IdentityDataArgs',
     'PrivateEndpointConnectionPropertiesArgs',
     'PrivateLinkServiceConnectionStateArgs',
     'SkuArgs',
@@ -120,6 +121,29 @@ class EncryptionArgs:
     @key_version.setter
     def key_version(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_version", value)
+
+
+@pulumi.input_type
+class IdentityDataArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[Union[str, 'IdentityType']]):
+        """
+        Identity for the resource.
+        :param pulumi.Input[Union[str, 'IdentityType']] type: The identity type.
+        """
+        pulumi.set(__self__, "type", type)
+
+    @property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[Union[str, 'IdentityType']]:
+        """
+        The identity type.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[Union[str, 'IdentityType']]):
+        pulumi.set(self, "type", value)
 
 
 @pulumi.input_type

@@ -1534,12 +1534,12 @@ class SharingProfileResponse(dict):
 
     def __init__(__self__, *,
                  groups: Sequence['outputs.SharingProfileGroupResponse'],
-                 community_gallery_info: Optional[Sequence['outputs.CommunityGalleryInfoResponse']] = None,
+                 community_gallery_info: Optional['outputs.CommunityGalleryInfoResponse'] = None,
                  permissions: Optional[str] = None):
         """
         Profile for gallery sharing to subscription or tenant
         :param Sequence['SharingProfileGroupResponse'] groups: A list of sharing profile groups.
-        :param Sequence['CommunityGalleryInfoResponse'] community_gallery_info: Information of community gallery if current gallery is shared to community.
+        :param 'CommunityGalleryInfoResponse' community_gallery_info: Information of community gallery if current gallery is shared to community.
         :param str permissions: This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
         """
         pulumi.set(__self__, "groups", groups)
@@ -1558,7 +1558,7 @@ class SharingProfileResponse(dict):
 
     @property
     @pulumi.getter(name="communityGalleryInfo")
-    def community_gallery_info(self) -> Optional[Sequence['outputs.CommunityGalleryInfoResponse']]:
+    def community_gallery_info(self) -> Optional['outputs.CommunityGalleryInfoResponse']:
         """
         Information of community gallery if current gallery is shared to community.
         """

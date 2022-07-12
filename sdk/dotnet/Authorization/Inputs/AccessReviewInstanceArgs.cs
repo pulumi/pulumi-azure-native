@@ -15,11 +15,35 @@ namespace Pulumi.AzureNative.Authorization.Inputs
     /// </summary>
     public sealed class AccessReviewInstanceArgs : Pulumi.ResourceArgs
     {
+        [Input("backupReviewers")]
+        private InputList<Inputs.AccessReviewReviewerArgs>? _backupReviewers;
+
+        /// <summary>
+        /// This is the collection of backup reviewers.
+        /// </summary>
+        public InputList<Inputs.AccessReviewReviewerArgs> BackupReviewers
+        {
+            get => _backupReviewers ?? (_backupReviewers = new InputList<Inputs.AccessReviewReviewerArgs>());
+            set => _backupReviewers = value;
+        }
+
         /// <summary>
         /// The DateTime when the review instance is scheduled to end.
         /// </summary>
         [Input("endDateTime")]
         public Input<string>? EndDateTime { get; set; }
+
+        [Input("reviewers")]
+        private InputList<Inputs.AccessReviewReviewerArgs>? _reviewers;
+
+        /// <summary>
+        /// This is the collection of reviewers.
+        /// </summary>
+        public InputList<Inputs.AccessReviewReviewerArgs> Reviewers
+        {
+            get => _reviewers ?? (_reviewers = new InputList<Inputs.AccessReviewReviewerArgs>());
+            set => _reviewers = value;
+        }
 
         /// <summary>
         /// The DateTime when the review instance is scheduled to be start.

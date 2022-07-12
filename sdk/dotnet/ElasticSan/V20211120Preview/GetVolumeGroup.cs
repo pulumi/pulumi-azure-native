@@ -88,10 +88,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The geo-location where the resource lives.
-        /// </summary>
-        public readonly string? Location;
-        /// <summary>
         /// Azure resource name.
         /// </summary>
         public readonly string Name;
@@ -126,8 +122,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
 
             string id,
 
-            string? location,
-
             string name,
 
             Outputs.NetworkRuleSetResponse? networkAcls,
@@ -144,7 +138,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         {
             Encryption = encryption;
             Id = id;
-            Location = location;
             Name = name;
             NetworkAcls = networkAcls;
             ProtocolType = protocolType;

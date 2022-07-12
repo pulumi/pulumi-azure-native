@@ -55,6 +55,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RoleDefinition{}
 	case "azure-native:authorization:RoleManagementPolicyAssignment":
 		r = &RoleManagementPolicyAssignment{}
+	case "azure-native:authorization:ScopeAccessReviewHistoryDefinitionById":
+		r = &ScopeAccessReviewHistoryDefinitionById{}
+	case "azure-native:authorization:ScopeAccessReviewScheduleDefinitionById":
+		r = &ScopeAccessReviewScheduleDefinitionById{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}

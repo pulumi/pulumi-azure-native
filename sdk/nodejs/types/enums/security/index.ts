@@ -14,6 +14,7 @@ import * as v20210801preview from "./v20210801preview";
 import * as v20211201preview from "./v20211201preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220501preview from "./v20220501preview";
+import * as v20220701preview from "./v20220701preview";
 
 export {
     v20150601preview,
@@ -28,6 +29,7 @@ export {
     v20211201preview,
     v20220101preview,
     v20220501preview,
+    v20220701preview,
 };
 
 export const ActionType = {
@@ -59,6 +61,18 @@ export const AdditionalWorkspaceType = {
  * Workspace type.
  */
 export type AdditionalWorkspaceType = (typeof AdditionalWorkspaceType)[keyof typeof AdditionalWorkspaceType];
+
+export const ApplicationSourceResourceType = {
+    /**
+     * The source of the application is assessments
+     */
+    Assessments: "Assessments",
+} as const;
+
+/**
+ * The application source, what it affects, e.g. Assessments
+ */
+export type ApplicationSourceResourceType = (typeof ApplicationSourceResourceType)[keyof typeof ApplicationSourceResourceType];
 
 export const AssessmentStatusCode = {
     /**

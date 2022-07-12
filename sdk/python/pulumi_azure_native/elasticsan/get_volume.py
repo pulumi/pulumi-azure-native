@@ -21,16 +21,13 @@ class GetVolumeResult:
     """
     Response for Volume request.
     """
-    def __init__(__self__, creation_data=None, id=None, location=None, name=None, size_gi_b=None, storage_target=None, system_data=None, tags=None, type=None, volume_id=None):
+    def __init__(__self__, creation_data=None, id=None, name=None, size_gi_b=None, storage_target=None, system_data=None, tags=None, type=None, volume_id=None):
         if creation_data and not isinstance(creation_data, dict):
             raise TypeError("Expected argument 'creation_data' to be a dict")
         pulumi.set(__self__, "creation_data", creation_data)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
-        if location and not isinstance(location, str):
-            raise TypeError("Expected argument 'location' to be a str")
-        pulumi.set(__self__, "location", location)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -68,14 +65,6 @@ class GetVolumeResult:
         Azure resource identifier.
         """
         return pulumi.get(self, "id")
-
-    @property
-    @pulumi.getter
-    def location(self) -> Optional[str]:
-        """
-        The geo-location where the resource lives.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter
@@ -142,7 +131,6 @@ class AwaitableGetVolumeResult(GetVolumeResult):
         return GetVolumeResult(
             creation_data=self.creation_data,
             id=self.id,
-            location=self.location,
             name=self.name,
             size_gi_b=self.size_gi_b,
             storage_target=self.storage_target,
@@ -181,7 +169,6 @@ def get_volume(elastic_san_name: Optional[str] = None,
     return AwaitableGetVolumeResult(
         creation_data=__ret__.creation_data,
         id=__ret__.id,
-        location=__ret__.location,
         name=__ret__.name,
         size_gi_b=__ret__.size_gi_b,
         storage_target=__ret__.storage_target,

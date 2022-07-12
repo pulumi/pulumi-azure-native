@@ -47,6 +47,8 @@ type LookupEnterprisePolicyResult struct {
 	NetworkInjection *PropertiesResponseNetworkInjection `pulumi:"networkInjection"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The internally assigned unique identifier of the resource.
+	SystemId string `pulumi:"systemId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -135,6 +137,11 @@ func (o LookupEnterprisePolicyResultOutput) NetworkInjection() PropertiesRespons
 // Metadata pertaining to creation and last modification of the resource.
 func (o LookupEnterprisePolicyResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupEnterprisePolicyResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The internally assigned unique identifier of the resource.
+func (o LookupEnterprisePolicyResultOutput) SystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupEnterprisePolicyResult) string { return v.SystemId }).(pulumi.StringOutput)
 }
 
 // Resource tags.

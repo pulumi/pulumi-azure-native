@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Automanage.V20220504
     public partial class ConfigurationProfileHCIAssignment : Pulumi.CustomResource
     {
         /// <summary>
+        /// Azure resource id. Indicates if this resource is managed by another Azure resource.
+        /// </summary>
+        [Output("managedBy")]
+        public Output<string> ManagedBy { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the resource
         /// </summary>
         [Output("name")]

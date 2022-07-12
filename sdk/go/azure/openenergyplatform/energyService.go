@@ -11,7 +11,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-06-01-preview.
+// API Version: 2022-04-04-preview.
 type EnergyService struct {
 	pulumi.CustomResourceState
 

@@ -17,7 +17,7 @@ func LookupStreamingJob(ctx *pulumi.Context, args *LookupStreamingJobArgs, opts 
 	if err != nil {
 		return nil, err
 	}
-	return &rv, nil
+	return rv.Defaults(), nil
 }
 
 type LookupStreamingJobArgs struct {
@@ -91,6 +91,17 @@ type LookupStreamingJobResult struct {
 	Transformation *TransformationResponse `pulumi:"transformation"`
 	// The type of the resource. Ex- Microsoft.Compute/virtualMachines or Microsoft.Storage/storageAccounts.
 	Type string `pulumi:"type"`
+}
+
+// Defaults sets the appropriate defaults for LookupStreamingJobResult
+func (val *LookupStreamingJobResult) Defaults() *LookupStreamingJobResult {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	tmp.Transformation = tmp.Transformation.Defaults()
+
+	return &tmp
 }
 
 func LookupStreamingJobOutput(ctx *pulumi.Context, args LookupStreamingJobOutputArgs, opts ...pulumi.InvokeOption) LookupStreamingJobResultOutput {

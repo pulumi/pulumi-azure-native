@@ -22,12 +22,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         public Output<string> Encryption { get; private set; } = null!;
 
         /// <summary>
-        /// The geo-location where the resource lives.
-        /// </summary>
-        [Output("location")]
-        public Output<string?> Location { get; private set; } = null!;
-
-        /// <summary>
         /// Azure resource name.
         /// </summary>
         [Output("name")]
@@ -129,12 +123,6 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview
         /// </summary>
         [Input("encryption", required: true)]
         public InputUnion<string, Pulumi.AzureNative.ElasticSan.V20211120Preview.EncryptionType> Encryption { get; set; } = null!;
-
-        /// <summary>
-        /// The geo-location where the resource lives.
-        /// </summary>
-        [Input("location")]
-        public Input<string>? Location { get; set; }
 
         /// <summary>
         /// A collection of rules governing the accessibility from specific network locations.

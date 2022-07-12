@@ -44,6 +44,12 @@ func NewVirtualNetworkLink(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	aliases := pulumi.Aliases([]pulumi.Alias{
+		{
+			Type: pulumi.String("azure-native:network/v20220701:VirtualNetworkLink"),
+		},
+	})
+	opts = append(opts, aliases)
 	var resource VirtualNetworkLink
 	err := ctx.RegisterResource("azure-native:network/v20200401preview:VirtualNetworkLink", name, args, &resource, opts...)
 	if err != nil {

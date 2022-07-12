@@ -21,7 +21,7 @@ class GetElasticSanResult:
     """
     Response for ElasticSan request.
     """
-    def __init__(__self__, availability_zones=None, base_size_ti_b=None, extended_capacity_size_ti_b=None, id=None, location=None, name=None, provisioned_m_bps=None, provisioning_state=None, sku=None, system_data=None, tags=None, total_iops=None, total_m_bps=None, total_volume_size_gi_b=None, type=None, volume_group_count=None):
+    def __init__(__self__, availability_zones=None, base_size_ti_b=None, extended_capacity_size_ti_b=None, id=None, location=None, name=None, provisioning_state=None, sku=None, system_data=None, tags=None, total_iops=None, total_m_bps=None, total_size_ti_b=None, total_volume_size_gi_b=None, type=None, volume_group_count=None):
         if availability_zones and not isinstance(availability_zones, list):
             raise TypeError("Expected argument 'availability_zones' to be a list")
         pulumi.set(__self__, "availability_zones", availability_zones)
@@ -40,9 +40,6 @@ class GetElasticSanResult:
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
-        if provisioned_m_bps and not isinstance(provisioned_m_bps, float):
-            raise TypeError("Expected argument 'provisioned_m_bps' to be a float")
-        pulumi.set(__self__, "provisioned_m_bps", provisioned_m_bps)
         if provisioning_state and not isinstance(provisioning_state, str):
             raise TypeError("Expected argument 'provisioning_state' to be a str")
         pulumi.set(__self__, "provisioning_state", provisioning_state)
@@ -61,6 +58,9 @@ class GetElasticSanResult:
         if total_m_bps and not isinstance(total_m_bps, float):
             raise TypeError("Expected argument 'total_m_bps' to be a float")
         pulumi.set(__self__, "total_m_bps", total_m_bps)
+        if total_size_ti_b and not isinstance(total_size_ti_b, float):
+            raise TypeError("Expected argument 'total_size_ti_b' to be a float")
+        pulumi.set(__self__, "total_size_ti_b", total_size_ti_b)
         if total_volume_size_gi_b and not isinstance(total_volume_size_gi_b, float):
             raise TypeError("Expected argument 'total_volume_size_gi_b' to be a float")
         pulumi.set(__self__, "total_volume_size_gi_b", total_volume_size_gi_b)
@@ -120,14 +120,6 @@ class GetElasticSanResult:
         return pulumi.get(self, "name")
 
     @property
-    @pulumi.getter(name="provisionedMBps")
-    def provisioned_m_bps(self) -> float:
-        """
-        Provisioned MBps Elastic San appliance.
-        """
-        return pulumi.get(self, "provisioned_m_bps")
-
-    @property
     @pulumi.getter(name="provisioningState")
     def provisioning_state(self) -> str:
         """
@@ -176,6 +168,14 @@ class GetElasticSanResult:
         return pulumi.get(self, "total_m_bps")
 
     @property
+    @pulumi.getter(name="totalSizeTiB")
+    def total_size_ti_b(self) -> float:
+        """
+        Total size of the Elastic San appliance in TB.
+        """
+        return pulumi.get(self, "total_size_ti_b")
+
+    @property
     @pulumi.getter(name="totalVolumeSizeGiB")
     def total_volume_size_gi_b(self) -> float:
         """
@@ -212,13 +212,13 @@ class AwaitableGetElasticSanResult(GetElasticSanResult):
             id=self.id,
             location=self.location,
             name=self.name,
-            provisioned_m_bps=self.provisioned_m_bps,
             provisioning_state=self.provisioning_state,
             sku=self.sku,
             system_data=self.system_data,
             tags=self.tags,
             total_iops=self.total_iops,
             total_m_bps=self.total_m_bps,
+            total_size_ti_b=self.total_size_ti_b,
             total_volume_size_gi_b=self.total_volume_size_gi_b,
             type=self.type,
             volume_group_count=self.volume_group_count)
@@ -250,13 +250,13 @@ def get_elastic_san(elastic_san_name: Optional[str] = None,
         id=__ret__.id,
         location=__ret__.location,
         name=__ret__.name,
-        provisioned_m_bps=__ret__.provisioned_m_bps,
         provisioning_state=__ret__.provisioning_state,
         sku=__ret__.sku,
         system_data=__ret__.system_data,
         tags=__ret__.tags,
         total_iops=__ret__.total_iops,
         total_m_bps=__ret__.total_m_bps,
+        total_size_ti_b=__ret__.total_size_ti_b,
         total_volume_size_gi_b=__ret__.total_volume_size_gi_b,
         type=__ret__.type,
         volume_group_count=__ret__.volume_group_count)

@@ -273,8 +273,12 @@ func (o AccessReviewHistoryInstanceResponseArrayOutput) Index(i pulumi.IntInput)
 
 // Access Review Instance.
 type AccessReviewInstance struct {
+	// This is the collection of backup reviewers.
+	BackupReviewers []AccessReviewReviewer `pulumi:"backupReviewers"`
 	// The DateTime when the review instance is scheduled to end.
 	EndDateTime *string `pulumi:"endDateTime"`
+	// This is the collection of reviewers.
+	Reviewers []AccessReviewReviewer `pulumi:"reviewers"`
 	// The DateTime when the review instance is scheduled to be start.
 	StartDateTime *string `pulumi:"startDateTime"`
 }
@@ -292,8 +296,12 @@ type AccessReviewInstanceInput interface {
 
 // Access Review Instance.
 type AccessReviewInstanceArgs struct {
+	// This is the collection of backup reviewers.
+	BackupReviewers AccessReviewReviewerArrayInput `pulumi:"backupReviewers"`
 	// The DateTime when the review instance is scheduled to end.
 	EndDateTime pulumi.StringPtrInput `pulumi:"endDateTime"`
+	// This is the collection of reviewers.
+	Reviewers AccessReviewReviewerArrayInput `pulumi:"reviewers"`
 	// The DateTime when the review instance is scheduled to be start.
 	StartDateTime pulumi.StringPtrInput `pulumi:"startDateTime"`
 }
@@ -350,9 +358,19 @@ func (o AccessReviewInstanceOutput) ToAccessReviewInstanceOutputWithContext(ctx 
 	return o
 }
 
+// This is the collection of backup reviewers.
+func (o AccessReviewInstanceOutput) BackupReviewers() AccessReviewReviewerArrayOutput {
+	return o.ApplyT(func(v AccessReviewInstance) []AccessReviewReviewer { return v.BackupReviewers }).(AccessReviewReviewerArrayOutput)
+}
+
 // The DateTime when the review instance is scheduled to end.
 func (o AccessReviewInstanceOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewInstance) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
+}
+
+// This is the collection of reviewers.
+func (o AccessReviewInstanceOutput) Reviewers() AccessReviewReviewerArrayOutput {
+	return o.ApplyT(func(v AccessReviewInstance) []AccessReviewReviewer { return v.Reviewers }).(AccessReviewReviewerArrayOutput)
 }
 
 // The DateTime when the review instance is scheduled to be start.
@@ -382,12 +400,18 @@ func (o AccessReviewInstanceArrayOutput) Index(i pulumi.IntInput) AccessReviewIn
 
 // Access Review Instance.
 type AccessReviewInstanceResponse struct {
+	// This is the collection of backup reviewers.
+	BackupReviewers []AccessReviewReviewerResponse `pulumi:"backupReviewers"`
 	// The DateTime when the review instance is scheduled to end.
 	EndDateTime *string `pulumi:"endDateTime"`
 	// The access review instance id.
 	Id string `pulumi:"id"`
 	// The access review instance name.
 	Name string `pulumi:"name"`
+	// This is the collection of reviewers.
+	Reviewers []AccessReviewReviewerResponse `pulumi:"reviewers"`
+	// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
+	ReviewersType string `pulumi:"reviewersType"`
 	// The DateTime when the review instance is scheduled to be start.
 	StartDateTime *string `pulumi:"startDateTime"`
 	// This read-only field specifies the status of an access review instance.
@@ -411,6 +435,11 @@ func (o AccessReviewInstanceResponseOutput) ToAccessReviewInstanceResponseOutput
 	return o
 }
 
+// This is the collection of backup reviewers.
+func (o AccessReviewInstanceResponseOutput) BackupReviewers() AccessReviewReviewerResponseArrayOutput {
+	return o.ApplyT(func(v AccessReviewInstanceResponse) []AccessReviewReviewerResponse { return v.BackupReviewers }).(AccessReviewReviewerResponseArrayOutput)
+}
+
 // The DateTime when the review instance is scheduled to end.
 func (o AccessReviewInstanceResponseOutput) EndDateTime() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) *string { return v.EndDateTime }).(pulumi.StringPtrOutput)
@@ -424,6 +453,16 @@ func (o AccessReviewInstanceResponseOutput) Id() pulumi.StringOutput {
 // The access review instance name.
 func (o AccessReviewInstanceResponseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// This is the collection of reviewers.
+func (o AccessReviewInstanceResponseOutput) Reviewers() AccessReviewReviewerResponseArrayOutput {
+	return o.ApplyT(func(v AccessReviewInstanceResponse) []AccessReviewReviewerResponse { return v.Reviewers }).(AccessReviewReviewerResponseArrayOutput)
+}
+
+// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
+func (o AccessReviewInstanceResponseOutput) ReviewersType() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessReviewInstanceResponse) string { return v.ReviewersType }).(pulumi.StringOutput)
 }
 
 // The DateTime when the review instance is scheduled to be start.
@@ -616,10 +655,18 @@ func (o AccessReviewReviewerResponseArrayOutput) Index(i pulumi.IntInput) Access
 
 // Descriptor for what needs to be reviewed
 type AccessReviewScope struct {
+	// This is used to indicate the resource id(s) to exclude
+	ExcludeResourceId *string `pulumi:"excludeResourceId"`
+	// This is used to indicate the role definition id(s) to exclude
+	ExcludeRoleDefinitionId *string `pulumi:"excludeRoleDefinitionId"`
 	// Flag to indicate whether to expand nested memberships or not.
 	ExpandNestedMemberships *bool `pulumi:"expandNestedMemberships"`
 	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
 	InactiveDuration *string `pulumi:"inactiveDuration"`
+	// Flag to indicate whether to expand nested memberships or not.
+	IncludeAccessBelowResource *bool `pulumi:"includeAccessBelowResource"`
+	// Flag to indicate whether to expand nested memberships or not.
+	IncludeInheritedAccess *bool `pulumi:"includeInheritedAccess"`
 }
 
 // AccessReviewScopeInput is an input type that accepts AccessReviewScopeArgs and AccessReviewScopeOutput values.
@@ -635,10 +682,18 @@ type AccessReviewScopeInput interface {
 
 // Descriptor for what needs to be reviewed
 type AccessReviewScopeArgs struct {
+	// This is used to indicate the resource id(s) to exclude
+	ExcludeResourceId pulumi.StringPtrInput `pulumi:"excludeResourceId"`
+	// This is used to indicate the role definition id(s) to exclude
+	ExcludeRoleDefinitionId pulumi.StringPtrInput `pulumi:"excludeRoleDefinitionId"`
 	// Flag to indicate whether to expand nested memberships or not.
 	ExpandNestedMemberships pulumi.BoolPtrInput `pulumi:"expandNestedMemberships"`
 	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
 	InactiveDuration pulumi.StringPtrInput `pulumi:"inactiveDuration"`
+	// Flag to indicate whether to expand nested memberships or not.
+	IncludeAccessBelowResource pulumi.BoolPtrInput `pulumi:"includeAccessBelowResource"`
+	// Flag to indicate whether to expand nested memberships or not.
+	IncludeInheritedAccess pulumi.BoolPtrInput `pulumi:"includeInheritedAccess"`
 }
 
 func (AccessReviewScopeArgs) ElementType() reflect.Type {
@@ -693,6 +748,16 @@ func (o AccessReviewScopeOutput) ToAccessReviewScopeOutputWithContext(ctx contex
 	return o
 }
 
+// This is used to indicate the resource id(s) to exclude
+func (o AccessReviewScopeOutput) ExcludeResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewScope) *string { return v.ExcludeResourceId }).(pulumi.StringPtrOutput)
+}
+
+// This is used to indicate the role definition id(s) to exclude
+func (o AccessReviewScopeOutput) ExcludeRoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewScope) *string { return v.ExcludeRoleDefinitionId }).(pulumi.StringPtrOutput)
+}
+
 // Flag to indicate whether to expand nested memberships or not.
 func (o AccessReviewScopeOutput) ExpandNestedMemberships() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessReviewScope) *bool { return v.ExpandNestedMemberships }).(pulumi.BoolPtrOutput)
@@ -701,6 +766,16 @@ func (o AccessReviewScopeOutput) ExpandNestedMemberships() pulumi.BoolPtrOutput 
 // Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
 func (o AccessReviewScopeOutput) InactiveDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewScope) *string { return v.InactiveDuration }).(pulumi.StringPtrOutput)
+}
+
+// Flag to indicate whether to expand nested memberships or not.
+func (o AccessReviewScopeOutput) IncludeAccessBelowResource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessReviewScope) *bool { return v.IncludeAccessBelowResource }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to indicate whether to expand nested memberships or not.
+func (o AccessReviewScopeOutput) IncludeInheritedAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessReviewScope) *bool { return v.IncludeInheritedAccess }).(pulumi.BoolPtrOutput)
 }
 
 type AccessReviewScopeArrayOutput struct{ *pulumi.OutputState }
@@ -727,10 +802,18 @@ func (o AccessReviewScopeArrayOutput) Index(i pulumi.IntInput) AccessReviewScope
 type AccessReviewScopeResponse struct {
 	// The role assignment state eligible/active to review
 	AssignmentState string `pulumi:"assignmentState"`
+	// This is used to indicate the resource id(s) to exclude
+	ExcludeResourceId *string `pulumi:"excludeResourceId"`
+	// This is used to indicate the role definition id(s) to exclude
+	ExcludeRoleDefinitionId *string `pulumi:"excludeRoleDefinitionId"`
 	// Flag to indicate whether to expand nested memberships or not.
 	ExpandNestedMemberships *bool `pulumi:"expandNestedMemberships"`
 	// Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
 	InactiveDuration *string `pulumi:"inactiveDuration"`
+	// Flag to indicate whether to expand nested memberships or not.
+	IncludeAccessBelowResource *bool `pulumi:"includeAccessBelowResource"`
+	// Flag to indicate whether to expand nested memberships or not.
+	IncludeInheritedAccess *bool `pulumi:"includeInheritedAccess"`
 	// The identity type user/servicePrincipal to review
 	PrincipalType string `pulumi:"principalType"`
 	// ResourceId in which this review is getting created
@@ -759,6 +842,16 @@ func (o AccessReviewScopeResponseOutput) AssignmentState() pulumi.StringOutput {
 	return o.ApplyT(func(v AccessReviewScopeResponse) string { return v.AssignmentState }).(pulumi.StringOutput)
 }
 
+// This is used to indicate the resource id(s) to exclude
+func (o AccessReviewScopeResponseOutput) ExcludeResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewScopeResponse) *string { return v.ExcludeResourceId }).(pulumi.StringPtrOutput)
+}
+
+// This is used to indicate the role definition id(s) to exclude
+func (o AccessReviewScopeResponseOutput) ExcludeRoleDefinitionId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AccessReviewScopeResponse) *string { return v.ExcludeRoleDefinitionId }).(pulumi.StringPtrOutput)
+}
+
 // Flag to indicate whether to expand nested memberships or not.
 func (o AccessReviewScopeResponseOutput) ExpandNestedMemberships() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v AccessReviewScopeResponse) *bool { return v.ExpandNestedMemberships }).(pulumi.BoolPtrOutput)
@@ -767,6 +860,16 @@ func (o AccessReviewScopeResponseOutput) ExpandNestedMemberships() pulumi.BoolPt
 // Duration users are inactive for. The value should be in ISO  8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations).This code can be used to convert TimeSpan to a valid interval string: XmlConvert.ToString(new TimeSpan(hours, minutes, seconds))
 func (o AccessReviewScopeResponseOutput) InactiveDuration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccessReviewScopeResponse) *string { return v.InactiveDuration }).(pulumi.StringPtrOutput)
+}
+
+// Flag to indicate whether to expand nested memberships or not.
+func (o AccessReviewScopeResponseOutput) IncludeAccessBelowResource() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessReviewScopeResponse) *bool { return v.IncludeAccessBelowResource }).(pulumi.BoolPtrOutput)
+}
+
+// Flag to indicate whether to expand nested memberships or not.
+func (o AccessReviewScopeResponseOutput) IncludeInheritedAccess() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AccessReviewScopeResponse) *bool { return v.IncludeInheritedAccess }).(pulumi.BoolPtrOutput)
 }
 
 // The identity type user/servicePrincipal to review

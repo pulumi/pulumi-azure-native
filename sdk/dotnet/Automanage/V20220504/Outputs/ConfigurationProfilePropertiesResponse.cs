@@ -20,19 +20,11 @@ namespace Pulumi.AzureNative.Automanage.V20220504.Outputs
         /// configuration dictionary of the configuration profile.
         /// </summary>
         public readonly object? Configuration;
-        /// <summary>
-        /// overrides of the configuration profile.
-        /// </summary>
-        public readonly ImmutableArray<object> Overrides;
 
         [OutputConstructor]
-        private ConfigurationProfilePropertiesResponse(
-            object? configuration,
-
-            ImmutableArray<object> overrides)
+        private ConfigurationProfilePropertiesResponse(object? configuration)
         {
             Configuration = configuration;
-            Overrides = overrides;
         }
     }
 }

@@ -442,6 +442,8 @@ class DataLakeStorageAccountDetailsResponse(dict):
         suggest = None
         if key == "accountUrl":
             suggest = "account_url"
+        elif key == "createManagedPrivateEndpoint":
+            suggest = "create_managed_private_endpoint"
         elif key == "resourceId":
             suggest = "resource_id"
 
@@ -458,16 +460,20 @@ class DataLakeStorageAccountDetailsResponse(dict):
 
     def __init__(__self__, *,
                  account_url: Optional[str] = None,
+                 create_managed_private_endpoint: Optional[bool] = None,
                  filesystem: Optional[str] = None,
                  resource_id: Optional[str] = None):
         """
         Details of the data lake storage account associated with the workspace
         :param str account_url: Account URL
+        :param bool create_managed_private_endpoint: Create managed private endpoint to this storage account or not
         :param str filesystem: Filesystem name
         :param str resource_id: ARM resource Id of this storage account
         """
         if account_url is not None:
             pulumi.set(__self__, "account_url", account_url)
+        if create_managed_private_endpoint is not None:
+            pulumi.set(__self__, "create_managed_private_endpoint", create_managed_private_endpoint)
         if filesystem is not None:
             pulumi.set(__self__, "filesystem", filesystem)
         if resource_id is not None:
@@ -480,6 +486,14 @@ class DataLakeStorageAccountDetailsResponse(dict):
         Account URL
         """
         return pulumi.get(self, "account_url")
+
+    @property
+    @pulumi.getter(name="createManagedPrivateEndpoint")
+    def create_managed_private_endpoint(self) -> Optional[bool]:
+        """
+        Create managed private endpoint to this storage account or not
+        """
+        return pulumi.get(self, "create_managed_private_endpoint")
 
     @property
     @pulumi.getter

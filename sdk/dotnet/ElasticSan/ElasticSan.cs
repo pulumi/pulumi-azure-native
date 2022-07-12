@@ -47,12 +47,6 @@ namespace Pulumi.AzureNative.ElasticSan
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// Provisioned MBps Elastic San appliance.
-        /// </summary>
-        [Output("provisionedMBps")]
-        public Output<double> ProvisionedMBps { get; private set; } = null!;
-
-        /// <summary>
         /// State of the operation on the resource.
         /// </summary>
         [Output("provisioningState")]
@@ -87,6 +81,12 @@ namespace Pulumi.AzureNative.ElasticSan
         /// </summary>
         [Output("totalMBps")]
         public Output<double> TotalMBps { get; private set; } = null!;
+
+        /// <summary>
+        /// Total size of the Elastic San appliance in TB.
+        /// </summary>
+        [Output("totalSizeTiB")]
+        public Output<double> TotalSizeTiB { get; private set; } = null!;
 
         /// <summary>
         /// Total size of the provisioned Volumes in GiB.

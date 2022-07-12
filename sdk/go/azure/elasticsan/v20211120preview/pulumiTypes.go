@@ -500,7 +500,7 @@ func (o SkuResponsePtrOutput) Tier() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data used when creating a disk.
+// Data source used when creating the volume.
 type SourceCreationData struct {
 	// This enumerates the possible sources of a volume creation.
 	CreateSource VolumeCreateOption `pulumi:"createSource"`
@@ -519,7 +519,7 @@ type SourceCreationDataInput interface {
 	ToSourceCreationDataOutputWithContext(context.Context) SourceCreationDataOutput
 }
 
-// Data used when creating a disk.
+// Data source used when creating the volume.
 type SourceCreationDataArgs struct {
 	// This enumerates the possible sources of a volume creation.
 	CreateSource VolumeCreateOptionInput `pulumi:"createSource"`
@@ -580,7 +580,7 @@ func (i *sourceCreationDataPtrType) ToSourceCreationDataPtrOutputWithContext(ctx
 	return pulumi.ToOutputWithContext(ctx, i).(SourceCreationDataPtrOutput)
 }
 
-// Data used when creating a disk.
+// Data source used when creating the volume.
 type SourceCreationDataOutput struct{ *pulumi.OutputState }
 
 func (SourceCreationDataOutput) ElementType() reflect.Type {
@@ -659,7 +659,7 @@ func (o SourceCreationDataPtrOutput) SourceUri() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Data used when creating a disk.
+// Data source used when creating the volume.
 type SourceCreationDataResponse struct {
 	// This enumerates the possible sources of a volume creation.
 	CreateSource string `pulumi:"createSource"`
@@ -667,7 +667,7 @@ type SourceCreationDataResponse struct {
 	SourceUri *string `pulumi:"sourceUri"`
 }
 
-// Data used when creating a disk.
+// Data source used when creating the volume.
 type SourceCreationDataResponseOutput struct{ *pulumi.OutputState }
 
 func (SourceCreationDataResponseOutput) ElementType() reflect.Type {

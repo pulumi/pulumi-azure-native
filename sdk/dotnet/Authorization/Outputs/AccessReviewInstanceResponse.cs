@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Authorization.Outputs
     public sealed class AccessReviewInstanceResponse
     {
         /// <summary>
+        /// This is the collection of backup reviewers.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AccessReviewReviewerResponse> BackupReviewers;
+        /// <summary>
         /// The DateTime when the review instance is scheduled to end.
         /// </summary>
         public readonly string? EndDateTime;
@@ -28,6 +32,14 @@ namespace Pulumi.AzureNative.Authorization.Outputs
         /// The access review instance name.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// This is the collection of reviewers.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.AccessReviewReviewerResponse> Reviewers;
+        /// <summary>
+        /// This field specifies the type of reviewers for a review. Usually for a review, reviewers are explicitly assigned. However, in some cases, the reviewers may not be assigned and instead be chosen dynamically. For example managers review or self review.
+        /// </summary>
+        public readonly string ReviewersType;
         /// <summary>
         /// The DateTime when the review instance is scheduled to be start.
         /// </summary>
@@ -43,11 +55,17 @@ namespace Pulumi.AzureNative.Authorization.Outputs
 
         [OutputConstructor]
         private AccessReviewInstanceResponse(
+            ImmutableArray<Outputs.AccessReviewReviewerResponse> backupReviewers,
+
             string? endDateTime,
 
             string id,
 
             string name,
+
+            ImmutableArray<Outputs.AccessReviewReviewerResponse> reviewers,
+
+            string reviewersType,
 
             string? startDateTime,
 
@@ -55,9 +73,12 @@ namespace Pulumi.AzureNative.Authorization.Outputs
 
             string type)
         {
+            BackupReviewers = backupReviewers;
             EndDateTime = endDateTime;
             Id = id;
             Name = name;
+            Reviewers = reviewers;
+            ReviewersType = reviewersType;
             StartDateTime = startDateTime;
             Status = status;
             Type = type;

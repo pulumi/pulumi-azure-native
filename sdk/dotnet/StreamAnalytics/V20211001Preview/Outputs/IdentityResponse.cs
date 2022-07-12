@@ -19,11 +19,11 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
         /// <summary>
         /// The principalId of the identity.
         /// </summary>
-        public readonly string? PrincipalId;
+        public readonly string PrincipalId;
         /// <summary>
         /// The tenantId of the identity.
         /// </summary>
-        public readonly string? TenantId;
+        public readonly string TenantId;
         /// <summary>
         /// The type of identity, can be SystemAssigned or UserAssigned.
         /// </summary>
@@ -35,9 +35,9 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Outputs
 
         [OutputConstructor]
         private IdentityResponse(
-            string? principalId,
+            string principalId,
 
-            string? tenantId,
+            string tenantId,
 
             string? type,
 

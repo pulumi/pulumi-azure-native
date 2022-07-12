@@ -187,7 +187,7 @@ class SkuResponse(dict):
 @pulumi.output_type
 class SourceCreationDataResponse(dict):
     """
-    Data used when creating a disk.
+    Data source used when creating the volume.
     """
     @staticmethod
     def __key_warning(key: str):
@@ -212,7 +212,7 @@ class SourceCreationDataResponse(dict):
                  create_source: str,
                  source_uri: Optional[str] = None):
         """
-        Data used when creating a disk.
+        Data source used when creating the volume.
         :param str create_source: This enumerates the possible sources of a volume creation.
         :param str source_uri: If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
         """

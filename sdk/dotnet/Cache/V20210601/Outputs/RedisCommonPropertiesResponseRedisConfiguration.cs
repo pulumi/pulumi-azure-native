@@ -17,6 +17,10 @@ namespace Pulumi.AzureNative.Cache.V20210601.Outputs
     public sealed class RedisCommonPropertiesResponseRedisConfiguration
     {
         /// <summary>
+        /// Specifies whether the aof backup is enabled
+        /// </summary>
+        public readonly string? AofBackupEnabled;
+        /// <summary>
         /// First storage account connection string
         /// </summary>
         public readonly string? AofStorageConnectionString0;
@@ -24,6 +28,10 @@ namespace Pulumi.AzureNative.Cache.V20210601.Outputs
         /// Second storage account connection string
         /// </summary>
         public readonly string? AofStorageConnectionString1;
+        /// <summary>
+        /// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        /// </summary>
+        public readonly string? Authnotrequired;
         /// <summary>
         /// The max clients config
         /// </summary>
@@ -75,9 +83,13 @@ namespace Pulumi.AzureNative.Cache.V20210601.Outputs
 
         [OutputConstructor]
         private RedisCommonPropertiesResponseRedisConfiguration(
+            string? aofBackupEnabled,
+
             string? aofStorageConnectionString0,
 
             string? aofStorageConnectionString1,
+
+            string? authnotrequired,
 
             string maxclients,
 
@@ -103,8 +115,10 @@ namespace Pulumi.AzureNative.Cache.V20210601.Outputs
 
             string zonalConfiguration)
         {
+            AofBackupEnabled = aofBackupEnabled;
             AofStorageConnectionString0 = aofStorageConnectionString0;
             AofStorageConnectionString1 = aofStorageConnectionString1;
+            Authnotrequired = authnotrequired;
             Maxclients = maxclients;
             MaxfragmentationmemoryReserved = maxfragmentationmemoryReserved;
             MaxmemoryDelta = maxmemoryDelta;

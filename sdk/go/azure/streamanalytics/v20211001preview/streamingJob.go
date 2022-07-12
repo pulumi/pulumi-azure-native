@@ -85,6 +85,9 @@ func NewStreamingJob(ctx *pulumi.Context,
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
+	if args.Transformation != nil {
+		args.Transformation = args.Transformation.ToTransformationPtrOutput().ApplyT(func(v *Transformation) *Transformation { return v.Defaults() }).(TransformationPtrOutput)
+	}
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:streamanalytics:StreamingJob"),

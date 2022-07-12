@@ -1878,7 +1878,7 @@ class PublicIPAddressConfigurationArgs:
                  provision: Optional[pulumi.Input['IPAddressProvisioningType']] = None):
         """
         The public IP Address configuration of the networking configuration of a Pool.
-        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_address_ids: The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] ip_address_ids: The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
         :param pulumi.Input['IPAddressProvisioningType'] provision: The default value is BatchManaged
         """
         if ip_address_ids is not None:
@@ -1890,7 +1890,7 @@ class PublicIPAddressConfigurationArgs:
     @pulumi.getter(name="ipAddressIds")
     def ip_address_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
         """
-        The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
+        The number of IPs specified here limits the maximum size of the Pool - 100 dedicated nodes or 100 Spot/low-priority nodes can be allocated for each public IP. For example, a pool needing 250 dedicated VMs would need at least 3 public IPs specified. Each element of this collection is of the form: /subscriptions/{subscription}/resourceGroups/{group}/providers/Microsoft.Network/publicIPAddresses/{ip}.
         """
         return pulumi.get(self, "ip_address_ids")
 

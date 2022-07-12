@@ -85,6 +85,7 @@ namespace Pulumi.AzureNative.HybridCompute.V20220310
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210520:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20210610preview:PrivateLinkScope"},
                     new Pulumi.Alias { Type = "azure-native:hybridcompute/v20211210preview:PrivateLinkScope"},
+                    new Pulumi.Alias { Type = "azure-native:hybridcompute/v20220510preview:PrivateLinkScope"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

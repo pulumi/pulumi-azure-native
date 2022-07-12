@@ -4,11 +4,23 @@
 // Export sub-modules:
 import * as v20180401 from "./v20180401";
 import * as v20210401preview from "./v20210401preview";
+import * as v20220401preview from "./v20220401preview";
 
 export {
     v20180401,
     v20210401preview,
+    v20220401preview,
 };
+
+export const IdentityType = {
+    None: "None",
+    SystemAssigned: "SystemAssigned",
+} as const;
+
+/**
+ * The identity type.
+ */
+export type IdentityType = (typeof IdentityType)[keyof typeof IdentityType];
 
 export const KeySource = {
     Default: "Default",

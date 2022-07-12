@@ -53524,7 +53524,7 @@ func (val *SubnetType) Defaults() *SubnetType {
 	}
 	tmp := *val
 	if isZero(tmp.PrivateEndpointNetworkPolicies) {
-		privateEndpointNetworkPolicies_ := "Enabled"
+		privateEndpointNetworkPolicies_ := "Disabled"
 		tmp.PrivateEndpointNetworkPolicies = &privateEndpointNetworkPolicies_
 	}
 	if isZero(tmp.PrivateLinkServiceNetworkPolicies) {
@@ -53586,7 +53586,7 @@ func (val *SubnetTypeArgs) Defaults() *SubnetTypeArgs {
 	}
 	tmp := *val
 	if isZero(tmp.PrivateEndpointNetworkPolicies) {
-		tmp.PrivateEndpointNetworkPolicies = pulumi.StringPtr("Enabled")
+		tmp.PrivateEndpointNetworkPolicies = pulumi.StringPtr("Disabled")
 	}
 	if isZero(tmp.PrivateLinkServiceNetworkPolicies) {
 		tmp.PrivateLinkServiceNetworkPolicies = pulumi.StringPtr("Enabled")
@@ -54022,7 +54022,7 @@ func (val *SubnetResponse) Defaults() *SubnetResponse {
 	}
 	tmp := *val
 	if isZero(tmp.PrivateEndpointNetworkPolicies) {
-		privateEndpointNetworkPolicies_ := "Enabled"
+		privateEndpointNetworkPolicies_ := "Disabled"
 		tmp.PrivateEndpointNetworkPolicies = &privateEndpointNetworkPolicies_
 	}
 	if isZero(tmp.PrivateLinkServiceNetworkPolicies) {

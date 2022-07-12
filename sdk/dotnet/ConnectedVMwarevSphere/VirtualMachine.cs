@@ -223,6 +223,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:VirtualMachine"},
+                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:VirtualMachine"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

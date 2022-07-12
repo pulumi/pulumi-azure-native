@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:Dynamics365DataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:Dynamics365DataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:Dynamics365DataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:Dynamics365DataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

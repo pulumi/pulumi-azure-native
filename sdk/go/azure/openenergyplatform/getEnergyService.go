@@ -10,7 +10,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// API Version: 2021-06-01-preview.
+// API Version: 2022-04-04-preview.
 func LookupEnergyService(ctx *pulumi.Context, args *LookupEnergyServiceArgs, opts ...pulumi.InvokeOption) (*LookupEnergyServiceResult, error) {
 	var rv LookupEnergyServiceResult
 	err := ctx.Invoke("azure-native:openenergyplatform:getEnergyService", args, &rv, opts...)

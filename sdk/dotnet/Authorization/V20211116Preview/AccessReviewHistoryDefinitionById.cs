@@ -149,6 +149,7 @@ namespace Pulumi.AzureNative.Authorization.V20211116Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:authorization:AccessReviewHistoryDefinitionById"},
+                    new Pulumi.Alias { Type = "azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

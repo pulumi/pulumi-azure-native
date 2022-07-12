@@ -178,6 +178,16 @@ export const SkuName = {
  */
 export type SkuName = (typeof SkuName)[keyof typeof SkuName];
 
+export const UpdatableUdfRefreshType = {
+    Blocking: "Blocking",
+    Nonblocking: "Nonblocking",
+} as const;
+
+/**
+ * This property indicates which data refresh option to use, Blocking or Nonblocking.
+ */
+export type UpdatableUdfRefreshType = (typeof UpdatableUdfRefreshType)[keyof typeof UpdatableUdfRefreshType];
+
 export const UpdateMode = {
     Static: "Static",
     Refreshable: "Refreshable",

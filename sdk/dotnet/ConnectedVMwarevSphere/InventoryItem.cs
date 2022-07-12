@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.ConnectedVMwarevSphere
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20201001preview:InventoryItem"},
+                    new Pulumi.Alias { Type = "azure-native:connectedvmwarevsphere/v20220110preview:InventoryItem"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

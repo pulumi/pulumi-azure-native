@@ -42,8 +42,6 @@ type LookupElasticSanResult struct {
 	Location *string `pulumi:"location"`
 	// Azure resource name.
 	Name string `pulumi:"name"`
-	// Provisioned MBps Elastic San appliance.
-	ProvisionedMBps float64 `pulumi:"provisionedMBps"`
 	// State of the operation on the resource.
 	ProvisioningState string `pulumi:"provisioningState"`
 	// resource sku
@@ -56,6 +54,8 @@ type LookupElasticSanResult struct {
 	TotalIops float64 `pulumi:"totalIops"`
 	// Total Provisioned MBps Elastic San appliance.
 	TotalMBps float64 `pulumi:"totalMBps"`
+	// Total size of the Elastic San appliance in TB.
+	TotalSizeTiB float64 `pulumi:"totalSizeTiB"`
 	// Total size of the provisioned Volumes in GiB.
 	TotalVolumeSizeGiB float64 `pulumi:"totalVolumeSizeGiB"`
 	// Azure resource type.
@@ -133,11 +133,6 @@ func (o LookupElasticSanResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupElasticSanResult) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Provisioned MBps Elastic San appliance.
-func (o LookupElasticSanResultOutput) ProvisionedMBps() pulumi.Float64Output {
-	return o.ApplyT(func(v LookupElasticSanResult) float64 { return v.ProvisionedMBps }).(pulumi.Float64Output)
-}
-
 // State of the operation on the resource.
 func (o LookupElasticSanResultOutput) ProvisioningState() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupElasticSanResult) string { return v.ProvisioningState }).(pulumi.StringOutput)
@@ -166,6 +161,11 @@ func (o LookupElasticSanResultOutput) TotalIops() pulumi.Float64Output {
 // Total Provisioned MBps Elastic San appliance.
 func (o LookupElasticSanResultOutput) TotalMBps() pulumi.Float64Output {
 	return o.ApplyT(func(v LookupElasticSanResult) float64 { return v.TotalMBps }).(pulumi.Float64Output)
+}
+
+// Total size of the Elastic San appliance in TB.
+func (o LookupElasticSanResultOutput) TotalSizeTiB() pulumi.Float64Output {
+	return o.ApplyT(func(v LookupElasticSanResult) float64 { return v.TotalSizeTiB }).(pulumi.Float64Output)
 }
 
 // Total size of the provisioned Volumes in GiB.

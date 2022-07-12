@@ -15,6 +15,8 @@ import (
 type ConfigurationProfileHCIAssignment struct {
 	pulumi.CustomResourceState
 
+	// Azure resource id. Indicates if this resource is managed by another Azure resource.
+	ManagedBy pulumi.StringOutput `pulumi:"managedBy"`
 	// The name of the resource
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Properties of the configuration profile assignment.
@@ -133,6 +135,11 @@ func (o ConfigurationProfileHCIAssignmentOutput) ToConfigurationProfileHCIAssign
 
 func (o ConfigurationProfileHCIAssignmentOutput) ToConfigurationProfileHCIAssignmentOutputWithContext(ctx context.Context) ConfigurationProfileHCIAssignmentOutput {
 	return o
+}
+
+// Azure resource id. Indicates if this resource is managed by another Azure resource.
+func (o ConfigurationProfileHCIAssignmentOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v *ConfigurationProfileHCIAssignment) pulumi.StringOutput { return v.ManagedBy }).(pulumi.StringOutput)
 }
 
 // The name of the resource

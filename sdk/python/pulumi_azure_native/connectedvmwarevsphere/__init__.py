@@ -37,6 +37,9 @@ from . import outputs
 if typing.TYPE_CHECKING:
     import pulumi_azure_native.connectedvmwarevsphere.v20201001preview as __v20201001preview
     v20201001preview = __v20201001preview
+    import pulumi_azure_native.connectedvmwarevsphere.v20220110preview as __v20220110preview
+    v20220110preview = __v20220110preview
 else:
     v20201001preview = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere.v20201001preview')
+    v20220110preview = _utilities.lazy_import('pulumi_azure_native.connectedvmwarevsphere.v20220110preview')
 

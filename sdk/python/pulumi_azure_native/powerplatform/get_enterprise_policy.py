@@ -21,7 +21,7 @@ class GetEnterprisePolicyResult:
     """
     Definition of the EnterprisePolicy.
     """
-    def __init__(__self__, encryption=None, id=None, identity=None, kind=None, location=None, lockbox=None, name=None, network_injection=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, encryption=None, id=None, identity=None, kind=None, location=None, lockbox=None, name=None, network_injection=None, system_data=None, system_id=None, tags=None, type=None):
         if encryption and not isinstance(encryption, dict):
             raise TypeError("Expected argument 'encryption' to be a dict")
         pulumi.set(__self__, "encryption", encryption)
@@ -49,6 +49,9 @@ class GetEnterprisePolicyResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if system_id and not isinstance(system_id, str):
+            raise TypeError("Expected argument 'system_id' to be a str")
+        pulumi.set(__self__, "system_id", system_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -129,6 +132,14 @@ class GetEnterprisePolicyResult:
         return pulumi.get(self, "system_data")
 
     @property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> str:
+        """
+        The internally assigned unique identifier of the resource.
+        """
+        return pulumi.get(self, "system_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -160,6 +171,7 @@ class AwaitableGetEnterprisePolicyResult(GetEnterprisePolicyResult):
             name=self.name,
             network_injection=self.network_injection,
             system_data=self.system_data,
+            system_id=self.system_id,
             tags=self.tags,
             type=self.type)
 
@@ -194,6 +206,7 @@ def get_enterprise_policy(enterprise_policy_name: Optional[str] = None,
         name=__ret__.name,
         network_injection=__ret__.network_injection,
         system_data=__ret__.system_data,
+        system_id=__ret__.system_id,
         tags=__ret__.tags,
         type=__ret__.type)
 

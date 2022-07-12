@@ -14,8 +14,6 @@ import (
 type ConfigurationProfileAssignmentProperties struct {
 	// The Automanage configurationProfile ARM Resource URI.
 	ConfigurationProfile *string `pulumi:"configurationProfile"`
-	// The profileOverrides setting for the configuration profile assignment.
-	ProfileOverrides map[string]interface{} `pulumi:"profileOverrides"`
 }
 
 // ConfigurationProfileAssignmentPropertiesInput is an input type that accepts ConfigurationProfileAssignmentPropertiesArgs and ConfigurationProfileAssignmentPropertiesOutput values.
@@ -33,8 +31,6 @@ type ConfigurationProfileAssignmentPropertiesInput interface {
 type ConfigurationProfileAssignmentPropertiesArgs struct {
 	// The Automanage configurationProfile ARM Resource URI.
 	ConfigurationProfile pulumi.StringPtrInput `pulumi:"configurationProfile"`
-	// The profileOverrides setting for the configuration profile assignment.
-	ProfileOverrides pulumi.MapInput `pulumi:"profileOverrides"`
 }
 
 func (ConfigurationProfileAssignmentPropertiesArgs) ElementType() reflect.Type {
@@ -120,11 +116,6 @@ func (o ConfigurationProfileAssignmentPropertiesOutput) ConfigurationProfile() p
 	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) *string { return v.ConfigurationProfile }).(pulumi.StringPtrOutput)
 }
 
-// The profileOverrides setting for the configuration profile assignment.
-func (o ConfigurationProfileAssignmentPropertiesOutput) ProfileOverrides() pulumi.MapOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentProperties) map[string]interface{} { return v.ProfileOverrides }).(pulumi.MapOutput)
-}
-
 type ConfigurationProfileAssignmentPropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfileAssignmentPropertiesPtrOutput) ElementType() reflect.Type {
@@ -159,22 +150,10 @@ func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ConfigurationProfile(
 	}).(pulumi.StringPtrOutput)
 }
 
-// The profileOverrides setting for the configuration profile assignment.
-func (o ConfigurationProfileAssignmentPropertiesPtrOutput) ProfileOverrides() pulumi.MapOutput {
-	return o.ApplyT(func(v *ConfigurationProfileAssignmentProperties) map[string]interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.ProfileOverrides
-	}).(pulumi.MapOutput)
-}
-
 // Automanage configuration profile assignment properties.
 type ConfigurationProfileAssignmentPropertiesResponse struct {
 	// The Automanage configurationProfile ARM Resource URI.
 	ConfigurationProfile *string `pulumi:"configurationProfile"`
-	// The profileOverrides setting for the configuration profile assignment.
-	ProfileOverrides map[string]interface{} `pulumi:"profileOverrides"`
 	// The status of onboarding, which only appears in the response.
 	Status string `pulumi:"status"`
 	// The target VM resource URI
@@ -201,13 +180,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ConfigurationPro
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) *string { return v.ConfigurationProfile }).(pulumi.StringPtrOutput)
 }
 
-// The profileOverrides setting for the configuration profile assignment.
-func (o ConfigurationProfileAssignmentPropertiesResponseOutput) ProfileOverrides() pulumi.MapOutput {
-	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) map[string]interface{} {
-		return v.ProfileOverrides
-	}).(pulumi.MapOutput)
-}
-
 // The status of onboarding, which only appears in the response.
 func (o ConfigurationProfileAssignmentPropertiesResponseOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v ConfigurationProfileAssignmentPropertiesResponse) string { return v.Status }).(pulumi.StringOutput)
@@ -222,8 +194,6 @@ func (o ConfigurationProfileAssignmentPropertiesResponseOutput) TargetId() pulum
 type ConfigurationProfileProperties struct {
 	// configuration dictionary of the configuration profile.
 	Configuration interface{} `pulumi:"configuration"`
-	// overrides of the configuration profile.
-	Overrides []interface{} `pulumi:"overrides"`
 }
 
 // ConfigurationProfilePropertiesInput is an input type that accepts ConfigurationProfilePropertiesArgs and ConfigurationProfilePropertiesOutput values.
@@ -241,8 +211,6 @@ type ConfigurationProfilePropertiesInput interface {
 type ConfigurationProfilePropertiesArgs struct {
 	// configuration dictionary of the configuration profile.
 	Configuration pulumi.Input `pulumi:"configuration"`
-	// overrides of the configuration profile.
-	Overrides pulumi.ArrayInput `pulumi:"overrides"`
 }
 
 func (ConfigurationProfilePropertiesArgs) ElementType() reflect.Type {
@@ -328,11 +296,6 @@ func (o ConfigurationProfilePropertiesOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConfigurationProfileProperties) interface{} { return v.Configuration }).(pulumi.AnyOutput)
 }
 
-// overrides of the configuration profile.
-func (o ConfigurationProfilePropertiesOutput) Overrides() pulumi.ArrayOutput {
-	return o.ApplyT(func(v ConfigurationProfileProperties) []interface{} { return v.Overrides }).(pulumi.ArrayOutput)
-}
-
 type ConfigurationProfilePropertiesPtrOutput struct{ *pulumi.OutputState }
 
 func (ConfigurationProfilePropertiesPtrOutput) ElementType() reflect.Type {
@@ -367,22 +330,10 @@ func (o ConfigurationProfilePropertiesPtrOutput) Configuration() pulumi.AnyOutpu
 	}).(pulumi.AnyOutput)
 }
 
-// overrides of the configuration profile.
-func (o ConfigurationProfilePropertiesPtrOutput) Overrides() pulumi.ArrayOutput {
-	return o.ApplyT(func(v *ConfigurationProfileProperties) []interface{} {
-		if v == nil {
-			return nil
-		}
-		return v.Overrides
-	}).(pulumi.ArrayOutput)
-}
-
 // Automanage configuration profile properties.
 type ConfigurationProfilePropertiesResponse struct {
 	// configuration dictionary of the configuration profile.
 	Configuration interface{} `pulumi:"configuration"`
-	// overrides of the configuration profile.
-	Overrides []interface{} `pulumi:"overrides"`
 }
 
 // Automanage configuration profile properties.
@@ -403,11 +354,6 @@ func (o ConfigurationProfilePropertiesResponseOutput) ToConfigurationProfileProp
 // configuration dictionary of the configuration profile.
 func (o ConfigurationProfilePropertiesResponseOutput) Configuration() pulumi.AnyOutput {
 	return o.ApplyT(func(v ConfigurationProfilePropertiesResponse) interface{} { return v.Configuration }).(pulumi.AnyOutput)
-}
-
-// overrides of the configuration profile.
-func (o ConfigurationProfilePropertiesResponseOutput) Overrides() pulumi.ArrayOutput {
-	return o.ApplyT(func(v ConfigurationProfilePropertiesResponse) []interface{} { return v.Overrides }).(pulumi.ArrayOutput)
 }
 
 // Metadata pertaining to creation and last modification of the resource.

@@ -269,6 +269,8 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         suggest = None
         if key == "zonalConfiguration":
             suggest = "zonal_configuration"
+        elif key == "aofBackupEnabled":
+            suggest = "aof_backup_enabled"
         elif key == "aofStorageConnectionString0":
             suggest = "aof_storage_connection_string0"
         elif key == "aofStorageConnectionString1":
@@ -304,8 +306,10 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
     def __init__(__self__, *,
                  maxclients: str,
                  zonal_configuration: str,
+                 aof_backup_enabled: Optional[str] = None,
                  aof_storage_connection_string0: Optional[str] = None,
                  aof_storage_connection_string1: Optional[str] = None,
+                 authnotrequired: Optional[str] = None,
                  maxfragmentationmemory_reserved: Optional[str] = None,
                  maxmemory_delta: Optional[str] = None,
                  maxmemory_policy: Optional[str] = None,
@@ -318,8 +322,10 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
         :param str maxclients: The max clients config
         :param str zonal_configuration: Zonal Configuration
+        :param str aof_backup_enabled: Specifies whether the aof backup is enabled
         :param str aof_storage_connection_string0: First storage account connection string
         :param str aof_storage_connection_string1: Second storage account connection string
+        :param str authnotrequired: Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
         :param str maxfragmentationmemory_reserved: Value in megabytes reserved for fragmentation per shard
         :param str maxmemory_delta: Value in megabytes reserved for non-cache usage per shard e.g. failover.
         :param str maxmemory_policy: The eviction strategy used when your data won't fit within its memory limit.
@@ -331,10 +337,14 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         """
         pulumi.set(__self__, "maxclients", maxclients)
         pulumi.set(__self__, "zonal_configuration", zonal_configuration)
+        if aof_backup_enabled is not None:
+            pulumi.set(__self__, "aof_backup_enabled", aof_backup_enabled)
         if aof_storage_connection_string0 is not None:
             pulumi.set(__self__, "aof_storage_connection_string0", aof_storage_connection_string0)
         if aof_storage_connection_string1 is not None:
             pulumi.set(__self__, "aof_storage_connection_string1", aof_storage_connection_string1)
+        if authnotrequired is not None:
+            pulumi.set(__self__, "authnotrequired", authnotrequired)
         if maxfragmentationmemory_reserved is not None:
             pulumi.set(__self__, "maxfragmentationmemory_reserved", maxfragmentationmemory_reserved)
         if maxmemory_delta is not None:
@@ -369,6 +379,14 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         return pulumi.get(self, "zonal_configuration")
 
     @property
+    @pulumi.getter(name="aofBackupEnabled")
+    def aof_backup_enabled(self) -> Optional[str]:
+        """
+        Specifies whether the aof backup is enabled
+        """
+        return pulumi.get(self, "aof_backup_enabled")
+
+    @property
     @pulumi.getter(name="aofStorageConnectionString0")
     def aof_storage_connection_string0(self) -> Optional[str]:
         """
@@ -383,6 +401,14 @@ class RedisCommonPropertiesResponseRedisConfiguration(dict):
         Second storage account connection string
         """
         return pulumi.get(self, "aof_storage_connection_string1")
+
+    @property
+    @pulumi.getter
+    def authnotrequired(self) -> Optional[str]:
+        """
+        Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        """
+        return pulumi.get(self, "authnotrequired")
 
     @property
     @pulumi.getter(name="maxfragmentationmemoryReserved")

@@ -145,6 +145,14 @@ const (
 	SkuNameStandard = SkuName("Standard")
 )
 
+// This property indicates which data refresh option to use, Blocking or Nonblocking.
+type UpdatableUdfRefreshType string
+
+const (
+	UpdatableUdfRefreshTypeBlocking    = UpdatableUdfRefreshType("Blocking")
+	UpdatableUdfRefreshTypeNonblocking = UpdatableUdfRefreshType("Nonblocking")
+)
+
 // Refresh modes for Stream Analytics functions.
 type UpdateMode string
 

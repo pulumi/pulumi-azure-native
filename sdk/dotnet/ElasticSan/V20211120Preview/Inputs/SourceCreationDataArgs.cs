@@ -11,7 +11,7 @@ namespace Pulumi.AzureNative.ElasticSan.V20211120Preview.Inputs
 {
 
     /// <summary>
-    /// Data used when creating a disk.
+    /// Data source used when creating the volume.
     /// </summary>
     public sealed class SourceCreationDataArgs : Pulumi.ResourceArgs
     {

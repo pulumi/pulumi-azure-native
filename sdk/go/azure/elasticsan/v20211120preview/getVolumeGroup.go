@@ -35,8 +35,6 @@ type LookupVolumeGroupResult struct {
 	Encryption string `pulumi:"encryption"`
 	// Azure resource identifier.
 	Id string `pulumi:"id"`
-	// The geo-location where the resource lives.
-	Location *string `pulumi:"location"`
 	// Azure resource name.
 	Name string `pulumi:"name"`
 	// A collection of rules governing the accessibility from specific network locations.
@@ -102,11 +100,6 @@ func (o LookupVolumeGroupResultOutput) Encryption() pulumi.StringOutput {
 // Azure resource identifier.
 func (o LookupVolumeGroupResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeGroupResult) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The geo-location where the resource lives.
-func (o LookupVolumeGroupResultOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVolumeGroupResult) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // Azure resource name.

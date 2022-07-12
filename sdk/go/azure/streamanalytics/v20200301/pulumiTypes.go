@@ -396,6 +396,8 @@ type AzureTableOutputDataSourceResponse struct {
 type BlobOutputDataSource struct {
 	// Authentication Mode.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// Blob path prefix.
+	BlobPathPrefix *string `pulumi:"blobPathPrefix"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -415,6 +417,8 @@ type BlobOutputDataSource struct {
 type BlobOutputDataSourceResponse struct {
 	// Authentication Mode.
 	AuthenticationMode *string `pulumi:"authenticationMode"`
+	// Blob path prefix.
+	BlobPathPrefix *string `pulumi:"blobPathPrefix"`
 	// The name of a container within the associated Storage account. This container contains either the blob(s) to be read from or written to. Required on PUT (CreateOrReplace) requests.
 	Container *string `pulumi:"container"`
 	// The date format. Wherever {date} appears in pathPattern, the value of this property is used as the date format instead.
@@ -1324,6 +1328,24 @@ type EventHubV2StreamInputDataSourceResponse struct {
 	Type string `pulumi:"type"`
 }
 
+// Describes a file input data source that contains reference data.
+type FileReferenceInputDataSource struct {
+	// The path of the file.
+	Path *string `pulumi:"path"`
+	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'File'.
+	Type string `pulumi:"type"`
+}
+
+// Describes a file input data source that contains reference data.
+type FileReferenceInputDataSourceResponse struct {
+	// The path of the file.
+	Path *string `pulumi:"path"`
+	// Indicates the type of input data source containing reference data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'File'.
+	Type string `pulumi:"type"`
+}
+
 // A function object, containing all information associated with the named function. All functions are contained under a streaming job.
 type FunctionType struct {
 	// Resource name
@@ -1528,12 +1550,44 @@ func (o FunctionResponseArrayOutput) Index(i pulumi.IntInput) FunctionResponseOu
 	}).(FunctionResponseOutput)
 }
 
+// Describes a Gateway Message Bus output data source.
+type GatewayMessageBusOutputDataSource struct {
+	// The name of the Service Bus topic.
+	Topic *string `pulumi:"topic"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'GatewayMessageBus'.
+	Type string `pulumi:"type"`
+}
+
+// Describes a Gateway Message Bus output data source.
+type GatewayMessageBusOutputDataSourceResponse struct {
+	// The name of the Service Bus topic.
+	Topic *string `pulumi:"topic"`
+	// Indicates the type of data source output will be written to. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'GatewayMessageBus'.
+	Type string `pulumi:"type"`
+}
+
+// Describes a blob input data source that contains stream data.
+type GatewayMessageBusStreamInputDataSource struct {
+	// The name of the Service Bus topic.
+	Topic *string `pulumi:"topic"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'GatewayMessageBus'.
+	Type string `pulumi:"type"`
+}
+
+// Describes a blob input data source that contains stream data.
+type GatewayMessageBusStreamInputDataSourceResponse struct {
+	// The name of the Service Bus topic.
+	Topic *string `pulumi:"topic"`
+	// Indicates the type of input data source containing stream data. Required on PUT (CreateOrReplace) requests.
+	// Expected value is 'GatewayMessageBus'.
+	Type string `pulumi:"type"`
+}
+
 // Describes how identity is verified
 type Identity struct {
-	// The identity principal ID
-	PrincipalId *string `pulumi:"principalId"`
-	// The identity tenantId
-	TenantId *string `pulumi:"tenantId"`
 	// The identity type
 	Type *string `pulumi:"type"`
 }
@@ -1551,10 +1605,6 @@ type IdentityInput interface {
 
 // Describes how identity is verified
 type IdentityArgs struct {
-	// The identity principal ID
-	PrincipalId pulumi.StringPtrInput `pulumi:"principalId"`
-	// The identity tenantId
-	TenantId pulumi.StringPtrInput `pulumi:"tenantId"`
 	// The identity type
 	Type pulumi.StringPtrInput `pulumi:"type"`
 }
@@ -1637,16 +1687,6 @@ func (o IdentityOutput) ToIdentityPtrOutputWithContext(ctx context.Context) Iden
 	}).(IdentityPtrOutput)
 }
 
-// The identity principal ID
-func (o IdentityOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
-}
-
-// The identity tenantId
-func (o IdentityOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v Identity) *string { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
 // The identity type
 func (o IdentityOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Identity) *string { return v.Type }).(pulumi.StringPtrOutput)
@@ -1676,26 +1716,6 @@ func (o IdentityPtrOutput) Elem() IdentityOutput {
 	}).(IdentityOutput)
 }
 
-// The identity principal ID
-func (o IdentityPtrOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrincipalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// The identity tenantId
-func (o IdentityPtrOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Identity) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TenantId
-	}).(pulumi.StringPtrOutput)
-}
-
 // The identity type
 func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Identity) *string {
@@ -1709,9 +1729,9 @@ func (o IdentityPtrOutput) Type() pulumi.StringPtrOutput {
 // Describes how identity is verified
 type IdentityResponse struct {
 	// The identity principal ID
-	PrincipalId *string `pulumi:"principalId"`
+	PrincipalId string `pulumi:"principalId"`
 	// The identity tenantId
-	TenantId *string `pulumi:"tenantId"`
+	TenantId string `pulumi:"tenantId"`
 	// The identity type
 	Type *string `pulumi:"type"`
 }
@@ -1732,13 +1752,13 @@ func (o IdentityResponseOutput) ToIdentityResponseOutputWithContext(ctx context.
 }
 
 // The identity principal ID
-func (o IdentityResponseOutput) PrincipalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *string { return v.PrincipalId }).(pulumi.StringPtrOutput)
+func (o IdentityResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
 // The identity tenantId
-func (o IdentityResponseOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v IdentityResponse) *string { return v.TenantId }).(pulumi.StringPtrOutput)
+func (o IdentityResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityResponse) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
 // The identity type
@@ -1776,7 +1796,7 @@ func (o IdentityResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.PrincipalId
+		return &v.PrincipalId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -1786,7 +1806,7 @@ func (o IdentityResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return v.TenantId
+		return &v.TenantId
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3298,6 +3318,19 @@ type Transformation struct {
 	ValidStreamingUnits []int `pulumi:"validStreamingUnits"`
 }
 
+// Defaults sets the appropriate defaults for Transformation
+func (val *Transformation) Defaults() *Transformation {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.StreamingUnits) {
+		streamingUnits_ := 3
+		tmp.StreamingUnits = &streamingUnits_
+	}
+	return &tmp
+}
+
 // TransformationInput is an input type that accepts TransformationArgs and TransformationOutput values.
 // You can construct a concrete instance of `TransformationInput` via:
 //
@@ -3321,6 +3354,17 @@ type TransformationArgs struct {
 	ValidStreamingUnits pulumi.IntArrayInput `pulumi:"validStreamingUnits"`
 }
 
+// Defaults sets the appropriate defaults for TransformationArgs
+func (val *TransformationArgs) Defaults() *TransformationArgs {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.StreamingUnits) {
+		tmp.StreamingUnits = pulumi.IntPtr(3)
+	}
+	return &tmp
+}
 func (TransformationArgs) ElementType() reflect.Type {
 	return reflect.TypeOf((*Transformation)(nil)).Elem()
 }
@@ -3499,6 +3543,19 @@ type TransformationResponse struct {
 	Type string `pulumi:"type"`
 	// Specifies the valid streaming units a streaming job can scale to.
 	ValidStreamingUnits []int `pulumi:"validStreamingUnits"`
+}
+
+// Defaults sets the appropriate defaults for TransformationResponse
+func (val *TransformationResponse) Defaults() *TransformationResponse {
+	if val == nil {
+		return nil
+	}
+	tmp := *val
+	if isZero(tmp.StreamingUnits) {
+		streamingUnits_ := 3
+		tmp.StreamingUnits = &streamingUnits_
+	}
+	return &tmp
 }
 
 // A transformation object, containing all information associated with the named transformation. All transformations are contained under a streaming job.

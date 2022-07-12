@@ -54,10 +54,6 @@ export interface GetVolumeResult {
      */
     readonly id: string;
     /**
-     * The geo-location where the resource lives.
-     */
-    readonly location?: string;
-    /**
      * Azure resource name.
      */
     readonly name: string;

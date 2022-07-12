@@ -37,8 +37,6 @@ type LookupVolumeResult struct {
 	CreationData *SourceCreationDataResponse `pulumi:"creationData"`
 	// Azure resource identifier.
 	Id string `pulumi:"id"`
-	// The geo-location where the resource lives.
-	Location *string `pulumi:"location"`
 	// Azure resource name.
 	Name string `pulumi:"name"`
 	// Volume size.
@@ -106,11 +104,6 @@ func (o LookupVolumeResultOutput) CreationData() SourceCreationDataResponsePtrOu
 // Azure resource identifier.
 func (o LookupVolumeResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupVolumeResult) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The geo-location where the resource lives.
-func (o LookupVolumeResultOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v LookupVolumeResult) *string { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // Azure resource name.

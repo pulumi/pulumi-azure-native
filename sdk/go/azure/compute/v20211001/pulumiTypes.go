@@ -57,29 +57,45 @@ func (i CommunityGalleryInfoArgs) ToCommunityGalleryInfoOutputWithContext(ctx co
 	return pulumi.ToOutputWithContext(ctx, i).(CommunityGalleryInfoOutput)
 }
 
-// CommunityGalleryInfoArrayInput is an input type that accepts CommunityGalleryInfoArray and CommunityGalleryInfoArrayOutput values.
-// You can construct a concrete instance of `CommunityGalleryInfoArrayInput` via:
+func (i CommunityGalleryInfoArgs) ToCommunityGalleryInfoPtrOutput() CommunityGalleryInfoPtrOutput {
+	return i.ToCommunityGalleryInfoPtrOutputWithContext(context.Background())
+}
+
+func (i CommunityGalleryInfoArgs) ToCommunityGalleryInfoPtrOutputWithContext(ctx context.Context) CommunityGalleryInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommunityGalleryInfoOutput).ToCommunityGalleryInfoPtrOutputWithContext(ctx)
+}
+
+// CommunityGalleryInfoPtrInput is an input type that accepts CommunityGalleryInfoArgs, CommunityGalleryInfoPtr and CommunityGalleryInfoPtrOutput values.
+// You can construct a concrete instance of `CommunityGalleryInfoPtrInput` via:
 //
-//          CommunityGalleryInfoArray{ CommunityGalleryInfoArgs{...} }
-type CommunityGalleryInfoArrayInput interface {
+//          CommunityGalleryInfoArgs{...}
+//
+//  or:
+//
+//          nil
+type CommunityGalleryInfoPtrInput interface {
 	pulumi.Input
 
-	ToCommunityGalleryInfoArrayOutput() CommunityGalleryInfoArrayOutput
-	ToCommunityGalleryInfoArrayOutputWithContext(context.Context) CommunityGalleryInfoArrayOutput
+	ToCommunityGalleryInfoPtrOutput() CommunityGalleryInfoPtrOutput
+	ToCommunityGalleryInfoPtrOutputWithContext(context.Context) CommunityGalleryInfoPtrOutput
 }
 
-type CommunityGalleryInfoArray []CommunityGalleryInfoInput
+type communityGalleryInfoPtrType CommunityGalleryInfoArgs
 
-func (CommunityGalleryInfoArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CommunityGalleryInfo)(nil)).Elem()
+func CommunityGalleryInfoPtr(v *CommunityGalleryInfoArgs) CommunityGalleryInfoPtrInput {
+	return (*communityGalleryInfoPtrType)(v)
 }
 
-func (i CommunityGalleryInfoArray) ToCommunityGalleryInfoArrayOutput() CommunityGalleryInfoArrayOutput {
-	return i.ToCommunityGalleryInfoArrayOutputWithContext(context.Background())
+func (*communityGalleryInfoPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommunityGalleryInfo)(nil)).Elem()
 }
 
-func (i CommunityGalleryInfoArray) ToCommunityGalleryInfoArrayOutputWithContext(ctx context.Context) CommunityGalleryInfoArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(CommunityGalleryInfoArrayOutput)
+func (i *communityGalleryInfoPtrType) ToCommunityGalleryInfoPtrOutput() CommunityGalleryInfoPtrOutput {
+	return i.ToCommunityGalleryInfoPtrOutputWithContext(context.Background())
+}
+
+func (i *communityGalleryInfoPtrType) ToCommunityGalleryInfoPtrOutputWithContext(ctx context.Context) CommunityGalleryInfoPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(CommunityGalleryInfoPtrOutput)
 }
 
 // Information of community gallery if current gallery is shared to community
@@ -95,6 +111,16 @@ func (o CommunityGalleryInfoOutput) ToCommunityGalleryInfoOutput() CommunityGall
 
 func (o CommunityGalleryInfoOutput) ToCommunityGalleryInfoOutputWithContext(ctx context.Context) CommunityGalleryInfoOutput {
 	return o
+}
+
+func (o CommunityGalleryInfoOutput) ToCommunityGalleryInfoPtrOutput() CommunityGalleryInfoPtrOutput {
+	return o.ToCommunityGalleryInfoPtrOutputWithContext(context.Background())
+}
+
+func (o CommunityGalleryInfoOutput) ToCommunityGalleryInfoPtrOutputWithContext(ctx context.Context) CommunityGalleryInfoPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v CommunityGalleryInfo) *CommunityGalleryInfo {
+		return &v
+	}).(CommunityGalleryInfoPtrOutput)
 }
 
 // Community gallery publisher eula
@@ -117,24 +143,68 @@ func (o CommunityGalleryInfoOutput) PublisherUri() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v CommunityGalleryInfo) *string { return v.PublisherUri }).(pulumi.StringPtrOutput)
 }
 
-type CommunityGalleryInfoArrayOutput struct{ *pulumi.OutputState }
+type CommunityGalleryInfoPtrOutput struct{ *pulumi.OutputState }
 
-func (CommunityGalleryInfoArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CommunityGalleryInfo)(nil)).Elem()
+func (CommunityGalleryInfoPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommunityGalleryInfo)(nil)).Elem()
 }
 
-func (o CommunityGalleryInfoArrayOutput) ToCommunityGalleryInfoArrayOutput() CommunityGalleryInfoArrayOutput {
+func (o CommunityGalleryInfoPtrOutput) ToCommunityGalleryInfoPtrOutput() CommunityGalleryInfoPtrOutput {
 	return o
 }
 
-func (o CommunityGalleryInfoArrayOutput) ToCommunityGalleryInfoArrayOutputWithContext(ctx context.Context) CommunityGalleryInfoArrayOutput {
+func (o CommunityGalleryInfoPtrOutput) ToCommunityGalleryInfoPtrOutputWithContext(ctx context.Context) CommunityGalleryInfoPtrOutput {
 	return o
 }
 
-func (o CommunityGalleryInfoArrayOutput) Index(i pulumi.IntInput) CommunityGalleryInfoOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CommunityGalleryInfo {
-		return vs[0].([]CommunityGalleryInfo)[vs[1].(int)]
+func (o CommunityGalleryInfoPtrOutput) Elem() CommunityGalleryInfoOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfo) CommunityGalleryInfo {
+		if v != nil {
+			return *v
+		}
+		var ret CommunityGalleryInfo
+		return ret
 	}).(CommunityGalleryInfoOutput)
+}
+
+// Community gallery publisher eula
+func (o CommunityGalleryInfoPtrOutput) Eula() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Eula
+	}).(pulumi.StringPtrOutput)
+}
+
+// Community gallery public name prefix
+func (o CommunityGalleryInfoPtrOutput) PublicNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Community gallery publisher contact email
+func (o CommunityGalleryInfoPtrOutput) PublisherContact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublisherContact
+	}).(pulumi.StringPtrOutput)
+}
+
+// Community gallery publisher uri
+func (o CommunityGalleryInfoPtrOutput) PublisherUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfo) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublisherUri
+	}).(pulumi.StringPtrOutput)
 }
 
 // Information of community gallery if current gallery is shared to community
@@ -198,24 +268,88 @@ func (o CommunityGalleryInfoResponseOutput) PublisherUri() pulumi.StringPtrOutpu
 	return o.ApplyT(func(v CommunityGalleryInfoResponse) *string { return v.PublisherUri }).(pulumi.StringPtrOutput)
 }
 
-type CommunityGalleryInfoResponseArrayOutput struct{ *pulumi.OutputState }
+type CommunityGalleryInfoResponsePtrOutput struct{ *pulumi.OutputState }
 
-func (CommunityGalleryInfoResponseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]CommunityGalleryInfoResponse)(nil)).Elem()
+func (CommunityGalleryInfoResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**CommunityGalleryInfoResponse)(nil)).Elem()
 }
 
-func (o CommunityGalleryInfoResponseArrayOutput) ToCommunityGalleryInfoResponseArrayOutput() CommunityGalleryInfoResponseArrayOutput {
+func (o CommunityGalleryInfoResponsePtrOutput) ToCommunityGalleryInfoResponsePtrOutput() CommunityGalleryInfoResponsePtrOutput {
 	return o
 }
 
-func (o CommunityGalleryInfoResponseArrayOutput) ToCommunityGalleryInfoResponseArrayOutputWithContext(ctx context.Context) CommunityGalleryInfoResponseArrayOutput {
+func (o CommunityGalleryInfoResponsePtrOutput) ToCommunityGalleryInfoResponsePtrOutputWithContext(ctx context.Context) CommunityGalleryInfoResponsePtrOutput {
 	return o
 }
 
-func (o CommunityGalleryInfoResponseArrayOutput) Index(i pulumi.IntInput) CommunityGalleryInfoResponseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) CommunityGalleryInfoResponse {
-		return vs[0].([]CommunityGalleryInfoResponse)[vs[1].(int)]
+func (o CommunityGalleryInfoResponsePtrOutput) Elem() CommunityGalleryInfoResponseOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfoResponse) CommunityGalleryInfoResponse {
+		if v != nil {
+			return *v
+		}
+		var ret CommunityGalleryInfoResponse
+		return ret
 	}).(CommunityGalleryInfoResponseOutput)
+}
+
+// Contains info about whether community gallery sharing is enabled.
+func (o CommunityGalleryInfoResponsePtrOutput) CommunityGalleryEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfoResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.CommunityGalleryEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Community gallery publisher eula
+func (o CommunityGalleryInfoResponsePtrOutput) Eula() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Eula
+	}).(pulumi.StringPtrOutput)
+}
+
+// Community gallery public name prefix
+func (o CommunityGalleryInfoResponsePtrOutput) PublicNamePrefix() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNamePrefix
+	}).(pulumi.StringPtrOutput)
+}
+
+// Community gallery public name list.
+func (o CommunityGalleryInfoResponsePtrOutput) PublicNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfoResponse) []string {
+		if v == nil {
+			return nil
+		}
+		return v.PublicNames
+	}).(pulumi.StringArrayOutput)
+}
+
+// Community gallery publisher contact email
+func (o CommunityGalleryInfoResponsePtrOutput) PublisherContact() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublisherContact
+	}).(pulumi.StringPtrOutput)
+}
+
+// Community gallery publisher uri
+func (o CommunityGalleryInfoResponsePtrOutput) PublisherUri() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CommunityGalleryInfoResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PublisherUri
+	}).(pulumi.StringPtrOutput)
 }
 
 // Contains encryption settings for a data disk image.
@@ -4429,7 +4563,7 @@ func (o ResourceRangeResponsePtrOutput) Min() pulumi.IntPtrOutput {
 // Profile for gallery sharing to subscription or tenant
 type SharingProfile struct {
 	// Information of community gallery if current gallery is shared to community.
-	CommunityGalleryInfo []CommunityGalleryInfo `pulumi:"communityGalleryInfo"`
+	CommunityGalleryInfo *CommunityGalleryInfo `pulumi:"communityGalleryInfo"`
 	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
 	Permissions *string `pulumi:"permissions"`
 }
@@ -4448,7 +4582,7 @@ type SharingProfileInput interface {
 // Profile for gallery sharing to subscription or tenant
 type SharingProfileArgs struct {
 	// Information of community gallery if current gallery is shared to community.
-	CommunityGalleryInfo CommunityGalleryInfoArrayInput `pulumi:"communityGalleryInfo"`
+	CommunityGalleryInfo CommunityGalleryInfoPtrInput `pulumi:"communityGalleryInfo"`
 	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
 	Permissions pulumi.StringPtrInput `pulumi:"permissions"`
 }
@@ -4532,8 +4666,8 @@ func (o SharingProfileOutput) ToSharingProfilePtrOutputWithContext(ctx context.C
 }
 
 // Information of community gallery if current gallery is shared to community.
-func (o SharingProfileOutput) CommunityGalleryInfo() CommunityGalleryInfoArrayOutput {
-	return o.ApplyT(func(v SharingProfile) []CommunityGalleryInfo { return v.CommunityGalleryInfo }).(CommunityGalleryInfoArrayOutput)
+func (o SharingProfileOutput) CommunityGalleryInfo() CommunityGalleryInfoPtrOutput {
+	return o.ApplyT(func(v SharingProfile) *CommunityGalleryInfo { return v.CommunityGalleryInfo }).(CommunityGalleryInfoPtrOutput)
 }
 
 // This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
@@ -4566,13 +4700,13 @@ func (o SharingProfilePtrOutput) Elem() SharingProfileOutput {
 }
 
 // Information of community gallery if current gallery is shared to community.
-func (o SharingProfilePtrOutput) CommunityGalleryInfo() CommunityGalleryInfoArrayOutput {
-	return o.ApplyT(func(v *SharingProfile) []CommunityGalleryInfo {
+func (o SharingProfilePtrOutput) CommunityGalleryInfo() CommunityGalleryInfoPtrOutput {
+	return o.ApplyT(func(v *SharingProfile) *CommunityGalleryInfo {
 		if v == nil {
 			return nil
 		}
 		return v.CommunityGalleryInfo
-	}).(CommunityGalleryInfoArrayOutput)
+	}).(CommunityGalleryInfoPtrOutput)
 }
 
 // This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
@@ -4641,7 +4775,7 @@ func (o SharingProfileGroupResponseArrayOutput) Index(i pulumi.IntInput) Sharing
 // Profile for gallery sharing to subscription or tenant
 type SharingProfileResponse struct {
 	// Information of community gallery if current gallery is shared to community.
-	CommunityGalleryInfo []CommunityGalleryInfoResponse `pulumi:"communityGalleryInfo"`
+	CommunityGalleryInfo *CommunityGalleryInfoResponse `pulumi:"communityGalleryInfo"`
 	// A list of sharing profile groups.
 	Groups []SharingProfileGroupResponse `pulumi:"groups"`
 	// This property allows you to specify the permission of sharing gallery. <br><br> Possible values are: <br><br> **Private** <br><br> **Groups**
@@ -4664,8 +4798,8 @@ func (o SharingProfileResponseOutput) ToSharingProfileResponseOutputWithContext(
 }
 
 // Information of community gallery if current gallery is shared to community.
-func (o SharingProfileResponseOutput) CommunityGalleryInfo() CommunityGalleryInfoResponseArrayOutput {
-	return o.ApplyT(func(v SharingProfileResponse) []CommunityGalleryInfoResponse { return v.CommunityGalleryInfo }).(CommunityGalleryInfoResponseArrayOutput)
+func (o SharingProfileResponseOutput) CommunityGalleryInfo() CommunityGalleryInfoResponsePtrOutput {
+	return o.ApplyT(func(v SharingProfileResponse) *CommunityGalleryInfoResponse { return v.CommunityGalleryInfo }).(CommunityGalleryInfoResponsePtrOutput)
 }
 
 // A list of sharing profile groups.
@@ -4703,13 +4837,13 @@ func (o SharingProfileResponsePtrOutput) Elem() SharingProfileResponseOutput {
 }
 
 // Information of community gallery if current gallery is shared to community.
-func (o SharingProfileResponsePtrOutput) CommunityGalleryInfo() CommunityGalleryInfoResponseArrayOutput {
-	return o.ApplyT(func(v *SharingProfileResponse) []CommunityGalleryInfoResponse {
+func (o SharingProfileResponsePtrOutput) CommunityGalleryInfo() CommunityGalleryInfoResponsePtrOutput {
+	return o.ApplyT(func(v *SharingProfileResponse) *CommunityGalleryInfoResponse {
 		if v == nil {
 			return nil
 		}
 		return v.CommunityGalleryInfo
-	}).(CommunityGalleryInfoResponseArrayOutput)
+	}).(CommunityGalleryInfoResponsePtrOutput)
 }
 
 // A list of sharing profile groups.
@@ -5525,9 +5659,9 @@ func (o UserArtifactSourceResponseOutput) MediaLink() pulumi.StringOutput {
 
 func init() {
 	pulumi.RegisterOutputType(CommunityGalleryInfoOutput{})
-	pulumi.RegisterOutputType(CommunityGalleryInfoArrayOutput{})
+	pulumi.RegisterOutputType(CommunityGalleryInfoPtrOutput{})
 	pulumi.RegisterOutputType(CommunityGalleryInfoResponseOutput{})
-	pulumi.RegisterOutputType(CommunityGalleryInfoResponseArrayOutput{})
+	pulumi.RegisterOutputType(CommunityGalleryInfoResponsePtrOutput{})
 	pulumi.RegisterOutputType(DataDiskImageEncryptionOutput{})
 	pulumi.RegisterOutputType(DataDiskImageEncryptionArrayOutput{})
 	pulumi.RegisterOutputType(DataDiskImageEncryptionResponseOutput{})

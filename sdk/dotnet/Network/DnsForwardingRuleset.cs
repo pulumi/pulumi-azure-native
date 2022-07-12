@@ -96,6 +96,7 @@ namespace Pulumi.AzureNative.Network
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:network/v20200401preview:DnsForwardingRuleset"},
+                    new Pulumi.Alias { Type = "azure-native:network/v20220701:DnsForwardingRuleset"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

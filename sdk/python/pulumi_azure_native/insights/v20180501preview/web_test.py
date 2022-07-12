@@ -412,7 +412,7 @@ class WebTest(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["provisioning_state"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:WebTest"), pulumi.Alias(type_="azure-native:insights/v20150501:WebTest"), pulumi.Alias(type_="azure-native:insights/v20201005preview:WebTest")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:insights:WebTest"), pulumi.Alias(type_="azure-native:insights/v20150501:WebTest"), pulumi.Alias(type_="azure-native:insights/v20201005preview:WebTest"), pulumi.Alias(type_="azure-native:insights/v20220615:WebTest")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(WebTest, __self__).__init__(
             'azure-native:insights/v20180501preview:WebTest',

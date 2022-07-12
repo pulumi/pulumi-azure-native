@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "azure-native:databricks:AccessConnector":
+		r = &AccessConnector{}
 	case "azure-native:databricks:PrivateEndpointConnection":
 		r = &PrivateEndpointConnection{}
 	case "azure-native:databricks:Workspace":

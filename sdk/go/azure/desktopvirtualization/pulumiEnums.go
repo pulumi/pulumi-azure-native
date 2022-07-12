@@ -27,6 +27,18 @@ const (
 	CommandLineSettingRequire    = CommandLineSetting("Require")
 )
 
+type DayOfWeek string
+
+const (
+	DayOfWeekMonday    = DayOfWeek("Monday")
+	DayOfWeekTuesday   = DayOfWeek("Tuesday")
+	DayOfWeekWednesday = DayOfWeek("Wednesday")
+	DayOfWeekThursday  = DayOfWeek("Thursday")
+	DayOfWeekFriday    = DayOfWeek("Friday")
+	DayOfWeekSaturday  = DayOfWeek("Saturday")
+	DayOfWeekSunday    = DayOfWeek("Sunday")
+)
+
 // HostPool type for desktop.
 type HostPoolType string
 

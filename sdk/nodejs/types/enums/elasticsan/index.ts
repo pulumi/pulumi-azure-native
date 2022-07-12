@@ -19,17 +19,9 @@ export type Action = (typeof Action)[keyof typeof Action];
 
 export const EncryptionType = {
     /**
-     * Volume is encrypted at rest with Platform managed key. It is the default encryption type. This is not a valid encryption type for disk encryption sets.
+     * Volume is encrypted at rest with Platform managed key. It is the default encryption type.
      */
     EncryptionAtRestWithPlatformKey: "EncryptionAtRestWithPlatformKey",
-    /**
-     * Volume is encrypted at rest with Customer managed key that can be changed and revoked by a customer.
-     */
-    EncryptionAtRestWithCustomerKey: "EncryptionAtRestWithCustomerKey",
-    /**
-     * Volume is encrypted at rest with 2 layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
-     */
-    EncryptionAtRestWithPlatformAndCustomerKeys: "EncryptionAtRestWithPlatformAndCustomerKeys",
 } as const;
 
 /**
@@ -39,17 +31,13 @@ export type EncryptionType = (typeof EncryptionType)[keyof typeof EncryptionType
 
 export const Name = {
     /**
-     * Standard locally redundant storage
-     */
-    Standard_LRS: "Standard_LRS",
-    /**
      * Premium locally redundant storage
      */
     Premium_LRS: "Premium_LRS",
     /**
-     * Standard zone redundant storage
+     * Premium zone redundant storage
      */
-    Standard_ZRS: "Standard_ZRS",
+    Premium_ZRS: "Premium_ZRS",
 } as const;
 
 /**
@@ -69,17 +57,9 @@ export type StorageTargetType = (typeof StorageTargetType)[keyof typeof StorageT
 
 export const Tier = {
     /**
-     * Hero
+     * Premium Tier
      */
-    Hero: "Hero",
-    /**
-     * Satellite
-     */
-    Satellite: "Satellite",
-    /**
-     * Hub
-     */
-    Hub: "Hub",
+    Premium: "Premium",
 } as const;
 
 /**
@@ -89,9 +69,6 @@ export type Tier = (typeof Tier)[keyof typeof Tier];
 
 export const VolumeCreateOption = {
     None: "None",
-    FromVolume: "FromVolume",
-    FromDiskSnapshot: "FromDiskSnapshot",
-    Export: "Export",
 } as const;
 
 /**

@@ -16,6 +16,12 @@ namespace Pulumi.AzureNative.Cache.V20201201.Inputs
     public sealed class RedisCommonPropertiesRedisConfigurationArgs : Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies whether the aof backup is enabled
+        /// </summary>
+        [Input("aofBackupEnabled")]
+        public Input<string>? AofBackupEnabled { get; set; }
+
+        /// <summary>
         /// First storage account connection string
         /// </summary>
         [Input("aofStorageConnectionString0")]
@@ -26,6 +32,12 @@ namespace Pulumi.AzureNative.Cache.V20201201.Inputs
         /// </summary>
         [Input("aofStorageConnectionString1")]
         public Input<string>? AofStorageConnectionString1 { get; set; }
+
+        /// <summary>
+        /// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+        /// </summary>
+        [Input("authnotrequired")]
+        public Input<string>? Authnotrequired { get; set; }
 
         /// <summary>
         /// Value in megabytes reserved for fragmentation per shard

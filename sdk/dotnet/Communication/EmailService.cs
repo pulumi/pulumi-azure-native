@@ -84,6 +84,7 @@ namespace Pulumi.AzureNative.Communication
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:communication/v20211001preview:EmailService"},
+                    new Pulumi.Alias { Type = "azure-native:communication/v20220701preview:EmailService"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

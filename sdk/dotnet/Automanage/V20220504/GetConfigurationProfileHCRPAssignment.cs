@@ -84,6 +84,10 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         /// </summary>
         public readonly string Id;
         /// <summary>
+        /// Azure resource id. Indicates if this resource is managed by another Azure resource.
+        /// </summary>
+        public readonly string ManagedBy;
+        /// <summary>
         /// The name of the resource
         /// </summary>
         public readonly string Name;
@@ -104,6 +108,8 @@ namespace Pulumi.AzureNative.Automanage.V20220504
         private GetConfigurationProfileHCRPAssignmentResult(
             string id,
 
+            string managedBy,
+
             string name,
 
             Outputs.ConfigurationProfileAssignmentPropertiesResponse properties,
@@ -113,6 +119,7 @@ namespace Pulumi.AzureNative.Automanage.V20220504
             string type)
         {
             Id = id;
+            ManagedBy = managedBy;
             Name = name;
             Properties = properties;
             SystemData = systemData;

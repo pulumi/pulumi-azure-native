@@ -107,7 +107,7 @@ class EnergyService(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
         """
-        API Version: 2021-06-01-preview.
+        API Version: 2022-04-04-preview.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -123,7 +123,7 @@ class EnergyService(pulumi.CustomResource):
                  args: EnergyServiceArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        API Version: 2021-06-01-preview.
+        API Version: 2022-04-04-preview.
 
         :param str resource_name: The name of the resource.
         :param EnergyServiceArgs args: The arguments to use to populate this resource's properties.

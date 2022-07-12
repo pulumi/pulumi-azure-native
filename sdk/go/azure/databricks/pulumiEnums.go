@@ -3,6 +3,14 @@
 
 package databricks
 
+// The identity type.
+type IdentityType string
+
+const (
+	IdentityTypeNone           = IdentityType("None")
+	IdentityTypeSystemAssigned = IdentityType("SystemAssigned")
+)
+
 // The encryption keySource (provider). Possible values (case-insensitive):  Default, Microsoft.Keyvault
 type KeySource string
 

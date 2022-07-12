@@ -83,7 +83,8 @@
     "2021-03-01-preview",
     "2021-06-01",
     "2021-07-01-preview",
-    "2021-11-16-preview"
+    "2021-11-16-preview",
+    "2021-12-01-preview"
   ],
   "Automanage": [
     "2021-04-30-preview",
@@ -95,7 +96,8 @@
     "2018-06-30",
     "2019-06-01",
     "2020-01-13-preview",
-    "2021-06-22"
+    "2021-06-22",
+    "2022-02-22"
   ],
   "AutonomousDevelopmentPlatform": [
     "2021-11-01-preview"
@@ -168,7 +170,8 @@
   "Commerce": [],
   "Communication": [
     "2020-08-20-preview",
-    "2021-10-01-preview"
+    "2021-10-01-preview",
+    "2022-07-01-preview"
   ],
   "Compute": [
     "2020-10-01-preview",
@@ -191,7 +194,9 @@
     "2021-09-01-preview",
     "2021-12-01"
   ],
-  "ConnectedVMwarevSphere": [],
+  "ConnectedVMwarevSphere": [
+    "2022-01-10-preview"
+  ],
   "Consumption": [
     "2019-11-01",
     "2021-05-01",
@@ -354,7 +359,8 @@
     "2021-08-01"
   ],
   "Databricks": [
-    "2021-04-01-preview"
+    "2021-04-01-preview",
+    "2022-04-01-preview"
   ],
   "Datadog": [],
   "DelegatedNetwork": [],
@@ -364,7 +370,8 @@
     "2021-04-01-preview",
     "2021-07-12",
     "2021-09-03-preview",
-    "2022-02-10-preview"
+    "2022-02-10-preview",
+    "2022-04-01-preview"
   ],
   "DevHub": [],
   "DevOps": [],
@@ -488,7 +495,8 @@
     "2021-05-20",
     "2021-06-10-preview",
     "2021-12-10-preview",
-    "2022-03-10"
+    "2022-03-10",
+    "2022-05-10-preview"
   ],
   "HybridConnectivity": [],
   "HybridData": [],
@@ -537,7 +545,8 @@
     "2021-09-01-preview",
     "2021-10-14",
     "2022-04-01",
-    "2022-06-01"
+    "2022-06-01",
+    "2022-06-15"
   ],
   "Intune": [
     "2015-01-14-privatepreview"
@@ -551,7 +560,8 @@
     "2021-04-01-preview",
     "2021-06-01-preview",
     "2021-10-01",
-    "2021-11-01-preview"
+    "2021-11-01-preview",
+    "2022-07-01"
   ],
   "Kubernetes": [
     "2021-04-01-preview",
@@ -625,7 +635,8 @@
     "2020-07-01-preview",
     "2021-04-01-preview",
     "2021-05-01",
-    "2021-09-01-preview"
+    "2021-09-01-preview",
+    "2022-07-01-preview"
   ],
   "ManagedIdentity": [
     "2021-09-30-preview",
@@ -727,16 +738,15 @@
     "2022-01-01",
     "2022-02-01-preview",
     "2022-04-01-preview",
-    "2022-05-01"
+    "2022-05-01",
+    "2022-07-01"
   ],
   "NetworkFunction": [],
   "NotificationHubs": [],
   "OffAzure": [
     "2020-07-07"
   ],
-  "OpenEnergyPlatform": [
-    "2022-04-04-preview"
-  ],
+  "OpenEnergyPlatform": [],
   "OperationalInsights": [
     "2019-08-01-preview",
     "2019-09-01",
@@ -861,7 +871,8 @@
     "2021-08-01-preview",
     "2021-12-01-preview",
     "2022-01-01-preview",
-    "2022-05-01-preview"
+    "2022-05-01-preview",
+    "2022-07-01-preview"
   ],
   "SecurityAndCompliance": [],
   "SecurityInsights": [
@@ -874,7 +885,8 @@
     "2022-01-01-preview",
     "2022-04-01-preview",
     "2022-05-01-preview",
-    "2022-06-01-preview"
+    "2022-06-01-preview",
+    "2022-07-01-preview"
   ],
   "SerialConsole": [],
   "ServiceBus": [

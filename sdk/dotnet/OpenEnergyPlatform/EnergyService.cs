@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.OpenEnergyPlatform
 {
     /// <summary>
-    /// API Version: 2021-06-01-preview.
+    /// API Version: 2022-04-04-preview.
     /// </summary>
     [AzureNativeResourceType("azure-native:openenergyplatform:EnergyService")]
     public partial class EnergyService : Pulumi.CustomResource

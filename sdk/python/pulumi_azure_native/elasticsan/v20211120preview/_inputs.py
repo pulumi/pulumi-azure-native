@@ -86,7 +86,7 @@ class SourceCreationDataArgs:
                  create_source: pulumi.Input['VolumeCreateOption'],
                  source_uri: Optional[pulumi.Input[str]] = None):
         """
-        Data used when creating a disk.
+        Data source used when creating the volume.
         :param pulumi.Input['VolumeCreateOption'] create_source: This enumerates the possible sources of a volume creation.
         :param pulumi.Input[str] source_uri: If createOption is Copy, this is the ARM id of the source snapshot or disk. If createOption is Restore, this is the ARM-like id of the source disk restore point.
         """

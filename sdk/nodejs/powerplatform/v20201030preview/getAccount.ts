@@ -56,6 +56,10 @@ export interface GetAccountResult {
      */
     readonly systemData: outputs.powerplatform.v20201030preview.SystemDataResponse;
     /**
+     * The internally assigned unique identifier of the resource.
+     */
+    readonly systemId: string;
+    /**
      * Resource tags.
      */
     readonly tags?: {[key: string]: string};

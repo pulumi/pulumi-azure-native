@@ -150,6 +150,7 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
             if vm_name is None and not opts.urn:
                 raise TypeError("Missing required property 'vm_name'")
             __props__.__dict__["vm_name"] = vm_name
+            __props__.__dict__["managed_by"] = None
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
@@ -177,11 +178,20 @@ class ConfigurationProfileAssignment(pulumi.CustomResource):
 
         __props__ = ConfigurationProfileAssignmentArgs.__new__(ConfigurationProfileAssignmentArgs)
 
+        __props__.__dict__["managed_by"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["properties"] = None
         __props__.__dict__["system_data"] = None
         __props__.__dict__["type"] = None
         return ConfigurationProfileAssignment(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> pulumi.Output[str]:
+        """
+        Azure resource id. Indicates if this resource is managed by another Azure resource.
+        """
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter

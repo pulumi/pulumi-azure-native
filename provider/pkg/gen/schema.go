@@ -1087,8 +1087,9 @@ func (m *moduleGenerator) genProperties(resolvedSchema *openapi.Schema, isOutput
 			// TODO: Get rid of this in https://github.com/pulumi/pulumi-azure-native/issues/331
 			continue
 		}
-		// Workaround for https://github.com/pulumi/pulumi/issues/9883 - remove once merged
-		if name == "conditionSets" && property.Items.Schema.Ref.String() == "#/definitions/GovernanceRuleConditionSets" {
+		// TODO: Workaround for https://github.com/pulumi/pulumi/issues/9883 - remove once merged
+		if (name == "conditionSets" && property.Items.Schema.Ref.String() == "#/definitions/GovernanceRuleConditionSets") ||
+			(name == "conditionSets" && property.Items.Schema.Ref.String() == "#/definitions/ApplicationConditionSets") {
 			continue
 		}
 

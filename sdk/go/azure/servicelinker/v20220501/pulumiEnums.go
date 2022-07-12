@@ -25,16 +25,17 @@ const (
 type ClientType string
 
 const (
-	ClientTypeNone       = ClientType("none")
-	ClientTypeDotnet     = ClientType("dotnet")
-	ClientTypeJava       = ClientType("java")
-	ClientTypePython     = ClientType("python")
-	ClientTypeGo         = ClientType("go")
-	ClientTypePhp        = ClientType("php")
-	ClientTypeRuby       = ClientType("ruby")
-	ClientTypeDjango     = ClientType("django")
-	ClientTypeNodejs     = ClientType("nodejs")
-	ClientTypeSpringBoot = ClientType("springBoot")
+	ClientTypeNone              = ClientType("none")
+	ClientTypeDotnet            = ClientType("dotnet")
+	ClientTypeJava              = ClientType("java")
+	ClientTypePython            = ClientType("python")
+	ClientTypeGo                = ClientType("go")
+	ClientTypePhp               = ClientType("php")
+	ClientTypeRuby              = ClientType("ruby")
+	ClientTypeDjango            = ClientType("django")
+	ClientTypeNodejs            = ClientType("nodejs")
+	ClientTypeSpringBoot        = ClientType("springBoot")
+	ClientType_Kafka_springBoot = ClientType("kafka-springBoot")
 )
 
 // The secret type.

@@ -1220,6 +1220,8 @@ func (o DataLakeStorageAccountDetailsPtrOutput) ResourceId() pulumi.StringPtrOut
 type DataLakeStorageAccountDetailsResponse struct {
 	// Account URL
 	AccountUrl *string `pulumi:"accountUrl"`
+	// Create managed private endpoint to this storage account or not
+	CreateManagedPrivateEndpoint *bool `pulumi:"createManagedPrivateEndpoint"`
 	// Filesystem name
 	Filesystem *string `pulumi:"filesystem"`
 	// ARM resource Id of this storage account
@@ -1244,6 +1246,11 @@ func (o DataLakeStorageAccountDetailsResponseOutput) ToDataLakeStorageAccountDet
 // Account URL
 func (o DataLakeStorageAccountDetailsResponseOutput) AccountUrl() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DataLakeStorageAccountDetailsResponse) *string { return v.AccountUrl }).(pulumi.StringPtrOutput)
+}
+
+// Create managed private endpoint to this storage account or not
+func (o DataLakeStorageAccountDetailsResponseOutput) CreateManagedPrivateEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DataLakeStorageAccountDetailsResponse) *bool { return v.CreateManagedPrivateEndpoint }).(pulumi.BoolPtrOutput)
 }
 
 // Filesystem name
@@ -1288,6 +1295,16 @@ func (o DataLakeStorageAccountDetailsResponsePtrOutput) AccountUrl() pulumi.Stri
 		}
 		return v.AccountUrl
 	}).(pulumi.StringPtrOutput)
+}
+
+// Create managed private endpoint to this storage account or not
+func (o DataLakeStorageAccountDetailsResponsePtrOutput) CreateManagedPrivateEndpoint() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DataLakeStorageAccountDetailsResponse) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.CreateManagedPrivateEndpoint
+	}).(pulumi.BoolPtrOutput)
 }
 
 // Filesystem name

@@ -12,7 +12,7 @@ import (
 )
 
 // The private endpoint connection of a workspace
-// API Version: 2021-04-01-preview.
+// API Version: 2022-04-01-preview.
 type PrivateEndpointConnection struct {
 	pulumi.CustomResourceState
 
@@ -43,6 +43,9 @@ func NewPrivateEndpointConnection(ctx *pulumi.Context,
 	aliases := pulumi.Aliases([]pulumi.Alias{
 		{
 			Type: pulumi.String("azure-native:databricks/v20210401preview:PrivateEndpointConnection"),
+		},
+		{
+			Type: pulumi.String("azure-native:databricks/v20220401preview:PrivateEndpointConnection"),
 		},
 	})
 	opts = append(opts, aliases)

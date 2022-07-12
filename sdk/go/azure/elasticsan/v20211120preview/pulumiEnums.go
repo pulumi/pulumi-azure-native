@@ -178,24 +178,18 @@ func (in *actionPtr) ToActionPtrOutputWithContext(ctx context.Context) ActionPtr
 type EncryptionType string
 
 const (
-	// Volume is encrypted at rest with Platform managed key. It is the default encryption type. This is not a valid encryption type for disk encryption sets.
+	// Volume is encrypted at rest with Platform managed key. It is the default encryption type.
 	EncryptionTypeEncryptionAtRestWithPlatformKey = EncryptionType("EncryptionAtRestWithPlatformKey")
-	// Volume is encrypted at rest with Customer managed key that can be changed and revoked by a customer.
-	EncryptionTypeEncryptionAtRestWithCustomerKey = EncryptionType("EncryptionAtRestWithCustomerKey")
-	// Volume is encrypted at rest with 2 layers of encryption. One of the keys is Customer managed and the other key is Platform managed.
-	EncryptionTypeEncryptionAtRestWithPlatformAndCustomerKeys = EncryptionType("EncryptionAtRestWithPlatformAndCustomerKeys")
 )
 
 // The sku name.
 type Name string
 
 const (
-	// Standard locally redundant storage
-	Name_Standard_LRS = Name("Standard_LRS")
 	// Premium locally redundant storage
 	Name_Premium_LRS = Name("Premium_LRS")
-	// Standard zone redundant storage
-	Name_Standard_ZRS = Name("Standard_ZRS")
+	// Premium zone redundant storage
+	Name_Premium_ZRS = Name("Premium_ZRS")
 )
 
 // Type of storage target
@@ -210,22 +204,15 @@ const (
 type Tier string
 
 const (
-	// Hero
-	TierHero = Tier("Hero")
-	// Satellite
-	TierSatellite = Tier("Satellite")
-	// Hub
-	TierHub = Tier("Hub")
+	// Premium Tier
+	TierPremium = Tier("Premium")
 )
 
 // This enumerates the possible sources of a volume creation.
 type VolumeCreateOption string
 
 const (
-	VolumeCreateOptionNone             = VolumeCreateOption("None")
-	VolumeCreateOptionFromVolume       = VolumeCreateOption("FromVolume")
-	VolumeCreateOptionFromDiskSnapshot = VolumeCreateOption("FromDiskSnapshot")
-	VolumeCreateOptionExport           = VolumeCreateOption("Export")
+	VolumeCreateOptionNone = VolumeCreateOption("None")
 )
 
 func (VolumeCreateOption) ElementType() reflect.Type {

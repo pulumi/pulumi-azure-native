@@ -86,6 +86,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:IPSyncer"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:IPSyncer"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:IPSyncer"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:IPSyncer"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

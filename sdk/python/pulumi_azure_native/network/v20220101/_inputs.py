@@ -15667,7 +15667,7 @@ class SubnetArgs:
         if network_security_group is not None:
             pulumi.set(__self__, "network_security_group", network_security_group)
         if private_endpoint_network_policies is None:
-            private_endpoint_network_policies = 'Enabled'
+            private_endpoint_network_policies = 'Disabled'
         if private_endpoint_network_policies is not None:
             pulumi.set(__self__, "private_endpoint_network_policies", private_endpoint_network_policies)
         if private_link_service_network_policies is None:

@@ -143,7 +143,7 @@ namespace Pulumi.AzureNative.Network.V20220101.Inputs
 
         public SubnetArgs()
         {
-            PrivateEndpointNetworkPolicies = "Enabled";
+            PrivateEndpointNetworkPolicies = "Disabled";
             PrivateLinkServiceNetworkPolicies = "Enabled";
         }
     }

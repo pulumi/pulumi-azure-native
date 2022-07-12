@@ -140,6 +140,7 @@ namespace Pulumi.AzureNative.Insights
                     new Pulumi.Alias { Type = "azure-native:insights/v20150501:WebTest"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20180501preview:WebTest"},
                     new Pulumi.Alias { Type = "azure-native:insights/v20201005preview:WebTest"},
+                    new Pulumi.Alias { Type = "azure-native:insights/v20220615:WebTest"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

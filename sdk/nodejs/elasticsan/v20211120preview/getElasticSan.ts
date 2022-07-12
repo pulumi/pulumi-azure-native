@@ -60,10 +60,6 @@ export interface GetElasticSanResult {
      */
     readonly name: string;
     /**
-     * Provisioned MBps Elastic San appliance.
-     */
-    readonly provisionedMBps: number;
-    /**
      * State of the operation on the resource.
      */
     readonly provisioningState: string;
@@ -87,6 +83,10 @@ export interface GetElasticSanResult {
      * Total Provisioned MBps Elastic San appliance.
      */
     readonly totalMBps: number;
+    /**
+     * Total size of the Elastic San appliance in TB.
+     */
+    readonly totalSizeTiB: number;
     /**
      * Total size of the provisioned Volumes in GiB.
      */

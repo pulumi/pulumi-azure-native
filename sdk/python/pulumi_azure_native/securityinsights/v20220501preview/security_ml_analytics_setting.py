@@ -161,7 +161,7 @@ class SecurityMLAnalyticsSetting(pulumi.CustomResource):
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
             __props__.__dict__["type"] = None
-        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:SecurityMLAnalyticsSetting"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting")])
+        alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:securityinsights:SecurityMLAnalyticsSetting"), pulumi.Alias(type_="azure-native:securityinsights/v20220601preview:SecurityMLAnalyticsSetting"), pulumi.Alias(type_="azure-native:securityinsights/v20220701preview:SecurityMLAnalyticsSetting")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
         super(SecurityMLAnalyticsSetting, __self__).__init__(
             'azure-native:securityinsights/v20220501preview:SecurityMLAnalyticsSetting',

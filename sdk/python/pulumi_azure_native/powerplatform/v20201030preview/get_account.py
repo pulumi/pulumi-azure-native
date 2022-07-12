@@ -21,7 +21,7 @@ class GetAccountResult:
     """
     Definition of the account.
     """
-    def __init__(__self__, description=None, id=None, location=None, name=None, system_data=None, tags=None, type=None):
+    def __init__(__self__, description=None, id=None, location=None, name=None, system_data=None, system_id=None, tags=None, type=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
@@ -37,6 +37,9 @@ class GetAccountResult:
         if system_data and not isinstance(system_data, dict):
             raise TypeError("Expected argument 'system_data' to be a dict")
         pulumi.set(__self__, "system_data", system_data)
+        if system_id and not isinstance(system_id, str):
+            raise TypeError("Expected argument 'system_id' to be a str")
+        pulumi.set(__self__, "system_id", system_id)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -85,6 +88,14 @@ class GetAccountResult:
         return pulumi.get(self, "system_data")
 
     @property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> str:
+        """
+        The internally assigned unique identifier of the resource.
+        """
+        return pulumi.get(self, "system_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[Mapping[str, str]]:
         """
@@ -112,6 +123,7 @@ class AwaitableGetAccountResult(GetAccountResult):
             location=self.location,
             name=self.name,
             system_data=self.system_data,
+            system_id=self.system_id,
             tags=self.tags,
             type=self.type)
 
@@ -141,6 +153,7 @@ def get_account(account_name: Optional[str] = None,
         location=__ret__.location,
         name=__ret__.name,
         system_data=__ret__.system_data,
+        system_id=__ret__.system_id,
         tags=__ret__.tags,
         type=__ret__.type)
 

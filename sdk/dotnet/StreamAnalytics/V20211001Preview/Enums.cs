@@ -541,6 +541,37 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview
     }
 
     /// <summary>
+    /// This property indicates which data refresh option to use, Blocking or Nonblocking.
+    /// </summary>
+    [EnumType]
+    public readonly struct UpdatableUdfRefreshType : IEquatable<UpdatableUdfRefreshType>
+    {
+        private readonly string _value;
+
+        private UpdatableUdfRefreshType(string value)
+        {
+            _value = value ?? throw new ArgumentNullException(nameof(value));
+        }
+
+        public static UpdatableUdfRefreshType Blocking { get; } = new UpdatableUdfRefreshType("Blocking");
+        public static UpdatableUdfRefreshType Nonblocking { get; } = new UpdatableUdfRefreshType("Nonblocking");
+
+        public static bool operator ==(UpdatableUdfRefreshType left, UpdatableUdfRefreshType right) => left.Equals(right);
+        public static bool operator !=(UpdatableUdfRefreshType left, UpdatableUdfRefreshType right) => !left.Equals(right);
+
+        public static explicit operator string(UpdatableUdfRefreshType value) => value._value;
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override bool Equals(object? obj) => obj is UpdatableUdfRefreshType other && Equals(other);
+        public bool Equals(UpdatableUdfRefreshType other) => string.Equals(_value, other._value, StringComparison.Ordinal);
+
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public override int GetHashCode() => _value?.GetHashCode() ?? 0;
+
+        public override string ToString() => _value;
+    }
+
+    /// <summary>
     /// Refresh modes for Stream Analytics functions.
     /// </summary>
     [EnumType]

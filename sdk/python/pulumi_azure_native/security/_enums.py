@@ -8,6 +8,7 @@ __all__ = [
     'ActionType',
     'AdditionalWorkspaceDataType',
     'AdditionalWorkspaceType',
+    'ApplicationSourceResourceType',
     'AssessmentStatusCode',
     'AssessmentType',
     'AuthenticationType',
@@ -65,6 +66,16 @@ class AdditionalWorkspaceType(str, Enum):
     Workspace type.
     """
     SENTINEL = "Sentinel"
+
+
+class ApplicationSourceResourceType(str, Enum):
+    """
+    The application source, what it affects, e.g. Assessments
+    """
+    ASSESSMENTS = "Assessments"
+    """
+    The source of the application is assessments
+    """
 
 
 class AssessmentStatusCode(str, Enum):

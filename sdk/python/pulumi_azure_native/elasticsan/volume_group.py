@@ -20,7 +20,6 @@ class VolumeGroupArgs:
                  encryption: pulumi.Input[Union[str, 'EncryptionType']],
                  protocol_type: pulumi.Input[Union[str, 'StorageTargetType']],
                  resource_group_name: pulumi.Input[str],
-                 location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input['NetworkRuleSetArgs']] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  volume_group_name: Optional[pulumi.Input[str]] = None):
@@ -30,7 +29,6 @@ class VolumeGroupArgs:
         :param pulumi.Input[Union[str, 'EncryptionType']] encryption: Type of encryption
         :param pulumi.Input[Union[str, 'StorageTargetType']] protocol_type: Type of storage target
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
-        :param pulumi.Input[str] location: The geo-location where the resource lives.
         :param pulumi.Input['NetworkRuleSetArgs'] network_acls: A collection of rules governing the accessibility from specific network locations.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Azure resource tags.
         :param pulumi.Input[str] volume_group_name: The name of the VolumeGroup.
@@ -39,8 +37,6 @@ class VolumeGroupArgs:
         pulumi.set(__self__, "encryption", encryption)
         pulumi.set(__self__, "protocol_type", protocol_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
-        if location is not None:
-            pulumi.set(__self__, "location", location)
         if network_acls is not None:
             pulumi.set(__self__, "network_acls", network_acls)
         if tags is not None:
@@ -97,18 +93,6 @@ class VolumeGroupArgs:
         pulumi.set(self, "resource_group_name", value)
 
     @property
-    @pulumi.getter
-    def location(self) -> Optional[pulumi.Input[str]]:
-        """
-        The geo-location where the resource lives.
-        """
-        return pulumi.get(self, "location")
-
-    @location.setter
-    def location(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "location", value)
-
-    @property
     @pulumi.getter(name="networkAcls")
     def network_acls(self) -> Optional[pulumi.Input['NetworkRuleSetArgs']]:
         """
@@ -152,7 +136,6 @@ class VolumeGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
                  protocol_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -167,7 +150,6 @@ class VolumeGroup(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] elastic_san_name: The name of the ElasticSan.
         :param pulumi.Input[Union[str, 'EncryptionType']] encryption: Type of encryption
-        :param pulumi.Input[str] location: The geo-location where the resource lives.
         :param pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']] network_acls: A collection of rules governing the accessibility from specific network locations.
         :param pulumi.Input[Union[str, 'StorageTargetType']] protocol_type: Type of storage target
         :param pulumi.Input[str] resource_group_name: The name of the resource group. The name is case insensitive.
@@ -201,7 +183,6 @@ class VolumeGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  elastic_san_name: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[Union[str, 'EncryptionType']]] = None,
-                 location: Optional[pulumi.Input[str]] = None,
                  network_acls: Optional[pulumi.Input[pulumi.InputType['NetworkRuleSetArgs']]] = None,
                  protocol_type: Optional[pulumi.Input[Union[str, 'StorageTargetType']]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
@@ -225,7 +206,6 @@ class VolumeGroup(pulumi.CustomResource):
             if encryption is None and not opts.urn:
                 raise TypeError("Missing required property 'encryption'")
             __props__.__dict__["encryption"] = encryption
-            __props__.__dict__["location"] = location
             __props__.__dict__["network_acls"] = network_acls
             if protocol_type is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol_type'")
@@ -264,7 +244,6 @@ class VolumeGroup(pulumi.CustomResource):
         __props__ = VolumeGroupArgs.__new__(VolumeGroupArgs)
 
         __props__.__dict__["encryption"] = None
-        __props__.__dict__["location"] = None
         __props__.__dict__["name"] = None
         __props__.__dict__["network_acls"] = None
         __props__.__dict__["protocol_type"] = None
@@ -281,14 +260,6 @@ class VolumeGroup(pulumi.CustomResource):
         Type of encryption
         """
         return pulumi.get(self, "encryption")
-
-    @property
-    @pulumi.getter
-    def location(self) -> pulumi.Output[Optional[str]]:
-        """
-        The geo-location where the resource lives.
-        """
-        return pulumi.get(self, "location")
 
     @property
     @pulumi.getter

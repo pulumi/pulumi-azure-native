@@ -573,10 +573,14 @@ func (o RedisAccessKeysResponseOutput) SecondaryKey() pulumi.StringOutput {
 
 // All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 type RedisCommonPropertiesRedisConfiguration struct {
+	// Specifies whether the aof backup is enabled
+	AofBackupEnabled *string `pulumi:"aofBackupEnabled"`
 	// First storage account connection string
 	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
 	// Second storage account connection string
 	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
+	// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+	Authnotrequired *string `pulumi:"authnotrequired"`
 	// Value in megabytes reserved for fragmentation per shard
 	MaxfragmentationmemoryReserved *string `pulumi:"maxfragmentationmemoryReserved"`
 	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
@@ -608,10 +612,14 @@ type RedisCommonPropertiesRedisConfigurationInput interface {
 
 // All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 type RedisCommonPropertiesRedisConfigurationArgs struct {
+	// Specifies whether the aof backup is enabled
+	AofBackupEnabled pulumi.StringPtrInput `pulumi:"aofBackupEnabled"`
 	// First storage account connection string
 	AofStorageConnectionString0 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString0"`
 	// Second storage account connection string
 	AofStorageConnectionString1 pulumi.StringPtrInput `pulumi:"aofStorageConnectionString1"`
+	// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+	Authnotrequired pulumi.StringPtrInput `pulumi:"authnotrequired"`
 	// Value in megabytes reserved for fragmentation per shard
 	MaxfragmentationmemoryReserved pulumi.StringPtrInput `pulumi:"maxfragmentationmemoryReserved"`
 	// Value in megabytes reserved for non-cache usage per shard e.g. failover.
@@ -708,6 +716,11 @@ func (o RedisCommonPropertiesRedisConfigurationOutput) ToRedisCommonPropertiesRe
 	}).(RedisCommonPropertiesRedisConfigurationPtrOutput)
 }
 
+// Specifies whether the aof backup is enabled
+func (o RedisCommonPropertiesRedisConfigurationOutput) AofBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.AofBackupEnabled }).(pulumi.StringPtrOutput)
+}
+
 // First storage account connection string
 func (o RedisCommonPropertiesRedisConfigurationOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.AofStorageConnectionString0 }).(pulumi.StringPtrOutput)
@@ -716,6 +729,11 @@ func (o RedisCommonPropertiesRedisConfigurationOutput) AofStorageConnectionStrin
 // Second storage account connection string
 func (o RedisCommonPropertiesRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+func (o RedisCommonPropertiesRedisConfigurationOutput) Authnotrequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesRedisConfiguration) *string { return v.Authnotrequired }).(pulumi.StringPtrOutput)
 }
 
 // Value in megabytes reserved for fragmentation per shard
@@ -782,6 +800,16 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) Elem() RedisCommonProp
 	}).(RedisCommonPropertiesRedisConfigurationOutput)
 }
 
+// Specifies whether the aof backup is enabled
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofBackupEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
 // First storage account connection string
 func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
@@ -799,6 +827,16 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) AofStorageConnectionSt
 			return nil
 		}
 		return v.AofStorageConnectionString1
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+func (o RedisCommonPropertiesRedisConfigurationPtrOutput) Authnotrequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authnotrequired
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -884,10 +922,14 @@ func (o RedisCommonPropertiesRedisConfigurationPtrOutput) RdbStorageConnectionSt
 
 // All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc.
 type RedisCommonPropertiesResponseRedisConfiguration struct {
+	// Specifies whether the aof backup is enabled
+	AofBackupEnabled *string `pulumi:"aofBackupEnabled"`
 	// First storage account connection string
 	AofStorageConnectionString0 *string `pulumi:"aofStorageConnectionString0"`
 	// Second storage account connection string
 	AofStorageConnectionString1 *string `pulumi:"aofStorageConnectionString1"`
+	// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+	Authnotrequired *string `pulumi:"authnotrequired"`
 	// The max clients config
 	Maxclients string `pulumi:"maxclients"`
 	// Value in megabytes reserved for fragmentation per shard
@@ -929,6 +971,11 @@ func (o RedisCommonPropertiesResponseRedisConfigurationOutput) ToRedisCommonProp
 	return o
 }
 
+// Specifies whether the aof backup is enabled
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.AofBackupEnabled }).(pulumi.StringPtrOutput)
+}
+
 // First storage account connection string
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.AofStorageConnectionString0 }).(pulumi.StringPtrOutput)
@@ -937,6 +984,11 @@ func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofStorageConnect
 // Second storage account connection string
 func (o RedisCommonPropertiesResponseRedisConfigurationOutput) AofStorageConnectionString1() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.AofStorageConnectionString1 }).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+func (o RedisCommonPropertiesResponseRedisConfigurationOutput) Authnotrequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v RedisCommonPropertiesResponseRedisConfiguration) *string { return v.Authnotrequired }).(pulumi.StringPtrOutput)
 }
 
 // The max clients config
@@ -1029,6 +1081,16 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) Elem() RedisCo
 	}).(RedisCommonPropertiesResponseRedisConfigurationOutput)
 }
 
+// Specifies whether the aof backup is enabled
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofBackupEnabled() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AofBackupEnabled
+	}).(pulumi.StringPtrOutput)
+}
+
 // First storage account connection string
 func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofStorageConnectionString0() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
@@ -1046,6 +1108,16 @@ func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) AofStorageConn
 			return nil
 		}
 		return v.AofStorageConnectionString1
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies whether the authentication is disabled. Setting this property is highly discouraged from security point of view.
+func (o RedisCommonPropertiesResponseRedisConfigurationPtrOutput) Authnotrequired() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *RedisCommonPropertiesResponseRedisConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Authnotrequired
 	}).(pulumi.StringPtrOutput)
 }
 

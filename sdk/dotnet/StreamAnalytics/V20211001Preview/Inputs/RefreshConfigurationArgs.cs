@@ -37,7 +37,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
         /// This property indicates which data refresh option to use, Blocking or Nonblocking.
         /// </summary>
         [Input("refreshType")]
-        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20211001Preview.RefreshType>? RefreshType { get; set; }
+        public InputUnion<string, Pulumi.AzureNative.StreamAnalytics.V20211001Preview.UpdatableUdfRefreshType>? RefreshType { get; set; }
 
         /// <summary>
         /// The time format. Wherever {time} appears in pathPattern, the value of this property is used as the time format instead.

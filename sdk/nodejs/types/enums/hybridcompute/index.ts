@@ -14,6 +14,7 @@ import * as v20210520 from "./v20210520";
 import * as v20210610preview from "./v20210610preview";
 import * as v20211210preview from "./v20211210preview";
 import * as v20220310 from "./v20220310";
+import * as v20220510preview from "./v20220510preview";
 
 export {
     v20190802preview,
@@ -28,6 +29,7 @@ export {
     v20210610preview,
     v20211210preview,
     v20220310,
+    v20220510preview,
 };
 
 export const PublicNetworkAccessType = {

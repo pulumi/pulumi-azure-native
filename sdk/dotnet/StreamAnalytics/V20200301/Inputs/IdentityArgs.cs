@@ -16,18 +16,6 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
     public sealed class IdentityArgs : Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The identity principal ID
-        /// </summary>
-        [Input("principalId")]
-        public Input<string>? PrincipalId { get; set; }
-
-        /// <summary>
-        /// The identity tenantId
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
         /// The identity type
         /// </summary>
         [Input("type")]

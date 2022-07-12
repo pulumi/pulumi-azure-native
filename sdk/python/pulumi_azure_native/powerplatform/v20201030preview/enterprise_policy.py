@@ -253,6 +253,7 @@ class EnterprisePolicy(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["name"] = None
             __props__.__dict__["system_data"] = None
+            __props__.__dict__["system_id"] = None
             __props__.__dict__["type"] = None
         alias_opts = pulumi.ResourceOptions(aliases=[pulumi.Alias(type_="azure-native:powerplatform:EnterprisePolicy")])
         opts = pulumi.ResourceOptions.merge(opts, alias_opts)
@@ -286,6 +287,7 @@ class EnterprisePolicy(pulumi.CustomResource):
         __props__.__dict__["name"] = None
         __props__.__dict__["network_injection"] = None
         __props__.__dict__["system_data"] = None
+        __props__.__dict__["system_id"] = None
         __props__.__dict__["tags"] = None
         __props__.__dict__["type"] = None
         return EnterprisePolicy(resource_name, opts=opts, __props__=__props__)
@@ -353,6 +355,14 @@ class EnterprisePolicy(pulumi.CustomResource):
         Metadata pertaining to creation and last modification of the resource.
         """
         return pulumi.get(self, "system_data")
+
+    @property
+    @pulumi.getter(name="systemId")
+    def system_id(self) -> pulumi.Output[str]:
+        """
+        The internally assigned unique identifier of the resource.
+        """
+        return pulumi.get(self, "system_id")
 
     @property
     @pulumi.getter

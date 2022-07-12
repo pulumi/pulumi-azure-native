@@ -2659,6 +2659,242 @@ func (o SystemDataResponseOutput) LastModifiedByType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v SystemDataResponse) *string { return v.LastModifiedByType }).(pulumi.StringPtrOutput)
 }
 
+// The time for a scaling action to occur.
+type Time struct {
+	// The hour.
+	Hour int `pulumi:"hour"`
+	// The minute.
+	Minute int `pulumi:"minute"`
+}
+
+// TimeInput is an input type that accepts TimeArgs and TimeOutput values.
+// You can construct a concrete instance of `TimeInput` via:
+//
+//          TimeArgs{...}
+type TimeInput interface {
+	pulumi.Input
+
+	ToTimeOutput() TimeOutput
+	ToTimeOutputWithContext(context.Context) TimeOutput
+}
+
+// The time for a scaling action to occur.
+type TimeArgs struct {
+	// The hour.
+	Hour pulumi.IntInput `pulumi:"hour"`
+	// The minute.
+	Minute pulumi.IntInput `pulumi:"minute"`
+}
+
+func (TimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*Time)(nil)).Elem()
+}
+
+func (i TimeArgs) ToTimeOutput() TimeOutput {
+	return i.ToTimeOutputWithContext(context.Background())
+}
+
+func (i TimeArgs) ToTimeOutputWithContext(ctx context.Context) TimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeOutput)
+}
+
+func (i TimeArgs) ToTimePtrOutput() TimePtrOutput {
+	return i.ToTimePtrOutputWithContext(context.Background())
+}
+
+func (i TimeArgs) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimeOutput).ToTimePtrOutputWithContext(ctx)
+}
+
+// TimePtrInput is an input type that accepts TimeArgs, TimePtr and TimePtrOutput values.
+// You can construct a concrete instance of `TimePtrInput` via:
+//
+//          TimeArgs{...}
+//
+//  or:
+//
+//          nil
+type TimePtrInput interface {
+	pulumi.Input
+
+	ToTimePtrOutput() TimePtrOutput
+	ToTimePtrOutputWithContext(context.Context) TimePtrOutput
+}
+
+type timePtrType TimeArgs
+
+func TimePtr(v *TimeArgs) TimePtrInput {
+	return (*timePtrType)(v)
+}
+
+func (*timePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**Time)(nil)).Elem()
+}
+
+func (i *timePtrType) ToTimePtrOutput() TimePtrOutput {
+	return i.ToTimePtrOutputWithContext(context.Background())
+}
+
+func (i *timePtrType) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(TimePtrOutput)
+}
+
+// The time for a scaling action to occur.
+type TimeOutput struct{ *pulumi.OutputState }
+
+func (TimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*Time)(nil)).Elem()
+}
+
+func (o TimeOutput) ToTimeOutput() TimeOutput {
+	return o
+}
+
+func (o TimeOutput) ToTimeOutputWithContext(ctx context.Context) TimeOutput {
+	return o
+}
+
+func (o TimeOutput) ToTimePtrOutput() TimePtrOutput {
+	return o.ToTimePtrOutputWithContext(context.Background())
+}
+
+func (o TimeOutput) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v Time) *Time {
+		return &v
+	}).(TimePtrOutput)
+}
+
+// The hour.
+func (o TimeOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v Time) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// The minute.
+func (o TimeOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v Time) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+type TimePtrOutput struct{ *pulumi.OutputState }
+
+func (TimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**Time)(nil)).Elem()
+}
+
+func (o TimePtrOutput) ToTimePtrOutput() TimePtrOutput {
+	return o
+}
+
+func (o TimePtrOutput) ToTimePtrOutputWithContext(ctx context.Context) TimePtrOutput {
+	return o
+}
+
+func (o TimePtrOutput) Elem() TimeOutput {
+	return o.ApplyT(func(v *Time) Time {
+		if v != nil {
+			return *v
+		}
+		var ret Time
+		return ret
+	}).(TimeOutput)
+}
+
+// The hour.
+func (o TimePtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Time) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minute.
+func (o TimePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *Time) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
+// The time for a scaling action to occur.
+type TimeResponse struct {
+	// The hour.
+	Hour int `pulumi:"hour"`
+	// The minute.
+	Minute int `pulumi:"minute"`
+}
+
+// The time for a scaling action to occur.
+type TimeResponseOutput struct{ *pulumi.OutputState }
+
+func (TimeResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*TimeResponse)(nil)).Elem()
+}
+
+func (o TimeResponseOutput) ToTimeResponseOutput() TimeResponseOutput {
+	return o
+}
+
+func (o TimeResponseOutput) ToTimeResponseOutputWithContext(ctx context.Context) TimeResponseOutput {
+	return o
+}
+
+// The hour.
+func (o TimeResponseOutput) Hour() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeResponse) int { return v.Hour }).(pulumi.IntOutput)
+}
+
+// The minute.
+func (o TimeResponseOutput) Minute() pulumi.IntOutput {
+	return o.ApplyT(func(v TimeResponse) int { return v.Minute }).(pulumi.IntOutput)
+}
+
+type TimeResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (TimeResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**TimeResponse)(nil)).Elem()
+}
+
+func (o TimeResponsePtrOutput) ToTimeResponsePtrOutput() TimeResponsePtrOutput {
+	return o
+}
+
+func (o TimeResponsePtrOutput) ToTimeResponsePtrOutputWithContext(ctx context.Context) TimeResponsePtrOutput {
+	return o
+}
+
+func (o TimeResponsePtrOutput) Elem() TimeResponseOutput {
+	return o.ApplyT(func(v *TimeResponse) TimeResponse {
+		if v != nil {
+			return *v
+		}
+		var ret TimeResponse
+		return ret
+	}).(TimeResponseOutput)
+}
+
+// The hour.
+func (o TimeResponsePtrOutput) Hour() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TimeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Hour
+	}).(pulumi.IntPtrOutput)
+}
+
+// The minute.
+func (o TimeResponsePtrOutput) Minute() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *TimeResponse) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Minute
+	}).(pulumi.IntPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterOutputType(MigrationRequestPropertiesOutput{})
 	pulumi.RegisterOutputType(MigrationRequestPropertiesPtrOutput{})
@@ -2701,4 +2937,8 @@ func init() {
 	pulumi.RegisterOutputType(ScalingScheduleResponseOutput{})
 	pulumi.RegisterOutputType(ScalingScheduleResponseArrayOutput{})
 	pulumi.RegisterOutputType(SystemDataResponseOutput{})
+	pulumi.RegisterOutputType(TimeOutput{})
+	pulumi.RegisterOutputType(TimePtrOutput{})
+	pulumi.RegisterOutputType(TimeResponseOutput{})
+	pulumi.RegisterOutputType(TimeResponsePtrOutput{})
 }

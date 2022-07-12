@@ -35,6 +35,7 @@ export const ClientType = {
     Django: "django",
     Nodejs: "nodejs",
     SpringBoot: "springBoot",
+    Kafka_springBoot: "kafka-springBoot",
 } as const;
 
 /**

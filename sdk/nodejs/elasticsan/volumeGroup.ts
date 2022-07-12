@@ -41,10 +41,6 @@ export class VolumeGroup extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<string>;
     /**
-     * The geo-location where the resource lives.
-     */
-    public readonly location!: pulumi.Output<string | undefined>;
-    /**
      * Azure resource name.
      */
     public /*out*/ readonly name!: pulumi.Output<string>;
@@ -98,7 +94,6 @@ export class VolumeGroup extends pulumi.CustomResource {
             }
             resourceInputs["elasticSanName"] = args ? args.elasticSanName : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
-            resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["networkAcls"] = args ? args.networkAcls : undefined;
             resourceInputs["protocolType"] = args ? args.protocolType : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
@@ -110,7 +105,6 @@ export class VolumeGroup extends pulumi.CustomResource {
             resourceInputs["type"] = undefined /*out*/;
         } else {
             resourceInputs["encryption"] = undefined /*out*/;
-            resourceInputs["location"] = undefined /*out*/;
             resourceInputs["name"] = undefined /*out*/;
             resourceInputs["networkAcls"] = undefined /*out*/;
             resourceInputs["protocolType"] = undefined /*out*/;
@@ -138,10 +132,6 @@ export interface VolumeGroupArgs {
      * Type of encryption
      */
     encryption: pulumi.Input<string | enums.elasticsan.EncryptionType>;
-    /**
-     * The geo-location where the resource lives.
-     */
-    location?: pulumi.Input<string>;
     /**
      * A collection of rules governing the accessibility from specific network locations.
      */

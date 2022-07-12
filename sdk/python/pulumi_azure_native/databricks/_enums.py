@@ -5,9 +5,18 @@
 from enum import Enum
 
 __all__ = [
+    'IdentityType',
     'KeySource',
     'PrivateLinkServiceConnectionStatus',
 ]
+
+
+class IdentityType(str, Enum):
+    """
+    The identity type.
+    """
+    NONE = "None"
+    SYSTEM_ASSIGNED = "SystemAssigned"
 
 
 class KeySource(str, Enum):

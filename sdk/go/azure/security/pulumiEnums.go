@@ -34,6 +34,14 @@ const (
 	AdditionalWorkspaceTypeSentinel = AdditionalWorkspaceType("Sentinel")
 )
 
+// The application source, what it affects, e.g. Assessments
+type ApplicationSourceResourceType string
+
+const (
+	// The source of the application is assessments
+	ApplicationSourceResourceTypeAssessments = ApplicationSourceResourceType("Assessments")
+)
+
 // Programmatic code for the status of the assessment
 type AssessmentStatusCode string
 

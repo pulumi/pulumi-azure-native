@@ -64,6 +64,12 @@ namespace Pulumi.AzureNative.PowerPlatform.V20201030Preview
         public Output<Outputs.SystemDataResponse> SystemData { get; private set; } = null!;
 
         /// <summary>
+        /// The internally assigned unique identifier of the resource.
+        /// </summary>
+        [Output("systemId")]
+        public Output<string> SystemId { get; private set; } = null!;
+
+        /// <summary>
         /// Resource tags.
         /// </summary>
         [Output("tags")]

@@ -8,6 +8,7 @@ import * as utilities from "../utilities";
 export * from "./adaptiveApplicationControl";
 export * from "./advancedThreatProtection";
 export * from "./alertsSuppressionRule";
+export * from "./application";
 export * from "./assessment";
 export * from "./assessmentMetadataInSubscription";
 export * from "./assignment";
@@ -19,6 +20,7 @@ export * from "./deviceSecurityGroup";
 export * from "./getAdaptiveApplicationControl";
 export * from "./getAdvancedThreatProtection";
 export * from "./getAlertsSuppressionRule";
+export * from "./getApplication";
 export * from "./getAssessment";
 export * from "./getAssessmentMetadataInSubscription";
 export * from "./getAssignment";
@@ -31,6 +33,7 @@ export * from "./getIngestionSetting";
 export * from "./getIotSecuritySolution";
 export * from "./getJitNetworkAccessPolicy";
 export * from "./getSecurityConnector";
+export * from "./getSecurityConnectorApplication";
 export * from "./getSecurityContact";
 export * from "./getServerVulnerabilityAssessment";
 export * from "./getSqlVulnerabilityAssessmentBaselineRule";
@@ -42,6 +45,7 @@ export * from "./jitNetworkAccessPolicy";
 export * from "./listIngestionSettingConnectionStrings";
 export * from "./listIngestionSettingTokens";
 export * from "./securityConnector";
+export * from "./securityConnectorApplication";
 export * from "./securityContact";
 export * from "./serverVulnerabilityAssessment";
 export * from "./sqlVulnerabilityAssessmentBaselineRule";
@@ -67,6 +71,7 @@ import * as v20210801preview from "./v20210801preview";
 import * as v20211201preview from "./v20211201preview";
 import * as v20220101preview from "./v20220101preview";
 import * as v20220501preview from "./v20220501preview";
+import * as v20220701preview from "./v20220701preview";
 
 export {
     v20150601preview,
@@ -84,12 +89,14 @@ export {
     v20211201preview,
     v20220101preview,
     v20220501preview,
+    v20220701preview,
 };
 
 // Import resources to register:
 import { AdaptiveApplicationControl } from "./adaptiveApplicationControl";
 import { AdvancedThreatProtection } from "./advancedThreatProtection";
 import { AlertsSuppressionRule } from "./alertsSuppressionRule";
+import { Application } from "./application";
 import { Assessment } from "./assessment";
 import { AssessmentMetadataInSubscription } from "./assessmentMetadataInSubscription";
 import { Assignment } from "./assignment";
@@ -102,6 +109,7 @@ import { IngestionSetting } from "./ingestionSetting";
 import { IotSecuritySolution } from "./iotSecuritySolution";
 import { JitNetworkAccessPolicy } from "./jitNetworkAccessPolicy";
 import { SecurityConnector } from "./securityConnector";
+import { SecurityConnectorApplication } from "./securityConnectorApplication";
 import { SecurityContact } from "./securityContact";
 import { ServerVulnerabilityAssessment } from "./serverVulnerabilityAssessment";
 import { SqlVulnerabilityAssessmentBaselineRule } from "./sqlVulnerabilityAssessmentBaselineRule";
@@ -118,6 +126,8 @@ const _module = {
                 return new AdvancedThreatProtection(name, <any>undefined, { urn })
             case "azure-native:security:AlertsSuppressionRule":
                 return new AlertsSuppressionRule(name, <any>undefined, { urn })
+            case "azure-native:security:Application":
+                return new Application(name, <any>undefined, { urn })
             case "azure-native:security:Assessment":
                 return new Assessment(name, <any>undefined, { urn })
             case "azure-native:security:AssessmentMetadataInSubscription":
@@ -142,6 +152,8 @@ const _module = {
                 return new JitNetworkAccessPolicy(name, <any>undefined, { urn })
             case "azure-native:security:SecurityConnector":
                 return new SecurityConnector(name, <any>undefined, { urn })
+            case "azure-native:security:SecurityConnectorApplication":
+                return new SecurityConnectorApplication(name, <any>undefined, { urn })
             case "azure-native:security:SecurityContact":
                 return new SecurityContact(name, <any>undefined, { urn })
             case "azure-native:security:ServerVulnerabilityAssessment":

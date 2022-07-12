@@ -61,6 +61,9 @@ func NewDatastore(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:connectedvmwarevsphere:Datastore"),
 		},
+		{
+			Type: pulumi.String("azure-native:connectedvmwarevsphere/v20220110preview:Datastore"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource Datastore

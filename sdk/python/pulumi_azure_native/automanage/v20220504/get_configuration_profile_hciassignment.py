@@ -21,10 +21,13 @@ class GetConfigurationProfileHCIAssignmentResult:
     """
     Configuration profile assignment is an association between a VM and automanage profile configuration.
     """
-    def __init__(__self__, id=None, name=None, properties=None, system_data=None, type=None):
+    def __init__(__self__, id=None, managed_by=None, name=None, properties=None, system_data=None, type=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if managed_by and not isinstance(managed_by, str):
+            raise TypeError("Expected argument 'managed_by' to be a str")
+        pulumi.set(__self__, "managed_by", managed_by)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -45,6 +48,14 @@ class GetConfigurationProfileHCIAssignmentResult:
         Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> str:
+        """
+        Azure resource id. Indicates if this resource is managed by another Azure resource.
+        """
+        return pulumi.get(self, "managed_by")
 
     @property
     @pulumi.getter
@@ -86,6 +97,7 @@ class AwaitableGetConfigurationProfileHCIAssignmentResult(GetConfigurationProfil
             yield self
         return GetConfigurationProfileHCIAssignmentResult(
             id=self.id,
+            managed_by=self.managed_by,
             name=self.name,
             properties=self.properties,
             system_data=self.system_data,
@@ -116,6 +128,7 @@ def get_configuration_profile_hciassignment(cluster_name: Optional[str] = None,
 
     return AwaitableGetConfigurationProfileHCIAssignmentResult(
         id=__ret__.id,
+        managed_by=__ret__.managed_by,
         name=__ret__.name,
         properties=__ret__.properties,
         system_data=__ret__.system_data,

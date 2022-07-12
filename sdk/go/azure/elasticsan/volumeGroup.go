@@ -18,8 +18,6 @@ type VolumeGroup struct {
 
 	// Type of encryption
 	Encryption pulumi.StringOutput `pulumi:"encryption"`
-	// The geo-location where the resource lives.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Azure resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// A collection of rules governing the accessibility from specific network locations.
@@ -97,8 +95,6 @@ type volumeGroupArgs struct {
 	ElasticSanName string `pulumi:"elasticSanName"`
 	// Type of encryption
 	Encryption string `pulumi:"encryption"`
-	// The geo-location where the resource lives.
-	Location *string `pulumi:"location"`
 	// A collection of rules governing the accessibility from specific network locations.
 	NetworkAcls *NetworkRuleSet `pulumi:"networkAcls"`
 	// Type of storage target
@@ -117,8 +113,6 @@ type VolumeGroupArgs struct {
 	ElasticSanName pulumi.StringInput
 	// Type of encryption
 	Encryption pulumi.StringInput
-	// The geo-location where the resource lives.
-	Location pulumi.StringPtrInput
 	// A collection of rules governing the accessibility from specific network locations.
 	NetworkAcls NetworkRuleSetPtrInput
 	// Type of storage target
@@ -171,11 +165,6 @@ func (o VolumeGroupOutput) ToVolumeGroupOutputWithContext(ctx context.Context) V
 // Type of encryption
 func (o VolumeGroupOutput) Encryption() pulumi.StringOutput {
 	return o.ApplyT(func(v *VolumeGroup) pulumi.StringOutput { return v.Encryption }).(pulumi.StringOutput)
-}
-
-// The geo-location where the resource lives.
-func (o VolumeGroupOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *VolumeGroup) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // Azure resource name.

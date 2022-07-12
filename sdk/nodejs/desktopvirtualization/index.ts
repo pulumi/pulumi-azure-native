@@ -14,12 +14,14 @@ export * from "./getMSIXPackage";
 export * from "./getPrivateEndpointConnectionByHostPool";
 export * from "./getPrivateEndpointConnectionByWorkspace";
 export * from "./getScalingPlan";
+export * from "./getScalingPlanPooledSchedule";
 export * from "./getWorkspace";
 export * from "./hostPool";
 export * from "./msixpackage";
 export * from "./privateEndpointConnectionByHostPool";
 export * from "./privateEndpointConnectionByWorkspace";
 export * from "./scalingPlan";
+export * from "./scalingPlanPooledSchedule";
 export * from "./workspace";
 
 // Export enums:
@@ -40,6 +42,7 @@ import * as v20210401preview from "./v20210401preview";
 import * as v20210712 from "./v20210712";
 import * as v20210903preview from "./v20210903preview";
 import * as v20220210preview from "./v20220210preview";
+import * as v20220401preview from "./v20220401preview";
 
 export {
     v20190123preview,
@@ -56,6 +59,7 @@ export {
     v20210712,
     v20210903preview,
     v20220210preview,
+    v20220401preview,
 };
 
 // Import resources to register:
@@ -66,6 +70,7 @@ import { MSIXPackage } from "./msixpackage";
 import { PrivateEndpointConnectionByHostPool } from "./privateEndpointConnectionByHostPool";
 import { PrivateEndpointConnectionByWorkspace } from "./privateEndpointConnectionByWorkspace";
 import { ScalingPlan } from "./scalingPlan";
+import { ScalingPlanPooledSchedule } from "./scalingPlanPooledSchedule";
 import { Workspace } from "./workspace";
 
 const _module = {
@@ -86,6 +91,8 @@ const _module = {
                 return new PrivateEndpointConnectionByWorkspace(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:ScalingPlan":
                 return new ScalingPlan(name, <any>undefined, { urn })
+            case "azure-native:desktopvirtualization:ScalingPlanPooledSchedule":
+                return new ScalingPlanPooledSchedule(name, <any>undefined, { urn })
             case "azure-native:desktopvirtualization:Workspace":
                 return new Workspace(name, <any>undefined, { urn })
             default:

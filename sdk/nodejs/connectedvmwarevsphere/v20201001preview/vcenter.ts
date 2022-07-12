@@ -160,7 +160,7 @@ export class VCenter extends pulumi.CustomResource {
             resourceInputs["version"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:VCenter" }] };
+        const aliasOpts = { aliases: [{ type: "azure-native:connectedvmwarevsphere:VCenter" }, { type: "azure-native:connectedvmwarevsphere/v20220110preview:VCenter" }] };
         opts = pulumi.mergeOptions(opts, aliasOpts);
         super(VCenter.__pulumiType, name, resourceInputs, opts);
     }

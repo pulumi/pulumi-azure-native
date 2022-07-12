@@ -23,6 +23,8 @@ type Account struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponseOutput `pulumi:"systemData"`
+	// The internally assigned unique identifier of the resource.
+	SystemId pulumi.StringOutput `pulumi:"systemId"`
 	// Resource tags.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -158,6 +160,11 @@ func (o AccountOutput) Name() pulumi.StringOutput {
 // Metadata pertaining to creation and last modification of the resource.
 func (o AccountOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v *Account) SystemDataResponseOutput { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The internally assigned unique identifier of the resource.
+func (o AccountOutput) SystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v *Account) pulumi.StringOutput { return v.SystemId }).(pulumi.StringOutput)
 }
 
 // Resource tags.

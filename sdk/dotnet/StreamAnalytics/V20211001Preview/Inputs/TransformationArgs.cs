@@ -47,6 +47,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20211001Preview.Inputs
 
         public TransformationArgs()
         {
+            StreamingUnits = 3;
         }
     }
 }

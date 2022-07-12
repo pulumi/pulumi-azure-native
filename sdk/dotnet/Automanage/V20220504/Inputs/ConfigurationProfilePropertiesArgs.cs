@@ -21,18 +21,6 @@ namespace Pulumi.AzureNative.Automanage.V20220504.Inputs
         [Input("configuration")]
         public Input<object>? Configuration { get; set; }
 
-        [Input("overrides")]
-        private InputList<object>? _overrides;
-
-        /// <summary>
-        /// overrides of the configuration profile.
-        /// </summary>
-        public InputList<object> Overrides
-        {
-            get => _overrides ?? (_overrides = new InputList<object>());
-            set => _overrides = value;
-        }
-
         public ConfigurationProfilePropertiesArgs()
         {
         }

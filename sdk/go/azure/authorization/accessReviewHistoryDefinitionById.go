@@ -64,6 +64,9 @@ func NewAccessReviewHistoryDefinitionById(ctx *pulumi.Context,
 		{
 			Type: pulumi.String("azure-native:authorization/v20211116preview:AccessReviewHistoryDefinitionById"),
 		},
+		{
+			Type: pulumi.String("azure-native:authorization/v20211201preview:AccessReviewHistoryDefinitionById"),
+		},
 	})
 	opts = append(opts, aliases)
 	var resource AccessReviewHistoryDefinitionById

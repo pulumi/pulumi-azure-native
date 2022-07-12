@@ -125,6 +125,7 @@ namespace Pulumi.AzureNative.Communication.V20211001Preview
                 Aliases =
                 {
                     new Pulumi.Alias { Type = "azure-native:communication:Domain"},
+                    new Pulumi.Alias { Type = "azure-native:communication/v20220701preview:Domain"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

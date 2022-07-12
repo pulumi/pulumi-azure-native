@@ -33,6 +33,8 @@ type LookupConfigurationProfileAssignmentArgs struct {
 type LookupConfigurationProfileAssignmentResult struct {
 	// Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 	Id string `pulumi:"id"`
+	// Azure resource id. Indicates if this resource is managed by another Azure resource.
+	ManagedBy string `pulumi:"managedBy"`
 	// The name of the resource
 	Name string `pulumi:"name"`
 	// Properties of the configuration profile assignment.
@@ -87,6 +89,11 @@ func (o LookupConfigurationProfileAssignmentResultOutput) ToLookupConfigurationP
 // Fully qualified resource ID for the resource. Ex - /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 func (o LookupConfigurationProfileAssignmentResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// Azure resource id. Indicates if this resource is managed by another Azure resource.
+func (o LookupConfigurationProfileAssignmentResultOutput) ManagedBy() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupConfigurationProfileAssignmentResult) string { return v.ManagedBy }).(pulumi.StringOutput)
 }
 
 // The name of the resource

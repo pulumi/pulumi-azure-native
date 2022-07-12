@@ -40,6 +40,8 @@ type LookupAccountResult struct {
 	Name string `pulumi:"name"`
 	// Metadata pertaining to creation and last modification of the resource.
 	SystemData SystemDataResponse `pulumi:"systemData"`
+	// The internally assigned unique identifier of the resource.
+	SystemId string `pulumi:"systemId"`
 	// Resource tags.
 	Tags map[string]string `pulumi:"tags"`
 	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
@@ -108,6 +110,11 @@ func (o LookupAccountResultOutput) Name() pulumi.StringOutput {
 // Metadata pertaining to creation and last modification of the resource.
 func (o LookupAccountResultOutput) SystemData() SystemDataResponseOutput {
 	return o.ApplyT(func(v LookupAccountResult) SystemDataResponse { return v.SystemData }).(SystemDataResponseOutput)
+}
+
+// The internally assigned unique identifier of the resource.
+func (o LookupAccountResultOutput) SystemId() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupAccountResult) string { return v.SystemId }).(pulumi.StringOutput)
 }
 
 // Resource tags.

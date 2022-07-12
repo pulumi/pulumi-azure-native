@@ -25,7 +25,7 @@ namespace Pulumi.AzureNative.StreamAnalytics.V20200301.Inputs
         /// Describes an input data source that contains reference data. Required on PUT (CreateOrReplace) requests.
         /// </summary>
         [Input("datasource")]
-        public InputUnion<Inputs.AzureSqlReferenceInputDataSourceArgs, Inputs.BlobReferenceInputDataSourceArgs>? Datasource { get; set; }
+        public object? Datasource { get; set; }
 
         /// <summary>
         /// partitionKey Describes a key in the input data which is used for partitioning the input data

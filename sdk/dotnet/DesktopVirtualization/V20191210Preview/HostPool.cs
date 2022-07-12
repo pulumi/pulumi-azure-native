@@ -163,6 +163,7 @@ namespace Pulumi.AzureNative.DesktopVirtualization.V20191210Preview
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210712:HostPool"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20210903preview:HostPool"},
                     new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220210preview:HostPool"},
+                    new Pulumi.Alias { Type = "azure-native:desktopvirtualization/v20220401preview:HostPool"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

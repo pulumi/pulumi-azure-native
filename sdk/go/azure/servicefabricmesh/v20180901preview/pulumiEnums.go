@@ -92,7 +92,7 @@ type SecretKind string
 
 const (
 	// A simple secret resource whose plaintext value is provided by the user.
-	SecretKindInlinedValue = SecretKind("inlinedValue")
+	SecretKindInlinedValue = SecretKind("InlinedValue")
 )
 
 // Volume size

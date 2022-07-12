@@ -10,6 +10,30 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+type AccessConnectorPropertiesResponse struct {
+	// Provisioning status of the accessConnector.
+	ProvisioningState string `pulumi:"provisioningState"`
+}
+
+type AccessConnectorPropertiesResponseOutput struct{ *pulumi.OutputState }
+
+func (AccessConnectorPropertiesResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AccessConnectorPropertiesResponse)(nil)).Elem()
+}
+
+func (o AccessConnectorPropertiesResponseOutput) ToAccessConnectorPropertiesResponseOutput() AccessConnectorPropertiesResponseOutput {
+	return o
+}
+
+func (o AccessConnectorPropertiesResponseOutput) ToAccessConnectorPropertiesResponseOutputWithContext(ctx context.Context) AccessConnectorPropertiesResponseOutput {
+	return o
+}
+
+// Provisioning status of the accessConnector.
+func (o AccessConnectorPropertiesResponseOutput) ProvisioningState() pulumi.StringOutput {
+	return o.ApplyT(func(v AccessConnectorPropertiesResponse) string { return v.ProvisioningState }).(pulumi.StringOutput)
+}
+
 // AddressSpace contains an array of IP address ranges that can be used by subnets of the virtual network.
 type AddressSpace struct {
 	// A list of address blocks reserved for this virtual network in CIDR notation.
@@ -646,6 +670,240 @@ func (o EncryptionResponsePtrOutput) KeyVersion() pulumi.StringPtrOutput {
 			return nil
 		}
 		return v.KeyVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
+type IdentityData struct {
+	// The identity type.
+	Type string `pulumi:"type"`
+}
+
+// IdentityDataInput is an input type that accepts IdentityDataArgs and IdentityDataOutput values.
+// You can construct a concrete instance of `IdentityDataInput` via:
+//
+//          IdentityDataArgs{...}
+type IdentityDataInput interface {
+	pulumi.Input
+
+	ToIdentityDataOutput() IdentityDataOutput
+	ToIdentityDataOutputWithContext(context.Context) IdentityDataOutput
+}
+
+// Identity for the resource.
+type IdentityDataArgs struct {
+	// The identity type.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (IdentityDataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityData)(nil)).Elem()
+}
+
+func (i IdentityDataArgs) ToIdentityDataOutput() IdentityDataOutput {
+	return i.ToIdentityDataOutputWithContext(context.Background())
+}
+
+func (i IdentityDataArgs) ToIdentityDataOutputWithContext(ctx context.Context) IdentityDataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataOutput)
+}
+
+func (i IdentityDataArgs) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
+	return i.ToIdentityDataPtrOutputWithContext(context.Background())
+}
+
+func (i IdentityDataArgs) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataOutput).ToIdentityDataPtrOutputWithContext(ctx)
+}
+
+// IdentityDataPtrInput is an input type that accepts IdentityDataArgs, IdentityDataPtr and IdentityDataPtrOutput values.
+// You can construct a concrete instance of `IdentityDataPtrInput` via:
+//
+//          IdentityDataArgs{...}
+//
+//  or:
+//
+//          nil
+type IdentityDataPtrInput interface {
+	pulumi.Input
+
+	ToIdentityDataPtrOutput() IdentityDataPtrOutput
+	ToIdentityDataPtrOutputWithContext(context.Context) IdentityDataPtrOutput
+}
+
+type identityDataPtrType IdentityDataArgs
+
+func IdentityDataPtr(v *IdentityDataArgs) IdentityDataPtrInput {
+	return (*identityDataPtrType)(v)
+}
+
+func (*identityDataPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityData)(nil)).Elem()
+}
+
+func (i *identityDataPtrType) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
+	return i.ToIdentityDataPtrOutputWithContext(context.Background())
+}
+
+func (i *identityDataPtrType) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IdentityDataPtrOutput)
+}
+
+// Identity for the resource.
+type IdentityDataOutput struct{ *pulumi.OutputState }
+
+func (IdentityDataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityData)(nil)).Elem()
+}
+
+func (o IdentityDataOutput) ToIdentityDataOutput() IdentityDataOutput {
+	return o
+}
+
+func (o IdentityDataOutput) ToIdentityDataOutputWithContext(ctx context.Context) IdentityDataOutput {
+	return o
+}
+
+func (o IdentityDataOutput) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
+	return o.ToIdentityDataPtrOutputWithContext(context.Background())
+}
+
+func (o IdentityDataOutput) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v IdentityData) *IdentityData {
+		return &v
+	}).(IdentityDataPtrOutput)
+}
+
+// The identity type.
+func (o IdentityDataOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityData) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type IdentityDataPtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityDataPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityData)(nil)).Elem()
+}
+
+func (o IdentityDataPtrOutput) ToIdentityDataPtrOutput() IdentityDataPtrOutput {
+	return o
+}
+
+func (o IdentityDataPtrOutput) ToIdentityDataPtrOutputWithContext(ctx context.Context) IdentityDataPtrOutput {
+	return o
+}
+
+func (o IdentityDataPtrOutput) Elem() IdentityDataOutput {
+	return o.ApplyT(func(v *IdentityData) IdentityData {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityData
+		return ret
+	}).(IdentityDataOutput)
+}
+
+// The identity type.
+func (o IdentityDataPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityData) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Identity for the resource.
+type IdentityDataResponse struct {
+	// The principal ID of resource identity.
+	PrincipalId string `pulumi:"principalId"`
+	// The tenant ID of resource.
+	TenantId string `pulumi:"tenantId"`
+	// The identity type.
+	Type string `pulumi:"type"`
+}
+
+// Identity for the resource.
+type IdentityDataResponseOutput struct{ *pulumi.OutputState }
+
+func (IdentityDataResponseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IdentityDataResponse)(nil)).Elem()
+}
+
+func (o IdentityDataResponseOutput) ToIdentityDataResponseOutput() IdentityDataResponseOutput {
+	return o
+}
+
+func (o IdentityDataResponseOutput) ToIdentityDataResponseOutputWithContext(ctx context.Context) IdentityDataResponseOutput {
+	return o
+}
+
+// The principal ID of resource identity.
+func (o IdentityDataResponseOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityDataResponse) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityDataResponseOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityDataResponse) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// The identity type.
+func (o IdentityDataResponseOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v IdentityDataResponse) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type IdentityDataResponsePtrOutput struct{ *pulumi.OutputState }
+
+func (IdentityDataResponsePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**IdentityDataResponse)(nil)).Elem()
+}
+
+func (o IdentityDataResponsePtrOutput) ToIdentityDataResponsePtrOutput() IdentityDataResponsePtrOutput {
+	return o
+}
+
+func (o IdentityDataResponsePtrOutput) ToIdentityDataResponsePtrOutputWithContext(ctx context.Context) IdentityDataResponsePtrOutput {
+	return o
+}
+
+func (o IdentityDataResponsePtrOutput) Elem() IdentityDataResponseOutput {
+	return o.ApplyT(func(v *IdentityDataResponse) IdentityDataResponse {
+		if v != nil {
+			return *v
+		}
+		var ret IdentityDataResponse
+		return ret
+	}).(IdentityDataResponseOutput)
+}
+
+// The principal ID of resource identity.
+func (o IdentityDataResponsePtrOutput) PrincipalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.PrincipalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The tenant ID of resource.
+func (o IdentityDataResponsePtrOutput) TenantId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.TenantId
+	}).(pulumi.StringPtrOutput)
+}
+
+// The identity type.
+func (o IdentityDataResponsePtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *IdentityDataResponse) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -3240,6 +3498,7 @@ func (o WorkspaceProviderAuthorizationResponseArrayOutput) Index(i pulumi.IntInp
 }
 
 func init() {
+	pulumi.RegisterOutputType(AccessConnectorPropertiesResponseOutput{})
 	pulumi.RegisterOutputType(AddressSpaceOutput{})
 	pulumi.RegisterOutputType(AddressSpacePtrOutput{})
 	pulumi.RegisterOutputType(AddressSpaceResponseOutput{})
@@ -3250,6 +3509,10 @@ func init() {
 	pulumi.RegisterOutputType(EncryptionPtrOutput{})
 	pulumi.RegisterOutputType(EncryptionResponseOutput{})
 	pulumi.RegisterOutputType(EncryptionResponsePtrOutput{})
+	pulumi.RegisterOutputType(IdentityDataOutput{})
+	pulumi.RegisterOutputType(IdentityDataPtrOutput{})
+	pulumi.RegisterOutputType(IdentityDataResponseOutput{})
+	pulumi.RegisterOutputType(IdentityDataResponsePtrOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityConfigurationResponseOutput{})
 	pulumi.RegisterOutputType(ManagedIdentityConfigurationResponsePtrOutput{})
 	pulumi.RegisterOutputType(PrivateEndpointConnectionPropertiesOutput{})

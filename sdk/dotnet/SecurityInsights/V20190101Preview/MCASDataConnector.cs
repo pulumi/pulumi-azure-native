@@ -94,6 +94,7 @@ namespace Pulumi.AzureNative.SecurityInsights.V20190101Preview
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220401preview:MCASDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220501preview:MCASDataConnector"},
                     new Pulumi.Alias { Type = "azure-native:securityinsights/v20220601preview:MCASDataConnector"},
+                    new Pulumi.Alias { Type = "azure-native:securityinsights/v20220701preview:MCASDataConnector"},
                 },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);

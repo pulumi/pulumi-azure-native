@@ -18,8 +18,6 @@ type Volume struct {
 
 	// State of the operation on the resource.
 	CreationData SourceCreationDataResponsePtrOutput `pulumi:"creationData"`
-	// The geo-location where the resource lives.
-	Location pulumi.StringPtrOutput `pulumi:"location"`
 	// Azure resource name.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Volume size.
@@ -94,8 +92,6 @@ type volumeArgs struct {
 	CreationData *SourceCreationData `pulumi:"creationData"`
 	// The name of the ElasticSan.
 	ElasticSanName string `pulumi:"elasticSanName"`
-	// The geo-location where the resource lives.
-	Location *string `pulumi:"location"`
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// Volume size.
@@ -114,8 +110,6 @@ type VolumeArgs struct {
 	CreationData SourceCreationDataPtrInput
 	// The name of the ElasticSan.
 	ElasticSanName pulumi.StringInput
-	// The geo-location where the resource lives.
-	Location pulumi.StringPtrInput
 	// The name of the resource group. The name is case insensitive.
 	ResourceGroupName pulumi.StringInput
 	// Volume size.
@@ -168,11 +162,6 @@ func (o VolumeOutput) ToVolumeOutputWithContext(ctx context.Context) VolumeOutpu
 // State of the operation on the resource.
 func (o VolumeOutput) CreationData() SourceCreationDataResponsePtrOutput {
 	return o.ApplyT(func(v *Volume) SourceCreationDataResponsePtrOutput { return v.CreationData }).(SourceCreationDataResponsePtrOutput)
-}
-
-// The geo-location where the resource lives.
-func (o VolumeOutput) Location() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *Volume) pulumi.StringPtrOutput { return v.Location }).(pulumi.StringPtrOutput)
 }
 
 // Azure resource name.
