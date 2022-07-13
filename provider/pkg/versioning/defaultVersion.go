@@ -130,12 +130,12 @@ func findLatestResourceVersions(versions VersionResources) map[openapi.ResourceN
 	for apiVersion := range minimalVersions {
 		orderedVersions = append(orderedVersions, apiVersion)
 	}
-	sort.Strings(orderedVersions)
+
+	// Descending order - newest first
+	sort.Sort(sort.Reverse(sort.StringSlice(orderedVersions)))
 
 	latestResourceVersions := map[openapi.ResourceName]openapi.ApiVersion{}
-	// Descending order - newest first
-	for i := len(orderedVersions) - 1; i >= 0; i-- {
-		version := orderedVersions[i]
+	for _, version := range orderedVersions {
 		resources := minimalVersions[version]
 		for _, resourceName := range resources {
 			// Only add if not already exists
