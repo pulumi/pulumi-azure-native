@@ -10,19 +10,73 @@ import (
 	"github.com/pulumi/pulumi-azure-native/provider/pkg/versioning"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/tools"
 	"github.com/pulumi/pulumi/sdk/v3/go/common/util/contract"
+	"gopkg.in/yaml.v3"
 	"os"
 	"path"
+	"regexp"
+	"strings"
 )
 
 func main() {
-	outputDir := flag.String("o", "versions", "Output directory")
-	flag.Parse()
+	f := flag.NewFlagSet("", flag.ExitOnError)
+	outputDir := f.String("o", "versions", "Output directory")
+	versionFile := f.String("version", "", "Version file input e.g. \"v1.json\"")
+	err := f.Parse(os.Args[2:])
+	args := os.Args[1:2]
 
-	err := writeAll(*outputDir)
+	if err != nil {
+		fmt.Fprintln(os.Stderr, err)
+		os.Exit(0)
+	}
+
+	err = handleCommand(args, *outputDir, *versionFile)
 
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
+	}
+}
+
+func handleCommand(args []string, outputDir, versionFile string) error {
+	var target string
+	switch len(args) {
+	case 0:
+		target = "all"
+	case 1:
+		target = args[0]
+	default:
+		return fmt.Errorf("only one target can be specified")
+	}
+	switch target {
+	case "all":
+		return writeAll(outputDir)
+	case "spec":
+		return spec(outputDir)
+	case "active":
+		return active(outputDir)
+	case "deprecated":
+		if versionFile == "" {
+			return fmt.Errorf("-version is required")
+		}
+		return deprecated(outputDir, versionFile)
+	case "pending":
+		if versionFile == "" {
+			return fmt.Errorf("-version is required")
+		}
+		return pending(outputDir, versionFile)
+	case "v1":
+		return v1(outputDir)
+	case "v2":
+		return v2(outputDir)
+	default:
+		matched, err := regexp.MatchString("^v\\d+-config$", target)
+		if err != nil {
+			return err
+		}
+		if matched {
+			return vnextConfig(outputDir, target)
+		}
+		return fmt.Errorf("unknown target: %q", target)
 	}
 }
 
@@ -43,24 +97,172 @@ func writeAll(outputDir string) error {
 	v1 := openapi.CalculateProviderDefaults(activePathVersions, providers)
 	deprecated := versioning.FindDeprecations(specVersions, v1)
 	pending := versioning.FindNewerVersions(specVersions, v1)
+	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
+	v2Config, err := versioning.ReadDefaultConfig(path.Join(outputDir, "v2-config.yaml"))
+	if err != nil {
+		return err
+	}
+	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
+	if err != nil {
+		return err
+	}
 
-	return emitJsonFiles(outputDir, map[Filename]Json{
+	return emitFiles(outputDir, map[Filename]Data{
 		"spec.json":           specVersions,
 		"spec-resources.json": specResourceVersions,
 		"v1.json":             v1,
 		"deprecated.json":     deprecated,
 		"active.json":         activePathVersionsJson,
 		"pending.json":        pending,
+		"v2.json":             v2,
+	})
+}
+
+func spec(outputDir string) error {
+	providers, err := openapi.SpecVersions()
+	if err != nil {
+		return err
+	}
+
+	specVersions := versioning.FindSpecVersions(providers)
+	specResourceVersions := versioning.FormatResourceVersions(specVersions)
+
+	return emitFiles(outputDir, map[Filename]Data{
+		"spec.json":           specVersions,
+		"spec-resources.json": specResourceVersions,
+	})
+}
+
+func active(outputDir string) error {
+	activePathVersions, err := providerlist.ReadProviderList()
+	if err != nil {
+		return err
+	}
+
+	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
+
+	return emitFiles(outputDir, map[Filename]Data{
+		"active.json": activePathVersionsJson,
+	})
+}
+
+func deprecated(outputDir, versionFile string) error {
+	specVersions, err := versioning.ReadSpecVersions(path.Join(outputDir, "spec.json"))
+	if err != nil {
+		return err
+	}
+
+	v1, err := openapi.ReadCuratedVersion(path.Join(outputDir, versionFile))
+	if err != nil {
+		return err
+	}
+
+	deprecated := versioning.FindDeprecations(specVersions, v1)
+
+	return emitFiles(outputDir, map[Filename]Data{
+		"deprecated.json": deprecated,
+	})
+}
+
+func pending(outputDir, versionFile string) error {
+	specVersions, err := versioning.ReadSpecVersions(path.Join(outputDir, "spec.json"))
+	if err != nil {
+		return err
+	}
+
+	v1, err := openapi.ReadCuratedVersion(path.Join(outputDir, versionFile))
+	if err != nil {
+		return err
+	}
+
+	pending := versioning.FindNewerVersions(specVersions, v1)
+
+	return emitFiles(outputDir, map[Filename]Data{
+		"pending.json": pending,
+	})
+}
+
+func v1(outputDir string) error {
+	providers, err := openapi.SpecVersions()
+	if err != nil {
+		return err
+	}
+
+	activePathVersions, err := providerlist.ReadProviderList()
+	if err != nil {
+		return err
+	}
+
+	v1 := openapi.CalculateProviderDefaults(activePathVersions, providers)
+	if err != nil {
+		return err
+	}
+
+	return emitFiles(outputDir, map[Filename]Data{
+		"v1.json": v1,
+	})
+}
+
+func v2(outputDir string) error {
+	specVersions, err := versioning.ReadSpecVersions(path.Join(outputDir, "spec.json"))
+	if err != nil {
+		return err
+	}
+
+	deprecated, err := openapi.ReadDeprecated()
+	if err != nil {
+		return err
+	}
+
+	v2Config, err := versioning.ReadDefaultConfig(path.Join(outputDir, "v2-config.yaml"))
+	if err != nil {
+		return err
+	}
+
+	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
+	v2, err := versioning.DefaultConfigToCuratedVersion(specAfterRemovals, v2Config)
+	if err != nil {
+		return err
+	}
+
+	return emitFiles(outputDir, map[Filename]Data{
+		"v2.json": v2,
+	})
+}
+
+func vnextConfig(outputDir, target string) error {
+	specVersions, err := versioning.ReadSpecVersions(path.Join(outputDir, "spec.json"))
+	if err != nil {
+		return err
+	}
+
+	deprecated, err := openapi.ReadDeprecated()
+	if err != nil {
+		return err
+	}
+
+	specAfterRemovals := versioning.RemoveDeprecations(specVersions, deprecated)
+	v2Config := versioning.BuildDefaultConfig(specAfterRemovals)
+	if err != nil {
+		return err
+	}
+
+	filename := target + ".yaml"
+
+	return emitFiles(outputDir, map[Filename]Data{
+		filename: v2Config,
 	})
 }
 
 type Filename = string
-type Json = interface{}
+type Data = interface{}
 
-func emitJsonFiles(outDir string, files map[Filename]Json) error {
+// emitFiles writes serializes and writes multiple files. If if the filename ends in `.yaml` then it will be marshalled
+// as YAML instead of JSON.
+func emitFiles(outDir string, files map[Filename]Data) error {
 	for filename, data := range files {
 		outPath := path.Join(outDir, filename)
-		err := emitJson(outPath, data)
+		err := emitFile(outPath, data)
 		if err != nil {
 			return err
 		}
@@ -68,26 +270,31 @@ func emitJsonFiles(outDir string, files map[Filename]Json) error {
 	return nil
 }
 
-func emitJson(outputPath string, data Json) error {
-	formatted, err := json.MarshalIndent(data, "", "  ")
-	if err != nil {
-		return errors.Wrap(err, "marshaling JSON")
+func emitFile(outputPath string, data Data) error {
+	var formatted []byte
+	var err error
+	if strings.HasSuffix(outputPath, ".yaml") {
+		formatted, err = yaml.Marshal(data)
+		if err != nil {
+			return errors.Wrap(err, "marshaling YAML")
+		}
+	} else {
+		formatted, err = json.MarshalIndent(data, "", "  ")
+		if err != nil {
+			return errors.Wrap(err, "marshaling JSON")
+		}
 	}
 
-	return emitFile(outputPath, formatted)
-}
-
-func emitFile(outPath string, contents []byte) error {
-	if err := tools.EnsureDir(path.Dir(outPath)); err != nil {
+	if err := tools.EnsureDir(path.Dir(outputPath)); err != nil {
 		return errors.Wrap(err, "creating directory")
 	}
 
-	f, err := os.Create(outPath)
+	f, err := os.Create(outputPath)
 	if err != nil {
 		return errors.Wrap(err, "creating file")
 	}
 	defer contract.IgnoreClose(f)
 
-	_, err = f.Write(contents)
+	_, err = f.Write(formatted)
 	return err
 }
