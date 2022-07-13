@@ -15,9 +15,9 @@ import (
 
 type ProviderSpec struct {
 	// Tracking is a single API version from which updates will be included
-	Tracking *openapi.ApiVersion `yaml:"Tracking,omitempty"`
+	Tracking *openapi.ApiVersion `yaml:"tracking,omitempty"`
 	// Additions are specific resource versions to be included. These *must not* overlap with any resources from the tracking version
-	Additions *map[openapi.ResourceName]openapi.ApiVersion `yaml:"Additions,omitempty"`
+	Additions *map[openapi.ResourceName]openapi.ApiVersion `yaml:"additions,omitempty"`
 }
 
 type DefaultConfig map[openapi.ProviderName]ProviderSpec

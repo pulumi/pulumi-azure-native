@@ -1,27 +1,27 @@
 ADHybridHealthService: {}
 AVS:
-    Tracking: "2021-12-01"
+    tracking: "2021-12-01"
 Aad:
-    Tracking: "2021-05-01"
+    tracking: "2021-05-01"
 AadIam:
-    Tracking: "2020-03-01"
-    Additions:
+    tracking: "2020-03-01"
+    additions:
         DiagnosticSetting: "2017-04-01"
 Addons:
-    Tracking: "2018-03-01"
+    tracking: "2018-03-01"
 Advisor:
-    Tracking: "2020-01-01"
+    tracking: "2020-01-01"
 AgFoodPlatform:
-    Tracking: 2020-05-12-preview
+    tracking: 2020-05-12-preview
 AlertsManagement:
-    Tracking: "2021-08-08"
-    Additions:
+    tracking: "2021-08-08"
+    additions:
         SmartDetectorAlertRule: "2021-04-01"
 AnalysisServices:
-    Tracking: "2017-08-01"
+    tracking: "2017-08-01"
 ApiManagement:
-    Tracking: "2021-08-01"
-    Additions:
+    tracking: "2021-08-01"
+    additions:
         ApiDiagnosticLogger: "2018-01-01"
         ApiOperationsPolicy: "2016-10-10"
         DiagnosticLogger: "2018-01-01"
@@ -30,18 +30,18 @@ ApiManagement:
         TenantPolicy: "2016-10-10"
         listTenantAccessGitSecrets: "2019-12-01"
 App:
-    Tracking: "2022-03-01"
+    tracking: "2022-03-01"
 AppConfiguration:
-    Tracking: "2022-05-01"
-    Additions:
+    tracking: "2022-05-01"
+    additions:
         listConfigurationStoreKeyValue: "2020-06-01"
 AppPlatform:
-    Tracking: "2022-04-01"
+    tracking: "2022-04-01"
 Attestation:
-    Tracking: "2020-10-01"
+    tracking: "2020-10-01"
 Authorization:
-    Tracking: "2021-06-01"
-    Additions:
+    tracking: "2021-06-01"
+    additions:
         ManagementLockAtResourceGroupLevel: "2020-05-01"
         ManagementLockAtResourceLevel: "2020-05-01"
         ManagementLockAtSubscriptionLevel: "2020-05-01"
@@ -50,10 +50,10 @@ Authorization:
         ResourceManagementPrivateLink: "2020-05-01"
         RoleManagementPolicyAssignment: "2020-10-01"
 Automanage:
-    Tracking: "2022-05-04"
+    tracking: "2022-05-04"
 Automation:
-    Tracking: "2021-06-22"
-    Additions:
+    tracking: "2021-06-22"
+    additions:
         Certificate: "2019-06-01"
         Connection: "2019-06-01"
         ConnectionType: "2019-06-01"
@@ -71,35 +71,35 @@ Automation:
         Watcher: "2019-06-01"
         Webhook: "2015-10-31"
 AutonomousDevelopmentPlatform:
-    Tracking: 2021-11-01-preview
+    tracking: 2021-11-01-preview
 AzureActiveDirectory:
-    Tracking: "2021-04-01"
+    tracking: "2021-04-01"
 AzureArcData:
-    Tracking: "2021-11-01"
+    tracking: "2021-11-01"
 AzureData:
-    Tracking: 2019-07-24-preview
+    tracking: 2019-07-24-preview
 AzureStack:
-    Tracking: 2020-06-01-preview
-    Additions:
+    tracking: 2020-06-01-preview
+    additions:
         listProducts: "2017-06-01"
 AzureStackHCI:
-    Tracking: "2022-05-01"
+    tracking: "2022-05-01"
 BareMetalInfrastructure: {}
 Batch:
-    Tracking: "2022-06-01"
+    tracking: "2022-06-01"
 Billing:
-    Tracking: "2020-05-01"
+    tracking: "2020-05-01"
 Blockchain:
-    Tracking: 2018-06-01-preview
+    tracking: 2018-06-01-preview
 Blueprint:
-    Tracking: 2018-11-01-preview
+    tracking: 2018-11-01-preview
 BotService:
-    Tracking: "2021-03-01"
-    Additions:
+    tracking: "2021-03-01"
+    additions:
         EnterpriseChannel: "2018-07-12"
 Cache:
-    Tracking: "2022-01-01"
-    Additions:
+    tracking: "2022-01-01"
+    additions:
         FirewallRule: "2021-06-01"
         LinkedServer: "2021-06-01"
         PatchSchedule: "2021-06-01"
@@ -107,21 +107,21 @@ Cache:
         listRedisKeys: "2021-06-01"
 Capacity: {}
 Cdn:
-    Tracking: "2021-06-01"
+    tracking: "2021-06-01"
 CertificateRegistration:
-    Tracking: "2021-03-01"
+    tracking: "2021-03-01"
 ChangeAnalysis:
-    Tracking: 2020-04-01-preview
+    tracking: 2020-04-01-preview
 Chaos:
-    Tracking: 2021-09-15-preview
+    tracking: 2021-09-15-preview
 CognitiveServices:
-    Tracking: "2022-03-01"
+    tracking: "2022-03-01"
 Commerce: {}
 Communication:
-    Tracking: 2021-10-01-preview
+    tracking: 2021-10-01-preview
 Compute:
-    Tracking: "2021-12-01"
-    Additions:
+    tracking: "2021-12-01"
+    additions:
         AvailabilitySet: "2021-11-01"
         CapacityReservation: "2021-11-01"
         CapacityReservationGroup: "2021-11-01"
@@ -149,97 +149,97 @@ Compute:
         getLogAnalyticExportRequestRateByInterval: "2021-11-01"
         getLogAnalyticExportThrottledRequests: "2021-11-01"
 ConfidentialLedger:
-    Tracking: "2022-05-13"
+    tracking: "2022-05-13"
 Confluent:
-    Tracking: "2021-12-01"
+    tracking: "2021-12-01"
 ConnectedVMwarevSphere:
-    Tracking: 2020-10-01-preview
+    tracking: 2020-10-01-preview
 Consumption:
-    Tracking: "2021-10-01"
+    tracking: "2021-10-01"
 ContainerInstance:
-    Tracking: "2021-10-01"
+    tracking: "2021-10-01"
 ContainerRegistry:
-    Tracking: "2021-09-01"
-    Additions:
+    tracking: "2021-09-01"
+    additions:
         Task: "2019-04-01"
         listRegistryBuildSourceUploadUrl: "2019-04-01"
         listRunLogSasUrl: "2019-04-01"
         listTaskDetails: "2019-04-01"
 ContainerService:
-    Tracking: "2022-04-01"
-    Additions:
+    tracking: "2022-04-01"
+    additions:
         OpenShiftManagedCluster: "2019-04-30"
         listManagedClusterAccessProfile: "2020-03-01"
 CostManagement:
-    Tracking: "2021-10-01"
-    Additions:
+    tracking: "2021-10-01"
+    additions:
         Setting: "2019-11-01"
 CustomProviders:
-    Tracking: 2018-09-01-preview
+    tracking: 2018-09-01-preview
 CustomerInsights:
-    Tracking: "2017-04-26"
+    tracking: "2017-04-26"
 CustomerLockbox: {}
 DBforMariaDB:
-    Tracking: "2018-06-01"
+    tracking: "2018-06-01"
 DBforMySQL:
-    Tracking: "2021-05-01"
-    Additions:
+    tracking: "2021-05-01"
+    additions:
         Configuration: "2017-12-01"
         PrivateEndpointConnection: "2018-06-01"
         ServerAdministrator: "2017-12-01"
         ServerKey: "2020-01-01"
         VirtualNetworkRule: "2017-12-01"
 DBforPostgreSQL:
-    Tracking: "2021-06-01"
-    Additions:
+    tracking: "2021-06-01"
+    additions:
         PrivateEndpointConnection: "2018-06-01"
         ServerAdministrator: "2017-12-01"
         ServerKey: "2020-01-01"
         ServerSecurityAlertPolicy: "2017-12-01"
         VirtualNetworkRule: "2017-12-01"
 Dashboard:
-    Tracking: 2022-05-01-preview
+    tracking: 2022-05-01-preview
 DataBox:
-    Tracking: "2022-02-01"
+    tracking: "2022-02-01"
 DataBoxEdge:
-    Tracking: "2022-03-01"
+    tracking: "2022-03-01"
 DataCatalog:
-    Tracking: "2016-03-30"
+    tracking: "2016-03-30"
 DataFactory:
-    Tracking: "2018-06-01"
+    tracking: "2018-06-01"
 DataLakeAnalytics:
-    Tracking: 2019-11-01-preview
+    tracking: 2019-11-01-preview
 DataLakeStore:
-    Tracking: "2016-11-01"
+    tracking: "2016-11-01"
 DataMigration:
-    Tracking: "2021-06-30"
+    tracking: "2021-06-30"
 DataProtection:
-    Tracking: "2022-05-01"
+    tracking: "2022-05-01"
 DataShare:
-    Tracking: "2021-08-01"
+    tracking: "2021-08-01"
 Databricks:
-    Tracking: 2021-04-01-preview
+    tracking: 2021-04-01-preview
 Datadog:
-    Tracking: "2021-03-01"
+    tracking: "2021-03-01"
 DelegatedNetwork:
-    Tracking: "2021-03-15"
+    tracking: "2021-03-15"
 DeploymentManager:
-    Tracking: 2019-11-01-preview
+    tracking: 2019-11-01-preview
 DesktopVirtualization:
-    Tracking: "2021-07-12"
+    tracking: "2021-07-12"
 DevHub:
-    Tracking: 2022-04-01-preview
+    tracking: 2022-04-01-preview
 DevOps:
-    Tracking: 2020-07-13-preview
+    tracking: 2020-07-13-preview
 DevSpaces:
-    Tracking: "2019-04-01"
+    tracking: "2019-04-01"
 DevTestLab:
-    Tracking: "2018-09-15"
+    tracking: "2018-09-15"
 DeviceUpdate:
-    Tracking: 2022-04-01-preview
+    tracking: 2022-04-01-preview
 Devices:
-    Tracking: "2022-02-05"
-    Additions:
+    tracking: "2022-02-05"
+    additions:
         Certificate: "2021-07-02"
         IotHubResource: "2021-07-02"
         IotHubResourceEventHubConsumerGroup: "2021-07-02"
@@ -247,66 +247,66 @@ Devices:
         listIotHubResourceKeys: "2021-07-02"
         listIotHubResourceKeysForKeyName: "2021-07-02"
 DigitalTwins:
-    Tracking: "2022-05-31"
+    tracking: "2022-05-31"
 DocumentDB:
-    Tracking: "2021-10-15"
+    tracking: "2021-10-15"
 DomainRegistration:
-    Tracking: "2021-03-01"
+    tracking: "2021-03-01"
 Dynamics365Fraudprotection:
-    Tracking: 2021-02-01-preview
+    tracking: 2021-02-01-preview
 DynamicsTelemetry: {}
 EdgeOrder:
-    Tracking: "2021-12-01"
+    tracking: "2021-12-01"
 EdgeOrderPartner: {}
 Education:
-    Tracking: 2021-12-01-preview
+    tracking: 2021-12-01-preview
 Elastic:
-    Tracking: 2021-10-01-preview
+    tracking: 2021-10-01-preview
 ElasticSan:
-    Tracking: 2021-11-20-preview
+    tracking: 2021-11-20-preview
 EngagementFabric:
-    Tracking: 2018-09-01-preview
+    tracking: 2018-09-01-preview
 EnterpriseKnowledgeGraph:
-    Tracking: "2018-12-03"
+    tracking: "2018-12-03"
 EventGrid:
-    Tracking: "2022-06-15"
+    tracking: "2022-06-15"
 EventHub:
-    Tracking: "2021-11-01"
+    tracking: "2021-11-01"
 ExtendedLocation:
-    Tracking: "2021-08-15"
+    tracking: "2021-08-15"
 Features:
-    Tracking: "2021-07-01"
+    tracking: "2021-07-01"
 FluidRelay:
-    Tracking: "2022-06-01"
-    Additions:
+    tracking: "2022-06-01"
+    additions:
         getFluidRelayServerKeys: "2022-05-26"
 GuestConfiguration:
-    Tracking: "2022-01-25"
+    tracking: "2022-01-25"
 HDInsight:
-    Tracking: "2021-06-01"
+    tracking: "2021-06-01"
 HanaOnAzure:
-    Tracking: 2020-02-07-preview
-    Additions:
+    tracking: 2020-02-07-preview
+    additions:
         HanaInstance: 2017-11-03-preview
 HardwareSecurityModules:
-    Tracking: "2021-11-30"
+    tracking: "2021-11-30"
 HealthBot:
-    Tracking: "2021-08-24"
+    tracking: "2021-08-24"
 HealthcareApis:
-    Tracking: "2022-05-15"
+    tracking: "2022-05-15"
 HybridCompute:
-    Tracking: "2022-03-10"
+    tracking: "2022-03-10"
 HybridConnectivity:
-    Tracking: 2022-05-01-preview
+    tracking: 2022-05-01-preview
 HybridData:
-    Tracking: "2019-06-01"
+    tracking: "2019-06-01"
 HybridNetwork:
-    Tracking: "2021-05-01"
+    tracking: "2021-05-01"
 ImportExport:
-    Tracking: "2021-01-01"
+    tracking: "2021-01-01"
 Insights:
-    Tracking: "2022-06-01"
-    Additions:
+    tracking: "2022-06-01"
+    additions:
         ActivityLogAlert: "2020-10-01"
         AlertRule: "2016-03-01"
         AnalyticsItem: "2015-05-01"
@@ -329,22 +329,22 @@ Insights:
         getLiveToken: "2021-10-14"
         listEASubscriptionListMigrationDatePost: "2017-10-01"
 Intune:
-    Tracking: 2015-01-14-preview
+    tracking: 2015-01-14-preview
 IoTCentral:
-    Tracking: "2021-06-01"
+    tracking: "2021-06-01"
 IoTSecurity:
-    Tracking: 2021-02-01-preview
+    tracking: 2021-02-01-preview
 KeyVault:
-    Tracking: "2021-10-01"
+    tracking: "2021-10-01"
 Kubernetes:
-    Tracking: "2021-10-01"
+    tracking: "2021-10-01"
 KubernetesConfiguration:
-    Tracking: "2022-07-01"
+    tracking: "2022-07-01"
 Kusto:
-    Tracking: "2022-02-01"
+    tracking: "2022-02-01"
 LabServices:
-    Tracking: 2021-11-15-preview
-    Additions:
+    tracking: 2021-11-15-preview
+    additions:
         Environment: "2018-10-15"
         EnvironmentSetting: "2018-10-15"
         GalleryImage: "2018-10-15"
@@ -357,10 +357,10 @@ LabServices:
         listGlobalUserEnvironments: "2018-10-15"
         listGlobalUserLabs: "2018-10-15"
 LoadTestService:
-    Tracking: 2022-04-15-preview
+    tracking: 2022-04-15-preview
 Logic:
-    Tracking: "2019-05-01"
-    Additions:
+    tracking: "2019-05-01"
+    additions:
         Agreement: "2016-06-01"
         Certificate: "2016-06-01"
         Map: "2016-06-01"
@@ -374,20 +374,20 @@ Logic:
         listSchemaContentCallbackUrl: "2016-06-01"
         listWorkflowVersionCallbackUrl: "2016-06-01"
 Logz:
-    Tracking: 2022-01-01-preview
+    tracking: 2022-01-01-preview
 M365SecurityAndCompliance:
-    Tracking: 2021-03-25-preview
+    tracking: 2021-03-25-preview
 MachineLearning:
-    Tracking: "2019-10-01"
-    Additions:
+    tracking: "2019-10-01"
+    additions:
         WebService: "2017-01-01"
 MachineLearningCompute:
-    Tracking: 2017-08-01-preview
+    tracking: 2017-08-01-preview
 MachineLearningExperimentation:
-    Tracking: 2017-05-01-preview
+    tracking: 2017-05-01-preview
 MachineLearningServices:
-    Tracking: "2022-05-01"
-    Additions:
+    tracking: "2022-05-01"
+    additions:
         LinkedWorkspace: "2020-03-01"
         MachineLearningCompute: "2021-04-01"
         MachineLearningService: "2021-04-01"
@@ -396,32 +396,32 @@ MachineLearningServices:
         listNotebookKeys: "2021-04-01"
         listStorageAccountKeys: "2021-04-01"
 Maintenance:
-    Tracking: "2021-05-01"
+    tracking: "2021-05-01"
 ManagedIdentity:
-    Tracking: 2022-01-31-preview
+    tracking: 2022-01-31-preview
 ManagedNetwork:
-    Tracking: 2019-06-01-preview
+    tracking: 2019-06-01-preview
 ManagedServices:
-    Tracking: 2022-01-01-preview
+    tracking: 2022-01-01-preview
 Management:
-    Tracking: "2021-04-01"
+    tracking: "2021-04-01"
 ManagementPartner:
-    Tracking: "2018-02-01"
+    tracking: "2018-02-01"
 Maps:
-    Tracking: "2021-02-01"
+    tracking: "2021-02-01"
 Marketplace:
-    Tracking: "2022-03-01"
-    Additions:
+    tracking: "2022-03-01"
+    additions:
         PrivateStoreOffer: "2020-01-01"
 MarketplaceNotifications: {}
 MarketplaceOrdering: {}
 Media:
-    Tracking: "2021-11-01"
-    Additions:
+    tracking: "2021-11-01"
+    additions:
         listMediaServiceKeys: "2015-10-01"
 Migrate:
-    Tracking: "2021-08-01"
-    Additions:
+    tracking: "2021-08-01"
+    additions:
         Assessment: "2019-10-01"
         Group: "2019-10-01"
         HyperVCollector: "2019-10-01"
@@ -434,14 +434,14 @@ Migrate:
         VMwareCollector: "2019-10-01"
         getProjectKeys: "2018-02-02"
 MixedReality:
-    Tracking: "2021-01-01"
+    tracking: "2021-01-01"
 MobileNetwork:
-    Tracking: 2022-03-01-preview
+    tracking: 2022-03-01-preview
 NetApp:
-    Tracking: "2022-01-01"
+    tracking: "2022-01-01"
 Network:
-    Tracking: "2022-05-01"
-    Additions:
+    tracking: "2022-05-01"
+    additions:
         ApplicationGateway: "2021-08-01"
         ApplicationGatewayPrivateEndpointConnection: "2021-08-01"
         ApplicationSecurityGroup: "2021-08-01"
@@ -551,16 +551,16 @@ Network:
         listFirewallPolicyIdpsSignature: "2021-08-01"
         listFirewallPolicyIdpsSignaturesFilterValue: "2021-08-01"
 NetworkFunction:
-    Tracking: "2022-05-01"
+    tracking: "2022-05-01"
 NotificationHubs:
-    Tracking: "2017-04-01"
+    tracking: "2017-04-01"
 OffAzure:
-    Tracking: "2020-07-07"
+    tracking: "2020-07-07"
 OpenEnergyPlatform:
-    Tracking: 2022-04-04-preview
+    tracking: 2022-04-04-preview
 OperationalInsights:
-    Tracking: "2021-06-01"
-    Additions:
+    tracking: "2021-06-01"
+    additions:
         DataExport: "2020-08-01"
         DataSource: "2020-08-01"
         LinkedService: "2020-08-01"
@@ -571,45 +571,45 @@ OperationalInsights:
         StorageInsightConfig: "2020-08-01"
         getSharedKeys: "2020-08-01"
 OperationsManagement:
-    Tracking: 2015-11-01-preview
+    tracking: 2015-11-01-preview
 Orbital:
-    Tracking: "2022-03-01"
+    tracking: "2022-03-01"
 Peering:
-    Tracking: "2022-01-01"
+    tracking: "2022-01-01"
 PolicyInsights:
-    Tracking: "2021-10-01"
-    Additions:
+    tracking: "2021-10-01"
+    additions:
         AttestationAtResource: "2021-01-01"
         AttestationAtResourceGroup: "2021-01-01"
         AttestationAtSubscription: "2021-01-01"
 Portal:
-    Tracking: 2020-09-01-preview
-    Additions:
+    tracking: 2020-09-01-preview
+    additions:
         Console: "2018-10-01"
         ConsoleWithLocation: "2018-10-01"
         UserSettings: "2018-10-01"
         UserSettingsWithLocation: "2018-10-01"
 PowerBI:
-    Tracking: "2020-06-01"
-    Additions:
+    tracking: "2020-06-01"
+    additions:
         WorkspaceCollection: "2016-01-29"
         listWorkspaceCollectionAccessKeys: "2016-01-29"
 PowerBIDedicated:
-    Tracking: "2021-01-01"
+    tracking: "2021-01-01"
 PowerPlatform:
-    Tracking: 2020-10-30-preview
+    tracking: 2020-10-30-preview
 ProviderHub:
-    Tracking: "2020-11-20"
+    tracking: "2020-11-20"
 Purview:
-    Tracking: "2021-07-01"
+    tracking: "2021-07-01"
 Quantum:
-    Tracking: 2022-01-10-preview
+    tracking: 2022-01-10-preview
 Quota: {}
 RecommendationsService:
-    Tracking: "2022-02-01"
+    tracking: "2022-02-01"
 RecoveryServices:
-    Tracking: "2022-04-01"
-    Additions:
+    tracking: "2022-04-01"
+    additions:
         PrivateEndpointConnection: "2022-03-01"
         ProtectedItem: "2022-03-01"
         ProtectionContainer: "2022-03-01"
@@ -628,17 +628,17 @@ RecoveryServices:
         ResourceGuardProxy: "2022-03-01"
         getRecoveryPointAccessToken: "2021-11-15"
 RedHatOpenShift:
-    Tracking: "2022-04-01"
+    tracking: "2022-04-01"
 Relay:
-    Tracking: "2021-11-01"
+    tracking: "2021-11-01"
 ResourceConnector:
-    Tracking: 2021-10-31-preview
+    tracking: 2021-10-31-preview
 ResourceGraph:
-    Tracking: 2020-04-01-preview
+    tracking: 2020-04-01-preview
 ResourceHealth: {}
 Resources:
-    Tracking: "2022-02-01"
-    Additions:
+    tracking: "2022-02-01"
+    additions:
         Deployment: "2021-04-01"
         DeploymentAtManagementGroupScope: "2021-04-01"
         DeploymentAtScope: "2021-04-01"
@@ -649,16 +649,16 @@ Resources:
         ResourceGroup: "2021-04-01"
         TagAtScope: "2021-04-01"
 SaaS:
-    Tracking: 2018-03-01-beta
+    tracking: 2018-03-01-beta
 ScVmm:
-    Tracking: 2020-06-05-preview
+    tracking: 2020-06-05-preview
 Scheduler:
-    Tracking: "2016-03-01"
+    tracking: "2016-03-01"
 Search:
-    Tracking: "2020-08-01"
+    tracking: "2020-08-01"
 Security:
-    Tracking: "2021-06-01"
-    Additions:
+    tracking: "2021-06-01"
+    additions:
         AdaptiveApplicationControl: "2020-01-01"
         AdvancedThreatProtection: "2019-01-01"
         DeviceSecurityGroup: "2019-08-01"
@@ -666,31 +666,31 @@ Security:
         JitNetworkAccessPolicy: "2020-01-01"
         ServerVulnerabilityAssessment: "2020-01-01"
 SecurityAndCompliance:
-    Tracking: "2021-03-08"
+    tracking: "2021-03-08"
 SecurityInsights:
-    Tracking: "2021-10-01"
+    tracking: "2021-10-01"
 SerialConsole:
-    Tracking: "2018-05-01"
+    tracking: "2018-05-01"
 ServiceBus:
-    Tracking: "2021-11-01"
+    tracking: "2021-11-01"
 ServiceFabric:
-    Tracking: "2022-01-01"
-    Additions:
+    tracking: "2022-01-01"
+    additions:
         Cluster: "2021-06-01"
         listClusterUpgradableVersions: "2021-06-01"
 ServiceFabricMesh:
-    Tracking: 2018-09-01-preview
+    tracking: 2018-09-01-preview
 ServiceLinker:
-    Tracking: "2022-05-01"
+    tracking: "2022-05-01"
 SignalRService:
-    Tracking: "2022-02-01"
+    tracking: "2022-02-01"
 SoftwarePlan:
-    Tracking: "2019-12-01"
+    tracking: "2019-12-01"
 Solutions:
-    Tracking: "2021-07-01"
+    tracking: "2021-07-01"
 Sql:
-    Tracking: 2021-11-01-preview
-    Additions:
+    tracking: 2021-11-01-preview
+    additions:
         BackupLongTermRetentionPolicy: 2017-03-01-preview
         DataMaskingPolicy: "2014-04-01"
         DatabaseThreatDetectionPolicy: "2014-04-01"
@@ -698,47 +698,47 @@ Sql:
         GeoBackupPolicy: "2014-04-01"
         ServerCommunicationLink: "2014-04-01"
 SqlVirtualMachine:
-    Tracking: "2022-02-01"
+    tracking: "2022-02-01"
 StorSimple:
-    Tracking: "2017-06-01"
+    tracking: "2017-06-01"
 Storage:
-    Tracking: "2021-09-01"
+    tracking: "2021-09-01"
 StorageCache:
-    Tracking: "2022-05-01"
+    tracking: "2022-05-01"
 StoragePool:
-    Tracking: "2021-08-01"
+    tracking: "2021-08-01"
 StorageSync:
-    Tracking: "2020-09-01"
+    tracking: "2020-09-01"
 StreamAnalytics:
-    Tracking: 2021-10-01-preview
-    Additions:
+    tracking: 2021-10-01-preview
+    additions:
         Cluster: "2020-03-01"
         PrivateEndpoint: "2020-03-01"
         listClusterStreamingJobs: "2020-03-01"
 Subscription:
-    Tracking: "2021-10-01"
+    tracking: "2021-10-01"
 Support: {}
 Synapse:
-    Tracking: "2021-06-01"
+    tracking: "2021-06-01"
 TestBase:
-    Tracking: 2022-04-01-preview
+    tracking: 2022-04-01-preview
 TimeSeriesInsights:
-    Tracking: 2021-06-30-preview
+    tracking: 2021-06-30-preview
 VMwareCloudSimple:
-    Tracking: "2019-04-01"
+    tracking: "2019-04-01"
 VideoAnalyzer:
-    Tracking: 2021-11-01-preview
-    Additions:
+    tracking: 2021-11-01-preview
+    additions:
         listVideoStreamingToken: 2021-05-01-preview
 VideoIndexer:
-    Tracking: 2022-04-13-preview
+    tracking: 2022-04-13-preview
 VirtualMachineImages:
-    Tracking: "2022-02-14"
+    tracking: "2022-02-14"
 VisualStudio:
-    Tracking: 2017-11-01-preview
+    tracking: 2017-11-01-preview
 Web:
-    Tracking: "2021-03-01"
-    Additions:
+    tracking: "2021-03-01"
+    additions:
         Connection: "2016-06-01"
         ConnectionGateway: "2016-06-01"
         CustomApi: "2016-06-01"
@@ -749,11 +749,11 @@ Web:
         listWebAppHybridConnectionKeys: "2018-11-01"
         listWebAppHybridConnectionKeysSlot: "2018-11-01"
 WebPubSub:
-    Tracking: "2021-10-01"
+    tracking: "2021-10-01"
 WindowsESU:
-    Tracking: 2019-09-16-preview
+    tracking: 2019-09-16-preview
 WindowsIoT:
-    Tracking: "2019-06-01"
+    tracking: "2019-06-01"
 WorkloadMonitor: {}
 Workloads:
-    Tracking: 2021-12-01-preview
+    tracking: 2021-12-01-preview
