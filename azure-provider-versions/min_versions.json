@@ -40,7 +40,7 @@
     "Compute": "2020-09-30",
     "ConfidentialLedger": "2020-12-01-preview",
     "Confluent": "2020-03-01",
-    "ConnectedVMwarevSphere": "2020-10-01-preview",
+    "ConnectedVMwarevSphere": "2022-01-10-preview",
     "Consumption": "2019-10-01",
     "ContainerInstance": "2021-03-01",
     "ContainerRegistry": "2016-06-27-preview",

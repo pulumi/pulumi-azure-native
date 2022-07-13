@@ -5835,13 +5835,16 @@
       "2022-01-10-preview"
     ],
     "clusters": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
     ],
     "datastores": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
     ],
     "hosts": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
     ],
     "locations": [
       "2020-10-01-preview",
@@ -5851,36 +5854,54 @@
       "2020-10-01-preview",
       "2022-01-10-preview"
     ],
+    "locations/updatecenteroperationresults": [
+      "2022-01-10-preview"
+    ],
     "operations": [
       "2020-10-01-preview",
       "2022-01-10-preview"
     ],
     "resourcepools": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
     ],
     "vcenters": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
     ],
     "vcenters/inventoryitems": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
     ],
     "virtualmachines": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
+    ],
+    "virtualmachines/assesspatches": [
+      "2022-01-10-preview"
     ],
     "virtualmachines/extensions": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
     ],
     "virtualmachines/guestagents": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
     ],
     "virtualmachines/hybrididentitymetadata": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
+    ],
+    "virtualmachines/installpatches": [
+      "2022-01-10-preview"
     ],
     "virtualmachinetemplates": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
     ],
     "virtualnetworks": [
-      "2020-10-01-preview"
+      "2020-10-01-preview",
+      "2022-01-10-preview"
     ]
   },
   "consumption": {
@@ -10925,20 +10946,6 @@
       "2022-06-01"
     ]
   },
-  "graph": {
-    "": [
-      "2021-07-19-preview",
-      "2022-04-18-preview"
-    ],
-    "operations": [
-      "2021-07-19-preview",
-      "2022-04-18-preview"
-    ],
-    "registeredsubscriptions": [
-      "2021-07-19-preview",
-      "2022-04-18-preview"
-    ]
-  },
   "guestconfiguration": {
     "": [
       "2018-01-20-preview",
@@ -12869,7 +12876,8 @@
       "2018-04-01-privatepreview",
       "2018-07-01-preview",
       "2019-05-01",
-      "2019-06-01-preview"
+      "2019-06-01-preview",
+      "2022-09-01-preview"
     ],
     "hostingenvironments": [
       "2018-04-01-privatepreview"
@@ -12903,6 +12911,12 @@
       "2017-07-01",
       "2018-07-01-preview",
       "2019-05-01"
+    ],
+    "locations/validateworkflowexport": [
+      "2022-09-01-preview"
+    ],
+    "locations/workflowexport": [
+      "2022-09-01-preview"
     ],
     "locations/workflows": [
       "2015-02-01-preview",
@@ -18477,19 +18491,15 @@
   },
   "networkcloud": {
     "": [
-      "2021-10-21-preview",
       "2022-04-29-preview"
     ],
     "locations": [
-      "2021-10-21-preview",
       "2022-04-29-preview"
     ],
     "locations/operationstatuses": [
-      "2021-10-21-preview",
       "2022-04-29-preview"
     ],
     "operations": [
-      "2021-10-21-preview",
       "2022-04-29-preview"
     ]
   },

@@ -138,7 +138,9 @@
   ],
   "ConfidentialLedger": [],
   "Confluent": [],
-  "ConnectedVMwarevSphere": [],
+  "ConnectedVMwarevSphere": [
+    "2020-10-01-preview"
+  ],
   "Consumption": [
     "2017-12-30-preview",
     "2018-01-31",

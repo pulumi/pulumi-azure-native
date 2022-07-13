@@ -7642,18 +7642,21 @@
       {
         "resourceType": "Clusters",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
         ]
       },
       {
         "resourceType": "Datastores",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
         ]
       },
       {
         "resourceType": "Hosts",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
         ]
       },
@@ -7672,6 +7675,12 @@
         ]
       },
       {
+        "resourceType": "Locations/updateCenterOperationResults",
+        "apiVersions": [
+          "2022-01-10-preview"
+        ]
+      },
+      {
         "resourceType": "Operations",
         "apiVersions": [
           "2022-01-10-preview",
@@ -7681,54 +7690,75 @@
       {
         "resourceType": "ResourcePools",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
         ]
       },
       {
         "resourceType": "VCenters",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
         ]
       },
       {
         "resourceType": "VCenters/InventoryItems",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
         ]
       },
       {
         "resourceType": "VirtualMachineTemplates",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
         ]
       },
       {
         "resourceType": "VirtualMachines",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "VirtualMachines/AssessPatches",
+        "apiVersions": [
+          "2022-01-10-preview"
         ]
       },
       {
         "resourceType": "VirtualMachines/Extensions",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
         ]
       },
       {
         "resourceType": "VirtualMachines/GuestAgents",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
         ]
       },
       {
         "resourceType": "VirtualMachines/HybridIdentityMetadata",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
+        ]
+      },
+      {
+        "resourceType": "VirtualMachines/InstallPatches",
+        "apiVersions": [
+          "2022-01-10-preview"
         ]
       },
       {
         "resourceType": "VirtualNetworks",
         "apiVersions": [
+          "2022-01-10-preview",
           "2020-10-01-preview"
         ]
       }
@@ -14167,25 +14197,6 @@
     ]
   },
   {
-    "namespace": "Microsoft.Graph",
-    "resourceTypes": [
-      {
-        "resourceType": "Operations",
-        "apiVersions": [
-          "2022-04-18-preview",
-          "2021-07-19-preview"
-        ]
-      },
-      {
-        "resourceType": "registeredSubscriptions",
-        "apiVersions": [
-          "2022-04-18-preview",
-          "2021-07-19-preview"
-        ]
-      }
-    ]
-  },
-  {
     "namespace": "Microsoft.GuestConfiguration",
     "resourceTypes": [
       {
@@ -16017,6 +16028,18 @@
           "2016-06-01",
           "2015-08-01-preview",
           "2015-02-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/validateWorkflowExport",
+        "apiVersions": [
+          "2022-09-01-preview"
+        ]
+      },
+      {
+        "resourceType": "locations/workflowExport",
+        "apiVersions": [
+          "2022-09-01-preview"
         ]
       },
       {
@@ -22461,22 +22484,19 @@
       {
         "resourceType": "locations",
         "apiVersions": [
-          "2022-04-29-preview",
-          "2021-10-21-preview"
+          "2022-04-29-preview"
         ]
       },
       {
         "resourceType": "locations/operationStatuses",
         "apiVersions": [
-          "2022-04-29-preview",
-          "2021-10-21-preview"
+          "2022-04-29-preview"
         ]
       },
       {
         "resourceType": "operations",
         "apiVersions": [
-          "2022-04-29-preview",
-          "2021-10-21-preview"
+          "2022-04-29-preview"
         ]
       }
     ]
