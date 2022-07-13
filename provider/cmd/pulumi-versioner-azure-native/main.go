@@ -107,7 +107,7 @@ func writeAll(outputDir string) error {
 		return err
 	}
 
-	return emitJsonFiles(outputDir, map[Filename]Json{
+	return emitFiles(outputDir, map[Filename]Data{
 		"spec.json":           specVersions,
 		"spec-resources.json": specResourceVersions,
 		"v1.json":             v1,
@@ -127,7 +127,7 @@ func spec(outputDir string) error {
 	specVersions := versioning.FindSpecVersions(providers)
 	specResourceVersions := versioning.FormatResourceVersions(specVersions)
 
-	return emitJsonFiles(outputDir, map[Filename]Json{
+	return emitFiles(outputDir, map[Filename]Data{
 		"spec.json":           specVersions,
 		"spec-resources.json": specResourceVersions,
 	})
@@ -141,7 +141,7 @@ func active(outputDir string) error {
 
 	activePathVersionsJson := providerlist.FormatProviderPathVersionsJson(activePathVersions)
 
-	return emitJsonFiles(outputDir, map[Filename]Json{
+	return emitFiles(outputDir, map[Filename]Data{
 		"active.json": activePathVersionsJson,
 	})
 }
@@ -159,7 +159,7 @@ func deprecated(outputDir, versionFile string) error {
 
 	deprecated := versioning.FindDeprecations(specVersions, v1)
 
-	return emitJsonFiles(outputDir, map[Filename]Json{
+	return emitFiles(outputDir, map[Filename]Data{
 		"deprecated.json": deprecated,
 	})
 }
@@ -177,7 +177,7 @@ func pending(outputDir, versionFile string) error {
 
 	pending := versioning.FindNewerVersions(specVersions, v1)
 
-	return emitJsonFiles(outputDir, map[Filename]Json{
+	return emitFiles(outputDir, map[Filename]Data{
 		"pending.json": pending,
 	})
 }
@@ -198,7 +198,7 @@ func v1(outputDir string) error {
 		return err
 	}
 
-	return emitJsonFiles(outputDir, map[Filename]Json{
+	return emitFiles(outputDir, map[Filename]Data{
 		"v1.json": v1,
 	})
 }
@@ -225,7 +225,7 @@ func v2(outputDir string) error {
 		return err
 	}
 
-	return emitJsonFiles(outputDir, map[Filename]Json{
+	return emitFiles(outputDir, map[Filename]Data{
 		"v2.json": v2,
 	})
 }
@@ -249,18 +249,20 @@ func vnextConfig(outputDir, target string) error {
 
 	filename := target + ".yaml"
 
-	return emitJsonFiles(outputDir, map[Filename]Json{
+	return emitFiles(outputDir, map[Filename]Data{
 		filename: v2Config,
 	})
 }
 
 type Filename = string
-type Json = interface{}
+type Data = interface{}
 
-func emitJsonFiles(outDir string, files map[Filename]Json) error {
+// emitFiles writes serializes and writes multiple files. If if the filename ends in `.yaml` then it will be marshalled
+// as YAML instead of JSON.
+func emitFiles(outDir string, files map[Filename]Data) error {
 	for filename, data := range files {
 		outPath := path.Join(outDir, filename)
-		err := emitJson(outPath, data)
+		err := emitFile(outPath, data)
 		if err != nil {
 			return err
 		}
@@ -268,32 +270,31 @@ func emitJsonFiles(outDir string, files map[Filename]Json) error {
 	return nil
 }
 
-func emitJson(outputPath string, data Json) error {
+func emitFile(outputPath string, data Data) error {
 	var formatted []byte
 	var err error
 	if strings.HasSuffix(outputPath, ".yaml") {
 		formatted, err = yaml.Marshal(data)
+		if err != nil {
+			return errors.Wrap(err, "marshaling YAML")
+		}
 	} else {
 		formatted, err = json.MarshalIndent(data, "", "  ")
-	}
-	if err != nil {
-		return errors.Wrap(err, "marshaling JSON")
+		if err != nil {
+			return errors.Wrap(err, "marshaling JSON")
+		}
 	}
 
-	return emitFile(outputPath, formatted)
-}
-
-func emitFile(outPath string, contents []byte) error {
-	if err := tools.EnsureDir(path.Dir(outPath)); err != nil {
+	if err := tools.EnsureDir(path.Dir(outputPath)); err != nil {
 		return errors.Wrap(err, "creating directory")
 	}
 
-	f, err := os.Create(outPath)
+	f, err := os.Create(outputPath)
 	if err != nil {
 		return errors.Wrap(err, "creating file")
 	}
 	defer contract.IgnoreClose(f)
 
-	_, err = f.Write(contents)
+	_, err = f.Write(formatted)
 	return err
 }
