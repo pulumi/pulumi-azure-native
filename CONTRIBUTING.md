@@ -37,15 +37,19 @@ pulumi up
 
 Key facts about Azure Versions:
 
-- Azure's APIs have many versions of each service which are published per-service on their own schedule.
-- API versions are in the form of an ISO date (e.g. `2020-01-01`) followed by an optional suffix (e.g. `-preview` or `-privatepreview`).
-- Not all versions of the API contain all resources. Some APIs will only publish the parts of their API which have changed since the previous version.
-- Some APIs haven't had a stable (non-suffixed) release for a number of years - and the 'preview' versions are generally considered stable for every-day use.
-- API version specifications are sometimes release before the API version is deployed.
+- Azure's REST API has many versions of each service which are published per-service on their own schedule.
+- Service versions are in the form of an ISO date (e.g. `2020-01-01`) followed by an optional suffix (e.g. `-preview` or `-privatepreview`).
+- Not all versions of the service contain all resources. Some services will only publish the parts of their API which have changed since the previous version.
+- Some services haven't had a stable (non-suffixed) release for a number of years - and the 'preview' versions are generally considered stable for every-day use.
+- New specification versions are sometimes release before the updated service is deployed.
+
+### Terminology
+
+Azure's API specifications are organised into "Resource Providers" (or "Services"), Namespaces and API Versions. We use the term **"API Version"** in this doc to refer to Azure's Resource Provider API Versions.
 
 ### Version Sources
 
-1. `spec.json`: the `azure-rest-api-specs` are checked out as a sub-module and include all API version OpenAPI specifications. The `spec.json` is a simplified report of versions in the spec - each version and the resources within.
+1. `spec.json`: the `azure-rest-api-specs` are checked out as a sub-module and include all OpenAPI specifications (for every Resource Provider API Version). The `spec.json` is a simplified report of versions in the spec - each version and the resources within.
 
    Run `pulumi-versioner-azure-native spec` to generate. This also outputs `spec-resources.json` which is the same information but with versions grouped by resource rather than resources grouped by version.
 
