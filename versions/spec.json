@@ -3974,6 +3974,21 @@
       "Workspace"
     ]
   },
+  "DevCenter": {
+    "2022-08-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectEnvironmentType",
+      "Schedule"
+    ]
+  },
   "DevHub": {
     "2022-04-01-preview": [
       "Workflow",

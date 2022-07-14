@@ -4104,6 +4104,41 @@
       "2022-04-01-preview"
     ]
   },
+  "DevCenter": {
+    "AttachedNetworkByDevCenter": [
+      "2022-08-01-preview"
+    ],
+    "Catalog": [
+      "2022-08-01-preview"
+    ],
+    "DevBoxDefinition": [
+      "2022-08-01-preview"
+    ],
+    "DevCenter": [
+      "2022-08-01-preview"
+    ],
+    "EnvironmentType": [
+      "2022-08-01-preview"
+    ],
+    "Gallery": [
+      "2022-08-01-preview"
+    ],
+    "NetworkConnection": [
+      "2022-08-01-preview"
+    ],
+    "Pool": [
+      "2022-08-01-preview"
+    ],
+    "Project": [
+      "2022-08-01-preview"
+    ],
+    "ProjectEnvironmentType": [
+      "2022-08-01-preview"
+    ],
+    "Schedule": [
+      "2022-08-01-preview"
+    ]
+  },
   "DevHub": {
     "Workflow": [
       "2022-04-01-preview"

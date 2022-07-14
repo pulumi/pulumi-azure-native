@@ -194,9 +194,7 @@
     "2021-09-01-preview",
     "2021-12-01"
   ],
-  "ConnectedVMwarevSphere": [
-    "2022-01-10-preview"
-  ],
+  "ConnectedVMwarevSphere": [],
   "Consumption": [
     "2019-11-01",
     "2021-05-01",
@@ -373,6 +371,7 @@
     "2022-02-10-preview",
     "2022-04-01-preview"
   ],
+  "DevCenter": [],
   "DevHub": [],
   "DevOps": [],
   "DevSpaces": [],
