@@ -7,68 +7,21 @@ import (
 	"context"
 	"reflect"
 
-	"github.com/pkg/errors"
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Workspace active directory administrator
-// API Version: 2021-03-01.
-//
 // Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
 type WorkspaceSqlAadAdmin struct {
 	pulumi.CustomResourceState
-
-	// Workspace active directory administrator type
-	AdministratorType pulumi.StringPtrOutput `pulumi:"administratorType"`
-	// Login of the workspace active directory administrator
-	Login pulumi.StringPtrOutput `pulumi:"login"`
-	// The name of the resource
-	Name pulumi.StringOutput `pulumi:"name"`
-	// Object ID of the workspace active directory administrator
-	Sid pulumi.StringPtrOutput `pulumi:"sid"`
-	// Tenant ID of the workspace active directory administrator
-	TenantId pulumi.StringPtrOutput `pulumi:"tenantId"`
-	// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-	Type pulumi.StringOutput `pulumi:"type"`
 }
 
 // NewWorkspaceSqlAadAdmin registers a new resource with the given unique name, arguments, and options.
 func NewWorkspaceSqlAadAdmin(ctx *pulumi.Context,
 	name string, args *WorkspaceSqlAadAdminArgs, opts ...pulumi.ResourceOption) (*WorkspaceSqlAadAdmin, error) {
 	if args == nil {
-		return nil, errors.New("missing one or more required arguments")
+		args = &WorkspaceSqlAadAdminArgs{}
 	}
 
-	if args.ResourceGroupName == nil {
-		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
-	}
-	if args.WorkspaceName == nil {
-		return nil, errors.New("invalid value for required argument 'WorkspaceName'")
-	}
-	aliases := pulumi.Aliases([]pulumi.Alias{
-		{
-			Type: pulumi.String("azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20201201:WorkspaceSqlAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20210301:WorkspaceSqlAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20210501:WorkspaceSqlAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20210601:WorkspaceSqlAadAdmin"),
-		},
-		{
-			Type: pulumi.String("azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin"),
-		},
-	})
-	opts = append(opts, aliases)
 	var resource WorkspaceSqlAadAdmin
 	err := ctx.RegisterResource("azure-native:synapse:WorkspaceSqlAadAdmin", name, args, &resource, opts...)
 	if err != nil {
@@ -101,34 +54,10 @@ func (WorkspaceSqlAadAdminState) ElementType() reflect.Type {
 }
 
 type workspaceSqlAadAdminArgs struct {
-	// Workspace active directory administrator type
-	AdministratorType *string `pulumi:"administratorType"`
-	// Login of the workspace active directory administrator
-	Login *string `pulumi:"login"`
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName string `pulumi:"resourceGroupName"`
-	// Object ID of the workspace active directory administrator
-	Sid *string `pulumi:"sid"`
-	// Tenant ID of the workspace active directory administrator
-	TenantId *string `pulumi:"tenantId"`
-	// The name of the workspace
-	WorkspaceName string `pulumi:"workspaceName"`
 }
 
 // The set of arguments for constructing a WorkspaceSqlAadAdmin resource.
 type WorkspaceSqlAadAdminArgs struct {
-	// Workspace active directory administrator type
-	AdministratorType pulumi.StringPtrInput
-	// Login of the workspace active directory administrator
-	Login pulumi.StringPtrInput
-	// The name of the resource group. The name is case insensitive.
-	ResourceGroupName pulumi.StringInput
-	// Object ID of the workspace active directory administrator
-	Sid pulumi.StringPtrInput
-	// Tenant ID of the workspace active directory administrator
-	TenantId pulumi.StringPtrInput
-	// The name of the workspace
-	WorkspaceName pulumi.StringInput
 }
 
 func (WorkspaceSqlAadAdminArgs) ElementType() reflect.Type {
@@ -166,36 +95,6 @@ func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutput() WorkspaceSqlA
 
 func (o WorkspaceSqlAadAdminOutput) ToWorkspaceSqlAadAdminOutputWithContext(ctx context.Context) WorkspaceSqlAadAdminOutput {
 	return o
-}
-
-// Workspace active directory administrator type
-func (o WorkspaceSqlAadAdminOutput) AdministratorType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringPtrOutput { return v.AdministratorType }).(pulumi.StringPtrOutput)
-}
-
-// Login of the workspace active directory administrator
-func (o WorkspaceSqlAadAdminOutput) Login() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringPtrOutput { return v.Login }).(pulumi.StringPtrOutput)
-}
-
-// The name of the resource
-func (o WorkspaceSqlAadAdminOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
-}
-
-// Object ID of the workspace active directory administrator
-func (o WorkspaceSqlAadAdminOutput) Sid() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringPtrOutput { return v.Sid }).(pulumi.StringPtrOutput)
-}
-
-// Tenant ID of the workspace active directory administrator
-func (o WorkspaceSqlAadAdminOutput) TenantId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringPtrOutput { return v.TenantId }).(pulumi.StringPtrOutput)
-}
-
-// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-func (o WorkspaceSqlAadAdminOutput) Type() pulumi.StringOutput {
-	return o.ApplyT(func(v *WorkspaceSqlAadAdmin) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 func init() {
