@@ -24,9 +24,24 @@ env:
   GO111MODULE: on
   PULUMI_API: https://api.pulumi-staging.io
 jobs:
-  update_pulumi:
+  weekly-pulumi-update:
     runs-on: ubuntu-latest
-    name: update-pulumi
+    strategy:
+      fail-fast: true
+      matrix:
+        goversion:
+        - 1.18.x
+        dotnetversion:
+        - 3.1.301
+        pythonversion:
+        - "3.7"
+        nodeversion:
+        - 14.x
+        language:
+        - nodejs
+        - python
+        - dotnet
+        - go
     steps:
     - name: Checkout Repo
       uses: actions/checkout@v2
@@ -91,6 +106,8 @@ jobs:
         if ! git diff-files --quiet; then 
         	echo ::set-output name=changes::1 
         fi
+    - name: Initialize submodules
+      run: make init_submodules
     - name: Provider with Pulumi Upgrade
       if: steps.gomod.outputs.changes != 0
       run: >-
@@ -119,7 +136,7 @@ jobs:
         git push origin update-pulumi/${{ github.run_id }}-${{ github.run_number }}
     - name: Create PR
       id: create-pr
-      if: steps.gomod.output.changes != 0
+      if: steps.gomod.outputs.changes != 0
       uses: repo-sync/pull-request@v2
       with:
         source_branch: update-pulumi/${{ github.run_id }}-${{ github.run_number }}
@@ -134,14 +151,4 @@ jobs:
         pull-request-number: ${{ steps.create-pr.outputs.pr_number }}
         repository: ${{ github.repository }}
         merge-method: squash
-    strategy:
-      fail-fast: true
-      matrix:
-        goversion:
-        - 1.18.x
-        dotnetversion:
-        - 3.1.301
-        pythonversion:
-        - "3.7"
-        nodeversion:
-        - 14.x
+    name: weekly-pulumi-update
