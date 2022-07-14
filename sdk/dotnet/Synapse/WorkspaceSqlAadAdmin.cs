@@ -10,51 +10,11 @@ using Pulumi.Serialization;
 namespace Pulumi.AzureNative.Synapse
 {
     /// <summary>
-    /// Workspace active directory administrator
-    /// API Version: 2021-03-01.
-    /// 
     /// Note: SQL AAD Admin is configured automatically during workspace creation and assigned to the current user. One can't add more admins with this resource unless you manually delete the current SQL AAD Admin.
     /// </summary>
     [AzureNativeResourceType("azure-native:synapse:WorkspaceSqlAadAdmin")]
     public partial class WorkspaceSqlAadAdmin : Pulumi.CustomResource
     {
-        /// <summary>
-        /// Workspace active directory administrator type
-        /// </summary>
-        [Output("administratorType")]
-        public Output<string?> AdministratorType { get; private set; } = null!;
-
-        /// <summary>
-        /// Login of the workspace active directory administrator
-        /// </summary>
-        [Output("login")]
-        public Output<string?> Login { get; private set; } = null!;
-
-        /// <summary>
-        /// The name of the resource
-        /// </summary>
-        [Output("name")]
-        public Output<string> Name { get; private set; } = null!;
-
-        /// <summary>
-        /// Object ID of the workspace active directory administrator
-        /// </summary>
-        [Output("sid")]
-        public Output<string?> Sid { get; private set; } = null!;
-
-        /// <summary>
-        /// Tenant ID of the workspace active directory administrator
-        /// </summary>
-        [Output("tenantId")]
-        public Output<string?> TenantId { get; private set; } = null!;
-
-        /// <summary>
-        /// The type of the resource. E.g. "Microsoft.Compute/virtualMachines" or "Microsoft.Storage/storageAccounts"
-        /// </summary>
-        [Output("type")]
-        public Output<string> Type { get; private set; } = null!;
-
-
         /// <summary>
         /// Create a WorkspaceSqlAadAdmin resource with the given unique name, arguments, and options.
         /// </summary>
@@ -62,7 +22,7 @@ namespace Pulumi.AzureNative.Synapse
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public WorkspaceSqlAadAdmin(string name, WorkspaceSqlAadAdminArgs args, CustomResourceOptions? options = null)
+        public WorkspaceSqlAadAdmin(string name, WorkspaceSqlAadAdminArgs? args = null, CustomResourceOptions? options = null)
             : base("azure-native:synapse:WorkspaceSqlAadAdmin", name, args ?? new WorkspaceSqlAadAdminArgs(), MakeResourceOptions(options, ""))
         {
         }
@@ -77,16 +37,6 @@ namespace Pulumi.AzureNative.Synapse
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
-                Aliases =
-                {
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20190601preview:WorkspaceSqlAadAdmin"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20201201:WorkspaceSqlAadAdmin"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210301:WorkspaceSqlAadAdmin"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210401preview:WorkspaceSqlAadAdmin"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210501:WorkspaceSqlAadAdmin"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601:WorkspaceSqlAadAdmin"},
-                    new Pulumi.Alias { Type = "azure-native:synapse/v20210601preview:WorkspaceSqlAadAdmin"},
-                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -109,42 +59,6 @@ namespace Pulumi.AzureNative.Synapse
 
     public sealed class WorkspaceSqlAadAdminArgs : Pulumi.ResourceArgs
     {
-        /// <summary>
-        /// Workspace active directory administrator type
-        /// </summary>
-        [Input("administratorType")]
-        public Input<string>? AdministratorType { get; set; }
-
-        /// <summary>
-        /// Login of the workspace active directory administrator
-        /// </summary>
-        [Input("login")]
-        public Input<string>? Login { get; set; }
-
-        /// <summary>
-        /// The name of the resource group. The name is case insensitive.
-        /// </summary>
-        [Input("resourceGroupName", required: true)]
-        public Input<string> ResourceGroupName { get; set; } = null!;
-
-        /// <summary>
-        /// Object ID of the workspace active directory administrator
-        /// </summary>
-        [Input("sid")]
-        public Input<string>? Sid { get; set; }
-
-        /// <summary>
-        /// Tenant ID of the workspace active directory administrator
-        /// </summary>
-        [Input("tenantId")]
-        public Input<string>? TenantId { get; set; }
-
-        /// <summary>
-        /// The name of the workspace
-        /// </summary>
-        [Input("workspaceName", required: true)]
-        public Input<string> WorkspaceName { get; set; } = null!;
-
         public WorkspaceSqlAadAdminArgs()
         {
         }
