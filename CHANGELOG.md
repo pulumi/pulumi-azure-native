@@ -3,6 +3,7 @@
 ## HEAD (Unreleased)
 
 - Memory usage for most programs is greatly reduced [#1689](https://github.com/pulumi/pulumi-azure-native/pull/1689)
+- All Java packages changed to be more intuitive, unfortunately this is a breaking change for Java version [1829](https://github.com/pulumi/pulumi-azure-native/pull/1829)
 
 ## 1.67.0 (2022-07-12)
 
