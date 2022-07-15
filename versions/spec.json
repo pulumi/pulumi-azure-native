@@ -1921,6 +1921,11 @@
       "Capability",
       "Experiment",
       "Target"
+    ],
+    "2022-07-01-preview": [
+      "Capability",
+      "Experiment",
+      "Target"
     ]
   },
   "CognitiveServices": {
@@ -3972,6 +3977,21 @@
       "ScalingPlan",
       "ScalingPlanPooledSchedule",
       "Workspace"
+    ]
+  },
+  "DevCenter": {
+    "2022-08-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectEnvironmentType",
+      "Schedule"
     ]
   },
   "DevHub": {
