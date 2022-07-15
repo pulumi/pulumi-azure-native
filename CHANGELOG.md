@@ -2,6 +2,9 @@
 
 ## HEAD (Unreleased)
 
+- All Java packages changed to be more intuitive, unfortunately this is a breaking change for Java version
+  [#1829](https://github.com/pulumi/pulumi-azure-native/pull/1829)
+
 ## 1.68.2 (2022-08-16)
 
 - Remove go docs from Go SDK. Previously we exceeded the Go SDK limit which caused all go get operations to fail
