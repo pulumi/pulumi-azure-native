@@ -184,6 +184,9 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 	csharpNamespaces := map[string]string{
 		"azure-native": "AzureNative",
 	}
+	javaPackages := map[string]string{
+		"azure-native": "azurenative",
+	}
 	pythonModuleNames := map[string]string{}
 	golangImportAliases := map[string]string{}
 
@@ -210,12 +213,14 @@ func PulumiSchema(providerMap openapi.AzureProviders) (*pschema.PackageSpec, *re
 				examples:   exampleMap,
 			}
 
-			// Populate C#, Python and Go module mapping.
+			// Populate C#, Java, Python and Go module mapping.
 			module := gen.providerToModule(providerName)
 			csharpNamespaces[strings.ToLower(providerName)] = providerName
+			javaPackages[module] = strings.ToLower(providerName)
 			if version != "" {
 				csVersion := strings.Title(csharpVersionReplacer.Replace(version))
 				csharpNamespaces[module] = fmt.Sprintf("%s.%s", providerName, csVersion)
+				javaPackages[module] = fmt.Sprintf("%s.%s", strings.ToLower(providerName), version)
 			}
 			pythonModuleNames[module] = module
 			golangImportAliases[filepath.Join(goBasePath, module)] = strings.ToLower(providerName)
@@ -291,6 +296,10 @@ version using infrastructure as code, which Pulumi then uses to drive the ARM AP
 			"System.Collections.Immutable": "5.0.0",
 		},
 		"namespaces": csharpNamespaces,
+	})
+
+	pkg.Language["java"] = rawMessage(map[string]interface{}{
+		"packages": javaPackages,
 	})
 
 	return &pkg, &metadata, exampleMap, nil
