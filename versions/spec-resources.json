@@ -2046,13 +2046,16 @@
   },
   "Chaos": {
     "Capability": [
-      "2021-09-15-preview"
+      "2021-09-15-preview",
+      "2022-07-01-preview"
     ],
     "Experiment": [
-      "2021-09-15-preview"
+      "2021-09-15-preview",
+      "2022-07-01-preview"
     ],
     "Target": [
-      "2021-09-15-preview"
+      "2021-09-15-preview",
+      "2022-07-01-preview"
     ]
   },
   "CognitiveServices": {
@@ -4102,6 +4105,41 @@
       "2021-09-03-preview",
       "2022-02-10-preview",
       "2022-04-01-preview"
+    ]
+  },
+  "DevCenter": {
+    "AttachedNetworkByDevCenter": [
+      "2022-08-01-preview"
+    ],
+    "Catalog": [
+      "2022-08-01-preview"
+    ],
+    "DevBoxDefinition": [
+      "2022-08-01-preview"
+    ],
+    "DevCenter": [
+      "2022-08-01-preview"
+    ],
+    "EnvironmentType": [
+      "2022-08-01-preview"
+    ],
+    "Gallery": [
+      "2022-08-01-preview"
+    ],
+    "NetworkConnection": [
+      "2022-08-01-preview"
+    ],
+    "Pool": [
+      "2022-08-01-preview"
+    ],
+    "Project": [
+      "2022-08-01-preview"
+    ],
+    "ProjectEnvironmentType": [
+      "2022-08-01-preview"
+    ],
+    "Schedule": [
+      "2022-08-01-preview"
     ]
   },
   "DevHub": {
