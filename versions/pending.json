@@ -161,7 +161,9 @@
     "2022-03-01"
   ],
   "ChangeAnalysis": [],
-  "Chaos": [],
+  "Chaos": [
+    "2022-07-01-preview"
+  ],
   "CognitiveServices": [
     "2021-04-30",
     "2021-10-01",
@@ -194,9 +196,7 @@
     "2021-09-01-preview",
     "2021-12-01"
   ],
-  "ConnectedVMwarevSphere": [
-    "2022-01-10-preview"
-  ],
+  "ConnectedVMwarevSphere": [],
   "Consumption": [
     "2019-11-01",
     "2021-05-01",
@@ -373,6 +373,7 @@
     "2022-02-10-preview",
     "2022-04-01-preview"
   ],
+  "DevCenter": [],
   "DevHub": [],
   "DevOps": [],
   "DevSpaces": [],
