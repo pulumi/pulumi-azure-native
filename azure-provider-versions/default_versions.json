@@ -380,18 +380,18 @@
         "Organization": "2020-03-01"
     },
     "ConnectedVMwarevSphere": {
-        "Cluster": "2020-10-01-preview",
-        "Datastore": "2020-10-01-preview",
-        "GuestAgent": "2020-10-01-preview",
-        "Host": "2020-10-01-preview",
-        "HybridIdentityMetadatum": "2020-10-01-preview",
-        "InventoryItem": "2020-10-01-preview",
-        "MachineExtension": "2020-10-01-preview",
-        "ResourcePool": "2020-10-01-preview",
-        "VCenter": "2020-10-01-preview",
-        "VirtualMachine": "2020-10-01-preview",
-        "VirtualMachineTemplate": "2020-10-01-preview",
-        "VirtualNetwork": "2020-10-01-preview"
+        "Cluster": "2022-01-10-preview",
+        "Datastore": "2022-01-10-preview",
+        "GuestAgent": "2022-01-10-preview",
+        "Host": "2022-01-10-preview",
+        "HybridIdentityMetadatum": "2022-01-10-preview",
+        "InventoryItem": "2022-01-10-preview",
+        "MachineExtension": "2022-01-10-preview",
+        "ResourcePool": "2022-01-10-preview",
+        "VCenter": "2022-01-10-preview",
+        "VirtualMachine": "2022-01-10-preview",
+        "VirtualMachineTemplate": "2022-01-10-preview",
+        "VirtualNetwork": "2022-01-10-preview"
     },
     "Consumption": {
         "Budget": "2019-10-01"
@@ -639,6 +639,19 @@
         "ScalingPlan": "2021-02-01-preview",
         "ScalingPlanPooledSchedule": "2022-04-01-preview",
         "Workspace": "2021-02-01-preview"
+    },
+    "DevCenter": {
+        "AttachedNetworkByDevCenter": "2022-08-01-preview",
+        "Catalog": "2022-08-01-preview",
+        "DevBoxDefinition": "2022-08-01-preview",
+        "DevCenter": "2022-08-01-preview",
+        "EnvironmentType": "2022-08-01-preview",
+        "Gallery": "2022-08-01-preview",
+        "NetworkConnection": "2022-08-01-preview",
+        "Pool": "2022-08-01-preview",
+        "Project": "2022-08-01-preview",
+        "ProjectEnvironmentType": "2022-08-01-preview",
+        "Schedule": "2022-08-01-preview"
     },
     "DevHub": {
         "Workflow": "2022-04-01-preview",
