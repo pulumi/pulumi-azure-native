@@ -928,6 +928,13 @@
       "PrivateEndpointConnection",
       "listConfigurationStoreKeys"
     ],
+    "2022-03-01-preview": [
+      "ConfigurationStore",
+      "KeyValue",
+      "PrivateEndpointConnection",
+      "Replica",
+      "listConfigurationStoreKeys"
+    ],
     "2022-05-01": [
       "ConfigurationStore",
       "KeyValue",
@@ -1424,6 +1431,15 @@
       "getProducts",
       "getRegistrationActivationKey",
       "listProductDetails"
+    ],
+    "2022-06-01": [
+      "CustomerSubscription",
+      "Registration",
+      "getProduct",
+      "getProducts",
+      "getRegistrationActivationKey",
+      "listProductDetails",
+      "listProducts"
     ]
   },
   "AzureStackHCI": {
@@ -1918,6 +1934,11 @@
   },
   "Chaos": {
     "2021-09-15-preview": [
+      "Capability",
+      "Experiment",
+      "Target"
+    ],
+    "2022-07-01-preview": [
       "Capability",
       "Experiment",
       "Target"
@@ -3264,6 +3285,10 @@
     "2022-05-01-preview": [
       "Grafana",
       "PrivateEndpointConnection"
+    ],
+    "2022-08-01": [
+      "Grafana",
+      "PrivateEndpointConnection"
     ]
   },
   "DataBox": {
@@ -3972,6 +3997,21 @@
       "ScalingPlan",
       "ScalingPlanPooledSchedule",
       "Workspace"
+    ]
+  },
+  "DevCenter": {
+    "2022-08-01-preview": [
+      "AttachedNetworkByDevCenter",
+      "Catalog",
+      "DevBoxDefinition",
+      "DevCenter",
+      "EnvironmentType",
+      "Gallery",
+      "NetworkConnection",
+      "Pool",
+      "Project",
+      "ProjectEnvironmentType",
+      "Schedule"
     ]
   },
   "DevHub": {
@@ -5551,6 +5591,16 @@
       "Service",
       "Workspace",
       "WorkspacePrivateEndpointConnection"
+    ],
+    "2022-06-01": [
+      "DicomService",
+      "FhirService",
+      "IotConnector",
+      "IotConnectorFhirDestination",
+      "PrivateEndpointConnection",
+      "Service",
+      "Workspace",
+      "WorkspacePrivateEndpointConnection"
     ]
   },
   "HybridCompute": {
@@ -7069,6 +7119,20 @@
       "PacketCoreDataPlane",
       "Service",
       "Sim",
+      "SimPolicy",
+      "Site",
+      "Slice",
+      "listMobileNetworkSimIds"
+    ],
+    "2022-04-01-preview": [
+      "AttachedDataNetwork",
+      "DataNetwork",
+      "MobileNetwork",
+      "PacketCoreControlPlane",
+      "PacketCoreDataPlane",
+      "Service",
+      "Sim",
+      "SimGroup",
       "SimPolicy",
       "Site",
       "Slice",
@@ -12661,6 +12725,9 @@
       "Account"
     ],
     "2022-04-13-preview": [
+      "Account"
+    ],
+    "2022-08-01": [
       "Account"
     ]
   },

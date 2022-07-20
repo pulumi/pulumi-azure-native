@@ -1018,12 +1018,14 @@
       "2020-07-01-preview",
       "2021-03-01-preview",
       "2021-10-01-preview",
+      "2022-03-01-preview",
       "2022-05-01"
     ],
     "KeyValue": [
       "2020-07-01-preview",
       "2021-03-01-preview",
       "2021-10-01-preview",
+      "2022-03-01-preview",
       "2022-05-01"
     ],
     "PrivateEndpointConnection": [
@@ -1032,7 +1034,11 @@
       "2020-07-01-preview",
       "2021-03-01-preview",
       "2021-10-01-preview",
+      "2022-03-01-preview",
       "2022-05-01"
+    ],
+    "Replica": [
+      "2022-03-01-preview"
     ],
     "listConfigurationStoreKeyValue": [
       "2019-02-01-preview",
@@ -1048,6 +1054,7 @@
       "2020-07-01-preview",
       "2021-03-01-preview",
       "2021-10-01-preview",
+      "2022-03-01-preview",
       "2022-05-01"
     ]
   },
@@ -1547,7 +1554,8 @@
   "AzureStack": {
     "CustomerSubscription": [
       "2017-06-01",
-      "2020-06-01-preview"
+      "2020-06-01-preview",
+      "2022-06-01"
     ],
     "LinkedSubscription": [
       "2020-06-01-preview"
@@ -1555,31 +1563,37 @@
     "Registration": [
       "2016-01-01",
       "2017-06-01",
-      "2020-06-01-preview"
+      "2020-06-01-preview",
+      "2022-06-01"
     ],
     "getProduct": [
       "2016-01-01",
       "2017-06-01",
-      "2020-06-01-preview"
+      "2020-06-01-preview",
+      "2022-06-01"
     ],
     "getProducts": [
       "2016-01-01",
       "2017-06-01",
-      "2020-06-01-preview"
+      "2020-06-01-preview",
+      "2022-06-01"
     ],
     "getRegistrationActivationKey": [
       "2016-01-01",
       "2017-06-01",
-      "2020-06-01-preview"
+      "2020-06-01-preview",
+      "2022-06-01"
     ],
     "listProductDetails": [
       "2016-01-01",
       "2017-06-01",
-      "2020-06-01-preview"
+      "2020-06-01-preview",
+      "2022-06-01"
     ],
     "listProducts": [
       "2016-01-01",
-      "2017-06-01"
+      "2017-06-01",
+      "2022-06-01"
     ]
   },
   "AzureStackHCI": {
@@ -2046,13 +2060,16 @@
   },
   "Chaos": {
     "Capability": [
-      "2021-09-15-preview"
+      "2021-09-15-preview",
+      "2022-07-01-preview"
     ],
     "Experiment": [
-      "2021-09-15-preview"
+      "2021-09-15-preview",
+      "2022-07-01-preview"
     ],
     "Target": [
-      "2021-09-15-preview"
+      "2021-09-15-preview",
+      "2022-07-01-preview"
     ]
   },
   "CognitiveServices": {
@@ -3343,10 +3360,12 @@
   "Dashboard": {
     "Grafana": [
       "2021-09-01-preview",
-      "2022-05-01-preview"
+      "2022-05-01-preview",
+      "2022-08-01"
     ],
     "PrivateEndpointConnection": [
-      "2022-05-01-preview"
+      "2022-05-01-preview",
+      "2022-08-01"
     ]
   },
   "DataBox": {
@@ -4102,6 +4121,41 @@
       "2021-09-03-preview",
       "2022-02-10-preview",
       "2022-04-01-preview"
+    ]
+  },
+  "DevCenter": {
+    "AttachedNetworkByDevCenter": [
+      "2022-08-01-preview"
+    ],
+    "Catalog": [
+      "2022-08-01-preview"
+    ],
+    "DevBoxDefinition": [
+      "2022-08-01-preview"
+    ],
+    "DevCenter": [
+      "2022-08-01-preview"
+    ],
+    "EnvironmentType": [
+      "2022-08-01-preview"
+    ],
+    "Gallery": [
+      "2022-08-01-preview"
+    ],
+    "NetworkConnection": [
+      "2022-08-01-preview"
+    ],
+    "Pool": [
+      "2022-08-01-preview"
+    ],
+    "Project": [
+      "2022-08-01-preview"
+    ],
+    "ProjectEnvironmentType": [
+      "2022-08-01-preview"
+    ],
+    "Schedule": [
+      "2022-08-01-preview"
     ]
   },
   "DevHub": {
@@ -5704,25 +5758,29 @@
       "2021-06-01-preview",
       "2021-11-01",
       "2022-01-31-preview",
-      "2022-05-15"
+      "2022-05-15",
+      "2022-06-01"
     ],
     "FhirService": [
       "2021-06-01-preview",
       "2021-11-01",
       "2022-01-31-preview",
-      "2022-05-15"
+      "2022-05-15",
+      "2022-06-01"
     ],
     "IotConnector": [
       "2021-06-01-preview",
       "2021-11-01",
       "2022-01-31-preview",
-      "2022-05-15"
+      "2022-05-15",
+      "2022-06-01"
     ],
     "IotConnectorFhirDestination": [
       "2021-06-01-preview",
       "2021-11-01",
       "2022-01-31-preview",
-      "2022-05-15"
+      "2022-05-15",
+      "2022-06-01"
     ],
     "PrivateEndpointConnection": [
       "2020-03-30",
@@ -5730,7 +5788,8 @@
       "2021-06-01-preview",
       "2021-11-01",
       "2022-01-31-preview",
-      "2022-05-15"
+      "2022-05-15",
+      "2022-06-01"
     ],
     "Service": [
       "2018-08-20-preview",
@@ -5741,18 +5800,21 @@
       "2021-06-01-preview",
       "2021-11-01",
       "2022-01-31-preview",
-      "2022-05-15"
+      "2022-05-15",
+      "2022-06-01"
     ],
     "Workspace": [
       "2021-06-01-preview",
       "2021-11-01",
       "2022-01-31-preview",
-      "2022-05-15"
+      "2022-05-15",
+      "2022-06-01"
     ],
     "WorkspacePrivateEndpointConnection": [
       "2021-11-01",
       "2022-01-31-preview",
-      "2022-05-15"
+      "2022-05-15",
+      "2022-06-01"
     ]
   },
   "HybridCompute": {
@@ -7402,47 +7464,61 @@
   "MobileNetwork": {
     "AttachedDataNetwork": [
       "2022-01-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "DataNetwork": [
       "2022-01-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "MobileNetwork": [
       "2022-01-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "PacketCoreControlPlane": [
       "2022-01-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "PacketCoreDataPlane": [
       "2022-01-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "Service": [
       "2022-01-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "Sim": [
       "2022-01-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
+    ],
+    "SimGroup": [
+      "2022-04-01-preview"
     ],
     "SimPolicy": [
       "2022-01-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "Site": [
       "2022-01-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "Slice": [
       "2022-01-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ],
     "listMobileNetworkSimIds": [
       "2022-01-01-preview",
-      "2022-03-01-preview"
+      "2022-03-01-preview",
+      "2022-04-01-preview"
     ]
   },
   "NetApp": {
@@ -13480,7 +13556,8 @@
       "2021-10-18-preview",
       "2021-10-27-preview",
       "2021-11-10-preview",
-      "2022-04-13-preview"
+      "2022-04-13-preview",
+      "2022-08-01"
     ]
   },
   "VirtualMachineImages": {
