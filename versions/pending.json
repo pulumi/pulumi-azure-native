@@ -46,6 +46,7 @@
     "2020-07-01-preview",
     "2021-03-01-preview",
     "2021-10-01-preview",
+    "2022-03-01-preview",
     "2022-05-01"
   ],
   "AppPlatform": [
@@ -114,7 +115,7 @@
   ],
   "AzureData": [],
   "AzureStack": [
-    "2020-06-01-preview"
+    "2022-06-01"
   ],
   "AzureStackHCI": [
     "2021-01-01-preview",
@@ -161,7 +162,9 @@
     "2022-03-01"
   ],
   "ChangeAnalysis": [],
-  "Chaos": [],
+  "Chaos": [
+    "2022-07-01-preview"
+  ],
   "CognitiveServices": [
     "2021-04-30",
     "2021-10-01",
@@ -194,9 +197,7 @@
     "2021-09-01-preview",
     "2021-12-01"
   ],
-  "ConnectedVMwarevSphere": [
-    "2022-01-10-preview"
-  ],
+  "ConnectedVMwarevSphere": [],
   "Consumption": [
     "2019-11-01",
     "2021-05-01",
@@ -257,7 +258,9 @@
     "2022-03-02-preview",
     "2022-04-01",
     "2022-04-02-preview",
-    "2022-05-02-preview"
+    "2022-05-02-preview",
+    "2022-06-01",
+    "2022-06-02-preview"
   ],
   "CostManagement": [
     "2019-01-01",
@@ -373,6 +376,7 @@
     "2022-02-10-preview",
     "2022-04-01-preview"
   ],
+  "DevCenter": [],
   "DevHub": [],
   "DevOps": [],
   "DevSpaces": [],
@@ -546,7 +550,8 @@
     "2021-10-14",
     "2022-04-01",
     "2022-06-01",
-    "2022-06-15"
+    "2022-06-15",
+    "2022-10-01"
   ],
   "Intune": [
     "2015-01-14-privatepreview"
@@ -689,7 +694,8 @@
     "2021-03-01-preview"
   ],
   "MobileNetwork": [
-    "2022-03-01-preview"
+    "2022-03-01-preview",
+    "2022-04-01-preview"
   ],
   "NetApp": [
     "2021-02-01",
@@ -698,7 +704,8 @@
     "2021-06-01",
     "2021-08-01",
     "2021-10-01",
-    "2022-01-01"
+    "2022-01-01",
+    "2022-03-01"
   ],
   "Network": [
     "2018-06-01",
@@ -940,7 +947,8 @@
     "2021-02-01-preview",
     "2021-05-01-preview",
     "2021-08-01-preview",
-    "2021-11-01-preview"
+    "2021-11-01-preview",
+    "2022-02-01-preview"
   ],
   "SqlVirtualMachine": [
     "2021-11-01-preview",
@@ -995,7 +1003,8 @@
   "VideoIndexer": [
     "2021-10-27-preview",
     "2021-11-10-preview",
-    "2022-04-13-preview"
+    "2022-04-13-preview",
+    "2022-08-01"
   ],
   "VirtualMachineImages": [
     "2021-10-01",
